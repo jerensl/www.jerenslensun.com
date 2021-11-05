@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { Navbar } from '../components/Navbar'
 
 const Home: NextPage = () => {
     return (
@@ -12,11 +13,11 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <Navbar />
             <main className="h-screen w-full">
                 <div className="flex items-center justify-center pt-60">
                     <div className="relative w-full max-w-sm text-center">
-                        <h1 className="font-medium text-6xl">Jerens Lensun</h1>
+                        <h1 className="font-bold text-5xl">Jerens Lensun</h1>
                         <p className="font-medium text-4xl">
                             Software Engineering
                         </p>
