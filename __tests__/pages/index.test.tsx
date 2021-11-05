@@ -20,7 +20,7 @@ describe('Home', () => {
         const heading = screen.getByRole('heading', {
             name: /Jerens Lensun/i,
         })
-        const subHeading = screen.getByText('Software Engineering')
+        const subHeading = screen.getByText('Software Engineer')
 
         expect(heading).toBeInTheDocument()
         expect(subHeading).toBeInTheDocument()

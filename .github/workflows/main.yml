@@ -36,3 +36,8 @@ jobs:
         
       - name: Testing
         run: yarn test
+
+      - uses: artiomtr/jest-coverage-report-action@v2.0-rc.5
+        with:
+            github-token: ${{ secrets.TEST_COVERAGE }}
+              threshold: 80
