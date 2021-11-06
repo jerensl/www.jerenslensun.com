@@ -9,7 +9,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    deps:
+    install-deps:
         name: Install dependencies
         runs-on: ubuntu-latest
         steps:
