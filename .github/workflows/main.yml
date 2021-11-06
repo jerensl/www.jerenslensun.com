@@ -36,7 +36,7 @@ jobs:
 
     test:
         runs-on: ubuntu-latest
-        needs: install-deps
+        needs: deps
         steps:
             - name: Restore cached dependencies
               uses: actions/cache@v1
