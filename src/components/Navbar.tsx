@@ -10,7 +10,6 @@ export const Navbar: React.FC = () => {
                         Jerens
                     </a>
                 </LinkURL>
-
                 <LinkURL href="/about">
                     <a className="font-bold text-xl py-4 w-24 hover:bg-gray-100">
                         About
