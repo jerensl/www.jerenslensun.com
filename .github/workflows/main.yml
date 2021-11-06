@@ -27,6 +27,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
+						- name: Setup Node.js 14.x
+							uses: actions/setup-node@v1
+							with:
+								node-version: "14.x"
+
             - name: Check Code Coverage
               run: yarn test:coverage
 
