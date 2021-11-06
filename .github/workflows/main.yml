@@ -20,10 +20,7 @@ jobs:
                   node-version: '14.x'
 
             - name: Install locked dependencies
-              run: yarn install --frozen-lockfile
-
-            - name: Fetch the latest data
-              run: yarn run mirror-box
+              run: yarn install
 
     test:
         name: Unit and integration tests
