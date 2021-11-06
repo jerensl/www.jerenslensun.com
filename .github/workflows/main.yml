@@ -19,34 +19,29 @@ jobs:
               with:
                   node-version: '14.x'
 
+						- name: Get yarn cache directory path
+							id: yarn-cache-dir-path
+							run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+						- uses: actions/cache@v2
+							id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+							with:
+								path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+								key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+								restore-keys: |
+									${{ runner.os }}-yarn-
+
             - name: Install locked dependencies
               run: yarn install --frozen-lockfile
 
             - name: Fetch the latest data
               run: yarn run mirror-box
 
-						- name: Cache Package
-						  uses: actions/cache@v2
-							with:
-								path: '**/node_modules'
-								key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
     test:
         name: Unit and integration tests
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-						  uses: actions/cache@v2
-							with:
-								path: '**/node_modules'
-								key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
-            - name: Setup Node.js 14.x
-              uses: actions/setup-node@v1
-              with:
-                  node-version: '14.x'
-
             - name: Check Code Coverage
               run: yarn test:coverage
 
