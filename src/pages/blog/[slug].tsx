@@ -42,8 +42,8 @@ export default function Blog({
     return (
         <div>
             <Navbar />
-            <main className="pt-20 font-medium m-auto max-w-3xl">
-                <article>
+            <main className="pt-20 font-medium px-10">
+                <article className="prose lg:prose-lg m-auto">
                     <Component />
                 </article>
             </main>

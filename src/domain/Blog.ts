@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
-import rehypeHighlight from 'rehype-highlight'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
+import rehypeHighlight from 'rehype-highlight'
 
 const rootDirectory = process.cwd()
 
