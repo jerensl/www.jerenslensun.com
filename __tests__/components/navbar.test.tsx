@@ -22,6 +22,17 @@ describe('Navbar Aria Label', () => {
 
     it('Should have link redirect to about', () => {
         useRouter.mockImplementation(() => ({
+            route: '/blog',
+            pathname: '/blog',
+        }))
+
+        render(<Navbar />)
+
+        screen.getByRole('link', { current: 'page' })
+    })
+
+    it('Should have link redirect to about', () => {
+        useRouter.mockImplementation(() => ({
             route: '/about',
             pathname: '/about',
         }))

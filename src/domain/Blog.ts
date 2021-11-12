@@ -2,9 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
-import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import rehypeHighlight from 'rehype-highlight'
+import rehypeKatex from 'rehype-katex'
+import rehypeHighlightCode from '../utils/rehype-highlight-code'
+import rehypeMetaAttribute from '../utils/rehype-meta-attribute'
 
 const rootDirectory = process.cwd()
 
@@ -79,7 +80,11 @@ export const getArticleWithMetadata = async (
     const { data, content } = matter(source)
 
     const remarkPlugins: any = [remarkMath]
-    const rehypePlugins: any = [rehypeHighlight, rehypeKatex]
+    const rehypePlugins: any = [
+        rehypeMetaAttribute,
+        rehypeHighlightCode,
+        rehypeKatex,
+    ]
 
     if (process.platform === 'win32') {
         process.env.ESBUILD_BINARY_PATH = path.join(
