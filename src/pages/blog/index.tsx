@@ -35,7 +35,7 @@ export default function Blog({
                         <p>{summary}</p>
 
                         <p>
-                            <Link href={`/blog/${slug}`}>
+                            <Link passHref href={`/blog/${slug}`}>
                                 <span className="text-current cursor-pointer opacity-60 hover:opacity-100">
                                     Read More →
                                 </span>

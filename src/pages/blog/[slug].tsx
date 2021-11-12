@@ -8,6 +8,7 @@ import { getArticleWithMetadata, getListOfArticle } from '../../domain/Blog'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { useMemo } from 'react'
 import { Navbar } from '../../components/Navbar'
+import { components } from '../../utils/components'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getListOfArticle('contents')
@@ -43,8 +44,8 @@ export default function Blog({
         <div>
             <Navbar />
             <main className="pt-20 font-medium px-10">
-                <article className="prose lg:prose-lg m-auto">
-                    <Component />
+                <article className="prose max-w-4xl lg:prose-lg m-auto">
+                    <Component components={components} />
                 </article>
             </main>
         </div>
