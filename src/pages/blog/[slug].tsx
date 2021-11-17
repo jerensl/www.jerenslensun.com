@@ -4,11 +4,12 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { getArticleWithMetadata, getListOfArticle } from '../../domain/Blog'
+import { getListOfArticle } from '../../domain/Blog'
+import { getArticleWithMetadata } from '../../domain/Article'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { useMemo } from 'react'
 import { Navbar } from '../../components/Navbar'
-import { components } from '../../utils/components'
+import { components } from '../../components/components'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getListOfArticle('contents')

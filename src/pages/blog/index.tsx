@@ -21,7 +21,8 @@ export default function Blog({
     return (
         <div>
             <Navbar />
-            {posts.map(({ slug, date, title, summary }: any) => {
+            <h1>Blog</h1>
+            {posts?.map(({ slug, date, title, summary }: any) => {
                 return (
                     <article
                         key={slug}
@@ -44,7 +45,7 @@ export default function Blog({
                     </article>
                 )
             })}
-            {!posts.length && 'No articles found.'}
+            {!posts?.length && 'No articles found.'}
         </div>
     )
 }
