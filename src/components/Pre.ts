@@ -1,4 +1,4 @@
-import { styled } from './stitches.config'
+import { styled } from '../../stitches.config'
 
 export const Pre = styled('pre', {
     $$background: 'hsla(206 12% 89.5% / 5%)',
