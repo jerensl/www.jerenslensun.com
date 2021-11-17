@@ -4,8 +4,8 @@ import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import rehypeHighlightCode from '../utils/rehype-highlight-code'
-import rehypeMetaAttribute from '../utils/rehype-meta-attribute'
+import rehypeHighlightCode from '../../lib/rehype-highlight-code'
+import rehypeMetaAttribute from '../../lib/rehype-meta-attribute'
 
 const rootDirectory = process.cwd()
 
