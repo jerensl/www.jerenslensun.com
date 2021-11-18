@@ -5,6 +5,14 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import About from '../../src/pages/about'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+    faGithubSquare,
+    faTwitterSquare,
+    faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
+
+library.add(faGithubSquare, faTwitterSquare, faLinkedin)
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 

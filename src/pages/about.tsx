@@ -1,12 +1,13 @@
 import { Navbar } from '../components/Navbar'
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
+import { Footer } from '../components/Footer'
 
 export default function About() {
     return (
-        <div className="min-h-screen w-full flex">
+        <div className="min-h-screen w-full">
             <Navbar />
-            <div className="p-10 pt-32 grid gap-10 md:grid-cols-2">
+            <div className="h-screen p-10 pt-32 grid gap-10 md:grid-cols-2">
                 <div className="">
                     <h1 className="font-semibold text-2xl">Hi, I am Jerens</h1>
                     <p className="pt-2">
@@ -155,6 +156,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
