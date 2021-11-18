@@ -10,6 +10,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import { useMemo } from 'react'
 import { Navbar } from '../../components/Navbar'
 import { components } from '../../components/components'
+import { Footer } from '../../components/Footer'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getListOfArticle('contents')
@@ -49,6 +50,7 @@ export default function Blog({
                     <Component components={components} />
                 </article>
             </main>
+            <Footer />
         </div>
     )
 }

@@ -8,6 +8,14 @@ import {
     getAllPublishArticle,
     sortByLatestDate,
 } from '../../../src/domain/Blog'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+    faGithubSquare,
+    faTwitterSquare,
+    faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
+
+library.add(faGithubSquare, faTwitterSquare, faLinkedin)
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
