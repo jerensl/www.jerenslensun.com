@@ -11,6 +11,7 @@ import { useMemo } from 'react'
 import { Navbar } from '../../components/Navbar'
 import { components } from '../../components/components'
 import { Footer } from '../../components/Footer'
+import { ArticleSeo } from '../../components/Seo'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getListOfArticle('contents')
@@ -38,12 +39,17 @@ export const getStaticProps: GetStaticProps = async (
 export default function Blog({
     posts,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
-    const { code } = posts
+    const { code, frontmatter } = posts
 
     const Component = useMemo(() => getMDXComponent(code), [code])
 
     return (
-        <div>
+        <>
+            <ArticleSeo
+                path={frontmatter.title}
+                title={frontmatter.title}
+                description={frontmatter.summary}
+            />
             <Navbar />
             <main className="pt-20 font-medium px-10">
                 <article className="prose max-w-4xl lg:prose-lg m-auto">
@@ -51,6 +57,6 @@ export default function Blog({
                 </article>
             </main>
             <Footer />
-        </div>
+        </>
     )
 }
