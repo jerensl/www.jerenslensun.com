@@ -4,6 +4,7 @@ import { Metadata } from '../../domain/Blog'
 import Link from 'next/link'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
+import { Seo } from '../../components/Seo'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts: Array<Metadata> = await getAllPublishArticle(
@@ -20,7 +21,8 @@ export default function Blog({
     posts,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
-        <div>
+        <>
+            <Seo path="/blog" />
             <Navbar />
             <main className="h-screen">
                 <h1>Blog</h1>
@@ -49,6 +51,6 @@ export default function Blog({
             </main>
 
             <Footer />
-        </div>
+        </>
     )
 }
