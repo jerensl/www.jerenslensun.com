@@ -34,9 +34,7 @@ export default function Blog({
                                 {title}
                             </h1>
                             <p className="text-gray-500">{date}</p>
-
                             <p>{summary}</p>
-
                             <p>
                                 <Link passHref href={`/blog/${slug}`}>
                                     <span className="text-current cursor-pointer opacity-60 hover:opacity-100">
