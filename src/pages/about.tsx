@@ -7,7 +7,7 @@ export default function About() {
     return (
         <div className="min-h-screen w-full">
             <Navbar />
-            <div className="h-screen p-10 pt-32 grid gap-10 md:grid-cols-2">
+            <div className="min-h-screen p-10 pt-32 grid gap-10 md:grid-cols-2">
                 <div className="">
                     <h1 className="font-semibold text-2xl">Hi, I am Jerens</h1>
                     <p className="pt-2">
@@ -123,7 +123,7 @@ export default function About() {
                                         />
                                     </Disclosure.Button>
                                     <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                        Be nice, respectful, and assertive.
+                                        Be nice, respectful, and honest.
                                     </Disclosure.Panel>
                                 </>
                             )}
