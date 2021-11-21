@@ -24,7 +24,7 @@ export default function Blog({
         <>
             <Seo path="/blog" />
             <Navbar />
-            <main className="h-screen">
+            <main className="min-h-9/10">
                 <h1>Blog</h1>
                 {posts?.map(({ slug, date, title, summary }: any) => {
                     return (

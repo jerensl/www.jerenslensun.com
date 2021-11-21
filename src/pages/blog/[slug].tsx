@@ -51,7 +51,7 @@ export default function Blog({
                 description={frontmatter.summary}
             />
             <Navbar />
-            <main className="pt-20 font-medium px-10">
+            <main className="min-h-9/10 pt-20 font-medium px-10">
                 <article className="prose max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
                 </article>
