@@ -40,6 +40,7 @@ class MyDocument extends Document {
                         href="/icons/apple-touch-icon.png"
                     />
                     <link rel="shortcut icon" href="/favicon.ico" />
+                    <link rel="manifest" href="/manifest.json" />
                     <link
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
