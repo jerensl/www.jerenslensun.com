@@ -41,7 +41,8 @@ export const getArticleWithMetadata = async (
         )
     }
 
-    const { code, frontmatter } = await bundleMDX(source, {
+    const { code, frontmatter } = await bundleMDX({
+        source: source,
         xdmOptions(options) {
             options.remarkPlugins = [
                 ...(options.remarkPlugins ?? []),
