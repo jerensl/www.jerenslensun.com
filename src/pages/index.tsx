@@ -3,7 +3,10 @@ import { Footer } from '../components/Footer'
 import { Navbar } from '../components/Navbar'
 import { Seo } from '../components/Seo'
 import Image from 'next/image'
-import Illutration from '../public/images/ilustration-01.png'
+
+const blobStorageIoImageLoader = ({ src, width, quality }) => {
+    return 'https://tempfilejerens.blob.core.windows.net/assets/illustration-01.png'
+}
 
 const Home: NextPage = () => {
     return (
@@ -12,8 +15,8 @@ const Home: NextPage = () => {
             <div className="min-h-screen w-full">
                 <Navbar />
                 <main className="min-h-9/10 w-full">
-                    <div className="grid md:grid-cols-2 items-center justify-center pt-40">
-                        <div className="relative w-full max-w-sm m-auto text-center pb-10">
+                    <div className="grid md:grid-cols-2 items-center justify-center pt-52 md:pt-40">
+                        <div className="relative w-full max-w-sm m-auto text-center pb-28 md:pb-16">
                             <h1 className="font-bold text-5xl">
                                 Jerens Lensun
                             </h1>
@@ -25,10 +28,12 @@ const Home: NextPage = () => {
                             <div className="absolute -bottom-10 left-28 w-52 h-52 bg-pink-300 blur-2xl rounded-full mix-blend-multiply filter opacity-70 animate-blob animation-delay-4000"></div>
                         </div>
                         <Image
-                            src={Illutration}
+                            loader={blobStorageIoImageLoader}
+                            src="illustration-01.png"
                             alt="Person"
                             objectFit="contain"
-                            height="1400px"
+                            height="350px"
+                            width="180px"
                         />
                     </div>
                 </main>
