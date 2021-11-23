@@ -63,7 +63,6 @@ export const getArticleWithMetadata = async (
         metadata: {
             slug: fileName,
             fileName: file,
-            ...data,
         },
     }
 }
