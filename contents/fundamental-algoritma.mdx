@@ -1,12 +1,10 @@
 ---
 title: Fundamental Algoritma
-date: '2021-07-13'
+date: '2021-11-22'
 cover: /content/bias-kognitif.jpg
 draft: false
 summary: Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull
 ---
-
-### Algoritma
 
 Algoritma (Computer Science) merupakan serangkaian instruksi yang dibuat untuk menyelesaikan berbagai macam permasalahan melalui komputer.
 Algoritma juga dibuat untuk membangun intuisi terhadap effisiensi dan efektivitas terhadap sebuah code yang kita tulis, bisa saja kita menggunakan intuisi awal tanpa mempelajari beragam algoritma terlebih dahulu, namun itu hanya akan membuat kita sampai pada solusi bruteforce, dimana masalah akan lebih cepat selesai namun menjadi tidak efektif dan effisien, biasanya metode bruteforce hanya dilakukan pada tahap awal ketika menyelesaikan masalah dengan algoritma dari situ kita bisa melakukan iterasi sampai mendapatkan solusi yang lebih baik.
@@ -54,10 +52,10 @@ Asymtotic analysis adalah metode untuk mengukur perilaku sebuah fungsi ketika ni
 
     Keterangan :
 
-    -   iff merupakan A ⇔ B berarti A benar jika B benar dan A salah jika B salah.
+    -   $T(n)$ merupakan running time.
     -   n merupakan ukuran dari input.
-    -   $f(n)$ merupakan fungsi(Growth Rate) yang digunakan dimana n sebagai perameter.
-    -   $Θ(f(n))$ merupakan tight bound
+    -   $f(n)$ merupakan fungsi Growth Rate yang digunakan dimana n sebagai parameter input.
+    -   $Θ(f(n))$ merupakan Asymtotic Bounding yang kita gunakan.
 
 2.  Big-O notation
 
@@ -77,8 +75,8 @@ Ada 2 Tipe Case yang sering kita gunakan dalam mengolongkan algoritma dalam sebu
 
 1. Worst Case
 
-    Worst Case sendiri memiliki upperbound dan lowerbound namun upperbound dari Worst Case menjadi skenario paling buruk diantara bounding lain.
+    Worst Case sendiri memiliki upperbound dan lowerbound namun upperbound dari Worst Case menjadi skenario paling lambat diantara Asymtotic Bounding lain.
 
 2. Best Case
 
-    Best Case juga memiliki upperbound dan lowerbound namun lowerbound dari Best Case menjadi skenario paling baik diantara bounding lain.
+    Best Case juga memiliki upperbound dan lowerbound namun lowerbound dari Best Case menjadi skenario paling cepat diantara Asymtotic Bounding lain.
