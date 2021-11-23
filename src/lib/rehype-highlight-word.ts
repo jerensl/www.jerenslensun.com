@@ -10,7 +10,7 @@ function highlightWord(code) {
         CALLOUT,
         (_, text) => `<span class="highlight-word">${text}</span>`
     )
-    const hast = unified()
+    const hast: any = unified()
         .use(parse, { emitParseErrors: true, fragment: true })
         .parse(result)
     return hast.children
