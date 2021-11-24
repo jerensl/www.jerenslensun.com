@@ -1,5 +1,4 @@
 import path from 'path'
-import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -14,8 +13,6 @@ export const getArticleWithMetadata = async (
     const file = `${fileName}.mdx`
 
     const source = getArticleByName(directory, file)
-
-    const { data, content } = matter(source)
 
     const remarkPlugins: any = [remarkMath]
     const rehypePlugins: any = [

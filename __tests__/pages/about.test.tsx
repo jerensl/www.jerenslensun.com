@@ -23,10 +23,27 @@ useRouter.mockImplementation(() => ({
 
 describe('About', () => {
     it('Show answer on FAQ', () => {
-        const { getByText } = render(<About />)
+        const { getByText, getByRole } = render(<About />)
+
+        const hello = getByRole('heading', {
+            name: /Hi, I am Jerens/i,
+        })
+        expect(hello).toBeInTheDocument()
 
         userEvent.click(getByText('Where are you from?'))
+        expect(getByText('I am from Manado, Indonesia.')).toBeInTheDocument()
+    })
 
-        expect(getByText('I am from Manado, Indonesia.'))
+    it('Not showing answer on FAQ when not being openned', () => {
+        const { queryByText, getByRole } = render(<About />)
+
+        const hello = getByRole('heading', {
+            name: /Hi, I am Jerens/i,
+        })
+        expect(hello).toBeInTheDocument()
+
+        expect(
+            queryByText('I am from Manado, Indonesia.')
+        ).not.toBeInTheDocument()
     })
 })

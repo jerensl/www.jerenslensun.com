@@ -22,7 +22,6 @@
         "@stitches/react": "^1.2.5",
         "@tailwindcss/typography": "^0.4.1",
         "esbuild": "^0.13.15",
-        "gray-matter": "^4.0.3",
         "hast-util-to-html": "^8.0.3",
         "hast-util-to-string": "^2.0.0",
         "mdx-bundler": "^8.0.0",
