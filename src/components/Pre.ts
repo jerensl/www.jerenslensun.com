@@ -158,8 +158,7 @@ export const Pre = styled('pre', {
             true: {
                 '.highlight-line': {
                     position: 'relative',
-                    paddingLeft: '$4',
-
+                    paddingLeft: '$3',
                     '&::before': {
                         content: 'attr(data-line)',
                         position: 'absolute',
