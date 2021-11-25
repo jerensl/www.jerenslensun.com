@@ -6,7 +6,10 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 const components = {
     pre: ({ children, theme, showLineNumbers }) => {
         return (
-            <Pre theme={theme} showLineNumbers={showLineNumbers}>
+            <Pre
+                theme={theme}
+                showLineNumbers={typeof showLineNumbers === 'string'}
+            >
                 {children}
             </Pre>
         )
