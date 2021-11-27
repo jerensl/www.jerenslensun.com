@@ -65,7 +65,7 @@ export default function About() {
                                         </Disclosure.Button>
                                         <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
                                             Optimism, Ambitiousness and
-                                            Integrity.
+                                            Curiosity.
                                         </Disclosure.Panel>
                                     </>
                                 )}
