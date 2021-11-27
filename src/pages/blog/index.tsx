@@ -24,13 +24,13 @@ export default function Blog({
         <>
             <Seo path="/blog" />
             <Navbar />
-            <main className="min-h-9/10">
-                <h1>Blog</h1>
+            <main className="min-h-9/10 flex px-10 flex-col gap-5">
+                <h1 className=" pt-24 text-2xl font-bold">Blog</h1>
                 {posts?.map(({ slug, date, title, summary }: any) => {
                     return (
                         <article
                             key={slug}
-                            className="flex p-10 pt-20 flex-col gap-1 max-w-3xl"
+                            className="flex flex-col gap-1 max-w-3xl"
                         >
                             <h1 className="text-2xl font-bold leading-8 tracking-tight">
                                 {title}
@@ -47,7 +47,6 @@ export default function Blog({
                         </article>
                     )
                 })}
-                {!posts?.length && 'No articles found.'}
             </main>
 
             <Footer />
