@@ -162,7 +162,7 @@ export const Pre = styled('pre', {
                     '&::before': {
                         content: 'attr(data-line)',
                         position: 'absolute',
-                        left: -5,
+                        left: -12,
                         top: 0,
                         color: '$$lineNumbers',
                     },

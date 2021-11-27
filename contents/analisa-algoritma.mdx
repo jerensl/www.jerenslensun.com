@@ -1,29 +1,49 @@
 ---
-title: Cara menghitung Time dan Space Complexity dari sebuah Algoritma
+title: Binary Search
 date: '2021-11-22'
 cover: fundamental-algoritma_lpj8yp.jpg
 draft: true
-summary: Searching Algorithm adalah algoritma untuk mencari nilai pada sebuah struktur data, dimana nilai tersebut disimpan.
+summary: Binary search merupakan algoritma mencari nilai dimana struktur data telah diurutkan terlebih dahulu.
 ---
 
-Kita akan menggunakan Binary Search sebagai contoh untuk belajar menganalisa sebuah algoritma.
-Binary Search sendiri merupakan searching algoritma untuk mencari nilai pada sebuah data dimana nilai dari data tersebut sudah diurutkan terlebih dahulu
+Binary Search merupakan algoritma yang sangat efisien karena memiliki Time Complexity logaritma dalam mencari sebuah nilai.
+Binary search bekerja dengan cara memilih pivot yang merupakan nilai index yang berada di tengah dari sebuah list,
+lalu membandingkan apakah nilai pivot lebih besar atau kurang dari nilai yang dicari,
+Jika nilai tersebut lebih besar maka pivot akan berubah menjadi index yang berada di tengah antara nilai yang lebih besar dan nilai terakhir dari sebuah list.
+
+### Questions
+
+Given a sorted array of n integers and a target value, determine if the target exists in the array in logarithmic time using the binary search algorithm. If target exists in the array, print the index of it.
+
+#### Example 1
+
+Input : [2, 3, 5, 7, 9]  
+Target : 7  
+Output : 3
+
+#### Example 2
+
+Input : [2, 3, 5, 7, 9]  
+Target : 4  
+Output : -1
+
+Pertama kita membuat fungsi Binary_search yang mengembalikan nilai -1 sebagai output
 
 ```go theme=orange showLineNumbers
-package main
+package binary_search
 
-import "fmt"
-
-func main() {
-    input := []int{1,2,3,4,5,6}
-    result := binary_search(input)
-
-    fmt.Println(result)
+func Binary_search(nums int[]) int {
+    return -1
 }
+```
 
+[2, 3, X, 7, 9]
 
-func binary_search(nums int[]) bool {
+```go theme=orange showLineNumbers
+package binary_search
 
+func Binary_search(nums []int) int {
+
+    return -1
 }
-
 ```

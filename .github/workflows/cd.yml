@@ -1,4 +1,4 @@
-name: Azure Static Web Apps - Continuous Deployment
+name: Deployment
 
 on:
     push:
