@@ -1,0 +1,16 @@
+version: '3'
+services:
+    web:
+        build: .
+        ports:
+            - '3000:3000'
+    e2e:
+        image: 'cypress/included:9.1.1'
+        depends_on:
+            - web
+        environment:
+            - CYPRESS_baseUrl=http://web:3000
+        command: '--browser chrome'
+        volumes:
+            - ./cypress:/cypress
+            - ./cypress.json:/cypress.json
