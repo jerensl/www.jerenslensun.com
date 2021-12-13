@@ -1,0 +1,29 @@
+{
+    "name": "Jerens App",
+    "short_name": "Jerens App",
+    "start_url": "/",
+    "description": "Jerens App",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/icons/apple-touch-icon.png",
+            "sizes": "180x180",
+            "purpose": "any maskable",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "purpose": "any maskable",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "purpose": "any maskable",
+            "type": "image/png"
+        }
+    ]
+}

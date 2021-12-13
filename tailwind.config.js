@@ -1,9 +1,8 @@
 module.exports = {
-    purge: [
+    content: [
         './src/pages/**/*.{js,ts,jsx,tsx}',
         './src/components/**/*.{js,ts,jsx,tsx}',
     ],
-    darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
             animation: {
@@ -33,9 +32,6 @@ module.exports = {
                 '9/10': '90vh',
             },
         },
-    },
-    variants: {
-        extend: {},
     },
     plugins: [require('@tailwindcss/typography')],
 }
