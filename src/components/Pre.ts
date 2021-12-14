@@ -30,7 +30,7 @@ export const Pre = styled('pre', {
     lineHeight: '$3',
     whiteSpace: 'pre',
     position: 'relative',
-    backgroundColor: '$$background',
+    // backgroundColor: '$$background',
     color: '$$text',
 
     '& > code': {
