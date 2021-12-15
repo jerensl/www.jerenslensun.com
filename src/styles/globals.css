@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
+@layer base {
     code {
         @apply bg-red-900;
     }
 }
 
 @layer components {
-    & > code {
+    * > code {
         @apply block;
     }
 
@@ -86,4 +86,17 @@
     .token.inserted.prefix {
         @apply select-none absolute left-3;
     }
-} */
+
+    .highlight-line * {
+        @apply transition-colors;
+    }
+
+    .highlight-line[data-highlighted='false'],
+    .highlight-line[data-highlighted='false'] * {
+        @apply text-slate-500;
+    }
+
+    .highlight-line {
+        @apply relative pl-4 before:absolute before:text-slate-500 before:top-0 before:-left-1 before:content-[attr(data-line)];
+    }
+}

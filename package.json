@@ -21,7 +21,6 @@
         "@headlessui/react": "^1.4.2",
         "@heroicons/react": "^1.0.5",
         "@radix-ui/react-collapsible": "^0.1.4",
-        "@stitches/react": "^1.2.6",
         "esbuild": "^0.14.3",
         "hast-util-to-html": "^8.0.3",
         "hast-util-to-string": "^2.0.0",

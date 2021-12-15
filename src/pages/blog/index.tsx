@@ -24,7 +24,7 @@ export default function Blog({
         <>
             <Seo path="/blog" />
             <Navbar />
-            <main className="min-h-9/10 flex px-10 flex-col gap-5">
+            <main className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
                 <h1 className=" pt-24 text-2xl font-bold">Blog</h1>
                 {posts?.map(({ slug, date, title, summary }: any) => {
                     return (

@@ -1,18 +1,10 @@
 import React from 'react'
-import { Pre } from './Pre'
 import rangeParser from 'parse-numeric-range'
 import * as Collapsible from '@radix-ui/react-collapsible'
 
 const components = {
-    pre: ({ children, theme, showLineNumbers }) => {
-        return (
-            <Pre
-                theme={theme}
-                showLineNumbers={typeof showLineNumbers === 'string'}
-            >
-                {children}
-            </Pre>
-        )
+    pre: ({ children, theme }) => {
+        return <pre>{children}</pre>
     },
     code: ({ children, id, collapsible }) => {
         const isCollapsible = typeof collapsible !== 'undefined'
