@@ -68,7 +68,7 @@ export default function Blog({
                     width="800px"
                 />
             </header>
-            <main className="min-h-9/10 pt-10 font-medium px-10">
+            <main className="min-h-9/10 pt-10 font-medium px-4 md:px-10">
                 <article className="prose max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
                 </article>
