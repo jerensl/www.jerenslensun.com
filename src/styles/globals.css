@@ -1,18 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 @layer base {
-    code {
-        @apply bg-red-900;
+    * > code {
+        @apply block;
     }
 }
 
 @layer components {
-    * > code {
-        @apply block;
-    }
-
     .language-diff {
         @apply text-gray-400;
     }
@@ -99,4 +95,4 @@
     .highlight-line {
         @apply relative pl-4 before:absolute before:text-slate-500 before:top-0 before:-left-1 before:content-[attr(data-line)];
     }
-}
+} */
