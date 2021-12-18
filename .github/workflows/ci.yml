@@ -8,21 +8,21 @@ on:
 
 jobs:
     lint:
-      name: ESLint
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout repository
-            uses: actions/checkout@v2
+        name: ESLint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+                uses: actions/checkout@v2
 
-        - name: Setup Node.js 14.x
-          uses: actions/setup-node@v1
-          with:
-            node-version: "14.x"
+            - name: Setup Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                node-version: "14.x"
 
-        - name: Lint files
-          run: yarn run lint
-          env:
-            CI: true
+            - name: Lint files
+              run: yarn run lint
+              env:
+                CI: true
     test:
         name: Unit and integration tests
         runs-on: ubuntu-latest
