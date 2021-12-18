@@ -12,17 +12,20 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-                uses: actions/checkout@v2
+              uses: actions/checkout@v2
+
+            - name: Install dependencies
+              run: yarn install
 
             - name: Setup Node.js 14.x
               uses: actions/setup-node@v1
               with:
-                node-version: "14.x"
+                  node-version: '14.x'
 
             - name: Lint files
               run: yarn run lint
               env:
-                CI: true
+                  CI: true
     test:
         name: Unit and integration tests
         runs-on: ubuntu-latest
@@ -57,15 +60,19 @@ jobs:
               with:
                   node-version: '14.x'
 
-            - name: Install Cypress
-              run: yarn cypress install
+            - name: Install dependencies
+              run: yarn install
+
+            - name: Build dependencies
+              run: yarn build
 
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:
                   record: true
-                  start: yarn dev
+                  start: yarn start
                   wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 180
               env:
                   CI: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
