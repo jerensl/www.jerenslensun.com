@@ -63,11 +63,14 @@ jobs:
             - name: Install dependencies
               run: yarn install
 
+            - name: Build dependencies
+              run: yarn build
+
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:
                   record: true
-                  start: yarn dev
+                  start: yarn start
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 180
               env:
