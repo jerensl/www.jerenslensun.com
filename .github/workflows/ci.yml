@@ -7,6 +7,22 @@ on:
         types: [opened, synchronize]
 
 jobs:
+    lint:
+      name: ESLint
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+            uses: actions/checkout@v2
+
+        - name: Setup Node.js 14.x
+          uses: actions/setup-node@v1
+          with:
+            node-version: "14.x"
+
+        - name: Lint files
+          run: yarn run lint
+          env:
+            CI: true
     test:
         name: Unit and integration tests
         runs-on: ubuntu-latest
@@ -29,3 +45,28 @@ jobs:
               uses: codecov/codecov-action@v2
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
+    e2e:
+        name: End-to-end tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
+
+            - name: Install Cypress
+              run: yarn cypress install
+
+            - name: Run Cypress
+              uses: cypress-io/github-action@v2
+              with:
+                  record: true
+                  start: yarn dev
+                  wait-on: 'http://localhost:3000'
+              env:
+                  CI: true
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

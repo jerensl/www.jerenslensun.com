@@ -2,7 +2,7 @@
 title: Binary Search
 date: '2021-11-22'
 cover: fundamental-algoritma_lpj8yp.jpg
-draft: true
+draft: false
 summary: Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.
 ---
 
@@ -26,12 +26,14 @@ Input : [2, 3, 5, 7, 9]
 Target : 4  
 Output : -1
 
+### Solusi
+
 Pertama kita membuat fungsi Binary_search yang mengembalikan nilai -1 sebagai output
 
 ```go showLineNumbers
 package binary_search
 
-func Binary_search(nums int[]) int {
+func Binary_search(nums int[], target int) int {
     return -1
 }
 ```
@@ -41,12 +43,60 @@ Setelah itu kita membuat variable left yang akan diisi index pertama dari array 
 ```go
 package binary_search
 
-func Binary_search(nums []int) int {
+func Binary_search(nums []int, target int) int {
     left := 0
     right := len(nums)-1
 
     for left < right {
 
+    }
+
+    return -1
+}
+```
+
+Kita juga perlu membuat variable middle yang merupakan index di tengah antara variable left dan right dan akan kita bandingkan dengan nilai target jika sama nilai tersebut dikembalikan.
+
+```go
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left := 0
+    right := len(nums)-1
+
+    for left < right {
+        middle := (left + right)/2
+
+        if nums[middle] == target {
+            return middle
+        }
+    }
+
+    return -1
+}
+```
+
+Setelahnya kita akan membuat
+
+```go
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left := 0
+    right := len(nums)-1
+
+    for left < right {
+        middle := (left + right)/2
+
+        if nums[middle] == target {
+            return middle
+        }
+
+        if nums[middle] < target {
+			left = middle + 1
+		} else {
+			right = middle - 1
+		}
     }
 
     return -1
