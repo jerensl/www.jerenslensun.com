@@ -69,6 +69,7 @@ jobs:
                   record: true
                   start: yarn dev
                   wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 180
               env:
                   CI: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
