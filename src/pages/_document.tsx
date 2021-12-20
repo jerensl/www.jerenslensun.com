@@ -66,7 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         crossOrigin="anonymous"
                     />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
                         rel="stylesheet"
                     />
                 </Head>
