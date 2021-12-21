@@ -22,6 +22,8 @@
         "@heroicons/react": "^1.0.5",
         "@radix-ui/react-collapsible": "^0.1.4",
         "@stitches/core": "^1.2.6",
+        "@tailwindcss/aspect-ratio": "^0.4.0",
+        "@tailwindcss/line-clamp": "^0.3.0",
         "esbuild": "^0.14.3",
         "hast-util-to-html": "^8.0.3",
         "hast-util-to-string": "^2.0.0",

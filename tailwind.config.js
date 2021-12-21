@@ -4,6 +4,10 @@ module.exports = {
         './src/components/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
+        fontFamily: {
+            display: ['Merriweather', 'serif'],
+            body: ['Merriweather', 'serif'],
+        },
         extend: {
             animation: {
                 blob: 'blob 7s infinite',
@@ -33,5 +37,9 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/typography')],
+    plugins: [
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/line-clamp'),
+    ],
 }
