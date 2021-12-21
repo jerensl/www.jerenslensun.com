@@ -7,10 +7,7 @@ describe('Blog page', () => {
         cy.get('a[href*="blog"]').click()
 
         // Find a link with an href attribute containing "about" and click it
-        cy.get('article')
-            .contains('Read More →')
-            .should('have.attr', 'href', '/blog/fundamental-algoritma')
-            .click()
+        cy.get('article').eq(2).contains('Read More →').click()
 
         // The new url should include "/about"
         cy.url().should('include', '/blog/fundamental-algoritma')

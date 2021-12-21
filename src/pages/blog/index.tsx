@@ -37,13 +37,11 @@ export default function Blog({
                             </h1>
                             <p className="text-gray-500">{date}</p>
                             <p>{summary}</p>
-                            <p>
-                                <Link passHref href={`/blog/${slug}`}>
-                                    <span className="text-current cursor-pointer opacity-60 hover:opacity-100">
-                                        Read More →
-                                    </span>
-                                </Link>
-                            </p>
+                            <Link passHref href={`/blog/${slug}`}>
+                                <a className="text-current cursor-pointer opacity-60 hover:opacity-100">
+                                    Read More →
+                                </a>
+                            </Link>
                         </article>
                     )
                 })}
