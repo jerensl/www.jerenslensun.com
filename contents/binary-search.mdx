@@ -30,7 +30,7 @@ Output : -1
 
 Pertama kita membuat fungsi Binary_search yang mengembalikan nilai -1 sebagai output
 
-```go showLineNumbers
+```go showLineNumbers theme=orange
 package binary_search
 
 func Binary_search(nums int[], target int) int {
@@ -40,12 +40,11 @@ func Binary_search(nums int[], target int) int {
 
 Setelah itu kita membuat variable left yang akan diisi index pertama dari array nums dan varible right dimana akan diisi index terakhir dari variable right. Kita juga memerlukan while loop dimana akan terus berjalan ketika nilai left lebih kecil dari nilai right
 
-```go
+```go showLineNumbers theme=orange
 package binary_search
 
 func Binary_search(nums []int, target int) int {
-    left := 0
-    right := len(nums)-1
+    left, right := 0, len(nums)-1
 
     for left < right {
 
@@ -57,12 +56,11 @@ func Binary_search(nums []int, target int) int {
 
 Kita juga perlu membuat variable middle yang merupakan index di tengah antara variable left dan right dan akan kita bandingkan dengan nilai target, jika sama nilai tersebut dikembalikan.
 
-```go
+```go showLineNumbers theme=orange
 package binary_search
 
 func Binary_search(nums []int, target int) int {
-    left := 0
-    right := len(nums)-1
+    left, right := 0, len(nums)-1
 
     for left < right {
         middle := (left + right)/2
@@ -83,12 +81,11 @@ Selanjutnya kita akan mengatasi kasus untuk 2 skenario, yaitu:
 
 Karna nilai dari variable middle telah dibandingkan sebelumnya maka kita akan menggeser satu index(dikurangi atau ditambah satu), untuk menghemat operasi yang dilakukan sehingga menjadi lebih effisien.
 
-```go
+```go showLineNumbers theme=orange
 package binary_search
 
 func Binary_search(nums []int, target int) int {
-    left := 0
-    right := len(nums)-1
+    left, right := 0, len(nums)-1
 
     for left < right {
         middle := (left + right)/2
@@ -107,3 +104,11 @@ func Binary_search(nums []int, target int) int {
     return -1
 }
 ```
+
+### **Analisa Algoritma Binary Search**
+
+1. Worst Case Scenario - Logarithmic(log n)  
+   Untuk kasus ini kita akan melakukan analisa ketika nilai target tidak berhasil ditemukan contohnya mencari pada nilai target 10 berdasarkan input diatas. Disitu kita dapat melihat adanya loop untuk mencari setiap nilai maka kita akan mengeleminasi 50% dari input yang ada untuk tiap operasi. Growth Rate yang cocok adalah logaritma dimana invers dari perpangkatan.
+
+2. Best Case Scenario - Constant(1)  
+   Untuk kasus ini algoritma dikatakan best case ketika posisinya langsung berada pada middle point contohnya mencari pada nilai target 5 berdasarkan input diatas.
