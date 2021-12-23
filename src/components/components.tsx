@@ -11,7 +11,7 @@ const components = {
                     theme,
                     showLineNumbers: typeof showLineNumbers === 'string',
                     css: {
-                        mx: '-$4',
+                        mx: '-$3',
                         mt: '$3',
                         mb: '$5',
 
