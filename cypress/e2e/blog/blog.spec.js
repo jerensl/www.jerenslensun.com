@@ -9,7 +9,7 @@ describe('Blog page', () => {
         // Find a link with an href attribute containing "about" and click it
         cy.get('article').contains('Read More →').click()
 
-        // The new url should include "/binary-search"
-        cy.url().should('include', '/blog/binary-search')
+        // The new url should include "/self-reflection-2021"
+        cy.url().should('include', '/blog/self-reflection-2021')
     })
 })
