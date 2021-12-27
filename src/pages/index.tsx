@@ -28,7 +28,7 @@ const Home: NextPage = () => {
                             <div className="absolute -bottom-10 left-20 md:left-28 w-40 h-40 md:w-52 md:h-52 bg-pink-300 blur-2xl rounded-full mix-blend-multiply filter opacity-70 animate-blob animation-delay-4000"></div>
                         </div>
                         <Image
-                            src="ilustration-01_anugln.png"
+                            src="ilustration-01_powtjp.webp"
                             loader={blobStorageIoImageLoader}
                             alt="Person"
                             objectFit="contain"
