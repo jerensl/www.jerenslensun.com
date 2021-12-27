@@ -20,12 +20,10 @@ module.exports = withPlugins(
     {
         swcMinify: true,
         images: {
+            formats: ['image/avif', 'image/webp'],
             loader: 'cloudinary',
-            path: 'https://tempfilejerens.blob.core.windows.net/assets/illustration-01.png',
-            domains: [
-                'jerenslensun.com',
-                'tempfilejerens.blob.core.windows.net',
-            ],
+            path: 'https://res.cloudinary.com/do9os7lxv/image/upload/v1640579086/personal/',
+            domains: ['jerenslensun.com', 'res.cloudinary.com'],
         },
         plugins: [
             new InjectManifest({
