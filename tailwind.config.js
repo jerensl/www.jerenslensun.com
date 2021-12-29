@@ -10,7 +10,7 @@ module.exports = {
         },
         extend: {
             gridTemplateColumns: {
-                'auto-fill': 'repeat(auto-fit, minmax(450px, 1fr))',
+                'auto-fill': 'repeat(auto-fit, minmax(350px, 1fr))',
             },
             animation: {
                 blob: 'blob 7s infinite',
