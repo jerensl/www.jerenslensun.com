@@ -35,10 +35,7 @@ export default function Blog({
                     {posts?.map(
                         ({ cover, slug, date, title, summary }: any) => {
                             return (
-                                <article
-                                    key={slug}
-                                    className="flex flex-col gap-1 content-start max-w-md"
-                                >
+                                <article key={slug} className="max-w-md">
                                     <div className="overflow-hidden">
                                         <Link passHref href={`/blog/${slug}`}>
                                             <Image

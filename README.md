@@ -5,6 +5,8 @@
 ## Articles
 
 -   [Fundamental Algoritma](https://www.jerenslensun.com/blog/fundamental-algoritma)
+-   [Binary Search](https://www.jerenslensun.com/blog/binary-search)
+-   [Self Reflection 2021](https://www.jerenslensun.com/blog/self-reflection-2021)
 
 ## Author
 
