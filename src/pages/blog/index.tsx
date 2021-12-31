@@ -33,22 +33,24 @@ export default function Blog({
                 <h1 className=" pt-24 text-2xl font-bold">Blog</h1>
                 <section className="grid grid-cols-auto-fill gap-5">
                     {posts?.map(
-                        ({ cover, slug, date, title, summary }: any) => {
+                        ({ cover, slug, date, title, description }: any) => {
                             return (
                                 <article key={slug} className="max-w-md">
                                     <div className="overflow-hidden">
-                                        <Link passHref href={`/blog/${slug}`}>
-                                            <Image
-                                                loader={
-                                                    blobStorageIoImageLoader
-                                                }
-                                                src={cover}
-                                                alt="Person"
-                                                objectFit="cover"
-                                                height="200px"
-                                                width="450px"
-                                                className="transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
-                                            />
+                                        <Link href={`/blog/${slug}`} passHref>
+                                            <a>
+                                                <Image
+                                                    loader={
+                                                        blobStorageIoImageLoader
+                                                    }
+                                                    src={cover}
+                                                    alt="Person"
+                                                    objectFit="cover"
+                                                    height="200px"
+                                                    width="450px"
+                                                    className="transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
+                                                />
+                                            </a>
                                         </Link>
                                     </div>
 
@@ -56,7 +58,9 @@ export default function Blog({
                                         {title}
                                     </h1>
                                     <p className="text-gray-500">{date}</p>
-                                    <p className="line-clamp-3">{summary}</p>
+                                    <p className="line-clamp-3">
+                                        {description}
+                                    </p>
                                     <Link passHref href={`/blog/${slug}`}>
                                         <a className="text-current cursor-pointer opacity-60 hover:opacity-100">
                                             Read More →

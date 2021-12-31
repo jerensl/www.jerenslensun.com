@@ -7,8 +7,8 @@ const rootDirectory = process.cwd()
 export interface Metadata {
     title: string
     date: string
-    draft: boolean
-    summary: string
+    isPublished: boolean
+    description: string
     slug: string
     cover: string
     fileName: string
@@ -54,7 +54,7 @@ export async function getAllPublishArticle(
     files.map((fileName) => {
         const source = getArticleByName(directory, `${fileName}.mdx`)
         const { data } = matter(source)
-        if (!data.draft) {
+        if (data.isPublished) {
             allMetadata.push({ ...data, slug: fileName })
         }
     })

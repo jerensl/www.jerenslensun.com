@@ -4,10 +4,14 @@ describe('Blog page', () => {
         cy.visit('/')
 
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
-        cy.get('a[href*="blog"]').click()
+        cy.get('a[href*="blog"]').click({
+            multiple: true,
+        })
 
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
-        cy.get('a[href*="/blog/self-reflection-2021"]').click()
+        cy.get('a[href*="/blog/self-reflection-2021"]').click({
+            multiple: true,
+        })
 
         // The new url should have text "Be Present"
         cy.get('strong').contains('Be Present')
