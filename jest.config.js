@@ -18,7 +18,6 @@ module.exports = {
         '<rootDir>/node_modules/',
         '<rootDir>/.next/',
         '<rootDir>/cypress/',
-        '<rootDir>/__tests__/utils',
     ],
     testEnvironment: 'jsdom',
     transform: {
