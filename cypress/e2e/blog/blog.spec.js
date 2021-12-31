@@ -1,7 +1,7 @@
 describe('Blog page', () => {
     it('should navigate to the article on blog page', () => {
         // Start from the index page
-        cy.visit('/blog')
+        cy.visit('/')
 
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
         cy.get('a[href*="blog"]').click({
