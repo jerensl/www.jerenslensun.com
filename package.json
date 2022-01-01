@@ -20,7 +20,6 @@
         "@fortawesome/react-fontawesome": "^0.1.16",
         "@headlessui/react": "^1.4.2",
         "@heroicons/react": "^1.0.5",
-        "@radix-ui/react-collapsible": "^0.1.4",
         "@stitches/core": "^1.2.6",
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/line-clamp": "^0.3.0",
