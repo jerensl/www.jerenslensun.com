@@ -39,12 +39,12 @@ export const Article = ({ frontmatter, code }): React.ReactElement => {
                 <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
                     <Giscus
-                        repo="jerensl/personal-web-app"
+                        repo="jerensl/jerenslensun.com"
                         repoId="R_kgDOGSJ3GQ"
                         category="Q&A"
                         categoryId="DIC_kwDOGSJ3Gc4CAhCy"
                         mapping="pathname"
-                        term="Welcome to Jerens Blog Discussions!"
+                        term="Welcome to Blog Discussions!"
                         reactionsEnabled="1"
                         emitMetadata="0"
                         theme="light"
