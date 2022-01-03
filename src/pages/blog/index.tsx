@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Navbar } from '../../components/Navbar'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
+import { format } from 'date-fns'
 import Image from 'next/image'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -53,11 +54,15 @@ export default function Blog({
                                             </a>
                                         </Link>
                                     </div>
-
                                     <h1 className="text-2xl font-bold leading-8 tracking-tight">
                                         {title}
                                     </h1>
-                                    <p className="text-gray-500">{date}</p>
+                                    <p className="text-gray-500">
+                                        {format(
+                                            new Date(date),
+                                            'MMMM dd, yyyy'
+                                        )}
+                                    </p>
                                     <p className="line-clamp-3">
                                         {description}
                                     </p>
