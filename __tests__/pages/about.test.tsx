@@ -11,8 +11,9 @@ import {
     faTwitterSquare,
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithubSquare, faTwitterSquare, faLinkedin)
+library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
