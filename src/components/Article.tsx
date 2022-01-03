@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { ArticleSeo } from './Seo'
 import { components } from './components'
 import { Giscus } from '@giscus/react'
+import { format } from 'date-fns'
 
 const blobStorageIoImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
@@ -23,7 +24,7 @@ export const Article = ({ frontmatter, code }): React.ReactElement => {
             <header className="pt-20 text-center">
                 <h1 className="text-3xl font-bold">{frontmatter.title}</h1>
                 <p className="text-xl pt-1 pb-2 font-medium">
-                    {frontmatter.date}
+                    {format(new Date(frontmatter.date), 'MMMM dd, yyyy')}
                 </p>
                 <Image
                     loader={blobStorageIoImageLoader}
