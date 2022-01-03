@@ -3,8 +3,17 @@
  */
 
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { Navbar } from '../../src/components/Navbar'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+    faGithubSquare,
+    faTwitterSquare,
+    faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
