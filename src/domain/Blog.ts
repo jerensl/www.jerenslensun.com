@@ -12,6 +12,7 @@ export interface Metadata {
     slug: string
     cover: string
     fileName: string
+    tags: string
 }
 
 type Sort = (listOfContent: Array<Metadata>) => Array<Metadata>
