@@ -4,12 +4,6 @@ import { Sidebar } from './Sidebar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Navbar = (): React.ReactElement => {
-    const [showSidebar, setShowSidebar] = useState(false)
-
-    const handleOpenSidebar = () => setShowSidebar(true)
-
-    const handleCloseSidebar = () => setShowSidebar(false)
-
     return (
         <nav className="fixed w-full z-10 bg-white mx-auto px-4 sm:px-10">
             <div className="flex justify-between text-center border-b-2 h-full w-full border-gray-100">
@@ -29,20 +23,8 @@ export const Navbar = (): React.ReactElement => {
                             About
                         </a>
                     </LinkURL>
-                    <button
-                        className="block p-5 md:hidden md:p-4"
-                        onClick={handleOpenSidebar}
-                        aria-label="Open Sidebar"
-                    >
-                        <FontAwesomeIcon
-                            className="text-xl"
-                            icon={['fas', 'bars']}
-                        />
-                    </button>
-                    <Sidebar
-                        handleSidebarClosed={handleCloseSidebar}
-                        showSidebar={showSidebar}
-                    />
+
+                    <Sidebar />
                 </div>
             </div>
         </nav>
