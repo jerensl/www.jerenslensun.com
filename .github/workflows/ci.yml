@@ -7,65 +7,109 @@ on:
         types: [opened, synchronize]
 
 jobs:
-    lint:
-        name: ESLint
+    install-deps:
+        if: github.repository == 'jerensl/jerenslensun.com'
+        name: Install dependencies
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
-
-            - name: Install dependencies
-              run: yarn install
-
             - name: Setup Node.js 14.x
               uses: actions/setup-node@v1
               with:
                   node-version: '14.x'
+            - name: Install locked dependencies
+              run: yarn install --frozen-lockfile
+            - name: Fetch the latest data
+              run: yarn run mirror-box
+            - name: Cache dependencies
+              uses: actions/cache@v1
+              id: cache-deps
+              with:
+                  path: '.'
+                  key: ${{ github.sha }}
 
+    lint:
+        if: github.repository == 'jerensl/jerenslensun.com'
+        name: ESLint
+        runs-on: ubuntu-latest
+        needs: install-deps
+        steps:
+            - name: Restore cached dependencies
+              uses: actions/cache@v1
+              id: restore-deps
+              with:
+                  path: '.'
+                  key: ${{ github.sha }}
+            - name: Setup Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
             - name: Lint files
               run: yarn run lint
               env:
                   CI: true
-    test:
-        name: Unit and integration tests
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
 
+    type-check:
+        if: github.repository == 'jerensl/jerenslensun.com'
+        name: Type check
+        runs-on: ubuntu-latest
+        needs: install-deps
+        steps:
+            - name: Restore cached dependencies
+              uses: actions/cache@v1
+              id: restore-deps
+              with:
+                  path: '.'
+                  key: ${{ github.sha }}
             - name: Setup Node.js 14.x
               uses: actions/setup-node@v1
               with:
                   node-version: '14.x'
+            - name: Perform type checking
+              run: yarn run type-check
+              env:
+                  CI: true
 
-            - name: Install dependencies
-              run: yarn install
-
+    test:
+        name: Unit and integration tests
+        runs-on: ubuntu-latest
+        needs: install-deps
+        steps:
+            - name: Restore cached dependencies
+              uses: actions/cache@v1
+              id: restore-deps
+              with:
+                  path: '.'
+                  key: ${{ github.sha }}
+            - name: Setup Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
             - name: Check Code Coverage
               run: yarn run test:coverage
-
             - name: Upload code coverage reports to Codecov
               uses: codecov/codecov-action@v2
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
+
     e2e:
         name: End-to-end tests
         runs-on: ubuntu-latest
+        needs: install-deps
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-
+            - name: Restore cached dependencies
+              uses: actions/cache@v1
+              id: restore-deps
+              with:
+                  path: '.'
+                  key: ${{ github.sha }}
             - name: Setup Node.js 14.x
               uses: actions/setup-node@v1
               with:
                   node-version: '14.x'
-
-            - name: Install dependencies
-              run: yarn install
-
             - name: Build dependencies
               run: yarn build
-
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:

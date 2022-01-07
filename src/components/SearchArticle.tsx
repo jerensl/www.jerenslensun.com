@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import { Metadata } from '../domain/Blog'
 import Link from 'next/link'
 import Image from 'next/image'
+
 const blobStorageIoImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
 }
@@ -28,7 +29,7 @@ export const SearchArticle = ({
     return (
         <section className="grid grid-cols-auto-fill gap-5">
             <input
-                className="p-2 col-span-full m-auto w-96 rounded border-2 placeholder-gray-500 border-gray-300 placeholder-opacity-100"
+                className="p-2 col-span-full m-auto w-full md:w-96 rounded border-2 placeholder-gray-500 border-gray-300 placeholder-opacity-100"
                 placeholder="Search Articles..."
                 aria-label="Search Articles"
                 onChange={(event) => {
