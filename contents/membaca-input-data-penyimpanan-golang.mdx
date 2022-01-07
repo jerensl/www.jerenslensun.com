@@ -1,0 +1,171 @@
+---
+title: Mengolah input pada data penyimpanan golang
+date: '2022-01-07'
+cover: data-penyimpanan_oluhdr.avif
+isPublished: true
+description: Mengolah input berukuran besar bisa menjadi situasi yang tricky, apalagi kita harus mengambilnya dari data yang tidak terstruktur seperti file txt
+tags: 'go'
+---
+
+Pada saat kita mendapatkan coding test, biasanya kita akan diberikan sejumlah input yang berukuran besar untuk di olah, kali ini kita akan mempelajari cara mengolah input langsung menggunakan standard library. Sebagai contoh kita akan mengolah input berdasarkan file txt.
+
+Berikut contoh data yang akan kita olah, sebagai contoh kita hanya menggunakan sedikit data saja, namun kalian bisa membayangkan ada terdapat ribuan baris data yang akan sulit untuk dipindahkan ke struktur data array secara manual:
+
+```
+2
+6 0 0 0 0 0 1
+12 0 0 0 0 0 0 1 0 0 0 0 0
+```
+
+#### Membuka file
+
+-   Untuk membuka sebuah file menggunakan standard library os, dimana akan berinteraksi dengan operating system(os) untuk membuka file bernama file.txt.
+-   Jika terdapat errror(err tidak sama dengan nil) kita akan melakukan print pada error, lalu panic sehingga program berhenti, itu sama saja dengan memanggil os.Exit(1).
+-   Setelah itu, kita perlu menutup file yang telah dibuka, disini kita menggunakan defer sehingga fungsi close berjalan ketika semua proses dalam fungsi tersebut(disini fungsi main) telah selesai atau code yang terdapat dibawah defer akan berjalan terlebih dahulu.
+
+```go theme=orange
+package main
+
+import (
+	"os"
+	"log"
+)
+
+func main() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+}
+
+```
+
+#### Membaca file setiap baris
+
+Di tahap ini kita akan menggunakan standard library bufio untuk melakukan memindai teks pada file.
+
+-   Kita perlu melakukan looping menggunakan method Scan(), dimana akan memindai setiap baris yang ada pada file tersebut, lalu kita menggunakan standard library fmt untuk melakukan print terhadap method Text() untuk membaca nilai yang ada.
+-   Jika terdapat error pada saat memindai teks, kita akan melakukan panic sehingga program berhenti dan menghasilkan log error.
+
+```go theme=orange
+package main
+
+import (
+	"os"
+	"log"
+	"bufio"
+	"fmt"
+)
+
+func main() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+
+	scanner := bufio.NewScanner(f)
+
+	for scanner.Scan() {
+	    fmt.Println(scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+	    log.Fatal(err)
+	}
+}
+
+```
+
+#### Membaca file setiap kata
+
+Dengan memanggil method Spilt() kita bisa memisahkan kata yang di pindai. Ada beberapa cara dalam memisahkan kata, disini kita menggunakan ScanWords sebagai argument pada method Split() untuk memisahkan berdasarkan huruf.
+Ada beberapa argument yang bisa kita gunakan selain ScanWords, yaitu:
+
+-   ScanBytes, untuk memisahkan berdasarkan setiap byte sebagai token.
+-   ScanRunes, untuk memisahkan berdasarkan UTF-8-encoded rune sebagai token.
+
+```go theme=orange
+package main
+
+import (
+	"os"
+	"log"
+	"bufio"
+	"fmt"
+)
+
+func main() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+
+	scanner := bufio.NewScanner(f)
+	scanner.Split(bufio.ScanWords)
+
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+```
+
+#### Parse data ke dalam 2D Array
+
+Disini kita akan melakukan parsing data yang sebelumnya string ke dalam integer lalu kita masukan ke dalam 2 dimensional array.
+
+-   Disini kita perlu menggunakan strings.Fields() untuk mengkonversi string ke dalam array of string. dimana string akan dipisahkan berdasarkan spasi.
+-   Setelah itu kita perlu lagi melakukan looping dan memasukan nilai yang ada ke dalam variable sementara nums.
+-   Sebelum memasukan nilai ke dalam variable nums kita perlu melakukan konversi string ke int menggunakan strconv.Atoi(), atoi berarti ascii to integer.
+-   Setelah semua kalimat pada baris telah selesai kita melakukan append ke dalam 2D array variable numbers.
+
+```go theme=orange
+package main
+
+import (
+	"os"
+	"log"
+	"bufio"
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+func main() {
+	numbers := [][]int{}
+
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+
+	scanner := bufio.NewScanner(f)
+
+	for scanner.Scan() {
+		words := strings.Fields(scanner.Text())
+		nums := []int{}
+
+		for _, value := range words {
+			valutToInt, _ := strconv.Atoi(value)
+			nums = append(nums, valutToInt)
+		}
+		numbers = append(numbers, nums)
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
+```
