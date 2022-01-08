@@ -25,9 +25,7 @@ export default function Blog({
             <Seo path="/blog" />
             <Navbar />
             <main className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
-                <h1 className="pt-20 text-2xl font-bold text-center md:text-left">
-                    Blog
-                </h1>
+                <h1 className="pt-20 text-2xl">Blog</h1>
                 <SearchArticle posts={posts} />
             </main>
             <Footer />
