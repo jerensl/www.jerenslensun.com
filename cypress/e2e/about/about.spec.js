@@ -4,7 +4,7 @@ describe('About page', () => {
         cy.visit('/')
 
         // Find a link with an href attribute containing "about" and click it
-        cy.get('a[href*="about"]').click()
+        cy.get('a[href*="about"]').first().click()
 
         // The new url should include "/about"
         cy.url().should('include', '/about')
