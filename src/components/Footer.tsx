@@ -26,7 +26,9 @@ export const Footer = (): React.ReactElement => {
                     />
                 </a>
             </div>
-            <p>© 2022 Jerens Lensun. All Rights Reserved.</p>
+            <p>
+                © {new Date().getFullYear()} Jerens Lensun. All Rights Reserved.
+            </p>
         </footer>
     )
 }

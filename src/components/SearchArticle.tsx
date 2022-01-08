@@ -28,14 +28,16 @@ export const SearchArticle = ({
 
     return (
         <section className="grid grid-cols-auto-fill gap-5">
-            <input
-                className="p-2 col-span-full m-auto w-full md:w-96 rounded border-2 placeholder-gray-500 border-gray-300 placeholder-opacity-100"
-                placeholder="Search Articles..."
-                aria-label="Search Articles"
-                onChange={(event) => {
-                    setSearchArticles(event.target.value)
-                }}
-            />
+            <div className="col-span-full w-full max-w-sm m-auto bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
+                <input
+                    className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
+                    placeholder="Search Articles..."
+                    aria-label="Search Articles"
+                    onChange={(event) => {
+                        setSearchArticles(event.target.value)
+                    }}
+                />
+            </div>
             {!filteredPost.length && 'No articles found.'}
             {filteredPost?.map(
                 ({ cover, date, description, slug, title }: Metadata) => {
