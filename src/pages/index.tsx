@@ -1,12 +1,21 @@
-import type { NextPage } from 'next'
-import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
-import { Seo } from '../components/Seo'
+import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
-import { LinkURL } from '../components/LinkURL'
+import { Footer } from '@/components/Footer'
+import { Navbar } from '@/components/Navbar'
+import { Seo } from '@/components/Seo'
+import { LinkURL } from '@/components/LinkURL'
+import { generateRss } from '@/lib/rss'
 
 const blobStorageIoImageLoader = ({ src, width, quality }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1641437560/personal/${src}`
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    generateRss()
+
+    return {
+        props: {},
+    }
 }
 
 const Home: NextPage = () => {

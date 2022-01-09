@@ -8,7 +8,7 @@ import Document, {
 
 const APP_NAME = 'Jerens'
 const APP_DESCRIPTION =
-    "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development"
+    "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development."
 
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {

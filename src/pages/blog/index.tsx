@@ -1,10 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { getAllPublishArticle, sortByLatestDate } from '../../domain/Blog'
-import { Metadata } from '../../domain/Blog'
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-import { Seo } from '../../components/Seo'
-import { SearchArticle } from '../../components/SearchArticle'
+import { getAllPublishArticle, sortByLatestDate, Metadata } from '@/domain/Blog'
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
+import { Seo } from '@/components/Seo'
+import { SearchArticle } from '@/components/SearchArticle'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts: Array<Metadata> = await getAllPublishArticle(
