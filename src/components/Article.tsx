@@ -28,7 +28,6 @@ export const Article = ({
                 path={frontmatter.title}
                 title={frontmatter.title}
                 description={frontmatter.description}
-                image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${frontmatter.cover}`}
             />
             <header className="pt-20 text-center">
                 <h1 className="text-3xl font-bold">{frontmatter.title}</h1>
