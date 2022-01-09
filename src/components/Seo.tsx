@@ -15,14 +15,16 @@ const siteMetadata: SiteMetadata = {
 interface App {
     name: string
     title: string
+    image: string
     description: string
 }
 
 const app: App = {
-    name: 'Jerens App',
+    name: 'Jerens',
     title: 'Jerens Lensun',
+    image: '/images/banner-og.png',
     description:
-        "Hi I'm Jerens Lensun this web app will cover topics such as designing good software especially on web development and backend",
+        "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development",
 }
 
 interface BlogPostSeoProps {
@@ -73,10 +75,12 @@ export const Seo = ({ path }: PageSeo) => {
             <meta property="og:description" content={app.description} />
             <meta property="og:site_name" content={app.name} />
             <meta property="og:type" content="website" />
+            <meta name="image" property="og:image" content={app.image} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content={siteMetadata.twitter} />
             <meta name="twitter:title" content={app.title} />
             <meta name="twitter:description" content={app.description} />
+            <meta name="twitter:image" content={app.image} />
             <link rel="icon" href="/favicon.ico" />
         </Head>
     )

@@ -1,8 +1,8 @@
 {
-    "name": "Jerens App",
-    "short_name": "Jerens App",
+    "name": "Jerens Lensun",
+    "short_name": "Jerens",
     "start_url": "/",
-    "description": "Jerens App",
+    "description": "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development",
     "display": "standalone",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
