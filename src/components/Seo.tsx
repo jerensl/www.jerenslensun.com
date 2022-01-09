@@ -24,7 +24,7 @@ const app: App = {
     title: 'Jerens Lensun',
     image: 'https://www.jerenslensun.com/images/banner-og.png',
     description:
-        "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development",
+        "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.",
 }
 
 interface BlogPostSeoProps {

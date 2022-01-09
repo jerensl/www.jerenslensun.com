@@ -4,11 +4,11 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { getListOfArticle } from '../../domain/Blog'
-import { getArticleWithMetadata } from '../../domain/Article'
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-import { Article } from '../../components/Article'
+import { getListOfArticle } from '@/domain/Blog'
+import { getArticleWithMetadata } from '@/domain/Article'
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
+import { Article } from '@/components/Article'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getListOfArticle('contents')
