@@ -19,6 +19,7 @@ export const Article = ({ frontmatter, code }): React.ReactElement => {
                 path={frontmatter.title}
                 title={frontmatter.title}
                 description={frontmatter.summary}
+                image={blobStorageIoImageLoader({ src: frontmatter.cover })}
             />
 
             <header className="pt-20 text-center">
