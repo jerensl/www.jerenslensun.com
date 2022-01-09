@@ -29,9 +29,15 @@ interface BlogPostSeoProps {
     title: string
     description: string
     path: string
+    image: string
 }
 
-export const ArticleSeo = ({ title, description, path }: BlogPostSeoProps) => {
+export const ArticleSeo = ({
+    title,
+    description,
+    path,
+    image,
+}: BlogPostSeoProps) => {
     return (
         <Head>
             <title>{`${title}`}</title>
@@ -42,10 +48,12 @@ export const ArticleSeo = ({ title, description, path }: BlogPostSeoProps) => {
             <meta property="og:description" content={description} />
             <meta property="og:site_name" content={app.name} />
             <meta property="og:type" content="website" />
+            <meta name="image" property="og:image" content={image} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content={siteMetadata.twitter} />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={image} />
         </Head>
     )
 }
