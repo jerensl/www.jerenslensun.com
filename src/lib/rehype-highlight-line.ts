@@ -76,10 +76,9 @@ const wrapLines = function wrapLines(ast, linesToHighlight) {
             properties: {
                 dataLine: line,
                 className: 'highlight-line',
-                dataHighlighted:
-                    linesToHighlight.includes(line) || highlightAll
-                        ? 'true'
-                        : 'false',
+                dataHighlighted: linesToHighlight.includes(line)
+                    ? 'true'
+                    : 'false',
             },
             children: children,
             lineNumber: line,

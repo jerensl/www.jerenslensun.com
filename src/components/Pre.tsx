@@ -12,6 +12,7 @@ export const pre = css({
     $$added: '$colors$turq',
     $$lineNumbers: '$colors$gray',
     $$fadedLines: '$colors$gray',
+    $$highlightedLine: 'hsla(0,100%,50%,0.08)',
     $$highlightedWordBg: 'hsl(345deg 66% 73% / 30%)',
     $$highlightedWordBgActive: 'hsl(345deg 66% 73% / 100%)',
     $$highlightedWordText: '$colors$black',
@@ -23,7 +24,7 @@ export const pre = css({
     $$addedWordText: '$colors$turq',
 
     boxSizing: 'border-box',
-    padding: '$3',
+    padding: '$3 0px',
     overflow: 'auto',
     fontFamily: '$mono',
     fontSize: '$3',
@@ -146,9 +147,10 @@ export const pre = css({
         '&, *': {
             transition: 'color 150ms ease',
         },
-        '&[data-highlighted=false]': {
-            '&, *': {
-                color: '$$fadedLines',
+        '&[data-highlighted=true]': {
+            '&': {
+                backgroundColor: '$$highlightedLine',
+                borderLeft: '5px solid #FF2C2C',
             },
         },
     },
@@ -159,13 +161,21 @@ export const pre = css({
                 '.highlight-line': {
                     position: 'relative',
                     paddingLeft: '$4',
-
                     '&::before': {
                         content: 'attr(data-line)',
                         position: 'absolute',
-                        left: 4,
+                        left: 12,
                         top: 0,
                         color: '$$lineNumbers',
+                    },
+                    '&[data-highlighted=true]': {
+                        '&::before': {
+                            content: 'attr(data-line)',
+                            position: 'absolute',
+                            left: 8,
+                            top: 0,
+                            color: '$$lineNumbers',
+                        },
                     },
                 },
             },

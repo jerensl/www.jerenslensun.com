@@ -7,9 +7,16 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes, faRssSquare } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
+library.add(
+    faGithubSquare,
+    faTwitterSquare,
+    faLinkedin,
+    faTimes,
+    faBars,
+    faRssSquare
+)
 
 function MyApp({ Component, pageProps }: AppProps) {
     return <Component {...pageProps} />
