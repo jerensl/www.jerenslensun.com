@@ -47,8 +47,6 @@ const lineNumberify = function lineNumberify(ast, lineNum = 1) {
 }
 
 const wrapLines = function wrapLines(ast, linesToHighlight) {
-    const highlightAll =
-        linesToHighlight.length === 1 && linesToHighlight[0] === 0
     const allLines = Array.from(new Set(ast.map((x) => x.lineNumber)))
     let i = 0
     const wrapped = allLines.reduce((nodes: any, marker) => {
@@ -76,10 +74,9 @@ const wrapLines = function wrapLines(ast, linesToHighlight) {
             properties: {
                 dataLine: line,
                 className: 'highlight-line',
-                dataHighlighted:
-                    linesToHighlight.includes(line) || highlightAll
-                        ? 'true'
-                        : 'false',
+                dataHighlighted: linesToHighlight.includes(line)
+                    ? 'true'
+                    : 'false',
             },
             children: children,
             lineNumber: line,
