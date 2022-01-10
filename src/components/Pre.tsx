@@ -27,7 +27,7 @@ export const pre = css({
     padding: '$3 0px',
     overflow: 'auto',
     fontFamily: '$mono',
-    fontSize: '$3',
+    fontSize: '$2',
     lineHeight: '$3',
     whiteSpace: 'pre',
     position: 'relative',
@@ -35,7 +35,8 @@ export const pre = css({
     color: '$$text',
 
     '& > code': {
-        display: 'block',
+        display: 'inline-block',
+        minWidth: '100%',
     },
 
     '.language-diff': {
@@ -149,8 +150,8 @@ export const pre = css({
         },
         '&[data-highlighted=true]': {
             '&': {
-                backgroundColor: '$$highlightedLine',
                 borderLeft: '5px solid #FF2C2C',
+                backgroundColor: '$$highlightedLine',
             },
         },
     },
