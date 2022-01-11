@@ -36,7 +36,7 @@ const Home: NextPage = () => {
                                 height="667px"
                             />
                         </div>
-                        <div className="col-span-full items-center grid gap-5 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto text-center">
+                        <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto text-center">
                             <div>
                                 <h1 className="font-bold text-4xl md:text-5xl">
                                     Jerens Lensun
