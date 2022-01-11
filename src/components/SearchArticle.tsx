@@ -23,11 +23,23 @@ export const SearchArticle = ({
             post.title.toLowerCase().includes(searchArticles.toLowerCase())
         )
 
+        articles.map(({ title, ...allArticle }) => {
+            title
+                .split(' ')
+                .map((w) => w.substring(0, 1).toUpperCase() + w.substring(1))
+                .join(' ')
+
+            return {
+                title,
+                ...allArticle,
+            }
+        })
+
         setFilteredPost(articles)
     }, [searchArticles, posts])
 
     return (
-        <section className="grid grid-cols-auto-fill gap-5">
+        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5">
             <div className="col-span-full w-full max-w-sm m-auto bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                 <input
                     className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
@@ -38,12 +50,20 @@ export const SearchArticle = ({
                     }}
                 />
             </div>
-            {!filteredPost.length && 'No articles found.'}
+            {filteredPost.length ? null : <p>No articles found.</p>}
             {filteredPost?.map(
                 ({ cover, date, description, slug, title }: Metadata) => {
+                    const captializeTitle = title
+                        .split(' ')
+                        .map(
+                            (w) =>
+                                w.substring(0, 1).toUpperCase() + w.substring(1)
+                        )
+                        .join(' ')
+
                     return (
-                        <article key={slug} className="max-w-md">
-                            <div className="overflow-hidden">
+                        <article key={slug} className="min-h-full">
+                            <div className="overflow-auto">
                                 <Link href={`/blog/${slug}`} passHref>
                                     <a>
                                         <Image
@@ -59,7 +79,7 @@ export const SearchArticle = ({
                                 </Link>
                             </div>
                             <h1 className="text-2xl font-bold leading-8 tracking-tight">
-                                {title}
+                                {captializeTitle}
                             </h1>
                             <p className="text-gray-500">
                                 {format(new Date(date), 'MMMM dd, yyyy')}
