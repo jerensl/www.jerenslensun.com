@@ -34,6 +34,10 @@ export const pre = css({
     backgroundColor: '$$background',
     color: '$$text',
 
+    '@bp4': {
+        fontSize: '$3',
+    },
+
     '& > code': {
         display: 'inline-block',
         minWidth: '100%',
@@ -145,6 +149,7 @@ export const pre = css({
 
     // Styles for highlighted lines
     '.highlight-line': {
+        paddingLeft: '$3',
         '&, *': {
             transition: 'color 150ms ease',
         },
