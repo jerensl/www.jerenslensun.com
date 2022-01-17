@@ -10,12 +10,12 @@ export default function About() {
             <Seo path="/about" />
             <div className="min-h-screen w-full">
                 <Navbar />
-                <div className="min-h-9/10 px-4 md:px-10 pt-32 grid gap-10 md:grid-cols-2">
-                    <div className="">
-                        <h1 className="font-semibold text-2xl">
+                <div className="min-h-9/10 px-4 md:px-10 pt-24 pb-5 grid gap-10 md:grid-cols-2 lg:pt-48">
+                    <div className="lg:max-w-4xl">
+                        <h1 className="font-semibold text-2xl lg:text-4xl">
                             Hi, I am Jerens
                         </h1>
-                        <p className="pt-2">
+                        <p className="pt-2 lg:text-xl">
                             I am a student of Electrical Engineering. I have
                             been passionate about building high-performance
                             software especially that can serve a lot of users.
@@ -23,8 +23,8 @@ export default function About() {
                             play football.
                         </p>
                     </div>
-                    <div className="w-full px-4">
-                        <div className="w-full max-w-md p-3 mx-auto bg-white border-2 rounded-2xl">
+                    <div className="w-full">
+                        <div className="w-full max-w-md lg:max-w-xl p-3 mx-auto bg-white border-2 rounded-2xl">
                             <h1 className="p-2 font-semibold text-xl text-center">
                                 FAQ
                             </h1>
