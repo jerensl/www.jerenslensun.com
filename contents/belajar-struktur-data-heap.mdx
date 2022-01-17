@@ -7,12 +7,12 @@ description: Binary Heap merupakan struktur data complete tree biasa direpresent
 tags: 'algoritma'
 ---
 
-Heaps adalah struktur data yang berdasarkan pada complete binary tree, namun direpresentasikan melalui array. Ada dua tipe heaps, yaitu
+Heap adalah struktur data yang berdasarkan pada complete binary tree, namun direpresentasikan melalui array. Ada dua tipe heap, yaitu
 
 1. Min Heap: dimana root node merupakan nilai yang paling besar dibandingkan children node dan berlaku secara recursive pada semua level.
 2. Max Heap: dimana root node merupakan nilai yang paling kecil dibandingkan children node dan berlaku secara recursive pada semua level.
 
-Seabagai contoh kita hanya akan menggunakan MaxHeap. Disini Kita akan membuat sebuah struct yang diberi nama Heap untuk menyimpan value, dimana akan ada 2 value, yaitu :
+Sebagai contoh kita hanya akan menggunakan MaxHeap. Disini Kita akan membuat sebuah struct yang diberi nama Heap untuk menyimpan value, dimana akan ada 2 value, yaitu :
 
 -   Bucket, yang akan menyimpan array dari data integer
 -   Size, jumlah nilai yang terdapat dalam array Bucket
@@ -40,7 +40,7 @@ Setelahnya kita akan membuat fungsi NewMaxHeap, dimana:
 
 Pada fungsi NewMaxHeap, kita akan:
 
-1. Membuat variable maxHeaps, yang dimana merupakan struct kosong. Penggunaan **&** atau _dereferencing_ , yaitu untuk memanipulasi lansung data pada memory address pointer tersebut.
+1. Membuat variable maxHeap, yang dimana merupakan struct kosong. Penggunaan **&** atau _dereferencing_ , yaitu untuk memanipulasi lansung data pada memory address pointer tersebut.
 2. Selanjutnya kita membuat for loop menggunakan range pada input nums, dimana terdapat 2 variable yang dikembalikan yaitu index yang kita ganti dengan underscore, karena tidak kita gunakan dan value yang merupakan nilai pada array tersebut.
 
 ```go showLineNumbers theme=orange line=8-16
@@ -52,13 +52,13 @@ type Heap struct {
 }
 
 func NewMaxHeap(nums []int) *Heap {
-	maxHeaps := &Heaps{}
+	maxHeap := &Heap{}
 
 	for _, value := range nums {
-		maxHeaps.Insert(value)
+		maxHeap.Insert(value)
 	}
 
-	return maxHeaps
+	return maxHeap
 }
 
 func main() {
@@ -69,11 +69,11 @@ func main() {
 
 ##### Insert MaxHeap
 
-Pada method Insert yang menerima argumen nilai integer, lalu :
+Pada method Insert yang akan menerima argumen nilai integer, kita akan:
 
-1. Kita akan langsung menggunakan append untuk memasukan nilai tersebut pada array Bucket.
-2. Setelah itu kita akan melakukan increment pada Size, sehingga tiap ada nilai yang dimasukan size akan terus bertambah 1.
-3. Setelah itu kita akan memanggil method heapifyUp yang akan kita buat nanti.
+1. Langsung menggunakan append untuk memasukan nilai tersebut pada array Bucket.
+2. Setelah itu kita akan melakukan increment menggunakan Size++, sehingga tiap ada nilai yang dimasukan size akan terus bertambah 1.
+3. Setelah itu kita akan memanggil method heapifyUp yang akan kita buat nanti, untuk mengorganisir kembali urutan pada array.
 
 ```go showLineNumbers theme=orange line=18-23
 package main
@@ -84,13 +84,13 @@ type Heap struct {
 }
 
 func NewMaxHeap(nums []int) *Heap {
-	maxHeaps := &Heaps{}
+	maxHeap := &Heap{}
 
 	for _, value := range nums {
-		maxHeaps.Insert(value)
+		maxHeap.Insert(value)
 	}
 
-	return maxHeaps
+	return maxHeap
 }
 
 func (m *Heap) Insert(value int) {
@@ -108,7 +108,7 @@ func main() {
 
 ##### HeapifyUp MaxHeap
 
-Untuk mendapatkan index parent, kita perlu menguranginya dengan 1 terlebih dahulu dan membagi dengan 2, karena kita menggunakan integer jadi jika nilai yang dibagi contohnya menjadi 0.5 maka akan dibulatkan menjadi 0
+Untuk mendapatkan index parent, kita perlu menguranginya dengan 1 terlebih dahulu dan membagi dengan 2, karena kita menggunakan integer jadi jika nilai yang dibagi contohnya menjadi 0.5 maka akan dibulatkan menjadi 0.
 
 ```go showLineNumbers theme=orange
 func parentIndex(currentIndex int) int {
@@ -116,7 +116,7 @@ func parentIndex(currentIndex int) int {
 }
 ```
 
-Biasanya untuk melakukan swaping kita perlu membuat temporary variable, namun dengan golang kita bisa langsung melakukan swaping seperti ini
+Biasanya untuk melakukan swaping kita perlu membuat temporary variable, namun kita bisa mempersingkatnya dengan langsung melakukan swaping seperti ini.
 
 ```go showLineNumbers theme=orange
 func (m *Heap) swap(current, parent int) {
@@ -124,7 +124,7 @@ func (m *Heap) swap(current, parent int) {
 }
 ```
 
-Method heapifyUp dibuat dengan tujuan untuk mereorganisasi array sehingga nilai yang baru kita masukan berada di posisi yang sesuai.
+Method heapifyUp dibuat dengan tujuan untuk mereorganisasi array sehingga nilai yang baru kita masukan berada di posisi yang sesuai atau nilai yang besar berada diatas, nilai yang lebih kecil.
 
 1. Dalam method heapifyUp kita perlu membuat variable currentIndex untuk melacak index terakhir dari nilai array yang baru kita masukan tadi,
 2. Disini akan kita bandingkan dengan nilai currentIndex dan nilai parentIndex yang merupakan parent dari currentIndex, jika nilai currentIndex masih lebih besar loop akan terus berjalan dan melakukan swap terhadap dua nilai tersebut, selanjutnya nilai currentIndex akan menjadi parentIndex
@@ -138,13 +138,13 @@ type Heap struct {
 }
 
 func NewMaxHeap(nums []int) *Heap {
-	maxHeaps := &Heap{}
+	maxHeap := &Heap{}
 
 	for _, value := range nums {
-		maxHeaps.Insert(value)
+		maxHeap.Insert(value)
 	}
 
-	return maxHeaps
+	return maxHeap
 }
 
 func (m *Heap) Insert(value int) {
@@ -194,13 +194,13 @@ type Heap struct {
 }
 
 func NewMaxHeap(nums []int) *Heap {
-	maxHeaps := &Heap{}
+	maxHeap := &Heap{}
 
 	for _, value := range nums {
-		maxHeaps.Insert(value)
+		maxHeap.Insert(value)
 	}
 
-	return maxHeaps
+	return maxHeap
 }
 
 func (m *Heap) Insert(value int) {
@@ -292,13 +292,13 @@ type Heap struct {
 }
 
 func NewMaxHeap(nums []int) *Heap {
-	maxHeaps := &Heap{}
+	maxHeap := &Heap{}
 
 	for _, value := range nums {
-		maxHeaps.Insert(value)
+		maxHeap.Insert(value)
 	}
 
-	return maxHeaps
+	return maxHeap
 }
 
 func (m *Heap) Insert(value int) {
@@ -382,7 +382,7 @@ func main() {
 
 ```
 
-Untuk langkah terakhir, kita akan mengetest secara langsung apa yang telah kita buat di atas, dan untuk log pada monitor akan menjadi seperti dibawah
+Untuk langkah terakhir, kita akan mengetest secara langsung apa yang telah kita buat di atas, dan untuk log pada monitor akan menjadi seperti dibawah ini.
 
 ##### Log Output MaxHeap
 
