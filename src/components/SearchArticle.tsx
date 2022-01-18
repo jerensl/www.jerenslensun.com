@@ -14,7 +14,7 @@ export const SearchArticle = ({
     tags,
 }: {
     posts: Metadata[]
-    tags: string[]
+    tags: string[] | null
 }): React.ReactElement => {
     const [searchArticles, setSearchArticles] = React.useState<string>('')
     const [filteredPost, setFilteredPost] = React.useState<Array<Metadata>>([
@@ -72,7 +72,7 @@ export const SearchArticle = ({
                     <p className="mr-2 text-lg font-medium">
                         Search by topics :
                     </p>
-                    {tags.map((tag) => (
+                    {tags?.map((tag) => (
                         <Tag key={tag} onClick={() => toggleTag(tag)}>
                             {tag}
                         </Tag>

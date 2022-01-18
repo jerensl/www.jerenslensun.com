@@ -9,7 +9,6 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Seo } from '@/components/Seo'
 import { SearchArticle } from '@/components/SearchArticle'
-import { Tag } from '@/components/Tag'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts: Array<Metadata> = await getAllPublishArticle(
