@@ -7,16 +7,16 @@
         <ttl>40</ttl>
         <item>
       <title><![CDATA[Belajar Struktur Data Heap]]></title>
-      <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
+      <description><![CDATA[Binary Heap merupakan struktur data complete tree biasa direpresentasikan dalam bentuk array, dimana bisa min heap atau max heap.]]></description>
       <link>https://www.jerenslensun.com/blog/belajar-struktur-data-heap</link>
       <guid>https://www.jerenslensun.com/blog/belajar-struktur-data-heap</guid>
       <pubDate>2022-01-17</pubDate>
     </item>
 <item>
-      <title><![CDATA[Mengolah input pada data penyimpanan golang]]></title>
-      <description><![CDATA[Mengolah input berukuran besar bisa menjadi situasi yang tricky, apalagi kita harus mengambilnya dari data yang tidak terstruktur seperti file txt]]></description>
-      <link>https://www.jerenslensun.com/blog/membaca-input-data-penyimpanan-golang</link>
-      <guid>https://www.jerenslensun.com/blog/membaca-input-data-penyimpanan-golang</guid>
+      <title><![CDATA[Mengolah data tidak terstruktur pada go]]></title>
+      <description><![CDATA[Mengolah input berukuran besar bisa menjadi situasi yang tricky, apalagi kita harus mengambilnya dari data yang tidak terstruktur seperti file txt.]]></description>
+      <link>https://www.jerenslensun.com/blog/mengolah-data-tidak-terstruktur-pada-go</link>
+      <guid>https://www.jerenslensun.com/blog/mengolah-data-tidak-terstruktur-pada-go</guid>
       <pubDate>2022-01-07</pubDate>
     </item>
 <item>
@@ -27,10 +27,10 @@
       <pubDate>2021-12-25</pubDate>
     </item>
 <item>
-      <title><![CDATA[Binary Search]]></title>
+      <title><![CDATA[Algoritma Binary Search]]></title>
       <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
-      <link>https://www.jerenslensun.com/blog/binary-search</link>
-      <guid>https://www.jerenslensun.com/blog/binary-search</guid>
+      <link>https://www.jerenslensun.com/blog/algoritma-binary-search</link>
+      <guid>https://www.jerenslensun.com/blog/algoritma-binary-search</guid>
       <pubDate>2021-12-21</pubDate>
     </item>
 <item>
