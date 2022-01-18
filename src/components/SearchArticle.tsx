@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 import { Metadata } from '../domain/Blog'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Tag } from './Tag'
 
 const blobStorageIoImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
@@ -10,8 +11,10 @@ const blobStorageIoImageLoader = ({ src }) => {
 
 export const SearchArticle = ({
     posts,
+    tags,
 }: {
     posts: Metadata[]
+    tags: string[]
 }): React.ReactElement => {
     const [searchArticles, setSearchArticles] = React.useState<string>('')
     const [filteredPost, setFilteredPost] = React.useState<Array<Metadata>>([
@@ -38,17 +41,43 @@ export const SearchArticle = ({
         setFilteredPost(articles)
     }, [searchArticles, posts])
 
+    const toggleTag = (tag: string) => {
+        if (searchArticles.includes(tag)) {
+            setSearchArticles((s) =>
+                s
+                    .split(' ')
+                    .filter((t) => t !== tag)
+                    ?.join(' ')
+            )
+        } else {
+            setSearchArticles((s) => (s !== '' ? `${s.trim()} ${tag}` : tag))
+        }
+    }
+
     return (
         <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5">
-            <div className="col-span-full w-full max-w-sm m-auto bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
-                <input
-                    className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
-                    placeholder="Search Articles..."
-                    aria-label="Search Articles"
-                    onChange={(event) => {
-                        setSearchArticles(event.target.value)
-                    }}
-                />
+            <div className="col-span-full w-full">
+                <div className="w-full max-w-sm m-auto bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
+                    <input
+                        className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
+                        placeholder="Search Articles..."
+                        aria-label="Search Articles"
+                        value={searchArticles}
+                        onChange={(event) => {
+                            setSearchArticles(event.target.value)
+                        }}
+                    />
+                </div>
+                <div className="flex my-4 flex-wrap col-span-full -mb-4 -mr-4 lg:col-span-10">
+                    <p className="mr-2 text-lg font-medium">
+                        Search by topics :
+                    </p>
+                    {tags?.map((tag) => (
+                        <Tag key={tag} onClick={() => toggleTag(tag)}>
+                            {tag}
+                        </Tag>
+                    ))}
+                </div>
             </div>
             {filteredPost.length ? null : <p>No articles found.</p>}
             {filteredPost?.map(

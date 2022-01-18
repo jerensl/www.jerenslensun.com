@@ -1,6 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import countBy from 'lodash/countBy'
+import map from 'lodash/map'
+import sortBy from 'lodash/sortBy'
+import toPairs from 'lodash/toPairs'
 
 const rootDirectory = process.cwd()
 
@@ -63,4 +67,13 @@ export async function getAllPublishArticle(
     sort(allMetadata)
 
     return allMetadata
+}
+
+export function getAllTags(contents) {
+    const tags = contents.reduce(
+        (accTags: string[], content) => [...accTags, ...content.tags],
+        []
+    )
+
+    return map(sortBy(toPairs(countBy(tags)), 1), 0).reverse()
 }
