@@ -27,7 +27,7 @@ const posts: Metadata[] = [
 ]
 
 const renderSearchArticlesComponent = () => {
-    const util = render(<SearchArticle posts={posts} />)
+    const util = render(<SearchArticle posts={posts} tags={null} />)
     const input = util.getByPlaceholderText('Search Articles...')
 
     return {

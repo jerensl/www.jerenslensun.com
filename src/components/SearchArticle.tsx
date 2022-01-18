@@ -14,7 +14,7 @@ export const SearchArticle = ({
     tags,
 }: {
     posts: Metadata[]
-    tags: string[] | null
+    tags: string[]
 }): React.ReactElement => {
     const [searchArticles, setSearchArticles] = React.useState<string>('')
     const [filteredPost, setFilteredPost] = React.useState<Array<Metadata>>([
