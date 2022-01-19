@@ -107,14 +107,12 @@ jobs:
               with:
                   node-version: '14.x'
             - name: Install Cypress
-              run: yarn cypress install
-            - name: Build dependencies
-              run: yarn build
+              run: yarn install cypress
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:
                   record: true
-                  start: yarn start
+                  start: yarn dev
                   wait-on: 'http://localhost:3000'
               env:
                   CI: true
