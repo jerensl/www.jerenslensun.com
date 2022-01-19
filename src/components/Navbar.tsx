@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { LinkURL } from './LinkURL'
 import { Sidebar } from './Sidebar'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Navbar = (): React.ReactElement => {
     return (
