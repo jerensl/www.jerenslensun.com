@@ -81,7 +81,14 @@ export const SearchArticle = ({
             </div>
             {filteredPost.length ? null : <p>No articles found.</p>}
             {filteredPost?.map(
-                ({ cover, date, description, slug, title }: Metadata) => {
+                ({
+                    cover,
+                    date,
+                    description,
+                    slug,
+                    title,
+                    blurDataURL,
+                }: Metadata) => {
                     const captializeTitle = title
                         .split(' ')
                         .map(
@@ -100,6 +107,8 @@ export const SearchArticle = ({
                                             src={cover}
                                             alt="Person"
                                             objectFit="cover"
+                                            blurDataURL={blurDataURL}
+                                            placeholder="blur"
                                             height="200px"
                                             width="450px"
                                             className="transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
