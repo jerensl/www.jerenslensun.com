@@ -7,8 +7,5 @@
         "plugin:import/recommended",
         "plugin:import/typescript"
     ],
-    "plugins": ["prettier", "cypress"],
-    "rules": {
-        "@typescript-eslint/no-explicit-any": "warn"
-    }
+    "plugins": ["prettier", "cypress"]
 }
