@@ -17,7 +17,7 @@ export interface Metadata {
     cover: string
     fileName: string
     tags?: string
-    blurDataURL: string
+    blurDataURL?: string
 }
 
 type Sort = (listOfContent: Array<Metadata>) => Array<Metadata>

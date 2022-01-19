@@ -13,8 +13,8 @@ const blobStorageIoImageLoader = ({ src }) => {
 
 interface ArticleProps {
     frontmatter: Metadata
-    code: any
-    blurDataURL: any
+    code: string
+    blurDataURL: string
 }
 
 export const Article = ({

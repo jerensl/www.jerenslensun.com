@@ -16,6 +16,7 @@ const fakeData = {
     slug: 'test',
     cover: 'image/test',
     fileName: 'test',
+    blurDataURL: 'image/test',
 }
 
 describe('Blog Article', () => {
@@ -30,7 +31,13 @@ describe('Blog Article', () => {
         \`]})})})]})}}var f=b;return k;})();
         ;return Component;`
 
-        render(<Article code={mockCode} frontmatter={fakeData} />)
+        render(
+            <Article
+                code={mockCode}
+                frontmatter={fakeData}
+                blurDataURL={'image/test'}
+            />
+        )
 
         const heading = screen.getByRole('heading', {
             name: /test/i,
