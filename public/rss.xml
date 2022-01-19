@@ -5,6 +5,40 @@
         <description>Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.</description>
         <language>en</language>
         <ttl>40</ttl>
-        
+        <item>
+      <title><![CDATA[Belajar Struktur Data Heap]]></title>
+      <description><![CDATA[Binary Heap merupakan struktur data complete tree biasa direpresentasikan dalam bentuk array, dimana bisa min heap atau max heap.]]></description>
+      <link>https://www.jerenslensun.com/blog/belajar-struktur-data-heap</link>
+      <guid>https://www.jerenslensun.com/blog/belajar-struktur-data-heap</guid>
+      <pubDate>2022-01-17</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Mengolah data tidak terstruktur pada go]]></title>
+      <description><![CDATA[Mengolah input berukuran besar bisa menjadi situasi yang tricky, apalagi kita harus mengambilnya dari data yang tidak terstruktur seperti file txt.]]></description>
+      <link>https://www.jerenslensun.com/blog/mengolah-data-tidak-terstruktur-pada-go</link>
+      <guid>https://www.jerenslensun.com/blog/mengolah-data-tidak-terstruktur-pada-go</guid>
+      <pubDate>2022-01-07</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Self Reflection 2021]]></title>
+      <description><![CDATA[Self Reflection 2021 merupakan refleksi saya di tahun ini.]]></description>
+      <link>https://www.jerenslensun.com/blog/self-reflection-2021</link>
+      <guid>https://www.jerenslensun.com/blog/self-reflection-2021</guid>
+      <pubDate>2021-12-25</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Algoritma Binary Search]]></title>
+      <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
+      <link>https://www.jerenslensun.com/blog/algoritma-binary-search</link>
+      <guid>https://www.jerenslensun.com/blog/algoritma-binary-search</guid>
+      <pubDate>2021-12-21</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Fundamental Algoritma]]></title>
+      <description><![CDATA[Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull]]></description>
+      <link>https://www.jerenslensun.com/blog/fundamental-algoritma</link>
+      <guid>https://www.jerenslensun.com/blog/fundamental-algoritma</guid>
+      <pubDate>2021-11-22</pubDate>
+    </item>
       </channel>
     </rss>

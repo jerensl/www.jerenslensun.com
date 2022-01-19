@@ -1,10 +1,11 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import Image from 'next/image'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { Seo } from '@/components/Seo'
 import { LinkURL } from '@/components/LinkURL'
 import { generateRss } from '@/lib/rss'
+import { getPlaiceholder } from 'plaiceholder'
 
 const blobStorageIoImageLoader = ({ src, width, quality }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1641437560/personal/${src}`
@@ -13,12 +14,19 @@ const blobStorageIoImageLoader = ({ src, width, quality }) => {
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
+    const { base64 } = await getPlaiceholder(
+        'https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/illustration-landing-page_drzr7q.webp',
+        { size: 10 }
+    )
+
     return {
-        props: {},
+        props: { blurDataURL: base64 },
     }
 }
 
-const Home: NextPage = () => {
+const Home: InferGetStaticPropsType<typeof getStaticProps> = ({
+    blurDataURL,
+}): React.ReactElement => {
     return (
         <>
             <Seo path="/" />
@@ -28,8 +36,10 @@ const Home: NextPage = () => {
                     <div className="grid grid-cols-4 gap-2 md:grid-cols-8 lg:grid-cols-12 items-center justify-center pt-20 md:pt-10 2xl:pt-28">
                         <div className="col-span-full pt-10 lg:col-start-6 lg:col-span-7 m-auto">
                             <Image
-                                src="illustration-landing-page_y5qo69.avif"
+                                src="illustration-landing-page_drzr7q.webp"
                                 loader={blobStorageIoImageLoader}
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
                                 alt="Person"
                                 objectFit="contain"
                                 width="1000px"
