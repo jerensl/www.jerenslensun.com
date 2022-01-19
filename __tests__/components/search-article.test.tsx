@@ -1,4 +1,4 @@
-import { render, within } from '@testing-library/react'
+import { render, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { SearchArticle } from '../../src/components/SearchArticle'
 import { Metadata } from '../../src/domain/Blog'
@@ -12,7 +12,7 @@ const posts: Metadata[] = [
         description: 'This is a summary',
         slug: 'test-first-title',
         cover: '/',
-        tags: 'test',
+        tags: 'first',
     },
     {
         title: 'Test Second Article',
@@ -22,12 +22,14 @@ const posts: Metadata[] = [
         description: 'this is a summary',
         slug: 'test-second-title',
         cover: '/',
-        tags: 'test',
+        tags: 'second',
     },
 ]
 
 const renderSearchArticlesComponent = () => {
-    const util = render(<SearchArticle posts={posts} tags={null} />)
+    const util = render(
+        <SearchArticle posts={posts} tags={['first', 'second']} />
+    )
     const input = util.getByPlaceholderText('Search Articles...')
 
     return {
@@ -75,4 +77,37 @@ test('Should not found the article', () => {
     userEvent.type(input, 'Test Third Article')
 
     expect(getByText(/No Articles found./i)).toBeInTheDocument()
+})
+
+test('Should find tag second', async () => {
+    const { getAllByRole, getByRole } = renderSearchArticlesComponent()
+
+    await waitFor(() =>
+        userEvent.click(getByRole('button', { name: /second/i }))
+    )
+
+    const result = getAllByRole('article').map((article) => {
+        return within(article).getByRole('heading').textContent
+    })
+
+    expect(result).toMatchInlineSnapshot(`
+    Array [
+      "Test Second Article",
+    ]
+    `)
+
+    await waitFor(() =>
+        userEvent.click(getByRole('button', { name: /second/i }))
+    )
+
+    const resultTwo = getAllByRole('article').map((article) => {
+        return within(article).getByRole('heading').textContent
+    })
+
+    expect(resultTwo).toMatchInlineSnapshot(`
+Array [
+  "Test First Article",
+  "Test Second Article",
+]
+`)
 })
