@@ -13,12 +13,14 @@ const blobStorageIoImageLoader = ({ src }) => {
 
 interface ArticleProps {
     frontmatter: Metadata
-    code: any
+    code: string
+    blurDataURL: string
 }
 
 export const Article = ({
     frontmatter,
     code,
+    blurDataURL,
 }: ArticleProps): React.ReactElement => {
     const Component = useMemo(() => getMDXComponent(code), [code])
 
@@ -38,6 +40,8 @@ export const Article = ({
                 <Image
                     loader={blobStorageIoImageLoader}
                     src={frontmatter.cover}
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
                     alt="Person"
                     objectFit="cover"
                     height="350px"

@@ -14,9 +14,10 @@ describe('Blog page', () => {
     })
 
     it('should find article fundamental algoritma', () => {
-        const typedText = 'Algoritma'
         // Start from the index page
         cy.visit('/')
+
+        const typedText = 'Algoritma'
 
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
         cy.get('a[href*="blog"]').first().click()

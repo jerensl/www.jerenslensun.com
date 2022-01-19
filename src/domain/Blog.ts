@@ -13,10 +13,11 @@ export interface Metadata {
     date: string
     isPublished: boolean
     description: string
-    slug: string
+    slug?: string
     cover: string
     fileName: string
     tags?: string
+    blurDataURL?: string
 }
 
 type Sort = (listOfContent: Array<Metadata>) => Array<Metadata>
@@ -56,7 +57,7 @@ export async function getAllPublishArticle(
 
     const allMetadata: Array<any> = []
 
-    files.map((fileName) => {
+    files.map(async (fileName) => {
         const source = getArticleByName(directory, `${fileName}.mdx`)
         const { data } = matter(source)
         if (data.isPublished) {

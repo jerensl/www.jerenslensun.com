@@ -9,13 +9,28 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Seo } from '@/components/Seo'
 import { SearchArticle } from '@/components/SearchArticle'
+import { getPlaiceholder } from 'plaiceholder'
 
 export const getStaticProps: GetStaticProps = async () => {
-    const posts: Array<Metadata> = await getAllPublishArticle(
+    const articles: Array<Metadata> = await getAllPublishArticle(
         'contents',
         sortByLatestDate
     )
-    const tags = getAllTags(posts)
+    const tags = getAllTags(articles)
+
+    const posts = await Promise.all(
+        articles.map(async ({ cover, ...data }) => {
+            const { base64 } = await getPlaiceholder(
+                `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${cover}`,
+                { size: 10 }
+            )
+            return {
+                cover,
+                blurDataURL: base64,
+                ...data,
+            }
+        })
+    )
 
     return {
         props: { posts, tags },
