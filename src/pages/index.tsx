@@ -1,4 +1,4 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
@@ -24,9 +24,9 @@ export const getStaticProps: GetStaticProps = async () => {
     }
 }
 
-const Home: InferGetStaticPropsType<typeof getStaticProps> = ({
+export default function Home({
     blurDataURL,
-}): React.ReactElement => {
+}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
         <>
             <Seo path="/" />
@@ -76,5 +76,3 @@ const Home: InferGetStaticPropsType<typeof getStaticProps> = ({
         </>
     )
 }
-
-export default Home
