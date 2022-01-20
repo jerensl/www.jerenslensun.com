@@ -1,10 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import countBy from 'lodash/countBy'
-import map from 'lodash/map'
-import sortBy from 'lodash/sortBy'
-import toPairs from 'lodash/toPairs'
 
 const rootDirectory = process.cwd()
 
@@ -16,7 +12,7 @@ export interface Metadata {
     slug?: string
     cover: string
     fileName: string
-    tags?: string
+    tags: Array<string>
     blurDataURL?: string
 }
 
@@ -71,10 +67,12 @@ export async function getAllPublishArticle(
 }
 
 export function getAllTags(contents) {
-    const tags = contents.reduce(
-        (accTags: string[], content) => [...accTags, ...content.tags],
-        []
-    )
+    const tags = new Set<string>()
+    for (const post of contents) {
+        for (const tag of post.tags ?? []) {
+            tags.add(tag)
+        }
+    }
 
-    return map(sortBy(toPairs(countBy(tags)), 1), 0).reverse()
+    return Array.from(tags)
 }

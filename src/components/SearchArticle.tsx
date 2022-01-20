@@ -1,6 +1,7 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { Metadata } from '../domain/Blog'
+import { filterPosts } from '../domain/Search'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Tag } from './Tag'
@@ -16,43 +17,30 @@ export const SearchArticle = ({
     posts: Metadata[]
     tags: string[]
 }): React.ReactElement => {
-    const [searchArticles, setSearchArticles] = React.useState<string>('')
-    const [filteredPost, setFilteredPost] = React.useState<Array<Metadata>>([
-        ...posts,
-    ])
+    const [query, setQuery] = React.useState<string>('')
 
-    React.useEffect(() => {
-        const articles = posts.filter((post) =>
-            post.title.toLowerCase().includes(searchArticles.toLowerCase())
-        )
+    const matchingPosts = React.useMemo(() => {
+        let filteredPosts = posts
 
-        articles.map(({ title, ...allArticle }) => {
-            title
-                .split(' ')
-                .map((w) => w.substring(0, 1).toUpperCase() + w.substring(1))
-                .join(' ')
-
-            return {
-                title,
-                ...allArticle,
-            }
-        })
-
-        setFilteredPost(articles)
-    }, [searchArticles, posts])
+        return filterPosts(filteredPosts, query)
+    }, [posts, query])
 
     const toggleTag = (tag: string) => {
-        if (searchArticles.includes(tag)) {
-            setSearchArticles((s) =>
+        if (query.includes(tag)) {
+            setQuery((s) =>
                 s
                     .split(' ')
                     .filter((t) => t !== tag)
                     ?.join(' ')
             )
         } else {
-            setSearchArticles((s) => (s !== '' ? `${s.trim()} ${tag}` : tag))
+            setQuery((s) => (s !== '' ? `${s.trim()} ${tag}` : tag))
         }
     }
+
+    const visibleTags = new Set(
+        matchingPosts.flatMap((post) => post.tags).filter(Boolean)
+    )
 
     return (
         <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5">
@@ -62,9 +50,9 @@ export const SearchArticle = ({
                         className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
                         placeholder="Search Articles..."
                         aria-label="Search Articles"
-                        value={searchArticles}
+                        value={query}
                         onChange={(event) => {
-                            setSearchArticles(event.target.value)
+                            setQuery(event.target.value)
                         }}
                     />
                 </div>
@@ -72,15 +60,23 @@ export const SearchArticle = ({
                     <p className="mr-2 text-lg font-medium">
                         Search by topics :
                     </p>
-                    {tags?.map((tag) => (
-                        <Tag key={tag} onClick={() => toggleTag(tag)}>
-                            {tag}
-                        </Tag>
-                    ))}
+                    {tags?.map((tag) => {
+                        const selected = query.includes(tag)
+
+                        return (
+                            <Tag
+                                key={tag}
+                                onClick={() => toggleTag(tag)}
+                                disabled={!visibleTags.has(tag) && !selected}
+                            >
+                                {tag}
+                            </Tag>
+                        )
+                    })}
                 </div>
             </div>
-            {filteredPost.length ? null : <p>No articles found.</p>}
-            {filteredPost?.map(
+            {matchingPosts.length ? null : <p>No articles found.</p>}
+            {matchingPosts?.map(
                 ({
                     cover,
                     date,
