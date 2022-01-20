@@ -12,7 +12,7 @@ const posts: Metadata[] = [
         description: 'This is a summary',
         slug: 'test-first-title',
         cover: '/',
-        tags: 'first',
+        tags: ['first'],
         blurDataURL: 'test-second-title',
     },
     {
@@ -23,7 +23,7 @@ const posts: Metadata[] = [
         description: 'this is a summary',
         slug: 'test-second-title',
         cover: '/',
-        tags: 'second',
+        tags: ['second'],
         blurDataURL: 'test-second-title',
     },
 ]
