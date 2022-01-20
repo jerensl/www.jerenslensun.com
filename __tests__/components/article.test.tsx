@@ -14,6 +14,7 @@ const fakeData = {
     description: 'test component',
     slug: 'test',
     cover: 'image/test',
+    tags: ['test'],
     fileName: 'test',
     blurDataURL: 'image/test',
 }
