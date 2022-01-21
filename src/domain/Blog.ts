@@ -13,9 +13,9 @@ export interface Metadata {
     slug?: string
     cover: string
     fileName: string
-    readTime: ReadTimeResults
     tags: Array<string>
     blurDataURL?: string
+    readTime: ReadTimeResults
 }
 
 type Sort = (listOfContent: Array<Metadata>) => Array<Metadata>

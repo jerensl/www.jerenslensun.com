@@ -54,11 +54,9 @@ export const Articles = ({
                 </div>
             </div>
             <div className="flex flex-col p-2 justify-between">
-                <Link passHref href={`/blog/${slug}`}>
-                    <h1 className="text-2xl font-bold leading-8 tracking-tight cursor-pointer">
-                        {captializeTitle}
-                    </h1>
-                </Link>
+                <h1 className="text-2xl font-bold leading-8 tracking-tight cursor-pointer">
+                    {captializeTitle}
+                </h1>
                 <p className="line-clamp-3">{description}</p>
                 <p className="text-gray-500">
                     {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
