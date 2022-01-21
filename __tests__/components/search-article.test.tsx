@@ -14,6 +14,7 @@ const posts: Metadata[] = [
         cover: '/',
         tags: ['first'],
         blurDataURL: 'test-second-title',
+        readTime: { text: '1 min read', time: 1, words: 1, minutes: 1 },
     },
     {
         title: 'Test Second Article',
@@ -25,6 +26,7 @@ const posts: Metadata[] = [
         cover: '/',
         tags: ['second'],
         blurDataURL: 'test-second-title',
+        readTime: { text: '1 min read', time: 1, words: 1, minutes: 1 },
     },
 ]
 

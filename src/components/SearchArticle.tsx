@@ -67,7 +67,6 @@ export const SearchArticle = ({
                         </p>
                         {tags?.map((tag) => {
                             const selected = query.includes(tag)
-
                             return (
                                 <Tag
                                     key={tag}
