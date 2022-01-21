@@ -39,6 +39,7 @@
         "plaiceholder": "^2.2.0",
         "react": "17.0.2",
         "react-dom": "17.0.2",
+        "reading-time": "^1.5.0",
         "refractor": "^4.4.0",
         "rehype-katex": "^6.0.2",
         "rehype-parse": "^8.0.3",
