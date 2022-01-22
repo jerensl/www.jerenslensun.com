@@ -47,7 +47,7 @@ export const SearchArticle = ({
     )
 
     return (
-        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5 lg:max-w-7xl lg:m-auto">
+        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5 lg:max-w-7xl lg:mx-auto">
             <div className="col-span-full w-full">
                 <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                     <input
@@ -86,7 +86,7 @@ export const SearchArticle = ({
                             setGlobalLang((b) => !b)
                             clearSearch()
                         }}
-                        className="text-sm my-2 mr-4 px-4 py-2 w-auto h-auto rounded-md cursor-pointer transition font-semibold text-white bg-red-500 opacity-100"
+                        className="text-sm mt-5 md:mt-3 mb-5 mr-4 px-4 py-2 w-auto h-auto rounded-md cursor-pointer transition font-semibold text-white bg-red-500 opacity-100"
                     >
                         Read in {globalLang ? 'Bahasa Indonesia' : 'English'}
                     </button>
