@@ -81,6 +81,7 @@ export const SearchArticle = ({
                         })}
                     </div>
                     <button
+                        data-cy="lang"
                         onClick={() => {
                             setGlobalLang((b) => !b)
                             clearSearch()

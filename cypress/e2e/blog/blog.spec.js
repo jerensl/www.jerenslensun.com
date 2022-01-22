@@ -6,7 +6,7 @@ describe('Blog page', () => {
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
         cy.get('a[href*="blog"]').first().click()
 
-        cy.findByRole('button', { name: /Read in Bahasa Indonesia/i }).click()
+        cy.get('[data-cy=lang]').click()
 
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
         cy.get('a[href*="/blog/self-reflection-2021"]').first().click()
@@ -24,7 +24,7 @@ describe('Blog page', () => {
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
         cy.get('a[href*="blog"]').first().click()
 
-        cy.findByRole('button', { name: /Read in Bahasa Indonesia/i }).click()
+        cy.get('[data-cy=lang]').click()
 
         cy.get('[aria-label="Search Articles"]')
             .type(typedText)
@@ -45,7 +45,7 @@ describe('Blog page', () => {
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
         cy.get('a[href*="blog"]').first().click()
 
-        cy.findByRole('button', { name: /Read in Bahasa Indonesia/i }).click()
+        cy.get('[data-cy=lang]').click()
 
         cy.get('[aria-label="Search Articles"]')
             .type(typedText)
