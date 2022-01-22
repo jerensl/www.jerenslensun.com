@@ -10,7 +10,7 @@ describe('Blog page', () => {
         cy.get('[data-cy=lang]').click()
 
         // Find a link with an href attribute containing article "self-reflection-2021" and click it
-        cy.get('h1').first().should('have.value', articleTitle).click()
+        cy.get('h1').should('have.value', articleTitle).click()
 
         // The new url should have text "Be Present"
         cy.get('strong').contains('Be Present')
@@ -33,7 +33,7 @@ describe('Blog page', () => {
             .should('have.value', typedText)
 
         // Find a link with an href attribute containing article "fundamental-algoritma" and click it
-        cy.get('h1').first().should('have.value', articleTitle).click()
+        cy.get('h1').should('have.value', articleTitle).click()
 
         // The new url should have text "Be Present"
         cy.get('h3').contains('Growth Rate')
