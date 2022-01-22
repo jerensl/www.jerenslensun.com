@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import timeToRead, { ReadTimeResults } from 'reading-time'
 
 const rootDirectory = process.cwd()
 
@@ -14,6 +15,7 @@ export interface Metadata {
     fileName: string
     tags: Array<string>
     blurDataURL?: string
+    readTime: ReadTimeResults
 }
 
 type Sort = (listOfContent: Array<Metadata>) => Array<Metadata>
@@ -55,9 +57,10 @@ export async function getAllPublishArticle(
 
     files.map(async (fileName) => {
         const source = getArticleByName(directory, `${fileName}.mdx`)
-        const { data } = matter(source)
+        const { data, content } = matter(source)
+        const readTime = timeToRead(content)
         if (data.isPublished) {
-            allMetadata.push({ ...data, slug: fileName })
+            allMetadata.push({ ...data, readTime, slug: fileName })
         }
     })
 

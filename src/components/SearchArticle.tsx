@@ -16,12 +16,18 @@ export const SearchArticle = ({
     tags: string[]
 }): React.ReactElement => {
     const [query, setQuery] = React.useState<string>('')
+    const [globalLang, setGlobalLang] = React.useState<boolean>(true)
+
+    const englishLang = posts.filter((p) => !p.slug.startsWith('id-'))
+    const indonesiaLang = posts.filter((p) => p.slug.startsWith('id-'))
+
+    const clearSearch = () => setQuery('')
 
     const matchingPosts = React.useMemo(() => {
-        let filteredPosts = posts
+        let filteredPosts = globalLang ? englishLang : indonesiaLang
 
         return filterPosts(filteredPosts, query)
-    }, [posts, query])
+    }, [globalLang, query])
 
     const toggleTag = (tag: string) => {
         if (query.includes(tag)) {
@@ -41,9 +47,9 @@ export const SearchArticle = ({
     )
 
     return (
-        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5">
+        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5 lg:max-w-7xl lg:m-auto">
             <div className="col-span-full w-full">
-                <div className="w-full max-w-sm m-auto bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
+                <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                     <input
                         className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
                         placeholder="Search Articles..."
@@ -54,23 +60,36 @@ export const SearchArticle = ({
                         }}
                     />
                 </div>
-                <div className="w-full max-w-lg m-auto flex my-4 flex-wrap col-span-full -mb-4">
-                    <p className="mr-2 text-lg font-medium">
-                        Search by topics :
-                    </p>
-                    {tags?.map((tag) => {
-                        const selected = query.includes(tag)
-
-                        return (
-                            <Tag
-                                key={tag}
-                                onClick={() => toggleTag(tag)}
-                                disabled={!visibleTags.has(tag) && !selected}
-                            >
-                                {tag}
-                            </Tag>
-                        )
-                    })}
+                <div>
+                    <div className="w-full flex my-4 flex-wrap col-span-full -mb-4">
+                        <p className="mr-2 text-lg font-medium">
+                            Search by topics :
+                        </p>
+                        {tags?.map((tag) => {
+                            const selected = query.includes(tag)
+                            return (
+                                <Tag
+                                    key={tag}
+                                    onClick={() => toggleTag(tag)}
+                                    disabled={
+                                        !visibleTags.has(tag) && !selected
+                                    }
+                                >
+                                    {tag}
+                                </Tag>
+                            )
+                        })}
+                    </div>
+                    <button
+                        data-cy="lang"
+                        onClick={() => {
+                            setGlobalLang((b) => !b)
+                            clearSearch()
+                        }}
+                        className="text-sm my-2 mr-4 px-4 py-2 w-auto h-auto rounded-md cursor-pointer transition font-semibold text-white bg-red-500 opacity-100"
+                    >
+                        Read in {globalLang ? 'Bahasa Indonesia' : 'English'}
+                    </button>
                 </div>
             </div>
             {matchingPosts.length ? null : <p>No articles found.</p>}

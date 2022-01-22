@@ -17,6 +17,7 @@ const fakeData = {
     tags: ['test'],
     fileName: 'test',
     blurDataURL: 'image/test',
+    readTime: { text: '1 min read', time: 1, words: 1, minutes: 1 },
 }
 
 describe('Blog Article', () => {

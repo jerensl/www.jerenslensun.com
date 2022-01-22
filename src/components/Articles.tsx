@@ -14,6 +14,8 @@ export const Articles = ({
     slug,
     title,
     blurDataURL,
+    tags,
+    readTime,
 }: Metadata): React.ReactElement => {
     const captializeTitle = title
         .split(' ')
@@ -21,8 +23,11 @@ export const Articles = ({
         .join(' ')
 
     return (
-        <article key={slug} className="min-h-full">
-            <div className="overflow-auto">
+        <article
+            key={slug}
+            className="min-h-full rounded-md overflow-auto border border-gray-400 grid grid-rows-2"
+        >
+            <div className="relative overflow-auto">
                 <Link href={`/blog/${slug}`} passHref>
                     <a>
                         <Image
@@ -34,23 +39,32 @@ export const Articles = ({
                             placeholder="blur"
                             height="200px"
                             width="450px"
-                            className="transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
+                            className="relative transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
                         />
                     </a>
                 </Link>
+                <div className="absolute left-1 bottom-3 text-red-400 font-bold bg-white opacity-70 rounded-md">
+                    {tags.map((tag) => {
+                        return (
+                            <>
+                                <span>{tag.toUpperCase()} </span>
+                            </>
+                        )
+                    })}
+                </div>
             </div>
-            <h1 className="text-2xl font-bold leading-8 tracking-tight">
-                {captializeTitle}
-            </h1>
-            <p className="text-gray-500">
-                {format(new Date(date), 'MMMM dd, yyyy')}
-            </p>
-            <p className="line-clamp-3">{description}</p>
-            <Link passHref href={`/blog/${slug}`}>
-                <a className="text-current cursor-pointer opacity-60 hover:opacity-100">
-                    Read More →
-                </a>
-            </Link>
+            <div className="flex flex-col p-2 justify-between">
+                <Link href={`/blog/${slug}`} passHref>
+                    <h1 className="text-2xl font-bold leading-8 tracking-tight cursor-pointer">
+                        {captializeTitle}
+                    </h1>
+                </Link>
+                <p className="line-clamp-3">{description}</p>
+                <p className="text-gray-500">
+                    {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
+                    <span>{readTime.text}</span>
+                </p>
+            </div>
         </article>
     )
 }
