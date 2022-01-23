@@ -116,4 +116,32 @@ Array [
 ]
 `)
     })
+
+    it('Should just have render Test First Article', () => {
+        const { input, getAllByRole } = renderSearchArticlesComponent()
+
+        userEvent.type(input, 'Test First Article')
+
+        const result = getAllByRole('article').map((article) => {
+            return within(article).getByRole('heading').textContent
+        })
+
+        expect(result).toMatchInlineSnapshot(`
+Array [
+  "Test First Article",
+]
+`)
+    })
+
+    it('Should change languange to Bahasa Indonesia', async () => {
+        const { getByRole, findByText } = renderSearchArticlesComponent()
+
+        userEvent.click(
+            getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
+
+        const result = await findByText(/Read in English/i)
+
+        expect(result).toBeInTheDocument()
+    })
 })

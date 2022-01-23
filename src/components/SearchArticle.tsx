@@ -4,10 +4,6 @@ import { filterPosts } from '../domain/Search'
 import { Tag } from './Tag'
 import { Articles } from './Articles'
 
-const blobStorageIoImageLoader = ({ src }) => {
-    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
-}
-
 export const SearchArticle = ({
     posts,
     tags,
@@ -60,7 +56,7 @@ export const SearchArticle = ({
                         }}
                     />
                 </div>
-                <div>
+                <div className="w-full">
                     <div className="w-full flex my-4 flex-wrap col-span-full -mb-4">
                         <p className="mr-2 text-lg font-medium">
                             Search by topics :
