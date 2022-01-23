@@ -45,11 +45,7 @@ export const Articles = ({
                 </Link>
                 <div className="absolute left-1 bottom-3 text-red-400 font-bold bg-white opacity-70 rounded-md">
                     {tags.map((tag) => {
-                        return (
-                            <>
-                                <span>{tag.toUpperCase()} </span>
-                            </>
-                        )
+                        return <span key={tag}>{tag.toUpperCase()} </span>
                     })}
                 </div>
             </div>
