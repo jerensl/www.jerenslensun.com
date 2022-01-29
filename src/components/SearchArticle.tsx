@@ -23,7 +23,7 @@ export const SearchArticle = ({
         let filteredPosts = globalLang ? englishLang : indonesiaLang
 
         return filterPosts(filteredPosts, query)
-    }, [globalLang, query])
+    }, [globalLang, query, englishLang, indonesiaLang])
 
     const toggleTag = (tag: string) => {
         if (query.includes(tag)) {
@@ -43,7 +43,7 @@ export const SearchArticle = ({
     )
 
     return (
-        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5 lg:max-w-7xl lg:mx-auto">
+        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5 lg:max-w-7xl">
             <div className="col-span-full w-full">
                 <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                     <input
