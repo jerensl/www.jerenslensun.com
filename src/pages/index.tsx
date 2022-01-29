@@ -44,33 +44,35 @@ export default function Home({
                                 objectFit="contain"
                                 width="1000px"
                                 height="667px"
+                                className="transition duration-300 ease-in-out"
                             />
                         </div>
                         <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto text-center">
-                            <div>
-                                <h1 className="font-bold text-4xl md:text-5xl">
-                                    Jerens Lensun
-                                </h1>
-                                <p className="font-medium text-3xl md:text-4xl">
-                                    Software Engineer
-                                </p>
-                            </div>
-                            <div className="grid gap-1 md:gap-0 md:grid-cols-2 px-10">
-                                <LinkURL href="/blog">
-                                    <a className="rounded-md text-white bg-red-500 font-semibold text-xl hover:bg-red-700 px-4 py-2 block md:mx-auto">
-                                        Read Articles
-                                    </a>
-                                </LinkURL>
-                                <LinkURL href="/about">
-                                    <a className="rounded-md bg-gray-300 font-semibold text-xl hover:bg-gray-400 px-4 py-2 block md:mx-auto">
-                                        About Me
-                                    </a>
-                                </LinkURL>
+                            <div className="flex flex-auto flex-col gap-6 items-start">
+                                <div className="flex self-center flex-auto flex-col gap-1">
+                                    <h1 className="font-bold text-4xl md:text-5xl">
+                                        Jerens Lensun
+                                    </h1>
+                                    <p className="font-medium text-3xl md:text-4xl">
+                                        Software Engineer
+                                    </p>
+                                </div>
+                                <div className="flex self-center flex-col gap-2">
+                                    <LinkURL href="/blog">
+                                        <a className="rounded-md text-white bg-red-600 font-semibold text-xl hover:bg-red-500 w-36 py-2">
+                                            Read Articles
+                                        </a>
+                                    </LinkURL>
+                                    <LinkURL href="/about">
+                                        <a className="rounded-md bg-gray-200 font-semibold text-xl hover:bg-gray-300 w-36 py-2">
+                                            About Me
+                                        </a>
+                                    </LinkURL>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </main>
-
                 <Footer />
             </div>
         </>
