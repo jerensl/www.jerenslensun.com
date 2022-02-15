@@ -5,7 +5,7 @@ services:
         ports:
             - '3000:3000'
     e2e:
-        image: 'cypress/included:9.1.1'
+        image: 'cypress/included:9.4.1'
         depends_on:
             - web
         environment:

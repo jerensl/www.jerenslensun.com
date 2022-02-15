@@ -12,7 +12,7 @@ export const SearchArticle = ({
     tags: string[]
 }): React.ReactElement => {
     const [query, setQuery] = React.useState<string>('')
-    const [globalLang, setGlobalLang] = React.useState<boolean>(true)
+    const [globalLang, setGlobalLang] = React.useState<boolean>(false)
 
     const englishLang = posts.filter((p) => !p.slug.startsWith('id-'))
     const indonesiaLang = posts.filter((p) => p.slug.startsWith('id-'))
