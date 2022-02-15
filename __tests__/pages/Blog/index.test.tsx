@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { render, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import Blog from '../../../src/pages/blog/index'
 import {
     getAllPublishArticle,
@@ -56,6 +57,8 @@ describe('Blog', () => {
 
     it('This blog pages will show the list of article', async () => {
         const { utils } = await renderBlogSlug()
+
+        userEvent.click(utils.getByRole('button', { name: /Read in English/i }))
 
         const result = utils.getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
