@@ -44,7 +44,10 @@ describe('Search Article', () => {
     }
 
     it('Should just have render Test First Article', () => {
-        const { input, getAllByRole } = renderSearchArticlesComponent()
+        const { input, getAllByRole, getByRole } =
+            renderSearchArticlesComponent()
+
+        userEvent.click(getByRole('button', { name: /Read in English/i }))
 
         userEvent.type(input, 'Test First Article')
 
@@ -60,7 +63,10 @@ Array [
     })
 
     it('Should render all post named contain article', () => {
-        const { input, getAllByRole } = renderSearchArticlesComponent()
+        const { input, getAllByRole, getByRole } =
+            renderSearchArticlesComponent()
+
+        userEvent.click(getByRole('button', { name: /Read in English/i }))
 
         userEvent.type(input, 'article')
 
@@ -86,6 +92,8 @@ Array [
 
     it('Should find tag second', async () => {
         const { getAllByRole, getByRole } = renderSearchArticlesComponent()
+
+        userEvent.click(getByRole('button', { name: /Read in English/i }))
 
         await waitFor(() =>
             userEvent.click(getByRole('button', { name: /second/i }))
@@ -118,7 +126,10 @@ Array [
     })
 
     it('Should just have render Test First Article', () => {
-        const { input, getAllByRole } = renderSearchArticlesComponent()
+        const { input, getAllByRole, getByRole } =
+            renderSearchArticlesComponent()
+
+        userEvent.click(getByRole('button', { name: /Read in English/i }))
 
         userEvent.type(input, 'Test First Article')
 
@@ -133,14 +144,12 @@ Array [
 `)
     })
 
-    it('Should change languange to Bahasa Indonesia', async () => {
+    it('Should change languange to English', async () => {
         const { getByRole, findByText } = renderSearchArticlesComponent()
 
-        userEvent.click(
-            getByRole('button', { name: /Read in Bahasa Indonesia/i })
-        )
+        userEvent.click(getByRole('button', { name: /Read in English/i }))
 
-        const result = await findByText(/Read in English/i)
+        const result = await findByText(/Read in Bahasa Indonesia/i)
 
         expect(result).toBeInTheDocument()
     })
