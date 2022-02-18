@@ -32,7 +32,7 @@
         "hast-util-to-string": "^2.0.0",
         "match-sorter": "^6.3.1",
         "mdx-bundler": "^8.0.1",
-        "next": "12.0.9",
+        "next": "12.1.0",
         "next-compose-plugins": "^2.2.1",
         "next-pwa": "^5.4.4",
         "parse-numeric-range": "^1.3.0",
