@@ -19,7 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@fortawesome/free-brands-svg-icons": "^5.15.4",
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
-        "@fortawesome/react-fontawesome": "^0.1.16",
+        "@fortawesome/react-fontawesome": "^0.1.17",
         "@giscus/react": "^1.0.1",
         "@headlessui/react": "^1.4.3",
         "@heroicons/react": "^1.0.5",
