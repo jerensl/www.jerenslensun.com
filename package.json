@@ -44,7 +44,7 @@
         "rehype-katex": "^6.0.2",
         "rehype-parse": "^8.0.3",
         "remark-math": "^5.1.1",
-        "sharp": "^0.29.3",
+        "sharp": "^0.30.0",
         "unified": "^10.1.1",
         "unist-util-visit": "^4.1.0",
         "workbox-cacheable-response": "^6.4.2",
