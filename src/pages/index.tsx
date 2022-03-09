@@ -1,5 +1,5 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image from 'next/image'
+import Image, { ImageLoader } from 'next/image'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { Seo } from '@/components/Seo'
@@ -7,7 +7,7 @@ import { LinkURL } from '@/components/LinkURL'
 import { generateRss } from '@/lib/rss'
 import { getPlaiceholder } from 'plaiceholder'
 
-const blobStorageIoImageLoader = ({ src, width, quality }) => {
+const blobStorageIoImageLoader: ImageLoader = ({ src, width, quality }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1641437560/personal/${src}`
 }
 
