@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Image, { ImageLoader } from 'next/image'
 import { Metadata } from '../domain/Blog'
 import { format } from 'date-fns'
 
-const blobStorageIoImageLoader = ({ src }) => {
+const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
 }
 

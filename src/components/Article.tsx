@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import Image from 'next/image'
+import Image, { ImageLoader } from 'next/image'
 import { ArticleSeo } from './Seo'
 import { components } from './components'
 import { Giscus } from '@giscus/react'
 import { format } from 'date-fns'
 import { Metadata } from '../domain/Blog'
 
-const blobStorageIoImageLoader = ({ src }) => {
+const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
 }
 
