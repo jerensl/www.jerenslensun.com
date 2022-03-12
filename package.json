@@ -21,7 +21,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/react-fontawesome": "^0.1.16",
         "@giscus/react": "^1.1.2",
-        "@headlessui/react": "^1.4.3",
+        "@headlessui/react": "^1.5.0",
         "@heroicons/react": "^1.0.5",
         "@stitches/core": "^1.2.6",
         "@tailwindcss/aspect-ratio": "^0.4.0",
