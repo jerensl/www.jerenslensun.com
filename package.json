@@ -27,7 +27,7 @@
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/line-clamp": "^0.3.1",
         "date-fns": "^2.28.0",
-        "esbuild": "^0.14.11",
+        "esbuild": "^0.14.23",
         "hast-util-to-html": "^8.0.3",
         "hast-util-to-string": "^2.0.0",
         "match-sorter": "^6.3.1",
