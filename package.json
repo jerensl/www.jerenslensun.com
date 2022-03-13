@@ -42,7 +42,7 @@
         "reading-time": "^1.5.0",
         "refractor": "^4.4.0",
         "rehype-katex": "^6.0.2",
-        "rehype-parse": "^8.0.3",
+        "rehype-parse": "^8.0.4",
         "remark-math": "^5.1.1",
         "sharp": "^0.30.1",
         "unified": "^10.1.1",
