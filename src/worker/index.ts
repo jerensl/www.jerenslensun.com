@@ -1,16 +1,12 @@
-import { cacheNames, setCacheNameDetails } from 'workbox-core'
+import { setCacheNameDetails } from 'workbox-core'
 import { registerRoute } from 'workbox-routing'
-import {
-    StaleWhileRevalidate,
-    CacheFirst,
-    NetworkFirst,
-} from 'workbox-strategies'
-// Used for filtering matches based on status code, header, or both
+import { StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
-// Used to limit entries in cache, remove entries after a certain period of time
 import { ExpirationPlugin } from 'workbox-expiration'
 
 declare let self: ServiceWorkerGlobalScope
+
+self.__WB_DISABLE_DEV_LOGS = true
 
 // To disable all workbox logging during development, you can set self.__WB_DISABLE_DEV_LOGS to true
 // https://developers.google.com/web/tools/workbox/guides/configure-workbox#disable_logging
@@ -49,7 +45,7 @@ registerRoute(
     // Use a Stale While Revalidate caching strategy
     new StaleWhileRevalidate({
         // Put all cached files in a cache named 'assets'
-        cacheName: 'assets',
+        cacheName: 'static-assets',
         plugins: [
             // Ensure that only requests that result in a 200 status are cached
             new CacheableResponsePlugin({
@@ -64,7 +60,7 @@ registerRoute(
     // Check to see if the request's destination is style for an image
     ({ request }) => request.destination === 'image',
     // Use a Cache First caching strategy
-    new CacheFirst({
+    new StaleWhileRevalidate({
         // Put all cached files in a cache named 'images'
         cacheName: 'images',
         plugins: [
@@ -76,6 +72,22 @@ registerRoute(
             new ExpirationPlugin({
                 maxEntries: 50,
                 maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+            }),
+        ],
+    })
+)
+
+registerRoute(
+    ({ url }) => url.origin === 'https://res.cloudinary.com',
+    new StaleWhileRevalidate({
+        cacheName: 'cdn-images',
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [0, 200],
+            }),
+            new ExpirationPlugin({
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
             }),
         ],
     })

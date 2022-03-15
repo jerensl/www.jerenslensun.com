@@ -6005,15 +6005,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_expiration__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(59);
 
 
- // Used for filtering matches based on status code, header, or both
-
- // Used to limit entries in cache, remove entries after a certain period of time
 
 
-// To disable all workbox logging during development, you can set self.__WB_DISABLE_DEV_LOGS to true
+
+self.__WB_DISABLE_DEV_LOGS = true; // To disable all workbox logging during development, you can set self.__WB_DISABLE_DEV_LOGS to true
 // https://developers.google.com/web/tools/workbox/guides/configure-workbox#disable_logging
 //
 // self.__WB_DISABLE_DEV_LOGS = true
+
 (0,workbox_core__WEBPACK_IMPORTED_MODULE_0__.setCacheNameDetails)({
   prefix: 'jerens-app',
   suffix: 'v1'
@@ -6038,7 +6037,7 @@ new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.NetworkFirst({
 }) => request.destination === 'style' || request.destination === 'script' || request.destination === 'worker', // Use a Stale While Revalidate caching strategy
 new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.StaleWhileRevalidate({
   // Put all cached files in a cache named 'assets'
-  cacheName: 'assets',
+  cacheName: 'static-assets',
   plugins: [// Ensure that only requests that result in a 200 status are cached
   new workbox_cacheable_response__WEBPACK_IMPORTED_MODULE_3__.CacheableResponsePlugin({
     statuses: [200]
@@ -6060,6 +6059,17 @@ new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.CacheFirst({
     maxEntries: 50,
     maxAgeSeconds: 60 * 60 * 24 * 30 // 30 Days
 
+  })]
+}));
+(0,workbox_routing__WEBPACK_IMPORTED_MODULE_1__.registerRoute)(({
+  url
+}) => url.origin === 'https://res.cloudinary.com', new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.CacheFirst({
+  cacheName: 'cdn-images',
+  plugins: [new workbox_cacheable_response__WEBPACK_IMPORTED_MODULE_3__.CacheableResponsePlugin({
+    statuses: [0, 200]
+  }), new workbox_expiration__WEBPACK_IMPORTED_MODULE_4__.ExpirationPlugin({
+    maxAgeSeconds: 60 * 60 * 24 * 365,
+    maxEntries: 30
   })]
 })); // listen to message event from window
 

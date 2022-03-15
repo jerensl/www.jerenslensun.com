@@ -11,6 +11,8 @@ module.exports = withPlugins(
             {
                 pwa: {
                     dest: 'public',
+                    disable: process.env.NODE_ENV === 'development',
+                    customWorkerDir: 'src/worker',
                     runtimeCaching,
                     cacheOnFrontEndNav: true,
                 },
