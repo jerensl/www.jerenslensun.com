@@ -48,7 +48,7 @@
         "unified": "^10.1.1",
         "unist-util-visit": "^4.1.0",
         "workbox-cacheable-response": "^6.4.2",
-        "workbox-core": "^6.4.2",
+        "workbox-core": "^6.5.0",
         "workbox-expiration": "^6.4.2",
         "workbox-routing": "^6.4.2",
         "workbox-strategies": "^6.4.2",
