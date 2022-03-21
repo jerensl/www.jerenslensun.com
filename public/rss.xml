@@ -13,8 +13,8 @@
       <pubDate>2022-01-17</pubDate>
     </item>
 <item>
-      <title><![CDATA[Mengolah data tidak terstruktur pada go]]></title>
-      <description><![CDATA[Mengolah input berukuran besar bisa menjadi situasi yang tricky, apalagi kita harus mengambilnya dari data yang tidak terstruktur seperti file txt.]]></description>
+      <title><![CDATA[Parsing data standard input pada go]]></title>
+      <description><![CDATA[Mengolah data penyimpanan external pada golang membutuhkan cara tertentu, apalagi dengan data berukuran besar, kita tidak bisa langsung menginisialiasi data langsung ke dalam variable.]]></description>
       <link>https://www.jerenslensun.com/blog/id-mengolah-data-tidak-terstruktur-pada-go</link>
       <guid>https://www.jerenslensun.com/blog/id-mengolah-data-tidak-terstruktur-pada-go</guid>
       <pubDate>2022-01-07</pubDate>
