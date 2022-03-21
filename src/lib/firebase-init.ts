@@ -30,7 +30,7 @@ export const getCredentialsToken = async () => {
         currentToken = await getToken(messaging, { vapidKey: FCM_VAPID_KEY })
         if (currentToken) {
             const response = await fetch(
-                'http://api.jerenslensun.com/api/notification/subscribe',
+                'https://api.jerenslensun.com/api/notification/subscribe',
                 {
                     method: 'POST', // *GET, POST, PUT, DELETE, etc.
                     mode: 'no-cors', // no-cors, *cors, same-origin
