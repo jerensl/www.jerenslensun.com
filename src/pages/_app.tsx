@@ -27,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         } else if (window.Notification.permission === 'granted') {
             // If it's okay let's create a notification
             getCredentialsToken()
-            // onMessageListener()
         } else if (window.Notification.permission !== 'denied') {
             Notification.requestPermission((status) => {
                 // If the user accepts, let's create a notification
