@@ -9,6 +9,7 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { faBars, faTimes, faRssSquare } from '@fortawesome/free-solid-svg-icons'
+import { Notifications } from '../components/Notifications'
 
 library.add(
     faGithubSquare,
@@ -23,11 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     useEffect(() => {
         if (!('Notification' in window)) {
             console.log('This browser does not support desktop notification')
-        } else if (Notification.permission === 'granted') {
+        } else if (window.Notification.permission === 'granted') {
             // If it's okay let's create a notification
             getCredentialsToken()
-            // onMessageListener()
-        } else if (Notification.permission !== 'denied') {
+        } else if (window.Notification.permission !== 'denied') {
             Notification.requestPermission((status) => {
                 // If the user accepts, let's create a notification
                 if (status === 'granted') {

@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
  * there's a quota error.
  *
  * @param {Function} callback
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 // Can't change Function type
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -206,7 +206,7 @@ const logger =  false ? 0 : (() => {
  // @ts-ignore
 
 try {
-  self['workbox:core:6.4.1'] && _();
+  self['workbox:core:6.5.0'] && _();
 } catch (e) {}
 
 /***/ }),
@@ -682,6 +682,17 @@ const messages = {
     origin
   }) => {
     return `workbox-core.copyResponse() can only be used with same-origin ` + `responses. It was passed a response with origin ${origin}.`;
+  },
+  'opaque-streams-source': ({
+    type
+  }) => {
+    const message = `One of the workbox-streams sources resulted in an ` + `'${type}' response.`;
+
+    if (type === 'opaqueredirect') {
+      return `${message} Please do not use a navigation request that results ` + `in a redirect as a source.`;
+    }
+
+    return `${message} Please ensure your sources are CORS-enabled.`;
   }
 };
 
@@ -1094,7 +1105,7 @@ __webpack_require__.r(__webpack_exports__);
  * Runs all of the callback functions, one at a time sequentially, in the order
  * in which they were registered.
  *
- * @memberof module:workbox-core
+ * @memberof workbox-core
  * @private
  */
 
@@ -1312,7 +1323,7 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Object} An object with `precache`, `runtime`, `prefix`, and
  *     `googleAnalytics` properties.
  *
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 
 const cacheNames = {
@@ -1378,7 +1389,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @param {Response} response
  * @param {Function} modifier
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 
 async function copyResponse(response, modifier) {
@@ -1435,7 +1446,7 @@ __webpack_require__.r(__webpack_exports__);
  * Claim any currently available clients once the service worker
  * becomes active. This is normally used in conjunction with `skipWaiting()`.
  *
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 
 function clientsClaim() {
@@ -1483,7 +1494,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {Object} [details.googleAnalytics] The cache name to use for
  *     `workbox-google-analytics` caching.
  *
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 
 function setCacheNameDetails(details) {
@@ -1548,7 +1559,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Calling self.skipWaiting() is equivalent, and should be used instead.
  *
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 
 function skipWaiting() {
@@ -1611,13 +1622,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "setDefaultHandler": () => (/* reexport safe */ _setDefaultHandler_js__WEBPACK_IMPORTED_MODULE_6__.setDefaultHandler)
 /* harmony export */ });
 /* harmony import */ var _NavigationRoute_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
-/* harmony import */ var _RegExpRoute_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
-/* harmony import */ var _registerRoute_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
-/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32);
-/* harmony import */ var _Router_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(39);
-/* harmony import */ var _setCatchHandler_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(40);
-/* harmony import */ var _setDefaultHandler_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(41);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(34);
+/* harmony import */ var _RegExpRoute_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(42);
+/* harmony import */ var _registerRoute_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(43);
+/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(38);
+/* harmony import */ var _Router_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
+/* harmony import */ var _setCatchHandler_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
+/* harmony import */ var _setDefaultHandler_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(48);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_7__);
 /*
   Copyright 2018 Google LLC
@@ -1648,10 +1659,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NavigationRoute": () => (/* binding */ NavigationRoute)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(34);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
+/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(37);
+/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(38);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_3__);
 /*
   Copyright 2018 Google LLC
@@ -1780,12 +1791,577 @@ class NavigationRoute extends _Route_js__WEBPACK_IMPORTED_MODULE_2__.Route {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "assert": () => (/* binding */ finalAssertExports)
+/* harmony export */ });
+/* harmony import */ var _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+/*
+ * This method throws if the supplied value is not an array.
+ * The destructed values are required to produce a meaningful error for users.
+ * The destructed and restructured object is so it's clear what is
+ * needed.
+ */
+
+const isArray = (value, details) => {
+  if (!Array.isArray(value)) {
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('not-an-array', details);
+  }
+};
+
+const hasMethod = (object, expectedMethod, details) => {
+  const type = typeof object[expectedMethod];
+
+  if (type !== 'function') {
+    details['expectedMethod'] = expectedMethod;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('missing-a-method', details);
+  }
+};
+
+const isType = (object, expectedType, details) => {
+  if (typeof object !== expectedType) {
+    details['expectedType'] = expectedType;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('incorrect-type', details);
+  }
+};
+
+const isInstance = (object, // Need the general type to do the check later.
+// eslint-disable-next-line @typescript-eslint/ban-types
+expectedClass, details) => {
+  if (!(object instanceof expectedClass)) {
+    details['expectedClassName'] = expectedClass.name;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('incorrect-class', details);
+  }
+};
+
+const isOneOf = (value, validValues, details) => {
+  if (!validValues.includes(value)) {
+    details['validValueDescription'] = `Valid values are ${JSON.stringify(validValues)}.`;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('invalid-value', details);
+  }
+};
+
+const isArrayOfClass = (value, // Need general type to do check later.
+expectedClass, // eslint-disable-line
+details) => {
+  const error = new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('not-array-of-class', details);
+
+  if (!Array.isArray(value)) {
+    throw error;
+  }
+
+  for (const item of value) {
+    if (!(item instanceof expectedClass)) {
+      throw error;
+    }
+  }
+};
+
+const finalAssertExports =  false ? 0 : {
+  hasMethod,
+  isArray,
+  isInstance,
+  isOneOf,
+  isType,
+  isArrayOfClass
+};
+
+
+/***/ }),
+/* 33 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WorkboxError": () => (/* binding */ WorkboxError)
+/* harmony export */ });
+/* harmony import */ var _models_messages_messageGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(34);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+/**
+ * Workbox errors should be thrown with this class.
+ * This allows use to ensure the type easily in tests,
+ * helps developers identify errors from workbox
+ * easily and allows use to optimise error
+ * messages correctly.
+ *
+ * @private
+ */
+
+class WorkboxError extends Error {
+  /**
+   *
+   * @param {string} errorCode The error code that
+   * identifies this particular error.
+   * @param {Object=} details Any relevant arguments
+   * that will help developers identify issues should
+   * be added as a key on the context object.
+   */
+  constructor(errorCode, details) {
+    const message = (0,_models_messages_messageGenerator_js__WEBPACK_IMPORTED_MODULE_0__.messageGenerator)(errorCode, details);
+    super(message);
+    this.name = errorCode;
+    this.details = details;
+  }
+
+}
+
+
+
+/***/ }),
+/* 34 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messageGenerator": () => (/* binding */ messageGenerator)
+/* harmony export */ });
+/* harmony import */ var _messages_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(35);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+
+const fallback = (code, ...args) => {
+  let msg = code;
+
+  if (args.length > 0) {
+    msg += ` :: ${JSON.stringify(args)}`;
+  }
+
+  return msg;
+};
+
+const generatorFunction = (code, details = {}) => {
+  const message = _messages_js__WEBPACK_IMPORTED_MODULE_0__.messages[code];
+
+  if (!message) {
+    throw new Error(`Unable to find message for code '${code}'.`);
+  }
+
+  return message(details);
+};
+
+const messageGenerator =  false ? 0 : generatorFunction;
+
+/***/ }),
+/* 35 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messages": () => (/* binding */ messages)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+const messages = {
+  'invalid-value': ({
+    paramName,
+    validValueDescription,
+    value
+  }) => {
+    if (!paramName || !validValueDescription) {
+      throw new Error(`Unexpected input to 'invalid-value' error.`);
+    }
+
+    return `The '${paramName}' parameter was given a value with an ` + `unexpected value. ${validValueDescription} Received a value of ` + `${JSON.stringify(value)}.`;
+  },
+  'not-an-array': ({
+    moduleName,
+    className,
+    funcName,
+    paramName
+  }) => {
+    if (!moduleName || !className || !funcName || !paramName) {
+      throw new Error(`Unexpected input to 'not-an-array' error.`);
+    }
+
+    return `The parameter '${paramName}' passed into ` + `'${moduleName}.${className}.${funcName}()' must be an array.`;
+  },
+  'incorrect-type': ({
+    expectedType,
+    paramName,
+    moduleName,
+    className,
+    funcName
+  }) => {
+    if (!expectedType || !paramName || !moduleName || !funcName) {
+      throw new Error(`Unexpected input to 'incorrect-type' error.`);
+    }
+
+    const classNameStr = className ? `${className}.` : '';
+    return `The parameter '${paramName}' passed into ` + `'${moduleName}.${classNameStr}` + `${funcName}()' must be of type ${expectedType}.`;
+  },
+  'incorrect-class': ({
+    expectedClassName,
+    paramName,
+    moduleName,
+    className,
+    funcName,
+    isReturnValueProblem
+  }) => {
+    if (!expectedClassName || !moduleName || !funcName) {
+      throw new Error(`Unexpected input to 'incorrect-class' error.`);
+    }
+
+    const classNameStr = className ? `${className}.` : '';
+
+    if (isReturnValueProblem) {
+      return `The return value from ` + `'${moduleName}.${classNameStr}${funcName}()' ` + `must be an instance of class ${expectedClassName}.`;
+    }
+
+    return `The parameter '${paramName}' passed into ` + `'${moduleName}.${classNameStr}${funcName}()' ` + `must be an instance of class ${expectedClassName}.`;
+  },
+  'missing-a-method': ({
+    expectedMethod,
+    paramName,
+    moduleName,
+    className,
+    funcName
+  }) => {
+    if (!expectedMethod || !paramName || !moduleName || !className || !funcName) {
+      throw new Error(`Unexpected input to 'missing-a-method' error.`);
+    }
+
+    return `${moduleName}.${className}.${funcName}() expected the ` + `'${paramName}' parameter to expose a '${expectedMethod}' method.`;
+  },
+  'add-to-cache-list-unexpected-type': ({
+    entry
+  }) => {
+    return `An unexpected entry was passed to ` + `'workbox-precaching.PrecacheController.addToCacheList()' The entry ` + `'${JSON.stringify(entry)}' isn't supported. You must supply an array of ` + `strings with one or more characters, objects with a url property or ` + `Request objects.`;
+  },
+  'add-to-cache-list-conflicting-entries': ({
+    firstEntry,
+    secondEntry
+  }) => {
+    if (!firstEntry || !secondEntry) {
+      throw new Error(`Unexpected input to ` + `'add-to-cache-list-duplicate-entries' error.`);
+    }
+
+    return `Two of the entries passed to ` + `'workbox-precaching.PrecacheController.addToCacheList()' had the URL ` + `${firstEntry} but different revision details. Workbox is ` + `unable to cache and version the asset correctly. Please remove one ` + `of the entries.`;
+  },
+  'plugin-error-request-will-fetch': ({
+    thrownErrorMessage
+  }) => {
+    if (!thrownErrorMessage) {
+      throw new Error(`Unexpected input to ` + `'plugin-error-request-will-fetch', error.`);
+    }
+
+    return `An error was thrown by a plugins 'requestWillFetch()' method. ` + `The thrown error message was: '${thrownErrorMessage}'.`;
+  },
+  'invalid-cache-name': ({
+    cacheNameId,
+    value
+  }) => {
+    if (!cacheNameId) {
+      throw new Error(`Expected a 'cacheNameId' for error 'invalid-cache-name'`);
+    }
+
+    return `You must provide a name containing at least one character for ` + `setCacheDetails({${cacheNameId}: '...'}). Received a value of ` + `'${JSON.stringify(value)}'`;
+  },
+  'unregister-route-but-not-found-with-method': ({
+    method
+  }) => {
+    if (!method) {
+      throw new Error(`Unexpected input to ` + `'unregister-route-but-not-found-with-method' error.`);
+    }
+
+    return `The route you're trying to unregister was not  previously ` + `registered for the method type '${method}'.`;
+  },
+  'unregister-route-route-not-registered': () => {
+    return `The route you're trying to unregister was not previously ` + `registered.`;
+  },
+  'queue-replay-failed': ({
+    name
+  }) => {
+    return `Replaying the background sync queue '${name}' failed.`;
+  },
+  'duplicate-queue-name': ({
+    name
+  }) => {
+    return `The Queue name '${name}' is already being used. ` + `All instances of backgroundSync.Queue must be given unique names.`;
+  },
+  'expired-test-without-max-age': ({
+    methodName,
+    paramName
+  }) => {
+    return `The '${methodName}()' method can only be used when the ` + `'${paramName}' is used in the constructor.`;
+  },
+  'unsupported-route-type': ({
+    moduleName,
+    className,
+    funcName,
+    paramName
+  }) => {
+    return `The supplied '${paramName}' parameter was an unsupported type. ` + `Please check the docs for ${moduleName}.${className}.${funcName} for ` + `valid input types.`;
+  },
+  'not-array-of-class': ({
+    value,
+    expectedClass,
+    moduleName,
+    className,
+    funcName,
+    paramName
+  }) => {
+    return `The supplied '${paramName}' parameter must be an array of ` + `'${expectedClass}' objects. Received '${JSON.stringify(value)},'. ` + `Please check the call to ${moduleName}.${className}.${funcName}() ` + `to fix the issue.`;
+  },
+  'max-entries-or-age-required': ({
+    moduleName,
+    className,
+    funcName
+  }) => {
+    return `You must define either config.maxEntries or config.maxAgeSeconds` + `in ${moduleName}.${className}.${funcName}`;
+  },
+  'statuses-or-headers-required': ({
+    moduleName,
+    className,
+    funcName
+  }) => {
+    return `You must define either config.statuses or config.headers` + `in ${moduleName}.${className}.${funcName}`;
+  },
+  'invalid-string': ({
+    moduleName,
+    funcName,
+    paramName
+  }) => {
+    if (!paramName || !moduleName || !funcName) {
+      throw new Error(`Unexpected input to 'invalid-string' error.`);
+    }
+
+    return `When using strings, the '${paramName}' parameter must start with ` + `'http' (for cross-origin matches) or '/' (for same-origin matches). ` + `Please see the docs for ${moduleName}.${funcName}() for ` + `more info.`;
+  },
+  'channel-name-required': () => {
+    return `You must provide a channelName to construct a ` + `BroadcastCacheUpdate instance.`;
+  },
+  'invalid-responses-are-same-args': () => {
+    return `The arguments passed into responsesAreSame() appear to be ` + `invalid. Please ensure valid Responses are used.`;
+  },
+  'expire-custom-caches-only': () => {
+    return `You must provide a 'cacheName' property when using the ` + `expiration plugin with a runtime caching strategy.`;
+  },
+  'unit-must-be-bytes': ({
+    normalizedRangeHeader
+  }) => {
+    if (!normalizedRangeHeader) {
+      throw new Error(`Unexpected input to 'unit-must-be-bytes' error.`);
+    }
+
+    return `The 'unit' portion of the Range header must be set to 'bytes'. ` + `The Range header provided was "${normalizedRangeHeader}"`;
+  },
+  'single-range-only': ({
+    normalizedRangeHeader
+  }) => {
+    if (!normalizedRangeHeader) {
+      throw new Error(`Unexpected input to 'single-range-only' error.`);
+    }
+
+    return `Multiple ranges are not supported. Please use a  single start ` + `value, and optional end value. The Range header provided was ` + `"${normalizedRangeHeader}"`;
+  },
+  'invalid-range-values': ({
+    normalizedRangeHeader
+  }) => {
+    if (!normalizedRangeHeader) {
+      throw new Error(`Unexpected input to 'invalid-range-values' error.`);
+    }
+
+    return `The Range header is missing both start and end values. At least ` + `one of those values is needed. The Range header provided was ` + `"${normalizedRangeHeader}"`;
+  },
+  'no-range-header': () => {
+    return `No Range header was found in the Request provided.`;
+  },
+  'range-not-satisfiable': ({
+    size,
+    start,
+    end
+  }) => {
+    return `The start (${start}) and end (${end}) values in the Range are ` + `not satisfiable by the cached response, which is ${size} bytes.`;
+  },
+  'attempt-to-cache-non-get-request': ({
+    url,
+    method
+  }) => {
+    return `Unable to cache '${url}' because it is a '${method}' request and ` + `only 'GET' requests can be cached.`;
+  },
+  'cache-put-with-no-response': ({
+    url
+  }) => {
+    return `There was an attempt to cache '${url}' but the response was not ` + `defined.`;
+  },
+  'no-response': ({
+    url,
+    error
+  }) => {
+    let message = `The strategy could not generate a response for '${url}'.`;
+
+    if (error) {
+      message += ` The underlying error is ${error}.`;
+    }
+
+    return message;
+  },
+  'bad-precaching-response': ({
+    url,
+    status
+  }) => {
+    return `The precaching request for '${url}' failed` + (status ? ` with an HTTP status of ${status}.` : `.`);
+  },
+  'non-precached-url': ({
+    url
+  }) => {
+    return `createHandlerBoundToURL('${url}') was called, but that URL is ` + `not precached. Please pass in a URL that is precached instead.`;
+  },
+  'add-to-cache-list-conflicting-integrities': ({
+    url
+  }) => {
+    return `Two of the entries passed to ` + `'workbox-precaching.PrecacheController.addToCacheList()' had the URL ` + `${url} with different integrity values. Please remove one of them.`;
+  },
+  'missing-precache-entry': ({
+    cacheName,
+    url
+  }) => {
+    return `Unable to find a precached response in ${cacheName} for ${url}.`;
+  },
+  'cross-origin-copy-response': ({
+    origin
+  }) => {
+    return `workbox-core.copyResponse() can only be used with same-origin ` + `responses. It was passed a response with origin ${origin}.`;
+  }
+};
+
+/***/ }),
+/* 36 */
+/***/ (() => {
+
+ // @ts-ignore
+
+try {
+  self['workbox:core:6.4.1'] && _();
+} catch (e) {}
+
+/***/ }),
+/* 37 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "logger": () => (/* binding */ logger)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2019 Google LLC
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+const logger =  false ? 0 : (() => {
+  // Don't overwrite this value if it's already set.
+  // See https://github.com/GoogleChrome/workbox/pull/2284#issuecomment-560470923
+  if (!('__WB_DISABLE_DEV_LOGS' in self)) {
+    self.__WB_DISABLE_DEV_LOGS = false;
+  }
+
+  let inGroup = false;
+  const methodToColorMap = {
+    debug: `#7f8c8d`,
+    log: `#2ecc71`,
+    warn: `#f39c12`,
+    error: `#c0392b`,
+    groupCollapsed: `#3498db`,
+    groupEnd: null // No colored prefix on groupEnd
+
+  };
+
+  const print = function (method, args) {
+    if (self.__WB_DISABLE_DEV_LOGS) {
+      return;
+    }
+
+    if (method === 'groupCollapsed') {
+      // Safari doesn't print all console.groupCollapsed() arguments:
+      // https://bugs.webkit.org/show_bug.cgi?id=182754
+      if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        console[method](...args);
+        return;
+      }
+    }
+
+    const styles = [`background: ${methodToColorMap[method]}`, `border-radius: 0.5em`, `color: white`, `font-weight: bold`, `padding: 2px 0.5em`]; // When in a group, the workbox prefix is not displayed.
+
+    const logPrefix = inGroup ? [] : ['%cworkbox', styles.join(';')];
+    console[method](...logPrefix, ...args);
+
+    if (method === 'groupCollapsed') {
+      inGroup = true;
+    }
+
+    if (method === 'groupEnd') {
+      inGroup = false;
+    }
+  }; // eslint-disable-next-line @typescript-eslint/ban-types
+
+
+  const api = {};
+  const loggerMethods = Object.keys(methodToColorMap);
+
+  for (const key of loggerMethods) {
+    const method = key;
+
+    api[method] = (...args) => {
+      print(method, args);
+    };
+  }
+
+  return api;
+})();
+
+
+/***/ }),
+/* 38 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Route": () => (/* binding */ Route)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var _utils_constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
-/* harmony import */ var _utils_normalizeHandler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(35);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(34);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
+/* harmony import */ var _utils_constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(39);
+/* harmony import */ var _utils_normalizeHandler_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(41);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_3__);
 /*
   Copyright 2018 Google LLC
@@ -1858,7 +2434,7 @@ class Route {
 
 
 /***/ }),
-/* 33 */
+/* 39 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1866,7 +2442,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "defaultMethod": () => (/* binding */ defaultMethod),
 /* harmony export */   "validMethods": () => (/* binding */ validMethods)
 /* harmony export */ });
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(34);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
 /*
   Copyright 2018 Google LLC
@@ -1897,7 +2473,7 @@ const defaultMethod = 'GET';
 const validMethods = ['DELETE', 'GET', 'HEAD', 'PATCH', 'POST', 'PUT'];
 
 /***/ }),
-/* 34 */
+/* 40 */
 /***/ (() => {
 
  // @ts-ignore
@@ -1907,15 +2483,15 @@ try {
 } catch (e) {}
 
 /***/ }),
-/* 35 */
+/* 41 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "normalizeHandler": () => (/* binding */ normalizeHandler)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
   Copyright 2018 Google LLC
@@ -1963,17 +2539,17 @@ const normalizeHandler = handler => {
 };
 
 /***/ }),
-/* 36 */
+/* 42 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RegExpRoute": () => (/* binding */ RegExpRoute)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(34);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
+/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(37);
+/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(38);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_3__);
 /*
   Copyright 2018 Google LLC
@@ -2060,19 +2636,19 @@ class RegExpRoute extends _Route_js__WEBPACK_IMPORTED_MODULE_2__.Route {
 
 
 /***/ }),
-/* 37 */
+/* 43 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "registerRoute": () => (/* binding */ registerRoute)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
-/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
-/* harmony import */ var _RegExpRoute_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(36);
-/* harmony import */ var _utils_getOrCreateDefaultRouter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(38);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(34);
+/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(37);
+/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+/* harmony import */ var _Route_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(38);
+/* harmony import */ var _RegExpRoute_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
+/* harmony import */ var _utils_getOrCreateDefaultRouter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(44);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_5__);
 /*
   Copyright 2019 Google LLC
@@ -2171,15 +2747,15 @@ function registerRoute(capture, handler, method) {
 
 
 /***/ }),
-/* 38 */
+/* 44 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getOrCreateDefaultRouter": () => (/* binding */ getOrCreateDefaultRouter)
 /* harmony export */ });
-/* harmony import */ var _Router_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(39);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34);
+/* harmony import */ var _Router_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
   Copyright 2019 Google LLC
@@ -2211,20 +2787,20 @@ const getOrCreateDefaultRouter = () => {
 };
 
 /***/ }),
-/* 39 */
+/* 45 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Router": () => (/* binding */ Router)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
-/* harmony import */ var _utils_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _utils_normalizeHandler_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
-/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(34);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32);
+/* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(46);
+/* harmony import */ var _utils_constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(39);
+/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(37);
+/* harmony import */ var _utils_normalizeHandler_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
+/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(33);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_6__);
 /*
   Copyright 2018 Google LLC
@@ -2705,15 +3281,43 @@ class Router {
 
 
 /***/ }),
-/* 40 */
+/* 46 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getFriendlyURL": () => (/* binding */ getFriendlyURL)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+const getFriendlyURL = url => {
+  const urlObj = new URL(String(url), location.href); // See https://github.com/GoogleChrome/workbox/issues/2323
+  // We want to include everything, except for the origin if it's same-origin.
+
+  return urlObj.href.replace(new RegExp(`^${location.origin}`), '');
+};
+
+
+
+/***/ }),
+/* 47 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setCatchHandler": () => (/* binding */ setCatchHandler)
 /* harmony export */ });
-/* harmony import */ var _utils_getOrCreateDefaultRouter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(38);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34);
+/* harmony import */ var _utils_getOrCreateDefaultRouter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
   Copyright 2019 Google LLC
@@ -2742,15 +3346,15 @@ function setCatchHandler(handler) {
 
 
 /***/ }),
-/* 41 */
+/* 48 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "setDefaultHandler": () => (/* binding */ setDefaultHandler)
 /* harmony export */ });
-/* harmony import */ var _utils_getOrCreateDefaultRouter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(38);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34);
+/* harmony import */ var _utils_getOrCreateDefaultRouter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(40);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
   Copyright 2019 Google LLC
@@ -2782,7 +3386,7 @@ function setDefaultHandler(handler) {
 
 
 /***/ }),
-/* 42 */
+/* 49 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -2795,11 +3399,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Strategy": () => (/* reexport safe */ _index_js__WEBPACK_IMPORTED_MODULE_0__.Strategy),
 /* harmony export */   "StrategyHandler": () => (/* reexport safe */ _index_js__WEBPACK_IMPORTED_MODULE_0__.StrategyHandler)
 /* harmony export */ });
-/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(50);
 
 
 /***/ }),
-/* 43 */
+/* 50 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -2812,14 +3416,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Strategy": () => (/* reexport safe */ _Strategy_js__WEBPACK_IMPORTED_MODULE_5__.Strategy),
 /* harmony export */   "StrategyHandler": () => (/* reexport safe */ _StrategyHandler_js__WEBPACK_IMPORTED_MODULE_6__.StrategyHandler)
 /* harmony export */ });
-/* harmony import */ var _CacheFirst_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
-/* harmony import */ var _CacheOnly_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49);
-/* harmony import */ var _NetworkFirst_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(50);
-/* harmony import */ var _NetworkOnly_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
-/* harmony import */ var _StaleWhileRevalidate_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(53);
-/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(45);
-/* harmony import */ var _StrategyHandler_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(46);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(47);
+/* harmony import */ var _CacheFirst_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51);
+/* harmony import */ var _CacheOnly_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(56);
+/* harmony import */ var _NetworkFirst_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(57);
+/* harmony import */ var _NetworkOnly_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(59);
+/* harmony import */ var _StaleWhileRevalidate_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(60);
+/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(52);
+/* harmony import */ var _StrategyHandler_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(53);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_7__);
 /*
   Copyright 2018 Google LLC
@@ -2846,7 +3450,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 44 */
+/* 51 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -2856,9 +3460,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(45);
-/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(48);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
+/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
+/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(55);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_5__);
 /*
   Copyright 2018 Google LLC
@@ -2884,15 +3488,15 @@ __webpack_require__.r(__webpack_exports__);
  * If the network request fails, and there is no cache match, this will throw
  * a `WorkboxError` exception.
  *
- * @extends module:workbox-strategies.Strategy
- * @memberof module:workbox-strategies
+ * @extends workbox-strategies.Strategy
+ * @memberof workbox-strategies
  */
 
 class CacheFirst extends _Strategy_js__WEBPACK_IMPORTED_MODULE_3__.Strategy {
   /**
    * @private
    * @param {Request|string} request A request to run this strategy for.
-   * @param {module:workbox-strategies.StrategyHandler} handler The event that
+   * @param {workbox-strategies.StrategyHandler} handler The event that
    *     triggered the request.
    * @return {Promise<Response>}
    */
@@ -2963,7 +3567,7 @@ class CacheFirst extends _Strategy_js__WEBPACK_IMPORTED_MODULE_3__.Strategy {
 
 
 /***/ }),
-/* 45 */
+/* 52 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -2974,8 +3578,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
-/* harmony import */ var _StrategyHandler_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(46);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
+/* harmony import */ var _StrategyHandler_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(53);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_5__);
 /*
   Copyright 2020 Google LLC
@@ -2993,7 +3597,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * An abstract base class that all other strategy classes must extend from:
  *
- * @memberof module:workbox-strategies
+ * @memberof workbox-strategies
  */
 
 class Strategy {
@@ -3008,7 +3612,7 @@ class Strategy {
    * @param {Object} [options]
    * @param {string} [options.cacheName] Cache name to store and retrieve
    * requests. Defaults to the cache names provided by
-   * [workbox-core]{@link module:workbox-core.cacheNames}.
+   * {@link workbox-core.cacheNames}.
    * @param {Array<Object>} [options.plugins] [Plugins]{@link https://developers.google.com/web/tools/workbox/guides/using-plugins}
    * to use in conjunction with this caching strategy.
    * @param {Object} [options.fetchOptions] Values passed along to the
@@ -3023,7 +3627,7 @@ class Strategy {
     /**
      * Cache name to store and retrieve
      * requests. Defaults to the cache names provided by
-     * [workbox-core]{@link module:workbox-core.cacheNames}.
+     * {@link workbox-core.cacheNames}.
      *
      * @type {string}
      */
@@ -3061,7 +3665,7 @@ class Strategy {
    * a `Response`, invoking all relevant plugin callbacks.
    *
    * When a strategy instance is registered with a Workbox
-   * [route]{@link module:workbox-routing.Route}, this method is automatically
+   * {@link workbox-routing.Route}, this method is automatically
    * called when the route matches.
    *
    * Alternatively, this method can be used in a standalone `FetchEvent`
@@ -3082,9 +3686,9 @@ class Strategy {
     return responseDone;
   }
   /**
-   * Similar to [`handle()`]{@link module:workbox-strategies.Strategy~handle}, but
+   * Similar to {@link workbox-strategies.Strategy~handle}, but
    * instead of just returning a `Promise` that resolves to a `Response` it
-   * it will return an tuple of [response, done] promises, where the former
+   * it will return an tuple of `[response, done]` promises, where the former
    * (`response`) is equivalent to what `handle()` returns, and the latter is a
    * Promise that will resolve once any promises that were added to
    * `event.waitUntil()` as part of performing the strategy have completed.
@@ -3223,7 +3827,7 @@ class Strategy {
 
 /**
  * Classes extending the `Strategy` based class should implement this method,
- * and leverage the [`handler`]{@link module:workbox-strategies.StrategyHandler}
+ * and leverage the {@link workbox-strategies.StrategyHandler}
  * arg to perform all fetching and cache logic, which will ensure all relevant
  * cache, cache options, fetch options and plugins are used (per the current
  * strategy instance).
@@ -3233,14 +3837,14 @@ class Strategy {
  * @abstract
  * @function
  * @param {Request} request
- * @param {module:workbox-strategies.StrategyHandler} handler
+ * @param {workbox-strategies.StrategyHandler} handler
  * @return {Promise<Response>}
  *
- * @memberof module:workbox-strategies.Strategy
+ * @memberof workbox-strategies.Strategy
  */
 
 /***/ }),
-/* 46 */
+/* 53 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3255,7 +3859,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_timeout_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(21);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(47);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_8__);
 /*
   Copyright 2020 Google LLC
@@ -3279,12 +3883,12 @@ function toRequest(input) {
 }
 /**
  * A class created every time a Strategy instance instance calls
- * [handle()]{@link module:workbox-strategies.Strategy~handle} or
- * [handleAll()]{@link module:workbox-strategies.Strategy~handleAll} that wraps all fetch and
+ * {@link workbox-strategies.Strategy~handle} or
+ * {@link workbox-strategies.Strategy~handleAll} that wraps all fetch and
  * cache actions around plugin callbacks and keeps track of when the strategy
  * is "done" (i.e. all added `event.waitUntil()` promises have resolved).
  *
- * @memberof module:workbox-strategies
+ * @memberof workbox-strategies
  */
 
 
@@ -3296,15 +3900,14 @@ class StrategyHandler {
    * The constructor also initializes the state that will be passed to each of
    * the plugins handling this request.
    *
-   * @param {module:workbox-strategies.Strategy} strategy
+   * @param {workbox-strategies.Strategy} strategy
    * @param {Object} options
    * @param {Request|string} options.request A request to run this strategy for.
    * @param {ExtendableEvent} options.event The event associated with the
    *     request.
    * @param {URL} [options.url]
-   * @param {*} [options.params]
-   *     [match callback]{@link module:workbox-routing~matchCallback},
-   *     (if applicable).
+   * @param {*} [options.params] The return value from the
+   *     {@link workbox-routing~matchCallback} (if applicable).
    */
   constructor(strategy, options) {
     this._cacheKeys = {};
@@ -3314,7 +3917,7 @@ class StrategyHandler {
      * @name request
      * @instance
      * @type {Request}
-     * @memberof module:workbox-strategies.StrategyHandler
+     * @memberof workbox-strategies.StrategyHandler
      */
 
     /**
@@ -3322,7 +3925,7 @@ class StrategyHandler {
      * @name event
      * @instance
      * @type {ExtendableEvent}
-     * @memberof module:workbox-strategies.StrategyHandler
+     * @memberof workbox-strategies.StrategyHandler
      */
 
     /**
@@ -3333,7 +3936,7 @@ class StrategyHandler {
      * @name url
      * @instance
      * @type {URL|undefined}
-     * @memberof module:workbox-strategies.StrategyHandler
+     * @memberof workbox-strategies.StrategyHandler
      */
 
     /**
@@ -3341,12 +3944,12 @@ class StrategyHandler {
      * `handle()` or `handleAll()` method).
      * Note: the `param` param will be present if the strategy was invoked
      * from a workbox `Route` object and the
-     * [match callback]{@link module:workbox-routing~matchCallback} returned
+     * {@link workbox-routing~matchCallback} returned
      * a truthy value (it will be that value).
      * @name params
      * @instance
      * @type {*|undefined}
-     * @memberof module:workbox-strategies.StrategyHandler
+     * @memberof workbox-strategies.StrategyHandler
      */
 
     if (true) {
@@ -3695,7 +4298,7 @@ class StrategyHandler {
    * Note: since this method runs all plugins, it's not suitable for cases
    * where the return value of a callback needs to be applied prior to calling
    * the next callback. See
-   * [`iterateCallbacks()`]{@link module:workbox-strategies.StrategyHandler#iterateCallbacks}
+   * {@link workbox-strategies.StrategyHandler#iterateCallbacks}
    * below for how to handle that case.
    *
    * @param {string} name The name of the callback to run within each plugin.
@@ -3748,7 +4351,7 @@ class StrategyHandler {
    * `FetchEvent`).
    *
    * Note: you can await
-   * [`doneWaiting()`]{@link module:workbox-strategies.StrategyHandler~doneWaiting}
+   * {@link workbox-strategies.StrategyHandler~doneWaiting}
    * to know when all added promises have settled.
    *
    * @param {Promise} promise A promise to add to the extend lifetime promises
@@ -3763,7 +4366,7 @@ class StrategyHandler {
   }
   /**
    * Returns a promise that resolves once all promises passed to
-   * [`waitUntil()`]{@link module:workbox-strategies.StrategyHandler~waitUntil}
+   * {@link workbox-strategies.StrategyHandler~waitUntil}
    * have settled.
    *
    * Note: any work done after `doneWaiting()` settles should be manually
@@ -3844,17 +4447,17 @@ class StrategyHandler {
 
 
 /***/ }),
-/* 47 */
+/* 54 */
 /***/ (() => {
 
  // @ts-ignore
 
 try {
-  self['workbox:strategies:6.4.1'] && _();
+  self['workbox:strategies:6.5.0'] && _();
 } catch (e) {}
 
 /***/ }),
-/* 48 */
+/* 55 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3863,7 +4466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(47);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_2__);
 /*
   Copyright 2018 Google LLC
@@ -3887,7 +4490,7 @@ const messages = {
 };
 
 /***/ }),
-/* 49 */
+/* 56 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3897,9 +4500,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(45);
-/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(48);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
+/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
+/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(55);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_5__);
 /*
   Copyright 2018 Google LLC
@@ -3924,15 +4527,15 @@ __webpack_require__.r(__webpack_exports__);
  *
  * If there is no cache match, this will throw a `WorkboxError` exception.
  *
- * @extends module:workbox-strategies.Strategy
- * @memberof module:workbox-strategies
+ * @extends workbox-strategies.Strategy
+ * @memberof workbox-strategies
  */
 
 class CacheOnly extends _Strategy_js__WEBPACK_IMPORTED_MODULE_3__.Strategy {
   /**
    * @private
    * @param {Request|string} request A request to run this strategy for.
-   * @param {module:workbox-strategies.StrategyHandler} handler The event that
+   * @param {workbox-strategies.StrategyHandler} handler The event that
    *     triggered the request.
    * @return {Promise<Response>}
    */
@@ -3975,7 +4578,7 @@ class CacheOnly extends _Strategy_js__WEBPACK_IMPORTED_MODULE_3__.Strategy {
 
 
 /***/ }),
-/* 50 */
+/* 57 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3985,10 +4588,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var _plugins_cacheOkAndOpaquePlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(51);
-/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
-/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(48);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _plugins_cacheOkAndOpaquePlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(58);
+/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(52);
+/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(55);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_6__);
 /*
   Copyright 2018 Google LLC
@@ -4017,8 +4620,8 @@ __webpack_require__.r(__webpack_exports__);
  * If the network request fails, and there is no cache match, this will throw
  * a `WorkboxError` exception.
  *
- * @extends module:workbox-strategies.Strategy
- * @memberof module:workbox-strategies
+ * @extends workbox-strategies.Strategy
+ * @memberof workbox-strategies
  */
 
 class NetworkFirst extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
@@ -4026,7 +4629,7 @@ class NetworkFirst extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
    * @param {Object} [options]
    * @param {string} [options.cacheName] Cache name to store and retrieve
    * requests. Defaults to cache names provided by
-   * [workbox-core]{@link module:workbox-core.cacheNames}.
+   * {@link workbox-core.cacheNames}.
    * @param {Array<Object>} [options.plugins] [Plugins]{@link https://developers.google.com/web/tools/workbox/guides/using-plugins}
    * to use in conjunction with this caching strategy.
    * @param {Object} [options.fetchOptions] Values passed along to the
@@ -4065,7 +4668,7 @@ class NetworkFirst extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
   /**
    * @private
    * @param {Request|string} request A request to run this strategy for.
-   * @param {module:workbox-strategies.StrategyHandler} handler The event that
+   * @param {workbox-strategies.StrategyHandler} handler The event that
    *     triggered the request.
    * @return {Promise<Response>}
    */
@@ -4231,14 +4834,14 @@ class NetworkFirst extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
 
 
 /***/ }),
-/* 51 */
+/* 58 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "cacheOkAndOpaquePlugin": () => (/* binding */ cacheOkAndOpaquePlugin)
 /* harmony export */ });
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
 /*
   Copyright 2018 Google LLC
@@ -4271,7 +4874,7 @@ const cacheOkAndOpaquePlugin = {
 };
 
 /***/ }),
-/* 52 */
+/* 59 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4282,9 +4885,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_timeout_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
-/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(48);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(52);
+/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(55);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_6__);
 /*
   Copyright 2018 Google LLC
@@ -4310,8 +4913,8 @@ __webpack_require__.r(__webpack_exports__);
  *
  * If the network request fails, this will throw a `WorkboxError` exception.
  *
- * @extends module:workbox-strategies.Strategy
- * @memberof module:workbox-strategies
+ * @extends workbox-strategies.Strategy
+ * @memberof workbox-strategies
  */
 
 class NetworkOnly extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
@@ -4333,7 +4936,7 @@ class NetworkOnly extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
   /**
    * @private
    * @param {Request|string} request A request to run this strategy for.
-   * @param {module:workbox-strategies.StrategyHandler} handler The event that
+   * @param {workbox-strategies.StrategyHandler} handler The event that
    *     triggered the request.
    * @return {Promise<Response>}
    */
@@ -4399,7 +5002,7 @@ class NetworkOnly extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
 
 
 /***/ }),
-/* 53 */
+/* 60 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4409,10 +5012,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
-/* harmony import */ var _plugins_cacheOkAndOpaquePlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(51);
-/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
-/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(48);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _plugins_cacheOkAndOpaquePlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(58);
+/* harmony import */ var _Strategy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(52);
+/* harmony import */ var _utils_messages_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(55);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(54);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_6__);
 /*
   Copyright 2018 Google LLC
@@ -4446,8 +5049,8 @@ __webpack_require__.r(__webpack_exports__);
  * If the network request fails, and there is no cache match, this will throw
  * a `WorkboxError` exception.
  *
- * @extends module:workbox-strategies.Strategy
- * @memberof module:workbox-strategies
+ * @extends workbox-strategies.Strategy
+ * @memberof workbox-strategies
  */
 
 class StaleWhileRevalidate extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Strategy {
@@ -4455,7 +5058,7 @@ class StaleWhileRevalidate extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Str
    * @param {Object} [options]
    * @param {string} [options.cacheName] Cache name to store and retrieve
    * requests. Defaults to cache names provided by
-   * [workbox-core]{@link module:workbox-core.cacheNames}.
+   * {@link workbox-core.cacheNames}.
    * @param {Array<Object>} [options.plugins] [Plugins]{@link https://developers.google.com/web/tools/workbox/guides/using-plugins}
    * to use in conjunction with this caching strategy.
    * @param {Object} [options.fetchOptions] Values passed along to the
@@ -4475,7 +5078,7 @@ class StaleWhileRevalidate extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Str
   /**
    * @private
    * @param {Request|string} request A request to run this strategy for.
-   * @param {module:workbox-strategies.StrategyHandler} handler The event that
+   * @param {workbox-strategies.StrategyHandler} handler The event that
    *     triggered the request.
    * @return {Promise<Response>}
    */
@@ -4496,6 +5099,7 @@ class StaleWhileRevalidate extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Str
     const fetchAndCachePromise = handler.fetchAndCachePut(request).catch(() => {// Swallow this error because a 'no-response' error will be thrown in
       // main handler return flow. This will be in the `waitUntil()` flow.
     });
+    void handler.waitUntil(fetchAndCachePromise);
     let response = await handler.cacheMatch(request);
     let error;
 
@@ -4545,7 +5149,7 @@ class StaleWhileRevalidate extends _Strategy_js__WEBPACK_IMPORTED_MODULE_4__.Str
 
 
 /***/ }),
-/* 54 */
+/* 61 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4553,11 +5157,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CacheableResponse": () => (/* reexport safe */ _index_js__WEBPACK_IMPORTED_MODULE_0__.CacheableResponse),
 /* harmony export */   "CacheableResponsePlugin": () => (/* reexport safe */ _index_js__WEBPACK_IMPORTED_MODULE_0__.CacheableResponsePlugin)
 /* harmony export */ });
-/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(55);
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
 
 
 /***/ }),
-/* 55 */
+/* 62 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4565,9 +5169,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CacheableResponse": () => (/* reexport safe */ _CacheableResponse_js__WEBPACK_IMPORTED_MODULE_0__.CacheableResponse),
 /* harmony export */   "CacheableResponsePlugin": () => (/* reexport safe */ _CacheableResponsePlugin_js__WEBPACK_IMPORTED_MODULE_1__.CacheableResponsePlugin)
 /* harmony export */ });
-/* harmony import */ var _CacheableResponse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
-/* harmony import */ var _CacheableResponsePlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(57);
+/* harmony import */ var _CacheableResponse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63);
+/* harmony import */ var _CacheableResponsePlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(65);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(64);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_2__);
 /*
   Copyright 2018 Google LLC
@@ -4586,7 +5190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 56 */
+/* 63 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4597,7 +5201,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
 /* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(57);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(64);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_4__);
 /*
   Copyright 2018 Google LLC
@@ -4617,7 +5221,7 @@ __webpack_require__.r(__webpack_exports__);
  * [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response)
  * to be considered cacheable.
  *
- * @memberof module:workbox-cacheable-response
+ * @memberof workbox-cacheable-response
  */
 
 class CacheableResponse {
@@ -4731,25 +5335,25 @@ class CacheableResponse {
 
 
 /***/ }),
-/* 57 */
+/* 64 */
 /***/ (() => {
 
  // @ts-ignore
 
 try {
-  self['workbox:cacheable-response:6.4.1'] && _();
+  self['workbox:cacheable-response:6.5.0'] && _();
 } catch (e) {}
 
 /***/ }),
-/* 58 */
+/* 65 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CacheableResponsePlugin": () => (/* binding */ CacheableResponsePlugin)
 /* harmony export */ });
-/* harmony import */ var _CacheableResponse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(57);
+/* harmony import */ var _CacheableResponse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(64);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
   Copyright 2018 Google LLC
@@ -4765,7 +5369,7 @@ __webpack_require__.r(__webpack_exports__);
  * easier to add in cacheability checks to requests made via Workbox's built-in
  * strategies.
  *
- * @memberof module:workbox-cacheable-response
+ * @memberof workbox-cacheable-response
  */
 
 class CacheableResponsePlugin {
@@ -4808,7 +5412,7 @@ class CacheableResponsePlugin {
 
 
 /***/ }),
-/* 59 */
+/* 66 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4816,11 +5420,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CacheExpiration": () => (/* reexport safe */ _index_js__WEBPACK_IMPORTED_MODULE_0__.CacheExpiration),
 /* harmony export */   "ExpirationPlugin": () => (/* reexport safe */ _index_js__WEBPACK_IMPORTED_MODULE_0__.ExpirationPlugin)
 /* harmony export */ });
-/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(67);
 
 
 /***/ }),
-/* 60 */
+/* 67 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4828,9 +5432,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CacheExpiration": () => (/* reexport safe */ _CacheExpiration_js__WEBPACK_IMPORTED_MODULE_0__.CacheExpiration),
 /* harmony export */   "ExpirationPlugin": () => (/* reexport safe */ _ExpirationPlugin_js__WEBPACK_IMPORTED_MODULE_1__.ExpirationPlugin)
 /* harmony export */ });
-/* harmony import */ var _CacheExpiration_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61);
-/* harmony import */ var _ExpirationPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(67);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(66);
+/* harmony import */ var _CacheExpiration_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68);
+/* harmony import */ var _ExpirationPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(81);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(80);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_2__);
 /*
   Copyright 2018 Google LLC
@@ -4849,19 +5453,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 61 */
+/* 68 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CacheExpiration": () => (/* binding */ CacheExpiration)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var workbox_core_private_dontWaitFor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
-/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var _models_CacheTimestampsModel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(62);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(66);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(69);
+/* harmony import */ var workbox_core_private_dontWaitFor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(74);
+/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(75);
+/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(70);
+/* harmony import */ var _models_CacheTimestampsModel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(76);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(80);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_5__);
 /*
   Copyright 2018 Google LLC
@@ -5050,15 +5654,608 @@ class CacheExpiration {
 
 
 /***/ }),
-/* 62 */
+/* 69 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "assert": () => (/* binding */ finalAssertExports)
+/* harmony export */ });
+/* harmony import */ var _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+/*
+ * This method throws if the supplied value is not an array.
+ * The destructed values are required to produce a meaningful error for users.
+ * The destructed and restructured object is so it's clear what is
+ * needed.
+ */
+
+const isArray = (value, details) => {
+  if (!Array.isArray(value)) {
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('not-an-array', details);
+  }
+};
+
+const hasMethod = (object, expectedMethod, details) => {
+  const type = typeof object[expectedMethod];
+
+  if (type !== 'function') {
+    details['expectedMethod'] = expectedMethod;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('missing-a-method', details);
+  }
+};
+
+const isType = (object, expectedType, details) => {
+  if (typeof object !== expectedType) {
+    details['expectedType'] = expectedType;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('incorrect-type', details);
+  }
+};
+
+const isInstance = (object, // Need the general type to do the check later.
+// eslint-disable-next-line @typescript-eslint/ban-types
+expectedClass, details) => {
+  if (!(object instanceof expectedClass)) {
+    details['expectedClassName'] = expectedClass.name;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('incorrect-class', details);
+  }
+};
+
+const isOneOf = (value, validValues, details) => {
+  if (!validValues.includes(value)) {
+    details['validValueDescription'] = `Valid values are ${JSON.stringify(validValues)}.`;
+    throw new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('invalid-value', details);
+  }
+};
+
+const isArrayOfClass = (value, // Need general type to do check later.
+expectedClass, // eslint-disable-line
+details) => {
+  const error = new _private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_0__.WorkboxError('not-array-of-class', details);
+
+  if (!Array.isArray(value)) {
+    throw error;
+  }
+
+  for (const item of value) {
+    if (!(item instanceof expectedClass)) {
+      throw error;
+    }
+  }
+};
+
+const finalAssertExports =  false ? 0 : {
+  hasMethod,
+  isArray,
+  isInstance,
+  isOneOf,
+  isType,
+  isArrayOfClass
+};
+
+
+/***/ }),
+/* 70 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WorkboxError": () => (/* binding */ WorkboxError)
+/* harmony export */ });
+/* harmony import */ var _models_messages_messageGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(71);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+/**
+ * Workbox errors should be thrown with this class.
+ * This allows use to ensure the type easily in tests,
+ * helps developers identify errors from workbox
+ * easily and allows use to optimise error
+ * messages correctly.
+ *
+ * @private
+ */
+
+class WorkboxError extends Error {
+  /**
+   *
+   * @param {string} errorCode The error code that
+   * identifies this particular error.
+   * @param {Object=} details Any relevant arguments
+   * that will help developers identify issues should
+   * be added as a key on the context object.
+   */
+  constructor(errorCode, details) {
+    const message = (0,_models_messages_messageGenerator_js__WEBPACK_IMPORTED_MODULE_0__.messageGenerator)(errorCode, details);
+    super(message);
+    this.name = errorCode;
+    this.details = details;
+  }
+
+}
+
+
+
+/***/ }),
+/* 71 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messageGenerator": () => (/* binding */ messageGenerator)
+/* harmony export */ });
+/* harmony import */ var _messages_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+
+const fallback = (code, ...args) => {
+  let msg = code;
+
+  if (args.length > 0) {
+    msg += ` :: ${JSON.stringify(args)}`;
+  }
+
+  return msg;
+};
+
+const generatorFunction = (code, details = {}) => {
+  const message = _messages_js__WEBPACK_IMPORTED_MODULE_0__.messages[code];
+
+  if (!message) {
+    throw new Error(`Unable to find message for code '${code}'.`);
+  }
+
+  return message(details);
+};
+
+const messageGenerator =  false ? 0 : generatorFunction;
+
+/***/ }),
+/* 72 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messages": () => (/* binding */ messages)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+const messages = {
+  'invalid-value': ({
+    paramName,
+    validValueDescription,
+    value
+  }) => {
+    if (!paramName || !validValueDescription) {
+      throw new Error(`Unexpected input to 'invalid-value' error.`);
+    }
+
+    return `The '${paramName}' parameter was given a value with an ` + `unexpected value. ${validValueDescription} Received a value of ` + `${JSON.stringify(value)}.`;
+  },
+  'not-an-array': ({
+    moduleName,
+    className,
+    funcName,
+    paramName
+  }) => {
+    if (!moduleName || !className || !funcName || !paramName) {
+      throw new Error(`Unexpected input to 'not-an-array' error.`);
+    }
+
+    return `The parameter '${paramName}' passed into ` + `'${moduleName}.${className}.${funcName}()' must be an array.`;
+  },
+  'incorrect-type': ({
+    expectedType,
+    paramName,
+    moduleName,
+    className,
+    funcName
+  }) => {
+    if (!expectedType || !paramName || !moduleName || !funcName) {
+      throw new Error(`Unexpected input to 'incorrect-type' error.`);
+    }
+
+    const classNameStr = className ? `${className}.` : '';
+    return `The parameter '${paramName}' passed into ` + `'${moduleName}.${classNameStr}` + `${funcName}()' must be of type ${expectedType}.`;
+  },
+  'incorrect-class': ({
+    expectedClassName,
+    paramName,
+    moduleName,
+    className,
+    funcName,
+    isReturnValueProblem
+  }) => {
+    if (!expectedClassName || !moduleName || !funcName) {
+      throw new Error(`Unexpected input to 'incorrect-class' error.`);
+    }
+
+    const classNameStr = className ? `${className}.` : '';
+
+    if (isReturnValueProblem) {
+      return `The return value from ` + `'${moduleName}.${classNameStr}${funcName}()' ` + `must be an instance of class ${expectedClassName}.`;
+    }
+
+    return `The parameter '${paramName}' passed into ` + `'${moduleName}.${classNameStr}${funcName}()' ` + `must be an instance of class ${expectedClassName}.`;
+  },
+  'missing-a-method': ({
+    expectedMethod,
+    paramName,
+    moduleName,
+    className,
+    funcName
+  }) => {
+    if (!expectedMethod || !paramName || !moduleName || !className || !funcName) {
+      throw new Error(`Unexpected input to 'missing-a-method' error.`);
+    }
+
+    return `${moduleName}.${className}.${funcName}() expected the ` + `'${paramName}' parameter to expose a '${expectedMethod}' method.`;
+  },
+  'add-to-cache-list-unexpected-type': ({
+    entry
+  }) => {
+    return `An unexpected entry was passed to ` + `'workbox-precaching.PrecacheController.addToCacheList()' The entry ` + `'${JSON.stringify(entry)}' isn't supported. You must supply an array of ` + `strings with one or more characters, objects with a url property or ` + `Request objects.`;
+  },
+  'add-to-cache-list-conflicting-entries': ({
+    firstEntry,
+    secondEntry
+  }) => {
+    if (!firstEntry || !secondEntry) {
+      throw new Error(`Unexpected input to ` + `'add-to-cache-list-duplicate-entries' error.`);
+    }
+
+    return `Two of the entries passed to ` + `'workbox-precaching.PrecacheController.addToCacheList()' had the URL ` + `${firstEntry} but different revision details. Workbox is ` + `unable to cache and version the asset correctly. Please remove one ` + `of the entries.`;
+  },
+  'plugin-error-request-will-fetch': ({
+    thrownErrorMessage
+  }) => {
+    if (!thrownErrorMessage) {
+      throw new Error(`Unexpected input to ` + `'plugin-error-request-will-fetch', error.`);
+    }
+
+    return `An error was thrown by a plugins 'requestWillFetch()' method. ` + `The thrown error message was: '${thrownErrorMessage}'.`;
+  },
+  'invalid-cache-name': ({
+    cacheNameId,
+    value
+  }) => {
+    if (!cacheNameId) {
+      throw new Error(`Expected a 'cacheNameId' for error 'invalid-cache-name'`);
+    }
+
+    return `You must provide a name containing at least one character for ` + `setCacheDetails({${cacheNameId}: '...'}). Received a value of ` + `'${JSON.stringify(value)}'`;
+  },
+  'unregister-route-but-not-found-with-method': ({
+    method
+  }) => {
+    if (!method) {
+      throw new Error(`Unexpected input to ` + `'unregister-route-but-not-found-with-method' error.`);
+    }
+
+    return `The route you're trying to unregister was not  previously ` + `registered for the method type '${method}'.`;
+  },
+  'unregister-route-route-not-registered': () => {
+    return `The route you're trying to unregister was not previously ` + `registered.`;
+  },
+  'queue-replay-failed': ({
+    name
+  }) => {
+    return `Replaying the background sync queue '${name}' failed.`;
+  },
+  'duplicate-queue-name': ({
+    name
+  }) => {
+    return `The Queue name '${name}' is already being used. ` + `All instances of backgroundSync.Queue must be given unique names.`;
+  },
+  'expired-test-without-max-age': ({
+    methodName,
+    paramName
+  }) => {
+    return `The '${methodName}()' method can only be used when the ` + `'${paramName}' is used in the constructor.`;
+  },
+  'unsupported-route-type': ({
+    moduleName,
+    className,
+    funcName,
+    paramName
+  }) => {
+    return `The supplied '${paramName}' parameter was an unsupported type. ` + `Please check the docs for ${moduleName}.${className}.${funcName} for ` + `valid input types.`;
+  },
+  'not-array-of-class': ({
+    value,
+    expectedClass,
+    moduleName,
+    className,
+    funcName,
+    paramName
+  }) => {
+    return `The supplied '${paramName}' parameter must be an array of ` + `'${expectedClass}' objects. Received '${JSON.stringify(value)},'. ` + `Please check the call to ${moduleName}.${className}.${funcName}() ` + `to fix the issue.`;
+  },
+  'max-entries-or-age-required': ({
+    moduleName,
+    className,
+    funcName
+  }) => {
+    return `You must define either config.maxEntries or config.maxAgeSeconds` + `in ${moduleName}.${className}.${funcName}`;
+  },
+  'statuses-or-headers-required': ({
+    moduleName,
+    className,
+    funcName
+  }) => {
+    return `You must define either config.statuses or config.headers` + `in ${moduleName}.${className}.${funcName}`;
+  },
+  'invalid-string': ({
+    moduleName,
+    funcName,
+    paramName
+  }) => {
+    if (!paramName || !moduleName || !funcName) {
+      throw new Error(`Unexpected input to 'invalid-string' error.`);
+    }
+
+    return `When using strings, the '${paramName}' parameter must start with ` + `'http' (for cross-origin matches) or '/' (for same-origin matches). ` + `Please see the docs for ${moduleName}.${funcName}() for ` + `more info.`;
+  },
+  'channel-name-required': () => {
+    return `You must provide a channelName to construct a ` + `BroadcastCacheUpdate instance.`;
+  },
+  'invalid-responses-are-same-args': () => {
+    return `The arguments passed into responsesAreSame() appear to be ` + `invalid. Please ensure valid Responses are used.`;
+  },
+  'expire-custom-caches-only': () => {
+    return `You must provide a 'cacheName' property when using the ` + `expiration plugin with a runtime caching strategy.`;
+  },
+  'unit-must-be-bytes': ({
+    normalizedRangeHeader
+  }) => {
+    if (!normalizedRangeHeader) {
+      throw new Error(`Unexpected input to 'unit-must-be-bytes' error.`);
+    }
+
+    return `The 'unit' portion of the Range header must be set to 'bytes'. ` + `The Range header provided was "${normalizedRangeHeader}"`;
+  },
+  'single-range-only': ({
+    normalizedRangeHeader
+  }) => {
+    if (!normalizedRangeHeader) {
+      throw new Error(`Unexpected input to 'single-range-only' error.`);
+    }
+
+    return `Multiple ranges are not supported. Please use a  single start ` + `value, and optional end value. The Range header provided was ` + `"${normalizedRangeHeader}"`;
+  },
+  'invalid-range-values': ({
+    normalizedRangeHeader
+  }) => {
+    if (!normalizedRangeHeader) {
+      throw new Error(`Unexpected input to 'invalid-range-values' error.`);
+    }
+
+    return `The Range header is missing both start and end values. At least ` + `one of those values is needed. The Range header provided was ` + `"${normalizedRangeHeader}"`;
+  },
+  'no-range-header': () => {
+    return `No Range header was found in the Request provided.`;
+  },
+  'range-not-satisfiable': ({
+    size,
+    start,
+    end
+  }) => {
+    return `The start (${start}) and end (${end}) values in the Range are ` + `not satisfiable by the cached response, which is ${size} bytes.`;
+  },
+  'attempt-to-cache-non-get-request': ({
+    url,
+    method
+  }) => {
+    return `Unable to cache '${url}' because it is a '${method}' request and ` + `only 'GET' requests can be cached.`;
+  },
+  'cache-put-with-no-response': ({
+    url
+  }) => {
+    return `There was an attempt to cache '${url}' but the response was not ` + `defined.`;
+  },
+  'no-response': ({
+    url,
+    error
+  }) => {
+    let message = `The strategy could not generate a response for '${url}'.`;
+
+    if (error) {
+      message += ` The underlying error is ${error}.`;
+    }
+
+    return message;
+  },
+  'bad-precaching-response': ({
+    url,
+    status
+  }) => {
+    return `The precaching request for '${url}' failed` + (status ? ` with an HTTP status of ${status}.` : `.`);
+  },
+  'non-precached-url': ({
+    url
+  }) => {
+    return `createHandlerBoundToURL('${url}') was called, but that URL is ` + `not precached. Please pass in a URL that is precached instead.`;
+  },
+  'add-to-cache-list-conflicting-integrities': ({
+    url
+  }) => {
+    return `Two of the entries passed to ` + `'workbox-precaching.PrecacheController.addToCacheList()' had the URL ` + `${url} with different integrity values. Please remove one of them.`;
+  },
+  'missing-precache-entry': ({
+    cacheName,
+    url
+  }) => {
+    return `Unable to find a precached response in ${cacheName} for ${url}.`;
+  },
+  'cross-origin-copy-response': ({
+    origin
+  }) => {
+    return `workbox-core.copyResponse() can only be used with same-origin ` + `responses. It was passed a response with origin ${origin}.`;
+  }
+};
+
+/***/ }),
+/* 73 */
+/***/ (() => {
+
+ // @ts-ignore
+
+try {
+  self['workbox:core:6.4.1'] && _();
+} catch (e) {}
+
+/***/ }),
+/* 74 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dontWaitFor": () => (/* binding */ dontWaitFor)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2019 Google LLC
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+/**
+ * A helper function that prevents a promise from being flagged as unused.
+ *
+ * @private
+ **/
+
+function dontWaitFor(promise) {
+  // Effective no-op.
+  void promise.then(() => {});
+}
+
+/***/ }),
+/* 75 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "logger": () => (/* binding */ logger)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2019 Google LLC
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+const logger =  false ? 0 : (() => {
+  // Don't overwrite this value if it's already set.
+  // See https://github.com/GoogleChrome/workbox/pull/2284#issuecomment-560470923
+  if (!('__WB_DISABLE_DEV_LOGS' in self)) {
+    self.__WB_DISABLE_DEV_LOGS = false;
+  }
+
+  let inGroup = false;
+  const methodToColorMap = {
+    debug: `#7f8c8d`,
+    log: `#2ecc71`,
+    warn: `#f39c12`,
+    error: `#c0392b`,
+    groupCollapsed: `#3498db`,
+    groupEnd: null // No colored prefix on groupEnd
+
+  };
+
+  const print = function (method, args) {
+    if (self.__WB_DISABLE_DEV_LOGS) {
+      return;
+    }
+
+    if (method === 'groupCollapsed') {
+      // Safari doesn't print all console.groupCollapsed() arguments:
+      // https://bugs.webkit.org/show_bug.cgi?id=182754
+      if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+        console[method](...args);
+        return;
+      }
+    }
+
+    const styles = [`background: ${methodToColorMap[method]}`, `border-radius: 0.5em`, `color: white`, `font-weight: bold`, `padding: 2px 0.5em`]; // When in a group, the workbox prefix is not displayed.
+
+    const logPrefix = inGroup ? [] : ['%cworkbox', styles.join(';')];
+    console[method](...logPrefix, ...args);
+
+    if (method === 'groupCollapsed') {
+      inGroup = true;
+    }
+
+    if (method === 'groupEnd') {
+      inGroup = false;
+    }
+  }; // eslint-disable-next-line @typescript-eslint/ban-types
+
+
+  const api = {};
+  const loggerMethods = Object.keys(methodToColorMap);
+
+  for (const key of loggerMethods) {
+    const method = key;
+
+    api[method] = (...args) => {
+      print(method, args);
+    };
+  }
+
+  return api;
+})();
+
+
+/***/ }),
+/* 76 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CacheTimestampsModel": () => (/* binding */ CacheTimestampsModel)
 /* harmony export */ });
-/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(66);
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(77);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(80);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
   Copyright 2018 Google LLC
@@ -5274,7 +6471,7 @@ class CacheTimestampsModel {
 
 
 /***/ }),
-/* 63 */
+/* 77 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -5284,13 +6481,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "deleteDB": () => (/* binding */ deleteDB),
 /* harmony export */   "openDB": () => (/* binding */ openDB)
 /* harmony export */ });
-/* harmony import */ var _home_jerensl_project_jerenslensun_com_node_modules_next_dist_compiled_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(64);
-/* harmony import */ var _wrap_idb_value_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(65);
+/* harmony import */ var _home_jerensl_projects_jerenslensun_com_node_modules_next_dist_compiled_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78);
+/* harmony import */ var _wrap_idb_value_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(79);
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_home_jerensl_project_jerenslensun_com_node_modules_next_dist_compiled_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_home_jerensl_projects_jerenslensun_com_node_modules_next_dist_compiled_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 
 
@@ -5382,7 +6579,7 @@ function getMethod(target, prop) {
 
 
 /***/ }),
-/* 64 */
+/* 78 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -5405,7 +6602,7 @@ function _defineProperty(obj, key, value) {
 }
 
 /***/ }),
-/* 65 */
+/* 79 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -5603,7 +6800,7 @@ const unwrap = value => reverseTransformCache.get(value);
 
 
 /***/ }),
-/* 66 */
+/* 80 */
 /***/ (() => {
 
  // @ts-ignore
@@ -5613,22 +6810,22 @@ try {
 } catch (e) {}
 
 /***/ }),
-/* 67 */
+/* 81 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ExpirationPlugin": () => (/* binding */ ExpirationPlugin)
 /* harmony export */ });
-/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var workbox_core_private_cacheNames_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var workbox_core_private_dontWaitFor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
-/* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
-/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
-/* harmony import */ var workbox_core_registerQuotaErrorCallback_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
-/* harmony import */ var _CacheExpiration_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(61);
-/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(66);
+/* harmony import */ var workbox_core_private_assert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(69);
+/* harmony import */ var workbox_core_private_cacheNames_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(82);
+/* harmony import */ var workbox_core_private_dontWaitFor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(74);
+/* harmony import */ var workbox_core_private_getFriendlyURL_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(83);
+/* harmony import */ var workbox_core_private_logger_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(75);
+/* harmony import */ var workbox_core_registerQuotaErrorCallback_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(84);
+/* harmony import */ var workbox_core_private_WorkboxError_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(70);
+/* harmony import */ var _CacheExpiration_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(80);
 /* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_8__);
 /*
   Copyright 2018 Google LLC
@@ -5925,6 +7122,171 @@ class ExpirationPlugin {
 
 
 
+/***/ }),
+/* 82 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cacheNames": () => (/* binding */ cacheNames)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+const _cacheNameDetails = {
+  googleAnalytics: 'googleAnalytics',
+  precache: 'precache-v2',
+  prefix: 'workbox',
+  runtime: 'runtime',
+  suffix: typeof registration !== 'undefined' ? registration.scope : ''
+};
+
+const _createCacheName = cacheName => {
+  return [_cacheNameDetails.prefix, cacheName, _cacheNameDetails.suffix].filter(value => value && value.length > 0).join('-');
+};
+
+const eachCacheNameDetail = fn => {
+  for (const key of Object.keys(_cacheNameDetails)) {
+    fn(key);
+  }
+};
+
+const cacheNames = {
+  updateDetails: details => {
+    eachCacheNameDetail(key => {
+      if (typeof details[key] === 'string') {
+        _cacheNameDetails[key] = details[key];
+      }
+    });
+  },
+  getGoogleAnalyticsName: userCacheName => {
+    return userCacheName || _createCacheName(_cacheNameDetails.googleAnalytics);
+  },
+  getPrecacheName: userCacheName => {
+    return userCacheName || _createCacheName(_cacheNameDetails.precache);
+  },
+  getPrefix: () => {
+    return _cacheNameDetails.prefix;
+  },
+  getRuntimeName: userCacheName => {
+    return userCacheName || _createCacheName(_cacheNameDetails.runtime);
+  },
+  getSuffix: () => {
+    return _cacheNameDetails.suffix;
+  }
+};
+
+/***/ }),
+/* 83 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getFriendlyURL": () => (/* binding */ getFriendlyURL)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+const getFriendlyURL = url => {
+  const urlObj = new URL(String(url), location.href); // See https://github.com/GoogleChrome/workbox/issues/2323
+  // We want to include everything, except for the origin if it's same-origin.
+
+  return urlObj.href.replace(new RegExp(`^${location.origin}`), '');
+};
+
+
+
+/***/ }),
+/* 84 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "registerQuotaErrorCallback": () => (/* binding */ registerQuotaErrorCallback)
+/* harmony export */ });
+/* harmony import */ var _private_logger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(75);
+/* harmony import */ var _private_assert_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(69);
+/* harmony import */ var _models_quotaErrorCallbacks_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(85);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_3__);
+/*
+  Copyright 2019 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+
+
+
+
+/**
+ * Adds a function to the set of quotaErrorCallbacks that will be executed if
+ * there's a quota error.
+ *
+ * @param {Function} callback
+ * @memberof module:workbox-core
+ */
+// Can't change Function type
+// eslint-disable-next-line @typescript-eslint/ban-types
+
+function registerQuotaErrorCallback(callback) {
+  if (true) {
+    _private_assert_js__WEBPACK_IMPORTED_MODULE_1__.assert.isType(callback, 'function', {
+      moduleName: 'workbox-core',
+      funcName: 'register',
+      paramName: 'callback'
+    });
+  }
+
+  _models_quotaErrorCallbacks_js__WEBPACK_IMPORTED_MODULE_2__.quotaErrorCallbacks.add(callback);
+
+  if (true) {
+    _private_logger_js__WEBPACK_IMPORTED_MODULE_0__.logger.log('Registered a callback to respond to quota errors.', callback);
+  }
+}
+
+
+
+/***/ }),
+/* 85 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "quotaErrorCallbacks": () => (/* binding */ quotaErrorCallbacks)
+/* harmony export */ });
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(73);
+/* harmony import */ var _version_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_version_js__WEBPACK_IMPORTED_MODULE_0__);
+/*
+  Copyright 2018 Google LLC
+
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT.
+*/
+ // Callbacks to be executed whenever there's a quota error.
+// Can't change Function type right now.
+// eslint-disable-next-line @typescript-eslint/ban-types
+
+const quotaErrorCallbacks = new Set();
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -6000,9 +7362,9 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var workbox_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var workbox_routing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(29);
-/* harmony import */ var workbox_strategies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(42);
-/* harmony import */ var workbox_cacheable_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(54);
-/* harmony import */ var workbox_expiration__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(59);
+/* harmony import */ var workbox_strategies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(49);
+/* harmony import */ var workbox_cacheable_response__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(61);
+/* harmony import */ var workbox_expiration__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(66);
 
 
 
@@ -6048,7 +7410,7 @@ new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.StaleWhileRevalidate({
 ({
   request
 }) => request.destination === 'image', // Use a Cache First caching strategy
-new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.CacheFirst({
+new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.StaleWhileRevalidate({
   // Put all cached files in a cache named 'images'
   cacheName: 'images',
   plugins: [// Ensure that only requests that result in a 200 status are cached
@@ -6063,7 +7425,7 @@ new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.CacheFirst({
 }));
 (0,workbox_routing__WEBPACK_IMPORTED_MODULE_1__.registerRoute)(({
   url
-}) => url.origin === 'https://res.cloudinary.com', new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.CacheFirst({
+}) => url.origin === 'https://res.cloudinary.com', new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.StaleWhileRevalidate({
   cacheName: 'cdn-images',
   plugins: [new workbox_cacheable_response__WEBPACK_IMPORTED_MODULE_3__.CacheableResponsePlugin({
     statuses: [0, 200]
@@ -6071,15 +7433,34 @@ new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.CacheFirst({
     maxAgeSeconds: 60 * 60 * 24 * 365,
     maxEntries: 30
   })]
-})); // listen to message event from window
+}));
+self.addEventListener('push', function (event) {
+  const data = JSON.parse(event.data.text());
+  event.waitUntil(new ServiceWorkerRegistration().showNotification(data.title, {
+    body: data.message,
+    icon: '/icons/icon-512x512.png'
+  }));
+});
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close();
+  event.waitUntil(self.clients.matchAll({
+    type: 'window',
+    includeUncontrolled: true
+  }).then(function (clientList) {
+    if (clientList.length > 0) {
+      let client = clientList[0];
 
-self.addEventListener('message', event => {
-  // HOW TO TEST THIS?
-  // Run this in your browser console:
-  //     window.navigator.serviceWorker.controller.postMessage({command: 'log', message: 'hello world'})
-  // OR use next-pwa injected workbox object
-  //     window.workbox.messageSW({command: 'log', message: 'hello world'})
-  console.log(event === null || event === void 0 ? void 0 : event.data);
+      for (let i = 0; i < clientList.length; i++) {
+        if (clientList[i].focused) {
+          client = clientList[i];
+        }
+      }
+
+      return client.focus();
+    }
+
+    return self.clients.openWindow('/');
+  }));
 });
 })();
 
