@@ -37,12 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             })
         }
     }, [])
-    return (
-        <div>
-            <Component {...pageProps} />
-            <Notifications />
-        </div>
-    )
+    return <Component {...pageProps} />
 }
 
 export default MyApp
