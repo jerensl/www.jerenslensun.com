@@ -39,8 +39,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, [])
     return (
         <div>
-            <Notifications />
             <Component {...pageProps} />
+            <Notifications />
         </div>
     )
 }
