@@ -23,13 +23,13 @@ export const Articles = ({
         .join(' ')
 
     return (
-        <Link href={`/blog/${slug}`} passHref>
-            <a>
-                <article
-                    key={slug}
-                    className="cursor-pointer min-h-full rounded-md overflow-auto border border-gray-400 grid grid-rows-2"
-                >
-                    <div className="relative overflow-auto">
+        <article
+            key={slug}
+            className="min-h-full rounded-md overflow-auto border border-gray-400 grid grid-rows-2"
+        >
+            <div className="relative overflow-auto">
+                <Link href={`/blog/${slug}`} passHref>
+                    <a>
                         <Image
                             loader={blobStorageIoImageLoader}
                             src={cover}
@@ -39,22 +39,28 @@ export const Articles = ({
                             placeholder="blur"
                             height="200px"
                             width="450px"
-                            className="relative transition duration-250 ease-in-out scale-100 hover:scale-110 "
+                            className="relative transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
                         />
-                        <div className="absolute left-1 bottom-3 text-red-400 font-bold bg-white opacity-70 rounded-md"></div>
-                    </div>
-                    <div className="flex flex-col p-2 justify-between">
-                        <h1 className="text-2xl font-bold leading-8 tracking-tight">
-                            {captializeTitle}
-                        </h1>
-                        <p className="line-clamp-3">{description}</p>
-                        <p className="text-gray-500">
-                            {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
-                            <span>{readTime.text}</span>
-                        </p>
-                    </div>
-                </article>
-            </a>
-        </Link>
+                    </a>
+                </Link>
+                <div className="absolute left-1 bottom-3 text-red-400 font-bold bg-white opacity-70 rounded-md">
+                    {tags.map((tag) => {
+                        return <span key={tag}>{tag.toUpperCase()} </span>
+                    })}
+                </div>
+            </div>
+            <div className="flex flex-col p-2 justify-between">
+                <Link href={`/blog/${slug}`} passHref>
+                    <h1 className="text-2xl font-bold leading-8 tracking-tight cursor-pointer">
+                        {captializeTitle}
+                    </h1>
+                </Link>
+                <p className="line-clamp-3">{description}</p>
+                <p className="text-gray-500">
+                    {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
+                    <span>{readTime.text}</span>
+                </p>
+            </div>
+        </article>
     )
 }
