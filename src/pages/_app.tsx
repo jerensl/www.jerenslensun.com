@@ -9,6 +9,7 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { faBars, faTimes, faRssSquare } from '@fortawesome/free-solid-svg-icons'
+import { Notifications } from '../components/Notifications'
 
 library.add(
     faGithubSquare,
@@ -36,7 +37,12 @@ function MyApp({ Component, pageProps }: AppProps) {
             })
         }
     }, [])
-    return <Component {...pageProps} />
+    return (
+        <div>
+            <Notifications />
+            <Component {...pageProps} />
+        </div>
+    )
 }
 
 export default MyApp

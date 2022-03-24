@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-import { getMessaging, getToken, onMessage } from 'firebase/messaging'
+import { getMessaging, getToken } from 'firebase/messaging'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,7 +18,7 @@ export const firebaseConfig = {
 }
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig)
+export const firebaseApp = initializeApp(firebaseConfig)
 
 const { FCM_VAPID_KEY } = process.env
 
