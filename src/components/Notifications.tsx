@@ -5,7 +5,7 @@ import { firebaseApp } from '../lib/firebase-init'
 
 export const Notifications = (): React.ReactElement => {
     useEffect(() => {
-        if (Notification.permission === 'granted') {
+        if (window.Notification.permission === 'granted') {
             const messaging = getMessaging(firebaseApp)
 
             onMessage(messaging, (payload) => {
