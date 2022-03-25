@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { getMessaging, onMessage } from 'firebase/messaging'
+import { getMessaging, MessagePayload, onMessage } from 'firebase/messaging'
 import { firebaseApp } from '../lib/firebase-init'
 
 export const Notifications = (): React.ReactElement => {
@@ -11,7 +11,7 @@ export const Notifications = (): React.ReactElement => {
         ) {
             const messaging = getMessaging(firebaseApp)
 
-            onMessage(messaging, (payload) => {
+            onMessage(messaging, (payload: MessagePayload) => {
                 notify(
                     '/icons/icon-512x512.png',
                     payload.notification.title,
