@@ -14,8 +14,8 @@ export const Notifications = (): React.ReactElement => {
             onMessage(messaging, (payload: MessagePayload) => {
                 notify(
                     '/icons/icon-512x512.png',
-                    payload.notification.title,
-                    payload.notification.body
+                    payload.data.title,
+                    payload.data.body
                 )
             })
         }
