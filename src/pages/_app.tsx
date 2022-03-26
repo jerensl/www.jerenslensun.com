@@ -1,24 +1,13 @@
 import '@/styles/globals.css'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { getCredentialsToken } from '../lib/firebase-init'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
-import { faBars, faTimes, faRssSquare } from '@fortawesome/free-solid-svg-icons'
-import { Notifications } from '../components/Notifications'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { NavbarMobile } from '@/components/NavbarMobile'
 
-library.add(
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-    faTimes,
-    faBars,
-    faRssSquare
-)
+config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
     useEffect(() => {
@@ -36,7 +25,12 @@ function MyApp({ Component, pageProps }: AppProps) {
             })
         }
     }, [])
-    return <Component {...pageProps} />
+    return (
+        <div>
+            <NavbarMobile />
+            <Component {...pageProps} />
+        </div>
+    )
 }
 
 export default MyApp
