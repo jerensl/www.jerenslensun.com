@@ -45,8 +45,9 @@ const firebaseApp = {
                 {
                     method: 'POST',
                     mode: 'cors',
-                    credentials: 'include',
                     headers: {
+                        'Access-Control-Allow-Origin':
+                            'https:/www.jerenslensun.com/',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
@@ -68,8 +69,9 @@ const firebaseApp = {
                 {
                     method: 'POST',
                     mode: 'cors',
-                    credentials: 'include',
                     headers: {
+                        'Access-Control-Allow-Origin':
+                            'https:/www.jerenslensun.com/',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
