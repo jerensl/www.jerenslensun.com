@@ -28,7 +28,6 @@ const firebaseApp = {
                 })
 
                 if (fcm_token) {
-                    new Notification('Thank you for subscribe!')
                     return fcm_token
                 }
             }
@@ -44,10 +43,8 @@ const firebaseApp = {
                 'https://api.jerenslensun.com/api/notification/status',
                 {
                     method: 'POST',
-                    mode: 'cors',
+                    mode: 'no-cors',
                     headers: {
-                        'Access-Control-Allow-Origin':
-                            'https:/www.jerenslensun.com/',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
@@ -68,10 +65,8 @@ const firebaseApp = {
                 'https://api.jerenslensun.com/api/notification/subscribe',
                 {
                     method: 'POST',
-                    mode: 'cors',
+                    mode: 'no-cors',
                     headers: {
-                        'Access-Control-Allow-Origin':
-                            'https:/www.jerenslensun.com/',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({

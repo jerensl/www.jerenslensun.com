@@ -10,14 +10,6 @@ import { NavbarMobile } from '@/components/NavbarMobile'
 config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
-    useEffect(() => {
-        if (!('Notification' in window)) {
-            console.error('This browser does not support desktop notification')
-            return
-        }
-
-        firebaseApp.Init()
-    }, [])
     return (
         <div>
             <NavbarMobile />

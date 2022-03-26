@@ -10,11 +10,9 @@ export const Notifications = (): React.ReactElement => {
 
             const token = await firebaseApp.Messaging(app)
 
-            const status: any = await firebaseApp.Status(token)
+            await firebaseApp.Status(token)
 
-            if (!status?.status) {
-                await firebaseApp.Subscribe(token)
-            }
+            await firebaseApp.Subscribe(token)
 
             const messaging = getMessaging(app)
 
