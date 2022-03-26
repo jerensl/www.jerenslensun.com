@@ -1,8 +1,8 @@
-import { initializeApp } from 'firebase/app'
+import { initializeApp, FirebaseApp } from 'firebase/app'
 import { getMessaging, getToken } from 'firebase/messaging'
 
 const firebaseApp = {
-    Init: async (): Promise<string | null> => {
+    Init: async (): Promise<FirebaseApp> => {
         const app = initializeApp({
             apiKey: 'AIzaSyAlgD74xXwIcDLkdju_zeB9ntqCiGN5xko',
             authDomain: 'jerens-app.firebaseapp.com',
@@ -13,6 +13,10 @@ const firebaseApp = {
             measurementId: 'G-SNRQJJZH3L',
         })
 
+        return app
+    },
+
+    Messaging: async (app: FirebaseApp): Promise<string | null> => {
         try {
             const messaging = getMessaging(app)
             //requesting notification permission from browser
@@ -24,7 +28,6 @@ const firebaseApp = {
                 })
 
                 if (fcm_token) {
-                    console.log(fcm_token)
                     new Notification('Thank you for subscribe!')
                     return fcm_token
                 }
@@ -34,6 +37,52 @@ const firebaseApp = {
             return null
         }
         return null
+    },
+    Status: async (token: string): Promise<object | null> => {
+        try {
+            const response = await fetch(
+                'https://api.jerenslensun.com/api/notification/status',
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        token: token,
+                    }),
+                }
+            )
+            return response.json()
+        } catch (error) {
+            console.error(error)
+            return null
+        }
+    },
+
+    Subscribe: async (token: string): Promise<boolean | null> => {
+        try {
+            const response = await fetch(
+                'https://api.jerenslensun.com/api/notification/subscribe',
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        token: token,
+                    }),
+                }
+            )
+
+            return response.ok
+        } catch (error) {
+            console.error(error)
+            return null
+        }
     },
 }
 

@@ -1,15 +1,22 @@
 import React, { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { getMessaging, MessagePayload, onMessage } from 'firebase/messaging'
-import { firebaseApp } from '../lib/firebase-init'
+import { firebaseApp } from '../lib/firebase'
 
 export const Notifications = (): React.ReactElement => {
     useEffect(() => {
-        if (
-            'Notification' in window &&
-            window.Notification.permission === 'granted'
-        ) {
-            const messaging = getMessaging(firebaseApp)
+        const notification = async () => {
+            const app = await firebaseApp.Init()
+
+            const token = await firebaseApp.Messaging(app)
+
+            const status: any = await firebaseApp.Status(token)
+
+            if (!status?.status) {
+                await firebaseApp.Subscribe(token)
+            }
+
+            const messaging = getMessaging(app)
 
             onMessage(messaging, (payload: MessagePayload) => {
                 notify(
@@ -19,6 +26,7 @@ export const Notifications = (): React.ReactElement => {
                 )
             })
         }
+        notification()
     }, [])
     return (
         <div>
