@@ -12,7 +12,7 @@ export const LinkURL = ({ href, children }: LinkURLProps) => {
     const router = useRouter()
 
     return (
-        <Link href={href}>
+        <Link href={href} passHref>
             {React.cloneElement(child, {
                 'aria-current': router.pathname === href ? 'page' : null,
             })}
