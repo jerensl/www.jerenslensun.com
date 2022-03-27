@@ -55,6 +55,7 @@ export const Articles = ({
                         {captializeTitle}
                     </h1>
                 </Link>
+
                 <p className="line-clamp-3">{description}</p>
                 <p className="text-gray-500">
                     {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
