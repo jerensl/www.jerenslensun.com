@@ -4,15 +4,30 @@ import { getMessaging, MessagePayload, onMessage } from 'firebase/messaging'
 import { firebaseApp } from '../lib/firebase'
 
 export const Notifications = (): React.ReactElement => {
+    const [token, setToken] = React.useState<string | null>('')
+    const [status, setStatus] = React.useState<boolean>(true)
+
     useEffect(() => {
         const notification = async () => {
             const app = await firebaseApp.Init()
 
-            const token = await firebaseApp.Messaging(app)
+            const tokenFromFCM = await firebaseApp.Messaging(app)
 
-            await firebaseApp.Status(token)
+            setToken(tokenFromFCM)
 
-            await firebaseApp.Subscribe(token)
+            if (token == '' || token == null) {
+                return
+            }
+
+            const subscription = await firebaseApp.Status(tokenFromFCM)
+            if (subscription == null) {
+                return
+            }
+            setStatus(subscription.status)
+
+            if (!status) {
+                await firebaseApp.Subscribe(token)
+            }
 
             const messaging = getMessaging(app)
 
@@ -25,7 +40,7 @@ export const Notifications = (): React.ReactElement => {
             })
         }
         notification()
-    }, [])
+    }, [token])
     return (
         <div>
             <Toaster position="top-center" reverseOrder={false} />
