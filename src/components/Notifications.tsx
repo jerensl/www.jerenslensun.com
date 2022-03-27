@@ -5,7 +5,7 @@ import { firebaseApp } from '../lib/firebase'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
-    const [status, setStatus] = React.useState<boolean>(true)
+    const [status, setStatus] = React.useState<boolean>(false)
 
     useEffect(() => {
         const notification = async () => {
