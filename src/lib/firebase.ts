@@ -18,43 +18,49 @@ const firebaseApp = {
 
     Messaging: async (app: FirebaseApp): Promise<string | null> => {
         try {
-            const messaging = getMessaging(app)
-            //requesting notification permission from browser
-            const status = await Notification.requestPermission()
-            if (status && status === 'granted') {
-                //getting token from FCM
-                const fcm_token: string = await getToken(messaging, {
-                    vapidKey: process.env.FCM_VAPID_KEY,
-                })
+            if (!('Notification' in window)) {
+                throw new Error('This browser does not support notifications.')
+            } else {
+                if (
+                    Notification.permission === 'denied' ||
+                    Notification.permission === 'default'
+                ) {
+                    await Notification.requestPermission()
+                } else {
+                    const messaging = getMessaging(app)
 
-                if (fcm_token) {
-                    return fcm_token
+                    //getting token from FCM
+                    const fcm_token: string = await getToken(messaging, {
+                        vapidKey: process.env.FCM_VAPID_KEY,
+                    })
+
+                    if (fcm_token) {
+                        return fcm_token
+                    }
                 }
             }
         } catch (error) {
             console.error(error)
-            return null
         }
         return null
     },
-    Status: async (token: string): Promise<object | null> => {
+    Status: async (token: string): Promise<any> => {
         try {
             const response = await fetch(
                 'https://api.jerenslensun.com/api/notification/status',
                 {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    mode: 'cors',
                     body: JSON.stringify({
                         token: token,
                     }),
                 }
             )
-            return response.json()
+
+            const result = await response.json()
+
+            return result
         } catch (error) {
-            console.error(error)
             return null
         }
     },
@@ -65,10 +71,7 @@ const firebaseApp = {
                 'https://api.jerenslensun.com/api/notification/subscribe',
                 {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    mode: 'cors',
                     body: JSON.stringify({
                         token: token,
                     }),
@@ -77,8 +80,7 @@ const firebaseApp = {
 
             return response.ok
         } catch (error) {
-            console.error(error)
-            return null
+            throw new Error(error)
         }
     },
 }
