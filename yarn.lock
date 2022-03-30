@@ -10124,10 +10124,10 @@ unified@^10.0.0:
     trough "^2.0.0"
     vfile "^5.0.0"
 
-unified@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.1.tgz#345e349e3ab353ab612878338eb9d57b4dea1d46"
-  integrity sha512-v4ky1+6BN9X3pQrOdkFIPWAaeDsHPE1svRDxq7YpTc2plkIqFMwukfqM+l0ewpP9EfwARlt9pPFAeWYhHm8X9w==
+unified@^10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/unified/-/unified-10.1.2.tgz#b1d64e55dafe1f0b98bb6c719881103ecf6c86df"
+  integrity sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==
   dependencies:
     "@types/unist" "^2.0.0"
     bail "^2.0.0"
@@ -10688,11 +10688,6 @@ workbox-cacheable-response@6.5.1, workbox-cacheable-response@^6.5.0:
   integrity sha512-3TdtH/luDiytmM+Cn72HCBLZXmbeRNJqZx2yaVOfUZhj0IVwZqQXhNarlGE9/k6U5Jelb+TtpH2mLVhnzfiSMg==
   dependencies:
     workbox-core "6.5.1"
-
-workbox-core@6.4.2:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-6.4.2.tgz#f99fd36a211cc01dce90aa7d5f2c255e8fe9d6bc"
-  integrity sha512-1U6cdEYPcajRXiboSlpJx6U7TvhIKbxRRerfepAJu2hniKwJ3DHILjpU/zx3yvzSBCWcNJDoFalf7Vgd7ey/rw==
 
 workbox-core@6.5.1, workbox-core@^6.5.0:
   version "6.5.1"
