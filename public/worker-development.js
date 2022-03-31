@@ -7434,6 +7434,7 @@ new workbox_strategies__WEBPACK_IMPORTED_MODULE_2__.StaleWhileRevalidate({
     maxEntries: 30
   })]
 }));
+self.addEventListener('push', function (event) {});
 })();
 
 /******/ })()
