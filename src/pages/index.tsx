@@ -58,15 +58,17 @@ export default function Home({
                                     </p>
                                 </div>
                                 <div className="flex self-center flex-col gap-2">
-                                    <LinkURL href="/blog">
-                                        <a className="rounded-md text-white bg-red-600 font-semibold text-xl hover:bg-red-500 w-36 py-2">
-                                            Read Articles
-                                        </a>
+                                    <LinkURL
+                                        className="rounded-md text-white bg-red-600 font-semibold text-xl hover:bg-red-500 w-36 py-2"
+                                        href="/blog"
+                                    >
+                                        Read Articles
                                     </LinkURL>
-                                    <LinkURL href="/about">
-                                        <a className="rounded-md bg-gray-200 font-semibold text-xl hover:bg-gray-300 w-36 py-2">
-                                            About Me
-                                        </a>
+                                    <LinkURL
+                                        className="rounded-md bg-gray-200 font-semibold text-xl hover:bg-gray-300 w-36 py-2"
+                                        href="/about"
+                                    >
+                                        About Me
                                     </LinkURL>
                                 </div>
                             </div>
