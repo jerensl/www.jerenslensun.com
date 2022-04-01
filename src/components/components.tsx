@@ -1,8 +1,14 @@
 import React from 'react'
 import { pre } from './Pre'
 
+interface Components {
+    children: string
+    theme: 'pink' | 'turq' | 'orange'
+    showLineNumbers: any
+}
+
 const components = {
-    pre: ({ children, theme, showLineNumbers }) => {
+    pre: ({ children, theme, showLineNumbers }: Components) => {
         return (
             <pre
                 className={pre({

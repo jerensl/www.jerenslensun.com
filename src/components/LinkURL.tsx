@@ -1,21 +1,26 @@
-import React from 'react'
-import Link from 'next/link'
+import React, { PropsWithChildren } from 'react'
+import Link, { LinkProps } from 'next/link'
 import { useRouter } from 'next/router'
 
-interface LinkURLProps {
-    href: string
-    children: React.ReactElement
+interface LinkURLProps extends LinkProps {
+    className?: string
 }
 
-export const LinkURL = ({ href, children }: LinkURLProps) => {
-    const child = React.Children.only(children)
+export type MyLinkProps = LinkURLProps
+
+export const LinkURL = (props: PropsWithChildren<MyLinkProps>) => {
     const router = useRouter()
+    const { children, className, ...linkProps } = props
 
     return (
-        <Link href={href} passHref>
-            {React.cloneElement(child, {
-                'aria-current': router.pathname === href ? 'page' : null,
-            })}
+        <Link {...linkProps} passHref>
+            <a
+                className={className}
+                href="passRef"
+                aria-current={router.pathname === props.href ? 'page' : null}
+            >
+                {children}
+            </a>
         </Link>
     )
 }
