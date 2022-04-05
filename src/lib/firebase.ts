@@ -29,7 +29,6 @@ const firebaseApp = {
                 } else {
                     const messaging = getMessaging(app)
 
-                    //getting token from FCM
                     const fcm_token: string = await getToken(messaging, {
                         vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
                     })
@@ -39,9 +38,7 @@ const firebaseApp = {
                     }
                 }
             }
-        } catch (error) {
-            console.error(error)
-        }
+        } catch (error) {}
         return null
     },
 }
