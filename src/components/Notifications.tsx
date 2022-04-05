@@ -2,10 +2,66 @@ import React, { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { getMessaging, MessagePayload, onMessage } from 'firebase/messaging'
 import { firebaseApp } from '../lib/firebase'
+import { useQuery } from 'react-query'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faBellSlash,
+    faBell,
+    faSpinner,
+} from '@fortawesome/free-solid-svg-icons'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
     const [status, setStatus] = React.useState<boolean>(false)
+    const { isLoading, data, isIdle } = useQuery(
+        ['notification', status],
+        () => {
+            return fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/api/notification/status`,
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    body: JSON.stringify({
+                        token: token,
+                    }),
+                }
+            ).then((res) => res.json())
+        },
+        {
+            enabled: !!token,
+        }
+    )
+
+    const handleSubscribeNotification = () => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`, {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                token: token,
+            }),
+        }).then((res) => {
+            if (res.ok) {
+                setStatus(true)
+            }
+        })
+    }
+
+    const handleUnsubscribeNotification = () => {
+        fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/notification/unsubscribe`,
+            {
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({
+                    token: token,
+                }),
+            }
+        ).then((res) => {
+            if (res.ok) {
+                setStatus(false)
+            }
+        })
+    }
 
     useEffect(() => {
         const notification = async () => {
@@ -14,37 +70,53 @@ export const Notifications = (): React.ReactElement => {
             const tokenFromFCM = await firebaseApp.Messaging(app)
 
             setToken(tokenFromFCM)
-
-            if (token == '' || token == null) {
-                return
-            }
-
-            const subscription = await firebaseApp.Status(tokenFromFCM)
-            if (subscription == null) {
-                return
-            }
-            setStatus(subscription.status)
-
-            if (!status) {
-                await firebaseApp.Subscribe(token)
-            }
-
-            const messaging = getMessaging(app)
-
-            onMessage(messaging, (payload: MessagePayload) => {
-                notify(
-                    '/icons/icon-512x512.png',
-                    payload.notification.title,
-                    payload.notification.body
-                )
-            })
         }
         notification()
-    }, [token])
+    }, [token, data])
+
+    if (isLoading || isIdle) {
+        return (
+            <FontAwesomeIcon
+                className="animate-spin mx-4 h-full m-auto"
+                size="lg"
+                icon={faSpinner}
+            />
+        )
+    }
+
+    if (data?.status) {
+        return (
+            <>
+                <button
+                    className="hover:bg-gray-100"
+                    onClick={handleUnsubscribeNotification}
+                    aria-label="turn off Notification"
+                >
+                    <FontAwesomeIcon
+                        className="block mx-4 h-full m-auto"
+                        size="lg"
+                        icon={faBell}
+                    />
+                </button>
+                <Toaster position="top-center" reverseOrder={false} />
+            </>
+        )
+    }
+
     return (
-        <div>
-            <Toaster position="top-center" reverseOrder={false} />
-        </div>
+        <>
+            <button
+                className="hover:bg-gray-100"
+                onClick={handleSubscribeNotification}
+                aria-label="turn on Notification"
+            >
+                <FontAwesomeIcon
+                    className="block mx-4 m-auto h-full"
+                    icon={faBellSlash}
+                    size="lg"
+                />
+            </button>
+        </>
     )
 }
 

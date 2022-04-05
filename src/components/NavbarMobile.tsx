@@ -7,7 +7,7 @@ import {
     faAddressCard,
 } from '@fortawesome/free-solid-svg-icons'
 
-export const NavbarMobile = () => {
+export const NavbarMobile = (): React.ReactElement => {
     return (
         <div className="fixed flex w-full px-10 py-2 bottom-0 h-18 bg-white z-40 md:hidden">
             <div className="flex justify-between w-full">

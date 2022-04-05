@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../__mocks__/utils/test-providers'
 import userEvent from '@testing-library/user-event'
 import About from '../../src/pages/about'
 import { library } from '@fortawesome/fontawesome-svg-core'

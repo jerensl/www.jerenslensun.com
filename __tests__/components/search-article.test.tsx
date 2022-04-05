@@ -1,4 +1,4 @@
-import { render, waitFor, within } from '@testing-library/react'
+import { render, waitFor, within } from '../../__mocks__/utils/test-providers'
 import userEvent from '@testing-library/user-event'
 import { SearchArticle } from '../../src/components/SearchArticle'
 import { Metadata } from '../../src/domain/Blog'

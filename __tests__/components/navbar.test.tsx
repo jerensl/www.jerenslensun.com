@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '../../__mocks__/utils/test-providers'
 import { Navbar } from '../../src/components/Navbar'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {

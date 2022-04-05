@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '../../__mocks__/utils/test-providers'
 import { Article } from '../../src/components/Article'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
