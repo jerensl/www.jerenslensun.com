@@ -70,6 +70,16 @@ export const Notifications = (): React.ReactElement => {
             const tokenFromFCM = await firebaseApp.Messaging(app)
 
             setToken(tokenFromFCM)
+
+            const messaging = getMessaging(app)
+
+            onMessage(messaging, (payload: MessagePayload) => {
+                notify(
+                    '/icons/icon-512x512.png',
+                    payload.notification.title,
+                    payload.notification.body
+                )
+            })
         }
         notification()
     }, [token, data])
