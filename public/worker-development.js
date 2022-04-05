@@ -1677,18 +1677,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * NavigationRoute makes it easy to create a
- * [Route]{@link module:workbox-routing.Route} that matches for browser
+ * {@link workbox-routing.Route} that matches for browser
  * [navigation requests]{@link https://developers.google.com/web/fundamentals/primers/service-workers/high-performance-loading#first_what_are_navigation_requests}.
  *
  * It will only match incoming Requests whose
- * [`mode`]{@link https://fetch.spec.whatwg.org/#concept-request-mode}
+ * {@link https://fetch.spec.whatwg.org/#concept-request-mode|mode}
  * is set to `navigate`.
  *
  * You can optionally only apply this route to a subset of navigation requests
  * by using one or both of the `denylist` and `allowlist` parameters.
  *
- * @memberof module:workbox-routing
- * @extends module:workbox-routing.Route
+ * @memberof workbox-routing
+ * @extends workbox-routing.Route
  */
 
 class NavigationRoute extends _Route_js__WEBPACK_IMPORTED_MODULE_2__.Route {
@@ -1702,7 +1702,7 @@ class NavigationRoute extends _Route_js__WEBPACK_IMPORTED_MODULE_2__.Route {
    * and [`search`]{@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLHyperlinkElementUtils/search}
    * portions of the requested URL.
    *
-   * @param {module:workbox-routing~handlerCallback} handler A callback
+   * @param {workbox-routing~handlerCallback} handler A callback
    * function that returns a Promise resulting in a Response.
    * @param {Object} options
    * @param {Array<RegExp>} [options.denylist] If any of these patterns match,
@@ -2258,6 +2258,17 @@ const messages = {
     origin
   }) => {
     return `workbox-core.copyResponse() can only be used with same-origin ` + `responses. It was passed a response with origin ${origin}.`;
+  },
+  'opaque-streams-source': ({
+    type
+  }) => {
+    const message = `One of the workbox-streams sources resulted in an ` + `'${type}' response.`;
+
+    if (type === 'opaqueredirect') {
+      return `${message} Please do not use a navigation request that results ` + `in a redirect as a source.`;
+    }
+
+    return `${message} Please ensure your sources are CORS-enabled.`;
   }
 };
 
@@ -2268,7 +2279,7 @@ const messages = {
  // @ts-ignore
 
 try {
-  self['workbox:core:6.4.1'] && _();
+  self['workbox:core:6.5.1'] && _();
 } catch (e) {}
 
 /***/ }),
@@ -2381,17 +2392,17 @@ __webpack_require__.r(__webpack_exports__);
  * is called when there is a match and should return a Promise that resolves
  * to a `Response`.
  *
- * @memberof module:workbox-routing
+ * @memberof workbox-routing
  */
 
 class Route {
   /**
    * Constructor for Route class.
    *
-   * @param {module:workbox-routing~matchCallback} match
+   * @param {workbox-routing~matchCallback} match
    * A callback function that determines whether the route matches a given
    * `fetch` event by returning a non-falsy value.
-   * @param {module:workbox-routing~handlerCallback} handler A callback
+   * @param {workbox-routing~handlerCallback} handler A callback
    * function that returns a Promise resolving to a Response.
    * @param {string} [method='GET'] The HTTP method to match the Route
    * against.
@@ -2420,7 +2431,7 @@ class Route {
   }
   /**
    *
-   * @param {module:workbox-routing-handlerCallback} handler A callback
+   * @param {workbox-routing-handlerCallback} handler A callback
    * function that returns a Promise resolving to a Response
    */
 
@@ -2479,7 +2490,7 @@ const validMethods = ['DELETE', 'GET', 'HEAD', 'PATCH', 'POST', 'PUT'];
  // @ts-ignore
 
 try {
-  self['workbox:routing:6.4.1'] && _();
+  self['workbox:routing:6.5.1'] && _();
 } catch (e) {}
 
 /***/ }),
@@ -2564,16 +2575,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * RegExpRoute makes it easy to create a regular expression based
- * [Route]{@link module:workbox-routing.Route}.
+ * {@link workbox-routing.Route}.
  *
  * For same-origin requests the RegExp only needs to match part of the URL. For
  * requests against third-party servers, you must define a RegExp that matches
  * the start of the URL.
  *
- * [See the module docs for info.]{@link https://developers.google.com/web/tools/workbox/modules/workbox-routing}
- *
- * @memberof module:workbox-routing
- * @extends module:workbox-routing.Route
+ * @memberof workbox-routing
+ * @extends workbox-routing.Route
  */
 
 class RegExpRoute extends _Route_js__WEBPACK_IMPORTED_MODULE_2__.Route {
@@ -2581,11 +2590,11 @@ class RegExpRoute extends _Route_js__WEBPACK_IMPORTED_MODULE_2__.Route {
    * If the regular expression contains
    * [capture groups]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#grouping-back-references},
    * the captured values will be passed to the
-   * [handler's]{@link module:workbox-routing~handlerCallback} `params`
+   * {@link workbox-routing~handlerCallback} `params`
    * argument.
    *
    * @param {RegExp} regExp The regular expression to match against URLs.
-   * @param {module:workbox-routing~handlerCallback} handler A callback
+   * @param {workbox-routing~handlerCallback} handler A callback
    * function that returns a Promise resulting in a Response.
    * @param {string} [method='GET'] The HTTP method to match the Route
    * against.
@@ -2668,19 +2677,18 @@ __webpack_require__.r(__webpack_exports__);
  * strategy to a singleton Router instance.
  *
  * This method will generate a Route for you if needed and
- * call [registerRoute()]{@link module:workbox-routing.Router#registerRoute}.
+ * call {@link workbox-routing.Router#registerRoute}.
  *
- * @param {RegExp|string|module:workbox-routing.Route~matchCallback|module:workbox-routing.Route} capture
+ * @param {RegExp|string|workbox-routing.Route~matchCallback|workbox-routing.Route} capture
  * If the capture param is a `Route`, all other arguments will be ignored.
- * @param {module:workbox-routing~handlerCallback} [handler] A callback
+ * @param {workbox-routing~handlerCallback} [handler] A callback
  * function that returns a Promise resulting in a Response. This parameter
  * is required if `capture` is not a `Route` object.
  * @param {string} [method='GET'] The HTTP method to match the Route
  * against.
- * @return {module:workbox-routing.Route} The generated `Route`(Useful for
- * unregistering).
+ * @return {workbox-routing.Route} The generated `Route`.
  *
- * @memberof module:workbox-routing
+ * @memberof workbox-routing
  */
 
 function registerRoute(capture, handler, method) {
@@ -2817,8 +2825,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * The Router can be used to process a FetchEvent through one or more
- * [Routes]{@link module:workbox-routing.Route} responding  with a Request if
+ * The Router can be used to process a `FetchEvent` using one or more
+ * {@link workbox-routing.Route}, responding with a `Response` if
  * a matching route exists.
  *
  * If no route matches a given a request, the Router will use a "default"
@@ -2831,7 +2839,7 @@ __webpack_require__.r(__webpack_exports__);
  * If a request matches multiple routes, the **earliest** registered route will
  * be used to respond to the request.
  *
- * @memberof module:workbox-routing
+ * @memberof workbox-routing
  */
 
 class Router {
@@ -2843,7 +2851,7 @@ class Router {
     this._defaultHandlerMap = new Map();
   }
   /**
-   * @return {Map<string, Array<module:workbox-routing.Route>>} routes A `Map` of HTTP
+   * @return {Map<string, Array<workbox-routing.Route>>} routes A `Map` of HTTP
    * method name ('GET', etc.) to an array of all the corresponding `Route`
    * instances that are registered.
    */
@@ -3182,7 +3190,7 @@ class Router {
    * Without a default handler, unmatched requests will go against the
    * network as if there were no service worker present.
    *
-   * @param {module:workbox-routing~handlerCallback} handler A callback
+   * @param {workbox-routing~handlerCallback} handler A callback
    * function that returns a Promise resulting in a Response.
    * @param {string} [method='GET'] The HTTP method to associate with this
    * default handler. Each method has its own default.
@@ -3196,7 +3204,7 @@ class Router {
    * If a Route throws an error while handling a request, this `handler`
    * will be called and given a chance to provide a response.
    *
-   * @param {module:workbox-routing~handlerCallback} handler A callback
+   * @param {workbox-routing~handlerCallback} handler A callback
    * function that returns a Promise resulting in a Response.
    */
 
@@ -3207,7 +3215,7 @@ class Router {
   /**
    * Registers a route with the router.
    *
-   * @param {module:workbox-routing.Route} route The route to register.
+   * @param {workbox-routing.Route} route The route to register.
    */
 
 
@@ -3256,7 +3264,7 @@ class Router {
   /**
    * Unregisters a route with the router.
    *
-   * @param {module:workbox-routing.Route} route The route to unregister.
+   * @param {workbox-routing.Route} route The route to unregister.
    */
 
 
@@ -3332,10 +3340,10 @@ __webpack_require__.r(__webpack_exports__);
  * If a Route throws an error while handling a request, this `handler`
  * will be called and given a chance to provide a response.
  *
- * @param {module:workbox-routing~handlerCallback} handler A callback
+ * @param {workbox-routing~handlerCallback} handler A callback
  * function that returns a Promise resulting in a Response.
  *
- * @memberof module:workbox-routing
+ * @memberof workbox-routing
  */
 
 function setCatchHandler(handler) {
@@ -3372,10 +3380,10 @@ __webpack_require__.r(__webpack_exports__);
  * Without a default handler, unmatched requests will go against the
  * network as if there were no service worker present.
  *
- * @param {module:workbox-routing~handlerCallback} handler A callback
+ * @param {workbox-routing~handlerCallback} handler A callback
  * function that returns a Promise resulting in a Response.
  *
- * @memberof module:workbox-routing
+ * @memberof workbox-routing
  */
 
 function setDefaultHandler(handler) {
@@ -5485,7 +5493,7 @@ __webpack_require__.r(__webpack_exports__);
  * limit on the number of responses stored in a
  * [`Cache`](https://developer.mozilla.org/en-US/docs/Web/API/Cache).
  *
- * @memberof module:workbox-expiration
+ * @memberof workbox-expiration
  */
 
 class CacheExpiration {
@@ -6126,6 +6134,17 @@ const messages = {
     origin
   }) => {
     return `workbox-core.copyResponse() can only be used with same-origin ` + `responses. It was passed a response with origin ${origin}.`;
+  },
+  'opaque-streams-source': ({
+    type
+  }) => {
+    const message = `One of the workbox-streams sources resulted in an ` + `'${type}' response.`;
+
+    if (type === 'opaqueredirect') {
+      return `${message} Please do not use a navigation request that results ` + `in a redirect as a source.`;
+    }
+
+    return `${message} Please ensure your sources are CORS-enabled.`;
   }
 };
 
@@ -6136,7 +6155,7 @@ const messages = {
  // @ts-ignore
 
 try {
-  self['workbox:core:6.4.1'] && _();
+  self['workbox:core:6.5.1'] && _();
 } catch (e) {}
 
 /***/ }),
@@ -6806,7 +6825,7 @@ const unwrap = value => reverseTransformCache.get(value);
  // @ts-ignore
 
 try {
-  self['workbox:expiration:6.4.1'] && _();
+  self['workbox:expiration:6.5.1'] && _();
 } catch (e) {}
 
 /***/ }),
@@ -6864,7 +6883,7 @@ __webpack_require__.r(__webpack_exports__);
  * When using `maxEntries`, the entry least-recently requested will be removed
  * from the cache first.
  *
- * @memberof module:workbox-expiration
+ * @memberof workbox-expiration
  */
 
 class ExpirationPlugin {
@@ -7240,7 +7259,7 @@ __webpack_require__.r(__webpack_exports__);
  * there's a quota error.
  *
  * @param {Function} callback
- * @memberof module:workbox-core
+ * @memberof workbox-core
  */
 // Can't change Function type
 // eslint-disable-next-line @typescript-eslint/ban-types

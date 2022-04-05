@@ -31,7 +31,7 @@ const firebaseApp = {
 
                     //getting token from FCM
                     const fcm_token: string = await getToken(messaging, {
-                        vapidKey: process.env.FCM_VAPID_KEY,
+                        vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
                     })
 
                     if (fcm_token) {
@@ -43,45 +43,6 @@ const firebaseApp = {
             console.error(error)
         }
         return null
-    },
-    Status: async (token: string): Promise<any> => {
-        try {
-            const response = await fetch(
-                'https://api.jerenslensun.com/api/notification/status',
-                {
-                    method: 'POST',
-                    mode: 'cors',
-                    body: JSON.stringify({
-                        token: token,
-                    }),
-                }
-            )
-
-            const result = await response.json()
-
-            return result
-        } catch (error) {
-            return null
-        }
-    },
-
-    Subscribe: async (token: string): Promise<boolean | null> => {
-        try {
-            const response = await fetch(
-                'https://api.jerenslensun.com/api/notification/subscribe',
-                {
-                    method: 'POST',
-                    mode: 'cors',
-                    body: JSON.stringify({
-                        token: token,
-                    }),
-                }
-            )
-
-            return response.ok
-        } catch (error) {
-            throw new Error(error)
-        }
     },
 }
 

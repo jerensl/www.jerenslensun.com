@@ -4,17 +4,20 @@ import type { AppProps } from 'next/app'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { NavbarMobile } from '@/components/NavbarMobile'
-import { Notifications } from '@/components/Notifications'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 config.autoAddCss = false
 
+const queryClient = new QueryClient()
+
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <div>
-            <NavbarMobile />
-            <Notifications />
-            <Component {...pageProps} />
-        </div>
+        <>
+            <QueryClientProvider client={queryClient}>
+                <NavbarMobile />
+                <Component {...pageProps} />
+            </QueryClientProvider>
+        </>
     )
 }
 
