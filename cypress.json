@@ -3,5 +3,6 @@
     "baseUrl": "http://localhost:3000",
     "integrationFolder": "cypress/e2e",
     "pluginsFile": false,
-    "fixturesFolder": false
+    "fixturesFolder": false,
+    "experimentalFetchPolyfill": true
 }

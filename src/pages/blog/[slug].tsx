@@ -47,7 +47,6 @@ export default function Blog({
 
     return (
         <>
-            <Navbar />
             <Article
                 frontmatter={frontmatter}
                 code={code}

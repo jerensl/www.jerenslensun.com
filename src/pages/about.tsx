@@ -9,7 +9,6 @@ export default function About() {
         <>
             <Seo path="/about" />
             <div className="min-h-screen w-full">
-                <Navbar />
                 <div className="min-h-9/10 px-4 md:px-10 pt-24 pb-5 grid gap-10 md:grid-cols-2 lg:pt-48">
                     <div className="lg:max-w-4xl">
                         <h1 className="font-semibold text-2xl lg:text-4xl">

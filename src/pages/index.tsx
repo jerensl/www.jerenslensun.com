@@ -31,7 +31,6 @@ export default function Home({
         <>
             <Seo path="/" />
             <div className="min-h-screen w-full">
-                <Navbar />
                 <main className="min-h-9/10 w-full">
                     <div className="grid grid-cols-4 gap-2 md:grid-cols-8 lg:grid-cols-12 items-center justify-center pt-20 md:pt-10 2xl:pt-28">
                         <div className="col-span-full pt-10 lg:col-start-6 lg:col-span-7 m-auto">
