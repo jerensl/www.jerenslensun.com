@@ -1,5 +1,4 @@
 import { initializeApp, FirebaseApp } from 'firebase/app'
-import { getMessaging, getToken } from 'firebase/messaging'
 
 const firebaseApp = {
     Init: async (): Promise<FirebaseApp> => {
@@ -14,32 +13,6 @@ const firebaseApp = {
         })
 
         return app
-    },
-
-    Messaging: async (app: FirebaseApp): Promise<string | null> => {
-        try {
-            if (!('Notification' in window)) {
-                throw new Error('This browser does not support notifications.')
-            } else {
-                if (
-                    Notification.permission === 'denied' ||
-                    Notification.permission === 'default'
-                ) {
-                    await Notification.requestPermission()
-                } else {
-                    const messaging = getMessaging(app)
-
-                    const fcm_token: string = await getToken(messaging, {
-                        vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
-                    })
-
-                    if (fcm_token) {
-                        return fcm_token
-                    }
-                }
-            }
-        } catch (error) {}
-        return null
     },
 }
 

@@ -1,36 +1,24 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { getMessaging, MessagePayload, onMessage } from 'firebase/messaging'
+import {
+    getMessaging,
+    MessagePayload,
+    onMessage,
+    getToken,
+} from 'firebase/messaging'
 import { firebaseApp } from '../lib/firebase'
-import { useQuery } from 'react-query'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBellSlash,
     faBell,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
+import { useNotification } from '@/domain/useNotification'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
     const [status, setStatus] = React.useState<boolean>(false)
-    const { isLoading, data, isIdle } = useQuery(
-        ['notification', status],
-        () => {
-            return fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/notification/status`,
-                {
-                    method: 'POST',
-                    mode: 'cors',
-                    body: JSON.stringify({
-                        token: token,
-                    }),
-                }
-            ).then((res) => res.json())
-        },
-        {
-            enabled: !!token,
-        }
-    )
+    const { isLoading, isIdle, data } = useNotification({ token, status })
 
     const handleSubscribeNotification = () => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`, {
@@ -63,13 +51,30 @@ export const Notifications = (): React.ReactElement => {
         })
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         const notification = async () => {
             const app = await firebaseApp.Init()
 
-            const tokenFromFCM = await firebaseApp.Messaging(app)
+            if (!('Notification' in window)) {
+                return
+            }
+            if (
+                Notification.permission === 'denied' ||
+                Notification.permission === 'default'
+            ) {
+                await Notification.requestPermission()
+            } else {
+                const messaging = getMessaging(app)
 
-            setToken(tokenFromFCM)
+                const fcm_token: string = await getToken(messaging, {
+                    vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
+                })
+
+                if (!fcm_token) {
+                    return
+                }
+                setToken(fcm_token)
+            }
 
             const messaging = getMessaging(app)
 
@@ -84,12 +89,13 @@ export const Notifications = (): React.ReactElement => {
         notification()
     }, [token, data])
 
-    if (isLoading || isIdle) {
+    if (isLoading) {
         return (
             <FontAwesomeIcon
                 className="animate-spin mx-4 h-full m-auto"
                 size="lg"
                 icon={faSpinner}
+                title="loading"
             />
         )
     }
@@ -106,6 +112,7 @@ export const Notifications = (): React.ReactElement => {
                         className="block mx-4 h-full m-auto"
                         size="lg"
                         icon={faBell}
+                        title="unsubscribe"
                     />
                 </button>
                 <Toaster position="top-center" reverseOrder={false} />
@@ -124,6 +131,7 @@ export const Notifications = (): React.ReactElement => {
                     className="block mx-4 m-auto h-full"
                     icon={faBellSlash}
                     size="lg"
+                    title="subscribe"
                 />
             </button>
         </>

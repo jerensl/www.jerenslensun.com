@@ -8,7 +8,7 @@ import {
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Seo } from '@/components/Seo'
-import { SearchArticle } from '@/components/SearchArticle'
+import { SearchArticle } from '@/components/BlogSection'
 import { getPlaiceholder } from 'plaiceholder'
 import { Notifications } from '@/components/Notifications'
 
@@ -45,7 +45,6 @@ export default function Blog({
     return (
         <>
             <Seo path="/blog" />
-            <Navbar />
             <Notifications />
             <main className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
                 <div className="flex flex-col text-center gap-3">
