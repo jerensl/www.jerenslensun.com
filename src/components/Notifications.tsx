@@ -18,7 +18,7 @@ import { useNotification } from '@/domain/useNotification'
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
     const [status, setStatus] = React.useState<boolean>(false)
-    const { isLoading, isIdle, data } = useNotification({ token, status })
+    const { isLoading, data } = useNotification({ token, status })
 
     const handleSubscribeNotification = () => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`, {
@@ -53,11 +53,12 @@ export const Notifications = (): React.ReactElement => {
 
     React.useEffect(() => {
         const notification = async () => {
-            const app = await firebaseApp.Init()
-
             if (!('Notification' in window)) {
                 return
             }
+
+            const app = await firebaseApp.Init()
+
             if (
                 Notification.permission === 'denied' ||
                 Notification.permission === 'default'
