@@ -3,7 +3,7 @@
  */
 
 import { renderWithClient } from '../../__mocks__/utils/react-query'
-import { Notifications } from '../../src/components/Notifications'
+import { Notifications, notify } from '../../src/components/Notifications'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faGithubSquare,
@@ -14,8 +14,10 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
 import { useNotification } from '@/domain/useNotification'
+import userEvent from '@testing-library/user-event'
+import { act } from '@testing-library/react'
 
-const mockedUseNotification = useNotification as any
+const mockedUseNotification = useNotification as jest.Mock
 
 jest.mock('@/domain/useNotification', () => ({
     useNotification: jest.fn(() => {}),
@@ -24,12 +26,16 @@ jest.mock('@/domain/useNotification', () => ({
 describe('Notification', () => {
     it('Should render status not subscriber', async () => {
         mockedUseNotification.mockImplementation(() => ({
-            isSucces: true,
+            data: { status: false },
         }))
 
         const result = renderWithClient(<Notifications />)
 
         expect(await result.findByTitle('subscribe')).toBeInTheDocument()
+
+        userEvent.click(
+            result.getByRole('button', { name: 'turn on Notification' })
+        )
     })
 
     it('Should render status subsrsiber', async () => {
@@ -40,6 +46,10 @@ describe('Notification', () => {
         const result = renderWithClient(<Notifications />)
 
         expect(await result.findByTitle('unsubscribe')).toBeInTheDocument()
+
+        userEvent.click(
+            result.getByRole('button', { name: 'turn off Notification' })
+        )
     })
 
     it('Should render status loading', async () => {
@@ -50,5 +60,35 @@ describe('Notification', () => {
         const result = renderWithClient(<Notifications />)
 
         expect(await result.findByTitle('loading')).toBeInTheDocument()
+    })
+
+    it('Should show notification', async () => {
+        mockedUseNotification.mockImplementation(() => ({
+            data: { status: true },
+        }))
+
+        Object.defineProperty(window, 'matchMedia', {
+            writable: true,
+            value: jest.fn().mockImplementation((query) => ({
+                matches: false,
+                media: query,
+                onchange: null,
+                addListener: jest.fn(), // Deprecated
+                removeListener: jest.fn(), // Deprecated
+                addEventListener: jest.fn(),
+                removeEventListener: jest.fn(),
+                dispatchEvent: jest.fn(),
+            })),
+        })
+
+        const result = renderWithClient(<Notifications />)
+
+        act(() => {
+            notify('/icons/icon-512x512.png', 'Hello', 'this is notification')
+        })
+
+        expect(await result.findByText('this is notification')).toBeVisible()
+
+        userEvent.click(result.getByRole('button', { name: 'Close' }))
     })
 })

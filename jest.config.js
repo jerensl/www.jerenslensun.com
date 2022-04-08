@@ -1,5 +1,9 @@
 module.exports = {
-    setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+    setupFiles: [require.resolve('whatwg-fetch')],
+    setupFilesAfterEnv: [
+        '<rootDir>/jest.setup.js',
+        '<rootDir>/__mocks__/api/server.ts',
+    ],
     collectCoverageFrom: ['<rootDir>/src/**/*.tsx'],
     moduleNameMapper: {
         /* Handle CSS imports (with CSS modules)
