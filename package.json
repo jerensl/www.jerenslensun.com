@@ -51,6 +51,7 @@
         "sharp": "^0.30.1",
         "unified": "^10.1.2",
         "unist-util-visit": "^4.1.0",
+        "whatwg-fetch": "^3.6.2",
         "workbox-cacheable-response": "^6.5.0",
         "workbox-core": "^6.5.0",
         "workbox-expiration": "^6.5.1",

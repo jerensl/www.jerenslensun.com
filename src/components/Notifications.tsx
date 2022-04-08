@@ -27,11 +27,8 @@ export const Notifications = (): React.ReactElement => {
             body: JSON.stringify({
                 token: token,
             }),
-        }).then((res) => {
-            if (res.ok) {
-                setStatus(true)
-            }
         })
+        setStatus(true)
     }
 
     const handleUnsubscribeNotification = () => {
@@ -44,11 +41,8 @@ export const Notifications = (): React.ReactElement => {
                     token: token,
                 }),
             }
-        ).then((res) => {
-            if (res.ok) {
-                setStatus(false)
-            }
-        })
+        )
+        setStatus(false)
     }
 
     React.useEffect(() => {
@@ -139,7 +133,7 @@ export const Notifications = (): React.ReactElement => {
     )
 }
 
-const notify = (image, title, message) =>
+export const notify = (image, title, message) =>
     toast.custom((t) => (
         <div
             className={`${

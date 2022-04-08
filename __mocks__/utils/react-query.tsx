@@ -4,13 +4,19 @@ import * as React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 export const handlers = [
-    rest.get('*/status', (req, res, ctx) => {
+    rest.post('*/status', (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json({
                 status: false,
             })
         )
+    }),
+    rest.post('*/notification/subscribe', (req, res, ctx) => {
+        return res(ctx.status(201))
+    }),
+    rest.post('*/notification/unsubscribe', (req, res, ctx) => {
+        return res(ctx.status(200))
     }),
 ]
 
