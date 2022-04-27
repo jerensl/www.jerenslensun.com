@@ -1,0 +1,13 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Tag } from '../../components/Tag'
+
+<Meta title="Component/Tag" component={Tag} />
+
+export const Template = (args) => <Tag {...args}> Tag </Tag>
+
+# Tag
+
+This is a `Tag` for my personal website
+
+<Story name="Tag">{Template.bind({})}</Story>

@@ -189,7 +189,7 @@ export const pre = css({
         theme: {
             orange: {
                 $$background: 'rgb(255 135 31 / 10%)',
-                $$syntax1: '$colors$pink',
+                $$syntax1: '$colors$red',
                 $$syntax2: '$colors$turq',
                 $$syntax3: '$colors$orange',
                 $$syntax4: '$colors$orange',

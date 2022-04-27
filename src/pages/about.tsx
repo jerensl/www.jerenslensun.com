@@ -1,8 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/solid'
-import { Navbar } from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
-import { Seo } from '@/components/Seo'
+import { Footer } from '../components/Footer'
+import { Seo } from '../components/Seo'
 
 export default function About() {
     return (

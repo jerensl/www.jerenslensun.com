@@ -12,15 +12,15 @@ export const {
 } = createStitches({
     theme: {
         colors: {
-            black: 'rgb(64, 63, 83)',
+            black: 'rgb(0, 9, 44)',
             white: 'rgba(255, 255, 255, 1)',
             gray: 'rgb(152, 159, 177)',
             blue: 'rgba(3, 136, 252, 1)',
-            red: 'rgba(249, 16, 74, 1)',
+            red: 'rgb(178, 6, 0)',
             yellow: 'rgba(255, 221, 0, 1)',
-            pink: 'rgba(232, 141, 163, 1)',
+            pink: 'rgb(241, 0, 134)',
             turq: 'rgba(0, 245, 196, 1)',
-            orange: 'rgba(255, 135, 31, 1)',
+            orange: 'rgb(255, 95, 0)',
             copy: 'rgba(170, 170, 175, 1)',
         },
         fonts: {

@@ -1,10 +1,9 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Image, { ImageLoader } from 'next/image'
-import { Footer } from '@/components/Footer'
-import { Navbar } from '@/components/Navbar'
-import { Seo } from '@/components/Seo'
-import { LinkURL } from '@/components/LinkURL'
-import { generateRss } from '@/lib/rss'
+import { Footer } from '../components/Footer'
+import { Seo } from '../components/Seo'
+import { LinkURL } from '../components/LinkURL'
+import { generateRss } from '../lib/rss'
 import { getPlaiceholder } from 'plaiceholder'
 
 const blobStorageIoImageLoader: ImageLoader = ({ src, width, quality }) => {

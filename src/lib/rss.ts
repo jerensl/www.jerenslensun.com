@@ -1,5 +1,5 @@
 import format from 'date-fns/format'
-import { getAllPublishArticle, sortByLatestDate } from '@/domain/Blog'
+import { getAllPublishArticle, sortByLatestDate } from '../domain/Blog'
 import fs from 'fs'
 
 export async function getRssXml() {

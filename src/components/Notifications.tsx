@@ -13,12 +13,12 @@ import {
     faBell,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
-import { useNotification } from '@/domain/useNotification'
+import { useNotification } from '../domain/useNotification'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
     const [status, setStatus] = React.useState<boolean>(false)
-    const { isLoading, data } = useNotification({ token, status })
+    const { isLoading, isError, data } = useNotification({ token, status })
 
     const handleSubscribeNotification = () => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`, {

@@ -1,11 +1,10 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import type { AppProps } from 'next/app'
 import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import { NavbarMobile } from '@/components/NavbarMobile'
+import { NavbarMobile } from '../components/NavbarMobile'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Navbar } from '@/components/Navbar'
+import { Navbar } from '../components/Navbar'
 
 config.autoAddCss = false
 

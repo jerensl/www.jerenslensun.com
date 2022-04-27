@@ -43,11 +43,6 @@ export const Articles = ({
                         />
                     </a>
                 </Link>
-                <div className="absolute left-1 bottom-3 text-red-400 font-bold bg-white opacity-70 rounded-md">
-                    {tags.map((tag) => {
-                        return <span key={tag}>{tag.toUpperCase()} </span>
-                    })}
-                </div>
             </div>
             <div className="flex flex-col p-2 justify-between">
                 <div className="flex flex-col">

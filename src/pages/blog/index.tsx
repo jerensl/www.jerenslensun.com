@@ -4,13 +4,12 @@ import {
     sortByLatestDate,
     Metadata,
     getAllTags,
-} from '@/domain/Blog'
-import { Navbar } from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
-import { Seo } from '@/components/Seo'
-import { SearchArticle } from '@/components/BlogSection'
+} from '../../domain/Blog'
+import { Footer } from '../../components/Footer'
+import { Seo } from '../../components/Seo'
+import { SearchArticle } from '../../components/BlogSection'
 import { getPlaiceholder } from 'plaiceholder'
-import { Notifications } from '@/components/Notifications'
+import { Notifications } from '../../components/Notifications'
 
 export const getStaticProps: GetStaticProps = async () => {
     const articles: Array<Metadata> = await getAllPublishArticle(
