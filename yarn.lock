@@ -3079,11 +3079,6 @@
   resolved "https://registry.yarnpkg.com/@next/plugin-storybook/-/plugin-storybook-12.1.5.tgz#daaa760edae767e1ef3b2a1b902f99e88c810d83"
   integrity sha512-vVo8xqM8pDGofpAOA3j4UfV9ToehZjcuyVv6jrgZmuYpLmA4keGwMJPs1V+jRAklMbo3fDRHMWJX9dgAYapHbQ==
 
-"@next/swc-android-arm-eabi@12.1.2":
-  version "12.1.2"
-  resolved "https://registry.yarnpkg.com/@next/swc-android-arm-eabi/-/swc-android-arm-eabi-12.1.2.tgz#675e952d9032ac7bec02f3f413c17d33bbd90857"
-  integrity sha512-iwalfLBhYmCIlj09czFbovj1SmTycf0AGR8CB357wgmEN8xIuznIwSsCH87AhwQ9apfNtdeDhxvuKmhS9T3FqQ==
-
 "@next/swc-android-arm-eabi@12.1.4":
   version "12.1.4"
   resolved "https://registry.yarnpkg.com/@next/swc-android-arm-eabi/-/swc-android-arm-eabi-12.1.4.tgz#c3dae178b7c15ad627d2e9b8dfb38caecb5c4ac7"
@@ -17113,7 +17108,6 @@ url-parse-lax@^3.0.0:
   dependencies:
     prepend-http "^2.0.0"
 
-<<<<<<< HEAD
 use-composed-ref@^1.0.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/use-composed-ref/-/use-composed-ref-1.3.0.tgz#3d8104db34b7b264030a9d916c5e94fbe280dbda"
@@ -17131,20 +17125,11 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
-use-subscription@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.5.1.tgz#73501107f02fad84c6dd57965beb0b75c68c42d1"
-  integrity sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==
-  dependencies:
-    object-assign "^4.1.1"
-
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
 
-=======
->>>>>>> 0f6002391ceff9308fd6cd67bc5eab5a46c16b0b
 user-home@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/user-home/-/user-home-2.0.0.tgz#9c70bfd8169bc1dcbf48604e0f04b8b49cde9e9f"
