@@ -1,12 +1,10 @@
 import format from 'date-fns/format'
-import { getAllPublishArticle, sortByLatestDate } from '../domain/Blog'
+import BlogContext from '../context/blog/index'
 import fs from 'fs'
 
 export async function getRssXml() {
-    const frontmatters = await getAllPublishArticle(
-        'contents',
-        sortByLatestDate
-    )
+    const post = new BlogContext('contents/blog')
+    const frontmatters = await post.getAllPublishArticle()
 
     const blogUrl = 'https://www.jerenslensun.com/blog'
 

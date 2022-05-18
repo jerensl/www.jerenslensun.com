@@ -1,6 +1,6 @@
 import React from 'react'
-import { Metadata } from '../domain/Blog'
-import { filterPosts } from '../domain/Search'
+import { Metadata } from '../context/blog'
+import { filterPosts } from '../context/Search'
 import { Tag } from './Tag'
 import { Articles } from './Articles'
 

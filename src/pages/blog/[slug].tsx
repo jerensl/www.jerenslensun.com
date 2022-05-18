@@ -4,14 +4,13 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { getListOfArticle } from '../../domain/Blog'
-import { getArticleWithMetadata } from '../../domain/Article'
 import { Footer } from '../../components/Footer'
 import { Article } from '../../components/Article'
-import { getPlaiceholder } from 'plaiceholder'
+import BlogContext from '../../context/blog/index'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const posts = getListOfArticle('contents')
+    const post = new BlogContext('contents/blog')
+    const posts = post.allArticle
 
     return {
         paths: posts.map((fileName) => ({
@@ -26,15 +25,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
-    const posts = await getArticleWithMetadata('contents', context.params?.slug)
-
-    const { base64 } = await getPlaiceholder(
-        `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${posts.frontmatter.cover}`,
-        { size: 10 }
-    )
+    const post = new BlogContext('contents/blog')
+    const posts = await post.getArticleWithMetadata(context.params?.slug)
 
     return {
-        props: { posts, blurDataURL: base64 },
+        props: { posts, blurDataURL: posts.metadata.blurDataURL },
     }
 }
 

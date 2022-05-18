@@ -13,7 +13,7 @@ import {
     faBell,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
-import { useNotification } from '../domain/useNotification'
+import { useNotification } from '../context/useNotification'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
