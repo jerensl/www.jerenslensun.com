@@ -1,36 +1,14 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import {
-    getAllPublishArticle,
-    sortByLatestDate,
-    Metadata,
-    getAllTags,
-} from '../../domain/Blog'
+import BlogContext from '../../context/blog/index'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
 import { SearchArticle } from '../../components/BlogSection'
-import { getPlaiceholder } from 'plaiceholder'
 import { Notifications } from '../../components/Notifications'
 
 export const getStaticProps: GetStaticProps = async () => {
-    const articles: Array<Metadata> = await getAllPublishArticle(
-        'contents',
-        sortByLatestDate
-    )
-    const tags = getAllTags(articles)
-
-    const posts = await Promise.all(
-        articles.map(async ({ cover, ...data }) => {
-            const { base64 } = await getPlaiceholder(
-                `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${cover}`,
-                { size: 10 }
-            )
-            return {
-                cover,
-                blurDataURL: base64,
-                ...data,
-            }
-        })
-    )
+    const post = new BlogContext('contents/blog')
+    const posts = await post.getAllPublishArticle()
+    const tags = post.getTags
 
     return {
         props: { posts, tags },

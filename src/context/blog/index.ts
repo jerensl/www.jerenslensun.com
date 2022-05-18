@@ -1,0 +1,145 @@
+import path from 'path'
+import matter from 'gray-matter'
+import timeToRead, { IReadTimeResults } from 'reading-time'
+import { bundleMDX } from 'mdx-bundler'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import rehypeHighlightCode from '../../lib/rehype-highlight-code'
+import rehypeMetaAttribute from '../../lib/rehype-meta-attribute'
+import Content from '../content'
+import { getPlaiceholder } from 'plaiceholder'
+
+export interface Metadata {
+    title: string
+    date: string
+    isPublished: boolean
+    description: string
+    slug?: string
+    cover: string
+    fileName?: string
+    tags: Array<string>
+    blurDataURL: string
+    readTime?: IReadTimeResults
+}
+
+export default class Blog extends Content {
+    private tags: string[]
+    constructor(directory: string) {
+        super()
+        this.directory = directory
+    }
+
+    private sortByDate(content: Array<Metadata>): Array<Metadata> {
+        return content.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+    }
+
+    private getAllTags(contents: Metadata[]) {
+        const tags = new Set<string>()
+        for (const post of contents) {
+            for (const tag of post.tags ?? []) {
+                tags.add(tag)
+            }
+        }
+
+        this.tags = Array.from(tags)
+    }
+
+    get getTags(): string[] {
+        return this.tags
+    }
+
+    get allArticle(): string[] {
+        return this.getAllFile()
+    }
+
+    async getAllPublishArticle(): Promise<Array<Metadata>> {
+        const files = this.getAllFile()
+
+        const allMetadata: any[] = []
+
+        files.map(async (fileName) => {
+            const source = this.getFileContentByName(`${fileName}.mdx`)
+            const { data, content } = matter(source)
+            const { base64 } = await getPlaiceholder(
+                `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${data.cover}`,
+                { size: 10 }
+            )
+            const readTime = timeToRead(content)
+            if (data.isPublished) {
+                allMetadata.push({
+                    ...data,
+                    readTime: readTime,
+                    slug: fileName,
+                    blurDataURL: base64,
+                })
+            }
+        })
+
+        this.getAllTags(allMetadata)
+
+        const allContent = this.sortByDate(allMetadata)
+
+        return allContent
+    }
+
+    async getArticleWithMetadata(fileName: string | string[] | undefined) {
+        const file = `${fileName}.mdx`
+
+        const source = this.getFileContentByName(file)
+
+        const remarkPlugins: any = [remarkMath]
+        const rehypePlugins: any = [
+            rehypeMetaAttribute,
+            rehypeHighlightCode,
+            rehypeKatex,
+        ]
+
+        if (process.platform === 'win32') {
+            process.env.ESBUILD_BINARY_PATH = path.join(
+                process.cwd(),
+                'node_modules',
+                'esbuild',
+                'esbuild.exe'
+            )
+        } else {
+            process.env.ESBUILD_BINARY_PATH = path.join(
+                process.cwd(),
+                'node_modules',
+                'esbuild',
+                'bin',
+                'esbuild'
+            )
+        }
+
+        const { code, frontmatter } = await bundleMDX({
+            source: source,
+            xdmOptions(options) {
+                options.remarkPlugins = [
+                    ...(options.remarkPlugins ?? []),
+                    ...remarkPlugins,
+                ]
+                options.rehypePlugins = [
+                    ...(options.rehypePlugins ?? []),
+                    ...rehypePlugins,
+                ]
+
+                return options
+            },
+        })
+
+        const { base64 } = await getPlaiceholder(
+            `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${frontmatter.cover}`,
+            { size: 10 }
+        )
+
+        return {
+            code,
+            frontmatter,
+            metadata: {
+                slug: fileName,
+                fileName: file,
+                blurDataURL: base64,
+            },
+        }
+    }
+}

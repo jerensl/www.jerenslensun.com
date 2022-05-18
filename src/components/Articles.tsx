@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image, { ImageLoader } from 'next/image'
-import { Metadata } from '../domain/Blog'
+import { Metadata } from '../context/Blog'
 import { format } from 'date-fns'
 
 const blobStorageIoImageLoader: ImageLoader = ({ src }) => {

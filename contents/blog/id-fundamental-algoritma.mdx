@@ -1,0 +1,83 @@
+---
+title: Fundamental Algoritma
+date: '2021-11-22'
+cover: fundamental-algoritma_bbgzw5.webp
+isPublished: true
+description: Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull
+tags: ['algoritma']
+---
+
+Algoritma (Computer Science) merupakan serangkaian instruksi yang dibuat untuk menyelesaikan berbagai macam permasalahan melalui komputer.
+Algoritma juga dibuat untuk membangun intuisi terhadap effisiensi dan efektivitas terhadap sebuah code yang kita tulis, bisa saja kita menggunakan intuisi awal tanpa mempelajari beragam algoritma terlebih dahulu, namun itu hanya akan membuat kita sampai pada solusi bruteforce, dimana masalah akan lebih cepat selesai namun menjadi tidak efektif dan effisien, biasanya metode bruteforce hanya dilakukan pada tahap awal ketika menyelesaikan masalah dengan algoritma dari situ kita bisa melakukan iterasi sampai mendapatkan solusi yang lebih baik.
+
+Ada 2 tolak ukur penting untuk mengetahui seberapa baik sebuah algoritma :
+
+1. Efektifitas
+
+    Dengan menggunakan struktur data atau pola yang tepat dan memperhitungkan edge case kita dapat membuat algoritma yang efektif.
+
+2. Effisiensi
+
+    Dengan memperhitungkan Time Complexity dan Space Complexity kita dapat mengetahui seberapa effisien algoritma yang telah kita terapkan.
+
+### Growth Rate
+
+Growth Rate merupakan fungsi yang digunakan sebagai sumber daya yang dipakai oleh algoritma ketika nilai input menjadi sangat besar bisa dalam bentuk waktu (Time Complexity) ataupun ruang (Space Complexity). Untuk selanjutnya kita akan mengambil Time Complexity sebagai contoh
+
+1. Constant - (1)
+
+    Algoritma dikatakan konstan dimana bertambahnya nilai input tidak mempengaruhi waktu jalannya program. Contohnya mencari nilai berdasarkan index pada array memerlukan kecepatan 5ms tentu saja tidak peduli input dari array bertambah dari 1 ke 1000 tidak ada perbandingan kecepatan yang signifikan dikarenakan kita langsung mencarinya menggunakan index
+
+2. Logarithmic – (log n)
+
+    Algoritma dikatakan logaritma ketika mengurangi ukuran dari input setiap langkah. Contoh ketika kita mencari angka 7 pada Array 1,2,3,4,5,6,7 dengan menggunakan binary search kita bisa membandingkan dengan pivot yang merupakan index di tengah yaitu 4 apabila lebih besar dari 4 kita hanya membandingkannya dengan angka yang ada diatasnya sehingga tidak perlu mencari lagi pada bilangan 1,2,3 dan seterusnya
+
+3. Linear - (n)
+
+    Algoritma dikatakan linear ketika seiring bertambahnya input kecepatannya pun bertambah secara linear. Contohnya dengan mencari nilai sebuah data dengan menggunakan loop ketika terdapat 10 input kecepatannya bisa 10 ms dan 100 input bisa menjadi 100 ms algoritma tersebut bisa dikatakan linear
+
+4. Exponential – (2^n)
+
+    Algoritma dikatan exponential ketika kecepatannya bertambah berkali lipat seiring dengan input bertambah. Contohnya dengan menggunakan operasi recursive untuk mencari nilai fibonaci ada banyak sekali duplikasi komputasi yang bakal digunakan
+
+### Asymtotic analysis
+
+Asymtotic analysis adalah metode untuk mengukur perilaku sebuah fungsi ketika nilai input n menjadi sangat besar(mendekati infinity). Operasinya dihitung menggunakan fungsi f(n) dimana n merupakan Time Complexity/Space Complexity Ada 3 tipe pembatas
+
+1.  Big-θ(Big-Theta) notation
+
+    Sebuah algoritma dapat dikatakan Big-θ atau tight bound ketika bertambah secara Asymtotic sama persis dengan fungsi dari running time yang kita gunakan.
+
+    Secara definisi sebagai berikut:  
+    $"T(n)$ is $Θ(f(n))"$ iff $T(n)$ is $O(f(n))$ AND $T(n)$ is $Ω(f(n))$
+
+    Keterangan :
+
+    -   $T(n)$ merupakan running time.
+    -   n merupakan ukuran dari input.
+    -   $f(n)$ merupakan fungsi Growth Rate yang digunakan dimana n sebagai parameter input.
+    -   $Θ(f(n))$ merupakan Asymtotic Bounding yang kita gunakan.
+
+2.  Big-O notation
+
+    Sebuah algoritma dapat dikatakan Big-0 atau upperbound ketika bertambah secara Asymtotic lebih besar atau sama dengan dengan fungsi dari running time yang kita gunakan.
+
+    Secara definisi sebagai berikut:  
+    $"T(n)$ is $O(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) <= cf(n)$ for all $n >= n0$
+
+3.  Big-Ω(Big-Omega) notation
+
+    Sebuah algoritma dapat dikatakan Big-Ω atau lowerbound ketika bertambah secara Asymtotic kurang dari atau sama dengan dengan fungsi dari running time yang kita gunakan.
+
+    Secara definisi sebagai berikut:  
+    $"T(n)$ is $Ω(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) >= cf(n)$ for all $n >= n0$
+
+Ada 2 Tipe Case yang sering kita gunakan dalam mengolongkan algoritma dalam sebuah interview, yaitu:
+
+1. Worst Case
+
+    Worst Case sendiri memiliki upperbound dan lowerbound namun upperbound dari Worst Case menjadi skenario paling lambat diantara Asymtotic Bounding lain.
+
+2. Best Case
+
+    Best Case juga memiliki upperbound dan lowerbound namun lowerbound dari Best Case menjadi skenario paling cepat diantara Asymtotic Bounding lain.

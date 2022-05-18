@@ -1,0 +1,115 @@
+---
+title: Algoritma Binary Search
+date: '2021-12-21'
+cover: binary-search_kadoxg.webp
+isPublished: true
+description: Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.
+tags: ['algoritma']
+---
+
+Binary Search merupakan algoritma yang sangat efisien karena memiliki Time Complexity logaritma dalam mencari sebuah nilai.
+Binary search bekerja dengan cara mengeleminasi setengah array dari nilai yang akan dicari untuk tiap iterasinya,
+oleh karena itu kita perlu mencari nilai tengah array untuk dibandingkan dengan nilai target yang ingin kita cari.
+
+### **Pertanyaan**
+
+Diberikan sebuah array dimana n integer dan a yang merupakan nilai target, tentukan jika nilai target berada pada array tersebut dimana bisa dicari menggunakan waktu logaritma. Jika target ditemukan, print index dari array tersebut.
+
+#### Contoh 1
+
+Input : [2, 3, 5, 7, 9]  
+Target : 7  
+Output : 3
+
+#### Contoh 2
+
+Input : [2, 3, 5, 7, 9]  
+Target : 4  
+Output : -1
+
+### **Solusi**
+
+Pertama kita membuat fungsi Binary_search yang mengembalikan nilai -1 sebagai output
+
+```go showLineNumbers theme=orange line=3
+package binary_search
+
+func Binary_search(nums int[], target int) int {
+    return -1
+}
+```
+
+Setelah itu kita membuat variable left yang akan diisi index pertama dari array nums dan varible right dimana akan diisi index terakhir dari variable right. Kita juga memerlukan while loop dimana akan terus berjalan ketika nilai left lebih kecil dari nilai right
+
+```go showLineNumbers theme=orange line=6-8
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+
+    for left < right {
+
+    }
+
+    return -1
+}
+```
+
+Kita juga perlu membuat variable middle yang merupakan index di tengah antara variable left dan right dan akan kita bandingkan dengan nilai target, jika sama nilai tersebut dikembalikan.
+
+```go showLineNumbers theme=orange line=7-11
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+
+    for left < right {
+        middle := (left + right)/2
+
+        if nums[middle] == target {
+            return middle
+        }
+    }
+
+    return -1
+}
+```
+
+Selanjutnya kita akan mengatasi kasus untuk 2 skenario, yaitu:
+
+-   Jika nilai variable middle lebih kecil dari target maka nilai left akan menjadi nilai middle ditambah satu.
+-   Jika nilai variable middle lebih besar dari target maka nilai right akan menjadi nilai middle ditambah satu.
+
+Karna nilai dari variable middle telah dibandingkan sebelumnya maka kita akan menggeser satu index(dikurangi atau ditambah satu), untuk menghemat operasi yang dilakukan sehingga menjadi lebih effisien.
+
+```go showLineNumbers theme=orange line=13-17
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+
+    for left < right {
+        middle := (left + right)/2
+
+        if nums[middle] == target {
+            return middle
+        }
+
+        if nums[middle] < target {
+			left = middle + 1
+		} else {
+			right = middle - 1
+		}
+    }
+
+    return -1
+}
+```
+
+### **Analisa Algoritma Binary Search**
+
+1. Worst Case Scenario - Logarithmic(log n)  
+   Untuk kasus ini kita akan melakukan analisa ketika nilai target tidak berhasil ditemukan contohnya mencari pada nilai target 10 berdasarkan input diatas. Disitu kita dapat melihat adanya loop untuk mencari setiap nilai maka kita akan mengeleminasi 50% dari input yang ada untuk tiap operasi. Growth Rate yang cocok adalah logaritma dimana invers dari perpangkatan.
+
+2. Best Case Scenario - Constant(1)  
+   Untuk kasus ini algoritma dikatakan best case ketika posisinya langsung berada pada middle point contohnya mencari pada nilai target 5 berdasarkan input diatas.

@@ -13,13 +13,13 @@ import {
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
-import { useNotification } from '@/domain/useNotification'
+import { useNotification } from '@/context/useNotification'
 import userEvent from '@testing-library/user-event'
 import { act } from '@testing-library/react'
 
 const mockedUseNotification = useNotification as jest.Mock
 
-jest.mock('@/domain/useNotification', () => ({
+jest.mock('@/context/useNotification', () => ({
     useNotification: jest.fn(() => {}),
 }))
 
