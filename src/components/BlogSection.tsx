@@ -1,5 +1,5 @@
 import React from 'react'
-import { Metadata } from '../context/Blog'
+import { Metadata } from '../context/blog'
 import { filterPosts } from '../context/Search'
 import { Tag } from './Tag'
 import { Articles } from './Articles'

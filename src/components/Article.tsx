@@ -5,7 +5,7 @@ import { ArticleSeo } from './Seo'
 import { components } from './components'
 import { Giscus } from '@giscus/react'
 import { format } from 'date-fns'
-import { Metadata } from '../context/Blog'
+import { Metadata } from '../context/blog'
 
 const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
