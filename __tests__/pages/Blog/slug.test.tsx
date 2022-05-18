@@ -51,7 +51,6 @@ jest.mock('mdx-bundler', () => ({
     }),
 }))
 
-const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 jest.mock('plaiceholder', () => ({
     getPlaiceholder: jest.fn(() => {
         return {
@@ -59,6 +58,8 @@ jest.mock('plaiceholder', () => ({
         }
     }),
 }))
+
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
 useRouter.mockImplementation(() => ({
     route: '/',

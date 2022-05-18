@@ -17,7 +17,7 @@ export interface Metadata {
     slug?: string
     cover: string
     fileName?: string
-    tags: Array<string>
+    tags: string[]
     blurDataURL: string
     readTime?: IReadTimeResults
 }
@@ -36,7 +36,7 @@ export default class Blog extends Content {
     private getAllTags(contents: Metadata[]) {
         const tags = new Set<string>()
         for (const post of contents) {
-            for (const tag of post.tags ?? []) {
+            for (const tag of post?.tags ?? []) {
                 tags.add(tag)
             }
         }
@@ -55,29 +55,37 @@ export default class Blog extends Content {
     async getAllPublishArticle(): Promise<Array<Metadata>> {
         const files = this.getAllFile()
 
-        const allMetadata: any[] = []
+        const allMetadata: Metadata[] = await Promise.all(
+            files.map(async (fileName) => {
+                const source = this.getFileContentByName(`${fileName}.mdx`)
+                const { data, content } = matter(source)
+                const { base64 } = await getPlaiceholder(
+                    `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${data.cover}`,
+                    { size: 10 }
+                )
 
-        files.map(async (fileName) => {
-            const source = this.getFileContentByName(`${fileName}.mdx`)
-            const { data, content } = matter(source)
-            const { base64 } = await getPlaiceholder(
-                `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${data.cover}`,
-                { size: 10 }
-            )
-            const readTime = timeToRead(content)
-            if (data.isPublished) {
-                allMetadata.push({
-                    ...data,
-                    readTime: readTime,
-                    slug: fileName,
-                    blurDataURL: base64,
-                })
-            }
-        })
+                const readTime = timeToRead(content)
+
+                if (data.isPublished) {
+                    return {
+                        title: data.title,
+                        date: data.date,
+                        isPublished: data.isPublished,
+                        description: data.description,
+                        cover: data.cover,
+                        fileName: fileName,
+                        tags: data.tags,
+                        readTime: readTime,
+                        slug: fileName,
+                        blurDataURL: base64,
+                    }
+                }
+            })
+        )
 
         this.getAllTags(allMetadata)
 
-        const allContent = this.sortByDate(allMetadata)
+        const allContent = this.sortByDate(allMetadata.filter((data) => data))
 
         return allContent
     }

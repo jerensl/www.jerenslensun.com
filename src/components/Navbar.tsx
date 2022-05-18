@@ -21,12 +21,6 @@ export const Navbar = (): React.ReactElement => {
                             Blog
                         </LinkURL>
                         <LinkURL
-                            href="/project"
-                            className="hidden md:block font-semibold text-gray-800 text-xl py-5 w-24 hover:bg-gray-100"
-                        >
-                            Project
-                        </LinkURL>
-                        <LinkURL
                             href="/about"
                             className="hidden md:block font-semibold text-gray-800 text-xl py-5 w-24 hover:bg-gray-100"
                         >
