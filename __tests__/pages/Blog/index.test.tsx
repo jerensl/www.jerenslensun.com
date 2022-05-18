@@ -74,11 +74,11 @@ describe('Blog', () => {
 
         expect(result).toMatchInlineSnapshot(`
       Array [
-        "Algoritma Binary Search",
-        "Fundamental Algoritma",
+        "Struktur Data Heap",
         "Parsing Data Standard Input Pada Go",
         "Self Reflection 2021",
-        "Struktur Data Heap",
+        "Algoritma Binary Search",
+        "Fundamental Algoritma",
       ]
       `)
     })
