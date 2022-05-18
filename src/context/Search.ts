@@ -1,4 +1,4 @@
-import { Metadata } from './Blog'
+import { Metadata } from './blog'
 import { matchSorter, rankings } from 'match-sorter'
 
 export function filterPosts(posts: Array<Metadata>, search: string) {
