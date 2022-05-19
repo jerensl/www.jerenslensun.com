@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 import React from 'react'
-import { render } from '../../../__mocks__/utils/test-providers'
-import Blog from '../../../src/pages/blog/[slug]'
-import BlogContext from '../../../src/context/blog/index'
+import { render, within } from '../../../__mocks__/utils/test-providers'
+import Project from '../../../src/pages/project/index'
+import ProjectContext from '../../../src/context/project/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faGithubSquare,
@@ -30,27 +30,8 @@ jest.mock('refractor', () => jest.fn())
 jest.mock('hast-util-to-html', () => jest.fn())
 jest.mock('unified', () => jest.fn())
 jest.mock('rehype-parse', () => jest.fn())
-jest.mock('mdx-bundler', () => ({
-    bundleMDX: jest.fn(() => {
-        return {
-            code: `var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var c=e=>a(e,"__esModule",{value:!0});var g=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),u=(e,t)=>{c(e);for(var r in t)a(e,r,{get:t[r],enumerable:!0})},x=(e,t,r)=>{if(t&&typeof t=="object"||typeof t=="function")for(let s of p(t))!m.call(e,s)&&s!=="default"&&a(e,s,{get:()=>t[s],enumerable:!(r=d(t,s))||r.enumerable});return e},j=e=>x(c(a(e!=null?l(h(e)):{},"default",e&&e.__esModule&&"default"in e?{get:()=>e.default,enumerable:!0}:{value:e,enumerable:!0})),e);var o=g((N,i)=>{i.exports=_jsx_runtime});var k={};u(k,{default:()=>f,frontmatter:()=>_});var n=j(o()),_={title:"test",date:"12-21-2021",cover:"binary-search_kadoxg.webp",isPublished:!0,description:"test description"};function b(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(r,{})})):r();function r(){let s=Object.assign({p:"p",pre:"pre",code:"code",div:"div",span:"span"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(s.p,{children:"test new article"}),\`
-            \`,(0,n.jsx)(s.pre,{children:(0,n.jsx)(s.code,{className:"language-js",children:(0,n.jsxs)(s.div,{"data-line":"1",className:"highlight-line","data-highlighted":"true",children:[(0,n.jsx)(s.span,{className:"token keyword",children:"const"})," hello ",(0,n.jsx)(s.span,{className:"token operator",children:"="})," ",(0,n.jsx)(s.span,{className:"token string",children:"'hello world'"}),\`
-            \`]})})})]})}}var f=b;return k;})();
-            ;return Component;`,
-            frontmatter: {
-                title: 'Testing Draft',
-                date: '2020-04-26',
-                isPublished: false,
-                tags: ['test'],
-                cover: '/content/bias-kognitif.jpg',
-                description: 'Testing draft',
-                blurDataURL: '/content/bias-kognitif.jpg,',
-                readTime: { text: '1 min read', time: 1, words: 1, minutes: 1 },
-            },
-        }
-    }),
-}))
 
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 jest.mock('plaiceholder', () => ({
     getPlaiceholder: jest.fn(() => {
         return {
@@ -59,34 +40,42 @@ jest.mock('plaiceholder', () => ({
     }),
 }))
 
-const useRouter = jest.spyOn(require('next/router'), 'useRouter')
-
 useRouter.mockImplementation(() => ({
     route: '/',
     pathname: '/',
 }))
 
 const renderBlogSlug = async () => {
-    const post = new BlogContext('__mocks__/contents/blog')
-    const posts = await post.getArticleWithMetadata('id-test-markdown')
+    const project = new ProjectContext('__mocks__/contents/project')
+    const projects = await project.getAllPublishedProject()
 
-    const utils = render(
-        <Blog posts={posts} blurDataURL={posts.metadata.blurDataURL} />
-    )
+    const utils = render(<Project projects={projects} tags={['Testing 101']} />)
 
     return { utils }
 }
 
-describe('Blog Content', () => {
+describe('Project Pages', () => {
     it('Show Title Page', async () => {
         const { utils } = await renderBlogSlug()
 
         const heading = utils.getByRole('heading', {
-            name: /Testing Draft/i,
+            name: /Projects/i,
         })
-        const body = utils.getByText('test new article')
 
         expect(heading).toBeInTheDocument()
-        expect(body).toBeInTheDocument()
+    })
+
+    it('This project pages will show the list of article', async () => {
+        const { utils } = await renderBlogSlug()
+
+        const result = utils.getAllByRole('article').map((article) => {
+            return within(article).getByRole('heading').textContent
+        })
+
+        expect(result).toMatchInlineSnapshot(`
+      Array [
+        "Project Title",
+      ]
+      `)
     })
 })

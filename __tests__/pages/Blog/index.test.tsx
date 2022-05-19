@@ -46,7 +46,7 @@ useRouter.mockImplementation(() => ({
 }))
 
 const renderBlogSlug = async () => {
-    const post = new BlogContext('contents/blog')
+    const post = new BlogContext('__mocks__/contents/blog')
     const posts = await post.getAllPublishArticle()
 
     const utils = render(<Blog posts={posts} tags={['Testing 101']} />)
@@ -54,7 +54,7 @@ const renderBlogSlug = async () => {
     return { utils }
 }
 
-describe('Blog', () => {
+describe('Blog Pages', () => {
     it('Show Title Page', async () => {
         const { utils } = await renderBlogSlug()
 
@@ -74,11 +74,7 @@ describe('Blog', () => {
 
         expect(result).toMatchInlineSnapshot(`
       Array [
-        "Struktur Data Heap",
-        "Parsing Data Standard Input Pada Go",
-        "Self Reflection 2021",
-        "Algoritma Binary Search",
-        "Fundamental Algoritma",
+        "Testing 101",
       ]
       `)
     })

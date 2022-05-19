@@ -3,8 +3,8 @@
  */
 import React from 'react'
 import { render } from '../../../__mocks__/utils/test-providers'
-import Blog from '../../../src/pages/blog/[slug]'
-import BlogContext from '../../../src/context/blog/index'
+import Project from '../../../src/pages/project/[slug]'
+import ProjectContext from '../../../src/context/project/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faGithubSquare,
@@ -33,19 +33,16 @@ jest.mock('rehype-parse', () => jest.fn())
 jest.mock('mdx-bundler', () => ({
     bundleMDX: jest.fn(() => {
         return {
-            code: `var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var c=e=>a(e,"__esModule",{value:!0});var g=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),u=(e,t)=>{c(e);for(var r in t)a(e,r,{get:t[r],enumerable:!0})},x=(e,t,r)=>{if(t&&typeof t=="object"||typeof t=="function")for(let s of p(t))!m.call(e,s)&&s!=="default"&&a(e,s,{get:()=>t[s],enumerable:!(r=d(t,s))||r.enumerable});return e},j=e=>x(c(a(e!=null?l(h(e)):{},"default",e&&e.__esModule&&"default"in e?{get:()=>e.default,enumerable:!0}:{value:e,enumerable:!0})),e);var o=g((N,i)=>{i.exports=_jsx_runtime});var k={};u(k,{default:()=>f,frontmatter:()=>_});var n=j(o()),_={title:"test",date:"12-21-2021",cover:"binary-search_kadoxg.webp",isPublished:!0,description:"test description"};function b(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(r,{})})):r();function r(){let s=Object.assign({p:"p",pre:"pre",code:"code",div:"div",span:"span"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(s.p,{children:"test new article"}),\`
-            \`,(0,n.jsx)(s.pre,{children:(0,n.jsx)(s.code,{className:"language-js",children:(0,n.jsxs)(s.div,{"data-line":"1",className:"highlight-line","data-highlighted":"true",children:[(0,n.jsx)(s.span,{className:"token keyword",children:"const"})," hello ",(0,n.jsx)(s.span,{className:"token operator",children:"="})," ",(0,n.jsx)(s.span,{className:"token string",children:"'hello world'"}),\`
-            \`]})})})]})}}var f=b;return k;})();
-            ;return Component;`,
+            code: `var Component=(()=>{var d=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var j=Object.getPrototypeOf,l=Object.prototype.hasOwnProperty;var x=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),_=(t,e)=>{for(var n in e)c(t,n,{get:e[n],enumerable:!0})},i=(t,e,n,r)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of u(e))!l.call(t,o)&&o!==n&&c(t,o,{get:()=>e[o],enumerable:!(r=m(e,o))||r.enumerable});return t};var f=(t,e,n)=>(n=t!=null?d(j(t)):{},i(e||!t||!t.__esModule?c(n,"default",{value:t,enumerable:!0}):n,t)),g=t=>i(c({},"__esModule",{value:!0}),t);var a=x((v,p)=>{p.exports=_jsx_runtime});var D={};_(D,{default:()=>y,frontmatter:()=>b});var s=f(a()),b={title:"Project Title",status:"Under Development",description:"project description",programming_languange:["typescript"],cover:"data-penyimpanan_xdqfzd.webp",isPublished:!0};function h(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,Object.assign({},t,{children:(0,s.jsx)(n,{})})):n();function n(){let r=Object.assign({p:"p"},t.components);return(0,s.jsx)(r.p,{children:"project content"})}}var y=h;return g(D);})();
+			;return Component;`,
             frontmatter: {
-                title: 'Testing Draft',
-                date: '2020-04-26',
-                isPublished: false,
-                tags: ['test'],
+                title: 'Personal Project',
+                isPublished: true,
                 cover: '/content/bias-kognitif.jpg',
-                description: 'Testing draft',
+                description: 'project description',
                 blurDataURL: '/content/bias-kognitif.jpg,',
-                readTime: { text: '1 min read', time: 1, words: 1, minutes: 1 },
+                status: 'Under Development',
+                programming_languange: ['typescript'],
             },
         }
     }),
@@ -67,24 +64,27 @@ useRouter.mockImplementation(() => ({
 }))
 
 const renderBlogSlug = async () => {
-    const post = new BlogContext('__mocks__/contents/blog')
-    const posts = await post.getArticleWithMetadata('id-test-markdown')
+    const project = new ProjectContext('__mocks__/contents/project')
+    const projects = await project.getProjectDetail('test-project')
 
     const utils = render(
-        <Blog posts={posts} blurDataURL={posts.metadata.blurDataURL} />
+        <Project
+            projects={projects}
+            blurDataURL={projects.metadata.blurDataURL}
+        />
     )
 
     return { utils }
 }
 
-describe('Blog Content', () => {
-    it('Show Title Page', async () => {
+describe('Project Content', () => {
+    it('Show Project Content', async () => {
         const { utils } = await renderBlogSlug()
 
         const heading = utils.getByRole('heading', {
-            name: /Testing Draft/i,
+            name: /Personal Project/i,
         })
-        const body = utils.getByText('test new article')
+        const body = utils.getByText('project content')
 
         expect(heading).toBeInTheDocument()
         expect(body).toBeInTheDocument()
