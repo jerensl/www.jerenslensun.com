@@ -43,7 +43,7 @@ export const Card = ({
             </div>
             <div className="flex flex-col p-2 justify-between">
                 <div className="flex flex-col">
-                    <Link href={`/blog/${slug}`} passHref>
+                    <Link href={`/project/${slug}`} passHref>
                         <h1 className="text-2xl pb-4 font-bold leading-8 tracking-tight cursor-pointer">
                             {captializeTitle}
                         </h1>
@@ -51,13 +51,9 @@ export const Card = ({
 
                     <p className="line-clamp-3">Status: {status}</p>
                 </div>
-                <p className="text-gray-500">
-                    <span>
-                        {programming_languange.map((value) => {
-                            return <p key={value}>{value}</p>
-                        })}
-                    </span>
-                </p>
+                {programming_languange.map((value) => {
+                    return <p key={value}>{value}</p>
+                })}
             </div>
         </article>
     )

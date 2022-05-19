@@ -8,7 +8,7 @@ export const Layout = ({
 }): React.ReactElement => {
     return (
         <section className="flex flex-wrap gap-5 justify-center">
-            {project.length ? null : <p>No project available.</p>}
+            {project?.length ? null : <p>No project available.</p>}
             {project?.map(Card)}
         </section>
     )
