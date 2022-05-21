@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import Image, { ImageLoader } from 'next/image'
-import { Metadata } from '../context/blog'
+import { Metadata } from '../../context/blog'
 import { format } from 'date-fns'
 
 const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
     return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
 }
 
-export const Articles = ({
+export const Card = ({
     cover,
     date,
     description,
@@ -25,7 +25,7 @@ export const Articles = ({
     return (
         <article
             key={slug}
-            className="min-h-full rounded-md overflow-auto border border-gray-400 grid grid-rows-2"
+            className="col-span-full md:col-span-4 lg:col-span-4 rounded-md border border-gray-400"
         >
             <div className="relative overflow-auto">
                 <Link href={`/blog/${slug}`} passHref>

@@ -1,4 +1,5 @@
 import { ProjectMetadata } from '../../context/project'
+import { Grid } from '../Grid'
 import { Card } from './Card'
 
 export const Layout = ({
@@ -7,9 +8,13 @@ export const Layout = ({
     project: ProjectMetadata[]
 }): React.ReactElement => {
     return (
-        <section className="flex flex-wrap gap-5 justify-center">
-            {project?.length ? null : <p>No project available.</p>}
+        <Grid as="section" className="col-span-full justify-center">
+            {project?.length ? null : (
+                <p className="col-span-full text-center">
+                    No project available.
+                </p>
+            )}
             {project?.map(Card)}
-        </section>
+        </Grid>
     )
 }

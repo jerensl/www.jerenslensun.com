@@ -1,10 +1,11 @@
 import React from 'react'
-import { Metadata } from '../context/blog'
-import { filterPosts } from '../context/Search'
-import { Tag } from './Tag'
-import { Articles } from './Articles'
+import { Metadata } from '../../context/blog'
+import { filterPosts } from '../../context/Search'
+import { Tag } from '../Tag'
+import { Card } from './Card'
+import { Grid } from '../Grid'
 
-export const SearchArticle = ({
+export const Layout = ({
     posts,
     tags,
 }: {
@@ -43,7 +44,7 @@ export const SearchArticle = ({
     )
 
     return (
-        <section className="grid grid-cols-auto-fill lg:grid-cols-auto-fill-lg gap-5 lg:max-w-7xl">
+        <Grid as="section" className="gap-8">
             <div className="col-span-full w-full">
                 <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                     <input
@@ -89,7 +90,7 @@ export const SearchArticle = ({
                 </div>
             </div>
             {matchingPosts.length ? null : <p>No articles found.</p>}
-            {matchingPosts?.map(Articles)}
-        </section>
+            {matchingPosts?.map(Card)}
+        </Grid>
     )
 }

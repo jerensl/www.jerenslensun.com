@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
-import { Article } from '../../src/components/Article'
+import { Article } from '../../src/components/blog/Content'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
