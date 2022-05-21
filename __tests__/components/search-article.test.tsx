@@ -1,6 +1,6 @@
 import { render, waitFor, within } from '../../__mocks__/utils/test-providers'
 import userEvent from '@testing-library/user-event'
-import { SearchArticle } from '../../src/components/BlogSection'
+import { Layout } from '../../src/components/blog/Layout'
 import { Metadata } from '../../src/context/blog'
 
 const posts: Metadata[] = [
@@ -32,9 +32,7 @@ const posts: Metadata[] = [
 
 describe('Search Article', () => {
     const renderSearchArticlesComponent = () => {
-        const util = render(
-            <SearchArticle posts={posts} tags={['first', 'second']} />
-        )
+        const util = render(<Layout posts={posts} tags={['first', 'second']} />)
         const input = util.getByPlaceholderText('Search Articles...')
 
         return {

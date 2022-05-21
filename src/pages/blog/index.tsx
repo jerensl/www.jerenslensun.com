@@ -2,7 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import BlogContext from '../../context/blog/index'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
-import { SearchArticle } from '../../components/BlogSection'
+import { Layout } from '../../components/blog/Layout'
 import { Notifications } from '../../components/Notifications'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -28,7 +28,8 @@ export default function Blog({
                     <h1 className="pt-24 text-3xl font-semibold">Blog</h1>
                     <p className="mb-4">Our latest articles for developers</p>
                 </div>
-                <SearchArticle posts={posts} tags={tags} />
+                <Layout posts={posts} tags={tags} />
+                <div className="h-56 lg:h-64" />
             </main>
             <Footer />
         </>

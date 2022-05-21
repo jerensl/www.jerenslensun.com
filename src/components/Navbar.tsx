@@ -4,7 +4,7 @@ import { Notifications } from './Notifications'
 
 export const Navbar = (): React.ReactElement => {
     return (
-        <nav className="fixed w-full z-10 bg-white mx-auto px-4 sm:px-10">
+        <nav className="fixed w-full z-10 bg-white px-5vw sm:px-10">
             <div className="flex text-center justify-between border-b-2 h-full w-full border-gray-100">
                 <LinkURL
                     href="/"

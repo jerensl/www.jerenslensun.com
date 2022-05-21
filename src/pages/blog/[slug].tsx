@@ -5,7 +5,7 @@ import {
     InferGetStaticPropsType,
 } from 'next'
 import { Footer } from '../../components/Footer'
-import { Article } from '../../components/Article'
+import { Article } from '../../components/blog/Content'
 import BlogContext from '../../context/blog/index'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -46,6 +46,7 @@ export default function Blog({
                 code={code}
                 blurDataURL={blurDataURL}
             />
+            <div className="h-56 lg:h-64" />
             <Footer />
         </>
     )

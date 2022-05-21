@@ -16,10 +16,19 @@ module.exports = {
             height: {
                 '9/10': '90vh',
                 '1/10': '10vh',
+                '40rem': '40rem',
             },
             minHeight: {
                 '9/10': '90vh',
             },
+            margin: ({ theme }) => ({
+                '10vw': '10vw',
+                ...theme('spacing'),
+            }),
+            padding: ({ theme }) => ({
+                '5vw': '5vw',
+                ...theme('spacing'),
+            }),
         },
     },
     plugins: [
