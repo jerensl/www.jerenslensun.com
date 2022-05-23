@@ -24,8 +24,8 @@ export default function Project({
         <>
             <Seo path="/project" />
             <Notifications />
-            <div className="min-h-9/10">
-                <div className="col-span-full flex flex-col text-center gap-3">
+            <div className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
+                <div className="flex flex-col text-center gap-3">
                     <h1 className="pt-24 text-3xl font-semibold">Projects</h1>
                 </div>
                 <Layout project={projects} />

@@ -8,7 +8,7 @@ export const Layout = ({
     project: ProjectMetadata[]
 }): React.ReactElement => {
     return (
-        <Grid as="section" className="col-span-full justify-center">
+        <Grid as="section" className="gap-8">
             {project?.length ? null : (
                 <p className="col-span-full text-center">
                     No project available.

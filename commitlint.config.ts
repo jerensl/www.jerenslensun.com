@@ -33,6 +33,7 @@ const Configuration: UserConfig = {
             [
                 'build',
                 'chore',
+                'content',
                 'ci',
                 'docs',
                 'feat',
