@@ -5,15 +5,6 @@
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
 import { NavbarMobile } from '../../src/components/NavbarMobile'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
@@ -29,7 +20,7 @@ describe('Navbar Mobile Aria Label', () => {
         screen.getByRole('link', { current: 'page' })
     })
 
-    it('Should have link redirect to about', () => {
+    it('Should have link redirect to blogpage', () => {
         useRouter.mockImplementation(() => ({
             route: '/blog',
             pathname: '/blog',
@@ -40,10 +31,21 @@ describe('Navbar Mobile Aria Label', () => {
         screen.getByRole('link', { current: 'page' })
     })
 
-    it('Should have link redirect to about', () => {
+    it('Should have link redirect to aboutpage', () => {
         useRouter.mockImplementation(() => ({
             route: '/about',
             pathname: '/about',
+        }))
+
+        render(<NavbarMobile />)
+
+        screen.getByRole('link', { current: 'page' })
+    })
+
+    it('Should have link redirect to projectpage', () => {
+        useRouter.mockImplementation(() => ({
+            route: '/project',
+            pathname: '/project',
         }))
 
         render(<NavbarMobile />)

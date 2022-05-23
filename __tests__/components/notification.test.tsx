@@ -4,15 +4,6 @@
 
 import { renderWithClient } from '../../__mocks__/utils/react-query'
 import { Notifications, notify } from '../../src/components/Notifications'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faGithubSquare, faTwitterSquare, faLinkedin, faTimes, faBars)
 import { useNotification } from '@/context/useNotification'
 import userEvent from '@testing-library/user-event'
 import { act } from '@testing-library/react'
