@@ -5,22 +5,6 @@ import React from 'react'
 import { render } from '../../../__mocks__/utils/test-providers'
 import Project from '../../../src/pages/project/[slug]'
 import ProjectContext from '../../../src/context/project/index'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
-import { faBars, faTimes, faRssSquare } from '@fortawesome/free-solid-svg-icons'
-
-library.add(
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-    faTimes,
-    faBars,
-    faRssSquare
-)
 
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())

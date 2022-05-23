@@ -3,8 +3,9 @@ import { LinkURL } from './LinkURL'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faHome,
-    faSearch,
     faAddressCard,
+    faFileCode,
+    faCopy,
 } from '@fortawesome/free-solid-svg-icons'
 
 export const NavbarMobile = (): React.ReactElement => {
@@ -28,11 +29,22 @@ export const NavbarMobile = (): React.ReactElement => {
                         href="/blog"
                     >
                         <span className="block px-1 pt-1 pb-2">
+                            <FontAwesomeIcon className="block" icon={faCopy} />
+                            <span className="text-xs pb-1 block">Blog</span>
+                        </span>
+                    </LinkURL>
+                </div>
+                <div className="flex-1 group">
+                    <LinkURL
+                        className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-indigo-500 border-b-2 border-transparent group-hover:border-indigo-500"
+                        href="/project"
+                    >
+                        <span className="block px-1 pt-1 pb-2">
                             <FontAwesomeIcon
                                 className="block"
-                                icon={faSearch}
+                                icon={faFileCode}
                             />
-                            <span className="text-xs pb-1 block">Blog</span>
+                            <span className="text-xs pb-1 block">Project</span>
                         </span>
                     </LinkURL>
                 </div>
