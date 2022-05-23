@@ -1,25 +1,38 @@
 ---
 title: Personal Web App
 status: Under Development
-description: project
-programming_languange: ['typescript']
-cover: data-penyimpanan_xdqfzd.webp
-isPublished: false
+description: Personal Web App is a web application for a portfolio website that maximizes technology such as a progressive web app to target mobile users leverage by caching so user can still get the content while there are offline.
+programming_languange: ['Typescript']
+cover: landing-page_tqnf8b.webp
+isPublished: true
 ---
 
 ### Overview
 
-Personal Web App is a web application for portfolio website maximize technology such as progressive web app to targeting mobile users leverage by caching so user can still get the content while there are offline.
+Personal Web App is a web application for a portfolio website that maximizes technology such as a progressive web app to target mobile users leverage by caching so user can still get the content while there are offline.
 
-### Objectives
+### Goals
 
--   100 Articles
--   20 Project
+1. Personal Branding  
+   As professionals are good to have branding because people can see what are we value and what we are doing, besides that we can get job security and exposure to our project
+2. Create the best reading experience for the user  
+   Most of our distractions can come from the internet, but when we don't have any connection to the internet is the best time to get focus to be productive. This is one of the main reasons this website was built using the progressive web app, leveraged by cache so we can still access content offline, another reason is in terms of size web app is smaller than the android app, because they are leverage by a browser itself as their runtime
+3. Showcase personal project  
+   Documentation is being a key part of a project, with great documentation, we can make another person understand what we are doing and what are trying to accomplish with greater context about the situation
+
+### Production
+
+-   Deploy using Azure Static Web App leveraged by Github Actions for continuous deployement
+-   Automate Test using Github Actions for continuous integration
+-   Integrate within Notification Api Backend(Golang)
 
 ### Tech Stack
 
--   NextJS: Solving configuration project
--   Tailwind: Making CSS easy to use because of inlining directly to react component
+-   ReactJS: Solving widely used framework for web development lifecycle
+-   NextJS: Solving configuration project to maximize developer experiences
+-   TailwindCss: Making CSS easy to use because of inlining directly to react component
 -   React Testing Library: Solving integration testing within react component
--   mdx-bundler: Solving markdown content and parsed into HTML to be rendered
+-   MDX Bundler: Solving parsing markdown file and into HTML using Abstract Syntax Tree(AST)
+-   Msx: Solve mocking api problem
 -   Static Site Generator: Cost relatively cheap or free for limited resources
+-   PWA: Build web app looks like native app leveraged by browser
