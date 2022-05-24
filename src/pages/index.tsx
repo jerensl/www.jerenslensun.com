@@ -1,12 +1,11 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image, { ImageLoader } from 'next/image'
 import { Footer } from '../components/Footer'
 import { Seo } from '../components/Seo'
-import { LinkURL } from '../components/LinkURL'
 import { generateRss } from '../lib/rss'
 import { getPlaiceholder } from 'plaiceholder'
 import { Header } from '../components/Header'
-import { IntroductionSection } from '@/components/sections/introduction'
+import { IntroductionSection } from '@/components/sections/introduction-section'
+import { CareerSection } from '@/components/sections/career-section'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
@@ -30,6 +29,8 @@ export default function Home({
             <Header blurDataURL={blurDataURL} />
             <div className="h-56 lg:h-64" />
             <IntroductionSection />
+            <div className="h-56 lg:h-64" />
+            <CareerSection />
             <div className="h-56 lg:h-64" />
             <Footer />
         </>
