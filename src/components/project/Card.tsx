@@ -23,7 +23,7 @@ export const Card = ({
     return (
         <article
             key={slug}
-            className="mol-span-full md:col-span-4 lg:col-span-4 rounded-md border border-gray-400"
+            className="col-span-full md:col-span-4 lg:col-span-4 rounded-md border border-gray-400"
         >
             <div className="relative overflow-auto">
                 <Link href={`/project/${slug}`} passHref>
