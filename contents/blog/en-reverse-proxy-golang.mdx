@@ -1,0 +1,22 @@
+---
+title: Creating Reverse Proxy with Golang
+date: '2021-12-21'
+cover: binary-search_kadoxg.webp
+isPublished: false
+description: A reverse proxy is the application that sits in front of back-end applications and forwards client (e.g. browser) requests to those applications.
+tags: ['golang']
+---
+
+Reverse proxy will bring anonymity to the server behind it and make the server more secure because users don't know where they will interact within, another benefit is caching and load balancing. On the other hand, golang provides an easy way to build a reverse proxy using standard library httputil.
+
+```go showLineNumbers theme=orange
+package main
+
+func main() {
+    fmt.Printf("Starting users service at port: %v", os.Getenv("PORT"))
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
+		log.Fatal(err)
+	}
+}
+
+```

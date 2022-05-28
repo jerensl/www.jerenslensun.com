@@ -16,7 +16,7 @@ export const {
             white: 'rgba(255, 255, 255, 1)',
             gray: 'rgb(152, 159, 177)',
             blue: 'rgba(3, 136, 252, 1)',
-            red: 'rgb(178, 6, 0)',
+            red: 'rgb(255, 24, 24)',
             yellow: 'rgba(255, 221, 0, 1)',
             pink: 'rgb(241, 0, 134)',
             turq: 'rgba(0, 245, 196, 1)',
