@@ -1,0 +1,43 @@
+---
+title: Notification Api
+status: Under Development
+description: The notification system is Restful API for storing user information and sending messages to the user, so they can get update to new content being released.
+programming_languange: ['Golang']
+cover: landing-page_tqnf8b.webp
+isPublished: false
+---
+
+### Overview
+
+The notification system is Restful API for storing user information and sending messages to the user, so they can get update to new content when being released.
+
+### Goals
+
+1. Notification System  
+   As a developer, it's good to have up to date on new information, with the pace of technology going faster than before, having new information about what changes around us is a competitive advantage.
+
+### Features
+
+-   Subsribed
+    -   Storing user web push token to the database
+-   Unsubsribed
+    -   Delete user web push token from the database
+-   Notification Status
+    -   Getting current status of user
+-   Sending notification
+    -   Notification in this system is still triggered manually because I am using a static site generator to minimize the cost of development.
+    -   Every notification being sent need to be authenticated on the header using an API token, so the user no need to worry about unauthorized access to triggered the authentication.
+
+### Production
+
+-   Push docker build to Azure container registry
+-   When a new build is pushed to the Azure container registry with latest tag then the container registry webhook will be triggered, so the azure app service to pull the new image and restart the container
+
+### Tech Stack
+
+-   Chi Router: Routing for Restfull API
+-   Open API 3.0: For API Documentation and auto generate code using openapi-codegen
+-   CQRS: Provides separation of concern for read and write operation
+-   Repositroy Pattern: Offer flexibility of changing database
+-   SQLite: Local database minimizing the cost of development
+-   C4 Diagram: Offer visualitation for software architecture (Code Diagram)
