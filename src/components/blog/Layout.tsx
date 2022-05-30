@@ -89,7 +89,9 @@ export const Layout = ({
                     </button>
                 </div>
             </div>
-            {matchingPosts.length ? null : <p>No articles found.</p>}
+            {matchingPosts.length ? null : (
+                <p className="col-span-full text-center">No articles found.</p>
+            )}
             {matchingPosts?.map(Card)}
         </Grid>
     )

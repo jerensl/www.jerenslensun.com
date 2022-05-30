@@ -100,7 +100,7 @@ function AboutSection() {
 
 export const Footer = (): React.ReactElement => {
     return (
-        <div className="relative px-5vw">
+        <div className="relative px-5vw mt-10">
             <footer className="relative mx-auto grid max-w-7xl grid-cols-4 grid-rows-max-content gap-x-4 md:grid-cols-8 xl:grid-cols-12 xl:gap-x-6">
                 <div className="col-span-full md:col-span-4 xl:col-span-6">
                     <AboutSection />

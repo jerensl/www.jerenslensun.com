@@ -5,6 +5,8 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import { NavbarMobile } from '../components/NavbarMobile'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Navbar } from '../components/Navbar'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 config.autoAddCss = false
 
@@ -14,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <QueryClientProvider client={queryClient}>
+                <ToastContainer />
                 <Navbar />
                 <NavbarMobile />
                 <Component {...pageProps} />
