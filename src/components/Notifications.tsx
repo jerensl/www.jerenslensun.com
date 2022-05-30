@@ -152,7 +152,7 @@ export const Notify = ({ title, body, image }): React.ReactElement => {
                     <span className="mb-1 text-sm font-semibold text-gray-900 ">
                         {title}
                     </span>
-                    <div className="mb-2 text-sm font-normal">{body}</div>
+                    <p className="mb-2 text-sm font-normal">{body}</p>
                 </div>
             </div>
         </div>
