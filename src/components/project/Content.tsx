@@ -33,7 +33,7 @@ export const Content = ({
                 image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${frontmatter.cover}`}
             />
             <header className="pt-20 text-center">
-                <h1 className="text-3xl font-bold">{frontmatter.title}</h1>
+                <h1 className="text-3xl py-5 font-bold">{frontmatter.title}</h1>
                 <Image
                     loader={blobStorageIoImageLoader}
                     src={frontmatter.cover}
@@ -48,6 +48,7 @@ export const Content = ({
             <main className="min-h-9/10 pt-2 md:pt-10 font-medium px-4 md:px-10">
                 <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
+                    <div className="h-10 lg:h-15" />
                     <Giscus
                         repo="jerensl/jerenslensun.com"
                         repoId="R_kgDOGSJ3GQ"

@@ -34,10 +34,7 @@ module.exports = {
          */
         config.resolve.alias = {
             ...config.resolve?.alias,
-            '@': [
-                path.resolve(__dirname, '../src/'),
-                path.resolve(__dirname, '../'),
-            ],
+            '@': [path.resolve(__dirname, '../src/')],
         }
 
         /**
@@ -48,6 +45,10 @@ module.exports = {
             path.resolve(__dirname, '../public'),
             'node_modules',
         ]
+
+        config.resolve.fallback = {
+            assert: require.resolve('assert'),
+        }
 
         return config
     },

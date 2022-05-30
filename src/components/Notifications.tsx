@@ -1,5 +1,4 @@
 import React from 'react'
-import toast, { Toaster } from 'react-hot-toast'
 import {
     getMessaging,
     MessagePayload,
@@ -14,6 +13,7 @@ import {
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
 import { useNotification } from '../context/useNotification'
+import { toast } from 'react-toastify'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
@@ -74,10 +74,17 @@ export const Notifications = (): React.ReactElement => {
             const messaging = getMessaging(app)
 
             onMessage(messaging, (payload: MessagePayload) => {
-                notify(
-                    '/icons/icon-512x512.png',
-                    payload.notification.title,
-                    payload.notification.body
+                toast(
+                    <Notify
+                        title={payload.notification.title}
+                        body={payload.notification.body}
+                        image={payload.notification.image}
+                    />,
+                    {
+                        position: toast.POSITION.TOP_CENTER,
+                        autoClose: 10000,
+                        hideProgressBar: true,
+                    }
                 )
             })
         }
@@ -110,7 +117,6 @@ export const Notifications = (): React.ReactElement => {
                         title="unsubscribe"
                     />
                 </button>
-                <Toaster position="top-center" reverseOrder={false} />
             </>
         )
     }
@@ -133,37 +139,22 @@ export const Notifications = (): React.ReactElement => {
     )
 }
 
-export const notify = (image, title, message) =>
-    toast.custom((t) => (
-        <div
-            className={`${
-                t.visible ? 'animate-enter' : 'animate-leave'
-            } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
-        >
-            <div className="flex-1 w-0 p-4">
-                <div className="flex items-start">
-                    <div className="flex-shrink-0 pt-0.5">
-                        <img
-                            className="h-10 w-10 rounded-full"
-                            src={image}
-                            alt=""
-                        />
-                    </div>
-                    <div className="ml-3 flex-1">
-                        <p className="text-sm font-medium text-gray-900">
-                            {title}
-                        </p>
-                        <p className="mt-1 text-sm text-gray-500">{message}</p>
-                    </div>
+const Notify = ({ title, body, image }): React.ReactElement => {
+    return (
+        <div className="w-full max-w-xs p-1 text-gray-500" role="alert">
+            <div className="flex">
+                <img
+                    className="w-8 h-8 rounded-full shadow-lg"
+                    src={image}
+                    alt="Logo"
+                />
+                <div className="ml-3 text-sm font-normal">
+                    <span className="mb-1 text-sm font-semibold text-gray-900 ">
+                        {title}
+                    </span>
+                    <div className="mb-2 text-sm font-normal">{body}</div>
                 </div>
             </div>
-            <div className="flex border-l border-gray-200">
-                <button
-                    onClick={() => toast.dismiss(t.id)}
-                    className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                >
-                    Close
-                </button>
-            </div>
         </div>
-    ))
+    )
+}
