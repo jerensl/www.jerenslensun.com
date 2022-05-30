@@ -3,7 +3,7 @@
  */
 
 import { renderWithClient } from '../../__mocks__/utils/react-query'
-import { Notifications, notify } from '../../src/components/Notifications'
+import { Notifications, Notify } from '../../src/components/Notifications'
 import { useNotification } from '@/context/useNotification'
 import userEvent from '@testing-library/user-event'
 import { act } from '@testing-library/react'
@@ -75,7 +75,11 @@ describe('Notification', () => {
         const result = renderWithClient(<Notifications />)
 
         act(() => {
-            notify('/icons/icon-512x512.png', 'Hello', 'this is notification')
+            Notify({
+                title: 'Hello',
+                body: 'this is notification',
+                image: '/icons/icon-512x512.png',
+            })
         })
 
         expect(await result.findByText('this is notification')).toBeVisible()

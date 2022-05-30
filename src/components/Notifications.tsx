@@ -139,7 +139,7 @@ export const Notifications = (): React.ReactElement => {
     )
 }
 
-const Notify = ({ title, body, image }): React.ReactElement => {
+export const Notify = ({ title, body, image }): React.ReactElement => {
     return (
         <div className="w-full max-w-xs p-1 text-gray-500" role="alert">
             <div className="flex">
