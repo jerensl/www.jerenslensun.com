@@ -42,7 +42,7 @@ export const Content = ({
                         <a
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-lg cursor-pointer no-underline"
+                            className="text-sm md:text-lg cursor-pointer no-underline"
                         >
                             {frontmatter.repo_url}
                         </a>
