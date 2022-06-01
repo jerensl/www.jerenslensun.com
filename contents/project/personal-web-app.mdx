@@ -5,6 +5,7 @@ description: Personal Web App is a web application for a portfolio website that 
 programming_languange: ['Typescript']
 cover: landing-page_tqnf8b.webp
 isPublished: true
+repo_url: https://github.com/jerensl/www.jerenslensun.com
 ---
 
 ### Overview
@@ -18,7 +19,7 @@ Personal Web App is a web application for a portfolio website that maximizes tec
 2. Create the best reading experience for the user  
    Most of our distractions can come from the internet, but when we don't have any connection to the internet is the best time to get focus to be productive. This is one of the main reasons this website was built using the progressive web app, leveraged by cache so we can still access content offline, another reason is in terms of size web app is smaller than the android app, because they are leverage by a browser itself as their runtime
 3. Showcase personal project  
-   Documentation is being a key part of a project, with great documentation, we can make another person understand what we are doing and what are trying to accomplish with greater context about the situation
+   Documentation is being a key part of a project, with great documentation, I can make other people understand what are I'm doing and what are I'm trying to accomplish with greater context about the situation
 
 ### Features
 
@@ -36,11 +37,11 @@ Personal Web App is a web application for a portfolio website that maximizes tec
 -   Notification
     -   Notification is one of the supporting features for users to get noticed about new content on this blog, unfortunately the feature is still triggered manually and the database is ephemeral, so when a new deployment is delivered all of the users who subscribed notifications will be reset.
 
-### Production
+### Architectural Decisions
 
--   Deploy using Azure Static Web App leveraged by Github Actions for continuous deployement
--   Automate Test using Github Actions for continuous integration
--   Integrate within Notification Api Backend(Golang)
+-   In the context of serving content, facing the need to deliver either blog or project documentation, I decided on mdx-bundler against mdxjs to achieve rendering markdown content to HTML, accepting that need based on mdxjs not supporting esm module at that time.
+-   In the context of the framework, facing the need to choose a framework, I decided on NextJS against Gatsby to achieve SEO friendly and reduce writing boilerplate which is very painful, accepting the need to will cost lower flexibility on configuration.
+-   In the context of the framework, facing the need to choose a rendering method, I decided on Static Site Generator against Server-side rendering to achieve cost efficiency to use CDN rather than serving on the server, accepting the need to will lower the chance to be on top page search engine (SEO Friendly).
 
 ### Tech Stack
 
