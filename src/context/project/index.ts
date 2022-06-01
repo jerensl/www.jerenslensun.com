@@ -18,6 +18,7 @@ export interface ProjectMetadata {
     isPublished: string
     fileName: string
     blurDataURL: string
+    repo_url?: string
 }
 
 export default class Project extends Content {
@@ -49,6 +50,7 @@ export default class Project extends Content {
                         fileName: fileName,
                         programming_languange: data.programming_languange,
                         slug: fileName,
+                        repo_url: data.repo_url,
                         blurDataURL: base64,
                     }
                 }
