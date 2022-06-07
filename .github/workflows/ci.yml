@@ -109,7 +109,7 @@ jobs:
             - name: Build dependencies
               run: yarn build
             - name: Run Cypress
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v4
               with:
                   record: true
                   start: yarn start
