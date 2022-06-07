@@ -6,6 +6,9 @@ import { render, within } from '../../../__mocks__/utils/test-providers'
 import Project from '../../../src/pages/project/index'
 import ProjectContext from '../../../src/context/project/index'
 
+jest.mock('firebase/messaging', () => jest.fn())
+jest.mock('firebase/app', () => jest.fn())
+
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())
 jest.mock('unist-util-visit', () => jest.fn())

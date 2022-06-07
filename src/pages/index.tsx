@@ -4,8 +4,8 @@ import { Seo } from '../components/Seo'
 import { generateRss } from '../lib/rss'
 import { getPlaiceholder } from 'plaiceholder'
 import { Header } from '../components/Header'
-import { IntroductionSection } from '@/components/sections/introduction-section'
-import { CareerSection } from '@/components/sections/career-section'
+import { IntroductionSection } from '../components/sections/introduction-section'
+import { CareerSection } from '../components/sections/career-section'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()

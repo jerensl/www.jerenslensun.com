@@ -6,6 +6,9 @@ import { render, within } from '../../../__mocks__/utils/test-providers'
 import Blog from '../../../src/pages/blog/index'
 import BlogContext from '../../../src/context/blog/index'
 
+jest.mock('firebase/messaging', () => jest.fn())
+jest.mock('firebase/app', () => jest.fn())
+
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())
 jest.mock('unist-util-visit', () => jest.fn())

@@ -41,13 +41,13 @@ describe('Search Article', () => {
         }
     }
 
-    it('Should just have render Test First Article', () => {
+    it('Should just have render Test First Article', async () => {
         const { input, getAllByRole, getByRole } =
             renderSearchArticlesComponent()
 
         userEvent.click(getByRole('button', { name: /Read in English/i }))
 
-        userEvent.type(input, 'Test First Article')
+        await waitFor(() => userEvent.type(input, 'Test First Article'))
 
         const result = getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
@@ -60,13 +60,13 @@ Array [
 `)
     })
 
-    it('Should render all post named contain article', () => {
+    it('Should render all post named contain article', async () => {
         const { input, getAllByRole, getByRole } =
             renderSearchArticlesComponent()
 
         userEvent.click(getByRole('button', { name: /Read in English/i }))
 
-        userEvent.type(input, 'article')
+        await waitFor(() => userEvent.type(input, 'article'))
 
         const result = getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
@@ -119,25 +119,6 @@ Array [
 Array [
   "Test First Article",
   "Test Second Article",
-]
-`)
-    })
-
-    it('Should just have render Test First Article', () => {
-        const { input, getAllByRole, getByRole } =
-            renderSearchArticlesComponent()
-
-        userEvent.click(getByRole('button', { name: /Read in English/i }))
-
-        userEvent.type(input, 'Test First Article')
-
-        const result = getAllByRole('article').map((article) => {
-            return within(article).getByRole('heading').textContent
-        })
-
-        expect(result).toMatchInlineSnapshot(`
-Array [
-  "Test First Article",
 ]
 `)
     })
