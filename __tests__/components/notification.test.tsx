@@ -4,14 +4,17 @@
 
 import { renderWithClient } from '../../__mocks__/utils/react-query'
 import { Notifications, Notify } from '../../src/components/Notifications'
-import { useNotification } from '@/context/useNotification'
+import { useNotification } from '../../src/context/useNotification'
 import userEvent from '@testing-library/user-event'
 
 const mockedUseNotification = useNotification as jest.Mock
 
-jest.mock('@/context/useNotification', () => ({
+jest.mock('../../src/context/useNotification', () => ({
     useNotification: jest.fn(() => {}),
 }))
+
+jest.mock('firebase/messaging', () => jest.fn())
+jest.mock('firebase/app', () => jest.fn())
 
 describe('Notification', () => {
     it('Should render status not subscriber', async () => {

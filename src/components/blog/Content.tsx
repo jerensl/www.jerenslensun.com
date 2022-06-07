@@ -3,7 +3,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image, { ImageLoader } from 'next/image'
 import { ArticleSeo } from '../Seo'
 import { components } from '../components'
-import { Giscus } from '@giscus/react'
+// import Giscus from '@giscus/react'
 import { format } from 'date-fns'
 import { Metadata } from '../../context/blog'
 
@@ -51,7 +51,8 @@ export const Article = ({
             <main className="min-h-9/10 pt-2 md:pt-10 font-medium px-4 md:px-10">
                 <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
-                    <Giscus
+                    {/* <Giscus
+                        id="comments"
                         repo="jerensl/jerenslensun.com"
                         repoId="R_kgDOGSJ3GQ"
                         category="Q&A"
@@ -60,8 +61,11 @@ export const Article = ({
                         term="Welcome to Blog Discussions!"
                         reactionsEnabled="1"
                         emitMetadata="0"
+                        inputPosition="top"
                         theme="light"
-                    />
+                        lang="en"
+                        loading="lazy"
+                    /> */}
                 </article>
             </main>
         </>

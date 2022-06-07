@@ -3,9 +3,9 @@ import { render, RenderOptions } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { setupIntersectionObserverMock } from '../api/interaction-observer-mock'
 
-const queryClient = new QueryClient()
+const AllTheProviders: FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [queryClient] = React.useState(() => new QueryClient())
 
-const AllTheProviders: FC = ({ children }) => {
     return (
         <QueryClientProvider client={queryClient}>
             {children}

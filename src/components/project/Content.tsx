@@ -3,7 +3,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image, { ImageLoader } from 'next/image'
 import { ArticleSeo } from '../Seo'
 import { components } from '../components'
-import { Giscus } from '@giscus/react'
+// import Giscus from '@giscus/react'
 import { ProjectMetadata } from '../../context/project'
 import Link from 'next/link'
 import { Grid } from '../Grid'
@@ -66,7 +66,7 @@ export const Content = ({
                 <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
                     <div className="h-10 lg:h-15" />
-                    <Giscus
+                    {/* <Giscus
                         repo="jerensl/jerenslensun.com"
                         repoId="R_kgDOGSJ3GQ"
                         category="Q&A"
@@ -76,7 +76,7 @@ export const Content = ({
                         reactionsEnabled="1"
                         emitMetadata="0"
                         theme="light"
-                    />
+                    /> */}
                 </article>
             </main>
         </>
