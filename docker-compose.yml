@@ -5,7 +5,7 @@ services:
         ports:
             - '3000:3000'
     e2e:
-        image: 'cypress/included:9.4.1'
+        image: 'cypress/included:10.0.3'
         depends_on:
             - web
         environment:
@@ -13,4 +13,4 @@ services:
         command: '--browser chrome'
         volumes:
             - ./cypress:/cypress
-            - ./cypress.json:/cypress.json
+            - ./cypress.config.js:/cypress.config.js

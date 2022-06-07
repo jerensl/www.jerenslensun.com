@@ -51,14 +51,14 @@ export const Notifications = (): React.ReactElement => {
                 return
             }
 
-            const app = await firebaseApp.Init()
-
             if (
                 Notification.permission === 'denied' ||
                 Notification.permission === 'default'
             ) {
                 await Notification.requestPermission()
             } else {
+                const app = await firebaseApp.Init()
+
                 const messaging = getMessaging(app)
 
                 const fcm_token: string = await getToken(messaging, {
@@ -68,25 +68,24 @@ export const Notifications = (): React.ReactElement => {
                 if (!fcm_token) {
                     return
                 }
+
                 setToken(fcm_token)
+
+                onMessage(messaging, (payload: MessagePayload) => {
+                    toast(
+                        <Notify
+                            title={payload.notification.title}
+                            body={payload.notification.body}
+                            image={payload.notification.image}
+                        />,
+                        {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 10000,
+                            hideProgressBar: true,
+                        }
+                    )
+                })
             }
-
-            const messaging = getMessaging(app)
-
-            onMessage(messaging, (payload: MessagePayload) => {
-                toast(
-                    <Notify
-                        title={payload.notification.title}
-                        body={payload.notification.body}
-                        image={payload.notification.image}
-                    />,
-                    {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 10000,
-                        hideProgressBar: true,
-                    }
-                )
-            })
         }
         notification()
     }, [token, data])
