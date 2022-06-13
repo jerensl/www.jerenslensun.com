@@ -6,6 +6,7 @@ import { NavbarMobile } from '../components/NavbarMobile'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Navbar } from '../components/Navbar'
 import { ToastContainer } from 'react-toastify'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import 'react-toastify/dist/ReactToastify.css'
 import * as React from 'react'
 
@@ -21,6 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Navbar />
             <NavbarMobile />
             <Components {...pageProps} />
+            {process.env.NODE_ENV ? (
+                <ReactQueryDevtools initialIsOpen={false} />
+            ) : null}
         </QueryClientProvider>
     )
 }
