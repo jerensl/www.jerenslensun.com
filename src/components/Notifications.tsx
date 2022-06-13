@@ -14,11 +14,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useNotification } from '../context/useNotification'
 import { toast } from 'react-toastify'
+import Image, { ImageLoader } from 'next/image'
+
+const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
+    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
+}
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string | null>('')
     const [status, setStatus] = React.useState<boolean>(false)
-    const { isLoading, isError, data } = useNotification({ token, status })
+    const { isLoading, data } = useNotification({ token, status })
 
     const handleSubscribeNotification = () => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`, {
@@ -76,7 +81,6 @@ export const Notifications = (): React.ReactElement => {
                         <Notify
                             title={payload.notification.title}
                             body={payload.notification.body}
-                            image={payload.notification.image}
                         />,
                         {
                             position: toast.POSITION.TOP_CENTER,
@@ -101,9 +105,9 @@ export const Notifications = (): React.ReactElement => {
         )
     }
 
-    if (data?.status) {
-        return (
-            <>
+    return (
+        <>
+            {data?.status ? (
                 <button
                     className="hover:bg-gray-100"
                     onClick={handleUnsubscribeNotification}
@@ -116,36 +120,36 @@ export const Notifications = (): React.ReactElement => {
                         title="unsubscribe"
                     />
                 </button>
-            </>
-        )
-    }
-
-    return (
-        <>
-            <button
-                className="hover:bg-gray-100"
-                onClick={handleSubscribeNotification}
-                aria-label="turn on Notification"
-            >
-                <FontAwesomeIcon
-                    className="block mx-4 m-auto h-full"
-                    icon={faBellSlash}
-                    size="lg"
-                    title="subscribe"
-                />
-            </button>
+            ) : (
+                <button
+                    className="hover:bg-gray-100"
+                    onClick={handleSubscribeNotification}
+                    aria-label="turn on Notification"
+                >
+                    <FontAwesomeIcon
+                        className="block mx-4 m-auto h-full"
+                        icon={faBellSlash}
+                        size="lg"
+                        title="subscribe"
+                    />
+                </button>
+            )}
         </>
     )
 }
 
-export const Notify = ({ title, body, image }): React.ReactElement => {
+export const Notify = ({ title, body }): React.ReactElement => {
     return (
         <div className="w-full max-w-xs p-1 text-gray-500" role="alert">
             <div className="flex">
-                <img
+                <Image
+                    loader={blobStorageIoImageLoader}
+                    src="Jerens_WebArtboard_1_4x_cfulb5.png"
+                    alt="Person"
+                    objectFit="cover"
+                    height="40px"
+                    width="40px"
                     className="w-8 h-8 rounded-full shadow-lg"
-                    src={image}
-                    alt="Logo"
                 />
                 <div className="ml-3 text-sm font-normal">
                     <span className="mb-1 text-sm font-semibold text-gray-900 ">

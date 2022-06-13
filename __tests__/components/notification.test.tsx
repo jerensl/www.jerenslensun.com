@@ -54,4 +54,16 @@ describe('Notification', () => {
 
         expect(await result.findByTitle('loading')).toBeInTheDocument()
     })
+
+    it('Should render notification when triggered', async () => {
+        mockedUseNotification.mockImplementation(() => ({
+            data: { status: false },
+        }))
+
+        const result = renderWithClient(
+            <Notify title="Test Notif" body="Test body" />
+        )
+
+        expect(await result.findByText(/Test Notif/i)).toBeInTheDocument()
+    })
 })
