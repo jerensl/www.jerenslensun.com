@@ -12,7 +12,7 @@ import {
     faBell,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
-import { useNotification } from '../context/useNotification'
+import { useNotification } from '../hooks/useNotification'
 import { toast } from 'react-toastify'
 import Image, { ImageLoader } from 'next/image'
 
@@ -21,7 +21,7 @@ const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
 }
 
 export const Notifications = (): React.ReactElement => {
-    const [token, setToken] = React.useState<string | null>('')
+    const [token, setToken] = React.useState<string>('')
     const [status, setStatus] = React.useState<boolean>(false)
     const { isLoading, data } = useNotification({ token, status })
 
@@ -92,7 +92,7 @@ export const Notifications = (): React.ReactElement => {
             }
         }
         notification()
-    }, [token, data])
+    }, [token])
 
     if (isLoading) {
         return (

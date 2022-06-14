@@ -7,6 +7,7 @@ import {
 import { Footer } from '../../components/Footer'
 import { Article } from '../../components/blog/Content'
 import BlogContext from '../../context/blog/index'
+import { ArticleSeo } from '../../components/Seo'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const post = new BlogContext('contents/blog')
@@ -41,6 +42,12 @@ export default function Blog({
 
     return (
         <>
+            <ArticleSeo
+                path={frontmatter.title}
+                title={frontmatter.title}
+                description={frontmatter.description}
+                image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1655199836/personal/${frontmatter.cover}`}
+            />
             <Article
                 frontmatter={frontmatter}
                 code={code}

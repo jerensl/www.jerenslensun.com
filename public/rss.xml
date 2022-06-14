@@ -27,6 +27,13 @@
       <pubDate>2021-12-25</pubDate>
     </item>
 <item>
+      <title><![CDATA[Creating Reverse Proxy with Golang]]></title>
+      <description><![CDATA[A reverse proxy is the application that sits in front of back-end applications and forwards client (e.g. browser) requests to those applications.]]></description>
+      <link>https://www.jerenslensun.com/blog/en-reverse-proxy-golang</link>
+      <guid>https://www.jerenslensun.com/blog/en-reverse-proxy-golang</guid>
+      <pubDate>2021-12-21</pubDate>
+    </item>
+<item>
       <title><![CDATA[Algoritma Binary Search]]></title>
       <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
       <link>https://www.jerenslensun.com/blog/id-algoritma-binary-search</link>

@@ -190,7 +190,7 @@ export const pre = css({
             orange: {
                 $$background: 'rgb(255 135 31 / 10%)',
                 $$syntax1: '$colors$red',
-                $$syntax2: '$colors$turq',
+                $$syntax2: '$colors$pink',
                 $$syntax3: '$colors$orange',
                 $$syntax4: '$colors$orange',
             },

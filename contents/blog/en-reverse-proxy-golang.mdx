@@ -1,22 +1,128 @@
 ---
 title: Creating Reverse Proxy with Golang
-date: '2021-12-21'
-cover: binary-search_kadoxg.webp
-isPublished: false
+date: '2022-06-14'
+cover: reverse-proxy_d4urpv.webp
+isPublished: true
 description: A reverse proxy is the application that sits in front of back-end applications and forwards client (e.g. browser) requests to those applications.
 tags: ['golang']
 ---
 
-Reverse proxy will bring anonymity to the server behind it and make the server more secure because users don't know where they will interact within, another benefit is caching and load balancing. On the other hand, golang provides an easy way to build a reverse proxy using standard library httputil.
+The reverse proxy will bring anonymity to the server behind it and make the server more secure
+because users don't know where they will interact within, another benefit is caching and load balancing.
+On the other hand, golang provides an easy way to build a reverse proxy using a standard library.
+
+## Uses cases
+
+-   **Load Balancing**,
+    A reverse proxy can be used to load balance requests from users, the interesting part is we can have a minimum of one server.
+-   **Gateway**,
+    Reversed proxy can be used as a gateway to multiple Restful API services, not just that there are several open-source projects that map restful API reverse proxy to GRPC server such as grpc-gateway.
+-   **SSl Termination**,
+    SSL Termination, can be used to encrypt incoming and outgoing requests to and from reversed proxy only and let the server behind reverse proxy unencrypted.
+-   **Caching**,
+    A reverse proxy can temporarily save the response data coming from the internal server.
+
+## Implementation
+
+To get started, we need to build HTTP router using http package.
+
+-   Create a server we need to import it from `net/http` library.
+-   After that we call ListenAndServe, who took 2 argument
+    -   The first one is the address, and then we put port in the argument
+    -   The second one is `DefaultServeMux` but in this case, we want to use the default one provided by the HTTP package,
+        so we just put nill
+-   If the server is not running, we just make it panic
 
 ```go showLineNumbers theme=orange
 package main
 
+import (
+	"net/http"
+	"fmt"
+)
+
 func main() {
-    fmt.Printf("Starting users service at port: %v", os.Getenv("PORT"))
-	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
-		log.Fatal(err)
+	http.HandleFunc("/", reverseProxyHandler)
+
+    fmt.Printf("Starting users service at port: %v", 8000)
+	if err := http.ListenAndServe(":5000", nil); err != nil {
+		panic(err)
 	}
 }
 
 ```
+
+The next step we will implement reverseProxyHandler function, which is the implementation of `http.HandleFunc`.
+The first argument is a writer to a response and the second argument is a pointer to a request from user.
+
+-   Inside the function, we will use `url.Parse` to parse the URL string, which will separate such as host, path, etc
+    to the struct URL and return it, if the URL string argument is invalid,
+    it will give an error and we just respond with an bad gateway error using `w.writeHeader` and return it directly
+    to the client.
+-   After that, we can send the result URL parse, to the `NewSingleHostReverseProxy` who comes from httputil package.
+    It will prepare either requests or headers from clients to reverse proxy servers.
+-   Finally, we come to the final part, so we need to check it the reverse proxy is not empty, then do the request
+    to the internal server using `ServerHTTP`, and passed forward the request, then get back the response to the client.
+
+```go showLineNumbers theme=orange
+func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
+	host, err := url.Parse("http://localhost:5001")
+	if err != nil {
+		w.WriteHeader(http.StatusBadGateway)
+		return
+	}
+
+	reverseProxy := httputil.NewSingleHostReverseProxy(host)
+	if reverseProxy != nil {
+		reverseProxy.ServeHTTP(w, r)
+	}
+	http.Error(w, "Service not available", http.StatusServiceUnavailable)
+}
+
+```
+
+## Final Result
+
+```go showLineNumbers theme=orange
+package main
+
+import (
+	"fmt"
+	"net/url"
+	"net/http"
+	"net/http/httputil"
+)
+
+func main() {
+	http.HandleFunc("/", reverseProxyHandler)
+
+    fmt.Printf("Starting users service at port: %v", 8000)
+	if err := http.ListenAndServe(":5000", nil); err != nil {
+		panic(err)
+	}
+
+	func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
+	host, err := url.Parse("http://localhost:5001")
+	if err != nil {
+		w.WriteHeader(http.StatusBadGateway)
+		return
+	}
+
+	reverseProxy := httputil.NewSingleHostReverseProxy(host)
+	if reverseProxy != nil {
+		reverseProxy.ServeHTTP(w, r)
+	}
+	http.Error(w, "Service not available", http.StatusServiceUnavailable)
+}
+
+```
+
+## Summary
+
+In the end, it's good to know and learn how easy to implement it on golang, so for a production environment,
+I recommended using some of the popular proxies such as HAProxy, Nginx, Traefik, etc.
+In terms of performance comparison, there are people already doing the benchmark so I will refer to the that [repository](https://github.com/juliens/Proxy-Benchmarks)
+
+## Aditional
+
+-   [FOSDEM 2019: How to write a reverse proxy with Go in 25 minutes.](https://www.youtube.com/watch?v=tWSmUsYLiE4)
