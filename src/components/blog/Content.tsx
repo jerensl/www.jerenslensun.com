@@ -1,9 +1,7 @@
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import Image, { ImageLoader } from 'next/image'
-import { ArticleSeo } from '../Seo'
 import { components } from '../components'
-// import Giscus from '@giscus/react'
 import { format } from 'date-fns'
 import { Metadata } from '../../context/blog'
 
@@ -26,12 +24,6 @@ export const Article = ({
 
     return (
         <>
-            <ArticleSeo
-                path={frontmatter.title}
-                title={frontmatter.title}
-                description={frontmatter.description}
-                image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${frontmatter.cover}`}
-            />
             <header className="pt-20 text-center">
                 <h1 className="text-3xl font-bold">{frontmatter.title}</h1>
                 <p className="text-xl pt-1 pb-2 font-medium">
