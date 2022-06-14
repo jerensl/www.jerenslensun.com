@@ -9,7 +9,7 @@ import userEvent from '@testing-library/user-event'
 
 const mockedUseNotification = useNotification as jest.Mock
 
-jest.mock('../../src/context/useNotification', () => ({
+jest.mock('../../src/hooks/useNotification', () => ({
     useNotification: jest.fn(() => {}),
 }))
 
