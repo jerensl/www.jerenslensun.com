@@ -25,19 +25,22 @@ export const Notifications = (): React.ReactElement => {
     const [status, setStatus] = React.useState<boolean>(false)
     const { isLoading, data } = useNotification({ token, status })
 
-    const handleSubscribeNotification = () => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`, {
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify({
-                token: token,
-            }),
-        })
+    const handleSubscribeNotification = async () => {
+        await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`,
+            {
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify({
+                    token: token,
+                }),
+            }
+        )
         setStatus(true)
     }
 
-    const handleUnsubscribeNotification = () => {
-        fetch(
+    const handleUnsubscribeNotification = async () => {
+        await fetch(
             `${process.env.NEXT_PUBLIC_API_URL}/api/notification/unsubscribe`,
             {
                 method: 'POST',

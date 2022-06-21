@@ -23,6 +23,8 @@ export function useNotification({ token, status }: Notification) {
         {
             enabled: !!token,
             retry: false,
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
         }
     )
 }
