@@ -28,3 +28,39 @@ export function useNotification({ token, status }: Notification) {
         }
     )
 }
+
+interface Status {
+    status: boolean
+}
+
+export const subscribeNotification = async ({
+    token,
+}: {
+    token: string
+}): Promise<Status> =>
+    await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                token: token,
+            }),
+        }
+    ).then((res) => res.json())
+
+export const unsubscribeNotification = async ({
+    token,
+}: {
+    token: string
+}): Promise<Status> =>
+    await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/notification/unsubscribe`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({
+                token: token,
+            }),
+        }
+    ).then((res) => res.json())

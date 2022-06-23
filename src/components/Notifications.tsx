@@ -12,7 +12,11 @@ import {
     faBell,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
-import { useNotification } from '../hooks/useNotification'
+import {
+    useNotification,
+    subscribeNotification,
+    unsubscribeNotification,
+} from '../hooks/useNotification'
 import { toast } from 'react-toastify'
 import Image, { ImageLoader } from 'next/image'
 
@@ -26,31 +30,13 @@ export const Notifications = (): React.ReactElement => {
     const { isLoading, data } = useNotification({ token, status })
 
     const handleSubscribeNotification = async () => {
-        await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`,
-            {
-                method: 'POST',
-                mode: 'cors',
-                body: JSON.stringify({
-                    token: token,
-                }),
-            }
-        )
-        setStatus(true)
+        const data = await subscribeNotification({ token })
+        setStatus(data.status)
     }
 
     const handleUnsubscribeNotification = async () => {
-        await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/notification/unsubscribe`,
-            {
-                method: 'POST',
-                mode: 'cors',
-                body: JSON.stringify({
-                    token: token,
-                }),
-            }
-        )
-        setStatus(false)
+        const data = await unsubscribeNotification({ token })
+        setStatus(data.status)
     }
 
     React.useEffect(() => {
