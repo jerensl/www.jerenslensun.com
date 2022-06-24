@@ -25,9 +25,9 @@ module.exports = withPlugins(
         swcMinify: true,
         images: {
             formats: ['image/avif', 'image/webp'],
-            loader: 'cloudinary',
-            path: 'https://res.cloudinary.com/do9os7lxv/image/upload/v1640579086/personal/',
-            domains: ['jerenslensun.com', 'res.cloudinary.com'],
+            loader: 'custom',
+            path: 'https://ik.imagekit.io/jerensl/',
+            domains: ['jerenslensun.com', 'ik.imagekit.io'],
         },
         plugins: [
             new InjectManifest({

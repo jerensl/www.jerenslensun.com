@@ -36,7 +36,7 @@ export default class Project extends Content {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
                 const { data } = matter(source)
                 const { base64 } = await getPlaiceholder(
-                    `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${data.cover}`,
+                    `https://ik.imagekit.io/jerensl/${data.cover}`,
                     { size: 10 }
                 )
 
@@ -127,7 +127,7 @@ export default class Project extends Content {
         })
 
         const { base64 } = await getPlaiceholder(
-            `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${frontmatter.cover}`,
+            `https://ik.imagekit.io/jerensl/${frontmatter.cover}`,
             { size: 10 }
         )
 

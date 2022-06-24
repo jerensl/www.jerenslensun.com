@@ -3,10 +3,7 @@ import Image, { ImageLoader } from 'next/image'
 import { LinkURL } from '../components/LinkURL'
 import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
-
-const blobStorageIoImageLoader: ImageLoader = ({ src, width, quality }) => {
-    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1641437560/personal/${src}`
-}
+import { imageLoader } from '../lib/images'
 
 export const Header = ({
     blurDataURL,
@@ -24,8 +21,8 @@ export const Header = ({
                     <div className="col-span-full pt-10 lg:col-start-6 lg:col-span-7 m-auto">
                         <Image
                             data-fade="1"
-                            src="illustration-landing-page_drzr7q.webp"
-                            loader={blobStorageIoImageLoader}
+                            src="illustration-landing-page.png"
+                            loader={imageLoader}
                             placeholder="blur"
                             blurDataURL={blurDataURL}
                             alt="Person"
