@@ -1,10 +1,7 @@
 import Link from 'next/link'
-import Image, { ImageLoader } from 'next/image'
+import Image from 'next/image'
 import { ProjectMetadata } from '../../context/project'
-
-const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
-    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
-}
+import { imageLoader } from '../../lib/images'
 
 export const Card = ({
     title,
@@ -29,7 +26,7 @@ export const Card = ({
                 <Link href={`/project/${slug}`} passHref>
                     <a>
                         <Image
-                            loader={blobStorageIoImageLoader}
+                            loader={imageLoader}
                             src={cover}
                             alt="Person"
                             objectFit="cover"

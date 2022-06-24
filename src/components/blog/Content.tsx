@@ -4,10 +4,7 @@ import Image, { ImageLoader } from 'next/image'
 import { components } from '../components'
 import { format } from 'date-fns'
 import { Metadata } from '../../context/blog'
-
-const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
-    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
-}
+import { imageLoader } from '../../lib/images'
 
 interface ArticleProps {
     frontmatter: Metadata
@@ -30,7 +27,7 @@ export const Article = ({
                     {format(new Date(frontmatter.date), 'MMMM dd, yyyy')}
                 </p>
                 <Image
-                    loader={blobStorageIoImageLoader}
+                    loader={imageLoader}
                     src={frontmatter.cover}
                     placeholder="blur"
                     blurDataURL={blurDataURL}
@@ -43,21 +40,6 @@ export const Article = ({
             <main className="min-h-9/10 pt-2 md:pt-10 font-medium px-4 md:px-10">
                 <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
-                    {/* <Giscus
-                        id="comments"
-                        repo="jerensl/jerenslensun.com"
-                        repoId="R_kgDOGSJ3GQ"
-                        category="Q&A"
-                        categoryId="DIC_kwDOGSJ3Gc4CAhCy"
-                        mapping="pathname"
-                        term="Welcome to Blog Discussions!"
-                        reactionsEnabled="1"
-                        emitMetadata="0"
-                        inputPosition="top"
-                        theme="light"
-                        lang="en"
-                        loading="lazy"
-                    /> */}
                 </article>
             </main>
         </>

@@ -3,14 +3,10 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image, { ImageLoader } from 'next/image'
 import { ArticleSeo } from '../Seo'
 import { components } from '../components'
-// import Giscus from '@giscus/react'
 import { ProjectMetadata } from '../../context/project'
 import Link from 'next/link'
 import { Grid } from '../Grid'
-
-const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
-    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
-}
+import { imageLoader } from '../../lib/images'
 
 interface ArticleProps {
     frontmatter: ProjectMetadata
@@ -31,7 +27,7 @@ export const Content = ({
                 path={frontmatter.title}
                 title={frontmatter.title}
                 description={frontmatter.description}
-                image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${frontmatter.cover}`}
+                image={`https://ik.imagekit.io/jerensl/${frontmatter.cover}`}
             />
             <Grid as="header" className="pt-24 gap-3 text-center">
                 <h1 className="text-3xl font-bold col-span-full">
@@ -50,7 +46,7 @@ export const Content = ({
                 </div>
                 <div className="col-span-full">
                     <Image
-                        loader={blobStorageIoImageLoader}
+                        loader={imageLoader}
                         src={frontmatter.cover}
                         placeholder="blur"
                         blurDataURL={blurDataURL}
@@ -66,17 +62,6 @@ export const Content = ({
                 <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
                     <div className="h-10 lg:h-15" />
-                    {/* <Giscus
-                        repo="jerensl/jerenslensun.com"
-                        repoId="R_kgDOGSJ3GQ"
-                        category="Q&A"
-                        categoryId="DIC_kwDOGSJ3Gc4CAhCy"
-                        mapping="pathname"
-                        term="Welcome to Blog Discussions!"
-                        reactionsEnabled="1"
-                        emitMetadata="0"
-                        theme="light"
-                    /> */}
                 </article>
             </main>
         </>

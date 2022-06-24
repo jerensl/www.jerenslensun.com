@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
     const { base64 } = await getPlaiceholder(
-        'https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/illustration-landing-page_drzr7q.webp',
+        'https://ik.imagekit.io/jerensl/illustration-landing-page.png',
         { size: 10 }
     )
 
