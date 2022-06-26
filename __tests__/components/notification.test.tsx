@@ -17,42 +17,42 @@ jest.mock('firebase/messaging', () => jest.fn())
 jest.mock('firebase/app', () => jest.fn())
 
 describe('Notification', () => {
-    it('Should render status not subscriber', async () => {
+    it('Should render status not subscriber', () => {
         mockedUseNotification.mockImplementation(() => ({
             data: { status: false },
         }))
 
         const result = renderWithClient(<Notifications />)
 
-        expect(await result.findByTitle('subscribe')).toBeInTheDocument()
+        expect(result.getByTestId('subscribe')).toBeInTheDocument()
 
         userEvent.click(
             result.getByRole('button', { name: 'turn on Notification' })
         )
     })
 
-    it('Should render status subsrsiber', async () => {
+    it('Should render status subsrsiber', () => {
         mockedUseNotification.mockImplementation(() => ({
             data: { status: true },
         }))
 
         const result = renderWithClient(<Notifications />)
 
-        expect(await result.findByTitle('unsubscribe')).toBeInTheDocument()
+        expect(result.getByTestId('unsubscribe')).toBeInTheDocument()
 
         userEvent.click(
             result.getByRole('button', { name: 'turn off Notification' })
         )
     })
 
-    it('Should render status loading', async () => {
+    it('Should render status loading', () => {
         mockedUseNotification.mockImplementation(() => ({
             isLoading: true,
         }))
 
         const result = renderWithClient(<Notifications />)
 
-        expect(await result.findByTitle('loading')).toBeInTheDocument()
+        expect(result.getByTestId('loading')).toBeInTheDocument()
     })
 
     it('Should render notification when triggered', async () => {

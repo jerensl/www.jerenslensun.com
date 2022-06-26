@@ -23,7 +23,7 @@ Berikut contoh data yang akan kita olah, sebagai contoh kita hanya menggunakan s
 -   Jika terdapat errror(err tidak sama dengan nil) kita akan melakukan print pada error, lalu panic sehingga program berhenti, itu sama saja dengan memanggil os.Exit(1).
 -   Setelah itu, kita perlu menutup file yang telah dibuka, disini kita menggunakan defer sehingga fungsi close berjalan ketika semua proses dalam fungsi tersebut(disini fungsi main) telah selesai atau code yang terdapat dibawah defer akan berjalan terlebih dahulu.
 
-```go theme=orange
+```go showlinenumbers theme=orange
 package main
 
 import (
@@ -49,7 +49,7 @@ Di tahap ini kita akan menggunakan standard library bufio untuk melakukan memind
 -   Kita perlu melakukan looping menggunakan method Scan(), dimana akan memindai setiap baris yang ada pada file tersebut, lalu kita menggunakan standard library fmt untuk melakukan print terhadap method Text() untuk membaca nilai yang ada.
 -   Jika terdapat error pada saat memindai teks, kita akan melakukan panic sehingga program berhenti dan menghasilkan log error.
 
-```go theme=orange
+```go showlinenumbers theme=orange
 package main
 
 import (
@@ -88,7 +88,7 @@ Ada beberapa argument yang bisa kita gunakan selain ScanWords, yaitu:
 -   ScanBytes, untuk memisahkan berdasarkan setiap byte sebagai token.
 -   ScanRunes, untuk memisahkan berdasarkan UTF-8-encoded rune sebagai token.
 
-```go theme=orange
+```go showlinenumbers theme=orange
 package main
 
 import (
@@ -129,7 +129,7 @@ Disini kita akan melakukan parsing data yang sebelumnya string ke dalam integer 
 -   Sebelum memasukan nilai ke dalam variable nums kita perlu melakukan konversi string ke int menggunakan strconv.Atoi(), atoi berarti ascii to integer.
 -   Setelah semua kalimat pada baris telah selesai kita melakukan append ke dalam 2D array variable numbers.
 
-```go theme=orange
+```go showlinenumbers theme=orange
 package main
 
 import (

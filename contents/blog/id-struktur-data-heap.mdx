@@ -17,7 +17,7 @@ Sebagai contoh kita hanya akan menggunakan MaxHeap. Disini Kita akan membuat seb
 -   Bucket, yang akan menyimpan array dari data integer
 -   Size, jumlah nilai yang terdapat dalam array Bucket
 
-```go showLineNumbers theme=orange line=3-6
+```go showlinenumbers theme=orange line=3-6
 package main
 
 type Heap struct {
@@ -43,7 +43,7 @@ Pada fungsi NewMaxHeap, kita akan:
 1. Membuat variable maxHeap, yang dimana merupakan struct kosong. Penggunaan **&** atau _dereferencing_ , yaitu untuk memanipulasi lansung data pada memory address pointer tersebut.
 2. Selanjutnya kita membuat for loop menggunakan range pada input nums, dimana terdapat 2 variable yang dikembalikan yaitu index yang kita ganti dengan underscore, karena tidak kita gunakan dan value yang merupakan nilai pada array tersebut.
 
-```go showLineNumbers theme=orange line=8-16
+```go showlinenumbers theme=orange line=8-16
 package main
 
 type Heap struct {
@@ -75,7 +75,7 @@ Pada method Insert yang akan menerima argumen nilai integer, kita akan:
 2. Setelah itu kita akan melakukan increment menggunakan Size++, sehingga tiap ada nilai yang dimasukan size akan terus bertambah 1.
 3. Setelah itu kita akan memanggil method heapifyUp yang akan kita buat nanti, untuk mengorganisir kembali urutan pada array.
 
-```go showLineNumbers theme=orange line=18-23
+```go showlinenumbers theme=orange line=18-23
 package main
 
 type Heap struct {
@@ -110,7 +110,7 @@ func main() {
 
 Untuk mendapatkan index parent, kita perlu menguranginya dengan 1 terlebih dahulu dan membagi dengan 2, karena kita menggunakan integer jadi jika nilai yang dibagi contohnya menjadi 0.5 maka akan dibulatkan menjadi 0.
 
-```go showLineNumbers theme=orange
+```go showlinenumbers theme=orange
 func parentIndex(currentIndex int) int {
 	return (currentIndex-1)/2
 }
@@ -118,7 +118,7 @@ func parentIndex(currentIndex int) int {
 
 Biasanya untuk melakukan swaping kita perlu membuat temporary variable, namun kita bisa mempersingkatnya dengan langsung melakukan swaping seperti ini.
 
-```go showLineNumbers theme=orange
+```go showlinenumbers theme=orange
 func (m *Heap) swap(current, parent int) {
 	m.Bucket[current], m.Bucket[parent] = m.Bucket[parent], m.Bucket[current]
 }
@@ -129,7 +129,7 @@ Method heapifyUp dibuat dengan tujuan untuk mereorganisasi array sehingga nilai 
 1. Dalam method heapifyUp kita perlu membuat variable currentIndex untuk melacak index terakhir dari nilai array yang baru kita masukan tadi,
 2. Disini akan kita bandingkan dengan nilai currentIndex dan nilai parentIndex yang merupakan parent dari currentIndex, jika nilai currentIndex masih lebih besar loop akan terus berjalan dan melakukan swap terhadap dua nilai tersebut, selanjutnya nilai currentIndex akan menjadi parentIndex
 
-```go showLineNumbers theme=orange line=25-32
+```go showlinenumbers theme=orange line=25-32
 package main
 
 type Heap struct {
@@ -185,7 +185,7 @@ Selanjutnya kita akan menghapus parent root dari heap atau nilai paling besar de
 1. Kita mengganti nilai index pertama dengan nilai dari index terakhir
 2. Lalu disini kita akan menginisialisasi lagi array dengan tidak mengikutsertakan index terakhir, setelah itu kita akan mengurangi Size dari array dan memanggil method heapifyDown()
 
-```go showLineNumbers theme=orange line=25-31
+```go showlinenumbers theme=orange line=25-31
 package main
 
 type Heap struct {
@@ -250,7 +250,7 @@ Untuk mendapatkan index child left dan right kita akan membuat 2 fungsi :
 1.  leftIndex(), dimana untuk medapatkan index child kita perlu mengkalikan dengan 2 lalu ditambah 1
 2.  rightIndex(), dimana untuk medapatkan index child kita perlu mengkalikan dengan 2 lalu ditambah 2
 
-```go showLineNumbers theme=orange
+```go showlinenumbers theme=orange
 func leftIndex(currentIndex int) int {
 	return currentIndex*2+1
 }
@@ -281,7 +281,7 @@ Untuk if statment berikutnya kita akan mengecek jika nilai childToCompare lebih 
 2.  Selanjutnya kita akan melakukan update pada variable currentIndex menjadi childToCompare
 3.  Terakhir kita juga perlu melakukan reassign pada nilai leftNode dan rightNode
 
-```go showLineNumbers theme=orange line=45-70
+```go showlinenumbers theme=orange line=45-70
 package main
 
 import "fmt"
