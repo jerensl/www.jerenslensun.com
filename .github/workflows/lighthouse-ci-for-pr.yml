@@ -3,10 +3,6 @@ name: Web Perf Check for Pull Request
 on:
     pull_request:
         types: [labeled]
-    workflow_run:
-        workflows: ['build_and_deploy_job']
-        types:
-            - completed
 
 jobs:
     lhci:
