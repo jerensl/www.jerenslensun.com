@@ -24,12 +24,6 @@ jobs:
               with:
                   node-version: '14.x'
 
-            - name: Wait for the Netlify Preview
-              uses: jakepartusch/wait-for-netlify-action@v1
-              id: netlify
-              with:
-                  site_name: 'wargabantuwarga'
-
             - name: 'Lighthouse CI assertion'
               id: lhci
               shell: bash
