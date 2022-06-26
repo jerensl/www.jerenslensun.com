@@ -1,0 +1,38 @@
+name: Web Perf Check
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    lhci:
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        name: Run Lighthouse CI on Production
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
+
+            - name: 'Lighthouse CI assertion'
+              id: lhci
+              shell: bash
+              run: |
+                  yarn global add @lhci/cli@0.8.x
+                  echo -e "\n"
+                  echo "Start collecting LH report..."
+                  lhci collect --url=https://www.jerenslensun.com/ --url=https://www.jerenslensun.com/blog --url=https://www.jerenslensun.com/project --url=https://www.jerenslensun.com/about -n=4
+                  echo -e "\n"
+                  echo "Start asserting LH score..."
+                  lhci assert --config=./lighthouserc.js
+                  echo -e "\n"
+                  echo "Start uploading the report..."
+                  lhci upload --target "temporary-public-storage" --githubAppToken "$LHCI_GITHUB_APP_TOKEN" --githubToken "$LHCI_GITHUB_TOKEN"
+              env:
+                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+                  LHCI_GITHUB_TOKEN: ${{ secrets.LHCI_GITHUB_TOKEN }}
