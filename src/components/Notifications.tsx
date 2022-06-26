@@ -89,6 +89,7 @@ export const Notifications = (): React.ReactElement => {
                 className="animate-spin mx-4 h-full m-auto"
                 size="lg"
                 icon={faSpinner}
+                data-testid="loading"
             />
         )
     }
@@ -105,6 +106,7 @@ export const Notifications = (): React.ReactElement => {
                         className="block mx-4 h-full m-auto"
                         size="lg"
                         icon={faBell}
+                        data-testid="unsubscribe"
                     />
                 </button>
             ) : (
@@ -117,6 +119,7 @@ export const Notifications = (): React.ReactElement => {
                         className="block mx-4 m-auto h-full"
                         icon={faBellSlash}
                         size="lg"
+                        data-testid="subscribe"
                     />
                 </button>
             )}
