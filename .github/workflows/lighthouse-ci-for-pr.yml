@@ -1,0 +1,49 @@
+name: Web Perf Check for Pull Request
+
+on:
+    pull_request:
+        types: [labeled]
+    workflow_run:
+        workflows: ['build_and_deploy_job']
+        types:
+            - completed
+
+jobs:
+    lhci:
+        name: Run Lighthouse CI againts Pull Request
+        runs-on: ubuntu-latest
+
+        if: ${{ github.event.label.name == 'need-perf-check' }}
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Setup Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '14.x'
+
+            - name: Wait for the Netlify Preview
+              uses: jakepartusch/wait-for-netlify-action@v1
+              id: netlify
+              with:
+                  site_name: 'wargabantuwarga'
+
+            - name: 'Lighthouse CI assertion'
+              id: lhci
+              shell: bash
+              run: |
+                  yarn global add @lhci/cli@0.8.x
+                  echo -e "\n"
+                  echo "Start collecting LH report..."
+                  lhci collect --url=${{ steps.build_and_deploy_job.static_web_app_url }} --url=${{ steps.build_and_deploy_job.static_web_app_url }}/blog --url=${{ steps.build_and_deploy_job.static_web_app_url }}/project --url=${{ steps.build_and_deploy_job.static_web_app_url }}/about -n=4
+                  echo -e "\n"
+                  echo "Start asserting LH score..."
+                  lhci assert --config=./lighthouserc.js
+                  echo -e "\n"
+                  echo "Start uploading the report..."
+                  lhci upload --target "temporary-public-storage" --githubAppToken "$LHCI_GITHUB_APP_TOKEN" --githubToken "$GITHUB_TOKEN"
+              env:
+                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
