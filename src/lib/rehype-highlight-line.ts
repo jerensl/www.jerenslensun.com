@@ -2,7 +2,7 @@ import { toHtml } from 'hast-util-to-html'
 import { unified } from 'unified'
 import parse from 'rehype-parse'
 
-const lineNumberify = function lineNumberify(ast, lineNum = 1) {
+const lineNumberify = (ast, lineNum = 1) => {
     let lineNumber = lineNum
     return ast.reduce(
         (result, node) => {
@@ -46,7 +46,7 @@ const lineNumberify = function lineNumberify(ast, lineNum = 1) {
     )
 }
 
-const wrapLines = function wrapLines(ast, linesToHighlight) {
+const wrapLines = (ast, linesToHighlight) => {
     const allLines = Array.from(new Set(ast.map((x) => x.lineNumber)))
     let i = 0
     const wrapped = allLines.reduce((nodes: any, marker) => {

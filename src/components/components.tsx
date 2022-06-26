@@ -5,17 +5,17 @@ import { CopyToClipboard } from './copy-clipboard'
 interface Components {
     children: any
     theme: 'pink' | 'turq' | 'orange'
-    showLineNumbers: any
+    showlinenumbers: any
 }
 
 const components = {
-    pre: ({ children, theme, showLineNumbers }: Components) => {
+    pre: ({ children, theme, showlinenumbers }: Components) => {
         return (
             <CopyToClipboard>
                 <pre
                     className={pre({
                         theme,
-                        showLineNumbers: typeof showLineNumbers === 'string',
+                        showlinenumbers: typeof showlinenumbers === 'string',
                         css: {
                             mx: '-$3',
                             mt: '$3',

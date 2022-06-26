@@ -31,7 +31,7 @@ Output : -1
 
 Pertama kita membuat fungsi Binary_search yang mengembalikan nilai -1 sebagai output
 
-```go showLineNumbers theme=orange line=3
+```go showlinenumbers theme=orange line=3
 package binary_search
 
 func Binary_search(nums int[], target int) int {
@@ -41,7 +41,7 @@ func Binary_search(nums int[], target int) int {
 
 Setelah itu kita membuat variable left yang akan diisi index pertama dari array nums dan varible right dimana akan diisi index terakhir dari variable right. Kita juga memerlukan while loop dimana akan terus berjalan ketika nilai left lebih kecil dari nilai right
 
-```go showLineNumbers theme=orange line=6-8
+```go showlinenumbers theme=orange line=6-8
 package binary_search
 
 func Binary_search(nums []int, target int) int {
@@ -57,7 +57,7 @@ func Binary_search(nums []int, target int) int {
 
 Kita juga perlu membuat variable middle yang merupakan index di tengah antara variable left dan right dan akan kita bandingkan dengan nilai target, jika sama nilai tersebut dikembalikan.
 
-```go showLineNumbers theme=orange line=7-11
+```go showlinenumbers theme=orange line=7-11
 package binary_search
 
 func Binary_search(nums []int, target int) int {
@@ -82,7 +82,7 @@ Selanjutnya kita akan mengatasi kasus untuk 2 skenario, yaitu:
 
 Karna nilai dari variable middle telah dibandingkan sebelumnya maka kita akan menggeser satu index(dikurangi atau ditambah satu), untuk menghemat operasi yang dilakukan sehingga menjadi lebih effisien.
 
-```go showLineNumbers theme=orange line=13-17
+```go showlinenumbers theme=orange line=13-17
 package binary_search
 
 func Binary_search(nums []int, target int) int {

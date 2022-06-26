@@ -162,7 +162,7 @@ export const pre = css({
     },
 
     variants: {
-        showLineNumbers: {
+        showlinenumbers: {
             true: {
                 '.highlight-line': {
                     position: 'relative',

@@ -33,7 +33,7 @@ To get started, we need to build HTTP router using http package.
         so we just put nill
 -   If the server is not running, we just make it panic
 
-```go showLineNumbers theme=orange
+```go showlinenumbers theme=orange
 package main
 
 import (
@@ -64,7 +64,7 @@ The first argument is a writer to a response and the second argument is a pointe
 -   Finally, we come to the final part, so we need to check it the reverse proxy is not empty, then do the request
     to the internal server using `ServerHTTP`, and passed forward the request, then get back the response to the client.
 
-```go showLineNumbers theme=orange
+```go showlinenumbers theme=orange
 func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
 	host, err := url.Parse("http://localhost:5001")
 	if err != nil {
@@ -83,7 +83,7 @@ func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
 
 ## Final Result
 
-```go showLineNumbers theme=orange
+```go showlinenumbers theme=orange
 package main
 
 import (
