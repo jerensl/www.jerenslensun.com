@@ -5,6 +5,7 @@ import Document, {
     NextScript,
     DocumentContext,
 } from 'next/document'
+import Script from 'next/script'
 
 const APP_NAME = 'Jerens'
 const APP_DESCRIPTION =
@@ -20,7 +21,9 @@ class MyDocument extends Document {
         return (
             <Html lang="en-US">
                 <Head>
-                    <script
+                    <Script
+                        id="gtm"
+                        strategy="afterInteractive"
                         dangerouslySetInnerHTML={{
                             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -28,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PKW49NT');`,
                         }}
-                    ></script>
+                    ></Script>
                     <meta name="application-name" content={APP_NAME} />
                     <meta name="apple-mobile-web-app-capable" content="yes" />
                     <meta
@@ -119,12 +122,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         content="/icons/ms-icon-144x144.png"
                     />
                     <meta name="theme-color" content="#FFFFFF" />
-                    <link
+                    <style
+                        id="katex"
+                        dangerouslySetInnerHTML={{
+                            __html: `</style>
+                        <link
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
                         integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"
                         crossOrigin="anonymous"
-                    />
+                        media="print"
+                        onload="this.media='all'; this.onload=null;"
+                        />
+                        <style>
+                        `,
+                        }}
+                    ></style>
                     <link
                         rel="preconnect"
                         href="https://fonts.googleapis.com"

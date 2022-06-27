@@ -25,11 +25,11 @@ export const Header = ({
                             loader={imageLoader}
                             placeholder="blur"
                             blurDataURL={blurDataURL}
-                            alt="Person"
+                            alt="A man looking to a beautiful river and mountain"
+                            quality="80"
                             objectFit="contain"
-                            width="1000px"
-                            height="667px"
-                            className="transition duration-300 ease-in-out"
+                            width="1080px"
+                            height="720px"
                         />
                     </div>
                     <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto text-center">

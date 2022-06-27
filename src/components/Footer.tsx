@@ -10,7 +10,7 @@ import { LinkURL } from './LinkURL'
 function SitemapSection() {
     return (
         <div>
-            <h4 className="text-lg font-semibold text-gray-500">Sitemap</h4>
+            <h2 className="text-lg font-semibold text-gray-500">Sitemap</h2>
             <div className="mt-2 flex flex-col gap-1">
                 <LinkURL className="text-lg" href="/">
                     Home
@@ -32,7 +32,7 @@ function SitemapSection() {
 function ContactSection() {
     return (
         <div>
-            <h4 className="text-lg font-semibold text-gray-500">Contact</h4>
+            <h2 className="text-lg font-semibold text-gray-500">Contact</h2>
             <div className="mt-2 flex flex-col gap-1">
                 <LinkURL
                     className="text-lg"
@@ -60,35 +60,44 @@ function ContactSection() {
 function AboutSection() {
     return (
         <div>
-            <h4 className="text-xl font-bold text-center sm:text-left">
+            <h1 className="text-xl font-bold text-center sm:text-left">
                 Jerens S. Lensun
-            </h4>
+            </h1>
             <p className="text-secondary text-center sm:text-left mb-4 md:mb-6 max-w-md text-2xl">
                 Software Engineering
             </p>
             <div className="flex space-x-6 h-10 justify-center sm:justify-start py-1">
-                <LinkURL href="https://github.com/jerensl">
+                <LinkURL href="https://github.com/jerensl" aria-label="Github">
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faGithubSquare}
                         size="2x"
                     />
                 </LinkURL>
-                <LinkURL href="https://twitter.com/jerensl22">
+                <LinkURL
+                    href="https://twitter.com/jerensl22"
+                    aria-label="Twitter"
+                >
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faTwitterSquare}
                         size="2x"
                     />
                 </LinkURL>
-                <LinkURL href="https://www.linkedin.com/in/jerensl/">
+                <LinkURL
+                    href="https://www.linkedin.com/in/jerensl/"
+                    aria-label="Linkedin"
+                >
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faLinkedin}
                         size="2x"
                     />
                 </LinkURL>
-                <LinkURL href="https://www.jerenslensun.com/rss.xml">
+                <LinkURL
+                    href="https://www.jerenslensun.com/rss.xml"
+                    aria-label="RSS"
+                >
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faRssSquare}
