@@ -28,7 +28,7 @@ export const CareerCard = ({
             }}
         >
             <motion.div variants={childrenVariants}>
-                <h3 className="text-xl font-bold">{organization}</h3>
+                <h2 className="text-xl font-bold">{organization}</h2>
             </motion.div>
             <motion.div variants={childrenVariants}>
                 <p>{role}</p>
