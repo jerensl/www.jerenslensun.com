@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid } from '../Grid'
+import { Grid } from '../grid'
 import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'

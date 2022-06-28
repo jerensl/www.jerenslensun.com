@@ -1,9 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import ProjectContext from '../../context/project/index'
-import { Footer } from '../../components/Footer'
-import { Seo } from '../../components/Seo'
-import { Layout } from '../../components/project/Layout'
-import { Notifications } from '../../components/Notifications'
+import { Footer } from '../../components/footer'
+import { Seo } from '../../components/seo'
+import { Layout } from '../../components/project/layout'
+import { Notifications } from '../../components/notifications'
 
 export const getStaticProps: GetStaticProps = async () => {
     const project = new ProjectContext('contents/project')

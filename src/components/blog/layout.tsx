@@ -1,9 +1,9 @@
 import React from 'react'
 import { Metadata } from '../../context/blog'
 import { filterPosts } from '../../context/Search'
-import { Tag } from '../Tag'
-import { Card } from './Card'
-import { Grid } from '../Grid'
+import { Tag } from '../tag'
+import { Card } from './card'
+import { Grid } from '../grid'
 
 export const Layout = ({
     posts,

@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import Image, { ImageLoader } from 'next/image'
-import { LinkURL } from '../components/LinkURL'
+import { LinkURL } from './link-url'
 import { InView } from 'react-intersection-observer'
-import { Grid } from './Grid'
+import { Grid } from './grid'
 import { imageLoader } from '../lib/images'
 
 export const Header = ({

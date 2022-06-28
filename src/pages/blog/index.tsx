@@ -1,9 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import BlogContext from '../../context/blog/index'
-import { Footer } from '../../components/Footer'
-import { Seo } from '../../components/Seo'
-import { Layout } from '../../components/blog/Layout'
-import { Notifications } from '../../components/Notifications'
+import { Footer } from '../../components/footer'
+import { Seo } from '../../components/seo'
+import { Layout } from '../../components/blog/layout'
+import { Notifications } from '../../components/notifications'
 
 export const getStaticProps: GetStaticProps = async () => {
     const post = new BlogContext('contents/blog')

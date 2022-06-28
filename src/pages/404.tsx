@@ -1,5 +1,4 @@
-import { Seo } from '../components/Seo'
-import { Navbar } from '../components/Navbar'
+import { Seo } from '../components/seo'
 
 export default function Custom404() {
     return (

@@ -1,6 +1,6 @@
 import { render, waitFor, within } from '../../__mocks__/utils/test-providers'
 import userEvent from '@testing-library/user-event'
-import { Layout } from '../../src/components/blog/Layout'
+import { Layout } from '../../src/components/blog/layout'
 import { Metadata } from '../../src/context/blog'
 
 const posts: Metadata[] = [
