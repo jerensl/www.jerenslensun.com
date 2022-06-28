@@ -1,5 +1,5 @@
 import React from 'react'
-import { pre } from './Pre'
+import { pre } from './pre'
 import { CopyToClipboard } from './copy-clipboard'
 
 interface Components {

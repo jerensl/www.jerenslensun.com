@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import Image, { ImageLoader } from 'next/image'
-import { ArticleSeo } from '../Seo'
+import { ArticleSeo } from '../seo'
 import { components } from '../components'
 import { ProjectMetadata } from '../../context/project'
 import Link from 'next/link'
-import { Grid } from '../Grid'
+import { Grid } from '../grid'
 import { imageLoader } from '../../lib/images'
 
 interface ArticleProps {

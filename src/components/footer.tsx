@@ -5,7 +5,7 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { faRssSquare } from '@fortawesome/free-solid-svg-icons'
-import { LinkURL } from './LinkURL'
+import { LinkURL } from './link-url'
 
 function SitemapSection() {
     return (

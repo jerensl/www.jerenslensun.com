@@ -1,6 +1,6 @@
-import { Footer } from '../components/Footer'
+import { Footer } from '../components/footer'
 import { AboutSection } from '../components/sections/about-section'
-import { Seo } from '../components/Seo'
+import { Seo } from '../components/seo'
 
 export default function About() {
     return (

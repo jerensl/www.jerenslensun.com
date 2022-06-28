@@ -4,8 +4,8 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { Footer } from '../../components/Footer'
-import { Content } from '../../components/project/Content'
+import { Footer } from '../../components/footer'
+import { Content } from '../../components/project/content'
 import ProjectContext from '../../context/project/index'
 
 export const getStaticPaths: GetStaticPaths = async () => {

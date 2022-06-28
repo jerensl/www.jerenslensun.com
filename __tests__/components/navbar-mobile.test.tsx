@@ -4,9 +4,11 @@
 
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
-import { NavbarMobile } from '../../src/components/NavbarMobile'
+import { NavbarMobile } from '../../src/components/navbar'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+jest.mock('firebase/messaging', () => jest.fn())
+jest.mock('firebase/app', () => jest.fn())
 
 describe('Navbar Mobile Aria Label', () => {
     it('Should have link redirect to homepage', () => {

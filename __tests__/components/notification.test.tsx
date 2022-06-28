@@ -3,7 +3,7 @@
  */
 
 import { renderWithClient } from '../../__mocks__/utils/react-query'
-import { Notifications, Notify } from '../../src/components/Notifications'
+import { Notifications, Notify } from '../../src/components/notifications'
 import { useNotification } from '../../src/hooks/useNotification'
 import userEvent from '@testing-library/user-event'
 

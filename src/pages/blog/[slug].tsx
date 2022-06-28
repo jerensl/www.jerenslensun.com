@@ -4,10 +4,10 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { Footer } from '../../components/Footer'
-import { Article } from '../../components/blog/Content'
+import { Footer } from '../../components/footer'
+import { Article } from '../../components/blog/content'
 import BlogContext from '../../context/blog/index'
-import { ArticleSeo } from '../../components/Seo'
+import { ArticleSeo } from '../../components/seo'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const post = new BlogContext('contents/blog')

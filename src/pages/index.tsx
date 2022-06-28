@@ -1,9 +1,9 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { Footer } from '../components/Footer'
-import { Seo } from '../components/Seo'
+import { Footer } from '../components/footer'
+import { Seo } from '../components/seo'
 import { generateRss } from '../lib/rss'
 import { getPlaiceholder } from 'plaiceholder'
-import { Header } from '../components/Header'
+import { Header } from '../components/header'
 import { IntroductionSection } from '../components/sections/introduction-section'
 import { CareerSection } from '../components/sections/career-section'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Grid } from '../Grid'
+import { Grid } from '../grid'
 import { useReducedMotion, motion } from 'framer-motion'
 
 export const AboutSection = (): React.ReactElement => {

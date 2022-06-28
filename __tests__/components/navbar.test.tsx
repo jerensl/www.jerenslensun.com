@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
-import { Navbar } from '../../src/components/Navbar'
+import { Navbar } from '../../src/components/navbar'
 
 jest.mock('firebase/messaging', () => jest.fn())
 jest.mock('firebase/app', () => jest.fn())
