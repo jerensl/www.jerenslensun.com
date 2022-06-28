@@ -16,6 +16,8 @@ import {
     useNotification,
     subscribeNotification,
     unsubscribeNotification,
+    useSubs,
+    useUnsubs,
 } from '../hooks/useNotification'
 import { toast } from 'react-toastify'
 import Image, { ImageLoader } from 'next/image'
@@ -26,59 +28,65 @@ const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string>('')
-    const [status, setStatus] = React.useState<boolean>(false)
-    const { isLoading, data } = useNotification({ token, status })
+    const { isLoading, data } = useNotification({ token })
+    const subsMutation = useSubs()
+    const unSubsMutation = useUnsubs()
 
     const handleSubscribeNotification = async () => {
-        const data = await subscribeNotification({ token })
-        setStatus(data.status)
+        if (!('Notification' in window)) {
+            return
+        }
+        if (
+            Notification.permission === 'denied' ||
+            Notification.permission === 'default'
+        ) {
+            await Notification.requestPermission()
+        } else {
+            subsMutation.mutate({ token })
+        }
     }
 
     const handleUnsubscribeNotification = async () => {
-        const data = await unsubscribeNotification({ token })
-        setStatus(data.status)
+        unSubsMutation.mutate({ token })
     }
 
     React.useEffect(() => {
         const notification = async () => {
-            if (!('Notification' in window)) {
-                return
-            }
-
             if (
+                !('Notification' in window) ||
                 Notification.permission === 'denied' ||
                 Notification.permission === 'default'
             ) {
-                await Notification.requestPermission()
-            } else {
-                const app = await firebaseApp.Init()
-
-                const messaging = getMessaging(app)
-
-                const fcm_token: string = await getToken(messaging, {
-                    vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
-                })
-
-                if (!fcm_token) {
-                    return
-                }
-
-                setToken(fcm_token)
-
-                onMessage(messaging, (payload: MessagePayload) => {
-                    toast(
-                        <Notify
-                            title={payload.notification.title}
-                            body={payload.notification.body}
-                        />,
-                        {
-                            position: toast.POSITION.TOP_CENTER,
-                            autoClose: 10000,
-                            hideProgressBar: true,
-                        }
-                    )
-                })
+                return
             }
+
+            const app = await firebaseApp.Init()
+
+            const messaging = getMessaging(app)
+
+            const fcm_token: string = await getToken(messaging, {
+                vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
+            })
+
+            if (!fcm_token) {
+                return
+            }
+
+            setToken(fcm_token)
+
+            onMessage(messaging, (payload: MessagePayload) => {
+                toast(
+                    <Notify
+                        title={payload.notification.title}
+                        body={payload.notification.body}
+                    />,
+                    {
+                        position: toast.POSITION.TOP_CENTER,
+                        autoClose: 10000,
+                        hideProgressBar: true,
+                    }
+                )
+            })
         }
         notification()
     }, [token])

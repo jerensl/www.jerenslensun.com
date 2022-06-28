@@ -20,10 +20,10 @@
       <pubDate>2022-01-17</pubDate>
     </item>
 <item>
-      <title><![CDATA[Parsing data standard input pada go]]></title>
+      <title><![CDATA[Go Standard I/O]]></title>
       <description><![CDATA[Mengolah data penyimpanan external pada golang membutuhkan cara tertentu, apalagi dengan data berukuran besar, kita tidak bisa langsung menginisialiasi data langsung ke dalam variable.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-mengolah-data-tidak-terstruktur-pada-go</link>
-      <guid>https://www.jerenslensun.com/blog/id-mengolah-data-tidak-terstruktur-pada-go</guid>
+      <link>https://www.jerenslensun.com/blog/id-go-standard-io</link>
+      <guid>https://www.jerenslensun.com/blog/id-go-standard-io</guid>
       <pubDate>2022-01-07</pubDate>
     </item>
 <item>

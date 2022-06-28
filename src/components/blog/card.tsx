@@ -42,19 +42,16 @@ export const Card = ({
                 </Link>
             </div>
             <div className="flex flex-col p-2 justify-between">
-                <div className="flex flex-col">
-                    <Link href={`/blog/${slug}`} passHref>
-                        <h1 className="text-2xl pb-4 font-bold leading-8 tracking-tight cursor-pointer">
-                            {captializeTitle}
-                        </h1>
-                    </Link>
-
-                    <p className="line-clamp-3">{description}</p>
-                </div>
-                <p className="text-gray-500">
+                <Link href={`/blog/${slug}`} passHref>
+                    <h1 className="text-2xl font-bold leading-8 tracking-tight cursor-pointer">
+                        {captializeTitle}
+                    </h1>
+                </Link>
+                <p className="text-gray-500 pb-2">
                     {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
                     <span>{readTime.text}</span>
                 </p>
+                <p className="line-clamp-3">{description}</p>
             </div>
         </article>
     )

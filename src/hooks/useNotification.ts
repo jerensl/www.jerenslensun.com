@@ -1,24 +1,58 @@
-import { useQuery } from 'react-query'
+import { useQuery, useMutation, QueryCache, useQueryClient } from 'react-query'
 
-interface Notification {
+export interface Notification {
     token: string
-    status: boolean
 }
 
-export function useNotification({ token, status }: Notification) {
+export function useSubs() {
+    const queryClient = useQueryClient()
+
+    return useMutation(subscribeNotification, {
+        onMutate: async (status) => {
+            await queryClient.cancelQueries('notification')
+
+            const prevStatus = queryClient.getQueryData('notification')
+
+            queryClient.setQueryData('notification', () => [Notification])
+
+            return { prevStatus }
+        },
+        onError: (err, newStatus, context) => {
+            queryClient.setQueryData('notification', context.prevStatus)
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries('notification')
+        },
+    })
+}
+
+export function useUnsubs() {
+    const queryClient = useQueryClient()
+
+    return useMutation(unsubscribeNotification, {
+        onMutate: async (status) => {
+            await queryClient.cancelQueries('notification')
+
+            const prevStatus = queryClient.getQueryData('notification')
+
+            queryClient.setQueryData('notification', status)
+
+            return { prevStatus }
+        },
+        onError: (err, newStatus, context) => {
+            queryClient.setQueryData('notification', context.prevStatus)
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries('notification')
+        },
+    })
+}
+
+export function useNotification({ token }: Notification) {
     return useQuery(
-        ['notification', status],
+        'notification',
         () => {
-            return fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/api/notification/status`,
-                {
-                    method: 'POST',
-                    mode: 'cors',
-                    body: JSON.stringify({
-                        token: token,
-                    }),
-                }
-            ).then((res) => res.json())
+            return statusNotification({ token })
         },
         {
             enabled: !!token,
@@ -31,6 +65,20 @@ export function useNotification({ token, status }: Notification) {
 
 interface Status {
     status: boolean
+}
+
+export const statusNotification = async ({
+    token,
+}: {
+    token: string
+}): Promise<Status> => {
+    return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/status`, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({
+            token: token,
+        }),
+    }).then((res) => res.json())
 }
 
 export const subscribeNotification = async ({
