@@ -12,7 +12,11 @@ const customJestConfig = {
         '<rootDir>/jest.setup.js',
         '<rootDir>/__mocks__/api/server.ts',
     ],
-    collectCoverageFrom: ['<rootDir>/src/**/*.tsx'],
+    collectCoverageFrom: [
+        '<rootDir>/src/**/*.tsx',
+        '!<rootDir>/src/pages/_document.tsx',
+        '!<rootDir>/src/pages/_app.tsx',
+    ],
     testPathIgnorePatterns: [
         '<rootDir>/node_modules/',
         '<rootDir>/.next/',

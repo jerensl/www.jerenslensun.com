@@ -11,6 +11,8 @@ const mockedUseNotification = useNotification as jest.Mock
 
 jest.mock('../../src/hooks/useNotification', () => ({
     useNotification: jest.fn(() => {}),
+    useSubs: jest.fn(() => {}),
+    useUnsubs: jest.fn(() => {}),
 }))
 
 jest.mock('firebase/messaging', () => jest.fn())
