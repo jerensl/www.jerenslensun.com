@@ -3,7 +3,7 @@ import { Metadata } from '../../context/blog'
 import { filterPosts } from '../../context/Search'
 import { Tag } from '../tag'
 import { Card } from './card'
-import { Grid } from '../grid'
+import { Grid, GridLines } from '../grid'
 
 export const Layout = ({
     posts,
@@ -44,7 +44,7 @@ export const Layout = ({
     )
 
     return (
-        <Grid as="section" className="gap-8">
+        <Grid as="section" rowGap>
             <div className="col-span-full w-full">
                 <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                     <input

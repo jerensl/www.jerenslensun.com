@@ -39,6 +39,9 @@ const components = {
             </CopyToClipboard>
         )
     },
+    h2: ({ children }) => {
+        return <h2 className="text-xl">{children}</h2>
+    },
 }
 
 export { components }

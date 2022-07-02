@@ -29,8 +29,8 @@ export default function Blog({
                     <p className="mb-4">Our latest articles for developers</p>
                 </div>
                 <Layout posts={posts} tags={tags} />
-                <div className="h-56 lg:h-64" />
             </main>
+            <div className="h-20 lg:h-32" />
             <Footer />
         </>
     )

@@ -8,11 +8,11 @@ isPublished: true
 repo_url: https://github.com/jerensl/www.jerenslensun.com
 ---
 
-### Overview
+## Overview
 
 Personal Web App is a web application for a portfolio website that maximizes technology such as a progressive web app to target mobile users leverage by caching so user can still get the content while there are offline.
 
-### Goals
+## Goals
 
 1. Personal Branding  
    As professionals are good to have branding because people can see what are we value and what we are doing, besides that we can get job security and exposure to our project
@@ -21,7 +21,7 @@ Personal Web App is a web application for a portfolio website that maximizes tec
 3. Showcase personal project  
    Documentation is being a key part of a project, with great documentation, I can make other people understand what are I'm doing and what are I'm trying to accomplish with greater context about the situation
 
-### Features
+## Features
 
 -   Blog
 
@@ -37,13 +37,13 @@ Personal Web App is a web application for a portfolio website that maximizes tec
 -   Notification
     -   Notification is one of the supporting features for users to get noticed about new content on this blog, unfortunately the feature is still triggered manually and the database is ephemeral, so when a new deployment is delivered all of the users who subscribed notifications will be reset.
 
-### Architectural Decisions
+## Architectural Decisions
 
 -   In the context of serving content, facing the need to deliver either blog or project documentation, I decided on mdx-bundler against mdxjs to achieve rendering markdown content to HTML, accepting that need based on mdxjs not supporting esm module at that time.
 -   In the context of the framework, facing the need to choose a framework, I decided on NextJS against Gatsby to achieve SEO friendly and reduce writing boilerplate which is very painful, accepting the need to will cost lower flexibility on configuration.
 -   In the context of the rendering, facing the need to choose a rendering method, I decided on Static Site Generator against Server-side rendering to achieve cost efficiency to use CDN rather than serving on the server, accepting the need to will lower the chance to be on top page search engine (SEO Friendly).
 
-### Tech Stack
+## Tech Stack
 
 -   ReactJS: Solving widely used framework for web development lifecycle
 -   NextJS: Solving configuration project to maximize developer experiences

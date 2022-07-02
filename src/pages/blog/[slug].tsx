@@ -53,7 +53,7 @@ export default function Blog({
                 code={code}
                 blurDataURL={blurDataURL}
             />
-            <div className="h-56 lg:h-64" />
+            <div className="h-20 lg:h-32" />
             <Footer />
         </>
     )
