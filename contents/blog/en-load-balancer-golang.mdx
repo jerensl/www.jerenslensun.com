@@ -1,0 +1,67 @@
+---
+title: Creating Load Balancer with Golang
+date: '2022-06-30'
+cover: networking.jpg
+isPublished: false
+description: A load balancer is a process of distributing incoming traffic across multiple targets.
+tags: ['golang']
+---
+
+In the past, we have learned about, how to build a reverse proxy.
+Today we will learn another use case of reverse proxy which is a load balancer.
+To get started i will assume you already know about docker and docker-compose
+
+There are several types of algorithms to distribute traffic in a load balance but for simplicity,
+we will implement the round-robin algorithm, which is a dumb algorithm that goes to every single node one by one.
+
+### Store Backend
+
+For the sake of simplicity, we will store all of the backends in a struct, which consists value of:
+
+1. URL Host of internal backend
+2. Utility function of reverse proxy in go
+
+Both values in the Backend struct are a pointer because there is a struct too,
+so the idea to store a value as a pointer because either `url.Parse` or `httputil.NewSingleHostReverseProxy(serviceUrl)` is returned a pointer too.
+
+```go showlinenumbers theme=orange
+type Backend struct {
+	URL				*url.URL
+	ReverseProxy 	*httputil.ReverseProxy
+}
+```
+
+After that we need another struct, to store a pool of backend and counter to count visited backend by the index of the array.
+
+```go showlinenumbers theme=orange
+type ServerPool struct {
+	Backends    []*Backend
+	current     uint64
+}
+```
+
+To add a reverse proxy we need to make a method from a ServerPool struct,
+the method needs to be a pointer so it will be a reference to the backend struct memory address,
+so we can stored the data in memory.
+There are 2 things we need to do before appending the server:
+
+1. Parsing from raw string URL to a structure of URL using Struct.
+2. Create a new reverse proxy using NewSingleHostReverseProxy.
+
+Then we append the reverse proxy with an URL struct to Server Pool.
+
+```go showlinenumbers theme=orange
+func (bp *ServerPool) AddServer(host string) {
+	serviceUrl, err := url.Parse(host)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	reverseProxy := httputil.NewSingleHostReverseProxy(serviceUrl)
+
+	bp.Backends = append(bp.Backends, &Backend{
+		URL: serviceUrl,
+		ReverseProxy: reverseProxy,
+	})
+}
+```

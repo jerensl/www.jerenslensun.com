@@ -29,6 +29,7 @@ export default function Project({
                 </div>
                 <Layout project={projects} />
             </div>
+            <div className="h-20 lg:h-32" />
             <Footer />
         </>
     )

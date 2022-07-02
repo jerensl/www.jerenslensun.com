@@ -1,12 +1,14 @@
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import Image, { ImageLoader } from 'next/image'
+import Image from 'next/image'
 import { ArticleSeo } from '../seo'
 import { components } from '../components'
 import { ProjectMetadata } from '../../context/project'
 import Link from 'next/link'
 import { Grid } from '../grid'
 import { imageLoader } from '../../lib/images'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 interface ArticleProps {
     frontmatter: ProjectMetadata
@@ -29,22 +31,11 @@ export const Content = ({
                 description={frontmatter.description}
                 image={`https://ik.imagekit.io/jerensl/${frontmatter.cover}`}
             />
-            <Grid as="header" className="pt-24 gap-3 text-center">
-                <h1 className="text-3xl font-bold col-span-full">
+            <Grid as="header" className="pt-24 gap-3">
+                <h1 className="text-center text-3xl font-bold col-span-full">
                     {frontmatter.title}
                 </h1>
-                <div className="col-span-full">
-                    <Link href={`${frontmatter.repo_url}`} passHref>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm md:text-lg cursor-pointer no-underline"
-                        >
-                            {frontmatter.repo_url}
-                        </a>
-                    </Link>
-                </div>
-                <div className="col-span-full">
+                <div className="col-span-full m-auto">
                     <Image
                         loader={imageLoader}
                         src={frontmatter.cover}
@@ -55,6 +46,15 @@ export const Content = ({
                         height="350px"
                         width="900px"
                     />
+                </div>
+                <div className="col-span-full text-center">
+                    <Link href={`${frontmatter.repo_url}`} passHref>
+                        <FontAwesomeIcon
+                            className="hover:text-gray-700 cursor-pointer"
+                            icon={faGithub}
+                            size="2x"
+                        />
+                    </Link>
                 </div>
             </Grid>
 

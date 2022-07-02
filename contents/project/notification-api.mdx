@@ -8,16 +8,16 @@ isPublished: true
 repo_url: https://github.com/jerensl/api.jerenslensun.com
 ---
 
-### Overview
+## Overview
 
 The notification system is Restful API for storing user information and sending messages to the user, so they can get update to new content when being released.
 
-### Goals
+## Goals
 
 1. Notification System  
    As a developer, it's good to have up to date on new information, with the pace of technology going faster than before, having new information about what changes around us is a competitive advantage.
 
-### Features
+## Features
 
 -   Subsribed
     -   Storing user web push token to the database
@@ -29,7 +29,7 @@ The notification system is Restful API for storing user information and sending 
     -   Notification in this system is still triggered manually.
     -   Every notification being sent need to be authenticated on the header using an API token, so the user no need to worry about unauthorized access to triggered the authentication.
 
-### Architectural Decisions
+## Architectural Decisions
 
 -   In the context of the database store, facing the need to keep user tokens, I decided on the SQLite database and against PostgreSQL/MySQL to achieve cost efficiency, accepting that a token stored ephemeral(data will be destroyed if a new deployment arrives).
 -   In the context of the API interface, facing the need to integrate with the frontend, I decided on Restfull Api with Open API 3.0 and against pure Restfull Api to achieve better documentation and code generator, accepting that need to write more on documentation and less writing the code.
@@ -37,7 +37,7 @@ The notification system is Restful API for storing user information and sending 
 -   In the context of deployment, facing the need to deliver features faster, test the hypothesis as soon as possible, and lower the bottleneck on deploying software, I decided on Github Action against GitLab Action to achieve continuous integration and continuous deployment in the production environment, accepting that need based on my familiarity with Github service(preference) and better integration within azure service(Github acquired by Microsoft).
 -   In the context of a push notification, facing the need to deliver new content to the user, I decided on Firebase Cloud Messaging against another messaging service to achieve reliability in sending notification messages, accepting that solution will be vendor lock in.
 
-### Tech Stack
+## Tech Stack
 
 -   Chi Router: Routing for Restfull API
 -   Open API 3.0: For API Documentation and auto generate code using openapi-codegen
@@ -46,6 +46,6 @@ The notification system is Restful API for storing user information and sending 
 -   SQLite: Local database minimizing the cost of development
 -   C4 Diagram: Offer visualitation for software architecture (Code Diagram)
 
-### Context Diagram
+## Context Diagram
 
 ![C4 Diagram](/images/view-notification.png)

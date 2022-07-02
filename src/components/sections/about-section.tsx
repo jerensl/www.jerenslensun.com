@@ -53,10 +53,15 @@ export const AboutSection = (): React.ReactElement => {
                 >
                     <motion.div variants={childrenVariants}>
                         <p className="pb-4">
-                            I`ve always been passionate about tackling difficult
-                            problems or designing distributed systems and
-                            haven`t stopped learning about technologies that
-                            still exist for several years.
+                            {`I've`} always been passionate about football and
+                            software engineering, for me tackling complex
+                            problems {`it's`} same as scoring a goal. In
+                            football, it {`doesn't`} matter whether you play
+                            good or bad at the end of that day winning matters
+                            to all your fans, but as people on the field what we
+                            can do is make decisions optimizing for a better
+                            outcome but still manage our expectations because
+                            the bad outcome can possible to occur.
                         </p>
                     </motion.div>
                     <motion.div variants={childrenVariants}>
