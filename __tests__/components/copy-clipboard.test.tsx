@@ -8,15 +8,21 @@ import { CopyToClipboard } from '../../src/components/copy-clipboard'
 import userEvent from '@testing-library/user-event'
 
 describe('Should Test Copy Clipboard', () => {
-    it('Should have link redirect to homepage', async () => {
+    it('Should Copy the Text in the Element', async () => {
         const { getByRole, getByText } = render(
-            <CopyToClipboard>Hello</CopyToClipboard>
+            <CopyToClipboard>
+                <span>Hello</span>
+            </CopyToClipboard>
         )
 
-        userEvent.click(getByText('Hello'))
+        const elm = getByText('Hello')
+
+        userEvent.hover(elm)
 
         const button = getByRole('button')
 
         userEvent.click(button)
+
+        expect(elm).toBeInTheDocument()
     })
 })

@@ -13,8 +13,8 @@ useRouter.mockImplementation(() => ({
 }))
 
 describe('About', () => {
-    it('Show answer on FAQ', () => {
-        const { getByText, getByRole } = render(<About />)
+    it('Show Title in About Page', () => {
+        const { getByRole } = render(<About />)
 
         const hello = getByRole('heading', {
             name: /About Me/i,
