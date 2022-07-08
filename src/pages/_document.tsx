@@ -5,6 +5,7 @@ import Document, {
     NextScript,
     DocumentContext,
 } from 'next/document'
+import Script from 'next/script'
 
 const APP_NAME = 'Jerens'
 const APP_DESCRIPTION =
@@ -141,15 +142,12 @@ class MyDocument extends Document {
                     />
                 </Head>
                 <body>
-                    <noscript>
-                        <iframe
-                            height="0"
-                            src="https://www.googletagmanager.com/ns.html?id=GTM-PKW49NT"
-                            style={{ display: 'none', visibility: 'hidden' }}
-                            title="gtm"
-                            width="0"
-                        />
-                    </noscript>
+                    <noscript
+                        dangerouslySetInnerHTML={{
+                            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKW49NT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+                        }}
+                    ></noscript>
                     <Main />
                     <NextScript />
                 </body>
