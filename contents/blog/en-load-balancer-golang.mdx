@@ -1,8 +1,8 @@
 ---
-title: Creating Load Balancer with Golang
-date: '2022-06-30'
-cover: networking.jpg
-isPublished: false
+title: Build a Load Balancer from a scratch with Golang
+date: '2022-07-08'
+cover: load-balancer.jpg
+isPublished: true
 description: A load balancer is a process of distributing incoming traffic across multiple targets.
 tags: ['golang']
 ---
@@ -14,15 +14,16 @@ To get started i will assume you already know about docker and docker-compose
 There are several types of algorithms to distribute traffic in a load balance but for simplicity,
 we will implement the round-robin algorithm, which is a dumb algorithm that goes to every single node one by one.
 
-### Store Backend
+## Store Backend
 
 For the sake of simplicity, we will store all of the backends in a struct, which consists value of:
 
 1. URL Host of internal backend
 2. Utility function of reverse proxy in go
 
-Both values in the Backend struct are a pointer because there is a struct too,
-so the idea to store a value as a pointer because either `url.Parse` or `httputil.NewSingleHostReverseProxy(serviceUrl)` is returned a pointer too.
+Both values in the Backend struct are a pointer,
+so the idea to store a value as a pointer because either `url.Parse` or `httputil.NewSingleHostReverseProxy(serviceUrl)`
+is returned a pointer too.
 
 ```go showlinenumbers theme=orange
 type Backend struct {
@@ -45,7 +46,7 @@ the method needs to be a pointer so it will be a reference to the backend struct
 so we can stored the data in memory.
 There are 2 things we need to do before appending the server:
 
-1. Parsing from raw string URL to a structure of URL using Struct.
+1. Parsing from raw string URL to a structure of URL.
 2. Create a new reverse proxy using NewSingleHostReverseProxy.
 
 Then we append the reverse proxy with an URL struct to Server Pool.
@@ -65,3 +66,147 @@ func (bp *ServerPool) AddServer(host string) {
 	})
 }
 ```
+
+## Visited the Backend Node
+
+At this part, we want to implement visiting a server from Server Pool. Before that,
+we need to count our visiting node index, so we can track where we are at our current position.
+
+Because under the hood HTTP request in golang is a concurrent operation,
+we should use the synchronization method to increment the counter position, to avoid data race.
+There are other methods that are cheap than locking for synchronization, which is an atomic operation.
+So let's implement the method for increment index.
+
+In GetNextIndex method after we add the current index position,
+we use modulus so the value is not greater than the maximum total of the backend available.
+Then for the current index position multiple by two is greater than a total of the backend minus one we reset it to zero.
+The reason we do this way is that we want to compare it first then adding
+
+```go showlinenumbers theme=orange
+func (bp *ServerPool) GetNextIndex() int {
+	if int(atomic.LoadUint64(&bp.current)) > len(bp.Backends)*2-1 {
+		atomic.StoreUint64(&bp.current, 0)
+	}
+
+	return int(atomic.AddUint64(&bp.current, uint64(1)) % uint64(len(bp.Backends)))
+}
+```
+
+After tracking the position of the index, now we want to return our backend based on the position we already track.
+
+```go showlinenumbers theme=orange
+func (bp *ServerPool) GetNextServer() *Backend {
+	index := bp.GetNextIndex()
+
+	return bp.Backends[index]
+}
+```
+
+## Prepare a HTTP Handler
+
+The first thing i want to do is to declare global variable from the struct then
+I want to call GetNextServer() from the serverPool struct to get the server,
+after that serving the server using the serve method
+
+```go showlinenumbers theme=orange
+var serverPool ServerPool
+func UsersLoadBalancer(w http.ResponseWriter, r *http.Request) {
+	server := serverPool.GetNextServer()
+
+	server.ReverseProxy.ServeHTTP(w, r)
+}
+```
+
+There are possibility the server is being down, so i want to make a global variable as initial valye
+to track how many servers we already visited, and if all servers are already being visited,
+then we return HTTP error Service not Available.
+
+To store the total count we visit I want to use context value, it will passed to the HTTP request,
+and for each error from reverse proxy it will call the HTTP server again to serve the next server
+
+```go showlinenumbers theme=orange
+const Visit int = 1
+
+func GetVisitingNodeFromContext(r *http.Request) int {
+	if visit, ok := r.Context().Value(Visit).(int); ok {
+		return visit
+	}
+
+	return 0
+}
+
+func UsersLoadBalancerErrorHandler(w http.ResponseWriter, r *http.Request, err error) {
+	visiting := GetVisitingNodeFromContext(r)
+
+	if visiting > len(serverPool.Backends) {
+		http.Error(w, "Service not available", http.StatusServiceUnavailable)
+		return
+	}
+
+	ctx := context.WithValue(r.Context(), Visit, visiting+1)
+	UsersLoadBalancer(w, r.WithContext(ctx))
+}
+```
+
+## Finishing the server
+
+To wrap up, We will use strings split which takes from the environment variable and separates each host with ';',
+after that, we append every single backend to the server pool.
+In the end, we started our HTTP server.
+
+```go showlinenumbers theme=orange
+func main() {
+	users := strings.Split(os.Getenv("USERS_SERVICE"), ";")
+
+	for _, user := range users {
+		serverPool.AddServer(user)
+	}
+
+	http.HandleFunc("/", UsersLoadBalancer)
+
+	fmt.Printf("Starting users service at port: %v", os.Getenv("PORT"))
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
+		panic(err)
+	}
+}
+```
+
+## Run the application
+
+So to get started, we need to clone from [this](https://github.com/jerensl/reverse-proxy-gateway) repo and cd to the repository:
+
+```bash theme=orange
+	git clone https://github.com/jerensl/reverse-proxy-gateway.git
+```
+
+After that, we need to run the reverse proxy and backend using docker-compose
+
+```bash theme=orange
+	docker-compose up
+```
+
+To test the reverse proxy we can use the curl command
+
+```bash theme=orange
+	curl -i http://localhost:5000/
+```
+
+To check docker container id we can use this command
+
+```bash theme=orange
+	docker ps
+```
+
+The last test is we can kill the server using docker command based on the server id
+
+```bash theme=orange
+	docker stop c95e20564e20
+```
+
+## Summary
+
+Now we have already built our own load balancer, it turns out it is pretty easy to implement in golang, and the code is under 100 lines.
+
+## Aditional
+
+-   [Revers Proxy Repositories](https://github.com/jerensl/reverse-proxy-gateway)
