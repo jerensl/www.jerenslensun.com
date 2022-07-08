@@ -22,7 +22,7 @@ For the sake of simplicity, we will store all of the backends in a struct, which
 2. Utility function of reverse proxy in go
 
 Both values in the Backend struct are a pointer,
-so the idea to store a value as a pointer because either `url.Parse` or `httputil.NewSingleHostReverseProxy(serviceUrl)`
+so the idea to store a value as a pointer because either `Url.Parse()` or `NewSingleHostReverseProxy()`
 is returned a pointer too.
 
 ```go showlinenumbers theme=orange

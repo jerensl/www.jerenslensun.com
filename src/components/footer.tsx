@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { faRssSquare } from '@fortawesome/free-solid-svg-icons'
 import { LinkURL } from './link-url'
+import Link from 'next/link'
 
 function SitemapSection() {
     return (
@@ -67,24 +68,21 @@ function AboutSection() {
                 Software Engineering
             </p>
             <div className="flex space-x-6 h-10 justify-center sm:justify-start py-1">
-                <LinkURL href="https://github.com/jerensl" aria-label="Github">
+                <Link href="https://github.com/jerensl" aria-label="Github">
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faGithubSquare}
                         size="2x"
                     />
-                </LinkURL>
-                <LinkURL
-                    href="https://twitter.com/jerensl22"
-                    aria-label="Twitter"
-                >
+                </Link>
+                <Link href="https://twitter.com/jerensl22" aria-label="Twitter">
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faTwitterSquare}
                         size="2x"
                     />
-                </LinkURL>
-                <LinkURL
+                </Link>
+                <Link
                     href="https://www.linkedin.com/in/jerensl/"
                     aria-label="Linkedin"
                 >
@@ -93,8 +91,8 @@ function AboutSection() {
                         icon={faLinkedin}
                         size="2x"
                     />
-                </LinkURL>
-                <LinkURL
+                </Link>
+                <Link
                     href="https://www.jerenslensun.com/rss.xml"
                     aria-label="RSS"
                 >
@@ -103,7 +101,7 @@ function AboutSection() {
                         icon={faRssSquare}
                         size="2x"
                     />
-                </LinkURL>
+                </Link>
             </div>
         </div>
     )
