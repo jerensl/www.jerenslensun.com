@@ -21,7 +21,7 @@ jest.mock('firebase/app', () => jest.fn())
 describe('Notification', () => {
     it('Should render status not subscriber', () => {
         mockedUseNotification.mockImplementation(() => ({
-            data: { status: false },
+            data: { isActive: false },
         }))
 
         const result = renderWithClient(<Notifications />)
@@ -35,7 +35,7 @@ describe('Notification', () => {
 
     it('Should render status subsrsiber', () => {
         mockedUseNotification.mockImplementation(() => ({
-            data: { status: true },
+            data: { isActive: true },
         }))
 
         const result = renderWithClient(<Notifications />)
@@ -59,7 +59,7 @@ describe('Notification', () => {
 
     it('Should render notification when triggered', async () => {
         mockedUseNotification.mockImplementation(() => ({
-            data: { status: false },
+            data: { isActive: false },
         }))
 
         const result = renderWithClient(

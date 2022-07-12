@@ -8,7 +8,8 @@ export const handlers = [
         return res(
             ctx.status(200),
             ctx.json({
-                status: false,
+                isActive: false,
+                updatedAt: new Date().getTime(),
             })
         )
     }),

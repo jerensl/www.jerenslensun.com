@@ -64,10 +64,11 @@ export function useNotification({ token }: Notification) {
 }
 
 interface Status {
-    status: boolean
+    isActive: boolean
+    updatedAt: number
 }
 
-export const statusNotification = async ({
+const statusNotification = async ({
     token,
 }: {
     token: string
@@ -76,12 +77,12 @@ export const statusNotification = async ({
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify({
-            token: token,
+            tokenID: token,
         }),
     }).then((res) => res.json())
 }
 
-export const subscribeNotification = async ({
+const subscribeNotification = async ({
     token,
 }: {
     token: string
@@ -92,12 +93,13 @@ export const subscribeNotification = async ({
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
-                token: token,
+                tokenID: token,
+                updatedAt: new Date().getTime(),
             }),
         }
     ).then((res) => res.json())
 
-export const unsubscribeNotification = async ({
+const unsubscribeNotification = async ({
     token,
 }: {
     token: string
@@ -108,7 +110,8 @@ export const unsubscribeNotification = async ({
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({
-                token: token,
+                tokenID: token,
+                updatedAt: new Date().getTime(),
             }),
         }
     ).then((res) => res.json())
