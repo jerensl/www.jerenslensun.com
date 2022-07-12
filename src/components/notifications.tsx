@@ -12,13 +12,7 @@ import {
     faBell,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
-import {
-    useNotification,
-    subscribeNotification,
-    unsubscribeNotification,
-    useSubs,
-    useUnsubs,
-} from '../hooks/useNotification'
+import { useNotification, useSubs, useUnsubs } from '../hooks/useNotification'
 import { toast } from 'react-toastify'
 import Image, { ImageLoader } from 'next/image'
 
@@ -93,25 +87,27 @@ export const Notifications = (): React.ReactElement => {
 
     if (isLoading) {
         return (
-            <FontAwesomeIcon
-                className="animate-spin mx-4 h-full m-auto"
-                size="lg"
-                icon={faSpinner}
-                data-testid="loading"
-            />
+            <div className="hover:bg-gray-100 m-auto">
+                <FontAwesomeIcon
+                    className="animate-spin m-6"
+                    size="lg"
+                    icon={faSpinner}
+                    data-testid="loading"
+                />
+            </div>
         )
     }
 
     return (
         <>
-            {data?.status ? (
+            {data?.isActive ? (
                 <button
-                    className="hover:bg-gray-100"
+                    className="hover:bg-gray-100 m-auto"
                     onClick={handleUnsubscribeNotification}
                     aria-label="turn off Notification"
                 >
                     <FontAwesomeIcon
-                        className="block mx-4 h-full m-auto"
+                        className="block m-6"
                         size="lg"
                         icon={faBell}
                         data-testid="unsubscribe"
@@ -119,12 +115,12 @@ export const Notifications = (): React.ReactElement => {
                 </button>
             ) : (
                 <button
-                    className="hover:bg-gray-100"
+                    className="hover:bg-gray-100 m-auto"
                     onClick={handleSubscribeNotification}
                     aria-label="turn on Notification"
                 >
                     <FontAwesomeIcon
-                        className="block mx-4 m-auto h-full"
+                        className="block m-6"
                         icon={faBellSlash}
                         size="lg"
                         data-testid="subscribe"

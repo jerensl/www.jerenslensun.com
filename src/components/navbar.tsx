@@ -19,8 +19,8 @@ export const Navbar = (): React.ReactElement => {
                 >
                     Jerens
                 </LinkURL>
-                <div className="flex text-center my-auto md h-full">
-                    <div className="text-center h-full w-full hidden md:flex">
+                <div className="flex text-center my-auto h-full">
+                    <div className="text-center relative h-full w-full hidden md:flex">
                         <LinkURL
                             href="/blog"
                             className="hidden md:block font-semibold text-gray-800 text-xl py-5 w-24 hover:bg-gray-100"
