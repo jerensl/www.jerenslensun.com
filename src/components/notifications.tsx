@@ -14,11 +14,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { useNotification, useSubs, useUnsubs } from '../hooks/useNotification'
 import { toast } from 'react-toastify'
-import Image, { ImageLoader } from 'next/image'
-
-const blobStorageIoImageLoader: ImageLoader = ({ src }) => {
-    return `https://res.cloudinary.com/do9os7lxv/image/upload/v1637714730/personal/${src}`
-}
+import Image from 'next/image'
+import { imageLoader } from '../lib/images'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string>('')
@@ -62,11 +59,9 @@ export const Notifications = (): React.ReactElement => {
                 vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
             })
 
-            if (!fcm_token) {
-                return
+            if (token === '') {
+                setToken(fcm_token)
             }
-
-            setToken(fcm_token)
 
             onMessage(messaging, (payload: MessagePayload) => {
                 toast(
@@ -89,7 +84,7 @@ export const Notifications = (): React.ReactElement => {
         return (
             <div className="hover:bg-gray-100 m-auto">
                 <FontAwesomeIcon
-                    className="animate-spin m-6"
+                    className="animate-spin m-3"
                     size="lg"
                     icon={faSpinner}
                     data-testid="loading"
@@ -101,43 +96,68 @@ export const Notifications = (): React.ReactElement => {
     return (
         <>
             {data?.isActive ? (
-                <button
-                    className="hover:bg-gray-100 m-auto"
-                    onClick={handleUnsubscribeNotification}
-                    aria-label="turn off Notification"
+                <NotificationButton
+                    ariaLabel="turn off Notification"
+                    handleClick={handleUnsubscribeNotification}
                 >
                     <FontAwesomeIcon
-                        className="block m-6"
+                        className="block m-3"
                         size="lg"
                         icon={faBell}
                         data-testid="unsubscribe"
                     />
-                </button>
+                </NotificationButton>
             ) : (
-                <button
-                    className="hover:bg-gray-100 m-auto"
-                    onClick={handleSubscribeNotification}
-                    aria-label="turn on Notification"
+                <NotificationButton
+                    ariaLabel="turn on Notification"
+                    handleClick={handleSubscribeNotification}
                 >
                     <FontAwesomeIcon
-                        className="block m-6"
+                        className="block m-3"
                         icon={faBellSlash}
                         size="lg"
                         data-testid="subscribe"
                     />
-                </button>
+                </NotificationButton>
             )}
         </>
     )
 }
 
-export const Notify = ({ title, body }): React.ReactElement => {
+interface NotificationButtonProps {
+    children: React.ReactChild
+    handleClick: () => void
+    ariaLabel: string
+}
+
+const NotificationButton = ({
+    children,
+    handleClick,
+    ariaLabel,
+}: NotificationButtonProps): React.ReactElement => {
+    return (
+        <button
+            className="hover:bg-gray-100 m-auto rounded-full"
+            onClick={handleClick}
+            aria-label={ariaLabel}
+        >
+            {children}
+        </button>
+    )
+}
+
+interface NotifyProps {
+    title: string
+    body: string
+}
+
+export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {
     return (
         <div className="w-full max-w-xs p-1 text-gray-500" role="alert">
             <div className="flex">
                 <Image
-                    loader={blobStorageIoImageLoader}
-                    src="Jerens_WebArtboard_1_4x_cfulb5.png"
+                    loader={imageLoader}
+                    src="logo.png"
                     alt="Person"
                     objectFit="cover"
                     height="40px"

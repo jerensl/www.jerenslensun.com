@@ -10,12 +10,15 @@ repo_url: https://github.com/jerensl/api.jerenslensun.com
 
 ## Overview
 
-The notification system is Restful API for storing user information and sending messages to the user, so they can get update to new content when being released.
+The notification system is Restful API for storing user information and sending messages to the user,
+so they can get update to new content when being released.
 
 ## Goals
 
 1. Notification System  
-   As a developer, it's good to have up to date on new information, with the pace of technology going faster than before, having new information about what changes around us is a competitive advantage.
+   As a developer, it's good to have up to date on new information,
+   with the pace of technology going faster than before,
+   having new information about what changes around us is a competitive advantage.
 
 ## Features
 
@@ -27,15 +30,32 @@ The notification system is Restful API for storing user information and sending 
     -   Getting current status of user
 -   Sending notification
     -   Notification in this system is still triggered manually.
-    -   Every notification being sent need to be authenticated on the header using an API token, so the user no need to worry about unauthorized access to triggered the authentication.
+    -   Every notification being sent need to be authenticated on the header using an API token,
+        so the user no need to worry about unauthorized access to triggered the authentication.
+-   Subscriber Statistics
+    -   Total number of Subscriber
+    -   Total number of Active Subscriber
+    -   Total number of Inactive Subscriber
 
 ## Architectural Decisions
 
--   In the context of the database store, facing the need to keep user tokens, I decided on the SQLite database and against PostgreSQL/MySQL to achieve cost efficiency, accepting that a token stored ephemeral(data will be destroyed if a new deployment arrives).
--   In the context of the API interface, facing the need to integrate with the frontend, I decided on Restfull Api with Open API 3.0 and against pure Restfull Api to achieve better documentation and code generator, accepting that need to write more on documentation and less writing the code.
--   In the context of the Authentication when sending notifications, facing the need to protect against sending notifications by unauthorized access, I decided on Api Token embedded to the header and against JWT Authentication to achieve securing the API endpoint, accepting that no need to integrate within a service for now.
--   In the context of deployment, facing the need to deliver features faster, test the hypothesis as soon as possible, and lower the bottleneck on deploying software, I decided on Github Action against GitLab Action to achieve continuous integration and continuous deployment in the production environment, accepting that need based on my familiarity with Github service(preference) and better integration within azure service(Github acquired by Microsoft).
--   In the context of a push notification, facing the need to deliver new content to the user, I decided on Firebase Cloud Messaging against another messaging service to achieve reliability in sending notification messages, accepting that solution will be vendor lock in.
+-   In the context of the database store, facing the need to keep user token,
+    I decided on the SQLite database and against PostgreSQL/MySQL to achieve cost efficiency and low latency,
+    accepting that a that not need to handle a high workload which more than 100 requests per second.
+-   In the context of the API interface, facing the need to integrate with the frontend,
+    I decided on Restfull Api with Open API 3.0 and against pure Restfull Api to achieve better documentation and code generator,
+    accepting that need to write more on documentation and less writing the code.
+-   In the context of the Authentication when sending notifications,
+    facing the need to protect against sending notifications by unauthorized access,
+    I decided on Api Token embedded to the header and against JWT Authentication to achieve securing the API endpoint,
+    accepting that no need to integrate within a service for now.
+-   In the context of deployment, facing the need to deliver features faster,
+    test the hypothesis as soon as possible, and lower the bottleneck on deploying software,
+    I decided on Github Action against GitLab Action to achieve continuous integration and continuous deployment in the production environment,
+    accepting that need based on my familiarity with Github service(preference) and better integration within azure service(Github acquired by Microsoft).
+-   In the context of a push notification, facing the need to deliver new content to the user,
+    I decided on Firebase Cloud Messaging against another messaging service to achieve reliability in sending notification messages,
+    accepting that solution will be vendor lock in.
 
 ## Tech Stack
 
