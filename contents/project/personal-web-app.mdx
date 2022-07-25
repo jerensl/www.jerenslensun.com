@@ -15,18 +15,20 @@ Personal Web App is a web application for a portfolio website that maximizes tec
 ## Goals
 
 1. Personal Branding  
-   As professionals are good to have branding because people can see what are we value and what we are doing, besides that we can get job security and exposure to our project
+   As professionals are good to have branding because people can see what are we value and what we are doing,
+   besides that we can get job security and exposure to our project
 2. Create the best reading experience for the user  
-   Most of our distractions can come from the internet, but when we don't have any connection to the internet is the best time to get focus to be productive. This is one of the main reasons this website was built using the progressive web app, leveraged by cache so we can still access content offline, another reason is in terms of size web app is smaller than the android app, because they are leverage by a browser itself as their runtime
+   Most of our distractions can come from the internet, but when we don't have any connection to the internet is the best time to get focus to be productive.
+   This is one of the main reasons this website was built using the progressive web app, leveraged by cache so we can still access content offline, another reason is in terms of size web app is smaller than the android app, because they are leverage by a browser itself as their runtime
 3. Showcase personal project  
-   Documentation is being a key part of a project, with great documentation, I can make other people understand what are I'm doing and what are I'm trying to accomplish with greater context about the situation
+   Documentation is being a key part of a project, with great documentation,
+   I can make other people understand what are I'm doing and what are I'm trying to accomplish with greater context about the situation.
 
 ## Features
 
 -   Blog
 
     -   Article on the blog is a primary feature to communicate with the audience especially the developer for sharing an idea or validate my understanding of the concept I studying.
-    -   Commenting on the article is one secondary feature to communicate with the audience about the content I wrote, validate understanding of the concept, and if any flaws are found they can tell me on the comment.
     -   Searching is one of the supporting features to help users to get the content they want faster.
     -   Tagging is one of supporting features for users to access content around the topic of their interest
 
@@ -37,16 +39,22 @@ Personal Web App is a web application for a portfolio website that maximizes tec
 -   Notification
     -   Notification is one of the supporting features for users to get noticed about new content on this blog.
 
-## Architectural Decisions
+## Decision
 
--   In the context of serving content, facing the need to deliver either blog or project documentation, I decided on mdx-bundler against mdxjs to achieve rendering markdown content to HTML, accepting that need based on mdxjs not supporting esm module at that time.
--   In the context of the framework, facing the need to choose a framework, I decided on NextJS against Gatsby to achieve SEO friendly and reduce writing boilerplate which is very painful, accepting the need to will cost lower flexibility on configuration.
--   In the context of the rendering, facing the need to choose a rendering method, I decided on Static Site Generator against Server-side rendering to achieve cost efficiency to use CDN rather than serving on the server, accepting the need to will lower the chance to be on top page search engine (SEO Friendly).
+-   In the context of serving content, facing the need to deliver either blog or project documentation,
+    I decided on mdx-bundler against mdxjs to achieve rendering markdown content to HTML,
+    accepting that need based on mdxjs not supporting esm module at that time.
+-   In the context of the framework, facing the need to choose a framework,
+    I decided on NextJS against Gatsby to achieve SEO friendly and reduce writing boilerplate which is very painful,
+    accepting the need to will cost lower flexibility on configuration.
+-   In the context of the rendering, facing the need to choose a rendering method,
+    I decided on Static Site Generator against Server-side rendering to achieve cost efficiency to use CDN rather than serving on the server,
+    accepting the need to will lower the chance to be on top page search engine (SEO Friendly).
 
 ## Tech Stack
 
--   ReactJS: Solving widely used framework for web development lifecycle
--   NextJS: Solving configuration project to maximize developer experiences
+-   ReactJS: Widely used framework for web development lifecycle
+-   NextJS: Solving configuration setting to maximize developer experiences
 -   TailwindCss: Making CSS easy to use because of inlining directly to react component
 -   React Testing Library: Solving integration testing within react component
 -   MDX Bundler: Solving parsing markdown file and into HTML using Abstract Syntax Tree(AST)

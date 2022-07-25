@@ -78,7 +78,7 @@ registerRoute(
 )
 
 registerRoute(
-    ({ url }) => url.origin === 'https://res.cloudinary.com',
+    ({ url }) => url.origin === 'https://ik.imagekit.io/jerensl/',
     new StaleWhileRevalidate({
         cacheName: 'cdn-images',
         plugins: [
