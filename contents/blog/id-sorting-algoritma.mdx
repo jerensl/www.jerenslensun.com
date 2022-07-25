@@ -1,0 +1,62 @@
+---
+title: Algoritma Sorting
+date: '2021-07-23'
+cover: binary-search.jpg
+isPublished: false
+description: Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.
+tags: ['algoritma']
+---
+
+Pada kesempatan kali ini, kita akan mempelajari tentang algoritma sorting. Algorima sorting sendiri cukup banyak digunakan dibandingkan
+dengan algoritma lainnhya dan biasanya tiap bahasa pemrograman memiliki syntax bawaan dalam mengurutkan sebuah data,
+di golang sendiri terdapat standard library sort yang dapat digunakan dalam mengurutkan data,
+namun kali ini kita bakal mengimplementasikan alogritmanya secara langsung.
+
+Lebih lanjut kita akan membahas 4 algoritma dan membandingkannya, algoritma yang akan kita pelajari yaitu:
+
+1. Bubble Sort
+2. Insertion Sort
+3. Merge Sort
+4. Quick Sort
+
+## Bubble Sort
+
+Bubble sort merupakan algoritma pengurutan paling sederhana dibandingkan algoritma pengurutan lainnya dan juga merupakan yang
+yang paling buruk secara time complexity dibandingkan algoritma lainnya.
+
+Cara kerja bubble sort adalah dengan membandingkan satu nilai dengan nilai yang ada setelahnya, jika nilai setelahnya lebih kecil
+makan akan dilakukan pertukaran posisi pada kedua nilai tersebut.
+
+```go
+func BubleSort(nums []int) []int {
+	for i := 0; i < len(nums); i++ {
+		for j := i+1; j < len(nums); j++ {
+			if nums[i] > nums[j] {
+				nums[i], nums[j] = nums[j], nums[i]
+			}
+		}
+	}
+
+	return sortedNums
+}
+```
+
+## Insertion Sort
+
+Insertion Sort hampir sama dengan Bubble Sort, keduannya menggunakan double loop, namun perbedaanya adalah insertion sort melakukan
+perbanding ke belakang value yang telah di kunjungi atau bisa dibilang decrement.
+
+```go
+func InsertionSort(nums []int) []int {
+	for i := 0; i < len(nums); i++ {
+		for j := i; j > 0; j-- {
+			if nums[j-1] > nums[j] {
+				nums[j], nums[j-1] = nums[j-1], nums[j]
+			}
+
+		}
+	}
+
+	return nums
+}
+```
