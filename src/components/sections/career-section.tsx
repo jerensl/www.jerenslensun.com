@@ -59,15 +59,15 @@ export const CareerSection = (): React.ReactElement => {
                     </motion.div>
                     <CareerCard
                         inView={inView}
-                        organization="Ministry of Tourism"
-                        role="Facilitator Baparekraf Digital Talent"
-                        date="October 2020 – November 2020"
+                        organization="Bangkit Academy 2022"
+                        role="Facilitator"
+                        date="February 2022 – July 2022"
                     />
                     <CareerCard
                         inView={inView}
-                        organization="Bangkit Academy 2022"
+                        organization="Baparekraf Digital Talent"
                         role="Facilitator"
-                        date="February 2022 – Present"
+                        date="October 2020 – November 2020"
                     />
                 </Grid>
             )}

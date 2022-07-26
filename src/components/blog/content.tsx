@@ -38,7 +38,7 @@ export const Article = ({
                 />
             </header>
             <main className="min-h-9/10 pt-2 md:pt-10 font-medium px-4 md:px-10">
-                <article className="prose prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
+                <article className="prose dark:prose-invert prose-p:font-normal prose-li:font-normal max-w-4xl lg:prose-lg m-auto">
                     <Component components={components} />
                 </article>
             </main>

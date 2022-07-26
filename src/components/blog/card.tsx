@@ -47,7 +47,7 @@ export const Card = ({
                         {captializeTitle}
                     </h1>
                 </Link>
-                <p className="text-gray-500 pb-2">
+                <p className="text-gray-500 dark:text-gray-300 pb-2">
                     {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
                     <span>{readTime.text}</span>
                 </p>

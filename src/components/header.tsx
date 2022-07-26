@@ -56,7 +56,7 @@ export const Header = ({
                                     Read Articles
                                 </LinkURL>
                                 <LinkURL
-                                    className="rounded-md bg-gray-200 font-semibold text-xl hover:bg-gray-300 w-36 py-2"
+                                    className="rounded-md bg-gray-200 dark:bg-neutral-700 font-semibold text-xl hover:bg-gray-300 dark:hover:bg-neutral-600 w-36 py-2"
                                     href="/about"
                                 >
                                     About Me
