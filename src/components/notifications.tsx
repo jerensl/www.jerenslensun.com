@@ -82,7 +82,7 @@ export const Notifications = (): React.ReactElement => {
 
     if (isLoading) {
         return (
-            <div className="hover:bg-gray-100 m-auto">
+            <div className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto">
                 <FontAwesomeIcon
                     className="animate-spin m-3"
                     size="lg"
@@ -137,7 +137,7 @@ const NotificationButton = ({
 }: NotificationButtonProps): React.ReactElement => {
     return (
         <button
-            className="hover:bg-gray-100 m-auto rounded-full"
+            className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto rounded-full"
             onClick={handleClick}
             aria-label={ariaLabel}
         >

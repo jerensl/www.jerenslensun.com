@@ -26,7 +26,7 @@ export const AboutSection = (): React.ReactElement => {
                     }}
                 >
                     <motion.div variants={childrenVariants}>
-                        <h1 className="font-semibold text-2xl text-red-700 lg:text-xl">
+                        <h1 className="font-semibold text-2xl text-red-700 dark:text-red-400 lg:text-xl">
                             About Me
                         </h1>
                     </motion.div>

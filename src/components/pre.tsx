@@ -2,7 +2,7 @@ import { css } from '../../stitches.config'
 
 export const pre = css({
     $$background: 'rgb(243, 243, 243)',
-    $$text: '$colors$black',
+    $$text: '$colors$primary',
     $$syntax1: '$colors$orange',
     $$syntax2: '$colors$turq',
     $$syntax3: '$colors$pink',
@@ -24,7 +24,7 @@ export const pre = css({
     $$addedWordText: '$colors$turq',
 
     boxSizing: 'border-box',
-    padding: '$3 0px',
+    padding: '$4 0px',
     overflow: 'auto',
     fontFamily: '$mono',
     fontSize: '$2',
@@ -166,11 +166,11 @@ export const pre = css({
             true: {
                 '.highlight-line': {
                     position: 'relative',
-                    paddingLeft: '$4',
+                    paddingLeft: '50px',
                     '&::before': {
                         content: 'attr(data-line)',
                         position: 'absolute',
-                        left: 12,
+                        left: 20,
                         top: 0,
                         color: '$$lineNumbers',
                     },
@@ -178,7 +178,7 @@ export const pre = css({
                         '&::before': {
                             content: 'attr(data-line)',
                             position: 'absolute',
-                            left: 8,
+                            left: 15,
                             top: 0,
                             color: '$$lineNumbers',
                         },

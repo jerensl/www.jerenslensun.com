@@ -11,7 +11,9 @@ import Link from 'next/link'
 function SitemapSection() {
     return (
         <div>
-            <h2 className="text-lg font-semibold text-gray-500">Sitemap</h2>
+            <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-200">
+                Sitemap
+            </h2>
             <div className="mt-2 flex flex-col gap-1">
                 <LinkURL className="text-lg" href="/">
                     Home
@@ -33,7 +35,9 @@ function SitemapSection() {
 function ContactSection() {
     return (
         <div>
-            <h2 className="text-lg font-semibold text-gray-500">Contact</h2>
+            <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-200">
+                Contact
+            </h2>
             <div className="mt-2 flex flex-col gap-1">
                 <LinkURL
                     className="text-lg"

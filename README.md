@@ -15,7 +15,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd www.jerenslencun.com
+  cd www.jerenslensun.com
 ```
 
 Install dependencies

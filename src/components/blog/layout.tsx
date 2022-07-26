@@ -48,7 +48,7 @@ export const Layout = ({
             <div className="col-span-full w-full">
                 <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40">
                     <input
-                        className="text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
+                        className="text-gray-700 dark:text-neutral-200 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
                         placeholder="Search Articles..."
                         aria-label="Search Articles"
                         value={query}
