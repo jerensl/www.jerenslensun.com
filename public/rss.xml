@@ -6,6 +6,13 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[Algoritma Sorting]]></title>
+      <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
+      <link>https://www.jerenslensun.com/blog/id-sorting-algoritma</link>
+      <guid>https://www.jerenslensun.com/blog/id-sorting-algoritma</guid>
+      <pubDate>2022-08-02</pubDate>
+    </item>
+<item>
       <title><![CDATA[Build a Load Balancer from a scratch with Golang]]></title>
       <description><![CDATA[A load balancer is a process of distributing incoming traffic across multiple targets.]]></description>
       <link>https://www.jerenslensun.com/blog/en-load-balancer-golang</link>

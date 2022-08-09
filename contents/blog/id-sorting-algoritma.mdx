@@ -1,6 +1,6 @@
 ---
 title: Algoritma Sorting
-date: '2021-07-23'
+date: '2022-08-02'
 cover: binary-search.jpg
 isPublished: false
 description: Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.
@@ -8,55 +8,166 @@ tags: ['algoritma']
 ---
 
 Pada kesempatan kali ini, kita akan mempelajari tentang algoritma sorting. Algorima sorting sendiri cukup banyak digunakan dibandingkan
-dengan algoritma lainnhya dan biasanya tiap bahasa pemrograman memiliki syntax bawaan dalam mengurutkan sebuah data,
+dengan algoritma lainnya dan biasanya tiap bahasa pemrograman memiliki syntax bawaan dalam mengurutkan sebuah data,
 di golang sendiri terdapat standard library sort yang dapat digunakan dalam mengurutkan data,
-namun kali ini kita bakal mengimplementasikan alogritmanya secara langsung.
+namun kali ini kita bakal mengimplementasikan algoritnya secara langsung tanpa menggunakan standard library.
 
-Lebih lanjut kita akan membahas 4 algoritma dan membandingkannya, algoritma yang akan kita pelajari yaitu:
+Lebih lanjut kita akan membahas 3 algoritma dan membandingkannya, algoritma yang akan kita pelajari yaitu:
 
-1. Bubble Sort
-2. Insertion Sort
-3. Merge Sort
-4. Quick Sort
-
-## Bubble Sort
-
-Bubble sort merupakan algoritma pengurutan paling sederhana dibandingkan algoritma pengurutan lainnya dan juga merupakan yang
-yang paling buruk secara time complexity dibandingkan algoritma lainnya.
-
-Cara kerja bubble sort adalah dengan membandingkan satu nilai dengan nilai yang ada setelahnya, jika nilai setelahnya lebih kecil
-makan akan dilakukan pertukaran posisi pada kedua nilai tersebut.
-
-```go
-func BubleSort(nums []int) []int {
-	for i := 0; i < len(nums); i++ {
-		for j := i+1; j < len(nums); j++ {
-			if nums[i] > nums[j] {
-				nums[i], nums[j] = nums[j], nums[i]
-			}
-		}
-	}
-
-	return sortedNums
-}
-```
+1. Insertion Sort
+2. Merge Sort
+3. Quick Sort
 
 ## Insertion Sort
 
-Insertion Sort hampir sama dengan Bubble Sort, keduannya menggunakan double loop, namun perbedaanya adalah insertion sort melakukan
-perbanding ke belakang value yang telah di kunjungi atau bisa dibilang decrement.
+Mungkin kalian tidak asing dengan permainan kartu solitaire, algoritma Insertion Sort sendiri mirip dengan bagaimana cara kita
+mengurutkan kartu dalam bermain game tersebut.
+Insertion sort sendiri cukup effisien untuk ukuran list yang kecil seperti yang kita lihat dibawah untuk best case dalam time complexity
+dan juga cukup simple untuk diterapkan. Selain itu untuk penggunaan memory sendiri cukup effisien seperti yang dapat kita lihat
+pada data dibawah ini.
 
-```go
-func InsertionSort(nums []int) []int {
+Time Complexity
+Worst Case: $O(n^2)$
+Average Case: $O(n^2)$
+Best Case: $O(n)$
+
+Space Complexity: $O(1)$
+
+Implementasi insertion sort
+
+Untuk menerapkan Insertion Sort kita memerlukan dua penunjuk dimana disini kita memberikan nama penunjuk tersebut dengan
+index i dan j, index i akan melakukan iterasi untuk setiap angka yang ada pada array nums, dimulai dari index pertama,
+sedangkan index j sendiri akan melakukan iterasi dengan cara menurun ke belakang, lalu nilai j akan dibandingkan membandingkannya
+dengan nilai yang ada dibelakangnya atau j-1, jika nilai j lebih besar akan dilakukan pergantian posisi sehingga nilai bisa terurut dengan benar.
+Bayangkan nilai index i pada game solitaire merupakan kartu yang belum keluar sedangkan nilai index j merupakan kartu baru keluar
+dan j-1 adalah nilai yang telah diurutkan.
+
+```go showlinenumbers theme=orange
+func InsertionSort(nums []int) {
 	for i := 0; i < len(nums); i++ {
 		for j := i; j > 0; j-- {
 			if nums[j-1] > nums[j] {
 				nums[j], nums[j-1] = nums[j-1], nums[j]
 			}
+		}
+	}
+}
+```
 
+## Merge Sort
+
+Merge sort merupakan divide and conquer algoritma, algoritma ini bekerja dengan cara membagi problem ke unit terkecil
+lalu menyelesaikannya dari sana namun ada trade off yaitu Auxiliary Space yang merupakan memory tambahan yang dibutuhkan
+algoritma tersebut untuk menampung hasil dari pengganbungan.
+
+Time Complexity
+Worst Case: $O(n log(n))$
+Average Case: $O(n log(n))$
+Best Case: $O(n log(n))$
+
+Space Complexity: $O(n)$
+
+Implementasi merge sort:
+
+1. Kita perlu function `mergeSort` lalu kita akan melakukan recursive untuk memecah array sampai hanya ada 1 angka pada array,
+   untuk edge case disini kita akan mengembalikan nilai function array jika panjang array kurang dari 2.
+2. Setelah itu kita akan menggabungkan array dengan array yang ada disebelahnya menggunakan function `merge`, namun sebelum itu
+   kita perlu untuk membandingkan nilainya terlebih dahulu.
+3. Kita juga perlu membuat variable baru untuk menampung array baru yang akan kita urutkan.
+
+```go showlinenumbers theme=orange
+func mergeSort(nums []int) []int {
+	if len(nums) < 2 {
+		return nums
+	}
+
+	return merge(mergeSort(nums[:len(nums)/2]), mergeSort(nums[len(nums)/2:]))
+}
+
+func merge(firstNum, secondNum []int) []int {
+	var mergedNum []int
+
+	i, j := 0, 0
+
+	for i < len(firstNum) && j < len(secondNum) {
+		if firstNum[i] < secondNum[j] {
+			mergedNum = append(mergedNum, firstNum[i])
+			i++
+		} else {
+			mergedNum = append(mergedNum, secondNum[j])
+			j++
 		}
 	}
 
-	return nums
+	for ; i < len(firstNum); i++ {
+		mergedNum = append(mergedNum, firstNum[i])
+	}
+
+	for ; j < len(secondNum); j++ {
+		mergedNum = append(mergedNum, firstNum[j])
+	}
+
+	return mergedNum
+}
+```
+
+## Quick Sort
+
+Quick sort juga merupakan divide and conquer algoritma, namun dia juga merupakan algoritma sorting in place yang berarti quick sort
+sendiri langsung mengubah input tanpa memerlukan Auxiliary Space yang berarti space complexity sangat effisien yaitu konstant.
+Quick sort bekerja dengan cara memilih pivot secara acak dan untuk nilai yang lebih kecil dari pivot akan ditaruh ke sebelah kiri dan
+nilai yang lebih besar dari pivot akan ditaruh di sebelah kanan dan itu berlaku secara recursive, tergantung dari seberapa baik
+pivot di pilih yang akan menentukan seberapa effisien time complexity dari algoritma tersebut. Jika pivot yang dipilih nilai yang paling
+besar atau kecil secara berturut-turut maka yang terjadi adalah skenario terburuk yaitu $O(n^2)$ secara ideal pivot yang baik adalah
+nilai median dari angka yang terdapat dalam array, ada juga cara lain yaitu dengan mengambil nilai dari 3 posisi secara acak pada array
+lalu mencari mediannya.
+
+Time Complexity
+Worst Case: $O(n^2)$
+Average Case: $O(n log(n))$
+Best Case: $O(n log(n))$
+
+Space Complexity: $O(1)$
+
+Implementasi Quick Sort:
+
+-   Pertama ktia akan membuat fungsi `QuickSort` dimana terdapat 3 argumen, yaitu:
+    1.  nums: dimana slice dari value yang akan kita sort
+    2.  low: posisi index slice terkecil
+    3.  high: posisi index slice tertinggi
+-   Disini fungsi `QuickSort` akan tetap berjalan secara recursive, jika nilai low lebih kecil dibandingkan nilai high.
+-   Setelah itu kita memerlukan fungsi `partition` untuk memilih pivot dan juga melakukan sorting.
+    -   Pada fungsi `partition` kita akan mengambil nilai secara acak antara index low dan high.
+    -   Setelah itu kita perlu memindahkan posisi pivot5 dengan posisi high.
+    -   Setelah dipindahkan kita akan menggunakan dua penunjuk dimana i dan j, tujuan dari i dan j sendiri untuk
+        memisahkan nilai yang berada lebih kecil dari pivot berada dibawah dari index i.
+    -   Lalu setelah mendapatkan semua nilai yang lebih kecil dari pivot ke index i, maka kita perlu mengembalikan pivot ke
+        posisi di antara nilai yang lebih kecil dari pivot dan nilai yang lebih besar dari pivot
+
+```go showlinenumbers theme=orange
+func QuickSort(nums []int, low, high int) {
+	if low < high {
+		p := partition(nums, low, high)
+		QuickSort(nums, low, p)
+		QuickSort(nums, p+1, high)
+	}
+}
+
+func partition(nums []int, low, high int) int {
+	pivot := rand.Intn(high-low) + low
+
+	nums[pivot], nums[high] = nums[high], nums[pivot]
+
+    i := low
+    for j := low; j < high; j++ {
+        if nums[j] < nums[high] {
+            nums[i], nums[j] = nums[j], nums[i]
+            i++
+        }
+    }
+
+    nums[high], nums[i] = nums[i], nums[high]
+
+	return i
 }
 ```

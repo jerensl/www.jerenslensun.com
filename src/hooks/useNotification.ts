@@ -1,4 +1,4 @@
-import { useQuery, useMutation, QueryCache, useQueryClient } from 'react-query'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 
 export interface Notification {
     token: string
@@ -9,19 +9,19 @@ export function useSubs() {
 
     return useMutation(subscribeNotification, {
         onMutate: async (status) => {
-            await queryClient.cancelQueries('notification')
+            await queryClient.cancelQueries(['notification'])
 
-            const prevStatus = queryClient.getQueryData('notification')
+            const prevStatus = queryClient.getQueryData(['notification'])
 
-            queryClient.setQueryData('notification', () => [Notification])
+            queryClient.setQueryData(['notification'], () => [Notification])
 
             return { prevStatus }
         },
         onError: (err, newStatus, context) => {
-            queryClient.setQueryData('notification', context.prevStatus)
+            queryClient.setQueryData(['notification'], context.prevStatus)
         },
         onSettled: () => {
-            queryClient.invalidateQueries('notification')
+            queryClient.invalidateQueries(['notification'])
         },
     })
 }
@@ -31,26 +31,26 @@ export function useUnsubs() {
 
     return useMutation(unsubscribeNotification, {
         onMutate: async (status) => {
-            await queryClient.cancelQueries('notification')
+            await queryClient.cancelQueries(['notification'])
 
-            const prevStatus = queryClient.getQueryData('notification')
+            const prevStatus = queryClient.getQueryData(['notification'])
 
-            queryClient.setQueryData('notification', status)
+            queryClient.setQueryData(['notification'], status)
 
             return { prevStatus }
         },
         onError: (err, newStatus, context) => {
-            queryClient.setQueryData('notification', context.prevStatus)
+            queryClient.setQueryData(['notification'], context.prevStatus)
         },
         onSettled: () => {
-            queryClient.invalidateQueries('notification')
+            queryClient.invalidateQueries(['notification'])
         },
     })
 }
 
 export function useNotification({ token }: Notification) {
     return useQuery(
-        'notification',
+        ['notification'],
         () => {
             return statusNotification({ token })
         },

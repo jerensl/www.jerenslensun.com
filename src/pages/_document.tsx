@@ -5,7 +5,6 @@ import Document, {
     NextScript,
     DocumentContext,
 } from 'next/document'
-import Script from 'next/script'
 
 const APP_NAME = 'Jerens'
 const APP_DESCRIPTION =
