@@ -1,8 +1,8 @@
 ---
 title: Algoritma Sorting
-date: '2022-08-02'
-cover: binary-search.jpg
-isPublished: false
+date: '2022-08-10'
+cover: sorting.jpeg
+isPublished: true
 description: Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.
 tags: ['algoritma']
 ---
@@ -10,7 +10,7 @@ tags: ['algoritma']
 Pada kesempatan kali ini, kita akan mempelajari tentang algoritma sorting. Algorima sorting sendiri cukup banyak digunakan dibandingkan
 dengan algoritma lainnya dan biasanya tiap bahasa pemrograman memiliki syntax bawaan dalam mengurutkan sebuah data,
 di golang sendiri terdapat standard library sort yang dapat digunakan dalam mengurutkan data,
-namun kali ini kita bakal mengimplementasikan algoritnya secara langsung tanpa menggunakan standard library.
+namun kali ini kita bakal mengimplementasikan algoritmanya secara langsung tanpa menggunakan standard library.
 
 Lebih lanjut kita akan membahas 3 algoritma dan membandingkannya, algoritma yang akan kita pelajari yaitu:
 
@@ -58,7 +58,7 @@ func InsertionSort(nums []int) {
 
 Merge sort merupakan divide and conquer algoritma, algoritma ini bekerja dengan cara membagi problem ke unit terkecil
 lalu menyelesaikannya dari sana namun ada trade off yaitu Auxiliary Space yang merupakan memory tambahan yang dibutuhkan
-algoritma tersebut untuk menampung hasil dari pengganbungan.
+algoritma tersebut untuk menampung hasil dari pengganbungan array.
 
 Time Complexity
 Worst Case: $O(n log(n))$
@@ -171,3 +171,11 @@ func partition(nums []int, low, high int) int {
 	return i
 }
 ```
+
+## Kesimpulan
+
+Jika dibandingkan Quicksort lebih unggul dibandingkan algoritma O(nlogn) karena merupakan in place algoritma dimana
+tidak membutuhkan memory tambahan dibandingkan dengan Mergesort namun di beberapa kasus penggunaan seperti mengurutkan
+dalam struktur data external seperti halnya linked list mergesort akan lebih effisien dibandingkan Quicksort sedangkan
+untuk Insertion Sort lebih sering digunakan pada data yang berukur kecil karna lebih mudah diterapkan dan di beberapa
+skenario algoritmnya menjadi O(n).
