@@ -24,7 +24,7 @@
         "@fortawesome/free-brands-svg-icons": "^6.1.1",
         "@fortawesome/free-solid-svg-icons": "^6.1.1",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@giscus/react": "^2.0.6",
+        "@giscus/react": "^2.1.1",
         "@stitches/core": "^1.2.8",
         "@tailwindcss/aspect-ratio": "^0.4.0",
         "@tailwindcss/line-clamp": "^0.4.0",
