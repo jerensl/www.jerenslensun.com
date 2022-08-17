@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'react-toastify/dist/ReactToastify.css'
 import * as React from 'react'
 import { ThemeProvider } from 'next-themes'
+import Layout from '../components/layout'
 
 config.autoAddCss = false
 
@@ -20,12 +21,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider enableSystem={true} attribute="class">
             <QueryClientProvider client={queryClient}>
                 <ToastContainer />
-                <Navbar />
-                <NavbarMobile />
-                <Components {...pageProps} />
-                {process.env.NODE_ENV ? (
-                    <ReactQueryDevtools initialIsOpen={false} />
-                ) : null}
+                <Layout>
+                    <Components {...pageProps} />
+                    {process.env.NODE_ENV ? (
+                        <ReactQueryDevtools initialIsOpen={false} />
+                    ) : null}
+                </Layout>
             </QueryClientProvider>
         </ThemeProvider>
     )
