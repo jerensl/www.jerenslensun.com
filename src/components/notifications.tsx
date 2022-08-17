@@ -24,17 +24,7 @@ export const Notifications = (): React.ReactElement => {
     const unSubsMutation = useUnsubs()
 
     const handleSubscribeNotification = async () => {
-        if (!('Notification' in window)) {
-            return
-        }
-        if (
-            Notification.permission === 'denied' ||
-            Notification.permission === 'default'
-        ) {
-            await Notification.requestPermission()
-        } else {
-            subsMutation.mutate({ token })
-        }
+        subsMutation.mutate({ token })
     }
 
     const handleUnsubscribeNotification = async () => {
@@ -43,11 +33,14 @@ export const Notifications = (): React.ReactElement => {
 
     React.useEffect(() => {
         const notification = async () => {
+            if (!('Notification' in window)) {
+                return
+            }
             if (
-                !('Notification' in window) ||
                 Notification.permission === 'denied' ||
                 Notification.permission === 'default'
             ) {
+                await Notification.requestPermission()
                 return
             }
 
