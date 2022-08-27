@@ -57,11 +57,17 @@ export const AboutSection = (): React.ReactElement => {
                             software engineering, for me tackling complex
                             problems {`it's`} same as scoring a goal. In
                             football, it {`doesn't`} matter whether you play
-                            good or bad at the end of that day winning matters
-                            to all your fans, but as people on the field what we
-                            can do is make decisions optimizing for a better
-                            outcome but still manage our expectations because
-                            the bad outcome can possible to occur.
+                            good or bad at the end of that day winning or
+                            outcome is what matters to all your fans, but as
+                            people on the field what we can do is make good
+                            decisions optimizing for a better outcome but still
+                            manage our expectations because the bad outcome can
+                            possible to occur. What we can do is to keep
+                            improving for each iteration and still need to
+                            manage our risk so that catastrophic failure does
+                            not happen, this example is like football when we
+                            play attacking but still make sure to maintain
+                            balance on our defensive transition.
                         </p>
                     </motion.div>
                     <motion.div variants={childrenVariants}>
@@ -71,9 +77,6 @@ export const AboutSection = (): React.ReactElement => {
                             are awesome, what I mean is it`s a technology still
                             widely used, not deprecated.
                         </p>
-                    </motion.div>
-                    <motion.div variants={childrenVariants}>
-                        <p>I also like sharing my experiences on blog post</p>
                     </motion.div>
                 </motion.div>
             </div>

@@ -11,6 +11,8 @@ import {
     faBellSlash,
     faBell,
     faSpinner,
+    faCircleExclamation,
+    faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { useNotification, useSubs, useUnsubs } from '../hooks/useNotification'
 import { toast } from 'react-toastify'
@@ -19,7 +21,8 @@ import { imageLoader } from '../lib/images'
 
 export const Notifications = (): React.ReactElement => {
     const [token, setToken] = React.useState<string>('')
-    const { isLoading, data } = useNotification({ token })
+    const [status, setStatus] = React.useState<boolean>(false)
+    const { data, isLoading, isError } = useNotification({ token })
     const subsMutation = useSubs()
     const unSubsMutation = useUnsubs()
 
@@ -31,47 +34,83 @@ export const Notifications = (): React.ReactElement => {
         unSubsMutation.mutate({ token })
     }
 
-    React.useEffect(() => {
-        const notification = async () => {
-            if (!('Notification' in window)) {
-                return
-            }
-            if (
-                Notification.permission === 'denied' ||
-                Notification.permission === 'default'
-            ) {
-                await Notification.requestPermission()
-                return
-            }
-
-            const app = await firebaseApp.Init()
-
-            const messaging = getMessaging(app)
-
-            const fcm_token: string = await getToken(messaging, {
-                vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
-            })
-
-            if (token === '') {
-                setToken(fcm_token)
-            }
-
-            onMessage(messaging, (payload: MessagePayload) => {
-                toast(
-                    <Notify
-                        title={payload.notification.title}
-                        body={payload.notification.body}
-                    />,
-                    {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 10000,
-                        hideProgressBar: true,
-                    }
-                )
-            })
+    const handleNotificationPermission = async () => {
+        await Notification.requestPermission()
+        if (Notification.permission === 'granted') {
+            setStatus(true)
         }
-        notification()
-    }, [token])
+    }
+
+    React.useEffect(() => {
+        if (!('Notification' in window)) {
+            return
+        }
+        if (
+            Notification.permission === 'denied' ||
+            Notification.permission === 'default'
+        ) {
+            setStatus(false)
+        } else {
+            setStatus(true)
+            const notification = async () => {
+                const app = await firebaseApp.Init()
+
+                const messaging = getMessaging(app)
+
+                const fcm_token: string = await getToken(messaging, {
+                    vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
+                })
+
+                if (token === '') {
+                    setToken(fcm_token)
+                }
+
+                onMessage(messaging, (payload: MessagePayload) => {
+                    toast(
+                        <Notify
+                            title={payload.notification.title}
+                            body={payload.notification.body}
+                        />,
+                        {
+                            position: toast.POSITION.TOP_CENTER,
+                            autoClose: 10000,
+                            hideProgressBar: true,
+                        }
+                    )
+                })
+            }
+            notification()
+        }
+    }, [token, status])
+
+    if (!status) {
+        return (
+            <NotificationButton
+                ariaLabel="Notification permission"
+                handleClick={handleNotificationPermission}
+            >
+                <FontAwesomeIcon
+                    className="block m-3"
+                    size="lg"
+                    icon={faCircleExclamation}
+                    data-testid="permission"
+                />
+            </NotificationButton>
+        )
+    }
+
+    if (isError) {
+        return (
+            <div className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto">
+                <FontAwesomeIcon
+                    className="m-3"
+                    size="lg"
+                    icon={faCircleXmark}
+                    data-testid="error"
+                />
+            </div>
+        )
+    }
 
     if (isLoading) {
         return (

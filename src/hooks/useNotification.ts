@@ -56,6 +56,7 @@ export function useNotification({ token }: Notification) {
         },
         {
             enabled: !!token,
+            staleTime: 1000,
             retry: false,
             refetchOnMount: false,
             refetchOnWindowFocus: false,
