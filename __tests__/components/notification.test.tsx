@@ -24,7 +24,7 @@ describe('Notification', () => {
             data: { isActive: false },
         }))
 
-        const result = renderWithClient(<Notifications />)
+        const result = renderWithClient(<Notifications initStatus={true} />)
 
         expect(result.getByTestId('subscribe')).toBeInTheDocument()
 
@@ -38,7 +38,7 @@ describe('Notification', () => {
             data: { isActive: true },
         }))
 
-        const result = renderWithClient(<Notifications />)
+        const result = renderWithClient(<Notifications initStatus={true} />)
 
         expect(result.getByTestId('unsubscribe')).toBeInTheDocument()
 
@@ -52,7 +52,7 @@ describe('Notification', () => {
             isLoading: true,
         }))
 
-        const result = renderWithClient(<Notifications />)
+        const result = renderWithClient(<Notifications initStatus={true} />)
 
         expect(result.getByTestId('loading')).toBeInTheDocument()
     })

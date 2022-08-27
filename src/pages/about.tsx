@@ -1,4 +1,4 @@
-import { ContactMe } from '@/components/sections/contact-me'
+import { ContactMe } from '../components/sections/contact-me'
 import { Footer } from '../components/footer'
 import { AboutSection } from '../components/sections/about-section'
 import { Seo } from '../components/seo'

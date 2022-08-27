@@ -19,9 +19,15 @@ import { toast } from 'react-toastify'
 import Image from 'next/image'
 import { imageLoader } from '../lib/images'
 
-export const Notifications = (): React.ReactElement => {
+interface NotifiationsProps {
+    initStatus?: boolean
+}
+
+export const Notifications = ({
+    initStatus = false,
+}: NotifiationsProps): React.ReactElement => {
     const [token, setToken] = React.useState<string>('')
-    const [status, setStatus] = React.useState<boolean>(false)
+    const [status, setStatus] = React.useState<boolean>(initStatus)
     const { data, isLoading, isError } = useNotification({ token })
     const subsMutation = useSubs()
     const unSubsMutation = useUnsubs()
