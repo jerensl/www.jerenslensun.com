@@ -26,9 +26,9 @@ export const CopyToClipboard = ({ children }: ICopyToClipboard) => {
             textInput.current.textContent !== null
         )
             navigator.clipboard.writeText(textInput.current.textContent)
-        setTimeout(() => {
+        setInterval(() => {
             setCopied(false)
-        }, 2000)
+        }, 5000)
     }
 
     return (
@@ -38,12 +38,13 @@ export const CopyToClipboard = ({ children }: ICopyToClipboard) => {
             onMouseLeave={onExit}
             className="relative code-block"
         >
+            {children}
             {hovered && (
                 <button
                     aria-label="Copy code"
                     type="button"
                     className={clsx(
-                        'absolute z-10 right-2 top-2 w-8 h-8 p-1 rounded border-2 bg-gray-700 dark:bg-gray-800',
+                        'absolute right-3 top-3 w-8 h-8 p-1 rounded border-2 bg-slate-700 dark:bg-gray-800',
                         {
                             'focus:outline-none focus:border-green-400 border-green-400':
                                 copied,
@@ -81,7 +82,6 @@ export const CopyToClipboard = ({ children }: ICopyToClipboard) => {
                     </svg>
                 </button>
             )}
-            {children}
         </div>
     )
 }

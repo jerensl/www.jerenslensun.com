@@ -107,7 +107,7 @@ export const Notifications = ({
 
     if (isError) {
         return (
-            <div className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto">
+            <div className="m-auto">
                 <FontAwesomeIcon
                     className="m-3"
                     size="lg"

@@ -19,7 +19,7 @@ const components = {
                         css: {
                             mx: '-$3',
                             mt: '$3',
-                            mb: '$5',
+                            mb: '$4',
 
                             '[data-preview] + &': {
                                 marginTop: '0',
