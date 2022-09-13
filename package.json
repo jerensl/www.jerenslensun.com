@@ -58,7 +58,7 @@
         "remark-math": "^5.1.1",
         "sharp": "^0.30.7",
         "unified": "^10.1.2",
-        "unist-util-visit": "^4.1.0",
+        "unist-util-visit": "^4.1.1",
         "whatwg-fetch": "^3.6.2",
         "workbox-cacheable-response": "^6.5.4",
         "workbox-core": "^6.5.4",
