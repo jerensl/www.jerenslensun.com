@@ -3729,7 +3729,7 @@
     lodash.isplainobject "^4.0.6"
     lodash.merge "^4.6.2"
 
-"@tanstack/match-sorter-utils@^8.0.0-alpha.82":
+"@tanstack/match-sorter-utils@^8.1.1":
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/@tanstack/match-sorter-utils/-/match-sorter-utils-8.1.1.tgz#895f407813254a46082a6bbafad9b39b943dc834"
   integrity sha512-IdmEekEYxQsoLOR0XQyw3jD1GujBpRRYaGJYQUw1eOT1eUugWxdc7jomh1VQ1EKHcdwDLpLaCz/8y4KraU4T9A==
@@ -3741,13 +3741,12 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.2.3.tgz#52d75430c9662cc85c160761c1421de483c7791f"
   integrity sha512-zdt5lYWs1dZaA3IxJbCgtAfHZJScRZONpiLL7YkeOkrme5MfjQqTpjq7LYbzpyuwPOh2Jx68le0PLl57JFv5hQ==
 
-"@tanstack/react-query-devtools@^4.2.1":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-4.2.3.tgz#85e5990a447850c7cfffd64fef9f926554d460fb"
-  integrity sha512-0PH8n824BnFyMrtv7q5uLS0b7jYg2tDH8vU4etkSYzV1uL4RJjiqMh7Gyi8qhYCwM+khlrkRYlNZvE0cxlp3SQ==
+"@tanstack/react-query-devtools@^4.3.1":
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-4.8.0.tgz#f6aae17677e670880e49c35900127a98e59e1e06"
+  integrity sha512-PJNAuUFOVfv/8FDjpL8O0DmXGkS5hONhSE9Ciyn/ewkqpAgbZOnwQ3nYj/9HKxNyciBzNx/54nPxQfe/smqoLw==
   dependencies:
-    "@tanstack/match-sorter-utils" "^8.0.0-alpha.82"
-    "@types/use-sync-external-store" "^0.0.3"
+    "@tanstack/match-sorter-utils" "^8.1.1"
     use-sync-external-store "^1.2.0"
 
 "@tanstack/react-query@^4.1.3":
