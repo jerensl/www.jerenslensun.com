@@ -59,6 +59,12 @@ export const CareerSection = (): React.ReactElement => {
                     </motion.div>
                     <CareerCard
                         inView={inView}
+                        organization="SoftwareSeni"
+                        role="ReactJS Developer Intern"
+                        date="August 2022 – October 2022"
+                    />
+                    <CareerCard
+                        inView={inView}
                         organization="Bangkit Academy 2022"
                         role="Facilitator"
                         date="February 2022 – July 2022"

@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import Link, { LinkProps } from 'next/link'
 import { useRouter } from 'next/router'
+import clsx from 'clsx'
 
 interface LinkURLProps extends LinkProps {
     className?: string

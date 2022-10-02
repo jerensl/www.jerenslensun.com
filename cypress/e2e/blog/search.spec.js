@@ -1,9 +1,11 @@
 describe('Blog page', () => {
     beforeEach(() => {
-        cy.visit('/blog')
+        cy.visit('/')
     })
 
     it('should find article fundamental algoritma', () => {
+        cy.get('a[href*="/blog"]').first().click()
+
         const typedText = 'Fundamental Algoritma'
 
         cy.get('[aria-label="Search Articles"]')
@@ -15,6 +17,8 @@ describe('Blog page', () => {
     })
 
     it('should not find any article', () => {
+        cy.get('a[href*="/blog"]').first().click()
+
         const typedText = 'xyz'
 
         cy.get('[aria-label="Search Articles"]')
