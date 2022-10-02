@@ -4,7 +4,7 @@ describe('Blog page', () => {
     })
 
     it('should find article fundamental algoritma', () => {
-        cy.get('a[href*="/blog"]').click()
+        cy.get('a[href*="/blog"]').first().click()
 
         const typedText = 'Fundamental Algoritma'
 
@@ -17,7 +17,7 @@ describe('Blog page', () => {
     })
 
     it('should not find any article', () => {
-        cy.get('a[href*="/blog"]').click()
+        cy.get('a[href*="/blog"]').first().click()
 
         const typedText = 'xyz'
 
