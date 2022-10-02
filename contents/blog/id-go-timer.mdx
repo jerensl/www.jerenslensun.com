@@ -1,0 +1,70 @@
+---
+title: Cara menggunakan Timer pada golang
+date: '2022-09-19'
+cover: data.jpg
+isPublished: true
+description: Berikut kita akan mempelajari timer
+tags: ['golang', 'time']
+---
+
+## Time Format
+
+Sebelum kita membahas lebih jauh tentang waktu, alangkah baiknya kita mempelajari terlebih dahulu format waktu yang ada, sehingga kita bisa mengantisipasi
+masalah yang timbul kedepannya jika terdapat inkonsistensi terhadap waktu. Untuk format waktu kita akan fokus ke RFC 3999, dimana cukup sering dipakai di beberapa
+bahasa pemrograman seperti new Date pada javascript dll. RFC 3339 sendiri mengikuti format ISO 8601 dimana perbedaanya sendiri adalah kita bisa menganti T pada ISO 8601
+dengan space di RFC 3339.
+
+Untuk format penulisan ISO 8601 seperti dibawah ini:
+
+> 2022-09-17T07:20:50.52Z
+
+-   2022 merupakan tahun
+-   09 merupakan bulan
+-   17 merupakan tanggal
+-   T merupakan pemisah tanggal dan waktu
+-   07 merupakan jam
+-   20 merupakan menit
+-   50 merupakan detik
+-   52 merupakan milidetik
+-   Z merupakan UTC timezone
+
+Dengan menggunakan RFC 3339 format kita dapat mengganti penulisan z dengan spasi seperti dibawah ini:
+
+> 2022-09-17 07:20:50.52Z
+
+Bagaimana jika kita ingin membuat tanggal dan waktu berdasarkan timezone kita, sebagai contoh timezone saya sendiri adalah Manado yaitu +08:00, jadi yang saya lakukan
+adalah tinggal mengganti Z dengan format waktu timezone saya seperti berikut:
+
+> 2022-09-17 07:20:50.52+08:00
+
+Pada golang kita bisa menggunakan standard library time untuk berurusan dengan waktu, disini kita akan melakukan parsing data terlebih dahulu
+menggunakan method `time.Parse` dimana terdapat 2 argument:
+
+1. Format waktu disini kita menggunakan RFC3339
+2. Waktu yang akan kita parsing
+
+Time sendiri akan menerima 2 output yang pertama adalah struct dari Time itu sendiri dan yang kedua adalah error biasanya digunakan jika ada
+error dalam penulisan format
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	timer, err := time.Parse(time.RFC3339, "2023-06-22T15:04:05+08:00")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+
+	fmt.Println(timer)
+}
+```
+
+## Schedule one shot task
+
+## Cron Job

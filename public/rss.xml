@@ -6,6 +6,13 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[Cara menggunakan Timer pada golang]]></title>
+      <description><![CDATA[Berikut kita akan mempelajari timer]]></description>
+      <link>https://www.jerenslensun.com/blog/id-go-timer</link>
+      <guid>https://www.jerenslensun.com/blog/id-go-timer</guid>
+      <pubDate>2022-09-19</pubDate>
+    </item>
+<item>
       <title><![CDATA[Algoritma Sorting]]></title>
       <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
       <link>https://www.jerenslensun.com/blog/id-sorting-algoritma</link>

@@ -42,6 +42,13 @@ const components = {
     h2: ({ children }) => {
         return <h2 className="text-xl">{children}</h2>
     },
+    blockquote: ({ children }) => {
+        return (
+            <div className="px-4 border-l-4 border-l-red-500 bg-opacity-10 bg-red-500 text-red-500 font-bold">
+                {children}
+            </div>
+        )
+    },
 }
 
 export { components }
