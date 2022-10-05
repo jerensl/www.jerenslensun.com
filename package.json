@@ -19,10 +19,10 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@builder.io/partytown": "^0.6.4",
-        "@fortawesome/fontawesome-svg-core": "^6.1.2",
-        "@fortawesome/free-brands-svg-icons": "^6.1.2",
-        "@fortawesome/free-solid-svg-icons": "^6.1.2",
+        "@builder.io/partytown": "^0.7.0",
+        "@fortawesome/fontawesome-svg-core": "^6.2.0",
+        "@fortawesome/free-brands-svg-icons": "^6.2.0",
+        "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@fortawesome/react-fontawesome": "^0.2.0",
         "@giscus/react": "^2.1.1",
         "@stitches/core": "^1.2.8",
