@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Grid } from '../grid'
-import clsx from 'clsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
 import { CareerCard } from '../career-card'
@@ -9,11 +8,6 @@ import { useReducedMotion, motion } from 'framer-motion'
 
 export const CareerSection = (): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()
-
-    const childrenVariants = {
-        initial: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    }
 
     return (
         <InView triggerOnce rootMargin="-40% 0px">
@@ -61,7 +55,7 @@ export const CareerSection = (): React.ReactElement => {
                         inView={inView}
                         organization="SoftwareSeni"
                         role="ReactJS Developer Intern"
-                        date="August 2022 – October 2022"
+                        date="August 2022 – Now"
                     />
                     <CareerCard
                         inView={inView}

@@ -1,12 +1,10 @@
 import { Node, visit } from 'unist-util-visit'
 import type * as unified from 'unified'
-import type * as hast from 'hast'
-import { Visitor } from 'unist-util-visit/complex-types'
 
 let re = /\b([-\w]+)(?:=(?:"([^"]*)"|'([^']*)'|([^"'\s]+)))?/g
 
 function rehypeMetaAttribute(options = {}): unified.Plugin {
-    const visitor = (node, index: number, parentNode) => {
+    const visitor = (node: any, index: number, parentNode: any) => {
         let match
 
         if (node.tagName === 'code' && node.data && node.data.meta) {

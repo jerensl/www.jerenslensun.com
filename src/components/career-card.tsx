@@ -5,7 +5,7 @@ export const CareerCard = ({
     date,
     role,
     inView,
-}): React.ReactElement => {
+}: any): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()
 
     const childrenVariants = {

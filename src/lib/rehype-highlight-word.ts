@@ -4,7 +4,7 @@ import parse from 'rehype-parse'
 
 const CALLOUT = /__(.*?)__/g
 
-function highlightWord(code) {
+function highlightWord(code: any) {
     const html = toHtml(code)
     const result = html.replace(
         CALLOUT,

@@ -49,7 +49,7 @@ export const Card = ({
                 </Link>
                 <p className="text-gray-500 dark:text-gray-300 pb-2">
                     {format(new Date(date), 'MMMM dd, yyyy')} •{' '}
-                    <span>{readTime.text}</span>
+                    <span>{readTime?.text}</span>
                 </p>
                 <p className="line-clamp-3">{description}</p>
             </div>

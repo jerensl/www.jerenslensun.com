@@ -22,7 +22,7 @@ export interface ProjectMetadata {
 }
 
 export default class Project extends Content {
-    private lang: string[]
+    private lang: string[] = []
     constructor(directory: string) {
         super()
         this.directory = directory
@@ -31,7 +31,7 @@ export default class Project extends Content {
     async getAllPublishedProject() {
         const files = this.getAllFile()
 
-        const allMetadata: ProjectMetadata[] = await Promise.all(
+        const allMetadata = await Promise.all<ProjectMetadata | void>(
             files.map(async (fileName) => {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
                 const { data } = matter(source)
@@ -62,7 +62,7 @@ export default class Project extends Content {
         return allMetadata.filter((data) => data)
     }
 
-    getAllProgrammingLanguange(lang: ProjectMetadata[]) {
+    getAllProgrammingLanguange(lang: Array<ProjectMetadata | void>) {
         const tags = new Set<string>()
         for (const post of lang) {
             for (const tag of post?.programming_languange ?? []) {

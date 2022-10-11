@@ -74,8 +74,8 @@ export const Notifications = ({
                 onMessage(messaging, (payload: MessagePayload) => {
                     toast(
                         <Notify
-                            title={payload.notification.title}
-                            body={payload.notification.body}
+                            title={payload.notification?.title}
+                            body={payload.notification?.body}
                         />,
                         {
                             position: toast.POSITION.TOP_CENTER,
@@ -185,8 +185,8 @@ const NotificationButton = ({
 }
 
 interface NotifyProps {
-    title: string
-    body: string
+    title: string | undefined
+    body: string | undefined
 }
 
 export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {

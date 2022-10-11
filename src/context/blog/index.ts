@@ -23,17 +23,21 @@ export interface Metadata {
 }
 
 export default class Blog extends Content {
-    private tags: string[]
+    private tags: Array<string> = []
     constructor(directory: string) {
         super()
         this.directory = directory
     }
 
-    private sortByDate(content: Array<Metadata>): Array<Metadata> {
-        return content.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+    private sortByDate(
+        content: Array<Metadata | void>
+    ): Array<Metadata | void> {
+        return content.sort(
+            (a: any, b: any) => Date.parse(b.date) - Date.parse(a.date)
+        )
     }
 
-    private getAllTags(contents: Metadata[]) {
+    private getAllTags(contents: Array<Metadata | void>) {
         const tags = new Set<string>()
         for (const post of contents) {
             for (const tag of post?.tags ?? []) {
@@ -52,10 +56,10 @@ export default class Blog extends Content {
         return this.getAllFile()
     }
 
-    async getAllPublishArticle(): Promise<Array<Metadata>> {
+    async getAllPublishArticle(): Promise<Array<Metadata | void>> {
         const files = this.getAllFile()
 
-        const allMetadata: Metadata[] = await Promise.all(
+        const allMetadata = await Promise.all<Metadata | void>(
             files.map(async (fileName) => {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
                 const { data, content } = matter(source)
