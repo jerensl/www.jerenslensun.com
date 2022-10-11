@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar, NavbarMobile } from './navbar'
 
-export default function Layout({ children }: { children: React.ReactChild }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <Navbar />
