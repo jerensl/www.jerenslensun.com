@@ -10,11 +10,11 @@ import type * as unified from 'unified'
 
 function rehypeHighlightCode(options = {}): unified.Plugin {
     const visitor: Visitor<hast.Element, hast.Element> = (
-        node,
+        node: any,
         index,
         parentNode
     ) => {
-        if (parentNode.tagName === 'pre' && node.tagName === 'code') {
+        if (parentNode?.tagName === 'pre' && node.tagName === 'code') {
             // syntax highlight
             const lang = node.properties.className
                 ? node.properties.className[0].split('-')[1]
@@ -25,7 +25,7 @@ function rehypeHighlightCode(options = {}): unified.Plugin {
 
             let result: any = refractor.highlight(toString(node), lang)
 
-            const range: any = node.properties.line || '0'
+            const range: any = node.properties?.line || '0'
 
             // line highlight
             const linesToHighlight = parseNumericRange(range)
@@ -33,7 +33,7 @@ function rehypeHighlightCode(options = {}): unified.Plugin {
 
             // word highlight
             const shouldIgnoreWordHighlight =
-                typeof node.properties.ignoreWordHighlight !== 'undefined'
+                typeof node.properties?.ignoreWordHighlight !== 'undefined'
             if (!shouldIgnoreWordHighlight) {
                 result = highlightWord(result)
             }

@@ -8,8 +8,9 @@ export async function getRssXml() {
 
     const blogUrl = 'https://www.jerenslensun.com/blog'
 
-    const itemXml = frontmatters.map(({ slug, title, description, date }) =>
-        `
+    const itemXml = frontmatters.map(
+        ({ slug, title, description, date }: any) =>
+            `
     <item>
       <title>${cdata(title)}</title>
       <description>${cdata(description)}</description>

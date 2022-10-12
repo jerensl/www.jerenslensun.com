@@ -3,7 +3,7 @@ import { Metadata } from '../../context/blog'
 import { filterPosts } from '../../context/Search'
 import { Tag } from '../tag'
 import { Card } from './card'
-import { Grid, GridLines } from '../grid'
+import { Grid } from '../grid'
 
 export const Layout = ({
     posts,
@@ -15,8 +15,8 @@ export const Layout = ({
     const [query, setQuery] = React.useState<string>('')
     const [globalLang, setGlobalLang] = React.useState<boolean>(false)
 
-    const englishLang = posts.filter((p) => !p.slug.startsWith('id-'))
-    const indonesiaLang = posts.filter((p) => p.slug.startsWith('id-'))
+    const englishLang = posts.filter((p: any) => !p.slug.startsWith('id-'))
+    const indonesiaLang = posts.filter((p: any) => p.slug.startsWith('id-'))
 
     const clearSearch = () => setQuery('')
 

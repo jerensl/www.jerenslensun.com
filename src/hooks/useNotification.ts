@@ -18,7 +18,7 @@ export function useSubs() {
             return { prevStatus }
         },
         onError: (err, newStatus, context) => {
-            queryClient.setQueryData(['notification'], context.prevStatus)
+            queryClient.setQueryData(['notification'], context?.prevStatus)
         },
         onSettled: () => {
             queryClient.invalidateQueries(['notification'])
@@ -40,7 +40,7 @@ export function useUnsubs() {
             return { prevStatus }
         },
         onError: (err, newStatus, context) => {
-            queryClient.setQueryData(['notification'], context.prevStatus)
+            queryClient.setQueryData(['notification'], context?.prevStatus)
         },
         onSettled: () => {
             queryClient.invalidateQueries(['notification'])

@@ -18,7 +18,9 @@ export const LinkURL = (props: PropsWithChildren<MyLinkProps>) => {
             <a
                 className={className}
                 href="passRef"
-                aria-current={router.pathname === props.href ? 'page' : null}
+                aria-current={
+                    router.pathname === props.href ? 'page' : undefined
+                }
             >
                 {children}
             </a>

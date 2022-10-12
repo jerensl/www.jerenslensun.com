@@ -2,10 +2,10 @@ import { toHtml } from 'hast-util-to-html'
 import { unified } from 'unified'
 import parse from 'rehype-parse'
 
-const lineNumberify = (ast, lineNum = 1) => {
+const lineNumberify = (ast: any, lineNum = 1) => {
     let lineNumber = lineNum
     return ast.reduce(
-        (result, node) => {
+        (result: any, node: any) => {
             if (node.type === 'text') {
                 if (node.value.indexOf('\n') === -1) {
                     node.lineNumber = lineNumber
@@ -46,10 +46,10 @@ const lineNumberify = (ast, lineNum = 1) => {
     )
 }
 
-const wrapLines = (ast, linesToHighlight) => {
-    const allLines = Array.from(new Set(ast.map((x) => x.lineNumber)))
+const wrapLines = (ast: any, linesToHighlight: any) => {
+    const allLines = Array.from(new Set(ast.map((x: any) => x.lineNumber)))
     let i = 0
-    const wrapped = allLines.reduce((nodes: any, marker) => {
+    const wrapped = allLines.reduce((nodes: any, marker: any) => {
         const line = marker
         const children = []
         for (; i < ast.length; i++) {
@@ -91,7 +91,7 @@ const wrapLines = (ast, linesToHighlight) => {
 // https://github.com/gatsbyjs/gatsby/pull/26161/files
 const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g
 
-const applyMultilineFix = function (ast) {
+const applyMultilineFix = function (ast: any) {
     // AST to HTML
     let html = toHtml(ast)
 
@@ -108,7 +108,7 @@ const applyMultilineFix = function (ast) {
     return hast.children
 }
 
-function highlightLine(ast, lines) {
+function highlightLine(ast: any, lines: any) {
     const formattedAst = applyMultilineFix(ast)
     const numbered = lineNumberify(formattedAst).nodes
 
