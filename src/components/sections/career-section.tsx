@@ -44,7 +44,7 @@ export const CareerSection = (): React.ReactElement => {
                         <a
                             href="https://drive.google.com/file/d/17cKewjUgjQomJ32VMxaWo1oigN-v1eqe/view?usp=sharing"
                             target="_blank"
-                            className="inline-flex font-semibold items-center gap-3 text-2xl py-2 px-4 rounded-lg border-b-2 transition duration-150 ease-in-out hover:bg-gray-50 border-gray-100 hover:border-gray-300"
+                            className="inline-flex font-semibold items-center gap-3 text-2xl py-2 px-4 rounded-lg border-b-2 transition duration-150 ease-in-out hover:bg-gray-50 border-gray-100 hover:border-gray-300 dark:hover:bg-neutral-800 dark:border-neutral-900 dark:hover:border-neutral-700"
                             rel="noopener noreferrer"
                         >
                             <span>Get My CV</span>
