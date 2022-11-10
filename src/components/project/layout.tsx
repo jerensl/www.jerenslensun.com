@@ -1,5 +1,5 @@
 import { ProjectMetadata } from '../../context/project'
-import { Grid } from '../grid'
+import { Grid } from '../Grid'
 import { Card } from './card'
 
 export const Layout = ({

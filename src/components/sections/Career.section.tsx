@@ -1,14 +1,12 @@
 import * as React from 'react'
-import { Grid } from '../grid'
+import { Grid } from '../Grid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
-import { CareerCard } from '../career-card'
+import { CareerCard } from '../CareerCard'
 import { InView } from 'react-intersection-observer'
-import { useReducedMotion, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-export const CareerSection = (): React.ReactElement => {
-    const shouldReduceMotion = useReducedMotion()
-
+export const CareerSection: React.FC = () => {
     return (
         <InView triggerOnce rootMargin="-40% 0px">
             {({ inView, ref }) => (

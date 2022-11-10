@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
-import { NavbarMobile } from '../../src/components/navbar'
+import { NavbarMobile } from '../../src/components/Navbar'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 jest.mock('firebase/messaging', () => jest.fn())

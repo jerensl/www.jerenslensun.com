@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { render } from '../../__mocks__/utils/test-providers'
-import { CopyToClipboard } from '../../src/components/copy-clipboard'
+import { CopyToClipboard } from '../../src/components/CopyClipboard'
 import userEvent from '@testing-library/user-event'
 
 describe('Should Test Copy Clipboard', () => {

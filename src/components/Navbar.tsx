@@ -1,6 +1,6 @@
 import React from 'react'
-import { LinkURL } from './link-url'
-import { Notifications } from './notifications'
+import { LinkURL } from './LinkURL'
+import { Notifications } from './Notifications'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faHome,
@@ -8,7 +8,7 @@ import {
     faFileCode,
     faCopy,
 } from '@fortawesome/free-solid-svg-icons'
-import { Theme } from './theme-toggle'
+import ThemeToggle from './ThemeToggle'
 
 export const Navbar = (): React.ReactElement => {
     return (
@@ -42,7 +42,7 @@ export const Navbar = (): React.ReactElement => {
                         </LinkURL>
                     </div>
                     <Notifications />
-                    <Theme />
+                    <ThemeToggle />
                 </div>
             </div>
         </nav>

@@ -1,6 +1,6 @@
 import React from 'react'
-import { pre } from './pre'
-import { CopyToClipboard } from './copy-clipboard'
+import { pre } from './Pre'
+import { CopyToClipboard } from './CopyClipboard'
 
 interface Components {
     children?: React.ReactNode
