@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'next-themes'
 
-export const Theme = (): React.ReactElement => {
+const ThemeToggle: React.FC = () => {
     const { systemTheme, theme, setTheme } = useTheme()
     const [mounted, setMounted] = React.useState(false)
     React.useEffect(() => {
@@ -70,3 +70,5 @@ const ThemeToggleButton = ({
         </button>
     )
 }
+
+export default ThemeToggle

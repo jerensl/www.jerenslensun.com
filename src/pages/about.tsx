@@ -1,7 +1,7 @@
-import { ContactMe } from '../components/sections/contact-me'
-import { Footer } from '../components/footer'
-import { AboutSection } from '../components/sections/about-section'
-import { Seo } from '../components/seo'
+import { ContactMe } from '../components/sections/ContactMe.section'
+import { Footer } from '../components/Footer'
+import { AboutSection } from '../components/sections/About.section'
+import { Seo } from '../components/Seo'
 
 export default function About() {
     return (

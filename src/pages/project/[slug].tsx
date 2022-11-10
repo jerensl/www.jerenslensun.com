@@ -4,7 +4,7 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { Footer } from '../../components/footer'
+import { Footer } from '../../components/Footer'
 import { Content } from '../../components/project/content'
 import ProjectContext from '../../context/project/index'
 

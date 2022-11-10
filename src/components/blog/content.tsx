@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import Image from 'next/image'
-import { components } from '../components'
+import { components } from '../Components'
 import { format } from 'date-fns'
 import { Metadata } from '../../context/blog'
 import { imageLoader } from '../../lib/images'

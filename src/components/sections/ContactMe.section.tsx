@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { Grid } from '../grid'
+import { Grid } from '../Grid'
 
 export const ContactMe = (): React.ReactElement => {
     return (

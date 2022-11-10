@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'react-toastify/dist/ReactToastify.css'
 import * as React from 'react'
 import { ThemeProvider } from 'next-themes'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
 config.autoAddCss = false
 
