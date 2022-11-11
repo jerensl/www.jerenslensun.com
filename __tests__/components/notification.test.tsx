@@ -3,13 +3,13 @@
  */
 
 import { renderWithClient } from '../../__mocks__/utils/react-query'
-import { Notifications, Notify } from '../../src/components/Notifications'
-import { useNotification } from '../../src/hooks/useNotification'
+import Notifications, { Notify } from '../../src/components/Notifications'
+import { useNotification } from '../../src/features/notification/index'
 import userEvent from '@testing-library/user-event'
 
 const mockedUseNotification = useNotification as jest.Mock
 
-jest.mock('../../src/hooks/useNotification', () => ({
+jest.mock('../../src/features/notification/index', () => ({
     useNotification: jest.fn(() => {}),
     useSubs: jest.fn(() => {}),
     useUnsubs: jest.fn(() => {}),

@@ -1,8 +1,10 @@
+import type { INotification, IStatus } from '@/types/notification'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-
-export interface Notification {
-    token: string
-}
+import {
+    subscribeNotification,
+    unsubscribeNotification,
+    statusNotification,
+} from '../../utils/notificationApi'
 
 export function useSubs() {
     const queryClient = useQueryClient()
@@ -48,7 +50,7 @@ export function useUnsubs() {
     })
 }
 
-export function useNotification({ token }: Notification) {
+export function useNotification({ token }: INotification) {
     return useQuery(
         ['notification'],
         () => {
@@ -63,56 +65,3 @@ export function useNotification({ token }: Notification) {
         }
     )
 }
-
-interface Status {
-    isActive: boolean
-    updatedAt: number
-}
-
-const statusNotification = async ({
-    token,
-}: {
-    token: string
-}): Promise<Status> => {
-    return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notification/status`, {
-        method: 'POST',
-        mode: 'cors',
-        body: JSON.stringify({
-            tokenID: token,
-        }),
-    }).then((res) => res.json())
-}
-
-const subscribeNotification = async ({
-    token,
-}: {
-    token: string
-}): Promise<Status> =>
-    await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/notification/subscribe`,
-        {
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify({
-                tokenID: token,
-                updatedAt: new Date().getTime(),
-            }),
-        }
-    ).then((res) => res.json())
-
-const unsubscribeNotification = async ({
-    token,
-}: {
-    token: string
-}): Promise<Status> =>
-    await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/notification/unsubscribe`,
-        {
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify({
-                tokenID: token,
-                updatedAt: new Date().getTime(),
-            }),
-        }
-    ).then((res) => res.json())
