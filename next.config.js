@@ -1,6 +1,13 @@
-// const withPlugins = require('next-compose-plugins')
-const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
+const withPWA = require('next-pwa')({
+    dest: 'public',
+    // disable: process.env.NODE_ENV === 'development',
+    register: true,
+    skipWaiting: true,
+    customWorkerDir: 'src/worker',
+    runtimeCaching,
+    cacheOnFrontEndNav: true,
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,15 +21,6 @@ const nextConfig = {
     },
     compiler: {
         removeConsole: process.env.NODE_ENV !== 'development',
-    },
-    pwa: {
-        dest: 'public',
-        // disable: process.env.NODE_ENV === 'development',
-        register: true,
-        skipWaiting: true,
-        customWorkerDir: 'src/worker',
-        runtimeCaching,
-        cacheOnFrontEndNav: true,
     },
 }
 
