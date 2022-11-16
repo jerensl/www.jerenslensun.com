@@ -14,7 +14,11 @@ import {
     faCircleExclamation,
     faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons'
-import { useNotification, useSubs, useUnsubs } from '../hooks/useNotification'
+import {
+    useNotification,
+    useSubs,
+    useUnsubs,
+} from '../features/notification/index'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
 import { imageLoader } from '../lib/images'
@@ -23,9 +27,7 @@ interface NotifiationsProps {
     initStatus?: boolean
 }
 
-export const Notifications = ({
-    initStatus = false,
-}: NotifiationsProps): React.ReactElement => {
+const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
     const [token, setToken] = React.useState<string>('')
     const [status, setStatus] = React.useState<boolean>(initStatus)
     const { data, isLoading, isError } = useNotification({ token })
@@ -212,3 +214,5 @@ export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {
         </div>
     )
 }
+
+export default Notifications
