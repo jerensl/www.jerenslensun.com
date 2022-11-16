@@ -28,7 +28,7 @@ export const CareerSection: React.FC = () => {
                         </h1>
                     </motion.div>
                     <motion.div
-                        className="col-span-full lg:col-span-3"
+                        className="col-span-full lg:col-span-3 flex"
                         initial="initial"
                         animate={inView ? 'visible' : 'hidden'}
                         variants={{
@@ -42,7 +42,7 @@ export const CareerSection: React.FC = () => {
                         <a
                             href="https://drive.google.com/file/d/17cKewjUgjQomJ32VMxaWo1oigN-v1eqe/view?usp=sharing"
                             target="_blank"
-                            className="inline-flex font-semibold items-cente gap-3 text-2xl py-2 px-4 rounded-lg border-b-2 transition duration-150 ease-in-out hover:bg-gray-50 border-gray-100 hover:border-gray-300 dark:hover:bg-neutral-800 dark:border-neutral-900 dark:hover:border-neutral-700"
+                            className="inline-flex m-auto font-semibold gap-3 text-2xl py-2 px-4 rounded-lg border-b-2 transition duration-150 ease-in-out hover:bg-gray-50 border-gray-100 hover:border-gray-300 dark:hover:bg-neutral-800 dark:border-neutral-900 dark:hover:border-neutral-700"
                             rel="noopener noreferrer"
                         >
                             <span>Get My CV</span>
