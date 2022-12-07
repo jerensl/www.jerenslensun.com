@@ -6,7 +6,7 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
-      <title><![CDATA[Algoritma Sorting]]></title>
+      <title><![CDATA[Implementasi Algoritma Sorting di Golang untuk Mengoptimalkan Pengurutan Data]]></title>
       <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
       <link>https://www.jerenslensun.com/blog/id-sorting-algoritma</link>
       <guid>https://www.jerenslensun.com/blog/id-sorting-algoritma</guid>
@@ -27,14 +27,14 @@
       <pubDate>2022-06-14</pubDate>
     </item>
 <item>
-      <title><![CDATA[Struktur Data Heap]]></title>
+      <title><![CDATA[Implementasi Struktur Data Heap di Golang untuk Mengoptimalkan Pengelolaan Data]]></title>
       <description><![CDATA[Binary Heap merupakan struktur data complete tree biasa direpresentasikan dalam bentuk array, dimana bisa min heap atau max heap.]]></description>
       <link>https://www.jerenslensun.com/blog/id-struktur-data-heap</link>
       <guid>https://www.jerenslensun.com/blog/id-struktur-data-heap</guid>
       <pubDate>2022-01-17</pubDate>
     </item>
 <item>
-      <title><![CDATA[Go Standard I/O]]></title>
+      <title><![CDATA[Implementasi Golang I/O Standard Library untuk Mengelola Data Input dan Output]]></title>
       <description><![CDATA[Mengolah data penyimpanan external pada golang membutuhkan cara tertentu, apalagi dengan data berukuran besar, kita tidak bisa langsung menginisialiasi data langsung ke dalam variable.]]></description>
       <link>https://www.jerenslensun.com/blog/id-go-standard-io</link>
       <guid>https://www.jerenslensun.com/blog/id-go-standard-io</guid>
@@ -48,14 +48,14 @@
       <pubDate>2021-12-25</pubDate>
     </item>
 <item>
-      <title><![CDATA[Algoritma Binary Search]]></title>
+      <title><![CDATA[Implementasi Algoritma Binary Search di Golang untuk Mengoptimalkan Pencarian Data]]></title>
       <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
       <link>https://www.jerenslensun.com/blog/id-algoritma-binary-search</link>
       <guid>https://www.jerenslensun.com/blog/id-algoritma-binary-search</guid>
       <pubDate>2021-12-21</pubDate>
     </item>
 <item>
-      <title><![CDATA[Fundamental Algoritma]]></title>
+      <title><![CDATA[Fundamental Algoritma: Dasar Penting dalam Dunia Pengembangan Aplikasi]]></title>
       <description><![CDATA[Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull]]></description>
       <link>https://www.jerenslensun.com/blog/id-fundamental-algoritma</link>
       <guid>https://www.jerenslensun.com/blog/id-fundamental-algoritma</guid>
