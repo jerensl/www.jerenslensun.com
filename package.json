@@ -29,7 +29,7 @@
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/line-clamp": "^0.4.2",
         "@tanstack/react-query-devtools": "^4.13.5",
-        "@tanstack/react-query": "^4.13.4",
+        "@tanstack/react-query": "^4.19.0",
         "clsx": "^1.2.0",
         "esbuild": "^0.15.15",
         "date-fns": "^2.29.3",
