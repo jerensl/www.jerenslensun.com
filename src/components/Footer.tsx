@@ -5,7 +5,6 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { faRssSquare } from '@fortawesome/free-solid-svg-icons'
-import { LinkURL } from './LinkURL'
 import Link from 'next/link'
 
 function SitemapSection() {
@@ -15,18 +14,18 @@ function SitemapSection() {
                 Sitemap
             </h2>
             <div className="mt-2 flex flex-col gap-1">
-                <LinkURL className="text-lg" href="/">
+                <Link className="text-lg" href="/">
                     Home
-                </LinkURL>
-                <LinkURL className="text-lg" href="/blog">
+                </Link>
+                <Link className="text-lg" href="/blog">
                     Blog
-                </LinkURL>
-                <LinkURL className="text-lg" href="/project">
+                </Link>
+                <Link className="text-lg" href="/project">
                     Project
-                </LinkURL>
-                <LinkURL className="text-lg" href="/about">
+                </Link>
+                <Link className="text-lg" href="/about">
                     About
-                </LinkURL>
+                </Link>
             </div>
         </div>
     )
@@ -39,24 +38,18 @@ function ContactSection() {
                 Contact
             </h2>
             <div className="mt-2 flex flex-col gap-1">
-                <LinkURL
-                    className="text-lg"
-                    href="https://twitter.com/jerensl22"
-                >
+                <Link className="text-lg" href="https://twitter.com/jerensl22">
                     Twitter
-                </LinkURL>
-                <LinkURL
-                    className="text-lg"
-                    href="http://instagram.com/jerensl"
-                >
+                </Link>
+                <Link className="text-lg" href="http://instagram.com/jerensl">
                     Instagram
-                </LinkURL>
-                <LinkURL
+                </Link>
+                <Link
                     className="text-lg"
                     href="https://www.linkedin.com/in/jerensl/"
                 >
                     linkedin
-                </LinkURL>
+                </Link>
             </div>
         </div>
     )

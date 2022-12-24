@@ -23,20 +23,17 @@ export const Card = ({
             className="col-span-full md:col-span-4 lg:col-span-4 rounded-md border border-gray-400"
         >
             <div className="relative overflow-auto">
-                <Link href={`/project/${slug}`} passHref>
-                    <a>
-                        <Image
-                            loader={imageLoader}
-                            src={cover}
-                            alt="Person"
-                            objectFit="cover"
-                            blurDataURL={blurDataURL}
-                            placeholder="blur"
-                            height="200px"
-                            width="450px"
-                            className="relative transition duration-250 ease-in-out scale-100 hover:scale-110 cursor-pointer"
-                        />
-                    </a>
+                <Link href={`/project/${slug}`}>
+                    <Image
+                        loader={imageLoader}
+                        src={cover}
+                        alt="Person"
+                        blurDataURL={blurDataURL}
+                        placeholder="blur"
+                        height="200"
+                        width="450"
+                        className="object-cover relative cursor-pointer"
+                    />
                 </Link>
             </div>
             <div className="flex flex-col justify-between gap-2 p-2">
@@ -53,7 +50,7 @@ export const Card = ({
                     })}
                 </div>
                 <div className="flex flex-col gap-1">
-                    <Link href={`/project/${slug}`} passHref>
+                    <Link href={`/project/${slug}`} passHref legacyBehavior>
                         <h1 className="text-2xl font-bold leading-8 tracking-tight cursor-pointer">
                             {captializeTitle}
                         </h1>

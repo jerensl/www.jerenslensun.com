@@ -199,10 +199,9 @@ export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {
                     loader={imageLoader}
                     src="logo.png"
                     alt="Person"
-                    objectFit="cover"
-                    height="40px"
-                    width="40px"
-                    className="w-8 h-8 rounded-full shadow-lg"
+                    height="40"
+                    width="40"
+                    className="object-cover w-8 h-8 rounded-full shadow-lg"
                 />
                 <div className="ml-3 text-sm font-normal">
                     <span className="mb-1 text-sm font-semibold text-gray-900 ">

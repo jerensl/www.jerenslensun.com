@@ -22,7 +22,9 @@ export const Article = ({
     return (
         <>
             <header className="pt-20 text-center">
-                <h1 className="text-3xl font-bold">{frontmatter.title}</h1>
+                <h1 className="m-auto p-4 text-3xl font-bold max-w-4xl">
+                    {frontmatter.title}
+                </h1>
                 <p className="text-xl pt-1 pb-2 font-medium">
                     {format(new Date(frontmatter.date), 'MMMM dd, yyyy')}
                 </p>
@@ -32,9 +34,9 @@ export const Article = ({
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                     alt="Person"
-                    objectFit="cover"
-                    height="350px"
-                    width="900px"
+                    height="350"
+                    width="700"
+                    className="object-cover m-auto"
                 />
             </header>
             <main className="min-h-9/10 pt-2 md:pt-10 font-medium px-4 md:px-10">

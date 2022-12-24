@@ -27,9 +27,8 @@ export const Header = ({
                             blurDataURL={blurDataURL}
                             alt="A man looking to a beautiful river and mountain"
                             quality="80"
-                            objectFit="contain"
-                            width="1080px"
-                            height="720px"
+                            width="1080"
+                            height="720"
                         />
                     </div>
                     <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto text-center">

@@ -13,16 +13,12 @@ export const LinkURL = (props: PropsWithChildren<MyLinkProps>) => {
     const { children, className, ...linkProps } = props
 
     return (
-        <Link {...linkProps} passHref>
-            <a
-                className={className}
-                href="passRef"
-                aria-current={
-                    router.pathname === props.href ? 'page' : undefined
-                }
-            >
-                {children}
-            </a>
+        <Link
+            {...linkProps}
+            className={className}
+            aria-current={router.pathname === props.href ? 'page' : undefined}
+        >
+            {children}
         </Link>
     )
 }
