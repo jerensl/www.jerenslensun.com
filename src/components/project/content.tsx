@@ -42,13 +42,17 @@ export const Content = ({
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                         alt="Person"
-                        objectFit="cover"
-                        height="350px"
-                        width="900px"
+                        height="350"
+                        width="700"
+                        className="object-cover"
                     />
                 </div>
                 <div className="col-span-full text-center">
-                    <Link href={`${frontmatter.repo_url}`} passHref>
+                    <Link
+                        href={`${frontmatter.repo_url}`}
+                        passHref
+                        legacyBehavior
+                    >
                         <FontAwesomeIcon
                             className="hover:text-gray-700 cursor-pointer"
                             icon={faGithub}
