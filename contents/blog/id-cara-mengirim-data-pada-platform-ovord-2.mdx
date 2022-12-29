@@ -1,0 +1,252 @@
+---
+title: 'Cara mengirim data pada platform Ovord 2'
+date: '2022-12-29'
+cover: speed.jpg
+isPublished: true
+description: Tutorial mengirim data dari perangkat embedded ke aplikasi platform monitoring Ovord 2
+tags: ['algoritma']
+---
+
+Sebelum mengirim data ke dalam platform IoT, anda perlu untuk membuat akun terlebih dahulu, setelah itu login ke dalam platform. Berikut link untuk mengakses platform https://dashboard.cec-unsrat.com/
+
+Pada halaman device, anda perlu membuat device baru, setelah menekan tombol `Add New Device`, anda akan dialihkan pada modal yang terdapat form, disitu anda perlu mengisi form seperti berikut:
+
+-   Device Name: nama untuk device yang anda gunakan
+-   Device Short Name: nama singkat dari device anda, untuk keperluan identifikasi, nama tersebut bersifat unik berlaku untuk semua pengguna dan hanya bisa di klaim sekali
+    Pada bagian sensor anda juga dapat, menambah sensor berdasarkan kebutuhan dengan menekan tombol `+` yang terdapat pada bawah sensor, begitu pula untuk menghapusnya anda dapat menekan tombol `x` yang sejajar dengan sensor yang akan dihapus.
+-   Sensor Name : nama satu sensor yang anda gunakan, untuk keperluan identifikasi, perlu diingat bahwa setiap sensor dalam sebuah device harus memiliki nama sensor yang berbeda-beda.
+-   Sensor Type: tipe sensor yang digunakan
+-   Sensor Unit: unit dari sensor yang digunakan
+
+Setelah membuat device, anda akan mendapatkan informasi tentang sensor short name beserta token yang akan digunakan untuk identifikasi perangkat.
+
+## Menghubungkan dengan embedded device
+
+Untuk membaut koneksi pertama kita memerlukan koneksi internet. Anda dapat menggunakan beberapa library untuk wifi atau koneksi lainnya. Disini saya akan mengambil contoh menggunakan Esp32
+
+Untuk mengirim data pada platform IoT cukup hanya dengan menggunakan https request, perbedaannya dengan http adalah http menggunakan port 80 sedangkan https menggunakan port 443 dan memerlukan certificate authority untuk setiap permintaan yang dikirim.
+
+Pertama kita memerlukan koneksi internet, disini saya akan menggunakan library wifimanager dimana library tersebut kita tidak lagi menyimpan credential ssid dan password melalui coding, namun wifi manager akan membuat local server dimana kita dapat mengaksesnya melalui koneksi melalui hotspot yang disetup oleh wifi manager, untuk mengaksesnya kita dapat menggakses pada halaman web menggunakan ip 192.168.1.4, lalu memasukan credential wifi berupa ssid dan password, dan credentials tersebut akan disimpan ke dalam memory storage pada esp32.
+
+Untuk library WifiManager kamu dapat, mendowloadnya pada github berikut, karena jika menggunakan library yang ada pada arduino, dia hanya akan support untuk esp tipe esp8266 saja
+https://github.com/tzapu/WiFiManager
+
+Berikut contoh coding sederhana untuk melakukan setup wifimanager, untuk melakukan setup nama hotspot kita dapat melakukannya dengan menganti argument pada `wm.autoConnect`
+
+-   Argument pertama merupakan SSID.
+-   Argument kedua merupakan password dari hotspot tersebut.
+
+```arduino showlinenumbers theme=orange
+#include "Arduino.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
+
+void setup() {
+    WiFi.mode(WIFI_STA);
+    Serial.begin(115200);
+    WiFiManager wm;
+    bool res;
+   
+    res = wm.autoConnect("AutoConnectAP","password");
+    if(!res) {
+        Serial.println("Failed to connect");
+    } else {
+        Serial.println("connected...yeey :)");
+    }  
+}
+
+void loop() {
+}
+```
+
+Selanjutnya kita akan melakukan serialization data ke dalam format JSON, disini saya akan menggunakan ArduinoJson, untuk membantu serialization. Pada library ArduinoJson, terdapat dua cara untuk menyimpan JsonDocument yaitu kedalam stack atau kedalam heap:
+
+-   Gunakan `StaticJsonDocument` untuk menyimpan data json ke dalam stack (direkomendasikan untuk dokumen yang lebih kecil dari 1kb)
+-   Gunakan `DynamicJsonDocument` untuk menyimpan data json ke dalam heap (direkomendasikan untuk dokumen yang lebih besar dari 1kb)
+    Selengkapnya kalian dapat membacanya disini [Arduino JSON](https://arduinojson.org/v6/api/jsondocument/)
+    Sedangkan untuk membuat array kalian dapat menggunakan `doc.createNestedArray()`, lalu kalian bisa memanggil method `add` untuk menambah nilai pada array tersebut.
+
+```arduino showlinenumbers theme=orange
+#include <ArduinoJson.h>
+
+void setup() {
+}
+
+void loop() {
+    int arraySize = 2;
+    String sensors[arraySize] = {
+        "temp-01",
+        "temp-02",
+        };
+    float values[arraySize] = {
+        0.4,
+        0.1
+        };
+       
+    StaticJsonDocument<1024> doc;
+    doc["deviceToken"] = String(token);
+   
+    JsonArray sensor = doc.createNestedArray("sensors");
+    for (int i=0; i< size; i++) sensor.add(sensors[i]);
+   
+    JsonArray value = doc.createNestedArray("data");
+    for (int i=0; i< size; i++) value.add(values[i]);
+
+    String data;
+    serializeJson(doc, data);
+}
+```
+
+Setelahya kita memerlukan timer untuk menggirim data secara berulang berdasarkan interval waktu tertentu, disini kita menggunakan milis dikarenakan milis memeliki fitur non blocking dibandingkan dengan delay yang akan memblock jalannya program.
+
+```arduino showlinenumbers theme=orange
+const unsigned long eventInterval = 2000;
+unsigned long previousTime = 0;
+
+void loop() {
+   
+    if (currentTime - previousTime >=  eventInterval) {
+	    // coding akan dieksekusi berdasarkan selang waktu interval yang ditentukan
+        previousTime = currentTime;
+    }
+
+}
+```
+
+Selanjutnya kita akan melakukan pengiriman data menggunakan https, untuk menggunakan https request, disini kita menggunakan library `HTTPClient` dan `WiFiClientSecure` dari [espressif](https://github.com/espressif/arduino-esp32/tree/master/libraries).
+Untuk mengirimkan data terdapat cara yang aman menggunakan CA Certificate dan tidak aman dimana tidak terapat CA Certificate, namun kita akan menggunakan cara yang aman.
+
+Untuk mengirimkan data pada Platform IoT, disini kita menggunakan protokol https, dimana memerlukan data seperti berikut
+
+1. Device Short Name: dimasukan melalui query parameter atau url
+2. Token: dimasukan pada body dari JSON yang akan dikirim
+3. Sensor Name: dimasukan pada body dari JSON yang akan dikirim
+4. Data: dimasukan pada body dari JSON yang akan dikirim
+
+Untuk device short name dan token, kalian dapat memasukannya melalui global variable `deviceShortName` dan `token` sedangkan
+sensor dan data kalian dapat memasukannya pada loop function untuk array `sensors` dan array `data`,
+pastikan urutan dan panjang pada nama sensor sama dengan yang ada pada ada pada data dan jangan lupa untuk mengganti jumlah sensor
+yang digunakan pada variable `arraySize`.
+
+Berikut contoh codingan keseluruhan, kalian dapat langsung mencopy sertificate CA yang berada dibawah, dan perlu diingat bahwa sertificate CA bisa saja expire pada waktu tertentu
+
+```arduino showlinenumbers theme=orange line=9,10,12-34,91-99
+#include "Arduino.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
+#include <HTTPClient.h>
+#include <WiFiClientSecure.h>
+#include <ArduinoJson.h>
+
+const unsigned long eventInterval = 2000;
+unsigned long previousTime = 0;
+const char* deviceShortName = "device_test";
+const char* token = "fd92bad2-3c6c-4047-8759-b68d5fd8b03d";
+
+const char* rootCACertificate = \
+"-----BEGIN CERTIFICATE-----\n" \
+"MIIDjjCCAnagAwIBAgIQAzrx5qcRqaC7KGSxHQn65TANBgkqhkiG9w0BAQsFADBh\n" \
+"MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\n" \
+"d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBH\n" \
+"MjAeFw0xMzA4MDExMjAwMDBaFw0zODAxMTUxMjAwMDBaMGExCzAJBgNVBAYTAlVT\n" \
+"MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\n" \
+"b20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IEcyMIIBIjANBgkqhkiG\n" \
+"9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzfNNNx7a8myaJCtSnX/RrohCgiN9RlUyfuI\n" \
+"2/Ou8jqJkTx65qsGGmvPrC3oXgkkRLpimn7Wo6h+4FR1IAWsULecYxpsMNzaHxmx\n" \
+"1x7e/dfgy5SDN67sH0NO3Xss0r0upS/kqbitOtSZpLYl6ZtrAGCSYP9PIUkY92eQ\n" \
+"q2EGnI/yuum06ZIya7XzV+hdG82MHauVBJVJ8zUtluNJbd134/tJS7SsVQepj5Wz\n" \
+"tCO7TG1F8PapspUwtP1MVYwnSlcUfIKdzXOS0xZKBgyMUNGPHgm+F6HmIcr9g+UQ\n" \
+"vIOlCsRnKPZzFBQ9RnbDhxSJITRNrw9FDKZJobq7nMWxM4MphQIDAQABo0IwQDAP\n" \
+"BgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNVHQ4EFgQUTiJUIBiV\n" \
+"5uNu5g/6+rkS7QYXjzkwDQYJKoZIhvcNAQELBQADggEBAGBnKJRvDkhj6zHd6mcY\n" \
+"1Yl9PMWLSn/pvtsrF9+wX3N3KjITOYFnQoQj8kVnNeyIv/iPsGEMNKSuIEyExtv4\n" \
+"NeF22d+mQrvHRAiGfzZ0JFrabA0UWTW98kndth/Jsw1HKj2ZL7tcu7XUIOGZX1NG\n" \
+"Fdtom/DzMNU+MeKNhJ7jitralj41E6Vf8PlwUHBHQRFXGU7Aj64GxJUTFy8bJZ91\n" \
+"8rGOmaFvE7FBcf6IKshPECBV1/MUReXgRPTqh5Uykw7+U0b6LJ3/iyK5S9kJRaTe\n" \
+"pLiaWN0bfVKfjllDiIGknibVb63dDcY3fe0Dkhvld1927jyNxF1WW6LZZm6zNTfl\n" \
+"MrY=\n" \
+"-----END CERTIFICATE-----\n";
+
+void setup() {
+    WiFi.mode(WIFI_STA);
+    Serial.begin(115200);
+    WiFiManager wm;
+    bool res;
+   
+    res = wm.autoConnect("AutoConnectAP","password");
+    if(!res) {
+        Serial.println("Failed to connect");
+    } else {
+        Serial.println("connected...yeey :)");
+    }  
+}
+
+void sendData(WiFiClientSecure *client, float values[], String sensors[], int size) {
+    HTTPClient https;
+    StaticJsonDocument<1024> doc;
+    doc["deviceToken"] = String(token);
+   
+    JsonArray sensor = doc.createNestedArray("sensors");
+    for (int i=0; i< size; i++) sensor.add(sensors[i]);
+   
+    JsonArray value = doc.createNestedArray("data");
+    for (int i=0; i< size; i++) value.add(values[i]);
+
+    String data;
+    serializeJson(doc, data);
+    Serial.print("[HTTPS] begin...\n");
+    if (https.begin(*client, "https://cec.azurewebsites.net/api/telemetry/add?deviceShortName="+String(deviceShortName))) {
+        Serial.print("[HTTPS] POST...\n");
+        https.addHeader("Host", "cec.azurewebsites.net");
+        https.addHeader("Content-Type", "application/json");
+        https.addHeader("Content-Length", String(data.length()));
+        https.addHeader("Accept-Language", "en-US,en;q=0.9" );
+        https.addHeader("Accept-Encoding", "gzip,deflate" );
+        https.addHeader("Keep-Alive", "300" );
+        https.addHeader("Connection", "keep-alive");
+
+        int httpCode = https.POST(data);
+        if (httpCode > 0) {
+        Serial.printf("[HTTPS] POST... code: %d\n", httpCode);
+        if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY) {
+            String payload = https.getString();
+            Serial.println(payload);
+        }
+        } else {
+            Serial.printf("[HTTPS] POST... failed, error: %s\n", https.errorToString(httpCode).c_str());
+        }
+        https.end();
+    } else {
+        Serial.printf("[HTTPS] Unable to connect\n");
+    }
+}
+
+void loop() {
+    int arraySize = 2;
+    String sensors[arraySize] = {
+        "temp-01",
+        "temp-02",
+        };
+    float values[arraySize] = {
+        0.4,
+        0.1
+        };
+       
+    unsigned long currentTime = millis();
+
+    if (currentTime - previousTime >=  eventInterval) {
+        WiFiClientSecure *client = new WiFiClientSecure;
+        if(client) {
+            client -> setCACert(rootCACertificate);
+           
+            sendData(client, values, sensors, arraySize);
+           
+            delete client;
+        } else {
+            Serial.println("Unable to create client");
+        }
+        previousTime = currentTime;
+    }
+
+}
+```
+
+Jika ada pertanyaan lebih lanjut, silahkan menghubungi saya pada kontak yang ada di halaman footer di bawah.
