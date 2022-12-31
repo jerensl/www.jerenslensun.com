@@ -6,6 +6,13 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[Cara mengirim data pada platform Ovord 2]]></title>
+      <description><![CDATA[Tutorial mengirim data dari perangkat embedded ke aplikasi platform monitoring Ovord 2]]></description>
+      <link>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
+      <guid>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</guid>
+      <pubDate>2022-12-29</pubDate>
+    </item>
+<item>
       <title><![CDATA[Implementasi Algoritma Sorting di Golang untuk Mengoptimalkan Pengurutan Data]]></title>
       <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
       <link>https://www.jerenslensun.com/blog/id-sorting-algoritma</link>
@@ -53,13 +60,6 @@
       <link>https://www.jerenslensun.com/blog/id-algoritma-binary-search</link>
       <guid>https://www.jerenslensun.com/blog/id-algoritma-binary-search</guid>
       <pubDate>2021-12-21</pubDate>
-    </item>
-<item>
-      <title><![CDATA[Cara mengirim data pada platform Ovord 2]]></title>
-      <description><![CDATA[Tutorial mengirim data dari perangkat embedded ke aplikasi platform monitoring Ovord 2]]></description>
-      <link>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
-      <guid>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</guid>
-      <pubDate>2021-11-22</pubDate>
     </item>
 <item>
       <title><![CDATA[Fundamental Algoritma: Dasar Penting dalam Dunia Pengembangan Aplikasi]]></title>
