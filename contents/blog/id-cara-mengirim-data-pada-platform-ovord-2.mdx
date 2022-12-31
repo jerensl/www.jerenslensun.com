@@ -7,29 +7,34 @@ description: Tutorial mengirim data dari perangkat embedded ke aplikasi platform
 tags: ['algoritma']
 ---
 
+Platform Ovord 2 merupakan, platform IoT yang dapat memonitoring data yang dikirim melalui embedded device seperti ESP32, secara realtime menggunakan visualisasi berupa grafik
+dan tabel, data tersebut disimpan dan dapat di unduh menggunakan format csv, sehingga dapat diolah lagi untuk keperluan lainnya. Platform ini juga memiliki fleksibilitas terhadap sensor yang digunakan,
+namun untuk sementara beberapa tipe sensor belum tersedia.
+
 Sebelum mengirim data ke dalam platform IoT, anda perlu untuk membuat akun terlebih dahulu, setelah itu login ke dalam platform. Berikut link untuk mengakses platform https://dashboard.cec-unsrat.com/
 
-Pada halaman device, anda perlu membuat device baru, setelah menekan tombol `Add New Device`, anda akan dialihkan pada modal yang terdapat form, disitu anda perlu mengisi form seperti berikut:
+Masuklah ke halaman `Device`, untuk mengetahui perangkat apa saja yang telah terdaftar. Apabila belumn ada perangkat, tambahkan dengan tombol "+ Add New Device",
+Anda akan diminta untuk mengisi kolom berikut:
 
--   Device Name: nama untuk device yang anda gunakan
--   Device Short Name: nama singkat dari device anda, untuk keperluan identifikasi, nama tersebut bersifat unik berlaku untuk semua pengguna dan hanya bisa di klaim sekali
+-   Device Name: nama untuk perangkat yang anda gunakan.
+-   Device Short Name: nama singkat perangkat anda, untuk keperluan identifikasi. Nama tersebut bersifat unik, berlaku untuk semua pengguna dan hanya dapat di klaim sekali.
     Pada bagian sensor anda juga dapat, menambah sensor berdasarkan kebutuhan dengan menekan tombol `+` yang terdapat pada bawah sensor, begitu pula untuk menghapusnya anda dapat menekan tombol `x` yang sejajar dengan sensor yang akan dihapus.
--   Sensor Name : nama satu sensor yang anda gunakan, untuk keperluan identifikasi, perlu diingat bahwa setiap sensor dalam sebuah device harus memiliki nama sensor yang berbeda-beda.
--   Sensor Type: tipe sensor yang digunakan
--   Sensor Unit: unit dari sensor yang digunakan
+-   Sensor Name : nama sensor yang digunakan, untuk keperluan identifikasi. Nama tersebut bersifat unik,
+    ini berarti bahwa setiap sensor dalam satu perangkat harus memiliki nama yang berbeda.
+-   Sensor Type: tipe sensor yang akan digunakan.
+-   Sensor Unit: unit dari sensor yang akan digunakan.
 
 Setelah membuat device, anda akan mendapatkan informasi tentang sensor short name beserta token yang akan digunakan untuk identifikasi perangkat.
 
 ## Menghubungkan dengan embedded device
 
-Untuk membaut koneksi pertama kita memerlukan koneksi internet. Anda dapat menggunakan beberapa library untuk wifi atau koneksi lainnya. Disini saya akan mengambil contoh menggunakan Esp32
+Untuk mengirim data, perlu adanya koneksi internet. Gunakan beberapa library untuk terhubung melalui koneksi Wi-Fi atau koneksi lainnya. Pada tutorial ini, penulis mencontohkan dengan menggunakan Esp32.
 
-Untuk mengirim data pada platform IoT cukup hanya dengan menggunakan https request, perbedaannya dengan http adalah http menggunakan port 80 sedangkan https menggunakan port 443 dan memerlukan certificate authority untuk setiap permintaan yang dikirim.
+Untuk mengirim data pada platform IoT gunakan hanya HTTPS request. Perbedaan mendasar antara HTTP dengan HTTPS ialah port yang digunakan. HTTP menggunakan port 80, sedangkan HTTPS menggunakan port 443. Perbedaan lainnya, HTTPS memerlukan certificate authority untuk setiap permintaan yang dikirim.
 
-Pertama kita memerlukan koneksi internet, disini saya akan menggunakan library wifimanager dimana library tersebut kita tidak lagi menyimpan credential ssid dan password melalui coding, namun wifi manager akan membuat local server dimana kita dapat mengaksesnya melalui koneksi melalui hotspot yang disetup oleh wifi manager, untuk mengaksesnya kita dapat menggakses pada halaman web menggunakan ip 192.168.1.4, lalu memasukan credential wifi berupa ssid dan password, dan credentials tersebut akan disimpan ke dalam memory storage pada esp32.
+Pada tutorial ini, library wifimanager digunakan karena dengan library tersebut kita tidak perlu lagi menyimpan kredensial ssid dan kata sandi melalui program, namun wifi manager akan membuat server lokal yang dapat kita akses melalui koneksi hotspot yang telah diatur. Cara mengaksesnya adalah dengan cukup membuka laman https://192.168.1.4/, masukkan kredensial wifi berupa ssid dan kata sandi. Kredensial tersebut akan tersimpan dalam memory storage pada Esp32.
 
-Untuk library WifiManager kamu dapat, mendowloadnya pada github berikut, karena jika menggunakan library yang ada pada arduino, dia hanya akan support untuk esp tipe esp8266 saja
-https://github.com/tzapu/WiFiManager
+Library WifiManager bawaan Arduino hanya mendukung ESP tipe ESP8266. Untuk library WifiManager yang mendukung ESP32 seperti yang digunakan pada tutorial ini dapat diunduh pada repositori [berikut](https://github.com/tzapu/WiFiManager).
 
 Berikut contoh coding sederhana untuk melakukan setup wifimanager, untuk melakukan setup nama hotspot kita dapat melakukannya dengan menganti argument pada `wm.autoConnect`
 
