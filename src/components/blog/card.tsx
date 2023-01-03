@@ -24,7 +24,7 @@ export const Card = ({
             key={slug}
             className="col-span-full md:col-span-4 lg:col-span-4 rounded-md border border-gray-400"
         >
-            <div className="relative overflow-auto">
+            <div className="relative overflow-hidden rounded-t-md max-h-48">
                 <Link href={`/blog/${slug}`}>
                     <Image
                         loader={imageLoader}
@@ -32,9 +32,10 @@ export const Card = ({
                         alt="Person"
                         blurDataURL={blurDataURL}
                         placeholder="blur"
-                        height="200"
-                        width="450"
-                        className="object-cover cursor-pointer"
+                        height="800"
+                        width="1000"
+                        object-fit="cover"
+                        className="cursor-pointer max-w-full h-auto"
                     />
                 </Link>
             </div>
