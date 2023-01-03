@@ -135,7 +135,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
 
     return (
         <>
-            {data?.isActive ? (
+            {data.isActive ? (
                 <NotificationButton
                     ariaLabel="turn off Notification"
                     handleClick={handleUnsubscribeNotification}

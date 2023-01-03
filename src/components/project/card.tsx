@@ -32,7 +32,8 @@ export const Card = ({
                         placeholder="blur"
                         height="200"
                         width="450"
-                        className="object-cover relative cursor-pointer"
+                        object-fit="cover"
+                        className="cursor-pointer"
                     />
                 </Link>
             </div>
