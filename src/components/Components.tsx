@@ -39,8 +39,14 @@ const components = {
             </CopyToClipboard>
         )
     },
+    h1: ({ children }: any) => {
+        return <h2 className="text-xl text-red-50">{children}</h2>
+    },
     h2: ({ children }: any) => {
-        return <h2 className="text-xl">{children}</h2>
+        return <h2 className="text-lg text-red-500">{children}</h2>
+    },
+    h3: ({ children }: any) => {
+        return <h2 className="text-lg text-red-500">{children}</h2>
     },
     blockquote: ({ children }: any) => {
         return (
