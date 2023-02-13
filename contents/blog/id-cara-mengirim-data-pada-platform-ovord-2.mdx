@@ -33,7 +33,7 @@ Setelah membuat perangkat, anda akan mendapatkan informasi tentang sensor short 
 
 ## Terhubung dengan perangkat embedded.
 
-Untuk contoh dibawah kita akan menggunakan ESP32 sebagai contoh, dikarenakan ESP32 arduino melakukan abstraksi terhadap esp-idf, bisa saja beberapa library seperti contohnya untuk koneksi https tidak berfungsi, dikarenakan secara teknis ESP32 berbeda dengan arduino, contoh dibawah bisa saja tidak bekerja untuk perangkat selain ESP32 seperti ESP8666 dan beberapa produk arduino.
+> Untuk contoh dibawah kita akan menggunakan ESP32 sebagai contoh, dikarenakan ESP32 arduino melakukan abstraksi terhadap esp-idf, bisa saja beberapa library seperti contohnya untuk koneksi https tidak berfungsi, dikarenakan secara teknis ESP32 berbeda dengan arduino, contoh dibawah bisa saja tidak bekerja untuk perangkat selain ESP32 seperti ESP8666 dan beberapa produk arduino.
 
 Untuk mengirim data pada perangkat ESP32, perlu adanya koneksi internet terlebih dahulu, untuk itu kita memerlukan library untuk mengkonfigurasikan perangkat ESP32 dengan jaringan internet menggunakan wifi yang tertanam pada ESP32, disini kita menggunakan library WifiManager, seperti yang tertulis dokumentasi resminy pada [github](https://github.com/tzapu/WiFiManager), library ini mampu bekerja pada perangkat tipe ESP8266 dan ESP32. Cara kerja dari WifiManager adalah dengan menyiapkan web server yang akan dipakai untuk memasukan credential melalui Access Point Wifi, dan credential akan langsung disimpan pada penyimpanan perangkat embedded.
 
