@@ -1,6 +1,7 @@
 import React from 'react'
 import { pre } from './Pre'
 import { CopyToClipboard } from './CopyClipboard'
+import Link from 'next/link'
 
 interface Components {
     children?: React.ReactNode
@@ -40,19 +41,31 @@ const components = {
         )
     },
     h1: ({ children }: any) => {
-        return <h2 className="text-xl text-red-50">{children}</h2>
+        return <h2 className="text-xl">{children}</h2>
     },
     h2: ({ children }: any) => {
-        return <h2 className="text-lg text-red-500">{children}</h2>
+        return <h2 className="text-lg">{children}</h2>
     },
     h3: ({ children }: any) => {
-        return <h2 className="text-lg text-red-500">{children}</h2>
+        return <h2 className="text-lg">{children}</h2>
     },
     blockquote: ({ children }: any) => {
         return (
-            <div className="px-4 border-l-4 border-l-red-500 bg-opacity-10 bg-red-500 text-red-500 font-bold">
+            <div className="px-4 border-l-4 border-l-red-500 font-bold italic">
                 {children}
             </div>
+        )
+    },
+    a: ({ children, href }: any) => {
+        return (
+            <Link
+                className="text-bold underline-offset-4"
+                rel="noopener noreferrer"
+                target="_blank"
+                href={href}
+            >
+                {children}
+            </Link>
         )
     },
 }
