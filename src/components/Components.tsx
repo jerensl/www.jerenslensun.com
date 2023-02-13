@@ -51,20 +51,20 @@ const components = {
     },
     blockquote: ({ children }: any) => {
         return (
-            <div className="px-4 border-l-4 border-l-red-500 font-bold italic font-semibold">
+            <div className="px-4 border-l-4 border-l-red-500 font-bold italic">
                 {children}
             </div>
         )
     },
-    a: (props: { children?: React.ReactNode; href: string }) => {
+    a: ({ children, href }: any) => {
         return (
             <Link
                 className="text-bold underline-offset-4"
                 rel="noopener noreferrer"
                 target="_blank"
-                href={props.href}
+                href={href}
             >
-                {props.children}
+                {children}
             </Link>
         )
     },
