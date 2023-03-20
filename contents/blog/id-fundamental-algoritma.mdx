@@ -1,83 +1,112 @@
 ---
 title: 'Fundamental Algoritma: Dasar Penting dalam Dunia Pengembangan Aplikasi'
-date: '2021-11-22'
+date: '2023-03-20'
 cover: speed.jpg
 isPublished: true
 description: Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull
 tags: ['algoritma']
 ---
 
-Algoritma (Computer Science) merupakan serangkaian instruksi yang dibuat untuk menyelesaikan berbagai macam permasalahan melalui komputer.
-Algoritma juga dibuat untuk membangun intuisi terhadap effisiensi dan efektivitas terhadap sebuah code yang kita tulis, bisa saja kita menggunakan intuisi awal tanpa mempelajari beragam algoritma terlebih dahulu, namun itu hanya akan membuat kita sampai pada solusi bruteforce, dimana masalah akan lebih cepat selesai namun menjadi tidak efektif dan effisien, biasanya metode bruteforce hanya dilakukan pada tahap awal ketika menyelesaikan masalah dengan algoritma dari situ kita bisa melakukan iterasi sampai mendapatkan solusi yang lebih baik.
+Bayangkan ketika kita akan membandingkan sebuah seberapa cepat seorang pembalap dengan kecepatan antara mode transportasi yang berbeda seperti mobil, motor dan lain lain tentu saja definisi cepat pada masing-masing transportasi akan berbeda, meskipun mereka sama-sama dikategorikan sebagai transportasi, begitupun halnya dengan algoritma yang dijalankan pada berbagai macam operating system dan perangkat keras yang berbeda-beda akan menghasilkan kecepatan yang berbeda pula. Pertanyaan selanjutnya adalah bagaimana cara kita dalam mengukur sebuah algoritma dengan berbagai macam variasi sistem, jika kita mengukurnya menggunakan kecepatan waktu nyata, sebuah algoritma akan sangat bergantung dengan sistem yang digunakan.
 
-Ada 2 tolak ukur penting untuk mengetahui seberapa baik sebuah algoritma :
+Dalam ilmu komputer, ada banyak cara untuk menyelesaikan suatu masalah dengan algoritma yang berbeda. Oleh karena itu, kita perlu menggunakan metode untuk membandingkan solusi agar bisa menilai mana yang lebih optimal. Metode tersebut harus memenuhi beberapa kriteria:
 
-1. Efektifitas
+-   Independen dari mesin dan konfigurasinya, di mana algoritma dijalankan.
+-   Menunjukkan korelasi langsung dengan jumlah input.
+-   Dapat membedakan dua algoritma dengan jelas tanpa ambiguitas.
 
-    Dengan menggunakan struktur data atau pola yang tepat dan memperhitungkan edge case kita dapat membuat algoritma yang efektif.
+Untuk mengukur effisiensi dan efektifitas sebuah algoritma ada 2 cara yang kita gunakan, yaitu:
 
-2. Effisiensi
+1. Time Complexity (Waktu)
+2. Space Complexity (Penyimpanan)
 
-    Dengan memperhitungkan Time Complexity dan Space Complexity kita dapat mengetahui seberapa effisien algoritma yang telah kita terapkan.
+Pada umumnya kita lebih memprioritaskan waktu dibandingkan penyimpanan yang digunakan karena faktor biaya namun pada beberapa kasus kita juga perlu memaksimalkan keduanya.
 
-### Growth Rate
+## Fungsi Pertumbuhan
 
-Growth Rate merupakan fungsi yang digunakan sebagai sumber daya yang dipakai oleh algoritma ketika nilai input menjadi sangat besar bisa dalam bentuk waktu (Time Complexity) ataupun ruang (Space Complexity). Untuk selanjutnya kita akan mengambil Time Complexity sebagai contoh
+![Growth Rate Function](https://ik.imagekit.io/jerensl/growth-rate.png 'Growth Rate Function')
 
-1. Constant - (1)
+Pada gambar di atas kita bisa melihat hubungan antara bertambahnya nilai input dan kecepatan pada sebuah algoritma, selanjutnya kita akan membahas fungsi growth rate yang akan kita gunakan dan akan menggunakan gambar di atas sebagai referensi.
 
-    Algoritma dikatakan konstan dimana bertambahnya nilai input tidak mempengaruhi waktu jalannya program. Contohnya mencari nilai berdasarkan index pada array memerlukan kecepatan 5ms tentu saja tidak peduli input dari array bertambah dari 1 ke 1000 tidak ada perbandingan kecepatan yang signifikan dikarenakan kita langsung mencarinya menggunakan index
+-   Konstan O(1): Fungsi ini tidak bergantung pada ukuran input dan selalu memiliki jumlah operasi yang konstan. Contoh: mengakses elemen pertama dari sebuah array atau mengakses nilai dari hash table.
+-   Logaritma O(log n): Fungsi ini tumbuh secara logaritmik seiring dengan bertambahnya nilai n. Artinya, fungsi ini akan tumbuh lebih lambat daripada fungsi linear. Contoh: melakukan pencarian biner (binary search) pada sebuah array terurut.
+-   Linear O(n): Fungsi ini tumbuh secara linear seiring dengan bertambahnya nilai n. Artinya, fungsi ini akan tumbuh sebanding dengan ukuran input. Contoh: melakukan pencarian linear (linear search) pada sebuah array.
+-   Linear dan Logaritma O(n log n): Fungsi ini merupakan hasil perkalian antara fungsi linear dan fungsi logaritmik. Fungsi ini akan tumbuh lebih cepat daripada fungsi linear tetapi lebih lambat daripada fungsi kuadratik. Contoh: melakukan pengurutan (sorting) menggunakan metode merge sort atau quick sort.
+-   Kuadratik O(n^2): Fungsi ini tumbuh secara kuadratik seiring dengan bertambahnya nilai n. Artinya, fungsi ini akan tumbuh sangat cepat dan menjadi tidak efisien untuk input yang besar. Contoh: melakukan pengurutan (sorting) menggunakan metode bubble sort atau selection sort.
+-   O(2^n): Fungsi ini merupakan hasil pemangkatan antara konstan 2 dan variabel n. Fungsi ini akan tumbuh sangat cepat dan menjadi tidak praktis untuk input yang besar. Contoh: menghitung semua kemungkinan kombinasi dari sebuah himpunan (subset).
+-   Faktorial O(n!): Fungsi ini merupakan hasil faktorial dari variabel n. Fungsi ini akan tumbuh sangat cepat dan menjadi tidak mungkin untuk input yang besar. Contoh: menghitung semua kemungkinan urutan dari sebuah himpunan (permutation).
 
-2. Logarithmic – (log n)
-
-    Algoritma dikatakan logaritma ketika mengurangi ukuran dari input setiap langkah. Contoh ketika kita mencari angka 7 pada Array 1,2,3,4,5,6,7 dengan menggunakan binary search kita bisa membandingkan dengan pivot yang merupakan index di tengah yaitu 4 apabila lebih besar dari 4 kita hanya membandingkannya dengan angka yang ada diatasnya sehingga tidak perlu mencari lagi pada bilangan 1,2,3 dan seterusnya
-
-3. Linear - (n)
-
-    Algoritma dikatakan linear ketika seiring bertambahnya input kecepatannya pun bertambah secara linear. Contohnya dengan mencari nilai sebuah data dengan menggunakan loop ketika terdapat 10 input kecepatannya bisa 10 ms dan 100 input bisa menjadi 100 ms algoritma tersebut bisa dikatakan linear
-
-4. Exponential – (2^n)
-
-    Algoritma dikatan exponential ketika kecepatannya bertambah berkali lipat seiring dengan input bertambah. Contohnya dengan menggunakan operasi recursive untuk mencari nilai fibonaci ada banyak sekali duplikasi komputasi yang bakal digunakan
-
-### Asymtotic analysis
+## Asymtotic analysis
 
 Asymtotic analysis adalah metode untuk mengukur perilaku sebuah fungsi ketika nilai input n menjadi sangat besar(mendekati infinity). Operasinya dihitung menggunakan fungsi f(n) dimana n merupakan Time Complexity/Space Complexity Ada 3 tipe pembatas
 
-1.  Big-θ(Big-Theta) notation
+1. Big-θ(Big-Theta) notation
+   Sebuah algoritma dapat dikatakan Big-θ atau tight bound ketika bertambah secara Asymtotic sama persis dengan fungsi dari running time yang kita gunakan.
+   Secara definisi sebagai berikut:
+   $"T(n)$ is $Θ(f(n))"$ iff $T(n)$ is $O(f(n))$ AND $T(n)$ is $Ω(f(n))$
+   Waktu nyata $T(n)$ merupakan big theta jika Waktu nyata $T(n)$ adalah Big-O $O(f(n))$ dan Waktu nyata $T(n)$ adalah Big Omega $Ω(f(n))$
+   Keterangan :
 
-    Sebuah algoritma dapat dikatakan Big-θ atau tight bound ketika bertambah secara Asymtotic sama persis dengan fungsi dari running time yang kita gunakan.
+-   $T(n)$ merupakan waktu nyata kode dijalankan.
+-   iff merupakan singkatan dari if and only if.
+-   n merupakan ukuran dari input.
+-   $f(n)$ merupakan fungsi Growth Rate yang digunakan dimana n sebagai parameter input.
+-   $Θ(f(n))$ merupakan Asymtotic Bounding yang kita gunakan.
 
-    Secara definisi sebagai berikut:  
-    $"T(n)$ is $Θ(f(n))"$ iff $T(n)$ is $O(f(n))$ AND $T(n)$ is $Ω(f(n))$
+2. Big-O notation
+   Sebuah algoritma dapat dikatakan Big-0 atau upperbound ketika bertambah secara Asymtotic lebih besar atau sama dengan dengan fungsi dari running time yang kita gunakan.
+   Secara definisi sebagai berikut:
+   $"T(n)$ is $O(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) <= cf(n)$ for all $n >= n0$
 
-    Keterangan :
+3. Big-Ω(Big-Omega) notation
+   Sebuah algoritma dapat dikatakan Big-Ω atau lowerbound ketika bertambah secara Asymtotic kurang dari atau sama dengan dengan fungsi dari running time yang kita gunakan.
+   Secara definisi sebagai berikut:
+   $"T(n)$ is $Ω(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) >= cf(n)$ for all $n >= n0$
 
-    -   $T(n)$ merupakan running time.
-    -   n merupakan ukuran dari input.
-    -   $f(n)$ merupakan fungsi Growth Rate yang digunakan dimana n sebagai parameter input.
-    -   $Θ(f(n))$ merupakan Asymtotic Bounding yang kita gunakan.
+Dalam inteview biasanya kita akan memberikan estimasi time complexity dan space complexity dalam 3 kasus:
 
-2.  Big-O notation
+1. Worst case scenario (paling sering ditanya)
+2. Best case scenario (jarang)
+3. Average case scenario (jarang)
 
-    Sebuah algoritma dapat dikatakan Big-0 atau upperbound ketika bertambah secara Asymtotic lebih besar atau sama dengan dengan fungsi dari running time yang kita gunakan.
+Banyak sekali miskonsepsi yang menyebutkan bahwa batas atas (Big 0) merupakan skenario worst case, akan tetapi setiap skenario memiliki batas bawah (Ω) dan batas atas (O), namun kita dapat menyimpulkannya seperti ini:
 
-    Secara definisi sebagai berikut:  
-    $"T(n)$ is $O(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) <= cf(n)$ for all $n >= n0$
+1. Batas atas dari Worst case merupakan skenario terpuruk dari yang paling buruk yang akan terjadi.
+2. Batas bawah dari Best case merupakan skenario terbaik dari yang paling baik yang akan terjadi
 
-3.  Big-Ω(Big-Omega) notation
+## Studi Kasus
 
-    Sebuah algoritma dapat dikatakan Big-Ω atau lowerbound ketika bertambah secara Asymtotic kurang dari atau sama dengan dengan fungsi dari running time yang kita gunakan.
+Berikut kita akan melakukan analisa terhadap algoritma linear search, algoritma linear search bekerja dengan cara mencari sebuah nilai dengan melakukan iterasi terhadap array, jika nilai tersebut ditemukan maka akan dikembalikan nilai "True", jika tidak ditemukan maka akan dikembalikan nilai "False"
 
-    Secara definisi sebagai berikut:  
-    $"T(n)$ is $Ω(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) >= cf(n)$ for all $n >= n0$
+```go
+package main
 
-Ada 2 Tipe Case yang sering kita gunakan dalam mengolongkan algoritma dalam sebuah interview, yaitu:
+import "fmt"
 
-1. Worst Case
+func linearsearch(nums []int, find int) bool {
+	for _, item := range nums {
+		if item == find {
+			return true
+		}
+	}
+	return false
+}
 
-    Worst Case sendiri memiliki upperbound dan lowerbound namun upperbound dari Worst Case menjadi skenario paling lambat diantara Asymtotic Bounding lain.
+func main() {
+    items := []int{95,78,46,58,45,86,99,251,320}
+    result := linearsearch(items,58)
+    fmt.Println(result)
+}
+```
 
-2. Best Case
+Untuk menganalisa time complexity kita dapat melihat kita perlu memahami apa yang algoritma tersebut coba lakukan, bisa dilihat pada baris ke 6 disitu kita dapat mengetahui bahwa bahwa disitu terdapat iterasi terhadap nilai array `nums`, dimana pada line 7 terdapat pengecekan apakah nilai yang diiterasi melalui nilai `nums` yaitu `item` sama dengan nilai `find`. Pada saat melakukan iterasi terhadap num, asumsikan nilai yang dicari `find` berada pada index pertama pada nilai `nums`, berarti time complexity merupakan Konstan O(1) karena kita tidak perlu melakukan iterasi berulang kali, sedangkan asumsikan jika nilai `find` yang berada pada indeks terakhir, otomatis dengan bertambahnya ukuran dari array nilai `nums`, maka waktunya akan bertambah secara Linear Ω(n),
 
-    Best Case juga memiliki upperbound dan lowerbound namun lowerbound dari Best Case menjadi skenario paling cepat diantara Asymtotic Bounding lain.
+Sedangkan untuk Space complexity kita perlu melihat apakah selain nums apakah ada nilai yang menyimpan nilai lain secara sementara(auxiliary space) karena tidak ada, kita hanya perlu untuk menghitung ruang yang digunakan nilai `nums` yaitu Linear O(n) dan nilai `find` yaitu konstan O(1) oleh karena itu space complexity tersebut bersifat linear O(n)
+
+Time Complexity:
+
+-   Worst Case: O(n)
+-   Average Case: O(n)
+-   Best Case: O(1)
+
+Space Complexity: O(n)

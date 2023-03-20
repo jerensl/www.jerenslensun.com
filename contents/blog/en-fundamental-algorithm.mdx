@@ -1,0 +1,36 @@
+---
+title: 'Algorithm Fundamentals: The Essential Basis for Application Development'
+date: '2021-11-22'
+cover: speed.jpg
+isPublished: false
+description: Algorithm (Computer Science) is a series of instructions that are created to solve various kinds of problems through computers.
+tags: ['Algorhtm']
+---
+
+Algorithm (Computer Science) is a series of instructions that are created to solve various kinds of problems through computers. Algorithms are also made to build intuition towards efficiency and effectiveness of a code that we write. We can use our initial intuition without learning various algorithms first, but that will only lead us to a brute force solution, where the problem will be solved faster but become ineffective and inefficient. Usually, brute force methods are only done at the initial stage when solving problems with algorithms. From there we can iterate until we get a better solution.
+
+There are two important measures to know how good an algorithm is:
+
+-   Effectiveness: By using the right data structure or pattern and considering edge cases, we can create an effective algorithm.
+-   Efficiency: By considering Time Complexity and Space Complexity, we can know how efficient the algorithm that we have applied is.
+
+## Growth Rate
+
+Growth Rate is a function that is used as a resource used by algorithms when the input value becomes very large. It can be in the form of time (Time Complexity) or space (Space Complexity). For next, we will take Time Complexity as an example.
+
+-   Constant - (1): An algorithm is said to be constant where increasing input value does not affect the running time of the program. For example, finding a value based on an index in an array takes 5ms speed. Of course it doesn't matter if the input from the array increases from 1 to 1000. There is no significant speed comparison because we directly look for it using index.
+-   Logarithmic - (log n): An algorithm is said to be logarithmic when it reduces the size of input every step. For example, when we look for number 7 in Array 1,2,3,4,5,6,7 using binary search we can compare it with pivot which is index in middle which is 4 if bigger than 4 we only compare it with numbers above it so no need to look again at numbers 1 ,2 ,3 and so on
+-   Linear - (n): An algorithm is said to be linear when as input increases its speed also increases linearly. For example by looking for value of data using loop when there are 10 inputs its speed can be 10 ms and 100 inputs can be 100 ms then algorithm can be said linear
+-   Exponential - (2^n): An algorithm is said exponential when its speed increases exponentially as input increases. For example by using recursive operations to find fibonaci values there are lots of duplicate computations that will be used
+
+## Asymptotic Analysis
+
+Asymptotic analysis is a method for measuring behavior of function when input value n becomes very large (approaching infinity). Operations are calculated using function f(n) where n represents Time Complexity/Space Complexity.
+
+There are three types of boundaries:
+
+-   Big O Notation: This notation represents upper bound or worst case scenario for growth rate function f(n).
+-   Big Omega Notation: This notation represents lower bound or best case scenario for growth rate function f(n).
+-   Big Theta Notation: This notation represents tight bound or average case scenario for growth rate function f(n).
+
+By understanding these concepts well you will have more intuition about how efficient your code runs especially if you work on large-scale applications where performance matters greatly.
