@@ -6,6 +6,13 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[Fundamental Algoritma: Dasar Penting dalam Dunia Pengembangan Aplikasi]]></title>
+      <description><![CDATA[Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull]]></description>
+      <link>https://www.jerenslensun.com/blog/id-fundamental-algoritma</link>
+      <guid>https://www.jerenslensun.com/blog/id-fundamental-algoritma</guid>
+      <pubDate>2023-03-20</pubDate>
+    </item>
+<item>
       <title><![CDATA[Cara mengirim data pada platform Ovord 2]]></title>
       <description><![CDATA[Tutorial mengirim data dari perangkat embedded ke aplikasi platform monitoring Ovord 2]]></description>
       <link>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
@@ -60,13 +67,6 @@
       <link>https://www.jerenslensun.com/blog/id-algoritma-binary-search</link>
       <guid>https://www.jerenslensun.com/blog/id-algoritma-binary-search</guid>
       <pubDate>2021-12-21</pubDate>
-    </item>
-<item>
-      <title><![CDATA[Fundamental Algoritma: Dasar Penting dalam Dunia Pengembangan Aplikasi]]></title>
-      <description><![CDATA[Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull]]></description>
-      <link>https://www.jerenslensun.com/blog/id-fundamental-algoritma</link>
-      <guid>https://www.jerenslensun.com/blog/id-fundamental-algoritma</guid>
-      <pubDate>2021-11-22</pubDate>
     </item>
       </channel>
     </rss>
