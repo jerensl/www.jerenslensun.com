@@ -2,35 +2,107 @@
 title: 'Algorithm Fundamentals: The Essential Basis for Application Development'
 date: '2021-11-22'
 cover: speed.jpg
-isPublished: false
+isPublished: true
 description: Algorithm (Computer Science) is a series of instructions that are created to solve various kinds of problems through computers.
 tags: ['Algorhtm']
 ---
 
-Algorithm (Computer Science) is a series of instructions that are created to solve various kinds of problems through computers. Algorithms are also made to build intuition towards efficiency and effectiveness of a code that we write. We can use our initial intuition without learning various algorithms first, but that will only lead us to a brute force solution, where the problem will be solved faster but become ineffective and inefficient. Usually, brute force methods are only done at the initial stage when solving problems with algorithms. From there we can iterate until we get a better solution.
+Imagine when we compare how fast a racer is at speed between different modes of transportation such as cars, motorbikes and so on, of course the definition of fast for each transportation will be different, even though they are both categorized as transportation. This is same as well as the algorithm used to run on various operating systems and different hardware will result in different speeds. The next question is how do we measure an algorithm with various variations of the system, if we measure it using real time speed, an algorithm will depend heavily on the system used.
 
-There are two important measures to know how good an algorithm is:
+In computer science, there are many ways to solve a problem with different algorithms. Therefore, we need to use methods to compare solutions in order to judge which one is more optimal. The method must meet several criteria:
 
--   Effectiveness: By using the right data structure or pattern and considering edge cases, we can create an effective algorithm.
--   Efficiency: By considering Time Complexity and Space Complexity, we can know how efficient the algorithm that we have applied is.
+-   Independent of the machine and its configuration, on which the algorithm is executed.
+-   Shows a direct correlation with the number of inputs.
+-   Can clearly distinguish between two algorithms without ambiguity.
 
-## Growth Rate
+To measure the efficiency and effectiveness of an algorithm there are 2 ways that we use, namely:
 
-Growth Rate is a function that is used as a resource used by algorithms when the input value becomes very large. It can be in the form of time (Time Complexity) or space (Space Complexity). For next, we will take Time Complexity as an example.
+1. Time Complexity (Time)
+2. Space Complexity (Storage)
 
--   Constant - (1): An algorithm is said to be constant where increasing input value does not affect the running time of the program. For example, finding a value based on an index in an array takes 5ms speed. Of course it doesn't matter if the input from the array increases from 1 to 1000. There is no significant speed comparison because we directly look for it using index.
--   Logarithmic - (log n): An algorithm is said to be logarithmic when it reduces the size of input every step. For example, when we look for number 7 in Array 1,2,3,4,5,6,7 using binary search we can compare it with pivot which is index in middle which is 4 if bigger than 4 we only compare it with numbers above it so no need to look again at numbers 1 ,2 ,3 and so on
--   Linear - (n): An algorithm is said to be linear when as input increases its speed also increases linearly. For example by looking for value of data using loop when there are 10 inputs its speed can be 10 ms and 100 inputs can be 100 ms then algorithm can be said linear
--   Exponential - (2^n): An algorithm is said exponential when its speed increases exponentially as input increases. For example by using recursive operations to find fibonaci values there are lots of duplicate computations that will be used
+In general, we prioritize time over storage use because of the cost factor, but in some cases we also need to maximize both.
 
-## Asymptotic Analysis
+## Growth Function
 
-Asymptotic analysis is a method for measuring behavior of function when input value n becomes very large (approaching infinity). Operations are calculated using function f(n) where n represents Time Complexity/Space Complexity.
+![Growth Rate Function](https://ik.imagekit.io/jerensl/growth-rate.png 'Growth Rate Function')
 
-There are three types of boundaries:
+In the image above we can see the relationship between increasing the input value and the speed of an algorithm, then we will discuss the growth rate function that we will use and will use the image above as a reference.
 
--   Big O Notation: This notation represents upper bound or worst case scenario for growth rate function f(n).
--   Big Omega Notation: This notation represents lower bound or best case scenario for growth rate function f(n).
--   Big Theta Notation: This notation represents tight bound or average case scenario for growth rate function f(n).
+-   Constant O(1): This function is independent of input size and always has a constant number of operations. Example: accessing the first element of an array or accessing the value of a hash table.
+-   O(log n) logarithm: This function grows logarithmically as n increases. That is, this function will grow more slowly than a linear function. Example: performing a binary search on a sorted array.
+-   Linear O(n): This function grows linearly as n increases. That is, this function will grow in proportion to the size of the input. Example: performing a linear search on an array.
+-   Linear and Logarithmic O(n log n): This function is the product of a linear function and a logarithmic function. This function will grow faster than a linear function but slower than a quadratic function. For example: sorting using the merge sort or quick sort method.
+-   Quadratic O(n^2): This function grows quadratic as n increases. That is, this function will grow very fast and become inefficient for large inputs. For example: sorting using the bubble sort or selection sort method.
+-   O(2^n): This function is the result of exponents between constant 2 and variable n. This function will grow very quickly and become impractical for large inputs. Example: calculating all possible combinations of a set (subset).
+-   Factorial O(n!): This function is the product of the factorial of variable n. This function will grow very quickly and become impossible for large inputs. Example: calculating all possible sequences of a set (permutation).
 
-By understanding these concepts well you will have more intuition about how efficient your code runs especially if you work on large-scale applications where performance matters greatly.
+## Asymptotic analysis
+
+Asymtotic analysis is a method for measuring the behavior of a function when the input value n becomes very large (close to infinity). The operation is calculated using the function f(n) where n is the Time Complexity/Space Complexity There are 3 types of constraints.
+
+1. Big-θ(Big-Theta) notation An algorithm can be said to be Big-θ or tight bound when it increases asymptotically exactly the same as the function of the running time that we use.  
+   By definition:
+   $"T(n)$ is $Θ(f(n))"$ iff $T(n)$ is $O(f(n))$ AND $T(n)$ is $Ω(f(n))$
+   Description:
+
+    - $T(n)$ represents the real time the code is run.
+    - iff stands for if and only if.
+    - n is the size of the input.
+    - $f(n)$ is the Growth Rate function used where n is the input parameter.
+    - $Θ(f(n))$ is the Asymtotic Bounding we use.
+
+2. Big-O notation An algorithm can be said to be Big-0 or upperbound when the asymptotic increase is greater than or equal to the function of the running time that we use.
+   By definition:
+   $"T(n)$ is $O(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) <= cf(n)$ for all $n >= n0$
+
+3. Big-Ω(Big-Omega) notation An algorithm can be said to be Big-Ω or lowerbound when it increases asymptotically less than or equal to the function of the running time that we use.
+   By definition:
+   $"T(n)$ is $Ω(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) >= cf(n)$ for all $n >= n0$
+
+In the interview we will usually provide estimates of time complexity and space complexity in 3 cases:
+
+1. Worst case scenario (most frequently asked)
+2. Best case scenario (rare)
+3. Average case scenario (rare)
+
+There are lots of misconceptions that say that the upper limit (Big 0) is the worst case scenario, but each scenario has a lower limit (Ω) and an upper limit (O), but we can conclude it like this:
+
+1. The upper limit of the Worst case is the worse case scenario than the worst that will happen.
+2. The lower bound of the best case is the best of the best scenarios that will happen
+
+## Case study
+
+Next we will analyze the linear search algorithm, the linear search algorithm works by searching for a value by iterating over the array, if the value is found it will return the value "True", if not found it will return the value "False"
+
+```go showlinenumbers theme=orange
+package main
+
+import "fmt"
+
+func linearsearch(nums []int, find int) bool {
+	for _, item := range nums {
+		if item == find {
+			return true
+		}
+	}
+	return false
+}
+
+func main() {
+    items := []int{95,78,46,58,45,86,99,251,320}
+    result := linearsearch(items,58)
+    fmt.Println(result)
+}
+```
+
+To analyze time complexity, you need to understand how the algorithm work, you can see through line 6 there are iterations over values of `nums` whereas in line 7 there is a check whether the iterated value is the same as the variable `find`. When iterating over `nums`, assume the value you are looking for variable `find` at the first index on array`nums`, meaning that time complexity is constant O(1) because we don't need to do the iteration, whereas assuming the value `find` is at the last index, it will automatically increase as size variable`nums` increase, then the time will increase Linearly Ω(n),
+
+As for Space complexity, we need to see whether besides `nums`, are there any variable ​​that stores other values ​​temporarily(auxiliary space) because there isn't any, we only need to calculate the space used to store the variable `nums` which is a Linear O(n) and constant values for storing the variable `find` constant O(1 ) therefore the space complexity is linear O(n)
+
+Time Complexity:
+
+-   Worst Case: O(n)
+-   Average Case: O(n)
+-   Best Case: O(1)
+
+Space Complexity: O(n)

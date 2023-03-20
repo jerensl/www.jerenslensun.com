@@ -41,11 +41,11 @@ Pada gambar di atas kita bisa melihat hubungan antara bertambahnya nilai input d
 Asymtotic analysis adalah metode untuk mengukur perilaku sebuah fungsi ketika nilai input n menjadi sangat besar(mendekati infinity). Operasinya dihitung menggunakan fungsi f(n) dimana n merupakan Time Complexity/Space Complexity Ada 3 tipe pembatas
 
 1. Big-θ(Big-Theta) notation
-   Sebuah algoritma dapat dikatakan Big-θ atau tight bound ketika bertambah secara Asymtotic sama persis dengan fungsi dari running time yang kita gunakan.
-   Secara definisi sebagai berikut:
-   $"T(n)$ is $Θ(f(n))"$ iff $T(n)$ is $O(f(n))$ AND $T(n)$ is $Ω(f(n))$
-   Waktu nyata $T(n)$ merupakan big theta jika Waktu nyata $T(n)$ adalah Big-O $O(f(n))$ dan Waktu nyata $T(n)$ adalah Big Omega $Ω(f(n))$
-   Keterangan :
+   Sebuah algoritma dapat dikatakan Big-θ atau tight bound ketika bertambah secara Asymtotic sama persis dengan fungsi dari running time yang kita gunakan.  
+   Secara definisi sebagai berikut:  
+   $"T(n)$ is $Θ(f(n))"$ iff $T(n)$ is $O(f(n))$ AND $T(n)$ is $Ω(f(n))$  
+   Waktu nyata $T(n)$ merupakan big theta jika Waktu nyata $T(n)$ adalah Big-O $O(f(n))$ dan Waktu nyata $T(n)$ adalah Big Omega $Ω(f(n))$  
+    Keterangan :
 
 -   $T(n)$ merupakan waktu nyata kode dijalankan.
 -   iff merupakan singkatan dari if and only if.
@@ -54,14 +54,14 @@ Asymtotic analysis adalah metode untuk mengukur perilaku sebuah fungsi ketika ni
 -   $Θ(f(n))$ merupakan Asymtotic Bounding yang kita gunakan.
 
 2. Big-O notation
-   Sebuah algoritma dapat dikatakan Big-0 atau upperbound ketika bertambah secara Asymtotic lebih besar atau sama dengan dengan fungsi dari running time yang kita gunakan.
-   Secara definisi sebagai berikut:
-   $"T(n)$ is $O(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) <= cf(n)$ for all $n >= n0$
+   Sebuah algoritma dapat dikatakan Big-0 atau upperbound ketika bertambah secara Asymtotic lebih besar atau sama dengan dengan fungsi dari running time yang kita gunakan.  
+   Secara definisi sebagai berikut:  
+    $"T(n)$ is $O(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) <= cf(n)$ for all $n >= n0$
 
 3. Big-Ω(Big-Omega) notation
-   Sebuah algoritma dapat dikatakan Big-Ω atau lowerbound ketika bertambah secara Asymtotic kurang dari atau sama dengan dengan fungsi dari running time yang kita gunakan.
-   Secara definisi sebagai berikut:
-   $"T(n)$ is $Ω(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) >= cf(n)$ for all $n >= n0$
+   Sebuah algoritma dapat dikatakan Big-Ω atau lowerbound ketika bertambah secara Asymtotic kurang dari atau sama dengan dengan fungsi dari running time yang kita gunakan.  
+   Secara definisi sebagai berikut:  
+    $"T(n)$ is $Ω(f(n))"$ iff for some constant $c$ and $n_{0}$ $T(n) >= cf(n)$ for all $n >= n0$
 
 Dalam inteview biasanya kita akan memberikan estimasi time complexity dan space complexity dalam 3 kasus:
 
@@ -78,7 +78,7 @@ Banyak sekali miskonsepsi yang menyebutkan bahwa batas atas (Big 0) merupakan sk
 
 Berikut kita akan melakukan analisa terhadap algoritma linear search, algoritma linear search bekerja dengan cara mencari sebuah nilai dengan melakukan iterasi terhadap array, jika nilai tersebut ditemukan maka akan dikembalikan nilai "True", jika tidak ditemukan maka akan dikembalikan nilai "False"
 
-```go
+```go showlinenumbers theme=orange
 package main
 
 import "fmt"
