@@ -31,7 +31,7 @@
         "@tanstack/react-query": "^4.28.0",
         "clsx": "^1.2.0",
         "date-fns": "^2.29.3",
-        "esbuild": "^0.15.15",
+        "esbuild": "^0.17.15",
         "firebase": "^9.18.0",
         "framer-motion": "^6.4.1",
         "gray-matter": "^4.0.3",
