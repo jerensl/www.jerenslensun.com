@@ -29,7 +29,7 @@ export const Content = ({
                 path={frontmatter.title}
                 title={frontmatter.title}
                 description={frontmatter.description}
-                image={`https://ik.imagekit.io/jerensl/${frontmatter.cover}`}
+                image={`https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${frontmatter.cover}`}
             />
             <Grid as="header" className="pt-24 gap-3">
                 <h1 className="text-center text-3xl font-bold col-span-full">

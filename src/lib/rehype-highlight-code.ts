@@ -10,14 +10,14 @@ import type * as unified from 'unified'
 
 function rehypeHighlightCode(options = {}): unified.Plugin {
     const visitor: Visitor<hast.Element, hast.Element> = (
-        node: any,
+        node: hast.Element,
         index,
         parentNode
     ) => {
         if (parentNode?.tagName === 'pre' && node.tagName === 'code') {
             // syntax highlight
-            const lang = node.properties.className
-                ? node.properties.className[0].split('-')[1]
+            const lang = node.properties?.className
+                ? (node.properties.className as string[])[0].split('-')[1]
                 : 'md'
 
             const registeredLanguages = refractor.listLanguages()
