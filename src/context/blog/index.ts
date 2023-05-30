@@ -18,7 +18,7 @@ export interface Metadata {
     cover: string
     fileName?: string
     tags: string[]
-    blurDataURL: string
+    blurDataURL?: string
     readTime?: IReadTimeResults
 }
 
@@ -64,7 +64,7 @@ export default class Blog extends Content {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
                 const { data, content } = matter(source)
                 const { base64 } = await getPlaiceholder(
-                    `https://ik.imagekit.io/jerensl/${data.cover}`,
+                    `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
                     { size: 10 }
                 )
 
@@ -81,7 +81,7 @@ export default class Blog extends Content {
                         tags: data.tags,
                         readTime: readTime,
                         slug: fileName,
-                        blurDataURL: base64,
+                        blurDataURL: base64 ?? null,
                     }
                 }
             })
@@ -140,7 +140,7 @@ export default class Blog extends Content {
         })
 
         const { base64 } = await getPlaiceholder(
-            `https://ik.imagekit.io/jerensl/${frontmatter.cover}`,
+            `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${frontmatter.cover}`,
             { size: 10 }
         )
 
