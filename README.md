@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/gh/jerensl/www.jerenslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerenslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/integration.yml/badge.svg) ![Continuous Deployment](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml/badge.svg)
 
-A portfolio web app to share knowledge around a topic of software development and lesson learned from a side project.
+A portfolio web app to share topic i'm interested and project i'm working on.
 
 ## Getting Started
 
