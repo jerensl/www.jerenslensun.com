@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from '../../../__mocks__/utils/test-providers'
 import Blog from '../../../src/pages/blog/[slug]'
-import BlogContext from '../../../src/context/blog/index'
+import BlogContext from '../../../src/lib/blog/index'
 
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())
