@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from '../../../__mocks__/utils/test-providers'
 import Project from '../../../src/pages/project/[slug]'
-import ProjectContext from '../../../src/context/project/index'
+import ProjectContext from '../../../src/lib/project/index'
 
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())

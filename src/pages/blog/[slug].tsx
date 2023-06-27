@@ -6,7 +6,7 @@ import {
 } from 'next'
 import { Footer } from '../../components/Footer'
 import { Article } from '../../components/blog/content'
-import BlogContext from '../../context/blog/index'
+import BlogContext from '../../lib/blog/index'
 import { ArticleSeo } from '../../components/Seo'
 
 export const getStaticPaths: GetStaticPaths = async () => {

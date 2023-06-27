@@ -1,6 +1,6 @@
 import React from 'react'
-import { Metadata } from '../../context/blog'
-import { filterPosts } from '../../context/Search'
+import { Metadata } from '../../lib/blog'
+import { filterPosts } from '../../lib/search'
 import Tag from '../Tag'
 import { Card } from './card'
 import { Grid } from '../Grid'

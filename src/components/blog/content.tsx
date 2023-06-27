@@ -3,7 +3,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image from 'next/image'
 import { components } from '../Components'
 import { format } from 'date-fns'
-import { Metadata } from '../../context/blog'
+import { Metadata } from '../../lib/blog'
 import { imageLoader } from '../../lib/images'
 
 interface ArticleProps {

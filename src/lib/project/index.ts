@@ -1,100 +1,87 @@
+import { getPlaiceholder } from 'plaiceholder'
 import path from 'path'
 import matter from 'gray-matter'
-import timeToRead, { IReadTimeResults } from 'reading-time'
 import { bundleMDX } from 'mdx-bundler'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import rehypeHighlightCode from '../../lib/rehype-highlight-code'
-import rehypeMetaAttribute from '../../lib/rehype-meta-attribute'
-import Content from '../content'
-import { getPlaiceholder } from 'plaiceholder'
+import rehypeHighlightCode from '../rehype-highlight-code'
+import rehypeMetaAttribute from '../rehype-meta-attribute'
+import Content from '../../utils/content'
 
-export interface Metadata {
+export interface ProjectMetadata {
     title: string
-    date: string
-    isPublished: boolean
+    status: string
+    programming_languange: string[]
+    cover: string
     description: string
     slug?: string
-    cover: string
-    fileName?: string
-    tags: string[]
-    blurDataURL?: string
-    readTime?: IReadTimeResults
+    isPublished: string
+    fileName: string
+    blurDataURL: string
+    repo_url?: string
 }
 
-export default class Blog extends Content {
-    private tags: Array<string> = []
+export default class Project extends Content {
+    private lang: string[] = []
     constructor(directory: string) {
         super()
         this.directory = directory
     }
 
-    private sortByDate(
-        content: Array<Metadata | void>
-    ): Array<Metadata | void> {
-        return content.sort(
-            (a: any, b: any) => Date.parse(b.date) - Date.parse(a.date)
-        )
-    }
-
-    private getAllTags(contents: Array<Metadata | void>) {
-        const tags = new Set<string>()
-        for (const post of contents) {
-            for (const tag of post?.tags ?? []) {
-                tags.add(tag)
-            }
-        }
-
-        this.tags = Array.from(tags)
-    }
-
-    get getTags(): string[] {
-        return this.tags
-    }
-
-    get allArticle(): string[] {
-        return this.getAllFile()
-    }
-
-    async getAllPublishArticle(): Promise<Array<Metadata | void>> {
+    async getAllPublishedProject() {
         const files = this.getAllFile()
 
-        const allMetadata = await Promise.all<Metadata | void>(
+        const allMetadata = await Promise.all<ProjectMetadata | void>(
             files.map(async (fileName) => {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
-                const { data, content } = matter(source)
+                const { data } = matter(source)
                 const { base64 } = await getPlaiceholder(
                     `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
                     { size: 10 }
                 )
 
-                const readTime = timeToRead(content)
-
                 if (data.isPublished) {
                     return {
                         title: data.title,
-                        date: data.date,
+                        status: data.status,
                         isPublished: data.isPublished,
-                        description: data.description,
                         cover: data.cover,
+                        description: data.description,
                         fileName: fileName,
-                        tags: data.tags,
-                        readTime: readTime,
+                        programming_languange: data.programming_languange,
                         slug: fileName,
-                        blurDataURL: base64 ?? null,
+                        repo_url: data.repo_url,
+                        blurDataURL: base64,
                     }
                 }
             })
         )
 
-        this.getAllTags(allMetadata)
+        this.getAllProgrammingLanguange(allMetadata)
 
-        const allContent = this.sortByDate(allMetadata.filter((data) => data))
-
-        return allContent
+        return allMetadata.filter((data) => data)
     }
 
-    async getArticleWithMetadata(fileName: string | string[] | undefined) {
+    getAllProgrammingLanguange(lang: Array<ProjectMetadata | void>) {
+        const tags = new Set<string>()
+        for (const post of lang) {
+            for (const tag of post?.programming_languange ?? []) {
+                tags.add(tag)
+            }
+        }
+
+        this.lang = Array.from(tags)
+    }
+
+    get getLangs(): string[] {
+        return this.lang
+    }
+
+    get allProject(): string[] {
+        return this.getAllFile()
+    }
+
+    async getProjectDetail(fileName: string | string[] | undefined) {
         const file = `${fileName}.mdx`
 
         const source = this.getFileContentByName(file)

@@ -1,5 +1,5 @@
 import format from 'date-fns/format'
-import BlogContext from '../context/blog/index'
+import BlogContext from './blog/index'
 import fs from 'fs'
 
 export async function getRssXml() {
