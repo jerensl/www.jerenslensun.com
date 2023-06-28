@@ -6,7 +6,7 @@ export async function getRssXml() {
     const post = new BlogContext('contents/blog')
     const frontmatters = await post.getAllPublishArticle()
 
-    const blogUrl = 'https://www.jerenslensun.com/blog'
+    const blogUrl = 'https://www.jerensl.com/blog'
 
     const itemXml = frontmatters.map(
         ({ slug, title, description, date }: any) =>
