@@ -1,78 +1,78 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:blogChannel="https://www.jerenslensun.com/blog">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:blogChannel="https://www.jerensl.com/blog">
       <channel>
         <title>Jerens Lensun Blog</title>
-        <link>https://www.jerenslensun.com/blog</link>
+        <link>https://www.jerensl.com/blog</link>
         <description>Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.</description>
         <language>en</language>
         <ttl>40</ttl>
         <item>
       <title><![CDATA[Fundamental Algoritma: Dasar Penting dalam Dunia Pengembangan Aplikasi]]></title>
       <description><![CDATA[Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull]]></description>
-      <link>https://www.jerenslensun.com/blog/id-fundamental-algoritma</link>
-      <guid>https://www.jerenslensun.com/blog/id-fundamental-algoritma</guid>
+      <link>https://www.jerensl.com/blog/id-fundamental-algoritma</link>
+      <guid>https://www.jerensl.com/blog/id-fundamental-algoritma</guid>
       <pubDate>2023-03-20</pubDate>
     </item>
 <item>
       <title><![CDATA[Cara mengirim data pada platform Ovord 2]]></title>
       <description><![CDATA[Tutorial mengirim data dari perangkat embedded ke aplikasi platform monitoring Ovord 2]]></description>
-      <link>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
-      <guid>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</guid>
+      <link>https://www.jerensl.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
+      <guid>https://www.jerensl.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</guid>
       <pubDate>2022-12-29</pubDate>
     </item>
 <item>
       <title><![CDATA[Implementasi Algoritma Sorting di Golang untuk Mengoptimalkan Pengurutan Data]]></title>
       <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-sorting-algoritma</link>
-      <guid>https://www.jerenslensun.com/blog/id-sorting-algoritma</guid>
+      <link>https://www.jerensl.com/blog/id-sorting-algoritma</link>
+      <guid>https://www.jerensl.com/blog/id-sorting-algoritma</guid>
       <pubDate>2022-08-10</pubDate>
     </item>
 <item>
       <title><![CDATA[Build a Load Balancer from a scratch with Golang]]></title>
       <description><![CDATA[A load balancer is a process of distributing incoming traffic across multiple targets.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-load-balancer-golang</link>
-      <guid>https://www.jerenslensun.com/blog/en-load-balancer-golang</guid>
+      <link>https://www.jerensl.com/blog/en-load-balancer-golang</link>
+      <guid>https://www.jerensl.com/blog/en-load-balancer-golang</guid>
       <pubDate>2022-07-08</pubDate>
     </item>
 <item>
       <title><![CDATA[Creating Reverse Proxy with Golang]]></title>
       <description><![CDATA[A reverse proxy is the application that sits in front of back-end applications and forwards client (e.g. browser) requests to those applications.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-reverse-proxy-golang</link>
-      <guid>https://www.jerenslensun.com/blog/en-reverse-proxy-golang</guid>
+      <link>https://www.jerensl.com/blog/en-reverse-proxy-golang</link>
+      <guid>https://www.jerensl.com/blog/en-reverse-proxy-golang</guid>
       <pubDate>2022-06-14</pubDate>
     </item>
 <item>
       <title><![CDATA[Implementasi Struktur Data Heap di Golang untuk Mengoptimalkan Pengelolaan Data]]></title>
       <description><![CDATA[Binary Heap merupakan struktur data complete tree biasa direpresentasikan dalam bentuk array, dimana bisa min heap atau max heap.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-struktur-data-heap</link>
-      <guid>https://www.jerenslensun.com/blog/id-struktur-data-heap</guid>
+      <link>https://www.jerensl.com/blog/id-struktur-data-heap</link>
+      <guid>https://www.jerensl.com/blog/id-struktur-data-heap</guid>
       <pubDate>2022-01-17</pubDate>
     </item>
 <item>
       <title><![CDATA[Implementasi Golang I/O Standard Library untuk Mengelola Data Input dan Output]]></title>
       <description><![CDATA[Mengolah data penyimpanan external pada golang membutuhkan cara tertentu, apalagi dengan data berukuran besar, kita tidak bisa langsung menginisialiasi data langsung ke dalam variable.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-go-standard-io</link>
-      <guid>https://www.jerenslensun.com/blog/id-go-standard-io</guid>
+      <link>https://www.jerensl.com/blog/id-go-standard-io</link>
+      <guid>https://www.jerensl.com/blog/id-go-standard-io</guid>
       <pubDate>2022-01-07</pubDate>
     </item>
 <item>
       <title><![CDATA[Self Reflection 2021]]></title>
       <description><![CDATA[Self Reflection 2021 merupakan refleksi saya di tahun ini.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-self-reflection-2021</link>
-      <guid>https://www.jerenslensun.com/blog/id-self-reflection-2021</guid>
+      <link>https://www.jerensl.com/blog/id-self-reflection-2021</link>
+      <guid>https://www.jerensl.com/blog/id-self-reflection-2021</guid>
       <pubDate>2021-12-25</pubDate>
     </item>
 <item>
       <title><![CDATA[Implementasi Algoritma Binary Search di Golang untuk Mengoptimalkan Pencarian Data]]></title>
       <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-algoritma-binary-search</link>
-      <guid>https://www.jerenslensun.com/blog/id-algoritma-binary-search</guid>
+      <link>https://www.jerensl.com/blog/id-algoritma-binary-search</link>
+      <guid>https://www.jerensl.com/blog/id-algoritma-binary-search</guid>
       <pubDate>2021-12-21</pubDate>
     </item>
 <item>
       <title><![CDATA[Algorithm Fundamentals: The Essential Basis for Application Development]]></title>
       <description><![CDATA[Algorithm (Computer Science) is a series of instructions that are created to solve various kinds of problems through computers.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-fundamental-algorithm</link>
-      <guid>https://www.jerenslensun.com/blog/en-fundamental-algorithm</guid>
+      <link>https://www.jerensl.com/blog/en-fundamental-algorithm</link>
+      <guid>https://www.jerensl.com/blog/en-fundamental-algorithm</guid>
       <pubDate>2021-11-22</pubDate>
     </item>
       </channel>

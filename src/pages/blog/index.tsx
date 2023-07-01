@@ -1,5 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import BlogContext from '../../lib/blog/index'
+import BlogContext from '../../libs/blog/index'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/blog/layout'
