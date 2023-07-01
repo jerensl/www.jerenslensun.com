@@ -1,4 +1,4 @@
-import { ProjectMetadata } from '../../lib/project'
+import { ProjectMetadata } from '../../libs/project'
 import { Grid } from '../Grid'
 import { Card } from './card'
 

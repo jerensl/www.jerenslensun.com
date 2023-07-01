@@ -3,7 +3,7 @@ import Image, { ImageLoader } from 'next/image'
 import { LinkURL } from './LinkURL'
 import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
-import { imageLoader } from '../lib/images'
+import { imageLoader } from '../libs/images'
 
 export const Header = ({
     blurDataURL,
