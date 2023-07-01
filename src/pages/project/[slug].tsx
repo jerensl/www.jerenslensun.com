@@ -6,7 +6,7 @@ import {
 } from 'next'
 import { Footer } from '../../components/Footer'
 import { Content } from '../../components/project/content'
-import ProjectContext from '../../lib/project/index'
+import ProjectContext from '../../libs/project/index'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const project = new ProjectContext('contents/project')

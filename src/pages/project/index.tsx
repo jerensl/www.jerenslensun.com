@@ -1,5 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import ProjectContext from '../../lib/project/index'
+import ProjectContext from '../../libs/project/index'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/project/layout'

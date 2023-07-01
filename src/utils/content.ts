@@ -32,3 +32,26 @@ export default class Content {
         return readFileDirectory
     }
 }
+
+const getAllFile = (dir: string): string[] => {
+    const fileDirectory = path.join(process.cwd(), dir)
+    if (!fs.existsSync(fileDirectory)) {
+        throw new Error('You are using the empty directory')
+    }
+
+    const readFolderDirectory = fs.readdirSync(fileDirectory)
+
+    return readFolderDirectory.map((file) => file.replace(/\.mdx/, ''))
+}
+
+const getFileByName = (dir: string, fileName: string): string => {
+    const sourceFile = path.join(process.cwd(), dir, fileName)
+
+    if (!fs.existsSync(sourceFile)) {
+        throw new Error('File cannot be found')
+    }
+
+    const readFileDirectory = fs.readFileSync(sourceFile, 'utf8')
+
+    return readFileDirectory
+}

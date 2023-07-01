@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ProjectMetadata } from '../../lib/project'
-import { imageLoader } from '../../lib/images'
+import { ProjectMetadata } from '../../libs/project'
+import { imageLoader } from '../../libs/images'
 
 export const Card = ({
     title,

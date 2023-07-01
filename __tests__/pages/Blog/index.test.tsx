@@ -4,7 +4,7 @@
 import React from 'react'
 import { render, within } from '../../../__mocks__/utils/test-providers'
 import Blog from '../../../src/pages/blog/index'
-import BlogContext from '../../../src/lib/blog/index'
+import BlogContext from '../../../src/libs/blog/index'
 
 jest.mock('firebase/messaging', () => jest.fn())
 jest.mock('firebase/app', () => jest.fn())

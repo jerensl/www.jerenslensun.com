@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Metadata } from '../../lib/blog'
+import { Metadata } from '../../libs/blog'
 import { format } from 'date-fns'
-import { imageLoader } from '../../lib/images'
+import { imageLoader } from '../../libs/images'
 
 export const Card = ({
     cover,
