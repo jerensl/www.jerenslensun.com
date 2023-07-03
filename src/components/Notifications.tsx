@@ -5,7 +5,7 @@ import {
     onMessage,
     getToken,
 } from 'firebase/messaging'
-import { firebaseApp } from '../libs/firebase'
+import { firebaseApp } from '../constant/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faBellSlash,
@@ -21,7 +21,7 @@ import {
 } from '../features/notification/index'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
-import { imageLoader } from '../libs/images'
+import { imageLoader } from '../constant/images'
 
 interface NotifiationsProps {
     initStatus?: boolean

@@ -7,19 +7,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypeHighlightCode from '../rehype-highlight-code'
 import rehypeMetaAttribute from '../rehype-meta-attribute'
 import Content from '../../utils/content'
-
-export interface ProjectMetadata {
-    title: string
-    status: string
-    programming_languange: string[]
-    cover: string
-    description: string
-    slug?: string
-    isPublished: string
-    fileName: string
-    blurDataURL: string
-    repo_url?: string
-}
+import type { IProjectMetadata } from '../../types/project'
 
 export default class Project extends Content {
     private lang: string[] = []
@@ -31,7 +19,7 @@ export default class Project extends Content {
     async getAllPublishedProject() {
         const files = this.getAllFile()
 
-        const allMetadata = await Promise.all<ProjectMetadata | void>(
+        const allMetadata = await Promise.all<IProjectMetadata | void>(
             files.map(async (fileName) => {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
                 const { data } = matter(source)
@@ -62,7 +50,7 @@ export default class Project extends Content {
         return allMetadata.filter((data) => data)
     }
 
-    getAllProgrammingLanguange(lang: Array<ProjectMetadata | void>) {
+    getAllProgrammingLanguange(lang: Array<IProjectMetadata | void>) {
         const tags = new Set<string>()
         for (const post of lang) {
             for (const tag of post?.programming_languange ?? []) {

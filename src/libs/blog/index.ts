@@ -1,6 +1,6 @@
 import path from 'path'
 import matter from 'gray-matter'
-import timeToRead, { IReadTimeResults } from 'reading-time'
+import timeToRead from 'reading-time'
 import { bundleMDX } from 'mdx-bundler'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -8,19 +8,7 @@ import rehypeHighlightCode from '../rehype-highlight-code'
 import rehypeMetaAttribute from '../rehype-meta-attribute'
 import Content from '../../utils/content'
 import { getPlaiceholder } from 'plaiceholder'
-
-export interface Metadata {
-    title: string
-    date: string
-    isPublished: boolean
-    description: string
-    slug?: string
-    cover: string
-    fileName?: string
-    tags: string[]
-    blurDataURL?: string
-    readTime?: IReadTimeResults
-}
+import type { IBlogMetadata } from '../../types/blog'
 
 export default class Blog extends Content {
     private tags: Array<string> = []
@@ -30,14 +18,14 @@ export default class Blog extends Content {
     }
 
     private sortByDate(
-        content: Array<Metadata | void>
-    ): Array<Metadata | void> {
+        content: Array<IBlogMetadata | void>
+    ): Array<IBlogMetadata | void> {
         return content.sort(
             (a: any, b: any) => Date.parse(b.date) - Date.parse(a.date)
         )
     }
 
-    private getAllTags(contents: Array<Metadata | void>) {
+    private getAllTags(contents: Array<IBlogMetadata | void>) {
         const tags = new Set<string>()
         for (const post of contents) {
             for (const tag of post?.tags ?? []) {
@@ -56,10 +44,10 @@ export default class Blog extends Content {
         return this.getAllFile()
     }
 
-    async getAllPublishArticle(): Promise<Array<Metadata | void>> {
+    async getAllPublishArticle(): Promise<Array<IBlogMetadata | void>> {
         const files = this.getAllFile()
 
-        const allMetadata = await Promise.all<Metadata | void>(
+        const allMetadata = await Promise.all<IBlogMetadata | void>(
             files.map(async (fileName) => {
                 const source = this.getFileContentByName(`${fileName}.mdx`)
                 const { data, content } = matter(source)
