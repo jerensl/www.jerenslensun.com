@@ -1,9 +1,9 @@
 import { render, waitFor, within } from '../../__mocks__/utils/test-providers'
 import userEvent from '@testing-library/user-event'
 import { Layout } from '../../src/components/blog/layout'
-import { Metadata } from '../../src/libs/blog'
+import { IBlogMetadata } from '../../src/types/blog'
 
-const posts: Metadata[] = [
+const posts: IBlogMetadata[] = [
     {
         title: 'Test First Article',
         date: '01-02-2021',
