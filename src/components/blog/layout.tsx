@@ -1,15 +1,15 @@
 import React from 'react'
-import { Metadata } from '../../libs/blog'
 import { filterPosts } from '../../libs/search'
 import Tag from '../Tag'
 import { Card } from './card'
 import { Grid } from '../Grid'
+import { IBlogMetadata } from '../../types/blog'
 
 export const Layout = ({
     posts,
     tags,
 }: {
-    posts: Metadata[]
+    posts: IBlogMetadata[]
     tags: string[]
 }): React.ReactElement => {
     const [query, setQuery] = React.useState<string>('')

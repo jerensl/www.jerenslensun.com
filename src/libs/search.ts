@@ -1,7 +1,7 @@
-import { Metadata } from './blog'
+import { IBlogMetadata } from '../types/blog'
 import { matchSorter, rankings } from 'match-sorter'
 
-export function filterPosts(posts: Array<Metadata>, search: string) {
+export function filterPosts(posts: Array<IBlogMetadata>, search: string) {
     if (!search) return posts
 
     const options = {

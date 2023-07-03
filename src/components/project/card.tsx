@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ProjectMetadata } from '../../libs/project'
-import { imageLoader } from '../../libs/images'
+import { imageLoader } from '../../constant/images'
+import type { IProjectMetadata } from '../../types/project'
 
 export const Card = ({
     title,
@@ -11,7 +11,7 @@ export const Card = ({
     slug,
     blurDataURL,
     description,
-}: ProjectMetadata): React.ReactElement => {
+}: IProjectMetadata): React.ReactElement => {
     const captializeTitle = title
         .split(' ')
         .map((w) => w.substring(0, 1).toUpperCase() + w.substring(1))

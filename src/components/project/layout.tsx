@@ -1,11 +1,11 @@
-import { ProjectMetadata } from '../../libs/project'
 import { Grid } from '../Grid'
 import { Card } from './card'
+import type { IProjectMetadata } from '../../types/project'
 
 export const Layout = ({
     project,
 }: {
-    project: ProjectMetadata[]
+    project: IProjectMetadata[]
 }): React.ReactElement => {
     return (
         <Grid as="section" rowGap>

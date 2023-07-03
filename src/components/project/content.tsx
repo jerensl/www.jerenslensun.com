@@ -3,15 +3,15 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image from 'next/image'
 import { ArticleSeo } from '../Seo'
 import { components } from '../Components'
-import { ProjectMetadata } from '../../libs/project'
 import Link from 'next/link'
 import { Grid } from '../Grid'
-import { imageLoader } from '../../libs/images'
+import { imageLoader } from '../../constant/images'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import type { IProjectMetadata } from '../../types/project'
 
 interface ArticleProps {
-    frontmatter: ProjectMetadata
+    frontmatter: IProjectMetadata
     code: string
     blurDataURL: string
 }

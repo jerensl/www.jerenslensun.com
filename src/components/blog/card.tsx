@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Metadata } from '../../libs/blog'
 import { format } from 'date-fns'
-import { imageLoader } from '../../libs/images'
+import { imageLoader } from '../../constant/images'
+import type { IBlogMetadata } from '../../types/blog'
 
 export const Card = ({
     cover,
@@ -13,7 +13,7 @@ export const Card = ({
     blurDataURL,
     tags,
     readTime,
-}: Metadata): React.ReactElement => {
+}: IBlogMetadata): React.ReactElement => {
     const captializeTitle = title
         .split(' ')
         .map((w) => w.substring(0, 1).toUpperCase() + w.substring(1))

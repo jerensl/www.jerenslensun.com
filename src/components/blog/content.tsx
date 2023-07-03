@@ -3,11 +3,11 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import Image from 'next/image'
 import { components } from '../Components'
 import { format } from 'date-fns'
-import { Metadata } from '../../libs/blog'
-import { imageLoader } from '../../libs/images'
+import { imageLoader } from '../../constant/images'
+import type { IBlogMetadata } from '../../types/blog'
 
 interface ArticleProps {
-    frontmatter: Metadata
+    frontmatter: IBlogMetadata
     code: string
     blurDataURL: string
 }
