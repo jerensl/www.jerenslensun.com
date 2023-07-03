@@ -14,10 +14,10 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
-            - name: Setup Node.js 18.x
+            - name: Setup Node.js 16.x
               uses: actions/setup-node@v2
               with:
-                  node-version: '18.x'
+                  node-version: '16.x'
             - name: Install locked dependencies
               run: yarn install --frozen-lockfile
             - name: Cache dependencies
@@ -39,10 +39,10 @@ jobs:
               with:
                   path: '.'
                   key: ${{ github.sha }}
-            - name: Setup Node.js 18.x
+            - name: Setup Node.js 16.x
               uses: actions/setup-node@v2
               with:
-                  node-version: '18.x'
+                  node-version: '16.x'
             - name: Lint files
               run: yarn run lint
               env:
@@ -60,10 +60,10 @@ jobs:
               with:
                   path: '.'
                   key: ${{ github.sha }}
-            - name: Setup Node.js 18.x
+            - name: Setup Node.js 16.x
               uses: actions/setup-node@v2
               with:
-                  node-version: '18.x'
+                  node-version: '16.x'
             - name: Perform type checking
               run: yarn run type-check
               env:
@@ -80,10 +80,10 @@ jobs:
               with:
                   path: '.'
                   key: ${{ github.sha }}
-            - name: Setup Node.js 18.x
+            - name: Setup Node.js 16.x
               uses: actions/setup-node@v2
               with:
-                  node-version: '18.x'
+                  node-version: '16.x'
             - name: Check Code Coverage
               run: yarn run test:coverage
             - name: Upload code coverage reports to Codecov
@@ -100,10 +100,10 @@ jobs:
               with:
                   path: '.'
                   key: ${{ github.sha }}
-            - name: Setup Node.js 18.x
+            - name: Setup Node.js 16.x
               uses: actions/setup-node@v1
               with:
-                  node-version: '18.x'
+                  node-version: '16.x'
             - name: Install Cypress
               run: yarn add cypress
             - name: Build dependencies
