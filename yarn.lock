@@ -16215,18 +16215,26 @@ workbox-core@6.5.4:
   resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-6.5.4.tgz#df48bf44cd58bb1d1726c49b883fb1dffa24c9ba"
   integrity sha512-OXYb+m9wZm8GrORlV2vBbE5EC1FKu71GGp0H4rjmxmF4/HLbMCoTFws87M3dFwgpmg0v00K++PImpNQ6J5NQ6Q==
 
-workbox-core@^6.6.0:
+workbox-core@6.6.1, workbox-core@^6.6.0:
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-6.6.1.tgz#7184776d4134c5ed2f086878c882728fc9084265"
   integrity sha512-ZrGBXjjaJLqzVothoE12qTbVnOAjFrHDXpZe7coCb6q65qI/59rDLwuFMO4PcZ7jcbxY+0+NhUVztzR/CbjEFw==
 
-workbox-expiration@6.5.4, workbox-expiration@^6.5.4:
+workbox-expiration@6.5.4:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/workbox-expiration/-/workbox-expiration-6.5.4.tgz#501056f81e87e1d296c76570bb483ce5e29b4539"
   integrity sha512-jUP5qPOpH1nXtjGGh1fRBa1wJL2QlIb5mGpct3NzepjGG2uFFBn4iiEBiI9GUmfAFR2ApuRhDydjcRmYXddiEQ==
   dependencies:
     idb "^7.0.1"
     workbox-core "6.5.4"
+
+workbox-expiration@^6.6.0:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/workbox-expiration/-/workbox-expiration-6.6.1.tgz#a841fa36676104426dbfb9da1ef6a630b4f93739"
+  integrity sha512-qFiNeeINndiOxaCrd2DeL1Xh1RFug3JonzjxUHc5WkvkD2u5abY3gZL1xSUNt3vZKsFFGGORItSjVTVnWAZO4A==
+  dependencies:
+    idb "^7.0.1"
+    workbox-core "6.6.1"
 
 workbox-google-analytics@6.5.4:
   version "6.5.4"
