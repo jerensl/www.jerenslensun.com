@@ -8,6 +8,8 @@ import rehypeMetaAttribute from './rehype-meta-attribute'
 import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IProjectMetadata } from '@/types/project'
+import { IContent } from '@/types/content'
+import { IBlogMetadata } from '@/types/blog'
 
 export const getFiles = (dir: string): string[] => {
     const fileDirectory = path.join(process.cwd(), 'contents', dir)
@@ -82,33 +84,28 @@ export const getContentByName = async (type: string, slug: string) => {
     }
 }
 
-export const getContents = async (directory: string) => {
+async function getContents<T>(directory: string): Promise<Array<T>> {
     const files = getFiles(directory)
 
-    const contents = await Promise.all<IProjectMetadata | void>(
-        files.map(async (fileName) => {
-            const source = getFileByName(directory, `${fileName}.mdx`)
-            const { data } = matter(source)
-            const { base64 } = await getPlaiceholder(
-                `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
-                { size: 10 }
-            )
+    const contents = await Promise.all<any | void>(
+        files
+            .map(async (fileName) => {
+                const source = getFileByName(directory, `${fileName}.mdx`)
+                const { data } = matter(source)
+                const { base64 } = await getPlaiceholder(
+                    `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
+                    { size: 10 }
+                )
 
-            if (data.isPublished) {
                 return {
-                    title: data.title,
-                    status: data.status,
-                    isPublished: data.isPublished,
-                    cover: data.cover,
-                    description: data.description,
-                    fileName: fileName,
-                    programming_languange: data.programming_languange,
+                    ...data,
                     slug: fileName,
-                    repo_url: data.repo_url,
                     blurDataURL: base64,
-                }
-            }
-        })
+                } as IProjectMetadata | IBlogMetadata
+            })
+            .filter(async (data) => {
+                return (await data).isPublished === true
+            })
     )
 
     return contents
@@ -177,3 +174,16 @@ export const getContent = async (
         },
     }
 }
+
+function getTags(contents: Array<IBlogMetadata>) {
+    const tags = new Set<string>()
+    for (const post of contents) {
+        for (const tag of post?.tags ?? []) {
+            tags.add(tag)
+        }
+    }
+
+    return Array.from(tags)
+}
+
+export { getTags, getContents }

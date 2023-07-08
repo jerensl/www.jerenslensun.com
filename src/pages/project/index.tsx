@@ -3,9 +3,10 @@ import { getContents } from '../../libs/content'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/project/layout'
+import { IProjectMetadata } from '@/types/project'
 
 export const getStaticProps: GetStaticProps = async () => {
-    const projects = await getContents('project')
+    const projects = await getContents<IProjectMetadata>('project')
 
     return {
         props: { projects },

@@ -6,12 +6,11 @@ import {
 } from 'next'
 import { Footer } from '../../components/Footer'
 import { Article } from '../../components/blog/content'
-import BlogContext from '../../libs/blog/index'
 import { ArticleSeo } from '../../components/Seo'
+import { getContent, getFiles } from '@/libs/content'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const post = new BlogContext('contents/blog')
-    const posts = post.allArticle
+    const posts = getFiles('blog')
 
     return {
         paths: posts.map((fileName) => ({
@@ -26,8 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
-    const post = new BlogContext('contents/blog')
-    const posts = await post.getArticleWithMetadata(context.params?.slug)
+    const posts = await getContent('blog', context.params?.slug)
 
     return {
         props: { posts, blurDataURL: posts.metadata.blurDataURL },
