@@ -8,7 +8,6 @@ import rehypeMetaAttribute from './rehype-meta-attribute'
 import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IProjectMetadata } from '@/types/project'
-import { IContent } from '@/types/content'
 import { IBlogMetadata } from '@/types/blog'
 
 export const getFiles = (dir: string): string[] => {
@@ -107,6 +106,9 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
                 return (await data).isPublished === true
             })
     )
+
+    console.log('HELOOOOOOO')
+    console.log(contents)
 
     return contents
 }

@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from '../../../__mocks__/utils/test-providers'
 import Project from '../../../src/pages/project/[slug]'
-import ProjectContext from '../../../src/libs/project/index'
+import { getContent } from '../../../src/libs/content'
 
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())
@@ -48,8 +48,7 @@ useRouter.mockImplementation(() => ({
 }))
 
 const renderBlogSlug = async () => {
-    const project = new ProjectContext('__mocks__/contents/project')
-    const projects = await project.getProjectDetail('test-project')
+    const projects = await getContent('mock/project', 'test-project')
 
     const utils = render(
         <Project
