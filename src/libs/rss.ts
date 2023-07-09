@@ -1,10 +1,9 @@
 import format from 'date-fns/format'
-import BlogContext from './blog/index'
 import fs from 'fs'
+import { getContents } from './content'
 
 export async function getRssXml() {
-    const post = new BlogContext('contents/blog')
-    const frontmatters = await post.getAllPublishArticle()
+    const frontmatters = await getContents('blog')
 
     const blogUrl = 'https://www.jerensl.com/blog'
 
