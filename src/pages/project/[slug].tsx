@@ -6,11 +6,10 @@ import {
 } from 'next'
 import { Footer } from '../../components/Footer'
 import { Content } from '../../components/project/content'
-import ProjectContext from '../../libs/project/index'
+import { getFiles, getContent } from '../../libs/content'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const project = new ProjectContext('contents/project')
-    const projects = project.allProject
+    const projects = getFiles('project')
 
     return {
         paths: projects.map((fileName) => ({
@@ -25,9 +24,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
-    const project = new ProjectContext('contents/project')
-    const projects = await project.getProjectDetail(context.params?.slug)
+    const projects = await getContent('project', context.params?.slug)
 
+    console.log(projects)
     return {
         props: { projects, blurDataURL: projects.metadata.blurDataURL },
     }

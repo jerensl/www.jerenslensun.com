@@ -1,22 +1,20 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import ProjectContext from '../../libs/project/index'
+import { getContents } from '../../libs/content'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/project/layout'
+import { IProjectMetadata } from '@/types/project'
 
 export const getStaticProps: GetStaticProps = async () => {
-    const project = new ProjectContext('contents/project')
-    const projects = await project.getAllPublishedProject()
-    const langs = project.getLangs
+    const projects = await getContents<IProjectMetadata>('project')
 
     return {
-        props: { projects, langs },
+        props: { projects },
     }
 }
 
 export default function Project({
     projects,
-    langs,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
         <>

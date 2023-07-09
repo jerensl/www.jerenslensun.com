@@ -1,16 +1,17 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import BlogContext from '../../libs/blog/index'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
 import { Layout } from '../../components/blog/layout'
+import { getContents, getTags } from '@/libs/content'
+import { IBlogMetadata } from '@/types/blog'
 
 export const getStaticProps: GetStaticProps = async () => {
-    const post = new BlogContext('contents/blog')
-    const posts = await post.getAllPublishArticle()
-    const tags = post.getTags
+    const posts = await getContents<IBlogMetadata>('blog')
+
+    const tags = getTags(posts)
 
     return {
-        props: { posts, tags },
+        props: { posts: posts, tags },
     }
 }
 

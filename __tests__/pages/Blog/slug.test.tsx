@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from '../../../__mocks__/utils/test-providers'
 import Blog from '../../../src/pages/blog/[slug]'
-import BlogContext from '../../../src/libs/blog/index'
+import { getContent } from '../../../src/libs/content'
 
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())
@@ -51,8 +51,7 @@ useRouter.mockImplementation(() => ({
 }))
 
 const renderBlogSlug = async () => {
-    const post = new BlogContext('__mocks__/contents/blog')
-    const posts = await post.getArticleWithMetadata('id-test-markdown')
+    const posts = await getContent('mock/blog', 'id-test-markdown')
 
     const utils = render(
         <Blog posts={posts} blurDataURL={posts.metadata.blurDataURL} />

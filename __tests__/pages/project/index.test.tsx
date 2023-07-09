@@ -4,7 +4,7 @@
 import React from 'react'
 import { render, within } from '../../../__mocks__/utils/test-providers'
 import Project from '../../../src/pages/project/index'
-import ProjectContext from '../../../src/libs/project/index'
+import { getContents } from '../../../src/libs/content'
 
 jest.mock('firebase/messaging', () => jest.fn())
 jest.mock('firebase/app', () => jest.fn())
@@ -33,8 +33,7 @@ useRouter.mockImplementation(() => ({
 }))
 
 const renderBlogSlug = async () => {
-    const project = new ProjectContext('__mocks__/contents/project')
-    const projects = await project.getAllPublishedProject()
+    const projects = await getContents('mock/project')
 
     const utils = render(<Project projects={projects} tags={['Testing 101']} />)
 
