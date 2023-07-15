@@ -1,8 +1,10 @@
 import { toHtml } from 'hast-util-to-html'
 import { unified } from 'unified'
 import parse from 'rehype-parse'
+import type { Element, RootContent } from 'hast'
+import type { RefractorRoot } from 'refractor'
 
-const lineNumberify = (ast: any, lineNum = 1) => {
+const lineNumberify = (ast: Array<RootContent>, lineNum = 1) => {
     let lineNumber = lineNum
     return ast.reduce(
         (result: any, node: any) => {
@@ -46,8 +48,15 @@ const lineNumberify = (ast: any, lineNum = 1) => {
     )
 }
 
-const wrapLines = (ast: any, linesToHighlight: any) => {
-    const allLines = Array.from(new Set(ast.map((x: any) => x.lineNumber)))
+export type ElementWithLineNumber = RootContent & { lineNumber: number }
+
+const wrapLines = (
+    ast: Array<ElementWithLineNumber>,
+    linesToHighlight: number[]
+): Array<Element> => {
+    const allLines = Array.from(
+        new Set(ast.map((x: ElementWithLineNumber) => x.lineNumber))
+    )
     let i = 0
     const wrapped = allLines.reduce((nodes: any, marker: any) => {
         const line = marker
@@ -91,7 +100,7 @@ const wrapLines = (ast: any, linesToHighlight: any) => {
 // https://github.com/gatsbyjs/gatsby/pull/26161/files
 const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g
 
-const applyMultilineFix = function (ast: any) {
+const applyMultilineFix = function (ast: RefractorRoot) {
     // AST to HTML
     let html = toHtml(ast)
 
@@ -101,14 +110,14 @@ const applyMultilineFix = function (ast: any) {
     )
 
     // HTML to AST
-    const hast: any = unified()
+    const hast = unified()
         .use(parse, { emitParseErrors: true, fragment: true })
         .parse(html)
 
     return hast.children
 }
 
-function highlightLine(ast: any, lines: any) {
+function highlightLine(ast: RefractorRoot, lines: number[]): Array<Element> {
     const formattedAst = applyMultilineFix(ast)
     const numbered = lineNumberify(formattedAst).nodes
 
