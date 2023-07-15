@@ -52,7 +52,7 @@
         "reading-time": "^1.5.0",
         "refractor": "^4.8.1",
         "rehype": "^12.0.1",
-        "rehype-katex": "^6.0.2",
+        "rehype-katex": "^6.0.3",
         "rehype-parse": "^8.0.4",
         "remark-math": "^5.1.1",
         "sharp": "^0.32.1",
