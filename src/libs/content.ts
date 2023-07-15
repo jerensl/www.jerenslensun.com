@@ -14,7 +14,7 @@ export const getFiles = (dir: string): string[] => {
     const fileDirectory = path.join(process.cwd(), 'contents', dir)
 
     if (!fs.existsSync(fileDirectory)) {
-        throw new Error('You are using the empty directory')
+        throw Error('You are using the empty directory')
     }
 
     const readFolderDirectory = fs.readdirSync(fileDirectory)
@@ -26,7 +26,7 @@ const getFileByName = (dir: string, fileName: string): string => {
     const sourceFile = path.join(process.cwd(), 'contents', dir, fileName)
 
     if (!fs.existsSync(sourceFile)) {
-        throw new Error('File cannot be found')
+        throw Error('File cannot be found')
     }
 
     const readFileDirectory = fs.readFileSync(sourceFile, 'utf8')
@@ -106,9 +106,6 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
                 return (await data).isPublished === true
             })
     )
-
-    console.log('HELOOOOOOO')
-    console.log(contents)
 
     return contents
 }
