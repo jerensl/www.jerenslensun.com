@@ -5,44 +5,47 @@ import { toString } from 'hast-util-to-string'
 import { refractor } from 'refractor'
 import highlightLine from './rehype-highlight-line'
 import highlightWord from './rehype-highlight-word'
-import type * as hast from 'hast'
-import type * as unified from 'unified'
+import type { Plugin } from 'unified'
+import type { Element } from 'hast'
 
-function rehypeHighlightCode(options = {}): unified.Plugin {
-    const visitor: Visitor<hast.Element, hast.Element> = (
-        node: hast.Element,
-        index,
-        parentNode
+function rehypeHighlightCode(options = {}): Plugin {
+    const visitor: Visitor<Element, Element> = (
+        node: Element,
+        _index,
+        parentNode: Element | null
     ) => {
         if (parentNode?.tagName === 'pre' && node.tagName === 'code') {
             // syntax highlight
             const lang = node.properties?.className
                 ? (node.properties.className as string[])[0].split('-')[1]
-                : 'md'
+                : 'go'
 
             const registeredLanguages = refractor.listLanguages()
             if (!registeredLanguages.includes(lang)) return
 
-            let result: any = refractor.highlight(toString(node), lang)
+            const result = refractor.highlight(toString(node), lang)
 
-            const range: any = node.properties?.line || '0'
+            const range = node.properties?.line || '0'
 
             // line highlight
-            const linesToHighlight = parseNumericRange(range)
-            result = highlightLine(result, linesToHighlight)
+            const linesToHighlight = parseNumericRange(range as string)
+            const currentHighlightLine = highlightLine(result, linesToHighlight)
 
             // word highlight
+            let highlightedWord
             const shouldIgnoreWordHighlight =
                 typeof node.properties?.ignoreWordHighlight !== 'undefined'
             if (!shouldIgnoreWordHighlight) {
-                result = highlightWord(result)
+                highlightedWord = highlightWord(currentHighlightLine)
             }
 
-            node.children = result
+            if (highlightedWord) {
+                node.children = highlightedWord
+            }
         }
     }
 
-    return (tree) => {
+    return (tree: Element) => {
         visit(tree, 'element', visitor)
     }
 }
