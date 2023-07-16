@@ -22,6 +22,11 @@ export const {
             turq: 'rgba(0, 245, 196, 1)',
             orange: 'rgb(255, 95, 0)',
             copy: 'rgba(170, 170, 175, 1)',
+            codeshade1: 'rgb(153, 184, 152)',
+            codeshade2: 'rgb(254, 206, 171)',
+            codeshade3: 'rgb(255, 132, 124)',
+            codeshade4: 'rgb(323, 74, 95)',
+            codeshade5: 'rgb(42, 54, 59)',
         },
         fonts: {
             sans: 'Inter, sans-serif',

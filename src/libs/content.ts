@@ -3,8 +3,8 @@ import path from 'path'
 import { bundleMDX } from 'mdx-bundler'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import rehypeHighlightCode from './rehype-highlight-code'
-import rehypeMetaAttribute from './rehype-meta-attribute'
+import rehypeHighlightCode from './mdx-plugins/rehype-highlight-code'
+import rehypeMetaAttribute from './mdx-plugins/rehype-meta-attribute'
 import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IProjectMetadata } from '@/types/project'
@@ -35,8 +35,8 @@ const getFileByName = (dir: string, fileName: string): string => {
 }
 
 export const getContentByName = async (type: string, slug: string) => {
-    const remarkPlugins: any = [remarkMath]
-    const rehypePlugins: any = [
+    const remarkPlugins = [remarkMath]
+    const rehypePlugins = [
         rehypeMetaAttribute,
         rehypeHighlightCode,
         rehypeKatex,
@@ -118,8 +118,8 @@ export const getContent = async (
 
     const source = getFileByName(directory, file)
 
-    const remarkPlugins: any = [remarkMath]
-    const rehypePlugins: any = [
+    const remarkPlugins = [remarkMath]
+    const rehypePlugins = [
         rehypeMetaAttribute,
         rehypeHighlightCode,
         rehypeKatex,
