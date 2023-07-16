@@ -1,5 +1,5 @@
 import React from 'react'
-import { pre } from './Pre'
+import { pre } from '../styles/code'
 import { CopyToClipboard } from './CopyClipboard'
 import Link from 'next/link'
 
