@@ -5,6 +5,7 @@ import { components } from '../Components'
 import { format } from 'date-fns'
 import { imageLoader } from '../../constant/images'
 import type { IBlogMetadata } from '../../types/blog'
+import { TOC } from '../../libs/mdx-plugins/rehype-toc'
 
 interface ArticleProps {
     frontmatter: IBlogMetadata

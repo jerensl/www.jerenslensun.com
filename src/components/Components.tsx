@@ -40,14 +40,12 @@ const components = {
             </CopyToClipboard>
         )
     },
-    h1: ({ children }: any) => {
-        return <h2 className="text-xl">{children}</h2>
-    },
-    h2: ({ children }: any) => {
-        return <h2 className="text-lg">{children}</h2>
-    },
-    h3: ({ children }: any) => {
-        return <h2 className="text-lg">{children}</h2>
+    h2: ({ children, id }: any) => {
+        return (
+            <h2 id={id} className="text-lg">
+                {children}
+            </h2>
+        )
     },
     blockquote: ({ children }: any) => {
         return (

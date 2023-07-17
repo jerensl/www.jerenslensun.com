@@ -5,6 +5,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeHighlightCode from './mdx-plugins/rehype-highlight-code'
 import rehypeMetaAttribute from './mdx-plugins/rehype-meta-attribute'
+import rehypeTOC from './mdx-plugins/rehype-toc'
 import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IProjectMetadata } from '@/types/project'
@@ -40,6 +41,7 @@ export const getContentByName = async (type: string, slug: string) => {
         rehypeMetaAttribute,
         rehypeHighlightCode,
         rehypeKatex,
+        rehypeTOC,
     ]
 
     const source = getFileByName(type, slug)
@@ -123,6 +125,7 @@ export const getContent = async (
         rehypeMetaAttribute,
         rehypeHighlightCode,
         rehypeKatex,
+        rehypeTOC,
     ]
 
     if (process.platform === 'win32') {
