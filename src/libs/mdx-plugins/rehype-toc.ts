@@ -7,7 +7,7 @@ function rehypeTOC(options = {}): Plugin {
     const visitor = (
         node: Element,
         _index: number | null,
-        _parentNode: Element | null
+        parentNode: Element | null
     ) => {
         if (['h2', 'h3', 'h4', 'h5'].includes(node.tagName)) {
             if (node.children[0].type === 'text') {

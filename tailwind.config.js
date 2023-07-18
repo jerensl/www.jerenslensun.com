@@ -31,6 +31,13 @@ module.exports = {
                 '5vw': '5vw',
                 ...theme('spacing'),
             }),
+            typography: (theme) => ({
+                DEFAULT: {
+                    css: {
+                        // maxWidth: '',
+                    },
+                },
+            }),
         },
     },
     plugins: [
