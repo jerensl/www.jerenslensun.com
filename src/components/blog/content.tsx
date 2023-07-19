@@ -54,10 +54,10 @@ export const Article = ({
                     className="object-cover m-auto"
                 />
             </header>
-            <main className="py-10 lg:grid lg:grid-cols-[1fr_auto] lg:grid-rows-[1fr_min-content] lg:gap-2 spa">
+            <main className="py-10 lg:grid lg:grid-cols-[1fr_auto] lg:grid-rows-[1fr_min-content] lg:gap-2 spa max-w-5xl m-auto">
                 <article
                     id="mdx"
-                    className="prose dark:prose-invert prose-p:font-normal prose-li:font-normal mx-auto w-full lg:prose-lg m-auto"
+                    className="prose max-w-none dark:prose-invert prose-p:font-normal prose-li:font-normal mx-auto w-full lg:prose-lg m-auto"
                 >
                     <Component components={components} />
                 </article>
