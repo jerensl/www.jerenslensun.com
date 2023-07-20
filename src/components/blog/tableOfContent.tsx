@@ -14,7 +14,19 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                 {toc.map(({ id, text }) => {
                     return (
                         <li key={id}>
-                            <a href={`#${id}`}>{text}</a>
+                            <a
+                                href={`#${id}`}
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    document
+                                        .querySelector(`#${id}`)!
+                                        .scrollIntoView({
+                                            behavior: 'smooth',
+                                        })
+                                }}
+                            >
+                                {text}
+                            </a>
                         </li>
                     )
                 })}

@@ -42,21 +42,21 @@ const components = {
     },
     h2: ({ children, id }: any) => {
         return (
-            <h2 id={id} className="text-lg -mt-20 pt-20">
+            <h2 id={id} className="text-lg scroll-mt-20">
                 {children}
             </h2>
         )
     },
     h3: ({ children, id }: any) => {
         return (
-            <h3 id={id} className="text-base -mt-20 pt-20">
+            <h3 id={id} className="text-base scroll-mt-20">
                 {children}
             </h3>
         )
     },
     h4: ({ children, id }: any) => {
         return (
-            <h4 id={id} className="text-sm -mt-20 pt-20">
+            <h4 id={id} className="text-sm scroll-mt-20">
                 {children}
             </h4>
         )
