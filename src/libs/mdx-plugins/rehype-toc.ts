@@ -9,7 +9,7 @@ function rehypeTOC(options = {}): Plugin {
         _index: number | null,
         parentNode: Element | null
     ) => {
-        if (['h2', 'h3', 'h4', 'h5'].includes(node.tagName)) {
+        if (['h2', 'h3'].includes(node.tagName)) {
             if (node.children[0].type === 'text') {
                 const id = parameterize(node.children[0].value)
                 if (node.properties) {

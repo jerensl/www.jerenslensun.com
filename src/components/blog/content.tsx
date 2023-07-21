@@ -23,7 +23,7 @@ export const Article = ({
 
     useEffect(() => {
         const mdx = document.getElementById('mdx')
-        const selector = mdx?.querySelectorAll('h2, h3, h4')
+        const selector = mdx?.querySelectorAll('h2, h3')
         const tableOfContent: Array<{ id: string; text: string }> = []
         selector?.forEach((heading) => {
             tableOfContent.push({
