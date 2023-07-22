@@ -1,4 +1,4 @@
-import { Node, visit } from 'unist-util-visit'
+import { visit } from 'unist-util-visit'
 import parameterize from 'parameterize'
 import type { Plugin } from 'unified'
 import type { Element } from 'hast'
@@ -27,7 +27,7 @@ function rehypeTOC(options = {}): Plugin {
         }
     }
 
-    return (tree: Node) => {
+    return (tree: Element) => {
         visit(tree, 'element', visitor)
     }
 }
