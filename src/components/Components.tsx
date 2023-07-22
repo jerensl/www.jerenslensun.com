@@ -40,14 +40,26 @@ const components = {
             </CopyToClipboard>
         )
     },
-    h1: ({ children }: any) => {
-        return <h2 className="text-xl">{children}</h2>
+    h2: ({ children, id }: any) => {
+        return (
+            <h2 id={id} className="text-lg scroll-mt-20">
+                {children}
+            </h2>
+        )
     },
-    h2: ({ children }: any) => {
-        return <h2 className="text-lg">{children}</h2>
+    h3: ({ children, id }: any) => {
+        return (
+            <h3 id={id} className="text-base scroll-mt-20">
+                {children}
+            </h3>
+        )
     },
-    h3: ({ children }: any) => {
-        return <h2 className="text-lg">{children}</h2>
+    h4: ({ children, id }: any) => {
+        return (
+            <h4 id={id} className="text-sm scroll-mt-20">
+                {children}
+            </h4>
+        )
     },
     blockquote: ({ children }: any) => {
         return (
