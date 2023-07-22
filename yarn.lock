@@ -4113,6 +4113,11 @@
   resolved "https://registry.yarnpkg.com/@types/npmlog/-/npmlog-4.1.4.tgz#30eb872153c7ead3e8688c476054ddca004115f6"
   integrity sha512-WKG4gTr8przEZBiJ5r3s8ZIAoMXNbOgQ+j/d5O4X3x6kZJRLNvyUJuUK/KoG3+8BaOHPhp2m7WC6JKKeovDSzQ==
 
+"@types/parameterize@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/parameterize/-/parameterize-1.0.1.tgz#667973e1caef1479d0ab8e09775c1b4625161a7c"
+  integrity sha512-A+BhYIERE2rAGiXEaZcSliKO/YPSm8VHN9WeHjVXpmyuHNQ9sgYkD7v70D89pFJbiOCjGeSMBNVk1VxhomrFAg==
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -12489,6 +12494,11 @@ param-case@^3.0.3, param-case@^3.0.4:
   dependencies:
     dot-case "^3.0.4"
     tslib "^2.0.3"
+
+parameterize@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parameterize/-/parameterize-1.0.0.tgz#5c18639f16b0f58ed80390ccfcf1769c63d42264"
+  integrity sha512-7i+fCXWfdt7fEs9xMeQHC5e7G1OXX8J5JtfuzhgnqAZU1i6e2qX3aigQ2OH5uongdqmKz/xgMqfY7jtTZDTBYw==
 
 parent-module@^1.0.0:
   version "1.0.1"

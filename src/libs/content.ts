@@ -5,6 +5,7 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeHighlightCode from './mdx-plugins/rehype-highlight-code'
 import rehypeMetaAttribute from './mdx-plugins/rehype-meta-attribute'
+import rehypeTOC from './mdx-plugins/rehype-toc'
 import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IProjectMetadata } from '@/types/project'
@@ -40,6 +41,7 @@ export const getContentByName = async (type: string, slug: string) => {
         rehypeMetaAttribute,
         rehypeHighlightCode,
         rehypeKatex,
+        rehypeTOC,
     ]
 
     const source = getFileByName(type, slug)
@@ -87,27 +89,25 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
     const files = getFiles(directory)
 
     const contents = await Promise.all<any | void>(
-        files
-            .map(async (fileName) => {
-                const source = getFileByName(directory, `${fileName}.mdx`)
-                const { data } = matter(source)
-                const { base64 } = await getPlaiceholder(
-                    `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
-                    { size: 10 }
-                )
+        files.map(async (fileName) => {
+            const source = getFileByName(directory, `${fileName}.mdx`)
+            const { data } = matter(source)
+            const { base64 } = await getPlaiceholder(
+                `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
+                { size: 10 }
+            )
 
-                return {
-                    ...data,
-                    slug: fileName,
-                    blurDataURL: base64,
-                } as IProjectMetadata | IBlogMetadata
-            })
-            .filter(async (data) => {
-                return (await data).isPublished === true
-            })
+            return {
+                ...data,
+                slug: fileName,
+                blurDataURL: base64,
+            } as IProjectMetadata | IBlogMetadata
+        })
     )
 
-    return contents
+    return contents.filter((data) => {
+        return data.isPublished === true
+    })
 }
 
 export const getContent = async (
@@ -123,6 +123,7 @@ export const getContent = async (
         rehypeMetaAttribute,
         rehypeHighlightCode,
         rehypeKatex,
+        rehypeTOC,
     ]
 
     if (process.platform === 'win32') {

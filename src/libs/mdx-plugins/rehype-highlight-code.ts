@@ -1,17 +1,17 @@
 import { visit } from 'unist-util-visit'
-import { Visitor } from 'unist-util-visit/complex-types'
 import parseNumericRange from 'parse-numeric-range'
 import { toString } from 'hast-util-to-string'
 import { refractor } from 'refractor'
 import highlightLine from './rehype-highlight-line'
 import highlightWord from './rehype-highlight-word'
+import type { Visitor } from 'unist-util-visit/complex-types'
 import type { Plugin } from 'unified'
 import type { Element } from 'hast'
 
 function rehypeHighlightCode(options = {}): Plugin {
     const visitor: Visitor<Element, Element> = (
         node: Element,
-        _index,
+        _index: number | null,
         parentNode: Element | null
     ) => {
         if (parentNode?.tagName === 'pre' && node.tagName === 'code') {
