@@ -56,7 +56,7 @@
         "rehype-katex": "^6.0.3",
         "rehype-parse": "^8.0.4",
         "remark-math": "^5.1.1",
-        "sharp": "^0.32.1",
+        "sharp": "^0.32.2",
         "unified": "^10.1.2",
         "unist-util-visit": "^4.1.2",
         "whatwg-fetch": "^3.6.2",
