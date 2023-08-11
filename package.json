@@ -59,7 +59,7 @@
         "sharp": "^0.32.2",
         "unified": "^10.1.2",
         "unist-util-visit": "^4.1.2",
-        "whatwg-fetch": "^3.6.2",
+        "whatwg-fetch": "^3.6.17",
         "workbox-cacheable-response": "^6.5.4",
         "workbox-core": "^6.6.0",
         "workbox-expiration": "^6.6.0",
