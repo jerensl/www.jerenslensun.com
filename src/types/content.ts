@@ -21,3 +21,5 @@ export interface IProjectMetadata extends IMetadata {
 }
 
 export type IContent = IBlogMetadata | IProjectMetadata
+
+export type MDXTitleHeadingLevels = 'H2' | 'H3'

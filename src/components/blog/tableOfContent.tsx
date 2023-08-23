@@ -2,21 +2,26 @@ import { useOnScrollToc } from '@/hooks/useScrollToc'
 import clsx from 'clsx'
 import React from 'react'
 import { LinkURL } from '../LinkURL'
+import { MDXTitleHeadingLevels } from '@/types/content'
 
 interface TableOfContentProps {
-    toc: Array<{ id: string; text: string }>
+    toc: Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
 }
 
 export default function TableOfContent({ toc }: TableOfContentProps) {
     const { active } = useOnScrollToc({ headers: toc })
+    const headingVariants = {
+        H2: 'ml-0',
+        H3: 'ml-6',
+    }
 
     return (
         <div className="hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 px-12 lg:block">
-            <h3 className="text-gray-900 dark:text-gray-100 md:text-xl">
+            <h3 className="text-gray-900 dark:text-gray-100 md:text-xl font-bold">
                 Table of Contents
             </h3>
             <ul className="mt-4 flex flex-col space-y-2 text-sm">
-                {toc.map(({ id, text }) => {
+                {toc.map(({ id, text, level }) => {
                     return (
                         <li key={id}>
                             <LinkURL
@@ -29,7 +34,7 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                                             behavior: 'smooth',
                                         })
                                 }}
-                                className={clsx('', {
+                                className={clsx(`${headingVariants[level]}`, {
                                     'text-gray-900 dark:text-gray-100':
                                         id === active,
                                     'text-gray-400 dark:text-gray-500':

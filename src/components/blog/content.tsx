@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 import { imageLoader } from '../../constant/images'
 import type { IBlogMetadata } from '../../types/blog'
 import TableOfContent from './tableOfContent'
+import { MDXTitleHeadingLevels } from '@/types/content'
 
 interface ArticleProps {
     frontmatter: IBlogMetadata
@@ -19,16 +20,23 @@ export const Article = ({
     blurDataURL,
 }: ArticleProps): React.ReactElement => {
     const Component = useMemo(() => getMDXComponent(code), [code])
-    const [toc, setToc] = useState<Array<{ id: string; text: string }>>([])
+    const [toc, setToc] = useState<
+        Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
+    >([])
 
     useEffect(() => {
         const mdx = document.getElementById('mdx')
         const selector = mdx?.querySelectorAll('h2, h3')
-        const tableOfContent: Array<{ id: string; text: string }> = []
+        const tableOfContent: Array<{
+            id: string
+            text: string
+            level: MDXTitleHeadingLevels
+        }> = []
         selector?.forEach((heading) => {
             tableOfContent.push({
                 id: heading.id,
                 text: heading?.textContent ?? '',
+                level: heading.tagName as MDXTitleHeadingLevels,
             })
         })
         setToc(tableOfContent)

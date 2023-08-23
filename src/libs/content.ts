@@ -93,7 +93,7 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
             const source = getFileByName(directory, `${fileName}.mdx`)
             const { data } = matter(source)
             const { base64 } = await getPlaiceholder(
-                `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${data.cover}`,
+                `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${data.cover}`,
                 { size: 10 }
             )
 
@@ -160,7 +160,7 @@ export const getContent = async (
     })
 
     const { base64 } = await getPlaiceholder(
-        `https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${frontmatter.cover}`,
+        `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${frontmatter.cover}`,
         { size: 10 }
     )
 
