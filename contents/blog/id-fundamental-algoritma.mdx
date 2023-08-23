@@ -7,15 +7,21 @@ description: Algoritma sangat penting dalam mengoptimize sebuah software dan bah
 tags: ['algoritma']
 ---
 
-Bayangkan ketika kita akan membandingkan sebuah seberapa cepat seorang pembalap dengan kecepatan antara mode transportasi yang berbeda seperti mobil, motor dan lain lain tentu saja definisi cepat pada masing-masing transportasi akan berbeda, meskipun mereka sama-sama dikategorikan sebagai transportasi, begitupun halnya dengan algoritma yang dijalankan pada berbagai macam operating system dan perangkat keras yang berbeda-beda akan menghasilkan kecepatan yang berbeda pula. Pertanyaan selanjutnya adalah bagaimana cara kita dalam mengukur sebuah algoritma dengan berbagai macam variasi sistem, jika kita mengukurnya menggunakan kecepatan waktu nyata, sebuah algoritma akan sangat bergantung dengan sistem yang digunakan.
+## Latar Masalah
 
-Dalam ilmu komputer, ada banyak cara untuk menyelesaikan suatu masalah dengan algoritma yang berbeda. Oleh karena itu, kita perlu menggunakan metode untuk membandingkan solusi agar bisa menilai mana yang lebih optimal. Metode tersebut harus memenuhi beberapa kriteria:
+Bayangkan ketika kita akan membandingkan seberapa cepat seorang atlet di berbagai bidang olahraga, tentu saja definisi cepat bisa saja berbeda atau subjektif, contohnya ada olahraga yang murni mengandalkan kecepatan, ada juga yang bergantung pada akselerasi dan lain-lain, sama halnya dengan algoritma yang dijalankan pada berbagai macam sistem operasi dan perangkat keras yang berbeda-beda akan menghasilkan kecepatan yang berbeda pula. Hal ini menjadikan dibutuhkannya cara untuk mengukur seberapa cepat sebuah algoritma dengan objektif.
+
+Dalam ilmu komputer, ada banyak cara untuk menyelesaikan suatu masalah dengan algoritma yang berbeda-beda. Oleh karena itu, kita perlu menggunakan metode untuk membandingkan solusi agar bisa menilai manakah yang lebih optimal. Metode tersebut harus memenuhi beberapa kriteria:
 
 -   Independen dari mesin dan konfigurasinya, di mana algoritma dijalankan.
 -   Menunjukkan korelasi langsung dengan jumlah input.
 -   Dapat membedakan dua algoritma dengan jelas tanpa ambiguitas.
 
-Untuk mengukur effisiensi dan efektifitas sebuah algoritma ada 2 cara yang kita gunakan, yaitu:
+## Solusi
+
+Dikarenakan keterbatasan untuk membandingkannya secara objektif atau terlepas dari mesin dan konfigurasi yang digunakan, membuat kita tidak dapat mengukur algoritma menggunakan waktu asli/nyata. Solusi alternatifnya, dalam matematis kita dapat menggunakan fungsi sebagai penganti waktu, disini kita memerlukan fungsi untuk mengelompokkan algoritma yang ada dengan tipe-tipe fungsi tersebut. fungsi tersebut akan memiliki korelasi dengan jumlah input yang diberikan, dan mampu membedakan algoritma tanpa adanya ambiguitas. fungsi tersebut bernama Fungsi Pertumbuhan(Growth Rate)
+
+Untuk mengukur effisiensi dan efektifitas sebuah algoritma ada 2 cara yang kita gunakan, dua cara tersebut sama-sama menggunakan Fungsi Pertumbuhan(Growth Rate), yaitu:
 
 1. Time Complexity (Waktu)
 2. Space Complexity (Penyimpanan)

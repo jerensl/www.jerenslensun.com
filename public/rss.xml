@@ -55,14 +55,14 @@
       <pubDate>2022-01-07</pubDate>
     </item>
 <item>
-      <title><![CDATA[Implementasi Algoritma Sorting di Golang untuk Mengoptimalkan Pengurutan Data]]></title>
+      <title><![CDATA[Algoritma Sort]]></title>
       <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
       <link>https://www.jerensl.com/blog/id-sorting-algoritma</link>
       <guid>https://www.jerensl.com/blog/id-sorting-algoritma</guid>
       <pubDate>2022-08-10</pubDate>
     </item>
 <item>
-      <title><![CDATA[Implementasi Struktur Data Heap di Golang untuk Mengoptimalkan Pengelolaan Data]]></title>
+      <title><![CDATA[Data Struktur Heap]]></title>
       <description><![CDATA[Binary Heap merupakan struktur data complete tree biasa direpresentasikan dalam bentuk array, dimana bisa min heap atau max heap.]]></description>
       <link>https://www.jerensl.com/blog/id-struktur-data-heap</link>
       <guid>https://www.jerensl.com/blog/id-struktur-data-heap</guid>

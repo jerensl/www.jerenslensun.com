@@ -49,7 +49,6 @@ func main() {
 		panic(err)
 	}
 }
-
 ```
 
 The next step we will implement reverseProxyHandler function, which is the implementation of `http.HandleFunc`.
@@ -78,7 +77,6 @@ func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	http.Error(w, "Service not available", http.StatusServiceUnavailable)
 }
-
 ```
 
 ## Final Result
@@ -114,7 +112,6 @@ func main() {
 	}
 	http.Error(w, "Service not available", http.StatusServiceUnavailable)
 }
-
 ```
 
 ## Summary
