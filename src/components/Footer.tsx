@@ -5,7 +5,7 @@ import {
     faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { faRssSquare } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
+import { StandardLink } from './links/StandardLink'
 
 function SitemapSection() {
     return (
@@ -14,18 +14,18 @@ function SitemapSection() {
                 Sitemap
             </h2>
             <div className="mt-2 flex flex-col gap-1">
-                <Link className="text-lg" href="/">
+                <StandardLink className="text-lg" href="/">
                     Home
-                </Link>
-                <Link className="text-lg" href="/blog">
+                </StandardLink>
+                <StandardLink className="text-lg" href="/blog">
                     Blog
-                </Link>
-                <Link className="text-lg" href="/project">
+                </StandardLink>
+                <StandardLink className="text-lg" href="/project">
                     Project
-                </Link>
-                <Link className="text-lg" href="/about">
+                </StandardLink>
+                <StandardLink className="text-lg" href="/about">
                     About
-                </Link>
+                </StandardLink>
             </div>
         </div>
     )
@@ -38,18 +38,27 @@ function ContactSection() {
                 Contact
             </h2>
             <div className="mt-2 flex flex-col gap-1">
-                <Link className="text-lg" href="https://twitter.com/jerensl22">
+                <StandardLink
+                    className="text-lg not-italic"
+                    href="https://twitter.com/jerensl22"
+                    isExternal={true}
+                >
                     Twitter
-                </Link>
-                <Link className="text-lg" href="http://instagram.com/jerensl">
+                </StandardLink>
+                <StandardLink
+                    className="text-lg not-italic"
+                    href="http://instagram.com/jerensl"
+                    isExternal={true}
+                >
                     Instagram
-                </Link>
-                <Link
-                    className="text-lg"
+                </StandardLink>
+                <StandardLink
+                    className="text-lg not-italic"
                     href="https://www.linkedin.com/in/jerensl/"
+                    isExternal={true}
                 >
                     linkedin
-                </Link>
+                </StandardLink>
             </div>
         </div>
     )
@@ -65,31 +74,40 @@ function AboutSection() {
                 Software Engineering
             </p>
             <div className="flex space-x-6 h-10 justify-center sm:justify-start py-1">
-                <Link href="https://github.com/jerensl" aria-label="Github">
+                <StandardLink
+                    href="https://github.com/jerensl"
+                    aria-label="Github"
+                    isExternal={true}
+                >
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faGithubSquare}
                         size="2x"
                     />
-                </Link>
-                <Link href="https://twitter.com/jerensl22" aria-label="Twitter">
+                </StandardLink>
+                <StandardLink
+                    href="https://twitter.com/jerensl22"
+                    aria-label="Twitter"
+                    isExternal={true}
+                >
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faTwitterSquare}
                         size="2x"
                     />
-                </Link>
-                <Link
+                </StandardLink>
+                <StandardLink
                     href="https://www.linkedin.com/in/jerensl/"
                     aria-label="Linkedin"
+                    isExternal={true}
                 >
                     <FontAwesomeIcon
                         className="hover:text-red-600 cursor-pointer"
                         icon={faLinkedin}
                         size="2x"
                     />
-                </Link>
-                <Link
+                </StandardLink>
+                <StandardLink
                     href="https://www.jerenslensun.com/rss.xml"
                     aria-label="RSS"
                 >
@@ -98,7 +116,7 @@ function AboutSection() {
                         icon={faRssSquare}
                         size="2x"
                     />
-                </Link>
+                </StandardLink>
             </div>
         </div>
     )

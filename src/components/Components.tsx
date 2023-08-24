@@ -1,7 +1,7 @@
 import React from 'react'
 import { pre } from '../styles/code'
 import { CopyToClipboard } from './CopyClipboard'
-import Link from 'next/link'
+import { StandardLink } from './links/StandardLink'
 
 interface Components {
     children?: React.ReactNode
@@ -70,14 +70,9 @@ const components = {
     },
     a: ({ children, href }: any) => {
         return (
-            <Link
-                className="text-bold underline-offset-4"
-                rel="noopener noreferrer"
-                target="_blank"
-                href={href}
-            >
+            <StandardLink href={href} isExternal={true}>
                 {children}
-            </Link>
+            </StandardLink>
         )
     },
 }
