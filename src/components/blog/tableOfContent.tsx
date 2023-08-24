@@ -1,8 +1,8 @@
 import { useOnScrollToc } from '@/hooks/useScrollToc'
 import clsx from 'clsx'
 import React from 'react'
-import { LinkURL } from '../LinkURL'
 import { MDXTitleHeadingLevels } from '@/types/content'
+import { StandardLink } from '../links/StandardLink'
 
 interface TableOfContentProps {
     toc: Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
@@ -24,7 +24,7 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                 {toc.map(({ id, text, level }) => {
                     return (
                         <li key={id}>
-                            <LinkURL
+                            <StandardLink
                                 href={`#${id}`}
                                 onClick={(e) => {
                                     e.preventDefault()
@@ -42,7 +42,7 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                                 })}
                             >
                                 {text}
-                            </LinkURL>
+                            </StandardLink>
                         </li>
                     )
                 })}

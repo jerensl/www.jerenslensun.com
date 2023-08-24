@@ -17,7 +17,7 @@ Berikut contoh data yang akan kita olah, sebagai contoh kita hanya menggunakan s
 12 0 0 0 0 0 0 1 0 0 0 0 0
 ```
 
-#### Membuka file
+## Membuka file
 
 -   Untuk membuka sebuah file menggunakan standard library os, dimana akan berinteraksi dengan operating system(os) untuk membuka file bernama file.txt.
 -   Jika terdapat errror(err tidak sama dengan nil) kita akan melakukan print pada error, lalu panic sehingga program berhenti, itu sama saja dengan memanggil os.Exit(1).
@@ -42,7 +42,7 @@ func main() {
 
 ```
 
-#### Membaca file setiap baris
+## Membaca file setiap baris
 
 Di tahap ini kita akan menggunakan standard library bufio untuk melakukan memindai teks pada file.
 
@@ -80,7 +80,7 @@ func main() {
 
 ```
 
-#### Membaca file setiap kata
+## Membaca file setiap kata
 
 Dengan memanggil method Spilt() kita bisa memisahkan kata yang di pindai. Ada beberapa cara dalam memisahkan kata, disini kita menggunakan ScanWords sebagai argument pada method Split() untuk memisahkan berdasarkan huruf.
 Ada beberapa argument yang bisa kita gunakan selain ScanWords, yaitu:
@@ -120,7 +120,7 @@ func main() {
 
 ```
 
-#### Parse data ke dalam 2D Array
+## Parse data ke dalam 2D Array
 
 Disini kita akan melakukan parsing data yang sebelumnya string ke dalam integer lalu kita masukan ke dalam 2 dimensional array.
 

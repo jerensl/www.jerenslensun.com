@@ -31,7 +31,7 @@ func main() {
 
 ```
 
-##### Create New MaxHeap
+## Create New MaxHeap
 
 Setelahnya kita akan membuat fungsi NewMaxHeap, dimana:
 
@@ -67,12 +67,12 @@ func main() {
 
 ```
 
-##### Insert MaxHeap
+## Insert MaxHeap
 
 Pada method Insert yang akan menerima argumen nilai integer, kita akan:
 
 1. Langsung menggunakan append untuk memasukan nilai tersebut pada array Bucket.
-2. Setelah itu kita akan melakukan increment menggunakan Size++, sehingga tiap ada nilai yang dimasukan size akan terus bertambah 1.
+2. Setelah itu kita akan melakukan increment menggunakan Size++, sehingga tiap ada nilai yang dimasukan size akan terus bertambah
 3. Setelah itu kita akan memanggil method heapifyUp yang akan kita buat nanti, untuk mengorganisir kembali urutan pada array.
 
 ```go showlinenumbers theme=orange line=18-23
@@ -106,7 +106,7 @@ func main() {
 
 ```
 
-##### HeapifyUp MaxHeap
+## HeapifyUp MaxHeap
 
 Untuk mendapatkan index parent, kita perlu menguranginya dengan 1 terlebih dahulu dan membagi dengan 2, karena kita menggunakan integer jadi jika nilai yang dibagi contohnya menjadi 0.5 maka akan dibulatkan menjadi 0.
 
@@ -178,7 +178,7 @@ func main() {
 
 ```
 
-##### Extract MaxHeap
+## Extract MaxHeap
 
 Selanjutnya kita akan menghapus parent root dari heap atau nilai paling besar dengan menggunakan method Extract().
 
@@ -243,7 +243,7 @@ func main() {
 
 ```
 
-##### HeapifyDown MaxHeap
+## HeapifyDown MaxHeap
 
 Untuk mendapatkan index child left dan right kita akan membuat 2 fungsi :
 
@@ -384,7 +384,7 @@ func main() {
 
 Untuk langkah terakhir, kita akan mengetest secara langsung apa yang telah kita buat di atas, dan untuk log pada monitor akan menjadi seperti dibawah ini.
 
-##### Log Output MaxHeap
+## Log Output MaxHeap
 
 ```go theme=orange
 > go run main.go
@@ -393,7 +393,7 @@ Untuk langkah terakhir, kita akan mengetest secara langsung apa yang telah kita 
 &{[40 30 35 10 20] 5}
 ```
 
-#### Time Complexity
+## Time Complexity
 
 Worst Case Scenario :
 
