@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.1](https://github.com/jerensl/www.jerensl.com/compare/v1.0.0...v1.0.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* **links:** change the header link to standard link ([0852332](https://github.com/jerensl/www.jerensl.com/commit/0852332cee0c0e6b1b0133846c9400efcfac9c9f))
+* upgrade @tanstack/react-query from 4.29.19 to 4.29.23 ([c083aec](https://github.com/jerensl/www.jerensl.com/commit/c083aecc42977bef31fc1d9a1302456978e489e3))
+* upgrade @tanstack/react-query-devtools from 4.29.19 to 4.29.25 ([aa1d5f0](https://github.com/jerensl/www.jerensl.com/commit/aa1d5f0ff9770a5b9b93c656ce0bb8aade5ee237))
+* upgrade multiple dependencies with Snyk ([12431f8](https://github.com/jerensl/www.jerensl.com/commit/12431f8b88d118e8f2ae6101aa0c5582d4c238dc))
+* upgrade sharp from 0.32.1 to 0.32.2 ([3e4fa10](https://github.com/jerensl/www.jerensl.com/commit/3e4fa10b764e62479d3a80f70611e9ad6fdd64a4))
+* upgrade whatwg-fetch from 3.6.2 to 3.6.16 ([6612f94](https://github.com/jerensl/www.jerensl.com/commit/6612f949deb9e92b62a121190e9144432b7eac00))
+
 ## 1.0.0 (2023-07-28)
 
 
