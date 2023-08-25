@@ -2,8 +2,9 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { getContents } from '../../libs/content'
 import { Footer } from '../../components/Footer'
 import { Seo } from '../../components/Seo'
-import { Layout } from '../../components/project/layout'
 import { IProjectMetadata } from '@/types/project'
+import { Grid } from '@/components/Grid'
+import { Card } from '@/components/cards/project'
 
 export const getStaticProps: GetStaticProps = async () => {
     const projects = await getContents<IProjectMetadata>('project')
@@ -23,7 +24,14 @@ export default function Project({
                 <div className="flex flex-col text-center gap-3">
                     <h1 className="pt-24 text-3xl font-semibold">Projects</h1>
                 </div>
-                <Layout project={projects} />
+                <Grid as="section" rowGap>
+                    {projects?.length ? null : (
+                        <p className="col-span-full text-center">
+                            No project available.
+                        </p>
+                    )}
+                    {projects?.map(Card)}
+                </Grid>
             </div>
             <div className="h-20 lg:h-32" />
             <Footer />

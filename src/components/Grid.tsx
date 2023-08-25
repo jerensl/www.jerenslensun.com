@@ -8,11 +8,10 @@ interface GridProps {
     as?: React.ElementType
     nested?: boolean
     rowGap?: boolean
-    featured?: boolean
 }
 
 const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(
-    { children, className, as: Tag = 'div', featured, nested, rowGap },
+    { children, className, as: Tag = 'div', nested, rowGap },
     ref
 ) {
     return (
@@ -21,14 +20,8 @@ const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(
             className={clsx('relative', {
                 'mx-10vw': !nested,
                 'w-full': nested,
-                'py-10 md:py-24 lg:pb-40 lg:pt-36': featured,
             })}
         >
-            {featured ? (
-                <div className="absolute inset-0 -mx-5vw">
-                    <div className="bg-secondary mx-auto h-full w-full max-w-8xl rounded-lg" />
-                </div>
-            ) : null}
             <div
                 className={clsx(
                     'relative grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6',
@@ -59,9 +52,9 @@ function GridLines() {
                 {Array.from({ length: 12 }).map((_, idx) => (
                     <div
                         key={idx}
-                        className="flex h-screen items-start bg-black text-black opacity-10 "
+                        className="flex h-screen items-start bg-black text-black dark:bg-white dark:text-white opacity-10"
                     >
-                        <div className="w-full pt-4 text-center text-lg text-black ">
+                        <div className="w-full pt-4 text-center text-lg text-white dark:text-black">
                             {idx + 1}
                         </div>
                     </div>
