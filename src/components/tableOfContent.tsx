@@ -2,7 +2,7 @@ import { useOnScrollToc } from '@/hooks/useScrollToc'
 import clsx from 'clsx'
 import React from 'react'
 import { MDXTitleHeadingLevels } from '@/types/content'
-import { StandardLink } from '../links/StandardLink'
+import { StandardLink } from './links/StandardLink'
 
 interface TableOfContentProps {
     toc: Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
