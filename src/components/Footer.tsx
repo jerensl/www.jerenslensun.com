@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { faRssSquare } from '@fortawesome/free-solid-svg-icons'
 import { StandardLink } from './links/StandardLink'
+import { HighlightLink } from './links/HighlightLink'
 
 function SitemapSection() {
     return (
@@ -34,31 +35,28 @@ function SitemapSection() {
 function ContactSection() {
     return (
         <div>
-            <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-200">
+            <h2 className="text-xl font-bold text-gray-500 dark:text-white">
                 Contact
             </h2>
-            <div className="mt-2 flex flex-col gap-1">
-                <StandardLink
-                    className="text-lg not-italic"
+            <div className="mt-2 flex font-semibold flex-col gap-1">
+                <HighlightLink
+                    className="text-lg not-italic mr-auto"
                     href="https://twitter.com/jerensl22"
-                    isExternal={true}
                 >
                     Twitter
-                </StandardLink>
-                <StandardLink
-                    className="text-lg not-italic"
+                </HighlightLink>
+                <HighlightLink
+                    className="text-lg not-italic mr-auto"
                     href="http://instagram.com/jerensl"
-                    isExternal={true}
                 >
                     Instagram
-                </StandardLink>
-                <StandardLink
-                    className="text-lg not-italic"
+                </HighlightLink>
+                <HighlightLink
+                    className="text-lg not-italic mr-auto"
                     href="https://www.linkedin.com/in/jerensl/"
-                    isExternal={true}
                 >
-                    linkedin
-                </StandardLink>
+                    Linkedin
+                </HighlightLink>
             </div>
         </div>
     )

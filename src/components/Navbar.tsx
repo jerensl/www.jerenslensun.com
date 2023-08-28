@@ -9,37 +9,38 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import ThemeToggle from './ThemeToggle'
 import { StandardLink } from './links/StandardLink'
+import { HighlightLink } from './links/HighlightLink'
 
 export const Navbar: React.FC = () => {
     return (
         <nav className="fixed w-full z-10 bg-white dark:bg-neutral-900 px-5vw">
-            <div className="flex text-center justify-between border-b-2 h-full w-full border-gray-100">
-                <StandardLink
+            <div className="flex text-center justify-between h-full w-full border-gray-100">
+                <HighlightLink
                     href="/"
-                    className="font-semibold m-0 text-xl py-5 w-24 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                    className="font-semibold text-xl my-5 py-2"
                 >
                     Jerens
-                </StandardLink>
+                </HighlightLink>
                 <div className="flex text-center my-auto h-full">
                     <div className="text-center relative h-full w-full hidden md:flex">
-                        <StandardLink
+                        <HighlightLink
                             href="/blog"
-                            className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl py-5 w-24 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                            className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl my-5 mx-6 py-2"
                         >
                             Blog
-                        </StandardLink>
-                        <StandardLink
+                        </HighlightLink>
+                        <HighlightLink
                             href="/project"
-                            className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl py-5 w-24 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                            className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl my-5 mx-6 py-2"
                         >
                             Project
-                        </StandardLink>
-                        <StandardLink
+                        </HighlightLink>
+                        <HighlightLink
                             href="/about"
-                            className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl py-5 w-24 hover:bg-gray-100 dark:hover:bg-neutral-800"
+                            className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl my-5 mx-6 py-2"
                         >
                             About
-                        </StandardLink>
+                        </HighlightLink>
                     </div>
                     <Notifications />
                     <ThemeToggle />
