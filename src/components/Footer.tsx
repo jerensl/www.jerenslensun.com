@@ -1,32 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-    faGithubSquare,
-    faTwitterSquare,
-    faLinkedin,
-} from '@fortawesome/free-brands-svg-icons'
-import { faRssSquare } from '@fortawesome/free-solid-svg-icons'
 import { StandardLink } from './links/StandardLink'
 import { HighlightLink } from './links/HighlightLink'
+import { pageLinks } from '@/constant/page'
+import { socialMediaLinks } from '@/constant/social-media'
 
 function SitemapSection() {
     return (
         <div>
-            <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-200">
+            <h2 className="text-lg font-bold text-gray-500 dark:text-white">
                 Sitemap
             </h2>
-            <div className="mt-2 flex flex-col gap-1">
-                <StandardLink className="text-lg" href="/">
-                    Home
-                </StandardLink>
-                <StandardLink className="text-lg" href="/blog">
-                    Blog
-                </StandardLink>
-                <StandardLink className="text-lg" href="/project">
-                    Project
-                </StandardLink>
-                <StandardLink className="text-lg" href="/about">
-                    About
-                </StandardLink>
+            <div className="mt-2 flex font-semibold flex-col gap-1">
+                {pageLinks.map(({ name, url }) => {
+                    return (
+                        <HighlightLink
+                            key={name}
+                            className="text-lg mr-auto"
+                            href={url}
+                        >
+                            {name}
+                        </HighlightLink>
+                    )
+                })}
             </div>
         </div>
     )
@@ -39,24 +34,18 @@ function ContactSection() {
                 Contact
             </h2>
             <div className="mt-2 flex font-semibold flex-col gap-1">
-                <HighlightLink
-                    className="text-lg not-italic mr-auto"
-                    href="https://twitter.com/jerensl22"
-                >
-                    Twitter
-                </HighlightLink>
-                <HighlightLink
-                    className="text-lg not-italic mr-auto"
-                    href="http://instagram.com/jerensl"
-                >
-                    Instagram
-                </HighlightLink>
-                <HighlightLink
-                    className="text-lg not-italic mr-auto"
-                    href="https://www.linkedin.com/in/jerensl/"
-                >
-                    Linkedin
-                </HighlightLink>
+                {socialMediaLinks.map(({ name, url }) => {
+                    return (
+                        <HighlightLink
+                            key={name}
+                            className="text-lg not-italic mr-auto"
+                            href={url}
+                            isExternal
+                        >
+                            {name}
+                        </HighlightLink>
+                    )
+                })}
             </div>
         </div>
     )
@@ -72,49 +61,24 @@ function AboutSection() {
                 Software Engineering
             </p>
             <div className="flex space-x-6 h-10 justify-center sm:justify-start py-1">
-                <StandardLink
-                    href="https://github.com/jerensl"
-                    aria-label="Github"
-                    isExternal={true}
-                >
-                    <FontAwesomeIcon
-                        className="hover:text-red-600 cursor-pointer"
-                        icon={faGithubSquare}
-                        size="2x"
-                    />
-                </StandardLink>
-                <StandardLink
-                    href="https://twitter.com/jerensl22"
-                    aria-label="Twitter"
-                    isExternal={true}
-                >
-                    <FontAwesomeIcon
-                        className="hover:text-red-600 cursor-pointer"
-                        icon={faTwitterSquare}
-                        size="2x"
-                    />
-                </StandardLink>
-                <StandardLink
-                    href="https://www.linkedin.com/in/jerensl/"
-                    aria-label="Linkedin"
-                    isExternal={true}
-                >
-                    <FontAwesomeIcon
-                        className="hover:text-red-600 cursor-pointer"
-                        icon={faLinkedin}
-                        size="2x"
-                    />
-                </StandardLink>
-                <StandardLink
-                    href="https://www.jerenslensun.com/rss.xml"
-                    aria-label="RSS"
-                >
-                    <FontAwesomeIcon
-                        className="hover:text-red-600 cursor-pointer"
-                        icon={faRssSquare}
-                        size="2x"
-                    />
-                </StandardLink>
+                {socialMediaLinks
+                    .filter(({ name }) => name !== 'RSS')
+                    .map(({ icon, url }) => {
+                        return (
+                            <StandardLink
+                                key={url}
+                                href={url}
+                                aria-label="Github"
+                                isExternal
+                            >
+                                <FontAwesomeIcon
+                                    className="hover:text-red-600 cursor-pointer"
+                                    icon={icon}
+                                    size="2x"
+                                />
+                            </StandardLink>
+                        )
+                    })}
             </div>
         </div>
     )
