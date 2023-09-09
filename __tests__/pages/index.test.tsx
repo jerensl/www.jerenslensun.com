@@ -16,10 +16,10 @@ useRouter.mockImplementation(() => ({
 jest.mock(
     'next/image',
     () =>
-        (function Image({ src, alt }: any) {
+        function Image({ src, alt }: any) {
             // eslint-disable-next-line @next/next/no-img-element
             return <img src={src} alt={alt} />
-        })
+        }
 )
 
 jest.mock('remark-math', () => jest.fn())
@@ -64,9 +64,11 @@ describe('Home', () => {
         render(<Home />)
 
         const heading = screen.getByRole('heading', {
-            name: /Jerens Lensun/i,
+            name: /Hi I'm Jerens/i,
         })
-        const subHeading = screen.getByText('Software Engineer')
+        const subHeading = screen.getByText(
+            'I work with React & Golang Ecosystem, and write about software development.'
+        )
 
         expect(heading).toBeInTheDocument()
         expect(subHeading).toBeInTheDocument()

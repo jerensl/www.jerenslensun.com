@@ -31,21 +31,22 @@ export const Header = ({
                             height="720"
                         />
                     </div>
-                    <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto text-center">
+                    <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto">
                         <div className="flex flex-auto flex-col gap-6 items-start">
                             <div
-                                className="flex self-center flex-auto flex-col gap-1"
+                                className="flex flex-auto flex-col gap-3"
                                 data-fade="0"
                             >
                                 <h1 className="font-bold text-4xl md:text-5xl">
-                                    Jerens Lensun
+                                    Hi I{"'"}m Jerens
                                 </h1>
-                                <p className="font-medium text-3xl md:text-4xl">
-                                    Software Engineer
+                                <p className="font-light text-lg md:text-xl">
+                                    I work with React & Golang Ecosystem, and
+                                    write about software development.
                                 </p>
                             </div>
                             <div
-                                className="flex self-center flex-col gap-2"
+                                className="flex text-center self-center flex-col gap-2"
                                 data-fade="2"
                             >
                                 <StandardLink
