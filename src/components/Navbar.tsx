@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
                                     <HighlightLink
                                         key={url}
                                         href={url}
-                                        className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl my-5 mx-6 py-2"
+                                        className="hidden md:block font-semibold text-gray-800 dark:text-white text-xl my-4 mx-5 py-2"
                                     >
                                         {name}
                                     </HighlightLink>

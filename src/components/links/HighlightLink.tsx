@@ -13,19 +13,18 @@ export const HighlightLink = ({
     children,
     href,
     className,
-    isExternal = false,
+    isExternal,
 }: HighlightLinkProps) => {
     return (
         <StandardLink
             href={href}
             className={twMerge(
-                'group relative inline-block overflow-hidden dark:hover:text-white dark:text-gray-200',
+                "relative dark:hover:text-white dark:text-gray-200 after:content-[''] after:absolute after:h-[3px] after:w-full after:bg-black dark:after:bg-white after:left-0 after:bottom-[-0.1rem] after:scale-x-0 after:scale-y-100 hover:after:scale-x-100 after:transition after:duration-20",
                 className
             )}
             isExternal={isExternal}
         >
             {children}
-            <span className="ease-in-out absolute bottom-0 left-0 h-0 w-0 border-b-2 border-white transition-all duration-400 group-hover:w-full"></span>
         </StandardLink>
     )
 }
