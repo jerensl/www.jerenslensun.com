@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.0](https://github.com/jerensl/www.jerensl.com/compare/v1.0.1...v1.1.0) (2023-09-14)
+
+
+### Features
+
+* **links:** add highlight link ([92af43d](https://github.com/jerensl/www.jerensl.com/commit/92af43d17a615e17db5ac1a7313b759bd3c0cf32))
+
+
+### Bug Fixes
+
+* **tests:** fix the home page test ([7b8c5fb](https://github.com/jerensl/www.jerensl.com/commit/7b8c5fb44f1bd1f1ebf2f6ae83561b9e7777b616))
+* upgrade @tanstack/react-query from 4.32.6 to 4.33.0 ([c234d36](https://github.com/jerensl/www.jerensl.com/commit/c234d361948c19a37b9d7dbf031dad68149d8e4d))
+* upgrade @tanstack/react-query-devtools from 4.32.6 to 4.33.0 ([ef744cc](https://github.com/jerensl/www.jerensl.com/commit/ef744ccb8e383061f3147e28f42647985dfd30ec))
+* upgrade next from 13.4.12 to 13.4.13 ([7358caa](https://github.com/jerensl/www.jerensl.com/commit/7358caafec6669aa5a80c3b05cacaef89712c3ee))
+* upgrade rehype-parse from 8.0.4 to 8.0.5 ([bdddf99](https://github.com/jerensl/www.jerensl.com/commit/bdddf9971d030638bfb3bf32b36da066ad018d47))
+* upgrade sharp from 0.32.4 to 0.32.5 ([34aac92](https://github.com/jerensl/www.jerensl.com/commit/34aac92d34d6bb94c24dc0dca4dc093ea1b454d1))
+
 ## [1.0.1](https://github.com/jerensl/www.jerensl.com/compare/v1.0.0...v1.0.1) (2023-08-25)
 
 
