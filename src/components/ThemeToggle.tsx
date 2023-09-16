@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'next-themes'
+import { IconBoxButton } from './buttons/IconBoxButton'
 
 const ThemeToggle: React.FC = () => {
     const { systemTheme, theme, setTheme } = useTheme()
@@ -17,31 +18,31 @@ const ThemeToggle: React.FC = () => {
 
         if (currentTheme === 'dark') {
             return (
-                <ThemeToggleButton
-                    ariaLabel="light theme toggle"
-                    handleClick={() => setTheme('light')}
+                <IconBoxButton
+                    aria-label="light theme toggle"
+                    onClick={() => setTheme('light')}
                 >
                     <FontAwesomeIcon
-                        className="block m-3"
+                        className="block"
                         size="lg"
                         icon={faSun}
                         data-testid="theme-dark"
                     />
-                </ThemeToggleButton>
+                </IconBoxButton>
             )
         } else {
             return (
-                <ThemeToggleButton
-                    ariaLabel="dark theme toggle"
-                    handleClick={() => setTheme('dark')}
+                <IconBoxButton
+                    aria-label="dark theme toggle"
+                    onClick={() => setTheme('dark')}
                 >
                     <FontAwesomeIcon
-                        className="block m-3"
+                        className="block px-1"
                         icon={faMoon}
                         size="lg"
                         data-testid="theme-light"
                     />
-                </ThemeToggleButton>
+                </IconBoxButton>
             )
         }
     }

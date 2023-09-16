@@ -61,11 +61,10 @@ const posts: IBlogMetadata[] = [
 ]
 
 describe('Search Article', () => {
-    const renderSearchArticlesComponent = () => {
-        // const util = render(<Layout posts={posts} tags={['first', 'second']} />)
+    const renderSearchArticlesComponent = async () => {
         const util = render(<Blog posts={posts} tags={['first', 'second']} />)
 
-        const input = util.getByPlaceholderText('Search Articles...')
+        const input = await util.findByPlaceholderText('Search Articles...')
 
         return {
             input,
@@ -75,13 +74,13 @@ describe('Search Article', () => {
 
     it('Should just have render Test First Article', async () => {
         const { input, getAllByRole, getByRole } =
-            renderSearchArticlesComponent()
+            await renderSearchArticlesComponent()
 
-        userEvent.click(getByRole('button', { name: /Read in English/i }))
+        await userEvent.click(getByRole('button', { name: /Read in English/i }))
 
-        await waitFor(() => userEvent.type(input, 'Test First Article'))
+        await userEvent.type(input, 'Test First Article')
 
-        const result = getAllByRole('article').map((article) => {
+        const result = await getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
         })
 
@@ -94,7 +93,7 @@ Array [
 
     it('Should render all post named contain article', async () => {
         const { input, getAllByRole, getByRole } =
-            renderSearchArticlesComponent()
+            await renderSearchArticlesComponent()
 
         userEvent.click(getByRole('button', { name: /Read in English/i }))
 
@@ -112,8 +111,8 @@ Array [
 `)
     })
 
-    it('Should not found the article', () => {
-        const { input, getByText } = renderSearchArticlesComponent()
+    it('Should not found the article', async () => {
+        const { input, getByText } = await renderSearchArticlesComponent()
 
         userEvent.type(input, 'Test Third Article')
 
@@ -121,7 +120,8 @@ Array [
     })
 
     it('Should find tag second', async () => {
-        const { getAllByRole, getByRole } = renderSearchArticlesComponent()
+        const { getAllByRole, getByRole } =
+            await renderSearchArticlesComponent()
 
         userEvent.click(getByRole('button', { name: /Read in English/i }))
 
@@ -156,7 +156,7 @@ Array [
     })
 
     it('Should change languange to English', async () => {
-        const { getByRole, findByText } = renderSearchArticlesComponent()
+        const { getByRole, findByText } = await renderSearchArticlesComponent()
 
         userEvent.click(getByRole('button', { name: /Read in English/i }))
 
