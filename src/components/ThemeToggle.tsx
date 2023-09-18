@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'next-themes'
-import { IconBoxButton } from './buttons/IconBoxButton'
+import { IconButton } from './buttons/IconBoxButton'
 
 const ThemeToggle: React.FC = () => {
     const { systemTheme, theme, setTheme } = useTheme()
@@ -18,9 +18,10 @@ const ThemeToggle: React.FC = () => {
 
         if (currentTheme === 'dark') {
             return (
-                <IconBoxButton
+                <IconButton
                     aria-label="light theme toggle"
                     onClick={() => setTheme('light')}
+                    shape="circle"
                 >
                     <FontAwesomeIcon
                         className="block"
@@ -28,13 +29,14 @@ const ThemeToggle: React.FC = () => {
                         icon={faSun}
                         data-testid="theme-dark"
                     />
-                </IconBoxButton>
+                </IconButton>
             )
         } else {
             return (
-                <IconBoxButton
+                <IconButton
                     aria-label="dark theme toggle"
                     onClick={() => setTheme('dark')}
+                    shape="circle"
                 >
                     <FontAwesomeIcon
                         className="block px-1"
@@ -42,34 +44,12 @@ const ThemeToggle: React.FC = () => {
                         size="lg"
                         data-testid="theme-light"
                     />
-                </IconBoxButton>
+                </IconButton>
             )
         }
     }
 
     return <>{renderThemeChanger()}</>
-}
-
-interface ThemeToggleButtonProps {
-    children: React.ReactChild
-    handleClick: () => void
-    ariaLabel: string
-}
-
-const ThemeToggleButton = ({
-    children,
-    handleClick,
-    ariaLabel,
-}: ThemeToggleButtonProps): React.ReactElement => {
-    return (
-        <button
-            className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto rounded-full"
-            onClick={handleClick}
-            aria-label={ariaLabel}
-        >
-            {children}
-        </button>
-    )
 }
 
 export default ThemeToggle
