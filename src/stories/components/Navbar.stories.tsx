@@ -7,7 +7,7 @@ const queryClient = new QueryClient({
 })
 
 const meta: Meta<typeof Navbar> = {
-    title: 'Components/Navbar',
+    title: 'General/Navbar',
     component: Navbar,
     tags: ['autodocs'],
 }
@@ -15,13 +15,11 @@ const meta: Meta<typeof Navbar> = {
 export default meta
 type Story = StoryObj<typeof Navbar>
 
-export const Basic: Story = {
+export const Desktop: Story = {
     args: {},
     decorators: [
         (Story) => {
-            queryClient.setQueryData(['cash-key'], {
-                //... set your mocked data here
-            })
+            queryClient.setQueryData(['notification'], {})
             return (
                 <QueryClientProvider client={queryClient}>
                     <Story />
