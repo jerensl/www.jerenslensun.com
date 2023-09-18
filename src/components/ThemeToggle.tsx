@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { useTheme } from 'next-themes'
+import { IconButton } from './buttons/IconBoxButton'
 
 const ThemeToggle: React.FC = () => {
     const { systemTheme, theme, setTheme } = useTheme()
@@ -17,58 +18,38 @@ const ThemeToggle: React.FC = () => {
 
         if (currentTheme === 'dark') {
             return (
-                <ThemeToggleButton
-                    ariaLabel="light theme toggle"
-                    handleClick={() => setTheme('light')}
+                <IconButton
+                    aria-label="light theme toggle"
+                    onClick={() => setTheme('light')}
+                    shape="circle"
                 >
                     <FontAwesomeIcon
-                        className="block m-3"
+                        className="block"
                         size="lg"
                         icon={faSun}
                         data-testid="theme-dark"
                     />
-                </ThemeToggleButton>
+                </IconButton>
             )
         } else {
             return (
-                <ThemeToggleButton
-                    ariaLabel="dark theme toggle"
-                    handleClick={() => setTheme('dark')}
+                <IconButton
+                    aria-label="dark theme toggle"
+                    onClick={() => setTheme('dark')}
+                    shape="circle"
                 >
                     <FontAwesomeIcon
-                        className="block m-3"
+                        className="block px-1"
                         icon={faMoon}
                         size="lg"
                         data-testid="theme-light"
                     />
-                </ThemeToggleButton>
+                </IconButton>
             )
         }
     }
 
     return <>{renderThemeChanger()}</>
-}
-
-interface ThemeToggleButtonProps {
-    children: React.ReactChild
-    handleClick: () => void
-    ariaLabel: string
-}
-
-const ThemeToggleButton = ({
-    children,
-    handleClick,
-    ariaLabel,
-}: ThemeToggleButtonProps): React.ReactElement => {
-    return (
-        <button
-            className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto rounded-full"
-            onClick={handleClick}
-            aria-label={ariaLabel}
-        >
-            {children}
-        </button>
-    )
 }
 
 export default ThemeToggle
