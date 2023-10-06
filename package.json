@@ -121,7 +121,7 @@
         "msw": "^0.39.2",
         "next-compose-plugins": "^2.2.1",
         "next-sitemap": "^1.9.12",
-        "postcss": "^8.4.5",
+        "postcss": "^8.4.31",
         "prettier": "^2.5.1",
         "react-test-renderer": "^18.1.0",
         "storybook": "^7.4.1",
