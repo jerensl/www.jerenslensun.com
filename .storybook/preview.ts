@@ -1,19 +1,22 @@
 import '../src/styles/globals.css'
 import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
-
-export const decorators = [
-    withThemeByClassName({
-        themes: {
-            light: 'light',
-            dark: 'dark',
-        },
-        defaultTheme: 'light',
-    }),
-]
+import { themes } from '@storybook/theming'
 
 const preview: Preview = {
+    decorators: [
+        withThemeByClassName({
+            themes: {
+                light: 'light',
+                dark: 'dark',
+            },
+            defaultTheme: 'light',
+        }),
+    ],
     parameters: {
+        docs: {
+            theme: themes.light,
+        },
         actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {
             matchers: {
