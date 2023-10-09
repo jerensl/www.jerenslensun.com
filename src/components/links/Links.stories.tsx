@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { HighlightLink } from '../../components/links/HighlightLink'
+import { HighlightLink } from './HighlightLink'
 
 const meta: Meta<typeof HighlightLink> = {
     title: 'Components/Links',
