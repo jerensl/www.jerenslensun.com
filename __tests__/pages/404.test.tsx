@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
-import NotFound from '../../src/pages/404'
+import NotFound from '@/pages/404'
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 

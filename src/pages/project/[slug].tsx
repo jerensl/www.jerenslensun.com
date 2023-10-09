@@ -4,18 +4,18 @@ import {
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { Footer } from '../../components/Footer'
-import { getFiles, getContent } from '../../libs/content'
+import { useMemo } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { getMDXComponent } from 'mdx-bundler/client'
+import { Footer } from '@/components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { ArticleSeo } from '@/components/Seo'
 import { Grid } from '@/components/Grid'
-import Image from 'next/image'
 import { imageLoader } from '@/constant/images'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
-import { getMDXComponent } from 'mdx-bundler/client'
-import { useMemo } from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const projects = getFiles('project')

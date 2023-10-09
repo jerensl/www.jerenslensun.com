@@ -1,20 +1,20 @@
+import { useEffect, useMemo, useState } from 'react'
 import {
     GetStaticProps,
     GetStaticPropsContext,
     GetStaticPaths,
     InferGetStaticPropsType,
 } from 'next'
-import { Footer } from '../../components/Footer'
-import { ArticleSeo } from '../../components/Seo'
-import { getContent, getFiles } from '@/libs/content'
 import Image from 'next/image'
-import { useEffect, useMemo, useState } from 'react'
-import { getMDXComponent } from 'mdx-bundler/client'
-import { MDXTitleHeadingLevels } from '@/types/content'
 import { format } from 'date-fns'
-import { imageLoader } from '@/constant/images'
+import { getMDXComponent } from 'mdx-bundler/client'
+import { Footer } from '@/components/Footer'
+import { ArticleSeo } from '@/components/Seo'
 import { components } from '@/components/Components'
 import TableOfContent from '@/components/tableOfContent'
+import { getContent, getFiles } from '@/libs/content'
+import { MDXTitleHeadingLevels } from '@/types/content'
+import { imageLoader } from '@/constant/images'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getFiles('blog')
