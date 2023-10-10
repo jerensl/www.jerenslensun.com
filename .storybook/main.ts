@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/nextjs'
-import path from 'path'
 import remarkGfm from 'remark-gfm'
 
 const config: StorybookConfig = {

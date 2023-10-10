@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { IconButton } from './IconBoxButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

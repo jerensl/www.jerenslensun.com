@@ -1,7 +1,7 @@
 import '../src/styles/globals.css'
 import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
-import { themes } from '@storybook/theming'
+import { ThemedDocsContainer } from '../src/utils/storybook/docsContainerTheme'
 
 const preview: Preview = {
     decorators: [
@@ -15,7 +15,7 @@ const preview: Preview = {
     ],
     parameters: {
         docs: {
-            theme: themes.light,
+            container: ThemedDocsContainer,
         },
         actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {

@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Tag: React.FC<React.ComponentPropsWithoutRef<'button'>> = ({
     children,
     className,
