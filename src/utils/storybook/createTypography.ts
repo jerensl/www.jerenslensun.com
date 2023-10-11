@@ -1,3 +1,5 @@
+import { ThemeColorsBase } from './createColors'
+
 export interface ThemeTypography extends ThemeTypographyVariantTypes {
     fontFamily: string
     fontFamilyMonospace: string
@@ -38,6 +40,7 @@ const defaultFontFamily = '"Inter", "Helvetica", "Arial", sans-serif'
 const defaultFontFamilyMonospace = "'Roboto Mono', monospace"
 
 export function createTypography(
+    colors: ThemeColorsBase,
     typographyInput: ThemeTypographyInput = {}
 ): ThemeTypography {
     const {

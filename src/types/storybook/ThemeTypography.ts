@@ -31,7 +31,3 @@ export interface ThemeTypography extends ThemeTypographyVariantTypes {
 
     pxToRem: (px: number) => string
 }
-
-export interface IDefaultTheme {
-    typography: ThemeTypography
-}

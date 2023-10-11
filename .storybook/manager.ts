@@ -1,8 +1,16 @@
 // .storybook/manager.js
 
 import { addons } from '@storybook/manager-api'
-import { DefaultTheme } from './defaultTheme'
+import { DefaultThemeDark } from './defaultTheme'
 
 addons.setConfig({
-    theme: DefaultTheme,
+    isFullscreen: false,
+    panelPosition: 'right',
+    showNav: true,
+    showPanel: true,
+    showToolbar: true,
+    sidebar: {
+        showRoots: true,
+    },
+    theme: DefaultThemeDark,
 })
