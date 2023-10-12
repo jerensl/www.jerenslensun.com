@@ -1,4 +1,4 @@
-import { ThemeColorsBase } from './createColors'
+import { ThemeColors } from './createColors'
 
 /** @beta */
 export interface ThemeShadows {
@@ -8,7 +8,7 @@ export interface ThemeShadows {
 }
 
 /** @alpha */
-export function createShadows(colors: ThemeColorsBase): ThemeShadows {
+export function createShadows(colors: ThemeColors): ThemeShadows {
     if (colors.mode === 'dark') {
         return {
             z1: '0px 1px 2px rgba(1, 4, 9, 0.75)',
