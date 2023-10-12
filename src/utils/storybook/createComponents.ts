@@ -1,4 +1,4 @@
-import { ThemeColorsBase } from './createColors'
+import { ThemeColors } from './createColors'
 import { ThemeShadows } from './createShadows'
 
 /** @beta */
@@ -36,10 +36,10 @@ export interface ThemeComponents {
         background: string
         padding: number
     }
-    // textHighlight: {
-    //     background: string
-    //     text: string
-    // }
+    textHighlight: {
+        background: string
+        text: string
+    }
     sidemenu: {
         width: number
     }
@@ -49,13 +49,13 @@ export interface ThemeComponents {
     horizontalDrawer: {
         defaultHeight: number
     }
-    // table: {
-    //     rowHoverBackground: string
-    // }
+    table: {
+        rowHoverBackground: string
+    }
 }
 
 export function createComponents(
-    colors: ThemeColorsBase,
+    colors: ThemeColors,
     shadows: ThemeShadows
 ): ThemeComponents {
     const panel = {
@@ -107,8 +107,18 @@ export function createComponents(
         menuTabs: {
             height: 42,
         },
+        textHighlight: {
+            text: colors.warning.contrastText,
+            background: colors.warning.main,
+        },
         horizontalDrawer: {
             defaultHeight: 400,
+        },
+        table: {
+            rowHoverBackground: colors.emphasize(
+                colors.background.primary,
+                0.03
+            ),
         },
     }
 }

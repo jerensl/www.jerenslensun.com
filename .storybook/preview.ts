@@ -1,12 +1,11 @@
 import '../src/styles/globals.css'
-import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
 import { ThemedDocsContainer } from '../src/utils/storybook/docsContainerTheme'
 import { withTheme } from '../src/utils/storybook/withTheme'
 import { DefaultThemeDark, DefaultThemeLight } from './defaultTheme'
 
 const preview: Preview = {
-    decorators: [withTheme(() => {})],
+    decorators: [withTheme((theme) => {})],
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
         docs: {
@@ -15,6 +14,7 @@ const preview: Preview = {
         darkMode: {
             dark: DefaultThemeDark,
             light: DefaultThemeLight,
+            stylePreview: true,
         },
         controls: {
             matchers: {
