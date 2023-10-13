@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import '@/styles/globals.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import type { AppProps } from 'next/app'
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import 'react-toastify/dist/ReactToastify.css'
 import * as React from 'react'
 import { ThemeProvider } from 'next-themes'
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 
 config.autoAddCss = false
 

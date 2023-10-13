@@ -1,5 +1,6 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Navbar } from '../../components/Navbar'
+import { Navbar } from './Navbar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const queryClient = new QueryClient({
@@ -15,7 +16,7 @@ const meta: Meta<typeof Navbar> = {
 export default meta
 type Story = StoryObj<typeof Navbar>
 
-export const Desktop: Story = {
+export const Basic: Story = {
     args: {},
     decorators: [
         (Story) => {

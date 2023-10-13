@@ -1,11 +1,11 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { Footer } from '../components/Footer'
-import { Seo } from '../components/Seo'
-import { generateRss } from '../libs/rss'
+import { Footer } from '@/components/Footer'
+import { Seo } from '@/components/Seo'
+import { generateRss } from '@/libs/rss'
 import { getPlaiceholder } from 'plaiceholder'
-import { Header } from '../components/Header'
-import { IntroductionSection } from '../components/sections/Introduction.section'
-import { CareerSection } from '../components/sections/Career.section'
+import { Header } from '@/components/Header'
+import { IntroductionSection } from '@/components/sections/Introduction.section'
+import { CareerSection } from '@/components/sections/Career.section'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()

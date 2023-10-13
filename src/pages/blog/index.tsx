@@ -1,13 +1,13 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { Footer } from '../../components/Footer'
-import { Seo } from '../../components/Seo'
-import { getContents, getTags } from '@/libs/content'
-import { IBlogMetadata } from '@/types/blog'
-import { Grid } from '@/components/Grid'
 import { useMemo, useState } from 'react'
-import { filterPosts } from '@/libs/search'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { Footer } from '@/components/Footer'
+import { Seo } from '@/components/Seo'
+import { Grid } from '@/components/Grid'
 import Tag from '@/components/Tag'
 import { Card } from '@/components/cards/blog'
+import { getContents, getTags } from '@/libs/content'
+import { filterPosts } from '@/libs/search'
+import { IBlogMetadata } from '@/types/blog'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')
