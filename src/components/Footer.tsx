@@ -1,3 +1,4 @@
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { StandardLink } from './links/StandardLink'
 import { HighlightLink } from './links/HighlightLink'
