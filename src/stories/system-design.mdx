@@ -1,0 +1,35 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
+import { lightColors } from '../constant/palette'
+
+<Meta title="Docs Overview/System Design" />
+
+# Guidelines
+
+System design Guidelines to follow.
+
+## Colors
+
+### Dark Theme
+
+<ColorPalette>
+    <ColorItem
+        title="theme.color.primary"
+        subtitle="Red"
+        colors={{ red: lightColors.primary }}
+    />
+    <ColorItem
+        title="theme.color.secondary"
+        subtitle="Cyan"
+        colors={{ cyan: lightColors.secondary }}
+    />
+    <ColorItem
+        title="theme.color.tertiary"
+        subtitle="Yellow"
+        colors={{ yellow: lightColors.tertiary }}
+    />
+    <ColorItem
+        title="theme.color.background"
+        subtitle="Neutral"
+        colors={{ neutral: lightColors.onBackground }}
+    />
+</ColorPalette>

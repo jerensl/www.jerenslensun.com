@@ -8,6 +8,7 @@ const preview: Preview = {
     decorators: [withTheme((theme) => {})],
     parameters: {
         actions: { argTypesRegex: '^on[A-Z].*' },
+        layout: 'centered',
         docs: {
             container: ThemedDocsContainer,
         },

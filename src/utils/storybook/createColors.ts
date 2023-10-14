@@ -1,5 +1,4 @@
 import { merge } from 'lodash'
-
 import {
     alpha,
     darken,
@@ -7,7 +6,7 @@ import {
     getContrastRatio,
     lighten,
 } from './colorManipulator'
-import { palette } from '../../constant/palette'
+import { baseColors, darkColors, lightColors } from '../../constant/palette'
 
 /** @alpha */
 export interface ThemeRichColor {
@@ -117,11 +116,22 @@ export interface ThemeColors extends ThemeColorsBase<ThemeRichColor> {
 /** @internal */
 export type ThemeColorsInput = DeepPartial<ThemeColorsBase<ThemeRichColor>>
 
+function hexToRgb(hex: string) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+
+    return result
+        ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(
+              result[3],
+              16
+          )}`
+        : null
+}
+
 class DarkColors implements ThemeColorsBase<Partial<ThemeRichColor>> {
     mode: ThemeColorsMode = 'dark'
 
     // Used to get more white opacity colors
-    whiteBase = '204, 204, 220'
+    whiteBase = hexToRgb(baseColors.primary98)
 
     border = {
         weak: `rgba(${this.whiteBase}, 0.12)`,
@@ -133,14 +143,14 @@ class DarkColors implements ThemeColorsBase<Partial<ThemeRichColor>> {
         primary: `rgb(${this.whiteBase})`,
         secondary: `rgba(${this.whiteBase}, 0.65)`,
         disabled: `rgba(${this.whiteBase}, 0.6)`,
-        link: palette.blueDarkText,
-        maxContrast: palette.white,
+        link: darkColors.primary,
+        maxContrast: baseColors.white,
     }
 
     primary = {
-        main: palette.blueDarkMain,
-        text: palette.blueDarkText,
-        border: palette.blueDarkText,
+        main: darkColors.onPrimary,
+        text: darkColors.primary,
+        border: darkColors.primaryContainer,
     }
 
     secondary = {
@@ -155,30 +165,30 @@ class DarkColors implements ThemeColorsBase<Partial<ThemeRichColor>> {
     info = this.primary
 
     error = {
-        main: palette.orangeDarkMain,
-        text: palette.orangeDarkMain,
+        main: darkColors.error,
+        text: darkColors.onError,
     }
 
     success = {
-        main: palette.greenDarkMain,
-        text: palette.greenDarkText,
+        main: darkColors.success,
+        text: darkColors.onSuccess,
     }
 
     warning = {
-        main: palette.redDarkMain,
-        text: palette.redLightText,
+        main: darkColors.tertiary,
+        text: darkColors.onTertiary,
     }
 
     background = {
-        canvas: palette.gray05,
-        primary: palette.gray10,
-        secondary: palette.gray15,
+        canvas: darkColors.background,
+        primary: darkColors.background,
+        secondary: darkColors.background,
     }
 
     action = {
         hover: `rgba(${this.whiteBase}, 0.16)`,
         selected: `rgba(${this.whiteBase}, 0.12)`,
-        selectedBorder: palette.orangeDarkMain,
+        selectedBorder: darkColors.error,
         focus: `rgba(${this.whiteBase}, 0.16)`,
         hoverOpacity: 0.08,
         disabledText: this.text.disabled,
@@ -203,9 +213,9 @@ class LightColors implements ThemeColorsBase<Partial<ThemeRichColor>> {
     blackBase = '36, 41, 46'
 
     primary = {
-        main: palette.blueLightMain,
-        border: palette.blueLightText,
-        text: palette.blueLightText,
+        main: lightColors.onPrimary,
+        text: lightColors.primary,
+        border: lightColors.primaryContainer,
     }
 
     text = {
@@ -213,7 +223,7 @@ class LightColors implements ThemeColorsBase<Partial<ThemeRichColor>> {
         secondary: `rgba(${this.blackBase}, 0.75)`,
         disabled: `rgba(${this.blackBase}, 0.50)`,
         link: this.primary.text,
-        maxContrast: palette.black,
+        maxContrast: baseColors.black,
     }
 
     border = {
@@ -232,35 +242,35 @@ class LightColors implements ThemeColorsBase<Partial<ThemeRichColor>> {
     }
 
     info = {
-        main: palette.blueLightMain,
-        text: palette.blueLightText,
+        main: lightColors.secondary,
+        text: lightColors.onSecondary,
     }
 
     error = {
-        main: palette.orangeLightMain,
-        text: palette.orangeLightText,
+        main: lightColors.error,
+        text: lightColors.onError,
     }
 
     success = {
-        main: palette.greenLightMain,
-        text: palette.greenLightText,
+        main: lightColors.success,
+        text: lightColors.onSuccess,
     }
 
     warning = {
-        main: palette.orangeLightMain,
-        text: palette.orangeLightText,
+        main: lightColors.tertiary,
+        text: lightColors.onTertiary,
     }
 
     background = {
-        canvas: palette.gray90,
-        primary: palette.white,
-        secondary: palette.gray100,
+        canvas: lightColors.background,
+        primary: lightColors.background,
+        secondary: lightColors.onBackground,
     }
 
     action = {
         hover: `rgba(${this.blackBase}, 0.12)`,
         selected: `rgba(${this.blackBase}, 0.08)`,
-        selectedBorder: palette.orangeLightMain,
+        selectedBorder: baseColors.tertiary40,
         hoverOpacity: 0.08,
         focus: `rgba(${this.blackBase}, 0.12)`,
         disabledBackground: `rgba(${this.blackBase}, 0.04)`,
