@@ -1,10 +1,8 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+export default {
     darkMode: ['class'],
-    content: [
-        './src/pages/**/*.{js,ts,jsx,tsx}',
-        './src/components/**/*.{js,ts,jsx,tsx}',
-    ],
+    content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
     theme: {
         fontFamily: {
             display: ['Merriweather', 'serif'],
@@ -31,7 +29,7 @@ module.exports = {
                 '5vw': '5vw',
                 ...theme('spacing'),
             }),
-            typography: (theme) => ({
+            typography: () => ({
                 DEFAULT: {
                     css: {
                         // maxWidth: '',
@@ -43,6 +41,5 @@ module.exports = {
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/line-clamp'),
     ],
-}
+} satisfies Config

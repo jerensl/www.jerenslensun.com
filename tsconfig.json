@@ -19,6 +19,13 @@
             "@/*": ["*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-    "exclude": ["node_modules"]
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "commitlint.config.ts",
+        "commitlint.config.ts",
+        "jest.setup.ts"
+    ],
+    "exclude": ["node_modules", "./cypress.config.ts"]
 }

@@ -59,9 +59,9 @@ describe('Blog Pages', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-      Array [
-        "Testing 101",
-      ]
+    [
+      "Testing 101",
+    ]
       `)
     })
 })

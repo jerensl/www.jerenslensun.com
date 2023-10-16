@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/nextjs'
 import remarkGfm from 'remark-gfm'
+import path from 'path'
 
 const config: StorybookConfig = {
     framework: {
@@ -21,16 +22,6 @@ const config: StorybookConfig = {
         '@storybook/addon-mdx-gfm',
         'storybook-dark-mode',
         {
-            name: '@storybook/addon-styling',
-            options: {
-                // Check out https://github.com/storybookjs/addon-styling/blob/main/docs/api.md
-                // For more details on this addon's options.
-                postCss: {
-                    implementation: require.resolve('postcss'),
-                },
-            },
-        },
-        {
             name: '@storybook/addon-docs',
             options: {
                 mdxPluginOptions: {
@@ -41,6 +32,26 @@ const config: StorybookConfig = {
             },
         },
     ],
+    webpackFinal: (config: any) => {
+        config.module.rules.push({
+            test: /\.css$/,
+            use: [
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                            plugins: [
+                                require('tailwindcss'),
+                                require('autoprefixer'),
+                            ],
+                        },
+                    },
+                },
+            ],
+            include: path.resolve(__dirname, '../'),
+        })
+        return config
+    },
 }
 
 export default config

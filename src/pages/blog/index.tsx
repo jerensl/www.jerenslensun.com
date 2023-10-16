@@ -39,11 +39,12 @@ export default function Blog({
 
     const toggleTag = (tag: string) => {
         if (query.includes(tag)) {
-            setQuery((s) =>
-                s
-                    .split(' ')
-                    .filter((t) => t !== tag)
-                    ?.join(' ')
+            setQuery(
+                (s) =>
+                    s
+                        .split(' ')
+                        .filter((t) => t !== tag)
+                        ?.join(' ')
             )
         } else {
             setQuery((s) => (s !== '' ? `${s.trim()} ${tag}` : tag))

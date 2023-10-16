@@ -1,11 +1,18 @@
 import { useReducedMotion, motion } from 'framer-motion'
 
-export const CareerCard = ({
+interface CareerCardProps {
+    organization: string
+    date: string
+    role: string
+    inView: boolean
+}
+
+export const CareerCard: React.FC<CareerCardProps> = ({
     organization,
     date,
     role,
     inView,
-}: any): React.ReactElement => {
+}): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()
 
     const childrenVariants = {

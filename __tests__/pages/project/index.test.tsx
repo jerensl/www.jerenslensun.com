@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import '@testing-library/jest-dom'
 import React from 'react'
 import { render, within } from '../../../__mocks__/utils/test-providers'
 import Project from '../../../src/pages/project/index'
@@ -59,9 +57,9 @@ describe('Project Pages', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-      Array [
-        "Project Title",
-      ]
+    [
+      "Project Title",
+    ]
       `)
     })
 })

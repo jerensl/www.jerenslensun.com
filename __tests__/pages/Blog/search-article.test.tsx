@@ -85,7 +85,7 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-Array [
+[
   "Test First Article",
 ]
 `)
@@ -104,7 +104,7 @@ Array [
         })
 
         expect(result).toMatchInlineSnapshot(`
-Array [
+[
   "Test First Article",
   "Test Second Article",
 ]
@@ -134,7 +134,7 @@ Array [
         })
 
         expect(result).toMatchInlineSnapshot(`
-    Array [
+    [
       "Test Second Article",
     ]
     `)
@@ -148,10 +148,10 @@ Array [
         })
 
         expect(resultTwo).toMatchInlineSnapshot(`
-Array [
-  "Test First Article",
-  "Test Second Article",
-]
+    [
+      "Test First Article",
+      "Test Second Article",
+    ]
 `)
     })
 
