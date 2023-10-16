@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build && next export",
-        "postbuild": "next-sitemap -- next-sitemap.cjs",
+        "build": "next build",
+        "postbuild": "next-sitemap --config next-sitemap.cjs",
         "start": "next start",
         "lint": "next lint",
         "test": "jest",
