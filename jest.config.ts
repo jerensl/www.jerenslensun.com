@@ -6,6 +6,7 @@ const createJestConfig = nextJest({
 })
 
 // Add any custom config to be passed to Jest
+/** @type {import('jest').Config} */
 const customJestConfig = {
     setupFiles: [require.resolve('whatwg-fetch')],
     setupFilesAfterEnv: [
@@ -23,7 +24,7 @@ const customJestConfig = {
         '<rootDir>/cypress/',
     ],
     moduleDirectories: ['node_modules', '<rootDir>/'],
-    testEnvironment: 'jsdom',
+    testEnvironment: 'jest-environment-jsdom',
     preset: 'ts-jest',
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'mjs'],
     transform: {

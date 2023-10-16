@@ -19,6 +19,13 @@
             "@/*": ["*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "commitlint.config.cts", "commitlint.config.cts", "jest.setup.js"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "commitlint.config.ts",
+        "commitlint.config.ts",
+        "jest.setup.ts"
+    ],
     "exclude": ["node_modules"]
 }
