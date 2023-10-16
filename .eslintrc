@@ -1,11 +1,16 @@
 {
     "extends": [
         "next/core-web-vitals",
-        "plugin:prettier/recommended",
-        "prettier",
         "plugin:cypress/recommended",
         "plugin:import/recommended",
-        "plugin:import/typescript"
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "prettier"
     ],
-    "plugins": ["prettier", "cypress"]
+    "plugins": ["cypress", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off"
+    }
 }

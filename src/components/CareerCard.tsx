@@ -1,6 +1,6 @@
 import { useReducedMotion, motion } from 'framer-motion'
 
-export const CareerCard = ({
+export const CareerCard: React.FC = ({
     organization,
     date,
     role,

@@ -59,9 +59,9 @@ describe('Project Pages', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-      Array [
-        "Project Title",
-      ]
+    [
+      "Project Title",
+    ]
       `)
     })
 })
