@@ -126,6 +126,7 @@
         "next-compose-plugins": "^2.2.1",
         "next-sitemap": "^1.9.12",
         "postcss": "^8.4.5",
+        "postcss-import": "^15.1.0",
         "prettier": "^3.0.3",
         "react-test-renderer": "^18.1.0",
         "storybook": "^7.4.6",

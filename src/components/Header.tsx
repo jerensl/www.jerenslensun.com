@@ -50,7 +50,7 @@ export const Header = ({
                                 data-fade="2"
                             >
                                 <StandardLink
-                                    className="rounded-md text-white bg-red-600 font-semibold text-xl hover:bg-red-500 w-36 py-2"
+                                    className="rounded-md text-on-primary-container bg-primary-container font-semibold text-xl hover:bg-red-500 w-36 py-2"
                                     href="/blog"
                                 >
                                     Read Articles
