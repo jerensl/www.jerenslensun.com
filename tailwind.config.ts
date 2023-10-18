@@ -9,6 +9,10 @@ export default {
             body: ['Merriweather', 'serif'],
         },
         extend: {
+            opacity: {
+                '108': '1.08',
+                '110': '1.10',
+            },
             colors: {
                 primary: 'var(--md-sys-color-primary)',
                 'on-primary': 'var(--md-sys-color-on-primary)',
@@ -44,6 +48,7 @@ export default {
                 'on-background': 'var(--md-sys-color-on-background)',
                 surface: 'var(--md-sys-color-surface)',
                 'on-surface': 'var(--md-sys-color-on-surface)',
+                outline: 'var(--md-sys-color-outline)',
             },
             gridTemplateColumns: {
                 'auto-fill': 'repeat(auto-fit, minmax(350px, 1fr))',
