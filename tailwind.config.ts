@@ -9,22 +9,39 @@ export default {
             body: ['Merriweather', 'serif'],
         },
         extend: {
+            boxShadow: {
+                'elevation-0':
+                    'rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px',
+                'elevation-1':
+                    'rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px',
+                'elevation-2':
+                    'rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px',
+                'elevation-3':
+                    'rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px',
+                'elevation-4':
+                    'rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px',
+                'elevation-5':
+                    'rgba(0, 0, 0, 0.2) 0px 7px 8px -4px, rgba(0, 0, 0, 0.14) 0px 12px 17px 2px, rgba(0, 0, 0, 0.12) 0px 5px 22px 4px',
+            },
             opacity: {
-                '108': '1.08',
-                '110': '1.10',
+                '8': '.08',
+                '16': '.16',
             },
             colors: {
-                primary: 'var(--md-sys-color-primary)',
-                'on-primary': 'var(--md-sys-color-on-primary)',
-                'primary-container': 'var(--md-sys-color-primary-container)',
+                primary: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
+                'on-primary':
+                    'rgb(var(--md-sys-color-on-primary) / <alpha-value>)',
+                'primary-container':
+                    'rgb(var(--md-sys-color-primary-container) / <alpha-value>)',
                 'on-primary-container':
-                    'var(--md-sys-color-on-primary-container)',
-                secondary: 'var(--md-sys-color-secondary)',
-                'on-secondary': 'var(--md-sys-color-on-secondary)',
+                    'rgb(var(--md-sys-color-on-primary-container) / <alpha-value>)',
+                secondary: 'rgb(var(--md-sys-color-secondary) / <alpha-value>)',
+                'on-secondary':
+                    'rgb(var(--md-sys-color-on-secondary) / <alpha-value>)',
                 'secondary-container':
-                    'var(--md-sys-color-secondary-container)',
+                    'rgb(var(--md-sys-color-secondary-container) / <alpha-value>)',
                 'on-secondary-container':
-                    'var(--md-sys-color-on-secondary-container)',
+                    'rgb(var(--md-sys-color-on-secondary-container) / <alpha-value>)',
                 tertiary: 'var(--md-sys-color-tertiary)',
                 'on-tertiary': 'var(--md-sys-color-on-tertiary)',
                 'tertiary-container': 'var(--md-sys-color-tertiary-container)',

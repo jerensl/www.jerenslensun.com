@@ -8,22 +8,14 @@
 
 @layer base {
     :root {
-        --md-sys-color-primary: var(--md-sys-color-primary-light);
-        --md-sys-color-on-primary: var(--md-sys-color-on-primary-light);
-        --md-sys-color-primary-container: var(
-            --md-sys-color-primary-container-light
-        );
-        --md-sys-color-on-primary-container: var(
-            --md-sys-color-on-primary-container-light
-        );
-        --md-sys-color-secondary: var(--md-sys-color-secondary-light);
-        --md-sys-color-on-secondary: var(--md-sys-color-on-secondary-light);
-        --md-sys-color-secondary-container: var(
-            --md-sys-color-secondary-container-light
-        );
-        --md-sys-color-on-secondary-container: var(
-            --md-sys-color-on-secondary-container-light
-        );
+        --md-sys-color-primary: 181 37 28;
+        --md-sys-color-on-primary: 255 255 255;
+        --md-sys-color-primary-container: 255 218 213;
+        --md-sys-color-on-primary-container: 65 0 1;
+        --md-sys-color-secondary: 0 106 97;
+        --md-sys-color-on-secondary: 255 255 255;
+        --md-sys-color-secondary-container: 115 248 232;
+        --md-sys-color-on-secondary-container: 0 32 29;
         --md-sys-color-tertiary: var(--md-sys-color-tertiary-light);
         --md-sys-color-on-tertiary: var(--md-sys-color-on-tertiary-light);
         --md-sys-color-tertiary-container: var(
@@ -68,22 +60,14 @@
         --md-sys-color-scrim: var(--md-sys-color-scrim-light);
     }
     .dark {
-        --md-sys-color-primary: var(--md-sys-color-primary-dark);
-        --md-sys-color-on-primary: var(--md-sys-color-on-primary-dark);
-        --md-sys-color-primary-container: var(
-            --md-sys-color-primary-container-dark
-        );
-        --md-sys-color-on-primary-container: var(
-            --md-sys-color-on-primary-container-dark
-        );
-        --md-sys-color-secondary: var(--md-sys-color-secondary-dark);
-        --md-sys-color-on-secondary: var(--md-sys-color-on-secondary-dark);
-        --md-sys-color-secondary-container: var(
-            --md-sys-color-secondary-container-dark
-        );
-        --md-sys-color-on-secondary-container: var(
-            --md-sys-color-on-secondary-container-dark
-        );
+        --md-sys-color-primary: 255 180 169;
+        --md-sys-color-on-primary: 105 0 2;
+        --md-sys-color-primary-container: 146 5 6;
+        --md-sys-color-on-primary-container: 255 218 213;
+        --md-sys-color-secondary: 82 219 204;
+        --md-sys-color-on-secondary: 0 55 50;
+        --md-sys-color-secondary-container: 0 80 73;
+        --md-sys-color-on-secondary-container: 115 248 232;
         --md-sys-color-tertiary: var(--md-sys-color-tertiary-dark);
         --md-sys-color-on-tertiary: var(--md-sys-color-on-tertiary-dark);
         --md-sys-color-tertiary-container: var(

@@ -50,12 +50,12 @@ export const Header = ({
                                 data-fade="2"
                             >
                                 <LinkButton
-                                    type="outlined"
+                                    variant="outlined"
                                     href="/blog"
                                     label="About me"
                                 />
                                 <LinkButton
-                                    type="outlined"
+                                    variant="outlined"
                                     href="/blog"
                                     label="   Read articles"
                                 />
