@@ -11,22 +11,22 @@ type IButtonVariants =
 
 export type HighlightLinkProps = {
     href: string
-    isExternal?: boolean
     variant: IButtonVariants
     label: string
+    fullWidth?: boolean
 }
 
 export const LinkButton = ({
     href,
-    isExternal,
     variant,
     label,
+    fullWidth,
 }: HighlightLinkProps) => {
     return (
         <StandardLink
             href={href}
             className={clsx(
-                'rounded-full text-sm font-medium px-5 py-2 shadow-elevation-0',
+                'rounded-full text-sm w-fit font-medium px-5 py-2 shadow-elevation-0',
                 {
                     'text-primary shadow-elevation-1 hover:bg-primary/8 hover:shadow-elevation-2 focus:shadow-elevation-1':
                         variant === 'elevated',
@@ -37,9 +37,9 @@ export const LinkButton = ({
                     'text-primary border border-outline bg-surface hover:bg-primary/8 dark:hover:bg-[var(--md-ref-palette-neutral20)]':
                         variant === 'outlined',
                     'text-primary hover:bg-primary/8': variant === 'text',
+                    'block w-full': fullWidth,
                 }
             )}
-            isExternal={isExternal}
         >
             {label}
         </StandardLink>

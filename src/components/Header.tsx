@@ -55,9 +55,9 @@ export const Header = ({
                                     label="About me"
                                 />
                                 <LinkButton
-                                    variant="outlined"
+                                    variant="filled"
                                     href="/blog"
-                                    label="   Read articles"
+                                    label="Read articles"
                                 />
                             </div>
                         </div>
