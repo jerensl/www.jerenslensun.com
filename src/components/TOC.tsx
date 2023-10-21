@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { MDXTitleHeadingLevels } from '@/types/content'
 import { StandardLink } from './links/StandardLink'
+import { LinkButton } from './links/LinkButton'
 
 interface TableOfContentProps {
     toc: Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
@@ -23,8 +24,8 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
             <ul className="mt-4 flex flex-col space-y-2 text-sm">
                 {toc.map(({ id, text, level }) => {
                     return (
-                        <li key={id}>
-                            <StandardLink
+                        <li key={id} className="w-full">
+                            {/* <StandardLink
                                 href={`#${id}`}
                                 onClick={(e) => {
                                     e.preventDefault()
@@ -42,7 +43,13 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                                 })}
                             >
                                 {text}
-                            </StandardLink>
+                            </StandardLink> */}
+                            <LinkButton
+                                href={`#${id}`}
+                                variant="text"
+                                label={text}
+                                fullWidth
+                            />
                         </li>
                     )
                 })}

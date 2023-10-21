@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun } from '@fortawesome/free-solid-svg-icons'
 
 const meta: Meta<typeof IconButton> = {
-    title: 'Components/IconButton',
+    title: 'Components/Buttons',
     component: IconButton,
 }
 

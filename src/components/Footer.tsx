@@ -58,7 +58,7 @@ function AboutSection() {
             <h1 className="text-xl font-bold text-center sm:text-left">
                 Jerens S. Lensun
             </h1>
-            <p className="text-secondary text-center sm:text-left mb-4 md:mb-6 max-w-md text-2xl">
+            <p className="text-center sm:text-left mb-4 md:mb-6 max-w-md text-2xl">
                 Software Engineering
             </p>
             <div className="flex space-x-6 h-10 justify-center sm:justify-start py-1">

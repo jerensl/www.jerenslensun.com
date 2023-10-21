@@ -15,7 +15,7 @@ export const IntroductionSection = (): React.ReactElement => {
     return (
         <InView triggerOnce rootMargin="-40% 0px">
             {({ inView, ref }) => (
-                <Grid ref={ref} className={clsx('pt-20 gap-10')}>
+                <Grid ref={ref} className={clsx('pt-20 gap-10 bg-background')}>
                     <div className="col-span-full lg:col-span-6">
                         <motion.div
                             className="flex flex-auto flex-col"

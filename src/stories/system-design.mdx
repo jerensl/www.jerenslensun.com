@@ -1,5 +1,5 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
-import { lightColors } from '../constant/palette'
+import { lightColors, darkColors } from '../constant/palette'
 
 <Meta title="Docs Overview/System Design" />
 
@@ -9,27 +9,170 @@ System design Guidelines to follow.
 
 ## Colors
 
+### Light Theme
+
+<ColorPalette>
+    <ColorItem
+        title="theme.color.primary"
+        subtitle="Primary"
+        colors={{
+            Primary: lightColors.primary,
+            'On Primary': lightColors.onPrimary,
+            'Primary Container': lightColors.primaryContainer,
+            'On Primary Container': lightColors.onPrimaryContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.secondary"
+        subtitle="Secondary"
+        colors={{
+            Secondary: lightColors.secondary,
+            'On Secondary': lightColors.onSecondary,
+            'Secondary Container': lightColors.secondaryContainer,
+            'On Secondary Container': lightColors.onSecondaryContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.tertiary"
+        subtitle="Tertiary"
+        colors={{
+            Tertiary: lightColors.tertiary,
+            'On Tertiary': lightColors.onTertiary,
+            'Tertiary Container': lightColors.tertiaryContainer,
+            'On Tertiary Container': lightColors.onTertiaryContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.warning"
+        subtitle="Warning"
+        colors={{
+            Warning: lightColors.warning,
+            'On Warning': lightColors.onWarning,
+            'Warning Container': lightColors.warningContainer,
+            'On Warning Container': lightColors.onWarningContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.error"
+        subtitle="Error"
+        colors={{
+            Error: lightColors.error,
+            'On Error': lightColors.onError,
+            'Error Container': lightColors.errorContainer,
+            'On Error Container': lightColors.onErrorContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.success"
+        subtitle="Success"
+        colors={{
+            Success: lightColors.success,
+            'On Success': lightColors.onSuccess,
+            'Success Container': lightColors.successContainer,
+            'On Success Container': lightColors.onSuccessContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.background"
+        subtitle="Background"
+        colors={{
+            Background: lightColors.background,
+            'On Background': lightColors.onBackground,
+            Surface: lightColors.surface,
+            'On Surface': lightColors.onSurface,
+        }}
+    />
+    <ColorItem
+        title="theme.color.others"
+        subtitle="Others"
+        colors={{
+            Outline: lightColors.outline,
+            'Surface Variant': lightColors.surfaceVariant,
+            'On Surface Variant': lightColors.onSurfaceVariant,
+        }}
+    />
+</ColorPalette>
+
 ### Dark Theme
 
 <ColorPalette>
     <ColorItem
         title="theme.color.primary"
-        subtitle="Red"
-        colors={{ red: lightColors.primary }}
+        subtitle="Primary"
+        colors={{
+            Primary: darkColors.primary,
+            'On Primary': darkColors.onPrimary,
+            'Primary Container': darkColors.primaryContainer,
+            'On Primary Container': darkColors.onPrimaryContainer,
+        }}
     />
     <ColorItem
         title="theme.color.secondary"
-        subtitle="Cyan"
-        colors={{ cyan: lightColors.secondary }}
+        subtitle="Secondary"
+        colors={{
+            Secondary: darkColors.secondary,
+            'On Secondary': darkColors.onSecondary,
+            'Secondary Container': darkColors.secondaryContainer,
+            'On Secondary Container': darkColors.onSecondaryContainer,
+        }}
     />
     <ColorItem
         title="theme.color.tertiary"
-        subtitle="Yellow"
-        colors={{ yellow: lightColors.tertiary }}
+        subtitle="Tertiary"
+        colors={{
+            Tertiary: darkColors.tertiary,
+            'On Tertiary': darkColors.onTertiary,
+            'Tertiary Container': darkColors.tertiaryContainer,
+            'On Tertiary Container': darkColors.onTertiaryContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.warning"
+        subtitle="Warning"
+        colors={{
+            Warning: darkColors.warning,
+            'On Warning': darkColors.onWarning,
+            'Warning Container': darkColors.warningContainer,
+            'On Warning Container': darkColors.onWarningContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.error"
+        subtitle="Error"
+        colors={{
+            Error: darkColors.error,
+            'On Error': darkColors.onError,
+            'Error Container': darkColors.errorContainer,
+            'On Error Container': darkColors.onErrorContainer,
+        }}
+    />
+    <ColorItem
+        title="theme.color.success"
+        subtitle="Success"
+        colors={{
+            Success: darkColors.success,
+            'On Success': darkColors.onSuccess,
+            'Success Container': darkColors.successContainer,
+            'On Success Container': darkColors.onSuccessContainer,
+        }}
     />
     <ColorItem
         title="theme.color.background"
-        subtitle="Neutral"
-        colors={{ neutral: lightColors.onBackground }}
+        subtitle="Background"
+        colors={{
+            Background: darkColors.background,
+            'On Background': darkColors.onBackground,
+            Surface: darkColors.surface,
+            'On Surface': darkColors.onSurface,
+        }}
+    />
+    <ColorItem
+        title="theme.color.others"
+        subtitle="Others"
+        colors={{
+            Outline: darkColors.outline,
+            'Surface Variant': darkColors.surfaceVariant,
+            'On Surface Variant': darkColors.onSurfaceVariant,
+        }}
     />
 </ColorPalette>

@@ -8,7 +8,7 @@ import { pageLinks } from '@/constant/page'
 
 export const Navbar: React.FC = () => {
     return (
-        <nav className="fixed w-full z-10 bg-white dark:bg-neutral-900 px-5vw">
+        <nav className="fixed w-full z-10 bg-background px-5vw">
             <div className="flex text-center justify-between h-full w-full border-gray-100">
                 <HighlightLink
                     href="/"

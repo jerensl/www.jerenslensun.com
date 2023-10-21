@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
 import { imageLoader } from '../constant/images'
-import { StandardLink } from './links/StandardLink'
+import { LinkButton } from './links/LinkButton'
 
 export const Header = ({
     blurDataURL,
@@ -46,21 +46,19 @@ export const Header = ({
                                 </p>
                             </div>
                             <div
-                                className="flex text-center self-center flex-col gap-2"
+                                className="flex flex-row text-center self-center  gap-2"
                                 data-fade="2"
                             >
-                                <StandardLink
-                                    className="rounded-md text-white bg-red-600 font-semibold text-xl hover:bg-red-500 w-36 py-2"
+                                <LinkButton
+                                    variant="outlined"
                                     href="/blog"
-                                >
-                                    Read Articles
-                                </StandardLink>
-                                <StandardLink
-                                    className="rounded-md bg-gray-200 dark:bg-neutral-700 font-semibold text-xl hover:bg-gray-300 dark:hover:bg-neutral-600 w-36 py-2"
-                                    href="/about"
-                                >
-                                    About Me
-                                </StandardLink>
+                                    label="About me"
+                                />
+                                <LinkButton
+                                    variant="filled"
+                                    href="/blog"
+                                    label="Read articles"
+                                />
                             </div>
                         </div>
                     </div>

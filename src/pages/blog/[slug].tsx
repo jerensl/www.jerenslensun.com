@@ -11,7 +11,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import { Footer } from '@/components/Footer'
 import { ArticleSeo } from '@/components/Seo'
 import { components } from '@/components/Components'
-import TableOfContent from '@/components/tableOfContent'
+import TableOfContent from '@/components/TOC'
 import { getContent, getFiles } from '@/libs/content'
 import { MDXTitleHeadingLevels } from '@/types/content'
 import { imageLoader } from '@/constant/images'
@@ -93,18 +93,18 @@ export default function Blog({
                     className="object-cover m-auto"
                 />
             </header>
-            <main className="py-10 lg:grid lg:grid-cols-[1fr_auto] lg:grid-rows-[1fr_min-content] lg:gap-2 spa max-w-5xl m-auto">
-                <article
-                    id="mdx"
-                    className="prose max-w-none dark:prose-invert prose-p:font-normal prose-li:font-normal mx-auto w-full lg:prose-lg m-auto"
-                >
-                    <Component components={components} />
-                </article>
-                <aside className="py-10">
-                    <div className="sticky top-36">
+            <main className="py-10 flex max-w-7xl flex-row-reverse m-auto">
+                <aside className="py-10 w-[350px]">
+                    <div className="sticky top-36 flex">
                         <TableOfContent toc={toc} />
                     </div>
                 </aside>
+                <article
+                    id="mdx"
+                    className="prose ml-20 flex-1 max-w-4xl m-auto dark:prose-invert prose-p:font-normal prose-li:font-normal lg:prose-lg"
+                >
+                    <Component components={components} />
+                </article>
             </main>
             <div className="h-20 lg:h-32" />
             <Footer />
