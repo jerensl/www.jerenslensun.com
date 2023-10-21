@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.2.0](https://github.com/jerensl/www.jerensl.com/compare/v1.1.0...v1.2.0) (2023-10-16)
+
+
+### Features
+
+* **icon-box:** add icon box and implement it for theme switcher ([334c461](https://github.com/jerensl/www.jerensl.com/commit/334c46105cc8493474de4a39619f73a3e5300d21))
+* **icon-box:** add more docs on storybook and refactor icon button ([26d7ed7](https://github.com/jerensl/www.jerensl.com/commit/26d7ed7143d4e4ba6cbb235d40a63846e8b4751d))
+* **icon-box:** add storybook for icon box ([49339c6](https://github.com/jerensl/www.jerensl.com/commit/49339c653186646ee969cc5f1741a228a7f336a4))
+* **storybook:** add costum theme in storybook ([1d44c58](https://github.com/jerensl/www.jerensl.com/commit/1d44c584e2aa484ee7d5b06f3b21a5e543ddffc0))
+* **storybook:** add theme switcher storybook ([91404b1](https://github.com/jerensl/www.jerensl.com/commit/91404b17329d504e41709dee78c061fd9d79f909))
+
+
+### Bug Fixes
+
+* **build:** fix the build by add export & serve ([4b564ee](https://github.com/jerensl/www.jerensl.com/commit/4b564eee3eb9c206e3dd028bdb3a77318a3a8dd0))
+* **build:** fix the build by removing export ([96ed9f7](https://github.com/jerensl/www.jerensl.com/commit/96ed9f75917a6ef749728dd356afff1ec53bdb2d))
+* **career-section:** fix types props on career section ([4e3e562](https://github.com/jerensl/www.jerensl.com/commit/4e3e562db89331adab0456e3f2fb85ab492c6c49))
+* **cypress:** fix cypress conflicting type with jest ([e0b6136](https://github.com/jerensl/www.jerensl.com/commit/e0b6136230c4eafb5f31f33077433449e1ee20f3))
+* **jest:** fix jest type ([2f72604](https://github.com/jerensl/www.jerensl.com/commit/2f726041f7c43a360115e0cbc266ea0cd89ef6b5))
+* **lighthouse:** refactor lighthouse from js to json ([7a31f3e](https://github.com/jerensl/www.jerensl.com/commit/7a31f3e10e5ea50fe9ff8b092f45ff34fc655483))
+* **sitemap:** fix common js sitemap ([7c4db8e](https://github.com/jerensl/www.jerensl.com/commit/7c4db8e822bda9fc5eb2aed79ac8b6d2a59d57ec))
+* **sitemap:** fix typo in common js sitemap ([c88b1f8](https://github.com/jerensl/www.jerensl.com/commit/c88b1f815b3fb87972e80f480fe1fff8427c358a))
+* **sitemap:** fix typo in common js sitemap ([50cdb25](https://github.com/jerensl/www.jerensl.com/commit/50cdb253afa88414346aaadf0d4e4435a71b4424))
+* **storybook:** fix wrong type in createShadow ([1fb739f](https://github.com/jerensl/www.jerensl.com/commit/1fb739fe50015fc88bcad3551dc63840431c2ba4))
+* **theme-swticher:** fix the theme switcher and add theme switch for … ([063561f](https://github.com/jerensl/www.jerensl.com/commit/063561f96ec7e5a14fa1051c5d49c846e454bf05))
+* **theme-swticher:** fix the theme switcher and add theme switch for … ([#803](https://github.com/jerensl/www.jerensl.com/issues/803)) ([063561f](https://github.com/jerensl/www.jerensl.com/commit/063561f96ec7e5a14fa1051c5d49c846e454bf05))
+* **theme-swticher:** fix the theme switcher and add theme switch for storybook ([93c749b](https://github.com/jerensl/www.jerensl.com/commit/93c749bb163a28792483a39b732a7816467a8204))
+* upgrade next from 13.4.19 to 13.5.1 ([a0be607](https://github.com/jerensl/www.jerensl.com/commit/a0be607ffd8340fcc7d90babe544d1d4d5961562))
+* upgrade sharp from 0.32.5 to 0.32.6 ([a5db8d9](https://github.com/jerensl/www.jerensl.com/commit/a5db8d937be73c38b703439641a6057d76718598))
+* upgrade whatwg-fetch from 3.6.17 to 3.6.18 ([b2186e2](https://github.com/jerensl/www.jerensl.com/commit/b2186e2a57450671101b159fbe9c8020b7abe2fe))
+
 ## [1.1.0](https://github.com/jerensl/www.jerensl.com/compare/v1.0.1...v1.1.0) (2023-09-14)
 
 ### Features
