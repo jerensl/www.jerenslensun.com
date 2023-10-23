@@ -35,14 +35,10 @@
         --md-sys-color-background: var(--md-sys-color-background-light);
         --md-sys-color-on-background: var(--md-sys-color-on-background-light);
         --md-sys-color-surface: var(--md-sys-color-surface-light);
-        --md-sys-color-on-surface: var(--md-sys-color-on-surface-light);
-        --md-sys-color-surface-variant: var(
-            --md-sys-color-surface-variant-light
-        );
-        --md-sys-color-on-surface-variant: var(
-            --md-sys-color-on-surface-variant-light
-        );
-        --md-sys-color-outline: var(--md-sys-color-outline-light);
+        --md-sys-color-on-surface: 32 26 25;
+        --md-sys-color-surface-variant: 245 221 218;
+        --md-sys-color-on-surface-variant: 83 67 65;
+        --md-sys-color-outline: 133 115 112;
         --md-sys-color-inverse-on-surface: var(
             --md-sys-color-inverse-on-surface-light
         );
@@ -87,14 +83,10 @@
         --md-sys-color-background: var(--md-sys-color-background-dark);
         --md-sys-color-on-background: var(--md-sys-color-on-background-dark);
         --md-sys-color-surface: var(--md-sys-color-surface-dark);
-        --md-sys-color-on-surface: var(--md-sys-color-on-surface-dark);
-        --md-sys-color-surface-variant: var(
-            --md-sys-color-surface-variant-dark
-        );
-        --md-sys-color-on-surface-variant: var(
-            --md-sys-color-on-surface-variant-dark
-        );
-        --md-sys-color-outline: var(--md-sys-color-outline-dark);
+        --md-sys-color-on-surface: 237 224 222;
+        --md-sys-color-surface-variant: 83 67 65;
+        --md-sys-color-on-surface-variant: 216 194 190;
+        --md-sys-color-outline: 160 140 137;
         --md-sys-color-inverse-on-surface: var(
             --md-sys-color-inverse-on-surface-dark
         );

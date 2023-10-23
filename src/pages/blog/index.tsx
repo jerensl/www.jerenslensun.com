@@ -3,12 +3,12 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { Footer } from '@/components/Footer'
 import { Seo } from '@/components/Seo'
 import { Grid } from '@/components/Grid'
-import Tag from '@/components/Tag'
 import { Card } from '@/components/cards/blog'
 import { getContents, getTags } from '@/libs/content'
 import { filterPosts } from '@/libs/search'
 import { IBlogMetadata } from '@/types/blog'
 import { SearchArticles } from '@/components/inputs/SearchArticles'
+import { Tag } from '@/components/chips/Tag'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')
@@ -66,17 +66,6 @@ export default function Blog({
                 </div>
                 <Grid as="section" rowGap>
                     <div className="col-span-full w-full">
-                        {/* <div className="w-full bg-transparent border rounded-md focus-within:border-red-500 focus-within:ring focus-within:ring-red-400 focus-within:ring-opacity-40"> */}
-                        {/* <input
-                                className="text-gray-700 dark:text-neutral-200 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0 p-2 w-full"
-                                placeholder="Search Articles..."
-                                aria-label="Search Articles"
-                                value={query}
-                                onChange={(event) => {
-                                    setQuery(event.target.value)
-                                }}
-                            /> */}
-                        {/* </div> */}
                         <SearchArticles
                             placeholder="Search Articles..."
                             aria-label="Search Articles"
@@ -95,14 +84,14 @@ export default function Blog({
                                     return (
                                         <Tag
                                             key={tag}
+                                            isActive={selected}
                                             onClick={() => toggleTag(tag)}
                                             disabled={
                                                 !visibleTags.has(tag) &&
                                                 !selected
                                             }
-                                        >
-                                            {tag}
-                                        </Tag>
+                                            text={tag}
+                                        />
                                     )
                                 })}
                             </div>

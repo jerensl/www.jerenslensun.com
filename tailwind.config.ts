@@ -9,6 +9,13 @@ export default {
             body: ['Merriweather', 'serif'],
         },
         extend: {
+            borderRadius: {
+                'extra-small': '4px',
+                small: '8px',
+                medium: '12px',
+                large: '16px',
+                'extra-large': '28px',
+            },
             boxShadow: {
                 'elevation-0':
                     'rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px',
@@ -25,7 +32,9 @@ export default {
             },
             opacity: {
                 '8': '.08',
+                '12': '.12',
                 '16': '.16',
+                '38': '.38',
             },
             colors: {
                 primary: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
@@ -64,8 +73,13 @@ export default {
                 background: 'var(--md-sys-color-background)',
                 'on-background': 'var(--md-sys-color-on-background)',
                 surface: 'var(--md-sys-color-surface)',
-                'on-surface': 'var(--md-sys-color-on-surface)',
-                outline: 'var(--md-sys-color-outline)',
+                'on-surface':
+                    'rgb(var(--md-sys-color-on-surface) / <alpha-value>)',
+                'surface-variant':
+                    'rgb(var(--md-sys-color-surface-variant) / <alpha-value>)',
+                'on-surface-variant':
+                    'rgb(var(--md-sys-color-on-surface-variant) / <alpha-value>)',
+                outline: 'rgb(var(--md-sys-color-outline) / <alpha-value>)',
             },
             gridTemplateColumns: {
                 'auto-fill': 'repeat(auto-fit, minmax(350px, 1fr))',
