@@ -21,7 +21,7 @@ export const Checked: Story = {
     args: {
         onClick: () => {},
         text: 'Checked',
-        isActive: true,
+        selected: true,
     },
     decorators: [],
 }

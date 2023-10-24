@@ -9,6 +9,7 @@ import { filterPosts } from '@/libs/search'
 import { IBlogMetadata } from '@/types/blog'
 import { SearchArticles } from '@/components/inputs/SearchArticles'
 import { Tag } from '@/components/chips/Tag'
+import { Button } from '@/components/buttons/Button'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')
@@ -74,8 +75,8 @@ export default function Blog({
                                 setQuery(event.target.value)
                             }}
                         />
-                        <div className="w-full">
-                            <div className="w-full flex my-4 flex-wrap col-span-full -mb-4">
+                        <div className="w-full flex flex-col">
+                            <div className="w-full flex my-2 flex-wrap col-span-full">
                                 <p className="mr-2 text-lg font-medium">
                                     Search by topics :
                                 </p>
@@ -84,7 +85,7 @@ export default function Blog({
                                     return (
                                         <Tag
                                             key={tag}
-                                            isActive={selected}
+                                            selected={selected}
                                             onClick={() => toggleTag(tag)}
                                             disabled={
                                                 !visibleTags.has(tag) &&
@@ -95,17 +96,17 @@ export default function Blog({
                                     )
                                 })}
                             </div>
-                            <button
+                            <Button
                                 data-cy="lang"
+                                variant="filled-tonal"
                                 onClick={() => {
                                     setGlobalLang((b) => !b)
                                     clearSearch()
                                 }}
-                                className="text-sm mt-5 md:mt-3 mb-5 mr-4 px-4 py-2 w-auto h-auto rounded-md cursor-pointer transition font-semibold text-white bg-red-500 opacity-100"
-                            >
-                                Read in{' '}
-                                {globalLang ? 'Bahasa Indonesia' : 'English'}
-                            </button>
+                                label={`Read in ${
+                                    globalLang ? 'Bahasa Indonesia' : 'English'
+                                }`}
+                            />
                         </div>
                     </div>
                     {matchingPosts.length ? null : (

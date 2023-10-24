@@ -8,40 +8,37 @@ type IButtonVariants =
     | 'outlined'
     | 'text'
 
-export type HighlightLinkProps = {
+export type ButtonProps = {
     onClick: () => void
     variant: IButtonVariants
     label: string
-    disabled?: boolean
+    dataCy?: string
     fullWidth?: boolean
-    isActive?: boolean
 }
 
 export const Button = ({
+    onClick,
     variant,
     label,
     fullWidth,
-    onClick,
-    disabled,
-    isActive,
-}: HighlightLinkProps) => {
+    dataCy,
+}: ButtonProps) => {
     return (
         <button
+            data-cy={dataCy}
             onClick={onClick}
-            disabled={disabled}
             className={clsx(
                 'rounded-full text-sm w-fit font-medium px-5 py-2 shadow-elevation-0',
                 {
                     'text-primary shadow-elevation-1 hover:bg-primary/8 hover:shadow-elevation-2 focus:shadow-elevation-1':
                         variant === 'elevated',
                     'text-on-primary bg-primary hover:bg-[var(--md-ref-palette-primary35)] dark:hover:bg-[var(--md-ref-palette-primary70)]':
-                        variant === 'filled' || isActive,
+                        variant === 'filled',
                     'text-on-secondary-container bg-secondary-container hover:bg-[var(--md-ref-palette-secondary80)] dark:hover:bg-[var(--md-ref-palette-secondary20)]':
                         variant === 'filled-tonal',
                     'text-primary border border-outline bg-surface hover:bg-primary/8 dark:hover:bg-[var(--md-ref-palette-neutral20)]':
-                        variant === 'outlined' && !isActive,
+                        variant === 'outlined',
                     'text-primary hover:bg-primary/8': variant === 'text',
-                    'bg-on-surface/12': disabled,
                     'block w-full': fullWidth,
                 }
             )}
