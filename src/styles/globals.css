@@ -39,12 +39,8 @@
         --md-sys-color-surface-variant: 245 221 218;
         --md-sys-color-on-surface-variant: 83 67 65;
         --md-sys-color-outline: 133 115 112;
-        --md-sys-color-inverse-on-surface: var(
-            --md-sys-color-inverse-on-surface-light
-        );
-        --md-sys-color-inverse-surface: var(
-            --md-sys-color-inverse-surface-light
-        );
+        --md-sys-color-inverse-on-surface: 251 238 236;
+        --md-sys-color-inverse-surface: 54 47 46;
         --md-sys-color-inverse-primary: var(
             --md-sys-color-inverse-primary-light
         );
@@ -87,12 +83,8 @@
         --md-sys-color-surface-variant: 83 67 65;
         --md-sys-color-on-surface-variant: 216 194 190;
         --md-sys-color-outline: 160 140 137;
-        --md-sys-color-inverse-on-surface: var(
-            --md-sys-color-inverse-on-surface-dark
-        );
-        --md-sys-color-inverse-surface: var(
-            --md-sys-color-inverse-surface-dark
-        );
+        --md-sys-color-inverse-on-surface: 32 26 25;
+        --md-sys-color-inverse-surface: 237 224 222;
         --md-sys-color-inverse-primary: var(
             --md-sys-color-inverse-primary-dark
         );
@@ -104,6 +96,6 @@
         --md-sys-color-scrim: var(--md-sys-color-scrim-dark);
     }
     body {
-        @apply bg-[var(--md-sys-color-surface)] text-black dark:text-white;
+        @apply bg-[var(--md-sys-color-background)] text-[var(--md-sys-color-inverse-on-surface)];
     }
 }

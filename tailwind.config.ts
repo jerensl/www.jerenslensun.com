@@ -36,6 +36,12 @@ export default {
                 '16': '.16',
                 '38': '.38',
             },
+            brightness: {
+                108: '1.08',
+                112: '1.12',
+                116: '1.16',
+                138: '1.38',
+            },
             colors: {
                 primary: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
                 'on-primary':
@@ -79,6 +85,10 @@ export default {
                     'rgb(var(--md-sys-color-surface-variant) / <alpha-value>)',
                 'on-surface-variant':
                     'rgb(var(--md-sys-color-on-surface-variant) / <alpha-value>)',
+                'inverse-on-surface':
+                    'rgb(var(--md-sys-color-inverse-on-surface) / <alpha-value>)',
+                'inverse-surface':
+                    'rgb(var(--md-sys-color-inverse-surface) / <alpha-value>)',
                 outline: 'rgb(var(--md-sys-color-outline) / <alpha-value>)',
             },
             gridTemplateColumns: {
