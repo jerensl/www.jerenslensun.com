@@ -32,11 +32,11 @@ export const Button = ({
                 {
                     'text-primary shadow-elevation-1 hover:bg-primary/8 hover:shadow-elevation-2 focus:shadow-elevation-1':
                         variant === 'elevated',
-                    'text-on-primary bg-primary hover:bg-[var(--md-ref-palette-primary35)] dark:hover:bg-[var(--md-ref-palette-primary70)]':
+                    'text-on-primary bg-primary hover:brightness-108 hover:saturate-108':
                         variant === 'filled',
-                    'text-on-secondary-container bg-secondary-container hover:bg-[var(--md-ref-palette-secondary80)] dark:hover:bg-[var(--md-ref-palette-secondary20)]':
+                    'text-on-secondary-container bg-secondary-container hover:brightness-108 hover:saturate-108':
                         variant === 'filled-tonal',
-                    'text-primary border border-outline bg-surface hover:bg-primary/8 dark:hover:bg-[var(--md-ref-palette-neutral20)]':
+                    'text-primary border border-outline bg-surface hover:brightness-108 hover:saturate-108':
                         variant === 'outlined',
                     'text-primary hover:bg-primary/8': variant === 'text',
                     'block w-full': fullWidth,
