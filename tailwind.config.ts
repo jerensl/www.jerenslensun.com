@@ -112,6 +112,8 @@ export default {
                 'inverse-surface':
                     'rgb(var(--md-sys-color-inverse-surface) / <alpha-value>)',
                 outline: 'rgb(var(--md-sys-color-outline) / <alpha-value>)',
+                'outline-variant':
+                    'rgb(var(--md-sys-color-outline-variant) / <alpha-value>)',
             },
             gridTemplateColumns: {
                 'auto-fill': 'repeat(auto-fit, minmax(350px, 1fr))',
