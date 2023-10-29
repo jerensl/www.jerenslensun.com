@@ -73,7 +73,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                             })}
                         </div>
                     ) : null}
-                    <h2 className="text-2xl text-on-surface font-bold cursor-pointer">
+                    <h3 className="text-2xl text-on-surface font-bold cursor-pointer">
                         {title
                             .split(' ')
                             .map(
@@ -82,11 +82,11 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                                     w.substring(1)
                             )
                             .join(' ')}
-                    </h2>
+                    </h3>
                     {subtitle ? (
-                        <h3>
+                        <h4>
                             <b> Status:</b> {subtitle}
-                        </h3>
+                        </h4>
                     ) : null}
                     <p className="line-clamp-3 text-on-surface-variant">
                         {description}
