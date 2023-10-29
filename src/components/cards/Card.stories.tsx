@@ -13,11 +13,11 @@ type Story = StoryObj<typeof ContentCard>
 export const Card: Story = {
     args: {
         variant: 'filled',
-        blurDataURL: '',
-        imageURL: '',
+        imageURL:
+            'https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/none.png',
         slug: '/',
-        header: '',
-        body: '',
+        title: 'Content Title',
+        description: 'Content description...',
     },
     decorators: [],
 }

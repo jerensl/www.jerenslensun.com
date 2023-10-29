@@ -3,13 +3,13 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { Footer } from '@/components/Footer'
 import { Seo } from '@/components/Seo'
 import { Grid } from '@/components/Grid'
-import { Card } from '@/components/cards/blog'
 import { getContents, getTags } from '@/libs/content'
 import { filterPosts } from '@/libs/search'
 import { IBlogMetadata } from '@/types/blog'
 import { SearchArticles } from '@/components/inputs/SearchArticles'
 import { Tag } from '@/components/chips/Tag'
 import { Button } from '@/components/buttons/Button'
+import { ContentCard } from '@/components/cards/Card'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')
@@ -114,7 +114,21 @@ export default function Blog({
                             No articles found.
                         </p>
                     )}
-                    {matchingPosts?.map(Card)}
+                    {matchingPosts.map(
+                        ({ title, description, slug, cover, blurDataURL }) => {
+                            return (
+                                <ContentCard
+                                    variant="outlined"
+                                    key={slug}
+                                    title={title}
+                                    description={description}
+                                    slug={`blog/${slug}`}
+                                    imageURL={cover}
+                                    blurDataURL={blurDataURL}
+                                />
+                            )
+                        }
+                    )}
                 </Grid>
             </main>
             <div className="h-20 lg:h-32" />
