@@ -7,6 +7,8 @@ import React, { ReactNode } from 'react'
 interface ContentCardProps {
     variant: 'elevated' | 'filled' | 'outlined'
     title: string
+    subtitle?: string
+    tags?: string[]
     description: string
     slug: string
     imageURL: string
@@ -16,6 +18,8 @@ interface ContentCardProps {
 export const ContentCard: React.FC<ContentCardProps> = ({
     variant,
     title,
+    subtitle,
+    tags,
     description,
     slug,
     imageURL,
@@ -24,7 +28,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     return (
         <article
             className={clsx(
-                'relative col-span-full md:col-span-4 lg:col-span-4 rounded-medium h-[400px] w-[320px]',
+                'relative col-span-full md:col-span-4 lg:col-span-4 rounded-medium h-[420px] w-[320px]',
                 {
                     'bg-surface border border-outline-variant':
                         variant === 'outlined',
@@ -54,10 +58,36 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                         className="cursor-pointer rounded-t-medium"
                     />
                 </div>
-                <div className="flex flex-col gap-1 mx-4 my-2">
+                <div className="flex flex-col gap-1 m-4">
+                    {tags ? (
+                        <div>
+                            {tags.map((value) => {
+                                return (
+                                    <p
+                                        key={value}
+                                        className="inline-flex text-sm text-center text-gray-100 py-1 px-2 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out"
+                                    >
+                                        {value}
+                                    </p>
+                                )
+                            })}
+                        </div>
+                    ) : null}
                     <h2 className="text-2xl text-on-surface font-bold cursor-pointer">
-                        {title}
+                        {title
+                            .split(' ')
+                            .map(
+                                (w) =>
+                                    w.substring(0, 1).toUpperCase() +
+                                    w.substring(1)
+                            )
+                            .join(' ')}
                     </h2>
+                    {subtitle ? (
+                        <h3>
+                            <b> Status:</b> {subtitle}
+                        </h3>
+                    ) : null}
                     <p className="line-clamp-3 text-on-surface-variant">
                         {description}
                     </p>
