@@ -10,6 +10,7 @@ export type IconToggleProps = {
     isSelected: boolean
     dataCy?: string
     disabled?: boolean
+    dataTestID?: string
     ariaLabel?: string
 }
 
@@ -20,6 +21,7 @@ export const IconToggle = ({
     isSelected = false,
     disabled,
     dataCy,
+    dataTestID,
     ariaLabel,
 }: IconToggleProps) => {
     return (
@@ -29,6 +31,7 @@ export const IconToggle = ({
             data-cy={dataCy}
             onClick={onClick}
             disabled={disabled}
+            data-testid={dataTestID}
             className={clsx(
                 'm-auto rounded-full text-sm font-medium w-10 h-10 disabled:text-on-surface/12 disabled:bg-on-surface-variant/12 hover:brightness-108 active:brightness-110',
                 {

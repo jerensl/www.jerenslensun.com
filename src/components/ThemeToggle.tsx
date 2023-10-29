@@ -23,7 +23,7 @@ const ThemeToggle: React.FC = () => {
                     onClick={() => setTheme('light')}
                     variant="outlined"
                     isSelected={false}
-                    data-testid="theme-dark"
+                    dataTestID="theme-dark"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const ThemeToggle: React.FC = () => {
                     onClick={() => setTheme('dark')}
                     variant="outlined"
                     isSelected={false}
-                    data-testid="theme-light"
+                    dataTestID="theme-light"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
