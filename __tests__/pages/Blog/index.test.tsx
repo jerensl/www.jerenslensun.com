@@ -55,7 +55,8 @@ describe('Blog Pages', () => {
         const { utils } = await renderBlogSlug()
 
         const result = utils.getAllByRole('article').map((article) => {
-            return within(article).getByRole('heading').textContent
+            return within(article).getByRole('heading', { level: 3 })
+                .textContent
         })
 
         expect(result).toMatchInlineSnapshot(`

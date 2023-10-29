@@ -34,29 +34,24 @@
         );
         --md-sys-color-background: var(--md-sys-color-background-light);
         --md-sys-color-on-background: var(--md-sys-color-on-background-light);
-        --md-sys-color-surface: var(--md-sys-color-surface-light);
-        --md-sys-color-on-surface: var(--md-sys-color-on-surface-light);
-        --md-sys-color-surface-variant: var(
-            --md-sys-color-surface-variant-light
-        );
-        --md-sys-color-on-surface-variant: var(
-            --md-sys-color-on-surface-variant-light
-        );
-        --md-sys-color-outline: var(--md-sys-color-outline-light);
-        --md-sys-color-inverse-on-surface: var(
-            --md-sys-color-inverse-on-surface-light
-        );
-        --md-sys-color-inverse-surface: var(
-            --md-sys-color-inverse-surface-light
-        );
+        --md-sys-color-surface: 255 251 255;
+        --md-sys-color-on-surface: 32 26 25;
+        --md-sys-color-surface-variant: 245 221 218;
+        --md-sys-color-on-surface-variant: 83 67 65;
+        --md-sys-color-surface-container-lowest: 255 255 255;
+        --md-sys-color-surface-container-low: 255 248 247;
+        --md-sys-color-surface-container: 251 238 236;
+        --md-sys-color-surface-container-high: 237 224 222;
+        --md-sys-color-surface-container-highest: 208 196 194;
+        --md-sys-color-outline: 133 115 112;
+        --md-sys-color-inverse-on-surface: 251 238 236;
+        --md-sys-color-inverse-surface: 54 47 46;
         --md-sys-color-inverse-primary: var(
             --md-sys-color-inverse-primary-light
         );
         --md-sys-color-shadow: var(--md-sys-color-shadow-light);
         --md-sys-color-surface-tint: var(--md-sys-color-surface-tint-light);
-        --md-sys-color-outline-variant: var(
-            --md-sys-color-outline-variant-light
-        );
+        --md-sys-color-outline-variant: 216 194 190;
         --md-sys-color-scrim: var(--md-sys-color-scrim-light);
     }
     .dark {
@@ -86,32 +81,27 @@
         );
         --md-sys-color-background: var(--md-sys-color-background-dark);
         --md-sys-color-on-background: var(--md-sys-color-on-background-dark);
-        --md-sys-color-surface: var(--md-sys-color-surface-dark);
-        --md-sys-color-on-surface: var(--md-sys-color-on-surface-dark);
-        --md-sys-color-surface-variant: var(
-            --md-sys-color-surface-variant-dark
-        );
-        --md-sys-color-on-surface-variant: var(
-            --md-sys-color-on-surface-variant-dark
-        );
-        --md-sys-color-outline: var(--md-sys-color-outline-dark);
-        --md-sys-color-inverse-on-surface: var(
-            --md-sys-color-inverse-on-surface-dark
-        );
-        --md-sys-color-inverse-surface: var(
-            --md-sys-color-inverse-surface-dark
-        );
+        --md-sys-color-surface: 32 26 25;
+        --md-sys-color-on-surface: 237 224 222;
+        --md-sys-color-surface-variant: 83 67 65;
+        --md-sys-color-on-surface-variant: 216 194 190;
+        --md-sys-color-surface-container-lowest: 0 0 0;
+        --md-sys-color-surface-container-low: 54 47 46;
+        --md-sys-color-surface-container: 65 58 56;
+        --md-sys-color-surface-container-high: 77 69 68;
+        --md-sys-color-surface-container-highest: 89 80 79;
+        --md-sys-color-outline: 160 140 137;
+        --md-sys-color-inverse-on-surface: 32 26 25;
+        --md-sys-color-inverse-surface: 237 224 222;
         --md-sys-color-inverse-primary: var(
             --md-sys-color-inverse-primary-dark
         );
         --md-sys-color-shadow: var(--md-sys-color-shadow-dark);
         --md-sys-color-surface-tint: var(--md-sys-color-surface-tint-dark);
-        --md-sys-color-outline-variant: var(
-            --md-sys-color-outline-variant-dark
-        );
+        --md-sys-color-outline-variant: 83 67 65;
         --md-sys-color-scrim: var(--md-sys-color-scrim-dark);
     }
     body {
-        @apply bg-[var(--md-sys-color-surface)] text-black dark:text-white;
+        @apply bg-[var(--md-sys-color-background)] text-[var(--md-sys-color-inverse-on-surface)];
     }
 }

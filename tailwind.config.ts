@@ -9,6 +9,13 @@ export default {
             body: ['Merriweather', 'serif'],
         },
         extend: {
+            borderRadius: {
+                'extra-small': '4px',
+                small: '8px',
+                medium: '12px',
+                large: '16px',
+                'extra-large': '28px',
+            },
             boxShadow: {
                 'elevation-0':
                     'rgba(0, 0, 0, 0.2) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 0px 0px 0px',
@@ -25,7 +32,27 @@ export default {
             },
             opacity: {
                 '8': '.08',
+                '12': '.12',
                 '16': '.16',
+                '38': '.38',
+            },
+            backdropOpacity: {
+                8: '.08',
+                12: '.12',
+                16: '.16',
+                38: '.38',
+            },
+            brightness: {
+                108: '1.08',
+                112: '1.12',
+                116: '1.16',
+                138: '1.38',
+            },
+            saturate: {
+                108: '1.08',
+                112: '1.12',
+                116: '1.16',
+                138: '1.38',
             },
             colors: {
                 primary: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
@@ -63,9 +90,30 @@ export default {
                     'var(--md-sys-color-on-success-container)',
                 background: 'var(--md-sys-color-background)',
                 'on-background': 'var(--md-sys-color-on-background)',
-                surface: 'var(--md-sys-color-surface)',
-                'on-surface': 'var(--md-sys-color-on-surface)',
-                outline: 'var(--md-sys-color-outline)',
+                surface: 'rgb(var(--md-sys-color-surface) / <alpha-value>)',
+                'on-surface':
+                    'rgb(var(--md-sys-color-on-surface) / <alpha-value>)',
+                'surface-variant':
+                    'rgb(var(--md-sys-color-surface-variant) / <alpha-value>)',
+                'on-surface-variant':
+                    'rgb(var(--md-sys-color-on-surface-variant) / <alpha-value>)',
+                'surface-container-lowest':
+                    'rgb(var(--md-sys-color-surface-container-lowest) / <alpha-value>)',
+                'surface-container-low':
+                    'rgb(var(--md-sys-color-surface-container-low) / <alpha-value>)',
+                'surface-container':
+                    'rgb(var(--md-sys-color-surface-container) / <alpha-value>)',
+                'surface-container-high':
+                    'rgb(var(--md-sys-color-surface-container-high) / <alpha-value>)',
+                'surface-container-highest':
+                    'rgb(var(--md-sys-color-surface-container-highest) / <alpha-value>)',
+                'inverse-on-surface':
+                    'rgb(var(--md-sys-color-inverse-on-surface) / <alpha-value>)',
+                'inverse-surface':
+                    'rgb(var(--md-sys-color-inverse-surface) / <alpha-value>)',
+                outline: 'rgb(var(--md-sys-color-outline) / <alpha-value>)',
+                'outline-variant':
+                    'rgb(var(--md-sys-color-outline-variant) / <alpha-value>)',
             },
             gridTemplateColumns: {
                 'auto-fill': 'repeat(auto-fit, minmax(350px, 1fr))',

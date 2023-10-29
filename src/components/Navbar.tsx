@@ -16,8 +16,8 @@ export const Navbar: React.FC = () => {
                 >
                     Jerens
                 </HighlightLink>
-                <div className="flex text-center my-auto h-full">
-                    <div className="text-center relative h-full w-full hidden md:flex">
+                <div className="flex text-center my-auto">
+                    <div className="text-center relative h-full hidden md:flex">
                         {pageLinks
                             .filter(({ name }) => name !== 'Home')
                             .map(({ name, url }) => {

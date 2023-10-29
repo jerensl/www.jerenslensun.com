@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer'
 import { Seo } from '@/components/Seo'
 import { IProjectMetadata } from '@/types/project'
 import { Grid } from '@/components/Grid'
-import { Card } from '@/components/cards/project'
+import { ContentCard } from '@/components/cards/Card'
 
 export const getStaticProps: GetStaticProps = async () => {
     const projects = await getContents<IProjectMetadata>('project')
@@ -30,7 +30,31 @@ export default function Project({
                             No project available.
                         </p>
                     )}
-                    {projects?.map(Card)}
+                    {projects.map(
+                        ({
+                            slug,
+                            title,
+                            status,
+                            programming_languange,
+                            description,
+                            cover,
+                            blurDataURL,
+                        }: IProjectMetadata) => {
+                            return (
+                                <ContentCard
+                                    variant="outlined"
+                                    key={slug}
+                                    title={title}
+                                    subtitle={status}
+                                    tags={programming_languange}
+                                    description={description}
+                                    slug={`project/${slug}`}
+                                    imageURL={cover}
+                                    blurDataURL={blurDataURL}
+                                />
+                            )
+                        }
+                    )}
                 </Grid>
             </div>
             <div className="h-20 lg:h-32" />
