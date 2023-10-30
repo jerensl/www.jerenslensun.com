@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
                 >
                     Jerens
                 </HighlightLink>
-                <div className="flex text-center my-auto">
+                <div className="flex text-center my-auto gap-2">
                     <div className="text-center relative h-full hidden md:flex">
                         {pageLinks
                             .filter(({ name }) => name !== 'Home')

@@ -1,8 +1,6 @@
 import { useOnScrollToc } from '@/hooks/useScrollToc'
-import clsx from 'clsx'
 import React from 'react'
 import { MDXTitleHeadingLevels } from '@/types/content'
-import { StandardLink } from './links/StandardLink'
 import { LinkButton } from './links/LinkButton'
 
 interface TableOfContentProps {
@@ -25,25 +23,6 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                 {toc.map(({ id, text, level }) => {
                     return (
                         <li key={id} className="w-full">
-                            {/* <StandardLink
-                                href={`#${id}`}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    document
-                                        .querySelector(`#${id}`)!
-                                        .scrollIntoView({
-                                            behavior: 'smooth',
-                                        })
-                                }}
-                                className={clsx(`${headingVariants[level]}`, {
-                                    'text-gray-900 dark:text-gray-100':
-                                        id === active,
-                                    'text-gray-400 dark:text-gray-500':
-                                        id !== active,
-                                })}
-                            >
-                                {text}
-                            </StandardLink> */}
                             <LinkButton
                                 href={`#${id}`}
                                 variant="text"
