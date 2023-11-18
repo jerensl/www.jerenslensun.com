@@ -28,22 +28,22 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     return (
         <article
             className={clsx(
-                'relative col-span-full md:col-span-4 lg:col-span-4 rounded-medium h-[420px] w-[320px]',
+                'relative col-span-full md:col-span-4 lg:col-span-4 shadow-elevation-0 rounded-medium h-[420px] w-[320px]',
                 {
+                    'bg-surface-container-low shadow-elevation-1 disabled:shadow-elevation-1 disabled:bg-surface/38 hover:shadow-elevation-2':
+                        variant === 'elevated',
+                    'bg-surface-container-highest disabled:bg-surface-variant/38':
+                        variant === 'filled',
                     'bg-surface border border-outline-variant':
                         variant === 'outlined',
-                    'bg-surface-container-low shadow-elevation-1':
-                        variant === 'elevated',
-                    'bg-surface-container-high': variant === 'filled',
                 }
             )}
         >
             <Link href={slug}>
                 <div
-                    className={clsx(
-                        'absolute rounded-medium top-0 left-0 bottom-0 right-0 hover:bg-on-surface/8 active:bg-on-surface/12',
-                        {}
-                    )}
+                    className={
+                        'absolute rounded-medium top-0 left-0 bottom-0 right-0 hover:bg-on-surface/8 focus:bg-on-surface/10'
+                    }
                 ></div>
                 <div className="relative overflow-auto">
                     <Image

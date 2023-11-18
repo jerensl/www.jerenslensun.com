@@ -33,11 +33,11 @@ export const IconToggle = ({
             disabled={disabled}
             data-testid={dataTestID}
             className={clsx(
-                'm-auto rounded-full text-sm font-medium w-10 h-10 disabled:text-on-surface/12 disabled:bg-on-surface-variant/12 hover:brightness-108 active:brightness-110',
+                'm-auto rounded-full text-sm font-medium w-10 h-10 disabled:bg-on-surface/12 disabled:text-on-surface/38',
                 {
-                    'bg-surface-variant text-primary':
+                    'bg-surface-container-highest text-primary hover:bg-primary/':
                         variant === 'filled' && !isSelected,
-                    'bg-primary text-on-primary':
+                    'bg-primary text-on-primary hover:bg-primary/8':
                         variant === 'filled' && isSelected,
                     'bg-surface-variant text-on-surface-variant':
                         variant === 'filled-tonal' && !isSelected,
