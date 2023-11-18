@@ -15,10 +15,12 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Setup Node.js 16
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: '16'
                   cache: 'yarn'
+            - name: Install yarn
+              run: npm install -g yarn
             - name: Install locked dependencies
               run: yarn install --frozen-lockfile
 
@@ -29,7 +31,7 @@ jobs:
         needs: install-deps
         steps:
             - name: Setup Node.js 16
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: '16'
             - name: Lint files
@@ -44,7 +46,7 @@ jobs:
         needs: install-deps
         steps:
             - name: Setup Node.js 16
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: '16'
             - name: Perform type checking
@@ -72,7 +74,7 @@ jobs:
         needs: install-deps
         steps:
             - name: Setup Node.js 16
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: '16'
             - name: Install Cypress
