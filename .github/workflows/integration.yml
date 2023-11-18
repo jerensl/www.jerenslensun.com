@@ -15,7 +15,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Setup Node.js 16
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v3
               with:
                   node-version: '16'
                   cache: 'yarn'
@@ -29,7 +29,7 @@ jobs:
         needs: install-deps
         steps:
             - name: Setup Node.js 16
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v3
               with:
                   node-version: '16'
             - name: Lint files
@@ -44,7 +44,7 @@ jobs:
         needs: install-deps
         steps:
             - name: Setup Node.js 16
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v3
               with:
                   node-version: '16'
             - name: Perform type checking
@@ -72,7 +72,7 @@ jobs:
         needs: install-deps
         steps:
             - name: Setup Node.js 16
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v3
               with:
                   node-version: '16'
             - name: Install Cypress
