@@ -8,8 +8,6 @@ import {
 import { firebaseApp } from '../constant/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faBellSlash,
-    faBell,
     faSpinner,
     faCircleExclamation,
     faCircleXmark,
@@ -22,6 +20,7 @@ import {
 import { toast } from 'react-toastify'
 import Image from 'next/image'
 import { imageLoader } from '../constant/images'
+import { IconToggle } from './buttons/IconToggle'
 
 interface NotifiationsProps {
     initStatus?: boolean
@@ -34,12 +33,12 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
     const subsMutation = useSubs()
     const unSubsMutation = useUnsubs()
 
-    const handleSubscribeNotification = async () => {
-        subsMutation.mutate({ token })
-    }
-
-    const handleUnsubscribeNotification = async () => {
-        unSubsMutation.mutate({ token })
+    const handleNotification = async () => {
+        if (data?.isActive) {
+            subsMutation.mutate({ token })
+        } else {
+            unSubsMutation.mutate({ token })
+        }
     }
 
     const handleNotificationPermission = async () => {
@@ -93,17 +92,27 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
 
     if (!status) {
         return (
-            <NotificationButton
+            <IconToggle
                 ariaLabel="Notification permission"
-                handleClick={handleNotificationPermission}
+                onClick={handleNotificationPermission}
+                variant="outlined"
+                isSelected={false}
             >
-                <FontAwesomeIcon
-                    className="block m-3"
-                    size="lg"
-                    icon={faCircleExclamation}
-                    data-testid="permission"
-                />
-            </NotificationButton>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 m-auto"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M10.5 8.25h3l-3 4.5h3"
+                    />
+                </svg>
+            </IconToggle>
         )
     }
 
@@ -134,33 +143,47 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
     }
 
     return (
-        <>
+        <IconToggle
+            ariaLabel={
+                data.isActive ? 'turn off Notification' : 'turn on Notification'
+            }
+            onClick={handleNotification}
+            variant="outlined"
+            isSelected={data.isActive}
+            dataTestID={data.isActive ? 'unsubscribe' : 'subscribe'}
+        >
             {data.isActive ? (
-                <NotificationButton
-                    ariaLabel="turn off Notification"
-                    handleClick={handleUnsubscribeNotification}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 m-auto"
                 >
-                    <FontAwesomeIcon
-                        className="block m-3"
-                        size="lg"
-                        icon={faBell}
-                        data-testid="unsubscribe"
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                     />
-                </NotificationButton>
+                </svg>
             ) : (
-                <NotificationButton
-                    ariaLabel="turn on Notification"
-                    handleClick={handleSubscribeNotification}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 m-auto"
                 >
-                    <FontAwesomeIcon
-                        className="block m-3"
-                        icon={faBellSlash}
-                        size="lg"
-                        data-testid="subscribe"
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9.143 17.082a24.248 24.248 0 003.844.148m-3.844-.148a23.856 23.856 0 01-5.455-1.31 8.964 8.964 0 002.3-5.542m3.155 6.852a3 3 0 005.667 1.97m1.965-2.277L21 21m-4.225-4.225a23.81 23.81 0 003.536-1.003A8.967 8.967 0 0118 9.75V9A6 6 0 006.53 6.53m10.245 10.245L6.53 6.53M3 3l3.53 3.53"
                     />
-                </NotificationButton>
+                </svg>
             )}
-        </>
+        </IconToggle>
     )
 }
 
