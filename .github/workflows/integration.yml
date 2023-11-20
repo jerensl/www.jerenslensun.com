@@ -13,9 +13,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Setup Node.js 16.x
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
             - name: Install locked dependencies
@@ -40,7 +40,7 @@ jobs:
                   path: '.'
                   key: ${{ github.sha }}
             - name: Setup Node.js 16.x
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
             - name: Lint files
@@ -61,7 +61,7 @@ jobs:
                   path: '.'
                   key: ${{ github.sha }}
             - name: Setup Node.js 16.x
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
             - name: Perform type checking
@@ -81,7 +81,7 @@ jobs:
                   path: '.'
                   key: ${{ github.sha }}
             - name: Setup Node.js 16.x
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
             - name: Check Code Coverage
@@ -101,7 +101,7 @@ jobs:
                   path: '.'
                   key: ${{ github.sha }}
             - name: Setup Node.js 16.x
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
             - name: Install Cypress
