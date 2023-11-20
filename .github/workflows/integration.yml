@@ -29,11 +29,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Setup Node.js 16
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 16
-                  cache: 'yarn'
             - name: Lint files
               run: yarn run lint
               env:
@@ -45,11 +40,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Setup Node.js 16
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 16
-                  cache: 'yarn'
             - name: Perform type checking
               run: yarn run type-check
               env:
@@ -60,11 +50,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Setup Node.js 16
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 16
-                  cache: 'yarn'
             - name: Check Code Coverage
               run: yarn run test:coverage
             - name: Upload code coverage reports to Codecov
@@ -75,11 +60,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Setup Node.js 16
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 16
-                  cache: 'yarn'
             - name: Install Cypress
               run: yarn add cypress
             - name: Build dependencies
