@@ -14,18 +14,22 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v3
+              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              with:
+                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
             - name: Setup Node.js 16.x
               uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
             - name: Install locked dependencies
               run: yarn install --frozen-lockfile
-            - name: Cache dependencies
-              uses: actions/cache@v1
-              id: cache-deps
-              with:
-                  path: '.'
-                  key: ${{ github.sha }}
 
     lint:
         if: github.repository == 'jerensl/www.jerensl.com'
@@ -33,12 +37,13 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v1
-              id: restore-deps
+            - name: Cache Yarn packages
+              uses: actions/cache@v3
               with:
-                  path: '.'
-                  key: ${{ github.sha }}
+                path: ~/.cache/yarn
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
             - name: Setup Node.js 16.x
               uses: actions/setup-node@v4
               with:
@@ -54,12 +59,13 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v1
-              id: restore-deps
+            - name: Cache Yarn packages
+              uses: actions/cache@v3
               with:
-                  path: '.'
-                  key: ${{ github.sha }}
+                path: ~/.cache/yarn
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
             - name: Setup Node.js 16.x
               uses: actions/setup-node@v4
               with:
@@ -74,12 +80,13 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v1
-              id: restore-deps
+            - name: Cache Yarn packages
+              uses: actions/cache@v3
               with:
-                  path: '.'
-                  key: ${{ github.sha }}
+                path: ~/.cache/yarn
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
             - name: Setup Node.js 16.x
               uses: actions/setup-node@v4
               with:
@@ -94,12 +101,13 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v1
-              id: restore-deps
+            - name: Cache Yarn packages
+              uses: actions/cache@v3
               with:
-                  path: '.'
-                  key: ${{ github.sha }}
+                path: ~/.cache/yarn
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
             - name: Setup Node.js 16.x
               uses: actions/setup-node@v4
               with:
