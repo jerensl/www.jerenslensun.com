@@ -11,8 +11,6 @@ jobs:
         if: github.repository == 'jerensl/www.jerensl.com'
         name: Install dependencies
         runs-on: ubuntu-latest
-        outputs:
-          dir: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
@@ -20,18 +18,20 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: '16.x'
-            - name: Install locked dependencies
-              run: yarn install --frozen-lockfile
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+            - name: Get node version
+              id: node
+              run: |
+                echo "::set-output name=version::$(node -v)"
             - uses: actions/cache@v3
-              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              id: node_modules
               with:
-                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                path: |
+                  **/node-modules
+                key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-${{ steps.node.outputs.version }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
+            - name: Install locked dependencies
+              run: yarn install --frozen-lockfile
 
     lint:
         if: github.repository == 'jerensl/www.jerensl.com'
@@ -39,18 +39,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v3
-              id: restore-deps
-              with:
-                path: ${{ needs.install-deps.outputs.dir }}
-                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-yarn-
-            - name: Setup Node.js 16.x
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '16.x'
             - name: Lint files
               run: yarn run lint
               env:
@@ -62,18 +50,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v3
-              id: restore-deps
-              with:
-                path: ${{ needs.install-deps.outputs.dir }}
-                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-yarn-
-            - name: Setup Node.js 16.x
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '16.x'
             - name: Perform type checking
               run: yarn run type-check
               env:
@@ -84,18 +60,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v3
-              id: restore-deps
-              with:
-                path: ${{ needs.install-deps.outputs.dir }}
-                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-yarn-
-            - name: Setup Node.js 16.x
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '16.x'
             - name: Check Code Coverage
               run: yarn run test:coverage
             - name: Upload code coverage reports to Codecov
@@ -106,18 +70,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Restore cached dependencies
-              uses: actions/cache@v3
-              id: restore-deps
-              with:
-                path: ${{ needs.install-deps.outputs.dir }}
-                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                restore-keys: |
-                  ${{ runner.os }}-yarn-
-            - name: Setup Node.js 16.x
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '16.x'
             - name: Install Cypress
               run: yarn add cypress
             - name: Build dependencies
