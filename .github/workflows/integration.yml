@@ -11,9 +11,17 @@ jobs:
         if: github.repository == 'jerensl/www.jerensl.com'
         name: Install dependencies
         runs-on: ubuntu-latest
+        outputs:
+          dir: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+            - name: Setup Node.js 16.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '16.x'
+            - name: Install locked dependencies
+              run: yarn install --frozen-lockfile
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
@@ -24,12 +32,6 @@ jobs:
                 key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
-            - name: Setup Node.js 16.x
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '16.x'
-            - name: Install locked dependencies
-              run: yarn install --frozen-lockfile
 
     lint:
         if: github.repository == 'jerensl/www.jerensl.com'
@@ -37,12 +39,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Cache Yarn packages
+            - name: Restore cached dependencies
               uses: actions/cache@v3
+              id: restore-deps
               with:
-                path: ~/.cache/yarn
+                path: ${{ needs.install-deps.outputs.dir }}
                 key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
@@ -61,12 +62,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Cache Yarn packages
+            - name: Restore cached dependencies
               uses: actions/cache@v3
+              id: restore-deps
               with:
-                path: ~/.cache/yarn
+                path: ${{ needs.install-deps.outputs.dir }}
                 key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
@@ -84,12 +84,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Cache Yarn packages
+            - name: Restore cached dependencies
               uses: actions/cache@v3
+              id: restore-deps
               with:
-                path: ~/.cache/yarn
+                path: ${{ needs.install-deps.outputs.dir }}
                 key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
@@ -107,12 +106,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: install-deps
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Cache Yarn packages
+            - name: Restore cached dependencies
               uses: actions/cache@v3
+              id: restore-deps
               with:
-                path: ~/.cache/yarn
+                path: ${{ needs.install-deps.outputs.dir }}
                 key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
