@@ -14,6 +14,7 @@ export const Elevated: Story = {
         onClick: () => {},
         variant: 'elevated',
         label: 'Home',
+        size: 'base',
     },
     decorators: [],
 }
@@ -23,6 +24,7 @@ export const Filled: Story = {
         onClick: () => {},
         variant: 'filled',
         label: 'Home',
+        size: 'base',
     },
     decorators: [],
 }
@@ -32,6 +34,7 @@ export const FilledTonal: Story = {
         onClick: () => {},
         variant: 'filled-tonal',
         label: 'Home',
+        size: 'base',
     },
     decorators: [],
 }
@@ -41,6 +44,7 @@ export const Outlined: Story = {
         onClick: () => {},
         variant: 'outlined',
         label: 'Home',
+        size: 'base',
     },
     decorators: [],
 }
@@ -50,6 +54,7 @@ export const Text: Story = {
         onClick: () => {},
         variant: 'text',
         label: 'Home',
+        size: 'base',
     },
     decorators: [],
 }
