@@ -56,6 +56,3 @@ yarn-error.log*
 /public/robots.txt
 /public/rss.xml
 /public/sitemap.xml
-
-# Docs
-/storybook-static
