@@ -7,11 +7,7 @@ import {
 } from 'firebase/messaging'
 import { firebaseApp } from '../constant/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-    faSpinner,
-    faCircleExclamation,
-    faCircleXmark,
-} from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import {
     useNotification,
     useSubs,

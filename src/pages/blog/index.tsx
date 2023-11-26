@@ -99,6 +99,7 @@ export default function Blog({
                             <Button
                                 data-cy="lang"
                                 variant="filled-tonal"
+                                size="base"
                                 onClick={() => {
                                     setGlobalLang((b) => !b)
                                     clearSearch()
