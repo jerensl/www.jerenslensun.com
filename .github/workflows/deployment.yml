@@ -10,8 +10,9 @@ on:
             - main
 
 permissions:
-    pages: write # to deploy to Pages
-    id-token: write # to verify the deployment originates from an appropriate source
+    contents: read
+    pages: write
+    id-token: write
 
 jobs:
     build_and_deploy_job:
@@ -67,38 +68,13 @@ jobs:
               with:
                   node-version: '16'
                   cache: ${{ steps.detect-package-manager.outputs.manager }}
-            - name: Setup Pages
-              uses: actions/configure-pages@v3
-            - name: Restore cache
-              uses: actions/cache@v3
+            - name: Deploy Storybook Docs
+              uses: bitovi/github-actions-storybook-to-github-pages@v1.0.1
               with:
-                  path: |
-                      .yarn
-                      # Generate a new cache whenever packages or source files change.
-                  key:
-                      ${{ runner.os }}-storybook-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-                      # If source files changed but packages didn't, rebuild from a prior cache.
-                  restore-keys: |
-                      ${{ runner.os }}-storybook-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
-            - name: Install dependencies
-              run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-            - name: Static Storybook Docs
-              run: ${{ steps.detect-package-manager.outputs.runner }} build-storybook
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v2
-              with:
-                  path: ./storybook-static
-    # Deployment job
-    deploy:
-        needs: build_docs
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        steps:
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v2
+                  install_command: yarn install # default: npm ci
+                  build_command: yarn build-storybook # default: npm run build-storybook
+                  path: storybook-static # default: dist/storybook
+                  checkout: false # default: true
     lhci:
         if: github.repository == 'jerensl/www.jerensl.com' && ${{ github.event.label.name == 'need-perf-check' }} && github.event_name == 'pull_request' && github.event.action != 'closed'
         name: Run Lighthouse CI againts Pull Request

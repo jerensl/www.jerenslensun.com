@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.jerenslensun.com
-
-# Sitemaps
-Sitemap: https://www.jerenslensun.com/sitemap.xml
