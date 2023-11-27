@@ -40,7 +40,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Detect package manager
               id: detect-package-manager
               run: |
@@ -59,7 +59,7 @@ jobs:
                   exit 1
                   fi
             - name: Setup Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: '16'
                   cache: ${{ steps.detect-package-manager.outputs.manager }}
@@ -69,7 +69,7 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: |
-                      .next/cache
+                      .yarn
                       # Generate a new cache whenever packages or source files change.
                   key:
                       ${{ runner.os }}-storybook-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
