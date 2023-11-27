@@ -9,6 +9,11 @@ on:
         branches:
             - main
 
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
 jobs:
     build_and_deploy_job:
         if: github.repository == 'jerensl/www.jerensl.com' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed'))
@@ -38,6 +43,9 @@ jobs:
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
     build_docs:
         runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -84,21 +92,10 @@ jobs:
               uses: actions/upload-pages-artifact@v2
               with:
                   path: ./storybook-static
-
-    # Deployment job
-    deploy:
-        needs: build_docs
-        permissions:
-            pages: write # to deploy to Pages
-            id-token: write # to verify the deployment originates from an appropriate source
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        steps:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v2
+
     lhci:
         if: github.repository == 'jerensl/www.jerensl.com' && ${{ github.event.label.name == 'need-perf-check' }} && github.event_name == 'pull_request' && github.event.action != 'closed'
         name: Run Lighthouse CI againts Pull Request
