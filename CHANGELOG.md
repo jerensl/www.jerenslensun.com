@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.3.0](https://github.com/jerensl/www.jerensl.com/compare/v1.2.0...v1.3.0) (2023-12-02)
+
+
+### Features
+
+* **button-links:** add button links from material design specs ([b7a2a48](https://github.com/jerensl/www.jerensl.com/commit/b7a2a48e6e4a71839035fc92eeb6abd90b72fdab))
+* **button:** add icon size ([d852a2d](https://github.com/jerensl/www.jerensl.com/commit/d852a2d6c214dc8cba1ce21ff978d8a57a23e9c8))
+* **chips-tag:** add chip tags ([6f6b55d](https://github.com/jerensl/www.jerensl.com/commit/6f6b55d8b74ba3b5c313b5fb33654f016f1837df))
+* **icon-button:** add icon button and implement it to theme switch ([1b796a1](https://github.com/jerensl/www.jerensl.com/commit/1b796a1e216ee0194bfe6332468502073ebb8f52))
+
+
+### Bug Fixes
+
+* **card-test:** fix card heading level on test cases ([3d3ea68](https://github.com/jerensl/www.jerensl.com/commit/3d3ea68b33529e9cb92b86a7f5b47aaf3efa55c4))
+* **ci-storybook:** add fix ([6807cbe](https://github.com/jerensl/www.jerensl.com/commit/6807cbe8a7edb363925b5cd42afb83c85d01ecff))
+* **ci-storybook:** add fix ([21e35e3](https://github.com/jerensl/www.jerensl.com/commit/21e35e31bc9b2982475e412659c9899238fb7a4c))
+* **ci-storybook:** add new gh action ([220d95b](https://github.com/jerensl/www.jerensl.com/commit/220d95b8d177d7b461ae09daeb14b8b10be9bd7b))
+* **ci-storybook:** change permission to the top ([512db53](https://github.com/jerensl/www.jerensl.com/commit/512db5362dc254e24bd4493424d3167b61e7ac3c))
+* **ci-storybook:** fix ([a4d8461](https://github.com/jerensl/www.jerensl.com/commit/a4d846178f970707c517698edc7d1e3f1b292805))
+* **ci-storybook:** fix github action storybook build ([d91c09e](https://github.com/jerensl/www.jerensl.com/commit/d91c09efbadd557173926b4b07bf6f2fdf78e150))
+* **ci-storybook:** fix github action storybook build ([b3e5237](https://github.com/jerensl/www.jerensl.com/commit/b3e52378df33a9916a53830548b197283e02fba3))
+* **ci-storybook:** fix github action storybook build ([008dd11](https://github.com/jerensl/www.jerensl.com/commit/008dd11015ea9c39896609d8497898e49d052fce))
+* **ci-storybook:** fix permission indent ([3be3041](https://github.com/jerensl/www.jerensl.com/commit/3be30415c77fa7c969dd18f41b0316081fb309d8))
+* **ci-storybook:** remove storybook build in ci ([d9851cf](https://github.com/jerensl/www.jerensl.com/commit/d9851cf9c7c16649dbf8f23e564f0e53b1bfbd1f))
+* **ci-storybook:** remove storybook build in ci ([63d12ff](https://github.com/jerensl/www.jerensl.com/commit/63d12ff6643b8b5027abff91a34c51893ad013bf))
+* Dockerfile to reduce vulnerabilities ([8175c06](https://github.com/jerensl/www.jerensl.com/commit/8175c066e917552d99e4e7bc4277604518ffbedb))
+* **gh-action-checkout:** upgrade to v4 ([942f1f9](https://github.com/jerensl/www.jerensl.com/commit/942f1f948c96a3cee76bbc0d17a407cc01bdef02))
+* **gh-action-setup-node:** upgrade to v4 ([af35027](https://github.com/jerensl/www.jerensl.com/commit/af35027bac210c1b2f94b78841f214f254484fa5))
+* upgrade @tanstack/react-query from 4.35.3 to 4.36.1 ([3bd8635](https://github.com/jerensl/www.jerensl.com/commit/3bd863543499375a83e9818a1a8efe83931f8c14))
+* upgrade @tanstack/react-query-devtools from 4.35.3 to 4.36.1 ([0e6acad](https://github.com/jerensl/www.jerensl.com/commit/0e6acad0710df0970dc542fcf4ed611036fec9b4))
+* upgrade next from 13.5.4 to 13.5.6 ([0a093a1](https://github.com/jerensl/www.jerensl.com/commit/0a093a12d48cfac8e462f7f6a4fc351e36a97420))
+* upgrade react-intersection-observer from 9.5.2 to 9.5.3 ([d8e9d8e](https://github.com/jerensl/www.jerensl.com/commit/d8e9d8ee850da9a97c8901b85235bb9049ce4eee))
+
 ## [1.2.0](https://github.com/jerensl/www.jerensl.com/compare/v1.1.0...v1.2.0) (2023-10-16)
 
 
