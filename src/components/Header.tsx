@@ -53,11 +53,13 @@ export const Header = ({
                                     variant="outlined"
                                     href="/blog"
                                     label="About me"
+                                    size="large"
                                 />
                                 <LinkButton
                                     variant="filled"
                                     href="/blog"
                                     label="Read articles"
+                                    size="large"
                                 />
                             </div>
                         </div>
