@@ -15,6 +15,7 @@ export const ContactMe = (): React.ReactElement => {
                     href="mailto:jerensslensun@gmail.com"
                     label="Contact me"
                     variant="filled"
+                    size="large"
                 />
             </div>
         </Grid>
