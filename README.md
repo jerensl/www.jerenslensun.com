@@ -86,7 +86,7 @@ To run the automated tests for this system.
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+For more information about how to use the component, you can follow the instruction from the storybook [here](https://jerensl.github.io/www.jerensl.com/).
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
