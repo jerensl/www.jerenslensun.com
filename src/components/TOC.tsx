@@ -27,6 +27,7 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                                 href={`#${id}`}
                                 variant="text"
                                 label={text}
+                                size="base"
                                 fullWidth
                             />
                         </li>
