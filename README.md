@@ -60,29 +60,33 @@ A step by step series of examples that tell you how to get a development env run
 
 ### Install dependencies
 
-### `npm install` or `yarn`
+#### `npm install` or `yarn`
 
 ### Start the application
 
-### `npm start` or `yarn start`
+#### `npm start` or `yarn start`
 
 It will runs the app in development mode and automaticlly open your browser, if not you open the browser, and go to [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## 🔧 Running the tests <a name = "tests"></a>
+### Running the storybook on local <a name = "docs"></a>
+
+#### `npm storybook` or `yarn storybook`
+
+### Running the tests <a name = "tests"></a>
 
 To run the automated tests for this system.
 
 ### Running the test one time
 
-### `npm test` or `yarn test`
+#### `npm test` or `yarn test`
 
 ### Runs the test watcher in an interactive mode.
 
-### `npm test:watch` or `yarn test:watch`
+#### `npm test:watch` or `yarn test:watch`
 
 ### Runs the test coverage.
 
-### `npm test:coverage` or `yarn test:coverage`
+#### `npm test:coverage` or `yarn test:coverage`
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -90,11 +94,18 @@ For more information about how to use the component, you can follow the instruct
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+This website has been deploying on Azure Static Web Apps, to learn more you can go through their documentation [here](https://learn.microsoft.com/en-us/azure/static-web-apps/).
+
+Continuous deployment has been adopted using Github Action, which can be see on this [links](https://github.com/jerensl/www.jerensl.com/actions/workflows/deployment.yml?query=branch%3Amain)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 -   [NextJs](https://nextjs.org/) - Web Framework
+-   [TailwindCSS](https://tailwindcss.com/) - CSS Framework
+-   [React Testing Library](https://testing-library.com/) - React Testing Library
+-   [Storybook](https://storybook.js.org/) - Documentation
+-   [MDX Bundler](https://github.com/kentcdodds/mdx-bundler) - Markdown Bundler
+-   [Material Design 3](https://m3.material.io/) - Design System
 
 ## ✍️ Authors <a name = "authors"></a>
 
