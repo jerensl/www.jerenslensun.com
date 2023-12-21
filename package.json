@@ -30,7 +30,7 @@
         "@tanstack/react-query-devtools": "^4.36.1",
         "clsx": "^1.2.0",
         "date-fns": "^2.30.0",
-        "esbuild": "^0.15.15",
+        "esbuild": "^0.19.8",
         "firebase": "^9.22.1",
         "framer-motion": "^6.4.1",
         "gray-matter": "^4.0.3",
