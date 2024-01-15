@@ -66,20 +66,6 @@ export const IntroductionSection = (): React.ReactElement => {
                                     of users to solve their own problems.
                                 </p>
                             </motion.div>
-                            <motion.div variants={childrenVariants}>
-                                <p className="text-base mt-5">
-                                    I am currently studied Electrical
-                                    Engineering at the University of Sam
-                                    Ratulangi based on Manado, minoring in
-                                    control system, during my college I involve
-                                    in leading a project, being an assistant
-                                    practicum as well as coordinator assistant
-                                    too, etc. But outside that, I consider
-                                    myself a builder so {`I'm`} building my side
-                                    project for fun, and one of them is this
-                                    blog.
-                                </p>
-                            </motion.div>
                         </motion.div>
                     </div>
                 </Grid>

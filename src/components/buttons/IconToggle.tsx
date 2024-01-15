@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 
 type IIconToggleVariants = 'filled' | 'filled-tonal' | 'outlined' | 'standard'
+type IIconType = 'standard' | 'toggle'
 
 export type IconToggleProps = {
     onClick: () => void
