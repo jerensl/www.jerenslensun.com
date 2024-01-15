@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.1](https://github.com/jerensl/www.jerensl.com/compare/v1.3.0...v1.3.1) (2024-01-15)
+
+
+### Bug Fixes
+
+* **contact-me:** add size on contac me link button ([a2987f6](https://github.com/jerensl/www.jerensl.com/commit/a2987f67cad9e6c1938092b1d342ea3070f00712))
+* **docs-deploy:** fix docs deployment on storybook ([2e8d5d5](https://github.com/jerensl/www.jerensl.com/commit/2e8d5d550a7d758f52291c5278ea378dcef09f0f))
+* **toc:** add size on toc link button ([4b67bb7](https://github.com/jerensl/www.jerensl.com/commit/4b67bb788d4c03930b0c94b8f63ffbe407a79f76))
+
 ## [1.3.0](https://github.com/jerensl/www.jerensl.com/compare/v1.2.0...v1.3.0) (2023-12-02)
 
 
