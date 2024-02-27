@@ -2,7 +2,7 @@ import { imageLoader } from '@/constant/images'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 interface ContentCardProps {
     variant: 'elevated' | 'filled' | 'outlined'
