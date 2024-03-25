@@ -43,6 +43,7 @@ yarn-error.log*
 # enviroment variales
 .env
 .env.local
+.envrc
 
 # PWA files
 /public/sw.js
@@ -56,3 +57,7 @@ yarn-error.log*
 /public/robots.txt
 /public/rss.xml
 /public/sitemap.xml
+
+# terraform
+.terraform/
+terraform.tfstate*
