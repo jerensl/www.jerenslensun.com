@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.2](https://github.com/jerensl/www.jerensl.com/compare/v1.3.1...v1.3.2) (2024-03-25)
+
+
+### Bug Fixes
+
+* Dockerfile to reduce vulnerabilities ([79239c5](https://github.com/jerensl/www.jerensl.com/commit/79239c566d4a7e6366f7f9a1aeeb3801a9093132))
+* Dockerfile to reduce vulnerabilities ([8f3e3fd](https://github.com/jerensl/www.jerensl.com/commit/8f3e3fdcfaea5d25133a35cf0b9604773a145dbc))
+* upgrade match-sorter from 6.3.1 to 6.3.3 ([cc7fc7f](https://github.com/jerensl/www.jerensl.com/commit/cc7fc7f94fa762739483392ffacd9344309557cb))
+* upgrade multiple dependencies with Snyk ([d7302ac](https://github.com/jerensl/www.jerensl.com/commit/d7302ac53cc8d7935d8a837ccaa058b255852432))
+
 ## [1.3.1](https://github.com/jerensl/www.jerensl.com/compare/v1.3.0...v1.3.1) (2024-01-15)
 
 
