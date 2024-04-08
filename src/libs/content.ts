@@ -92,10 +92,16 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
         files.map(async (fileName) => {
             const source = getFileByName(directory, `${fileName}.mdx`)
             const { data } = matter(source)
-            const { base64 } = await getPlaiceholder(
-                `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${data.cover}`,
-                { size: 10 }
+
+            const buffer = await fetch(
+                `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${data.cover}`
             )
+                .then(async (res) => Buffer.from(await res.arrayBuffer()))
+                .catch((err) => {
+                    throw Error('Images not found')
+                })
+
+            const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
             return {
                 ...data,
@@ -159,10 +165,15 @@ export const getContent = async (
         },
     })
 
-    const { base64 } = await getPlaiceholder(
-        `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${frontmatter.cover}`,
-        { size: 10 }
+    const buffer = await fetch(
+        `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${frontmatter.cover}`
     )
+        .then(async (res) => Buffer.from(await res.arrayBuffer()))
+        .catch((err) => {
+            throw Error('Images not found')
+        })
+
+    const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
     return {
         code,

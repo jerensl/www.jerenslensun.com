@@ -1,5 +1,6 @@
 import runtimeCaching from 'next-pwa/cache.js'
 import withPWA from 'next-pwa'
+import withPlaiceholder from '@plaiceholder/next'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (phase, { defaultConfig }) => {
@@ -32,6 +33,7 @@ export default (phase, { defaultConfig }) => {
             runtimeCaching,
             cacheOnFrontEndNav: true,
         }),
+        withPlaiceholder,
     ]
     const config = plugins.reduce((acc, next) => next(acc), {
         ...nextConfig,
