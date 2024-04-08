@@ -10,10 +10,15 @@ import { CareerSection } from '@/components/sections/Career.section'
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
-    const { base64 } = await getPlaiceholder(
-        'https://ik.imagekit.io/jerensl/illustration-landing-page.png',
-        { size: 10 }
-    )
+    const src = 'https://ik.imagekit.io/jerensl/illustration-landing-page.png'
+
+    const buffer = await fetch(src)
+        .then(async (res) => Buffer.from(await res.arrayBuffer()))
+        .catch((err) => {
+            throw Error('Images not found')
+        })
+
+    const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
     return {
         props: { blurDataURL: base64 },

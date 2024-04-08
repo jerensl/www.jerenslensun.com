@@ -38,3 +38,15 @@ resource "azurerm_static_web_app_custom_domain" "we-app-custom-domain" {
   domain_name       = "${azurerm_dns_cname_record.web-app-dns-record.name}.${azurerm_dns_cname_record.web-app-dns-record.zone_name}"
   validation_type   = "cname-delegation"
 }
+
+resource "azurerm_storage_account" "personal-app-storage" {
+  name                     = "stjerenspersonalapp001"
+  resource_group_name      = azurerm_resource_group.personal-app.name
+  location                 = azurerm_resource_group.personal-app.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    environment = "production"
+  }
+}
