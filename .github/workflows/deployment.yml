@@ -66,7 +66,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version: '16'
+                  node-version: '18.x'
                   cache: ${{ steps.detect-package-manager.outputs.manager }}
             - name: Deploy Storybook Docs
               uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
@@ -84,10 +84,10 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Setup Node.js 16.x
+            - name: Setup Node.js 18.x
               uses: actions/setup-node@v1
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
 
             - name: 'Lighthouse CI assertion'
               id: lhci
