@@ -18,6 +18,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
+                  cache: 'yarn'
             - name: Install locked dependencies
               run: yarn install --frozen-lockfile --prefer-offline
 
@@ -31,6 +32,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
+                  cache: 'yarn'
             - name: Lint files
               run: yarn run lint
               env:
@@ -45,6 +47,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
+                  cache: 'yarn'
             - name: Perform type checking
               run: yarn run type-check
               env:
@@ -58,6 +61,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
+                  cache: 'yarn'
             - name: Check Code Coverage
               run: yarn run test:coverage
             - name: Upload code coverage reports to Codecov
@@ -71,6 +75,7 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
+                  cache: 'yarn'
             - name: Install Cypress
               run: yarn add cypress
             - name: Build dependencies
