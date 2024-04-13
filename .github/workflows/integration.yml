@@ -21,7 +21,6 @@ jobs:
                   cache: 'yarn'
             - name: Install locked dependencies
               run: yarn install --frozen-lockfile --prefer-offline
-
             - name: Lint files
               run: yarn lint
               env:
@@ -38,6 +37,8 @@ jobs:
               with:
                   node-version: '18.x'
                   cache: 'yarn'
+            - name: Install locked dependencies
+              run: yarn install --frozen-lockfile --prefer-offline
             - name: Perform type checking
               run: yarn type-check
               env:
@@ -53,6 +54,8 @@ jobs:
               with:
                   node-version: '18.x'
                   cache: 'yarn'
+            - name: Install locked dependencies
+              run: yarn install --frozen-lockfile --prefer-offline
             - name: Check Code Coverage
               run: yarn test:coverage
             - name: Upload code coverage reports to Codecov
