@@ -31,7 +31,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Lint files
-              run: yarn run lint
+              run: yarn lint
               env:
                   CI: true
     type-check:
@@ -43,7 +43,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Perform type checking
-              run: yarn run type-check
+              run: yarn type-check
               env:
                   CI: true
     test:
@@ -54,7 +54,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Check Code Coverage
-              run: yarn run test:coverage
+              run: yarn test:coverage
             - name: Upload code coverage reports to Codecov
               uses: codecov/codecov-action@v2
     e2e:
@@ -66,7 +66,7 @@ jobs:
               uses: actions/checkout@v4
             - name: Install Cypress
               run: yarn add cypress
-            - name: Build dependencies
+            - name: Build the web app
               run: yarn build
             - name: Run Cypress
               uses: cypress-io/github-action@v4
