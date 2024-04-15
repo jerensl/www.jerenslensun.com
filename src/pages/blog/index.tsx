@@ -26,7 +26,7 @@ export default function Blog({
     tags,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const [query, setQuery] = useState<string>('')
-    const [globalLang, setGlobalLang] = useState<boolean>(false)
+    const [globalLang, setGlobalLang] = useState<boolean>(true)
 
     const englishLang = posts.filter((p: any) => !p.slug.startsWith('id-'))
     const indonesiaLang = posts.filter((p: any) => p.slug.startsWith('id-'))

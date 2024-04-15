@@ -6,8 +6,9 @@ describe('Blog page', () => {
     it('should find article fundamental algoritma', () => {
         cy.get('a[href*="/blog"]').first().click()
 
-        const typedText = 'Fundamental Algoritma'
+        const typedText = 'Algorithm Fundamentals'
 
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.get('[aria-label="Search Articles"]')
             .type(typedText)
             .should('have.value', typedText)
@@ -21,6 +22,7 @@ describe('Blog page', () => {
 
         const typedText = 'xyz'
 
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.get('[aria-label="Search Articles"]')
             .type(typedText)
             .should('have.value', typedText)
