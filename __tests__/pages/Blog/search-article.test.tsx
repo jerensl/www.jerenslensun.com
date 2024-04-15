@@ -37,10 +37,10 @@ const posts: IBlogMetadata[] = [
     {
         title: 'Test First Article',
         date: '01-02-2021',
-        fileName: 'test-first-article',
+        fileName: 'id-test-first-article',
         isPublished: true,
         description: 'This is a summary',
-        slug: 'test-first-title',
+        slug: 'id-test-first-title',
         cover: '/',
         tags: ['first'],
         blurDataURL: 'test-second-title',
@@ -48,11 +48,11 @@ const posts: IBlogMetadata[] = [
     },
     {
         title: 'Test Second Article',
-        fileName: 'test-second-article',
+        fileName: 'en-test-second-article',
         date: '01-03-2021',
         isPublished: true,
         description: 'this is a summary',
-        slug: 'test-second-title',
+        slug: 'id-test-second-title',
         cover: '/',
         tags: ['second'],
         blurDataURL: 'test-second-title',
@@ -76,7 +76,9 @@ describe('Search Article', () => {
         const { input, getAllByRole, getByRole } =
             await renderSearchArticlesComponent()
 
-        await userEvent.click(getByRole('button', { name: /Read in English/i }))
+        await userEvent.click(
+            getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
 
         await userEvent.type(input, 'Test First Article')
 
@@ -95,7 +97,9 @@ describe('Search Article', () => {
         const { input, getAllByRole, getByRole } =
             await renderSearchArticlesComponent()
 
-        userEvent.click(getByRole('button', { name: /Read in English/i }))
+        userEvent.click(
+            getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
 
         await waitFor(() => userEvent.type(input, 'article'))
 
@@ -123,7 +127,9 @@ describe('Search Article', () => {
         const { getAllByRole, getByRole } =
             await renderSearchArticlesComponent()
 
-        userEvent.click(getByRole('button', { name: /Read in English/i }))
+        userEvent.click(
+            getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
 
         await waitFor(() =>
             userEvent.click(getByRole('button', { name: /second/i }))
@@ -158,9 +164,11 @@ describe('Search Article', () => {
     it('Should change languange to English', async () => {
         const { getByRole, findByText } = await renderSearchArticlesComponent()
 
-        userEvent.click(getByRole('button', { name: /Read in English/i }))
+        userEvent.click(
+            getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
 
-        const result = await findByText(/Read in Bahasa Indonesia/i)
+        const result = await findByText(/Read in English/i)
 
         expect(result).toBeInTheDocument()
     })
