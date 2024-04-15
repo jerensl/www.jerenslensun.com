@@ -51,7 +51,7 @@ const fakeData = {
     slug: 'test',
     cover: 'image/test',
     tags: ['test'],
-    fileName: 'test',
+    fileName: 'id-test',
     blurDataURL: 'image/test',
     readTime: { text: '1 min read', time: 1, words: 1, minutes: 1 },
 }
