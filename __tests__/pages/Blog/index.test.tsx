@@ -5,6 +5,7 @@ import React from 'react'
 import { render, within } from '../../../__mocks__/utils/test-providers'
 import Blog from '../../../src/pages/blog/index'
 import { getContents } from '../../../src/libs/content'
+import userEvent from '@testing-library/user-event'
 
 jest.mock('firebase/messaging', () => jest.fn())
 jest.mock('firebase/app', () => jest.fn())
@@ -53,6 +54,10 @@ describe('Blog Pages', () => {
 
     it('This blog pages will show the list of article', async () => {
         const { utils } = await renderBlogSlug()
+
+        await userEvent.click(
+            utils.getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
 
         const result = utils.getAllByRole('article').map((article) => {
             return within(article).getByRole('heading', { level: 3 })
