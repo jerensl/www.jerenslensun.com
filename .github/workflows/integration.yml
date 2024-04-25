@@ -8,7 +8,7 @@ on:
 
 jobs:
     lint:
-        if: github.repository == 'jerensl/www.jerensslensun.com'
+        if: github.repository == 'jerensl/www.jerenslensun.com'
         name: ESLint
         runs-on: ubuntu-latest
         steps:
@@ -26,7 +26,7 @@ jobs:
               env:
                   CI: true
     type-check:
-        if: github.repository == 'jerensl/www.jerensslensun.com'
+        if: github.repository == 'jerensl/www.jerenslensun.com'
         name: Type check
         runs-on: ubuntu-latest
         steps:
@@ -44,7 +44,7 @@ jobs:
               env:
                   CI: true
     test:
-        if: github.repository == 'jerensl/www.jerensslensun.com'
+        if: github.repository == 'jerensl/www.jerenslensun.com'
         name: Unit and integration tests
         runs-on: ubuntu-latest
         steps:
@@ -62,7 +62,7 @@ jobs:
             - name: Upload code coverage reports to Codecov
               uses: codecov/codecov-action@v2
     e2e:
-        if: github.repository == 'jerensl/www.jerensslensun.com'
+        if: github.repository == 'jerensl/www.jerenslensun.com'
         name: End-to-end tests
         runs-on: ubuntu-latest
         steps:

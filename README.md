@@ -1,12 +1,12 @@
-<h3 align="center">www.jerensslensun.com</h3>
+<h3 align="center">www.jerenslensun.com</h3>
 
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/jerensl/www.jerensslensun.com)](https://github.com/jerensl/www.jerensslensun.com/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/www.jerensl.com)](https://github.com/jerensl/www.jerensslensun.com/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/www.jerensl.com)](https://github.com/jerensl/www.jerenslensun.com/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-[![codecov](https://codecov.io/gh/jerensl/www.jerensslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerensslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerensslensun.com/actions/workflows/integration.yml/badge.svg) ![Continuous Deployment](https://github.com/jerensl/www.jerensslensun.com/actions/workflows/deployment.yml/badge.svg)
+[![codecov](https://codecov.io/gh/jerensl/www.jerenslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerenslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/integration.yml/badge.svg) ![Continuous Deployment](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml/badge.svg)
 
 </div>
 
@@ -49,13 +49,13 @@ A step by step series of examples that tell you how to get a development env run
 ### Clone the project
 
 ```sh
-  git clone https://github.com/jerensl/www.jerensslensun.com.git
+  git clone https://github.com/jerensl/www.jerenslensun.com.git
 ```
 
 ### Go to the project directory
 
 ```sh
-  cd www.jerensslensun.com
+  cd www.jerenslensun.com
 ```
 
 ### Install dependencies
@@ -90,13 +90,13 @@ To run the automated tests for this system.
 
 ## 🎈 Usage <a name="usage"></a>
 
-For more information about how to use the component, you can follow the instruction from the storybook [here](https://jerensl.github.io/www.jerensslensun.com/).
+For more information about how to use the component, you can follow the instruction from the storybook [here](https://jerensl.github.io/www.jerenslensun.com/).
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
 This website has been deploying on Azure Static Web Apps, to learn more you can go through their documentation [here](https://learn.microsoft.com/en-us/azure/static-web-apps/).
 
-Continuous deployment has been adopted using Github Action, which can be see on this [links](https://github.com/jerensl/www.jerensslensun.com/actions/workflows/deployment.yml?query=branch%3Amain)
+Continuous deployment has been adopted using Github Action, which can be see on this [links](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml?query=branch%3Amain)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -111,7 +111,7 @@ Continuous deployment has been adopted using Github Action, which can be see on 
 
 -   [@jerensl](https://github.com/jerensl) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/jerensl/www.jerensslensun.com/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/jerensl/www.jerenslensun.com/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
