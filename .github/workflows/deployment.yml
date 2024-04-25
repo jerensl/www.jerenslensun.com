@@ -42,6 +42,7 @@ jobs:
                   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
     build_docs:
+        if: github.repository == 'jerensl/www.jerensslensun.com'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
