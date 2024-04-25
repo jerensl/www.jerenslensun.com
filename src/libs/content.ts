@@ -111,9 +111,13 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
         })
     )
 
-    return contents.filter((data) => {
-        return data.isPublished === true
-    })
+    return contents
+        .filter((data) => {
+            return data.isPublished === true
+        })
+        .sort((a, b) => {
+            return Date.parse(b.date) - Date.parse(a.date)
+        })
 }
 
 export const getContent = async (
