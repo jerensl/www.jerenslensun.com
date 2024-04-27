@@ -30,9 +30,6 @@ const customJestConfig = {
     transform: {
         '^.+\\.(t|j)sx?$': '@swc/jest',
     },
-    moduleNameMapper: {
-        '^uuid$': require.resolve('uuid'),
-    },
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

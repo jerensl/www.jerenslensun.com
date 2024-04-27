@@ -53,29 +53,32 @@ export const AboutSection = (): React.ReactElement => {
                 >
                     <motion.div variants={childrenVariants}>
                         <p className="pb-4">
-                            {`I've`} always been passionate about football and
-                            software engineering, for me tackling complex
-                            problems {`it's`} same as scoring a goal. In
-                            football, it {`doesn't`} matter whether you play
-                            good or bad at the end of that day winning or
-                            outcome is what matters to all your fans, but as
-                            people on the field what we can do is make good
-                            decisions optimizing for a better outcome but still
-                            manage our expectations because the bad outcome can
-                            possible to occur. What we can do is to keep
-                            improving for each iteration and still need to
-                            manage our risk so that catastrophic failure does
-                            not happen, this example is like football when we
-                            play attacking but still make sure to maintain
-                            balance on our defensive transition.
+                            As someone who loves both football and software
+                            engineering, I find that tackling complex problems
+                            is akin to scoring a goal. In football, the ultimate
+                            outcome matters most to fans, regardless of whether
+                            you played well or poorly during the match.
+                            Similarly, in the software world, making informed
+                            decisions to optimize outcomes is crucial. However,
+                            we must also temper our expectations, recognizing
+                            that unfavorable results can still occur. Just as
+                            football teams continuously improve with each
+                            iteration, software engineers must strive for
+                            excellence while managing risks to prevent
+                            catastrophic failures. It’s like playing an
+                            attacking game in football while maintaining a
+                            balanced defensive transition.
                         </p>
                     </motion.div>
                     <motion.div variants={childrenVariants}>
                         <p className="pb-4">
-                            In my opinion, learning new technology is cool but
-                            learning technologies that still survive for decades
-                            are awesome, what I mean is it`s a technology still
-                            widely used, not deprecated.
+                            When it comes to learning technology, novelty is
+                            cool, but there’s something truly awesome about
+                            mastering technologies that withstand the test of
+                            time. These enduring technologies, widely used and
+                            not deprecated, hold immense value. They form the
+                            bedrock of our digital landscape, providing
+                            stability and reliability.
                         </p>
                     </motion.div>
                 </motion.div>

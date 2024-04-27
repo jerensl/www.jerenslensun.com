@@ -4,7 +4,7 @@
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![GitHub Issues](https://img.shields.io/github/issues/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/www.jerensl.com)](https://github.com/jerensl/www.jerenslensun.com/pulls)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![codecov](https://codecov.io/gh/jerensl/www.jerenslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerenslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/integration.yml/badge.svg) ![Continuous Deployment](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml/badge.svg)
 
