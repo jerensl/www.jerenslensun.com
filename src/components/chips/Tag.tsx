@@ -14,7 +14,7 @@ export const Tag = ({ text, onClick, disabled, selected }: TagProps) => {
             onClick={onClick}
             disabled={disabled}
             className={clsx(
-                'ml-2 inline-flex h-8 text-center items-center rounded-small text-on-surface-variant border border-outline  shadow-elevation-0 disabled:text-on-surface/12 disabled:bg-on-surface-variant/12 disabled:border-on-surface/12 hover:bg-on-surface-variant/8',
+                'inline-flex h-8 text-center items-center rounded-small text-on-surface-variant border border-outline  shadow-elevation-0 disabled:text-on-surface/12 disabled:bg-on-surface-variant/12 disabled:border-on-surface/12 hover:bg-on-surface-variant/8',
                 {
                     'pr-4 text-on-secondary-container bg-on-surface/12 border-none border-secondary-container hover:bg-on-secondary-container/8 hover:shadow-elevation-2':
                         selected,

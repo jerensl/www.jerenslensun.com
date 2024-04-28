@@ -31,6 +31,8 @@ const customJestConfig = {
         '^.+\\.(t|j)sx?$': '@swc/jest',
     },
     moduleNameMapper: {
+        '\\.(css)$': 'identity-obj-proxy',
+        '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
         '^uuid$': require.resolve('uuid'),
     },
 }
