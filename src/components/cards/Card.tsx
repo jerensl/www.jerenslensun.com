@@ -28,7 +28,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     return (
         <article
             className={clsx(
-                'relative col-span-full md:col-span-4 lg:col-span-4 rounded-medium h-[420px] w-[320px]',
+                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[420px] sm:w-[320px]',
                 {
                     'bg-surface border border-outline-variant':
                         variant === 'outlined',
