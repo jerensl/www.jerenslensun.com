@@ -15,11 +15,11 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
     }
 
     return (
-        <div className="hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 px-12 lg:block">
-            <h3 className="text-gray-900 dark:text-gray-100 md:text-xl font-bold">
+        <div className="max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 px-12">
+            <h3 className="text-gray-900 text-center sm:text-left dark:text-gray-100 md:text-xl font-bold">
                 Table of Contents
             </h3>
-            <ul className="mt-4 flex flex-col space-y-2 text-sm">
+            <ul className="mt-4 flex flex-col sm:space-y-1 text-sm">
                 {toc.map(({ id, text, level }) => {
                     return (
                         <li key={id} className="w-full">
