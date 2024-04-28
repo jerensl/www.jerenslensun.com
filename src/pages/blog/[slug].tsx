@@ -93,15 +93,15 @@ export default function Blog({
                     className="object-cover m-auto"
                 />
             </header>
-            <main className="py-10 flex max-w-7xl flex-row-reverse m-auto">
+            <main className="py-10 flex flex-col max-w-7xl sm:flex-row-reverse m-auto">
                 <aside className="py-10 w-[350px]">
-                    <div className="sticky top-36 flex">
+                    <div className="sm:sticky top-36 sm:flex">
                         <TableOfContent toc={toc} />
                     </div>
                 </aside>
                 <article
                     id="mdx"
-                    className="prose ml-20 flex-1 max-w-4xl m-auto dark:prose-invert prose-p:font-normal prose-li:font-normal lg:prose-lg"
+                    className="prose mx-4 sm:mx-0 sm:ml-20 flex-1 max-w-4xl m-auto dark:prose-invert prose-p:font-normal prose-li:font-normal lg:prose-lg"
                 >
                     <Component components={components} />
                 </article>
