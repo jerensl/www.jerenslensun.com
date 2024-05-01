@@ -10,6 +10,7 @@ import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IProjectMetadata } from '@/types/project'
 import { IBlogMetadata } from '@/types/blog'
+import { IMetadata } from '@/types/content'
 
 export const getFiles = (dir: string): string[] => {
     const fileDirectory = path.join(process.cwd(), 'contents', dir)
@@ -85,10 +86,12 @@ export const getContentByName = async (type: string, slug: string) => {
     }
 }
 
-async function getContents<T>(directory: string): Promise<Array<T>> {
+async function getContents<T extends IMetadata>(
+    directory: string
+): Promise<Array<T>> {
     const files = getFiles(directory)
 
-    const contents = await Promise.all<any | void>(
+    const contents = await Promise.all<T>(
         files.map(async (fileName) => {
             const source = getFileByName(directory, `${fileName}.mdx`)
             const { data } = matter(source)
@@ -100,14 +103,13 @@ async function getContents<T>(directory: string): Promise<Array<T>> {
                 .catch((err) => {
                     throw Error('Images not found')
                 })
-
             const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
             return {
                 ...data,
                 slug: fileName,
                 blurDataURL: base64,
-            } as IProjectMetadata | IBlogMetadata
+            } as T
         })
     )
 
