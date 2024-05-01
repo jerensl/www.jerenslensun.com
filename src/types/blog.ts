@@ -1,14 +1,7 @@
 import { IReadTimeResults } from 'reading-time'
+import { IMetadata } from './content'
 
-export interface IBlogMetadata {
-    title: string
-    date: string
-    isPublished: boolean
-    description: string
-    slug?: string
-    cover: string
-    fileName?: string
+export interface IBlogMetadata extends IMetadata {
     tags: string[]
-    blurDataURL?: string
     readTime?: IReadTimeResults
 }

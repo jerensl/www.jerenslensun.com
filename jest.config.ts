@@ -17,6 +17,7 @@ const customJestConfig = {
         '<rootDir>/src/**/*.tsx',
         '!<rootDir>/src/pages/_document.tsx',
         '!<rootDir>/src/pages/_app.tsx',
+        '!<rootDir>/src/utils/storybook/*',
     ],
     testPathIgnorePatterns: [
         '<rootDir>/node_modules/',

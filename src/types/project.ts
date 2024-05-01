@@ -1,12 +1,7 @@
-export interface IProjectMetadata {
-    title: string
+import { IMetadata } from './content'
+
+export interface IProjectMetadata extends IMetadata {
     status: string
     programming_languange: string[]
-    cover: string
-    description: string
-    slug?: string
-    isPublished: string
-    fileName: string
-    blurDataURL: string
     repo_url?: string
 }
