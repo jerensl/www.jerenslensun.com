@@ -6,6 +6,7 @@ import { render, screen } from '../../../__mocks__/utils/test-providers'
 import Blog from '../../../src/pages/blog/[slug]'
 import { getContent } from '../../../src/libs/content'
 
+jest.mock('@giscus/react', () => jest.fn())
 jest.mock('remark-math', () => jest.fn())
 jest.mock('rehype-katex', () => jest.fn())
 jest.mock('unist-util-visit', () => jest.fn())
