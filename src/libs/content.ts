@@ -8,7 +8,6 @@ import rehypeMetaAttribute from './mdx-plugins/rehype-meta-attribute'
 import rehypeTOC from './mdx-plugins/rehype-toc'
 import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
-import { IProjectMetadata } from '@/types/project'
 import { IBlogMetadata } from '@/types/blog'
 import { IMetadata } from '@/types/content'
 
