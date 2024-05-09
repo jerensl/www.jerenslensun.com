@@ -15,6 +15,7 @@ import TableOfContent from '@/components/TOC'
 import { getContent, getFiles } from '@/libs/content'
 import { MDXTitleHeadingLevels } from '@/types/content'
 import { imageLoader } from '@/constant/images'
+import { Comment } from '@/components/Comment'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getFiles('blog')
@@ -104,6 +105,7 @@ export default function Blog({
                     className="prose mx-4 sm:mx-0 sm:ml-20 flex-1 max-w-4xl m-auto dark:prose-invert prose-p:font-normal prose-li:font-normal lg:prose-lg"
                 >
                     <Component components={components} />
+                    <Comment />
                 </article>
             </main>
             <div className="h-20 lg:h-32" />
