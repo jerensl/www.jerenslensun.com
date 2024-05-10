@@ -10,6 +10,7 @@ import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IBlogMetadata } from '@/types/blog'
 import { IMetadata } from '@/types/content'
+import BlankImage from '../../public/images/blank-image.jpg'
 
 export const getFiles = (dir: string): string[] => {
     const fileDirectory = path.join(process.cwd(), 'contents', dir)
@@ -97,11 +98,8 @@ async function getContents<T extends IMetadata>(
 
             const buffer = await fetch(
                 `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${data.cover}`
-            )
-                .then(async (res) => Buffer.from(await res.arrayBuffer()))
-                .catch((err) => {
-                    throw Error('Images not found')
-                })
+            ).then(async (res) => Buffer.from(await res.arrayBuffer()))
+
             const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
             return {
@@ -172,11 +170,7 @@ export const getContent = async (
 
     const buffer = await fetch(
         `https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/${frontmatter.cover}`
-    )
-        .then(async (res) => Buffer.from(await res.arrayBuffer()))
-        .catch((err) => {
-            throw Error('Images not found')
-        })
+    ).then(async (res) => Buffer.from(await res.arrayBuffer()))
 
     const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
