@@ -2,6 +2,7 @@ import { render } from '@testing-library/react'
 import { rest } from 'msw'
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import ImagesSource from '../../public/images/default-content.jpg'
 
 export const handlers = [
     rest.post('*/status', (req, res, ctx) => {
@@ -19,6 +20,12 @@ export const handlers = [
     rest.post('*/notification/unsubscribe', (req, res, ctx) => {
         return res(ctx.status(200))
     }),
+    rest.get(
+        'https://ik.imagekit.io/jerensl/tr:di-default-content.jpg/*',
+        (req, res, ctx) => {
+            return res(ctx.status(200))
+        }
+    ),
 ]
 
 const createTestQueryClient = () =>
