@@ -23,7 +23,7 @@ interface App {
 const app: App = {
     name: 'Jerens',
     title: 'Jerens Lensun',
-    image: 'https://www.jerensl.com/images/banner-og.png',
+    image: 'https://www.jerenslensun.com/images/banner-og.png',
     description:
         "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.",
 }

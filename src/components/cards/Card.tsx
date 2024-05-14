@@ -28,7 +28,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     return (
         <article
             className={clsx(
-                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[420px] sm:w-[320px]',
+                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[420px] sm:w-[320px] hover:bg-on-surface/8 active:bg-on-surface/12',
                 {
                     'bg-surface border border-outline-variant':
                         variant === 'outlined',
@@ -39,12 +39,6 @@ export const ContentCard: React.FC<ContentCardProps> = ({
             )}
         >
             <Link href={slug}>
-                <div
-                    className={clsx(
-                        'absolute rounded-medium top-0 left-0 bottom-0 right-0 hover:bg-on-surface/8 active:bg-on-surface/12',
-                        {}
-                    )}
-                ></div>
                 <div className="relative overflow-auto">
                     <Image
                         loader={imageLoader}
