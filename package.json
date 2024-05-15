@@ -10,7 +10,7 @@
         "lint": "next lint",
         "test": "jest",
         "test:watch": "jest --watch",
-        "test:coverage": "node --experimental-vm-modules $(yarn bin jest) --coverage",
+        "test:coverage": "jest --coverage",
         "cypress:open": "cypress open",
         "cypress:run": "cypress run",
         "type-check": "tsc --noEmit",

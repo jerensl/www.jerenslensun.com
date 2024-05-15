@@ -5,7 +5,7 @@ import { getContents } from './content'
 export async function getRssXml() {
     const frontmatters = await getContents('blog')
 
-    const blogUrl = 'https://www.jerensl.com/blog'
+    const blogUrl = 'https://www.jerenslensun.com/blog'
 
     const itemXml = frontmatters.map(
         ({ slug, title, description, date }: any) =>

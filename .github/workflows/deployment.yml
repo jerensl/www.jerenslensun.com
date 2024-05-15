@@ -41,6 +41,7 @@ jobs:
               env:
                   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
+                  NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
     build_docs:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         runs-on: ubuntu-latest

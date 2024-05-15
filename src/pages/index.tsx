@@ -10,7 +10,7 @@ import { CareerSection } from '@/components/sections/Career.section'
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
-    const src = 'https://ik.imagekit.io/jerensl/illustration-landing-page.png'
+    const src = `${process.env.NEXT_PUBLIC_IMAGES_CDN}/illustration-landing-page.png`
 
     const buffer = await fetch(src)
         .then(async (res) => Buffer.from(await res.arrayBuffer()))

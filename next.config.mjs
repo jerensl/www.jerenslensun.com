@@ -16,7 +16,7 @@ export default (phase, { defaultConfig }) => {
             formats: ['image/avif', 'image/webp'],
             loader: 'custom',
             path: 'https://ik.imagekit.io/jerensl/',
-            domains: ['jerensl.com', 'ik.imagekit.io'],
+            domains: ['www.jerenslensun.com', 'ik.imagekit.io'],
         },
         compiler: {
             removeConsole: process.env.NODE_ENV !== 'development',
