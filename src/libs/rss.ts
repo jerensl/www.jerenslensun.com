@@ -1,6 +1,6 @@
-import format from 'date-fns/format'
 import fs from 'fs'
 import { getContents } from './content'
+import { format } from 'date-fns/format'
 
 export async function getRssXml() {
     const frontmatters = await getContents('blog')

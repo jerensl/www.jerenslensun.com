@@ -6,7 +6,7 @@ import {
     InferGetStaticPropsType,
 } from 'next'
 import Image from 'next/image'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { Footer } from '@/components/Footer'
 import { ArticleSeo } from '@/components/Seo'
