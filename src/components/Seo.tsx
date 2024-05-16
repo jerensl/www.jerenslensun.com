@@ -8,7 +8,7 @@ interface SiteMetadata {
 }
 
 const siteMetadata: SiteMetadata = {
-    url: 'https://www.jerensl.com/',
+    url: 'https://www.jerenslensun.com/',
     twitter: '@jerensl22',
     linkedin: 'https://www.linkedin.com/in/jerensl/',
 }

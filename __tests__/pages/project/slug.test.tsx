@@ -22,9 +22,9 @@ jest.mock('mdx-bundler', () => ({
             frontmatter: {
                 title: 'Personal Project',
                 isPublished: true,
-                cover: '/content/bias-kognitif.jpg',
+                cover: 'content/bias-kognitif.jpg',
                 description: 'project description',
-                blurDataURL: '/content/bias-kognitif.jpg,',
+                blurDataURL: 'content/bias-kognitif.jpg,',
                 status: 'Under Development',
                 programming_languange: ['typescript'],
             },
