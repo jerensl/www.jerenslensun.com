@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.4.0](https://github.com/jerensl/www.jerenslensun.com/compare/v1.3.2...v1.4.0) (2024-05-18)
+
+
+### Features
+
+* **comment:** add a comment feature ([89d02d3](https://github.com/jerensl/www.jerenslensun.com/commit/89d02d3240430b078be9c8a54a43ff2af32533cb))
+* **comment:** add a comment feature ([94caef1](https://github.com/jerensl/www.jerenslensun.com/commit/94caef1089a729f787475287bbe5e6909516bb75))
+* **comment:** add a comment feature ([#956](https://github.com/jerensl/www.jerenslensun.com/issues/956)) ([89d02d3](https://github.com/jerensl/www.jerenslensun.com/commit/89d02d3240430b078be9c8a54a43ff2af32533cb))
+* **sort-article:** sort article based on date ([df8b14e](https://github.com/jerensl/www.jerenslensun.com/commit/df8b14e7570952b661bcf6ead512d352f0928279))
+* **sort-article:** sort article based on date ([50cd389](https://github.com/jerensl/www.jerenslensun.com/commit/50cd389f86168e8a96e9ecce7e5db81c5a621299))
+* **sort-article:** sort article based on date ([#949](https://github.com/jerensl/www.jerenslensun.com/issues/949)) ([df8b14e](https://github.com/jerensl/www.jerenslensun.com/commit/df8b14e7570952b661bcf6ead512d352f0928279))
+
+
+### Bug Fixes
+
+* **blog:** fix others test ([f713368](https://github.com/jerensl/www.jerenslensun.com/commit/f713368a450ca44252f81953a5643a1f74bb083e))
+* **blog:** fix others test including e2e ([4ac896a](https://github.com/jerensl/www.jerenslensun.com/commit/4ac896ab162b23796e8ecd114f63292d8f9e9a77))
+* **blog:** fix test caused by changing default language to english ([88aee16](https://github.com/jerensl/www.jerenslensun.com/commit/88aee16aa8bfdc216bed4e1fdce30eca5347cb9f))
+* **cd:** fix deployment for node version 18.x ([dcf67de](https://github.com/jerensl/www.jerenslensun.com/commit/dcf67de2bf8e6ef109a0efe313e215264b392491))
+* **ci-cd:** update ci/cd ([3041c07](https://github.com/jerensl/www.jerenslensun.com/commit/3041c07825b27250d3c1947a3aad90c70b740aa9))
+* **ci-cd:** update ci/cd ([f17eb46](https://github.com/jerensl/www.jerenslensun.com/commit/f17eb46c218dd9431786ea0aebed0d9fbab8a618))
+* **jest:** add env to the cypress ([64b6118](https://github.com/jerensl/www.jerenslensun.com/commit/64b61189b31906b868a4d98e580e8ec71e7ec1cd))
+* **jest:** add env to the deployment ([7fcb117](https://github.com/jerensl/www.jerenslensun.com/commit/7fcb1176f9640657ed0e17740c505694a79552dd))
+* **jest:** add env to the test ([0a1c570](https://github.com/jerensl/www.jerenslensun.com/commit/0a1c570001bd3d31552a0410329c0a807b9122d7))
+* **jest:** add env to the test ([64616c9](https://github.com/jerensl/www.jerenslensun.com/commit/64616c99685b6773aac5c94a2a85565bee307980))
+* **jest:** remove mock cdn ([ce0d664](https://github.com/jerensl/www.jerenslensun.com/commit/ce0d664874bfcfc0d3234219cad1e8598aed46a4))
+* **jest:** rollback jest coverage command ([a32b81c](https://github.com/jerensl/www.jerenslensun.com/commit/a32b81ca5124a45117c66344bc450dd90096d0df))
+* **slug:** fix the blog slug test ([55a7706](https://github.com/jerensl/www.jerenslensun.com/commit/55a77068b5159857dbcf53f72d35cc8e700ddd46))
+* **slug:** fix the error on uuid ([dbb1e27](https://github.com/jerensl/www.jerenslensun.com/commit/dbb1e2724fbed23e81188720a695c7300362d10f))
+* **test:** fix test cases ([1c19006](https://github.com/jerensl/www.jerenslensun.com/commit/1c190062d3917670e4e4f2572326b97ed0c2817d))
+
 ## [1.3.2](https://github.com/jerensl/www.jerensl.com/compare/v1.3.1...v1.3.2) (2024-03-25)
 
 
