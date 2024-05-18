@@ -143,5 +143,8 @@
     "type": "module",
     "resolutions": {
         "webpack": "^5"
+    },
+    "engines": {
+        "node": "^18"
     }
 }
