@@ -7,6 +7,7 @@ import highlightWord from './rehype-highlight-word'
 import type { Visitor } from 'unist-util-visit/complex-types'
 import type { Plugin } from 'unified'
 import type { Element } from 'hast'
+import { Nodes } from 'hast-util-to-string/lib'
 
 function rehypeHighlightCode(options = {}): Plugin {
     const visitor: Visitor<Element, Element> = (
@@ -23,7 +24,7 @@ function rehypeHighlightCode(options = {}): Plugin {
             const registeredLanguages = refractor.listLanguages()
             if (!registeredLanguages.includes(lang)) return
 
-            const result = refractor.highlight(toString(node), lang)
+            const result = refractor.highlight(toString(node as Nodes), lang)
 
             const range = node.properties?.line || '0'
 
