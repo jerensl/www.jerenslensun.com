@@ -72,6 +72,7 @@
         "workbox-webpack-plugin": "^6.6.0"
     },
     "devDependencies": {
+        "prettier-2": "npm:prettier@^2",
         "@babel/core": "^7.16.7",
         "@commitlint/cli": "^17.8.0",
         "@commitlint/config-conventional": "^17.8.0",
