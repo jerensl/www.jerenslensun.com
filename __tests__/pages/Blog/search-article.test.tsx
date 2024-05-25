@@ -51,7 +51,7 @@ const posts: IBlogMetadata[] = [
     },
     {
         title: 'Test Second Article',
-        fileName: 'en-test-second-article',
+        fileName: 'id-test-second-article',
         date: '01-03-2021',
         isPublished: true,
         description: 'this is a summary',
@@ -90,9 +90,9 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-[
-  "Test First Article",
-]
+    [
+      "Test First Article",
+    ]
 `)
     })
 
@@ -111,10 +111,10 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-[
-  "Test First Article",
-  "Test Second Article",
-]
+    [
+      "Test First Article",
+      "Test Second Article",
+    ]
 `)
     })
 
@@ -146,7 +146,7 @@ describe('Search Article', () => {
     [
       "Test Second Article",
     ]
-    `)
+`)
 
         await waitFor(() =>
             userEvent.click(getByRole('button', { name: /second/i }))
@@ -158,7 +158,6 @@ describe('Search Article', () => {
 
         expect(resultTwo).toMatchInlineSnapshot(`
     [
-      "Test First Article",
       "Test Second Article",
     ]
 `)
