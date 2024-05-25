@@ -51,7 +51,7 @@ const posts: IBlogMetadata[] = [
     },
     {
         title: 'Test Second Article',
-        fileName: 'en-test-second-article',
+        fileName: 'id-test-second-article',
         date: '01-03-2021',
         isPublished: true,
         description: 'this is a summary',
