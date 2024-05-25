@@ -146,7 +146,7 @@ describe('Search Article', () => {
     [
       "Test Second Article",
     ]
-    `)
+`)
 
         await waitFor(() =>
             userEvent.click(getByRole('button', { name: /second/i }))
