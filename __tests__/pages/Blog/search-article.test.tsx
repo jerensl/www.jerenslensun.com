@@ -158,8 +158,8 @@ describe('Search Article', () => {
 
         expect(resultTwo).toMatchInlineSnapshot(`
 [
-    "Test First Article",
-    "Test Second Article",
+  "Test First Article",
+  "Test Second Article",
 ]
 `)
     })
