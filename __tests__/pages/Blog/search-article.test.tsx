@@ -90,9 +90,9 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-[
-  "Test First Article",
-]
+    [
+      "Test First Article",
+    ]
 `)
     })
 
@@ -111,10 +111,10 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-[
-  "Test First Article",
-  "Test Second Article",
-]
+    [
+      "Test First Article",
+      "Test Second Article",
+    ]
 `)
     })
 
