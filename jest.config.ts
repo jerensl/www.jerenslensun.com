@@ -8,7 +8,7 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const customJestConfig = {
-    setupFiles: [require.resolve('whatwg-fetch')],
+    setupFiles: ['./jest.polyfills.ts', require.resolve('whatwg-fetch')],
     setupFilesAfterEnv: [
         '<rootDir>/jest.setup.ts',
         '<rootDir>/__mocks__/api/server.ts',
@@ -25,7 +25,7 @@ const customJestConfig = {
         '<rootDir>/cypress/',
     ],
     moduleDirectories: ['node_modules', '<rootDir>/'],
-    testEnvironment: 'jest-environment-jsdom',
+    testEnvironment: 'jsdom',
     preset: 'ts-jest',
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'mjs'],
     transform: {
@@ -35,6 +35,9 @@ const customJestConfig = {
         '\\.(css)$': 'identity-obj-proxy',
         '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
         '^uuid$': require.resolve('uuid'),
+    },
+    testEnvironmentOptions: {
+        customExportConditions: [''],
     },
 }
 

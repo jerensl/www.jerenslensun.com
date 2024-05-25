@@ -1,23 +1,23 @@
 import { render } from '@testing-library/react'
-import { rest } from 'msw'
+import { http, HttpResponse } from 'msw'
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export const handlers = [
-    rest.post('*/status', (req, res, ctx) => {
-        return res(
-            ctx.status(200),
-            ctx.json({
-                isActive: false,
-                updatedAt: new Date().getTime(),
-            })
-        )
+    http.post('*/status', () => {
+        return HttpResponse.json({
+            isActive: false,
+            updatedAt: new Date().getTime(),
+        })
     }),
-    rest.post('*/notification/subscribe', (req, res, ctx) => {
-        return res(ctx.status(201))
+    http.post('*/notification/subscribe', () => {
+        return new HttpResponse(null, { status: 201 })
     }),
-    rest.post('*/notification/unsubscribe', (req, res, ctx) => {
-        return res(ctx.status(200))
+    http.post('*/notification/unsubscribe', () => {
+        return new HttpResponse(null, { status: 200 })
+    }),
+    http.get(' https://ik.imagekit.io/jerensl/*', () => {
+        return new HttpResponse(null, { status: 200 })
     }),
 ]
 
