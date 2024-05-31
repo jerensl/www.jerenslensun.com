@@ -10,7 +10,7 @@ import { CareerSection } from '@/components/sections/Career.section'
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
-    const src = `${process.env.NEXT_PUBLIC_IMAGES_CDN}/illustration-landing-page.png`
+    const src = `${process.env.NEXT_PUBLIC_IMAGES_CDN}/illustration-landing-page.webp`
 
     const buffer = await fetch(src)
         .then(async (res) => Buffer.from(await res.arrayBuffer()))
