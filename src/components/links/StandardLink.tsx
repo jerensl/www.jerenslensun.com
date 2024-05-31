@@ -21,7 +21,7 @@ export const StandardLink = ({
 
     if (isExternal) {
         return (
-            <a
+            <Link
                 target="_blank"
                 rel="noopener noreferrer"
                 href={href}
@@ -29,7 +29,7 @@ export const StandardLink = ({
                 className={twMerge('italic no-underline', className)}
             >
                 {children}
-            </a>
+            </Link>
         )
     }
 

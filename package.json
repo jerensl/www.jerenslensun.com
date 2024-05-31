@@ -25,6 +25,7 @@
         "@fortawesome/free-solid-svg-icons": "^6.5.1",
         "@fortawesome/react-fontawesome": "^0.2.0",
         "@giscus/react": "^3.0.0",
+        "@next/bundle-analyzer": "^14.2.3",
         "@plaiceholder/next": "^3.0.0",
         "@stitches/core": "^1.2.8",
         "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -72,7 +73,6 @@
         "workbox-webpack-plugin": "^6.6.0"
     },
     "devDependencies": {
-        "prettier-2": "npm:prettier@^2",
         "@babel/core": "^7.16.7",
         "@commitlint/cli": "^17.8.0",
         "@commitlint/config-conventional": "^17.8.0",
@@ -131,6 +131,7 @@
         "postcss": "^8.4.5",
         "postcss-import": "^15.1.0",
         "prettier": "^3.0.3",
+        "prettier-2": "npm:prettier@^2",
         "react-test-renderer": "^18.1.0",
         "storybook": "^7.5.3",
         "storybook-dark-mode": "^3.0.1",
