@@ -7,7 +7,7 @@ import {
 } from 'firebase/messaging'
 import { firebaseApp } from '../constant/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import {
     useNotification,
     useSubs,
@@ -15,7 +15,7 @@ import {
 } from '../features/notification/index'
 import { toast } from 'react-toastify'
 import Image from 'next/image'
-import { imageLoader } from '../constant/images'
+import imageLoader from '../constant/images'
 import { IconToggle } from './buttons/IconToggle'
 
 interface NotifiationsProps {

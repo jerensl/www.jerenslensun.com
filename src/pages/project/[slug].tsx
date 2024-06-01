@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { ArticleSeo } from '@/components/Seo'
 import { Grid } from '@/components/Grid'
-import { imageLoader } from '@/constant/images'
+import imageLoader from '@/constant/images'
 import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
 

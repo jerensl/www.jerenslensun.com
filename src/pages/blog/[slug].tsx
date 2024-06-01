@@ -14,7 +14,7 @@ import { components } from '@/components/Components'
 import TableOfContent from '@/components/TOC'
 import { getContent, getFiles } from '@/libs/content'
 import { MDXTitleHeadingLevels } from '@/types/content'
-import { imageLoader } from '@/constant/images'
+import imageLoader from '@/constant/images'
 import { Comment } from '@/components/Comment'
 
 export const getStaticPaths: GetStaticPaths = async () => {

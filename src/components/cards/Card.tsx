@@ -1,6 +1,7 @@
 import React from 'react'
+import imageLoader from '@/constant/images'
 import clsx from 'clsx'
-import Image, { ImageLoader } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface ContentCardProps {
@@ -12,7 +13,6 @@ interface ContentCardProps {
     slug: string
     imageURL: string
     blurDataURL?: string
-    loader: ImageLoader
 }
 
 export const ContentCard: React.FC<ContentCardProps> = ({
@@ -24,7 +24,6 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     slug,
     imageURL,
     blurDataURL,
-    loader,
 }) => {
     return (
         <article
@@ -42,14 +41,16 @@ export const ContentCard: React.FC<ContentCardProps> = ({
             <Link href={slug}>
                 <div className="relative overflow-auto">
                     <Image
-                        loader={loader}
+                        loader={imageLoader}
                         src={imageURL}
                         alt={title}
                         blurDataURL={blurDataURL ?? undefined}
                         placeholder={blurDataURL ? 'blur' : 'empty'}
-                        height="200"
                         width="450"
-                        object-fit="cover"
+                        height="200"
+                        style={{
+                            objectFit: 'cover',
+                        }}
                         className="cursor-pointer rounded-t-medium"
                     />
                 </div>

@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
-import { imageLoader } from '../constant/images'
+import imageLoader from '../constant/images'
 import { LinkButton } from './links/LinkButton'
 
 export const Header = ({

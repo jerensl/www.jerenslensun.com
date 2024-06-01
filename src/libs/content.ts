@@ -106,7 +106,7 @@ async function getContents<T extends IMetadata>(
             }
 
             const buffer = await fetch(
-                `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-${defaultContent}/${data.cover}`
+                `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${data.cover}`
             ).then(async (res) => Buffer.from(await res.arrayBuffer()))
 
             const { base64 } = await getPlaiceholder(buffer, { size: 10 })
@@ -178,7 +178,7 @@ export const getContent = async (
     })
 
     const buffer = await fetch(
-        `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-default-content.jpg/${frontmatter.cover}`
+        `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${frontmatter.cover}`
     ).then(async (res) => Buffer.from(await res.arrayBuffer()))
 
     const { base64 } = await getPlaiceholder(buffer, { size: 10 })
