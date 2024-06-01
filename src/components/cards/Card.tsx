@@ -1,4 +1,4 @@
-import { imageLoader } from '@/constant/images'
+import imageLoader from '@/constant/images'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -46,9 +46,11 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                         alt={title}
                         blurDataURL={blurDataURL ?? undefined}
                         placeholder={blurDataURL ? 'blur' : 'empty'}
-                        height="200"
                         width="450"
-                        object-fit="cover"
+                        height="200"
+                        style={{
+                            objectFit: 'cover',
+                        }}
                         className="cursor-pointer rounded-t-medium"
                     />
                 </div>

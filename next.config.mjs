@@ -15,8 +15,20 @@ export default (phase, { defaultConfig }) => {
         images: {
             formats: ['image/avif', 'image/webp'],
             loader: 'custom',
+            loaderFile: './src/constant/images.ts',
             path: 'https://ik.imagekit.io/jerensl/',
-            domains: ['www.jerenslensun.com', 'ik.imagekit.io'],
+            remotePatterns: [
+                {
+                    protocol: 'https',
+                    hostname: 'www.jerenslensun.com/**',
+                    port: '',
+                },
+                {
+                    protocol: 'https',
+                    hostname: 'ik.imagekit.io/jerensl/**',
+                    port: '',
+                },
+            ],
         },
         compiler: {
             removeConsole: process.env.NODE_ENV !== 'development',
