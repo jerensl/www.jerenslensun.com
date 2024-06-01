@@ -17,7 +17,6 @@ export default (phase, { defaultConfig }) => {
             formats: ['image/avif', 'image/webp'],
             loader: 'custom',
             loaderFile: './src/constant/images.ts',
-            path: 'https://ik.imagekit.io/jerensl/',
             remotePatterns: [
                 {
                     protocol: 'https',

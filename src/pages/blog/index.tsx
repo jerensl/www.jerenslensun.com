@@ -10,7 +10,6 @@ import { SearchArticles } from '@/components/inputs/SearchArticles'
 import { Tag } from '@/components/chips/Tag'
 import { Button } from '@/components/buttons/Button'
 import { ContentCard } from '@/components/cards/Card'
-import { imageLoader } from '@/constant/images'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')
@@ -126,7 +125,6 @@ export default function Blog({
                                     slug={`blog/${slug}`}
                                     imageURL={cover}
                                     blurDataURL={blurDataURL}
-                                    loader={imageLoader}
                                 />
                             )
                         }
