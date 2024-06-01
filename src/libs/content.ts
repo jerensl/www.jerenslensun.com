@@ -95,6 +95,16 @@ async function getContents<T extends IMetadata>(
             const source = getFileByName(directory, `${fileName}.mdx`)
             const { data } = matter(source)
 
+            let defaultContent = ''
+
+            if (directory === 'blog') {
+                defaultContent = 'default-content.webp'
+            } else if (directory === 'project') {
+                defaultContent = 'project-default.webp'
+            } else {
+                defaultContent = 'default-content.webp'
+            }
+
             const buffer = await fetch(
                 `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${data.cover}`
             ).then(async (res) => Buffer.from(await res.arrayBuffer()))
