@@ -2,6 +2,7 @@ import React from 'react'
 import { pre } from '../styles/code'
 import { CopyToClipboard } from './CopyClipboard'
 import { StandardLink } from './links/StandardLink'
+import Image from 'next/image'
 
 interface Components {
     children?: React.ReactNode
@@ -73,6 +74,16 @@ const components = {
             <StandardLink href={href as string} isExternal={true}>
                 {children}
             </StandardLink>
+        )
+    },
+    image: ({ src, alt, width, height }: any) => {
+        return (
+            <Image
+                src={src as string}
+                alt={alt as string}
+                width={width as number}
+                height={height as number}
+            />
         )
     },
 }

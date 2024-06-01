@@ -5,6 +5,7 @@ import { Seo } from '@/components/Seo'
 import { IProjectMetadata } from '@/types/project'
 import { Grid } from '@/components/Grid'
 import { ContentCard } from '@/components/cards/Card'
+import { imageProjectLoader } from '@/constant/images'
 
 export const getStaticProps: GetStaticProps = async () => {
     const projects = await getContents<IProjectMetadata>('project')
@@ -51,6 +52,7 @@ export default function Project({
                                     slug={`project/${slug}`}
                                     imageURL={cover}
                                     blurDataURL={blurDataURL}
+                                    loader={imageProjectLoader}
                                 />
                             )
                         }
