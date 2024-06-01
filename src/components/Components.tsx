@@ -2,6 +2,7 @@ import React from 'react'
 import { pre } from '../styles/code'
 import { CopyToClipboard } from './CopyClipboard'
 import { StandardLink } from './links/StandardLink'
+import Image from 'next/image'
 
 interface Components {
     children?: React.ReactNode
@@ -40,39 +41,49 @@ const components = {
             </CopyToClipboard>
         )
     },
-    h2: ({ children, id }: any) => {
+    h2: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
         return (
             <h2 id={id} className="text-lg scroll-mt-20">
                 {children}
             </h2>
         )
     },
-    h3: ({ children, id }: any) => {
+    h3: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
         return (
             <h3 id={id} className="text-base scroll-mt-20">
                 {children}
             </h3>
         )
     },
-    h4: ({ children, id }: any) => {
+    h4: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
         return (
             <h4 id={id} className="text-sm scroll-mt-20">
                 {children}
             </h4>
         )
     },
-    blockquote: ({ children }: any) => {
+    blockquote: ({ children }: React.HTMLProps<HTMLQuoteElement>) => {
         return (
             <div className="px-4 border-l-4 border-l-red-500 font-bold italic">
                 {children}
             </div>
         )
     },
-    a: ({ children, href }: any) => {
+    a: ({ children, href }: React.HTMLProps<HTMLAnchorElement>) => {
         return (
-            <StandardLink href={href} isExternal={true}>
+            <StandardLink href={href as string} isExternal={true}>
                 {children}
             </StandardLink>
+        )
+    },
+    image: ({ src, alt, width, height }: React.HTMLProps<HTMLImageElement>) => {
+        return (
+            <Image
+                src={src as string}
+                alt={alt as string}
+                width={width as number}
+                height={height as number}
+            />
         )
     },
 }
