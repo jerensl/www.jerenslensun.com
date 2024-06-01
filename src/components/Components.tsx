@@ -41,42 +41,42 @@ const components = {
             </CopyToClipboard>
         )
     },
-    h2: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
+    h2: ({ children, id }: any) => {
         return (
             <h2 id={id} className="text-lg scroll-mt-20">
                 {children}
             </h2>
         )
     },
-    h3: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
+    h3: ({ children, id }: any) => {
         return (
             <h3 id={id} className="text-base scroll-mt-20">
                 {children}
             </h3>
         )
     },
-    h4: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
+    h4: ({ children, id }: any) => {
         return (
             <h4 id={id} className="text-sm scroll-mt-20">
                 {children}
             </h4>
         )
     },
-    blockquote: ({ children }: React.HTMLProps<HTMLQuoteElement>) => {
+    blockquote: ({ children }: any) => {
         return (
             <div className="px-4 border-l-4 border-l-red-500 font-bold italic">
                 {children}
             </div>
         )
     },
-    a: ({ children, href }: React.HTMLProps<HTMLAnchorElement>) => {
+    a: ({ children, href }: any) => {
         return (
             <StandardLink href={href as string} isExternal={true}>
                 {children}
             </StandardLink>
         )
     },
-    image: ({ src, alt, width, height }: React.HTMLProps<HTMLImageElement>) => {
+    image: ({ src, alt, width, height }: any) => {
         return (
             <Image
                 src={src as string}
