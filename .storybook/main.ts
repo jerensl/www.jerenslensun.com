@@ -6,15 +6,16 @@ const config: StorybookConfig = {
     framework: {
         name: '@storybook/nextjs',
         options: {
-            builder: {
-                useSWC: true,
-            },
+            builder: {},
         },
     },
-    docs: {
-        autodocs: 'tag',
-    },
+
+    staticDirs: ['../public'],
+    
+    docs: {},
+
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
@@ -31,7 +32,9 @@ const config: StorybookConfig = {
                 },
             },
         },
+        '@chromatic-com/storybook'
     ],
+
     webpackFinal: (config: any) => {
         config.module.rules.push({
             test: /\.css$/,
@@ -52,6 +55,10 @@ const config: StorybookConfig = {
         })
         return config
     },
+
+    typescript: {
+        reactDocgen: 'react-docgen-typescript'
+    }
 }
 
 export default config
