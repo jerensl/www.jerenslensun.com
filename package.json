@@ -74,7 +74,6 @@
     },
     "devDependencies": {
         "@babel/core": "^7.16.7",
-        "@chromatic-com/storybook": "^1",
         "@commitlint/cli": "^17.8.0",
         "@commitlint/config-conventional": "^17.8.0",
         "@commitlint/types": "^17.4.4",

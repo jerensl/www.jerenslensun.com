@@ -32,7 +32,6 @@ const config: StorybookConfig = {
                 },
             },
         },
-        '@chromatic-com/storybook'
     ],
 
     webpackFinal: (config: any) => {
