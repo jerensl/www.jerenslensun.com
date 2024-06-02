@@ -71,7 +71,7 @@ jobs:
                   node-version: '18.x'
                   cache: ${{ steps.detect-package-manager.outputs.manager }}
             - name: Deploy Storybook Docs
-              uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
+              uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
               with:
                   install_command: yarn install # default: npm ci
                   build_command: yarn build-storybook # default: npm run build-storybook

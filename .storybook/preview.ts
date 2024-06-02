@@ -7,7 +7,7 @@ import { DefaultThemeDark, DefaultThemeLight } from './defaultTheme'
 const preview: Preview = {
     decorators: [withTheme((theme) => {})],
     parameters: {
-        actions: { argTypesRegex: '^on[A-Z].*' },
+        actions: {},
         layout: 'centered',
         docs: {
             container: ThemedDocsContainer,
