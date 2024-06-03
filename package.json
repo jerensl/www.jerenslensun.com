@@ -112,7 +112,7 @@
         "babel-jest": "^27.4.6",
         "babel-loader": "^8.2.5",
         "cypress": "^10.0.3",
-        "eslint": "8.51.0",
+        "eslint": "8.57.0",
         "eslint-config-next": "^13.5.4",
         "eslint-config-prettier": "^9.0.0",
         "eslint-import-resolver-typescript": "^3.6.1",
