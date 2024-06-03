@@ -10,7 +10,7 @@ interface Components {
     showlinenumbers?: any
 }
 
-const components = {
+const components: import('mdx/types').MDXComponents = {
     pre: ({ children, theme, showlinenumbers }: Components) => {
         return (
             <CopyToClipboard>
@@ -76,7 +76,7 @@ const components = {
             </StandardLink>
         )
     },
-    image: ({ src, alt, width, height }: any) => {
+    img: ({ src, alt, width, height }: React.HTMLProps<HTMLImageElement>) => {
         return (
             <Image
                 src={src as string}
