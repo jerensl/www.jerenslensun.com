@@ -130,7 +130,7 @@
         "next-sitemap": "^4.2.3",
         "postcss": "^8.4.5",
         "postcss-import": "^15.1.0",
-        "prettier": "^3.0.3",
+        "prettier": "^3.3.0",
         "prettier-2": "npm:prettier@^2",
         "react-test-renderer": "^18.1.0",
         "storybook": "^8.1.5",
