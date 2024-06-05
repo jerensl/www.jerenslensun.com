@@ -1291,13 +1291,6 @@
   dependencies:
     find-up "^7.0.0"
 
-"@commitlint/types@^17.4.4":
-  version "17.8.1"
-  resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-17.8.1.tgz#883a0ad35c5206d5fef7bc6ce1bbe648118af44e"
-  integrity sha512-PXDQXkAmiMEG162Bqdh9ChML/GJZo6vU+7F03ALKDK8zYc6SuAr47LjG7hGYRqUOz+WK0dU7bQ0xzuqFMdxzeQ==
-  dependencies:
-    chalk "^4.1.0"
-
 "@commitlint/types@^19.0.3":
   version "19.0.3"
   resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-19.0.3.tgz#feff4ecac2b5c359f2a57f9ab094b2ac80ef0266"
