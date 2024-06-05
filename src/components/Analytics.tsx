@@ -8,14 +8,10 @@ export default function Analytics() {
     const searchParams = useSearchParams()
 
     useEffect(() => {
-        if (pathname) {
+        if (pathname && window.location.hostname.includes('jerenslensun.com')) {
             pageview(pathname + searchParams)
         }
     }, [pathname, searchParams])
-
-    if (!window.location.hostname.includes('jerenslensun.com')) {
-        return null
-    }
 
     return (
         <>
