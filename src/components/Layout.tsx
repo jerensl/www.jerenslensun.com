@@ -14,10 +14,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }
     }, [pathname, searchParams])
 
-    if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
-        return null
-    }
-
     return (
         <>
             <Analytics />

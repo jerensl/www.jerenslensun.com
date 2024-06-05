@@ -13,7 +13,7 @@ export default function Analytics() {
         }
     }, [pathname, searchParams])
 
-    if (window.location.hostname.includes('www.jerenslensun.com')) {
+    if (window.location.hostname.includes('jerenslensun.com')) {
         return null
     }
 
