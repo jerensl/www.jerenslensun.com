@@ -6,7 +6,7 @@ import { Seo } from '@/components/Seo'
 export default function About() {
     return (
         <>
-            <Seo path="/about" />
+            <Seo path="/about" title="About" />
             <div className="h-36 lg:h-44" />
             <AboutSection />
             <div className="h-36 lg:h-44" />

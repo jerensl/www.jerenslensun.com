@@ -30,7 +30,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
         <>
-            <Seo path="/" />
+            <Seo path="/" title="" />
             <Header blurDataURL={blurDataURL} />
             <div className="h-56 lg:h-64" />
             <IntroductionSection />
