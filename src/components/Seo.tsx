@@ -1,39 +1,6 @@
+import { app, siteMetadata } from '@/constant/seo'
 import Head from 'next/head'
 import Script from 'next/script'
-
-interface SiteMetadata {
-    url: string
-    twitter: string
-    linkedin: string
-}
-
-const siteMetadata: SiteMetadata = {
-    url: 'https://www.jerenslensun.com/',
-    twitter: '@jerensl22',
-    linkedin: 'https://www.linkedin.com/in/jerensl/',
-}
-
-interface App {
-    name: string
-    title: string
-    image: string
-    description: string
-}
-
-const app: App = {
-    name: 'Jerens',
-    title: 'Jerens Lensun',
-    image: 'https://www.jerenslensun.com/images/banner-og.png',
-    description:
-        "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.",
-}
-
-interface BlogPostSeoProps {
-    title: string
-    description: string
-    path: string
-    image: string
-}
 
 export const ArticleSeo = ({
     title,

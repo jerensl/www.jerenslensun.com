@@ -20,11 +20,6 @@ export default (phase, { defaultConfig }) => {
             remotePatterns: [
                 {
                     protocol: 'https',
-                    hostname: 'www.jerenslensun.com/**',
-                    port: '',
-                },
-                {
-                    protocol: 'https',
                     hostname: 'ik.imagekit.io/jerensl/**',
                     port: '',
                 },
