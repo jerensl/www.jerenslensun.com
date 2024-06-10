@@ -1,5 +1,6 @@
 import { app, siteMetadata } from '@/constant/seo'
 import Head from 'next/head'
+import Link from 'next/link'
 
 interface IArticleSeo {
     title: string
@@ -22,15 +23,19 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
                 <title>{`${currTitle}`}</title>
                 <meta name="robots" content="follow, index" />
                 <meta name="description" content={description} />
+
+                {/* Open Graph Data */}
+                <meta property="og:title" content={currTitle} />
                 <meta
                     property="og:url"
                     content={`${siteMetadata.url}${path}`}
                 />
-                <meta property="og:title" content={currTitle} />
                 <meta property="og:description" content={description} />
                 <meta property="og:site_name" content={app.name} />
                 <meta property="og:type" content="website" />
                 <meta name="image" property="og:image" content={image} />
+
+                {/* Twitter Graph Data */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content={siteMetadata.twitter} />
                 <meta name="twitter:title" content={title} />
@@ -41,12 +46,12 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
     )
 }
 
-interface PageSeo {
+interface IHeadComponent {
     title: string
     path: string
 }
 
-export const Seo: React.FC<PageSeo> = ({ title, path }) => {
+export const HeadComponent: React.FC<IHeadComponent> = ({ title, path }) => {
     const currTitle = title ? `${title} | ${app.title}` : app.title
 
     return (
@@ -55,21 +60,32 @@ export const Seo: React.FC<PageSeo> = ({ title, path }) => {
                 <title>{`${currTitle}`}</title>
                 <meta name="robots" content="follow, index" />
                 <meta name="description" content={app.description} />
+
+                {/* Open Graph Data */}
+                <meta property="og:title" content={currTitle} />
                 <meta
                     property="og:url"
                     content={`${siteMetadata.url}${path}`}
                 />
-                <meta property="og:title" content={currTitle} />
                 <meta property="og:description" content={app.description} />
                 <meta property="og:site_name" content={app.name} />
                 <meta property="og:type" content="website" />
                 <meta name="image" property="og:image" content={app.image} />
+
+                {/* Twitter Graph Data */}
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content={siteMetadata.twitter} />
                 <meta name="twitter:title" content={app.title} />
                 <meta name="twitter:description" content={app.description} />
                 <meta name="twitter:image" content={app.image} />
                 <link rel="icon" href="/favicon.ico" />
+
+                {title === 'about' && (
+                    <Link
+                        rel="canonical"
+                        href="https://www.jerenslensun.com/"
+                    />
+                )}
             </Head>
         </>
     )
