@@ -80,7 +80,7 @@ export const HeadComponent: React.FC<IHeadComponent> = ({ title, path }) => {
                 <meta name="twitter:image" content={app.image} />
                 <link rel="icon" href="/favicon.ico" />
 
-                {title === 'about' && (
+                {path === '/about' && (
                     <Link
                         rel="canonical"
                         href="https://www.jerenslensun.com/"
