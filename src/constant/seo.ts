@@ -8,5 +8,5 @@ export const app: App = {
     title: 'Jerens Lensun',
     image: 'https://www.jerenslensun.com/images/banner-og.png',
     description:
-        "Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.",
+        'Explore the mind of Jerens Lensun through his personal website, where he shares captivating blog posts on software development, life, and project documentation. Join the conversation now!',
 }
