@@ -73,7 +73,7 @@
         "workbox-webpack-plugin": "^6.6.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.16.7",
+        "@babel/core": "^7.24.7",
         "@commitlint/cli": "^19.3.0",
         "@commitlint/config-conventional": "^17.8.0",
         "@commitlint/types": "^19.0.3",
