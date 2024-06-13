@@ -3,14 +3,14 @@ import { useReducedMotion, motion } from 'framer-motion'
 interface CareerCardProps {
     organization: string
     date: string
-    role: string
+    position: string
     inView: boolean
 }
 
 export const CareerCard: React.FC<CareerCardProps> = ({
     organization,
     date,
-    role,
+    position,
     inView,
 }): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()
@@ -38,7 +38,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
                 <h2 className="text-xl font-bold">{organization}</h2>
             </motion.div>
             <motion.div variants={childrenVariants}>
-                <p>{role}</p>
+                <p>{position}</p>
             </motion.div>
             <motion.div variants={childrenVariants}>
                 <span className="font-light pt-2">{date}</span>

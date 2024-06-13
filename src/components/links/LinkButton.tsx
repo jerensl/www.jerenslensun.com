@@ -28,6 +28,7 @@ export const LinkButton = ({
 }: HighlightLinkProps) => {
     return (
         <StandardLink
+            role="button"
             href={href}
             className={clsx(
                 'rounded-full w-fit font-medium shadow-elevation-0',

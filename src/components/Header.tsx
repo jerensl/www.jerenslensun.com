@@ -41,8 +41,8 @@ export const Header = ({
                                     Hi I{"'"}m Jerens
                                 </h1>
                                 <p className="font-light text-lg md:text-xl">
-                                    I work with React & Golang Ecosystem, and
-                                    write about software development.
+                                    I work with Typescript & Golang Ecosystem,
+                                    and write about software development.
                                 </p>
                             </div>
                             <div

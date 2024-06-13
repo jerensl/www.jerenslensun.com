@@ -52,19 +52,19 @@ export const CareerSection: React.FC = () => {
                     <CareerCard
                         inView={inView}
                         organization="SoftwareSeni"
-                        role="ReactJS Developer Intern"
+                        position="ReactJS Developer Intern"
                         date="August 2022 – October 2022"
                     />
                     <CareerCard
                         inView={inView}
                         organization="Bangkit Academy 2022"
-                        role="Facilitator"
+                        position="Facilitator"
                         date="February 2022 – July 2022"
                     />
                     <CareerCard
                         inView={inView}
                         organization="Baparekraf Digital Talent"
-                        role="Facilitator"
+                        position="Facilitator"
                         date="October 2020 – November 2020"
                     />
                 </Grid>

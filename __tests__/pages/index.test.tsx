@@ -67,7 +67,7 @@ describe('Home', () => {
             name: /Hi I'm Jerens/i,
         })
         const subHeading = screen.getByText(
-            'I work with React & Golang Ecosystem, and write about software development.'
+            'I work with Typescript & Golang Ecosystem, and write about software development.'
         )
 
         expect(heading).toBeInTheDocument()
