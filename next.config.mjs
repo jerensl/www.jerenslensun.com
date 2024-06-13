@@ -3,7 +3,6 @@ import withPWA from 'next-pwa'
 import withPlaiceholder from '@plaiceholder/next'
 import withBundleAnalyzer from '@next/bundle-analyzer'
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default (phase, { defaultConfig }) => {
     /**
      * @type {import('next').NextConfig}

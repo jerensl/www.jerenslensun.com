@@ -31,7 +31,7 @@ jobs:
               with:
                   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
                   repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-                  production_branch:
+                  production_branch: 'main'
                   action: 'upload'
                   ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
                   # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
@@ -40,6 +40,7 @@ jobs:
                   output_location: 'out' # Built app content directory - optional
                   ###### End of Repository/Build Configurations ######
               env:
+                  IS_STATIC_EXPORT: true
                   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
