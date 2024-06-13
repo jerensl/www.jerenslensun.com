@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.5.1](https://github.com/jerensl/www.jerenslensun.com/compare/v1.5.0...v1.5.1) (2024-06-13)
+
+
+### Bug Fixes
+
+* **eslint:** remove eslint warn for next config ([ccc98bb](https://github.com/jerensl/www.jerenslensun.com/commit/ccc98bbff75ebfd20595a2c449cecbf22839b5ee))
+* **image-mdx:** fix and changed type to any ([dd9342b](https://github.com/jerensl/www.jerenslensun.com/commit/dd9342be20b7efb31551dc11d07429ac2a94fb48))
+* **seo-homepage:** fix homepage detected canonical for about ([9db4979](https://github.com/jerensl/www.jerenslensun.com/commit/9db4979f684b0634d75cd2023280af55c13575e1))
+* **seo-homepage:** fix homepage detected canonical for about ([90acff9](https://github.com/jerensl/www.jerenslensun.com/commit/90acff933283e300050009c456460318989a37db))
+* **seo-homepage:** fix homepage detected canonical for about ([#1037](https://github.com/jerensl/www.jerenslensun.com/issues/1037)) ([9db4979](https://github.com/jerensl/www.jerenslensun.com/commit/9db4979f684b0634d75cd2023280af55c13575e1))
+* **seo-homepage:** fix typo in conditonal check from title to path ([31fb8a4](https://github.com/jerensl/www.jerenslensun.com/commit/31fb8a458dc7d3d90e5401f765f38f359d6f23e5))
+* **seo-homepage:** fix typo in conditonal check from title to path ([bee4f24](https://github.com/jerensl/www.jerenslensun.com/commit/bee4f247dcb4b89a23bf987be937c7c285f57af1))
+* **seo-homepage:** fix typo in conditonal check from title to path ([#1038](https://github.com/jerensl/www.jerenslensun.com/issues/1038)) ([31fb8a4](https://github.com/jerensl/www.jerenslensun.com/commit/31fb8a458dc7d3d90e5401f765f38f359d6f23e5))
+* **seo-homepage:** fix wrong link and remove next link ([ec16fa1](https://github.com/jerensl/www.jerenslensun.com/commit/ec16fa1cd5b4055f5fe19c0c1960e4ea662d9c45))
+* **seo-homepage:** fix wrong link and remove next link ([8f840a8](https://github.com/jerensl/www.jerenslensun.com/commit/8f840a842507ca5d7e5dbc2e2ff6ff4cf9680eb4))
+* **seo-homepage:** fix wrong link and remove next link ([#1039](https://github.com/jerensl/www.jerenslensun.com/issues/1039)) ([ec16fa1](https://github.com/jerensl/www.jerenslensun.com/commit/ec16fa1cd5b4055f5fe19c0c1960e4ea662d9c45))
+* **test:** merge from main ([5a2bfad](https://github.com/jerensl/www.jerenslensun.com/commit/5a2bfaddef685e2b11998cefbd0a45fa446a6eb2))
+* **test:** update landing page tagline and update test ([3fa7482](https://github.com/jerensl/www.jerenslensun.com/commit/3fa7482feaebc5fb0a0191fdc3eccd2b63b39cce))
+* **types:** refactor component using types and fix the wrong image costumize ([db297bd](https://github.com/jerensl/www.jerenslensun.com/commit/db297bdb2bdcdc2b06a8ba799de9c00a06a74d03))
+* **types:** upgrade eslint dev package ([4585e82](https://github.com/jerensl/www.jerenslensun.com/commit/4585e82d345dac16416f03d5ece4eb97fd3c2f8f))
+* upgrade [@builder](https://github.com/builder).io/partytown from 0.8.2 to 0.10.2 ([152b830](https://github.com/jerensl/www.jerenslensun.com/commit/152b830fd8d7955bf06ad473a6d747d3f59c13a7))
+
+
+### Performance Improvements
+
+* **a11y:** improve web accesibility and add eslint for a11y ([81c7a4d](https://github.com/jerensl/www.jerenslensun.com/commit/81c7a4d9e5bd5a60c904dd7852e1a7f931aa1366))
+* **lighthouse:** fix conflict branch ([0e57cf7](https://github.com/jerensl/www.jerenslensun.com/commit/0e57cf7acadafa6c2b00e002c259724654cf270d))
+* **lighthouse:** fix conflict branch ([952faaa](https://github.com/jerensl/www.jerenslensun.com/commit/952faaad3905403b55f74bee11c66d74fdd7707f))
+* **lighthouse:** refactor to current next/image and fix the link optimize size ([ee1717a](https://github.com/jerensl/www.jerenslensun.com/commit/ee1717ac8a6abe0259df55def60a343e906f2091))
+* **seo:** fix not being crawl because of same pages title ([f599700](https://github.com/jerensl/www.jerenslensun.com/commit/f599700e4f1c208271a94f52e946cf357867c305))
+* **seo:** fix not being crawl because of same pages title ([41b5375](https://github.com/jerensl/www.jerenslensun.com/commit/41b537590bf103393d1ea1921da6b2e1b48a5f42))
+* **seo:** fix not being crawl because of same pages title ([#1025](https://github.com/jerensl/www.jerenslensun.com/issues/1025)) ([f599700](https://github.com/jerensl/www.jerenslensun.com/commit/f599700e4f1c208271a94f52e946cf357867c305))
+
 ## [1.5.0](https://github.com/jerensl/www.jerenslensun.com/compare/v1.4.0...v1.5.0) (2024-05-25)
 
 
