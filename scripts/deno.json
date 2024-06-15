@@ -1,0 +1,24 @@
+{
+    "imports": {
+        "@std/cli": "jsr:@std/cli@^0.224.6",
+        "@std/yaml": "jsr:@std/yaml@^0.224.1",
+        "npm:dayjs": "npm:dayjs@1.11.11",
+        "prompt": "https://deno.land/x/prompt@@1.0.1",
+        "remark-frontmatter": "https://esm.sh/remark-frontmatter@5.0.0",
+        "remark-parse": "https://esm.sh/remark-stringify@11.0.0",
+        "remark-stringify": "https://esm.sh/remark-stringify@11.0.0",
+        "to-vfile": "https://esm.sh/to-vfile@8.0.0",
+        "unified": "https://esm.sh/unified@11.0.4",
+        "unist-util-visit": "https://esm.sh/unist-util-visit@5.0.0"
+    },
+    "tasks": {
+        "start": "deno run -A ./main.ts",
+        "esm:add": "deno run -A https://esm.sh/v135 add",
+        "esm:update": "deno run -A https://esm.sh/v135 update",
+        "esm:remove": "deno run -A https://esm.sh/v135 remove"
+    },
+    "compilerOptions": {
+        "types": ["npm@types/mdast"]
+    },
+    "scopes": {}
+}

@@ -28,5 +28,5 @@
         "commitlint.config.ts",
         "jest.setup.ts"
     ],
-    "exclude": ["node_modules", "./cypress.config.ts"]
+    "exclude": ["node_modules", "./cypress.config.ts", "scripts"]
 }
