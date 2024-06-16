@@ -1,10 +1,10 @@
 ---
-title: ''
-date: ''
-cover: ''
-isPublished: false
-description: ''
-tags: []
+title:
+date:
+cover:
+published:
+description:
+tags:
 ---
 
 Body of the content

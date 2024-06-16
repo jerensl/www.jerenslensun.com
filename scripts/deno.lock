@@ -2,22 +2,49 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
       "jsr:@std/cli@^0.224.6": "jsr:@std/cli@0.224.6",
+      "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0",
       "jsr:@std/yaml@0.224.1": "jsr:@std/yaml@0.224.1",
       "jsr:@std/yaml@^0.224.1": "jsr:@std/yaml@0.224.1",
+      "npm:@types/mdast": "npm:@types/mdast@4.0.4",
+      "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:dayjs": "npm:dayjs@1.11.11",
       "npm:dayjs@1.11.11": "npm:dayjs@1.11.11",
       "npm:fs": "npm:fs@0.0.1-security"
     },
     "jsr": {
+      "@std/assert@0.226.0": {
+        "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3",
+        "dependencies": [
+          "jsr:@std/internal@^1.0.0"
+        ]
+      },
       "@std/cli@0.224.6": {
         "integrity": "98d7e17a70c1c24980baa2b9a511b29e0a460e7a3b8e3d4e220979d77d5f348e"
+      },
+      "@std/internal@1.0.0": {
+        "integrity": "ac6a6dfebf838582c4b4f61a6907374e27e05bedb6ce276e0f1608fe84e7cd9a"
       },
       "@std/yaml@0.224.1": {
         "integrity": "cbb444acccce7ea34b9ef6678bff84c18eba89b790e52dd098def8dae313f0b2"
       }
     },
     "npm": {
+      "@types/mdast@4.0.4": {
+        "integrity": "sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==",
+        "dependencies": {
+          "@types/unist": "@types/unist@3.0.2"
+        }
+      },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
+        "dependencies": {}
+      },
+      "@types/unist@3.0.2": {
+        "integrity": "sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==",
+        "dependencies": {}
+      },
       "dayjs@1.11.11": {
         "integrity": "sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==",
         "dependencies": {}
@@ -139,7 +166,10 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@libs/testing@^1.0.10",
+      "jsr:@std/assert@^0.226.0",
       "jsr:@std/cli@^0.224.6",
+      "jsr:@std/testing@^0.225.1",
       "jsr:@std/yaml@^0.224.1",
       "npm:dayjs@1.11.11"
     ]
