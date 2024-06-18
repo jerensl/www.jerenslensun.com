@@ -1,0 +1,45 @@
+name: Auto Merge PRs from dependabot
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+        branches:
+            - main
+
+jobs:
+    autoapprove-for-bot:
+        name: Autoaprove PRs fom dependabot
+        runs-on: ubuntu-latest
+        if: github.actor == 'dependabot[bot]'
+        steps:
+            - name: Autoaprove
+              uses: hmarr/auto-approve-action@v4
+              with:
+                  review-message: 'Auto approved automated PR'
+                  github-token: GH_TOKEN_BOT_PR
+            - name: Label autoapproved
+              uses: actions/github-script@v6
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  script: |
+                      github.rest.issues.addLabels({
+                      issue_number: context.issue.number,
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      labels: ['autoapproved']
+                      })
+    automerge:
+        name: Automerge PR autoapproved by a bot
+        needs: [autoapprove-for-bot]
+        runs-on: ubuntu-latest
+        steps:
+            - id: automerge
+              name: automerge
+              uses: 'pascalgn/automerge-action@v0.16.3'
+              env:
+                  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+                  MERGE_LABELS: '!do-not-merge'
+                  MERGE_METHOD: 'squash'
+                  MERGE_COMMIT_MESSAGE: '{pullRequest.title} (#{pullRequest.number})'
+                  MERGE_RETRIES: '5'
+                  MERGE_RETRY_SLEEP: '30000'
