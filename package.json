@@ -80,7 +80,7 @@
         "@commitlint/types": "^19.0.3",
         "@eslint/compat": "^1.1.0",
         "@eslint/eslintrc": "^3.1.0",
-        "@eslint/js": "^9.4.0",
+        "@eslint/js": "^9.5.0",
         "@next/plugin-storybook": "^14.0.3",
         "@storybook/addon-actions": "^8.1.5",
         "@storybook/addon-docs": "^8.1.6",
