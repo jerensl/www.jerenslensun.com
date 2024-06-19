@@ -4865,6 +4865,16 @@
     "@storybook/global" "^5.0.0"
     memoizerific "^1.11.3"
 
+"@storybook/theming@^8.0.0", "@storybook/theming@^8.1.10":
+  version "8.1.10"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-8.1.10.tgz#544e413e99fc957c5937dae0ed89578a74d736e7"
+  integrity sha512-W7mth4hwdTqWLneqYCyUnIEiDg4vSokoad8HEodPz6JC9XUPUX3Yi2W4W3xFvqrW4Z5RXfuJ53iG2HN+0AgaQw==
+  dependencies:
+    "@emotion/use-insertion-effect-with-fallbacks" "^1.0.1"
+    "@storybook/client-logger" "8.1.10"
+    "@storybook/global" "^5.0.0"
+    memoizerific "^1.11.3"
+
 "@storybook/types@7.6.17":
   version "7.6.17"
   resolved "https://registry.yarnpkg.com/@storybook/types/-/types-7.6.17.tgz#0b3c27cb1708c0545a9ea1a23b73aa8852dd47c4"
