@@ -16,7 +16,7 @@ jobs:
               uses: hmarr/auto-approve-action@v4
               with:
                   review-message: 'Auto approved automated PR'
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  github-token: ${{ secrets.GH_TOKEN_BOT_PR }}
             - name: Label autoapproved
               uses: actions/github-script@v6
               with:
