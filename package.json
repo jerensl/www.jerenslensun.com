@@ -36,7 +36,7 @@
         "date-fns": "^3.6.0",
         "esbuild": "^0.21.5",
         "firebase": "^10.12.2",
-        "framer-motion": "^11.2.10",
+        "framer-motion": "^11.2.11",
         "gray-matter": "^4.0.3",
         "hast": "^1.0.0",
         "hast-util-to-html": "^8.0.4",
