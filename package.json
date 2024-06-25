@@ -81,7 +81,7 @@
         "@next/plugin-storybook": "^14.0.3",
         "@storybook/addon-actions": "^8.1.5",
         "@storybook/addon-docs": "^8.1.10",
-        "@storybook/addon-essentials": "^8.1.8",
+        "@storybook/addon-essentials": "^8.1.10",
         "@storybook/addon-interactions": "^8.1.9",
         "@storybook/addon-links": "^8.1.6",
         "@storybook/addon-mdx-gfm": "^8.1.10",
