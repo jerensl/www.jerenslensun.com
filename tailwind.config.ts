@@ -4,11 +4,11 @@ export default {
     darkMode: ['class'],
     content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
     theme: {
-        fontFamily: {
-            display: ['Merriweather', 'serif'],
-            body: ['Merriweather', 'serif'],
-        },
         extend: {
+            fontFamily: {
+                sans: ['var(--font-lora)'],
+                mono: ['var(--font-merriweather)'],
+            },
             borderRadius: {
                 'extra-small': '4px',
                 small: '8px',

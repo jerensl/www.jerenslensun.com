@@ -1,18 +1,37 @@
 import { assertEquals } from "@std/assert";
 import { parseArguments } from './cli.ts';
 
+Deno.test("Test run help", () => {
+  const args = parseArguments([
+      "-h"
+  ]);
 
-Deno.test("Published content should correctly parse CLI arguments", () => {
+  assertEquals(args, {
+    _: [],
+    generator: false,
+    g: false,
+    help: true,
+    h: true,
+    published: false,
+    p: false,
+    "--": [],
+  });
+});
+
+Deno.test("Test run content generator with published content", () => {
     const args = parseArguments([
-        "--src=template.md", 
+        "-g",
+        "--tmpl=template.md", 
         "--out=test.mdx",
         "-p"
     ]);
   
     assertEquals(args, {
       _: [],
-      src: "template.md",
-      "source-file": "template.md",
+      g: true,
+      generator: true,
+      tmpl: "template.md",
+      template: "template.md",
       out: "test.mdx",
       "output-file": "test.mdx",
       help: false,
@@ -23,16 +42,18 @@ Deno.test("Published content should correctly parse CLI arguments", () => {
     });
   });
 
-  Deno.test("Unpublished content should correctly parse CLI arguments", () => {
+  Deno.test("Test run content generator with unpublished content", () => {
     const args = parseArguments([
-        "--src=template.md", 
+        "--tmpl=template.md", 
         "--out=test.mdx",
     ]);
   
     assertEquals(args, {
       _: [],
-      src: "template.md",
-      "source-file": "template.md",
+      g: false,
+      generator: false,
+      tmpl: "template.md",
+      template: "template.md",
       out: "test.mdx",
       "output-file": "test.mdx",
       help: false,

@@ -37,7 +37,7 @@ export const Header = ({
                                 className="flex flex-auto flex-col gap-3"
                                 data-fade="0"
                             >
-                                <h1 className="font-bold text-4xl md:text-5xl">
+                                <h1 className="font-sans font-bold text-4xl md:text-5xl">
                                     Hi I{"'"}m Jerens
                                 </h1>
                                 <p className="font-light text-lg md:text-xl">
