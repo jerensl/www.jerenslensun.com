@@ -2727,10 +2727,10 @@
   dependencies:
     glob "10.3.10"
 
-"@next/plugin-storybook@^14.0.3":
-  version "14.2.3"
-  resolved "https://registry.yarnpkg.com/@next/plugin-storybook/-/plugin-storybook-14.2.3.tgz#c595ef555730003179cb9e4ec94c52b100d910ce"
-  integrity sha512-n788LOKMvUw7ddYtO1liwEQ67WVRdfL54IcvErwWWhBns+ckAONEC1uOdpIMl2M01vtQhUGdG1FAMvvaIz+hWQ==
+"@next/plugin-storybook@^14.2.4":
+  version "14.2.4"
+  resolved "https://registry.yarnpkg.com/@next/plugin-storybook/-/plugin-storybook-14.2.4.tgz#a0422baea52b739d5cbbce828804d412934975dd"
+  integrity sha512-fPsTe1jOQD3Xz4Go073PxyO5D9EvcFM1Rk2vkOl33QyX79UtTYUa5lhKATbfQpKthbZiL08B/Y+3VTgG3h5DMw==
 
 "@next/swc-darwin-arm64@14.2.4":
   version "14.2.4"
