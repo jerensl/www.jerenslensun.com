@@ -30,12 +30,12 @@ export const IntroductionSection = (): React.ReactElement => {
                             }}
                         >
                             <motion.div variants={childrenVariants}>
-                                <h2 className="text-5xl lg:text-6xl font-bold text-center md:text-left text-gray-800 dark:text-gray-200">
+                                <h2 className="font-sans text-5xl lg:text-6xl font-bold text-center md:text-left text-gray-800 dark:text-gray-200">
                                     Hi Folks...
                                 </h2>
                             </motion.div>
                             <motion.div variants={childrenVariants}>
-                                <h2 className="text-4xl lg:text-5xl mt-3 font-bold text-center md:text-left text-gray-900 dark:text-gray-200">
+                                <h2 className="font-sans text-4xl lg:text-5xl mt-3 font-bold text-center md:text-left text-gray-900 dark:text-gray-200">
                                     Let me introduce myself
                                 </h2>
                             </motion.div>

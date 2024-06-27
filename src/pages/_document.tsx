@@ -5,6 +5,7 @@ import Document, {
     NextScript,
     DocumentContext,
 } from 'next/document'
+import Script from 'next/script'
 
 const APP_NAME = 'Jerens'
 const APP_DESCRIPTION =
@@ -110,7 +111,7 @@ class MyDocument extends Document {
                         content="/icons/ms-icon-144x144.png"
                     />
                     <meta name="theme-color" content="#FFFFFF" />
-                    <style
+                    <Script
                         id="katex"
                         dangerouslySetInnerHTML={{
                             __html: `</style>
@@ -122,22 +123,8 @@ class MyDocument extends Document {
                         media="print"
                         onload="this.media='all'; this.onload=null;"
                         />
-                        <style>
-                        `,
+                        <style>`,
                         }}
-                    ></style>
-                    <link
-                        rel="preconnect"
-                        href="https://fonts.googleapis.com"
-                    />
-                    <link
-                        rel="preconnect"
-                        href="https://fonts.gstatic.com"
-                        crossOrigin="anonymous"
-                    />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
-                        rel="stylesheet"
                     />
                 </Head>
                 <body>
