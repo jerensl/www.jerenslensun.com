@@ -2,10 +2,9 @@ name: Auto Merge PRs from dependabot
 
 on:
     workflow_run:
-        workflows: ['Deployment']
+        workflows: ['Lighthouse CI']
         types:
             - completed
-        branches-ignore: 'main'
 
 jobs:
     autoapprove-for-bot:
