@@ -57,7 +57,7 @@
         "refractor": "^4.8.1",
         "rehype": "^13.0.1",
         "rehype-katex": "^6.0.3",
-        "rehype-parse": "^8.0.5",
+        "rehype-parse": "^9.0.0",
         "remark-gfm": "^4.0.0",
         "remark-math": "^5.1.1",
         "sharp": "^0.32.6",
