@@ -1,19 +1,16 @@
 name: Auto Merge PRs from dependabot
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        types: [opened, synchronize, reopened, closed]
-        branches:
-            - main
+    pull_request_target:
+        types: [opened, synchronize]
 
 jobs:
     autoapprove-for-bot:
         name: Autoaprove PRs fom dependabot
         runs-on: ubuntu-latest
-        if: github.actor == 'dependabot[bot]'
+        if: >
+            contains(fromJson('"dependabot[bot]", "dependabot-preview[bot]"]'), github.event.pull_request.user.login) &&
+            contains(fromJson('"dependabot[bot]", "dependabot-preview[bot]"]'), github.actor)
         steps:
             - name: Autoaprove
               uses: hmarr/auto-approve-action@v4
