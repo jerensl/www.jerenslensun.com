@@ -36,5 +36,6 @@ jobs:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         needs: azure_deploy
         uses: ./.github/workflows/lighthouse.yml
+        secrets: inherit
         with:
             static_web_url: ${{ needs.azure_deploy.outputs.static_web_app_url }}
