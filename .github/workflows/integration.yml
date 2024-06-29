@@ -82,7 +82,7 @@ jobs:
             - name: Build the web app
               run: yarn build
             - name: Run Cypress
-              uses: cypress-io/github-action@v4
+              uses: cypress-io/github-action@v6
               with:
                   record: true
                   start: yarn start
@@ -91,3 +91,14 @@ jobs:
                   CI: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    azure_deploy_staging:
+        if: github.repository == 'jerensl/www.jerenslensun.com' && github.event_name == 'pull_request' && github.event.action != 'closed'
+        uses: ./.github/workflows/azure.yml
+    lhci:
+        if: >
+            github.repository == 'jerensl/www.jerenslensun.com' && 
+            contains(github.event.pull_request.labels.*.name, 'need-perf-check')
+        needs: azure_deploy_staging
+        uses: ./.github/workflows/lighthouse.yml
+        with:
+            static_web_url: ${{ needs.azure_deploy_staging.outputs.static_web_app_url }}
