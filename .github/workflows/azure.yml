@@ -9,6 +9,7 @@ on:
 
 jobs:
     build_and_deploy_job:
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
         runs-on: ubuntu-latest
         name: Build and Deploy Job
         outputs:
@@ -37,7 +38,7 @@ jobs:
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
     close_pull_request_job:
-        if: github.repository == 'jerensl/www.jerenslensun.com' && github.event_name == 'pull_request' && github.event.action == 'closed'
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
         runs-on: ubuntu-latest
         name: Close Pull Request Job
         steps:

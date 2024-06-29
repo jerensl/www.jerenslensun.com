@@ -31,6 +31,7 @@ jobs:
     azure_deploy:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         uses: ./.github/workflows/azure.yml
+        secrets: inherit
     lhci:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         needs: azure_deploy
