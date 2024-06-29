@@ -94,6 +94,10 @@ jobs:
     azure_deploy_staging:
         if: github.repository == 'jerensl/www.jerenslensun.com' && github.event_name == 'pull_request' && github.event.action != 'closed'
         uses: ./.github/workflows/azure.yml
+    automerge:
+        if: github.repository == 'jerensl/www.jerenslensun.com' && github.event_name == 'pull_request'
+        needs: azure_deploy_staging
+        uses: ./.github/workflows/automerge.yml
     lhci:
         if: >
             github.repository == 'jerensl/www.jerenslensun.com' && 
