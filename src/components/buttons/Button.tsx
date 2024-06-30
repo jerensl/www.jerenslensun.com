@@ -32,7 +32,7 @@ export const Button = ({
             data-cy={dataCy}
             onClick={onClick}
             className={clsx(
-                'rounded-full font-medium w-fit shadow-elevation-0',
+                'rounded-full font-medium font-sans w-fit shadow-elevation-0',
                 {
                     'text-sm px-3 py-1.5': size === 'small',
                     'text-sm px-5 py-2': size === 'base',

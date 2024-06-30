@@ -4,6 +4,7 @@ import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
 import imageLoader from '../constant/images'
 import { LinkButton } from './links/LinkButton'
+import WritingAnimation from './animations/WritingAnimation'
 
 export const Header = ({
     blurDataURL,
@@ -38,7 +39,10 @@ export const Header = ({
                                 data-fade="0"
                             >
                                 <h1 className="font-sans font-bold text-4xl md:text-5xl">
-                                    Hi I{"'"}m Jerens
+                                    <WritingAnimation
+                                        delay={1}
+                                        baseText="Hi I'm Jerens"
+                                    />
                                 </h1>
                                 <p className="font-light text-lg md:text-xl">
                                     I work with Typescript & Golang Ecosystem,

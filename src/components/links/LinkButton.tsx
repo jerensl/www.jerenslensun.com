@@ -31,7 +31,7 @@ export const LinkButton = ({
             role="button"
             href={href}
             className={clsx(
-                'rounded-full w-fit font-medium shadow-elevation-0',
+                'rounded-full w-fit font-normal font-sans shadow-elevation-0',
                 {
                     'text-sm px-3 py-1.5': size === 'small',
                     'text-sm px-5 py-2': size === 'base',
