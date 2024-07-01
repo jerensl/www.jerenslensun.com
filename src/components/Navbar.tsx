@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
             <div className="flex text-center justify-between h-full w-full border-gray-100">
                 <HighlightLink
                     href="/"
-                    className="font-sans font-semibold text-xl my-5 py-2"
+                    className="font-sans font-medium text-xl my-5 py-2"
                 >
                     Jerens
                 </HighlightLink>
@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
                                     <HighlightLink
                                         key={url}
                                         href={url}
-                                        className="font-sans hidden md:block font-semibold text-gray-800 dark:text-white text-xl my-4 mx-5 py-2"
+                                        className="font-sans hidden md:block font-medium text-gray-800 dark:text-white text-xl my-4 mx-5 py-2"
                                     >
                                         {name}
                                     </HighlightLink>

@@ -52,8 +52,6 @@ interface IHeadComponent {
 
 export const HeadComponent: React.FC<IHeadComponent> = ({ title, path }) => {
     const currTitle = title ? `${title} | ${app.title}` : app.title
-    console.log(path)
-    console.log(path === '/about')
 
     return (
         <>

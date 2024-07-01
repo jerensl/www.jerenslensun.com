@@ -8,10 +8,10 @@ import { socialMediaLinks } from '@/constant/social-media'
 function SitemapSection() {
     return (
         <div>
-            <h2 className="text-lg font-bold text-gray-500 dark:text-white">
+            <h2 className="text-xl font-medium text-gray-500 dark:text-white">
                 Sitemap
             </h2>
-            <div className="mt-2 flex font-semibold flex-col gap-1">
+            <div className="mt-2 flex font-normal flex-col gap-1">
                 {pageLinks.map(({ name, url }) => {
                     return (
                         <HighlightLink
@@ -31,10 +31,10 @@ function SitemapSection() {
 function ContactSection() {
     return (
         <div>
-            <h2 className="text-xl font-bold text-gray-500 dark:text-white">
+            <h2 className="text-xl font-medium text-gray-500 dark:text-white">
                 Contact
             </h2>
-            <div className="mt-2 flex font-semibold flex-col gap-1">
+            <div className="mt-2 flex font-normal flex-col gap-1">
                 {socialMediaLinks.map(({ name, url }) => {
                     return (
                         <HighlightLink
@@ -55,7 +55,7 @@ function ContactSection() {
 function AboutSection() {
     return (
         <div>
-            <h1 className="text-xl font-bold text-center sm:text-left">
+            <h1 className="text-xl font-medium text-center sm:text-left">
                 Jerens S. Lensun
             </h1>
             <p className="text-center sm:text-left mb-4 md:mb-6 max-w-md text-2xl">
