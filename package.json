@@ -91,7 +91,7 @@
         "@storybook/nextjs": "^8.1.10",
         "@storybook/react": "^8.1.10",
         "@storybook/test": "^8.1.8",
-        "@storybook/theming": "^8.1.10",
+        "@storybook/theming": "^8.1.11",
         "@swc/core": "^1.6.3",
         "@swc/jest": "^0.2.36",
         "@tailwindcss/typography": "^0.5.0",
