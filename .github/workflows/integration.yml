@@ -98,7 +98,7 @@ jobs:
     lhci:
         if: >
             github.repository == 'jerensl/www.jerenslensun.com' && 
-            contains(github.event.pull_request.labels.name, 'need-perf-check')
+            contains(github.event.pull_request.labels.*.name, 'need-perf-check')
         needs: azure_deploy_staging
         uses: ./.github/workflows/lighthouse.yml
         secrets: inherit
