@@ -59,7 +59,7 @@
         "rehype-katex": "^6.0.3",
         "rehype-parse": "^8.0.5",
         "remark-gfm": "^4.0.0",
-        "remark-math": "^5.1.1",
+        "remark-math": "^6.0.0",
         "sharp": "^0.32.6",
         "tailwind-merge": "^1.14.0",
         "unified": "^10.1.2",
