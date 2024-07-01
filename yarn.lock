@@ -3466,12 +3466,12 @@
     "@storybook/global" "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-mdx-gfm@^8.1.10":
-  version "8.1.10"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-mdx-gfm/-/addon-mdx-gfm-8.1.10.tgz#cb65fa96a21e9385d89e1469cff39558a4b2135c"
-  integrity sha512-31scW1uUJl3Q/ilC3y0pf+LoouIzcEVbthjXP65/8qIVVGDiuTxm8zAh/x0lyaJSoCgbBz7vtYYy1oNbOr//pg==
+"@storybook/addon-mdx-gfm@^8.1.11":
+  version "8.1.11"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-mdx-gfm/-/addon-mdx-gfm-8.1.11.tgz#26eee08eefe40822c6222d89229e8cedc3787a40"
+  integrity sha512-0/4Xaisvmoi26iK1ezTOB9dN2b0JbgWKzO2PO6att2Jh7lplLCf1QeoE8Y4SgCh0brage+mA8mKI8NrT7d18pg==
   dependencies:
-    "@storybook/node-logger" "8.1.10"
+    "@storybook/node-logger" "8.1.11"
     remark-gfm "^4.0.0"
     ts-dedent "^2.0.0"
 
