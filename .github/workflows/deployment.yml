@@ -1,13 +1,9 @@
 name: Deployment
 
+# Deploy bi-weekly At 05:00 on Monday and Thursday.
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        types: [opened, synchronize, reopened, closed]
-        branches:
-            - main
+    schedule:
+        - cron: '0 5 * * 1,4'
 
 permissions:
     contents: read
@@ -15,35 +11,6 @@ permissions:
     id-token: write
 
 jobs:
-    build_and_deploy_job:
-        if: github.repository == 'jerensl/www.jerenslensun.com' && ((github.event_name == 'push' || (github.event_name == 'pull_request') && github.event.action != 'closed'))
-        runs-on: ubuntu-latest
-        name: Build and Deploy Job
-        outputs:
-            static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  submodules: true
-            - name: Build And Deploy
-              id: swa
-              uses: Azure/static-web-apps-deploy@v1
-              with:
-                  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-                  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-                  production_branch: 'main'
-                  action: 'upload'
-                  ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-                  # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-                  app_location: '/' # App source code path
-                  api_location: '' # Api source code path - optional
-                  output_location: 'out' # Built app content directory - optional
-                  ###### End of Repository/Build Configurations ######
-              env:
-                  IS_STATIC_EXPORT: true
-                  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-                  NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
-                  NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
     build_docs:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         runs-on: ubuntu-latest
@@ -61,23 +28,14 @@ jobs:
                   build_command: yarn build:storybook # default: npm run build-storybook
                   path: storybook-static # default: dist/storybook
                   checkout: false # default: true
+    azure_deploy:
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        uses: ./.github/workflows/azure.yml
+        secrets: inherit
     lhci:
-        if: github.repository == 'jerensl/www.jerenslensun.com' && github.event_name == 'pull_request' && github.event.action != 'closed'
-        needs: build_and_deploy_job
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        needs: azure_deploy
         uses: ./.github/workflows/lighthouse.yml
+        secrets: inherit
         with:
-            static_web_url: ${{ needs.build_and_deploy_job.outputs.static_web_app_url }}
-    close_pull_request_job:
-        if: github.repository == 'jerensl/www.jerenslensun.com' && github.event_name == 'pull_request' && github.event.action == 'closed'
-        runs-on: ubuntu-latest
-        name: Close Pull Request Job
-        steps:
-            - name: Close Pull Request
-              id: closepullrequest
-              uses: Azure/static-web-apps-deploy@v1
-              with:
-                  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-                  action: 'close'
-                  app_location: '/' # App source code path
-                  api_location: '' # Api source code path - optional
-                  output_location: 'out' # Built app content directory - optional
+            static_web_url: ${{ needs.azure_deploy.outputs.static_web_app_url }}
