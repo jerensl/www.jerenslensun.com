@@ -15,6 +15,7 @@ const customJestConfig = {
     ],
     collectCoverageFrom: [
         '<rootDir>/src/**/*.tsx',
+        '!<rootDir>/src/**/*.stories.tsx',
         '!<rootDir>/src/pages/_document.tsx',
         '!<rootDir>/src/pages/_app.tsx',
         '!<rootDir>/src/utils/storybook/*',

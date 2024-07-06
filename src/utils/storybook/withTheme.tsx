@@ -1,6 +1,6 @@
 import { IDefaultTheme } from '@/types/storybook/Theme'
 import { Decorator } from '@storybook/react'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
 import { createTheme } from './createTheme'
 

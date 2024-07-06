@@ -90,10 +90,10 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-    [
-      "Test First Article",
-    ]
-`)
+            [
+              "Test First Article",
+            ]
+        `)
     })
 
     it('Should render all post named contain article', async () => {
@@ -111,11 +111,11 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-    [
-      "Test First Article",
-      "Test Second Article",
-    ]
-`)
+                [
+                  "Test First Article",
+                  "Test Second Article",
+                ]
+        `)
     })
 
     it('Should not found the article', async () => {
@@ -143,10 +143,10 @@ describe('Search Article', () => {
         })
 
         expect(result).toMatchInlineSnapshot(`
-    [
-      "Test Second Article",
-    ]
-`)
+                [
+                  "Test Second Article",
+                ]
+        `)
 
         await waitFor(() =>
             userEvent.click(getByRole('button', { name: /second/i }))
@@ -157,10 +157,10 @@ describe('Search Article', () => {
         })
 
         expect(resultTwo).toMatchInlineSnapshot(`
-    [
-      "Test Second Article",
-    ]
-`)
+                [
+                  "Test Second Article",
+                ]
+        `)
     })
 
     it('Should change languange to English', async () => {
