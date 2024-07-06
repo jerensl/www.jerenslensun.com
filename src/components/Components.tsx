@@ -81,8 +81,9 @@ const components: import('mdx/types').MDXComponents = {
             <Image
                 src={src as string}
                 alt={alt as string}
-                width={(width as number) ?? 450}
-                height={(height as number) ?? 450}
+                width={(width as number) ?? 500}
+                height={(height as number) ?? 500}
+                className="m-auto"
             />
         )
     },

@@ -113,6 +113,7 @@ class MyDocument extends Document {
                     <meta name="theme-color" content="#FFFFFF" />
                     <Script
                         id="katex"
+                        strategy="lazyOnload"
                         dangerouslySetInnerHTML={{
                             __html: `</style>
                         <link
