@@ -23,7 +23,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             ></noscript>
             <Script
                 id="gtm-script"
-                strategy="afterInteractive"
+                strategy="worker"
                 dangerouslySetInnerHTML={{
                     __html: `
                     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

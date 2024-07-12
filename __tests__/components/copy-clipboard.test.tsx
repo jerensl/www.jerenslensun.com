@@ -7,8 +7,10 @@ import { render } from '../../__mocks__/utils/test-providers'
 import { CopyToClipboard } from '../../src/components/CopyClipboard'
 import userEvent from '@testing-library/user-event'
 
-describe('Should Test Copy Clipboard', () => {
-    it('Should Copy the Text in the Element', async () => {
+describe('Copy To Clipboard', () => {
+    it('copy all text inside the element', async () => {
+        const user = userEvent.setup()
+
         const { getByRole, getByText } = render(
             <CopyToClipboard>
                 <span>Hello</span>
@@ -17,12 +19,15 @@ describe('Should Test Copy Clipboard', () => {
 
         const elm = getByText('Hello')
 
-        userEvent.hover(elm)
+        await user.hover(elm)
 
         const button = getByRole('button')
 
-        userEvent.click(button)
+        await user.click(button)
+
+        const clipboardText = await navigator.clipboard.readText()
 
         expect(elm).toBeInTheDocument()
+        expect(clipboardText).toBe('Hello')
     })
 })
