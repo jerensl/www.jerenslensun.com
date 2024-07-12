@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.6.0](https://github.com/jerensl/www.jerenslensun.com/compare/v1.5.1...v1.6.0) (2024-07-12)
+
+
+### Features
+
+* **animation:** add writers animation on landing page intro ([d5e25ff](https://github.com/jerensl/www.jerenslensun.com/commit/d5e25ff0b23ef5098aa592ba0c3e3172a8d5d8eb))
+* **automation:** add script using deno for generating content ([13068fb](https://github.com/jerensl/www.jerenslensun.com/commit/13068fbd2c6b8ad6c3d2e3afa28566996a45675c))
+* **automation:** add script using deno for generating content ([99ebecc](https://github.com/jerensl/www.jerenslensun.com/commit/99ebeccac56139450a692ee325270323aedd4846))
+* **automation:** add script using deno for generating content ([#1061](https://github.com/jerensl/www.jerenslensun.com/issues/1061)) ([13068fb](https://github.com/jerensl/www.jerenslensun.com/commit/13068fbd2c6b8ad6c3d2e3afa28566996a45675c))
+
+
+### Bug Fixes
+
+* **integration:** fix check on label lhci ([8ace336](https://github.com/jerensl/www.jerenslensun.com/commit/8ace3369d1cd4d5a13aa55a246c82128cb64e806))
+* **storybook:** add pre build storybook ([ff1484e](https://github.com/jerensl/www.jerenslensun.com/commit/ff1484eb2dbd18e2dc175c5ee29012781ff9d868))
+* **storybook:** add pre build storybook ([8f67a0e](https://github.com/jerensl/www.jerenslensun.com/commit/8f67a0e111fd99788b3e360be5910e59b5023e74))
+* **storybook:** add pre build storybook ([#1060](https://github.com/jerensl/www.jerenslensun.com/issues/1060)) ([ff1484e](https://github.com/jerensl/www.jerenslensun.com/commit/ff1484eb2dbd18e2dc175c5ee29012781ff9d868))
+* **storybook:** add storybook ignore to git ignore ([8cc855b](https://github.com/jerensl/www.jerenslensun.com/commit/8cc855b2011b7eeaa0eb223698aee663971d2c29))
+* **storybook:** merge from main ([0c9af5b](https://github.com/jerensl/www.jerenslensun.com/commit/0c9af5b38bacc595ecbdefc3f3fa8006f4f6f9b1))
+* **storybook:** remove yarn cache from ci ([7a1d0b1](https://github.com/jerensl/www.jerenslensun.com/commit/7a1d0b1c06230235f689e32ad6e9b2fcaac0342f))
+* **storybook:** rollback lighthouse config ([f75fd0e](https://github.com/jerensl/www.jerenslensun.com/commit/f75fd0e4e744121e440c42f9b52e39b3c5b34d9a))
+* **test:** fix test on home page ([e566080](https://github.com/jerensl/www.jerenslensun.com/commit/e5660809993ce2ce287d86fe95b1747e535cf957))
+
 ## [1.5.1](https://github.com/jerensl/www.jerenslensun.com/compare/v1.5.0...v1.5.1) (2024-06-13)
 
 
