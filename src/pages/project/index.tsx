@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer'
 import { HeadComponent } from '@/components/Seo'
 import { IProjectMetadata } from '@/types/project'
 import { Grid } from '@/components/Grid'
-import { ContentCard } from '@/components/cards/Card'
+import { ContentCard } from '@/components/cards/Content'
 
 export const getStaticProps: GetStaticProps = async () => {
     const projects = await getContents<IProjectMetadata>('project')
