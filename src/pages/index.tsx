@@ -6,6 +6,7 @@ import { getPlaiceholder } from 'plaiceholder'
 import { Header } from '@/components/Header'
 import { IntroductionSection } from '@/components/sections/Introduction.section'
 import { CareerSection } from '@/components/sections/Career.section'
+import HorizontalScroll from '@/components/sections/OSSContribution'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
@@ -36,6 +37,8 @@ export default function Home({
             <IntroductionSection />
             <div className="h-56 lg:h-64" />
             <CareerSection />
+            <div className="h-56 lg:h-64" />
+            <HorizontalScroll />
             <div className="h-56 lg:h-64" />
             <Footer />
         </>

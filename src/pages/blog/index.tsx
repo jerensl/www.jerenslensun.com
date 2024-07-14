@@ -9,7 +9,7 @@ import { IBlogMetadata } from '@/types/blog'
 import { SearchArticles } from '@/components/inputs/SearchArticles'
 import { Tag } from '@/components/chips/Tag'
 import { Button } from '@/components/buttons/Button'
-import { ContentCard } from '@/components/cards/Card'
+import { ContentCard } from '@/components/cards/Content'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')

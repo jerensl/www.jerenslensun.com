@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Docs Overview/Deployment" />
+
+# Introduction
+
+This guide is about deployment related documentation
+
+## Azure Blob Storage
+
+### List all storage blobs in a container whose names start with 'foo'; will match names such as 'foo', 'foobar', and 'foo/bar'
+
+az storage blob list -c mycontainer --prefix foo
+
+### Download all blobs in a directory named "dir" from container named "mycontainer".
+
+az storage blob download-batch -d . -s mycontainer --pattern "dir/\*"
+[--account-name]
+[--sas-token]
+
+## Related links
+
+-   [Azure Blob Storage](https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#commands)
