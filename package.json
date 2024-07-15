@@ -145,7 +145,7 @@
         "ts-node": "^10.9.1",
         "typescript": "^5.5.0",
         "undici": "^6.19.2",
-        "webpack": "^5.92.0"
+        "webpack": "^5.93.0"
     },
     "type": "module",
     "resolutions": {
