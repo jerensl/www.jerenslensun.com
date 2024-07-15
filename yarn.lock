@@ -2734,10 +2734,10 @@
   dependencies:
     glob "10.3.10"
 
-"@next/plugin-storybook@^14.0.3":
-  version "14.2.3"
-  resolved "https://registry.yarnpkg.com/@next/plugin-storybook/-/plugin-storybook-14.2.3.tgz#c595ef555730003179cb9e4ec94c52b100d910ce"
-  integrity sha512-n788LOKMvUw7ddYtO1liwEQ67WVRdfL54IcvErwWWhBns+ckAONEC1uOdpIMl2M01vtQhUGdG1FAMvvaIz+hWQ==
+"@next/plugin-storybook@^14.2.5":
+  version "14.2.5"
+  resolved "https://registry.yarnpkg.com/@next/plugin-storybook/-/plugin-storybook-14.2.5.tgz#27bb432c500507c3bb5163dbbdcbc813a3d8aa33"
+  integrity sha512-LVd5wXm3ngVoTcMmWfqMYohmh/hov8O0Iy1oCzEznCEaKG/kXykN0/mJY4ySfd/KHIcFSbHQvTiC0wBfdXuR/Q==
 
 "@next/swc-darwin-arm64@14.2.5":
   version "14.2.5"
@@ -9218,10 +9218,10 @@ fraction.js@^4.3.7:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
-framer-motion@^11.2.13:
-  version "11.2.13"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.2.13.tgz#ab23fbc386233b1a1548757d840190054e5e1f1d"
-  integrity sha512-AyIeegfkXlkX1lWEudRYsJlC+0A59cE8oFK9IsN9bUQzxLwcvN3AEaYaznkELiWlHC7a0eD7pxsYQo7BC05S5A==
+framer-motion@^11.3.2:
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.3.2.tgz#e55ed51af37f0f561ab8e4a2c9e8e7eee6fb5abc"
+  integrity sha512-RgjSzrNFZmedWcvmW4MMc84A7UcoY37jocadE3Mbg3o+UMofodfyeNnYD/HR15UhP22/bb5KOebNhYOj4mYkpQ==
   dependencies:
     tslib "^2.4.0"
 
