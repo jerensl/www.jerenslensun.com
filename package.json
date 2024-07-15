@@ -79,7 +79,7 @@
         "@commitlint/cli": "^19.3.0",
         "@commitlint/config-conventional": "^19.2.2",
         "@commitlint/types": "^19.0.3",
-        "@next/plugin-storybook": "^14.0.3",
+        "@next/plugin-storybook": "^14.2.5",
         "@storybook/addon-actions": "^8.1.5",
         "@storybook/addon-docs": "^8.1.10",
         "@storybook/addon-essentials": "^8.1.11",
