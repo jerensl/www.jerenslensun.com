@@ -1,25 +1,31 @@
 // Wrap the DocsContainer for storybook-dark-mode theme switching support.
 import React from 'react'
 import { DocsContainer, DocsContextProps } from '@storybook/addon-docs'
-import { useDarkMode } from 'storybook-dark-mode'
 import {
     DefaultThemeDark,
     DefaultThemeLight,
 } from '../../../.storybook/defaultTheme'
+import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode'
+import { ThemeVars } from '@storybook/theming'
 
-type Props = {
+export const ThemedDocsContainer = (props: {
+    children: React.ReactNode
     context: DocsContextProps
-    children?: React.ReactNode
-}
+    theme?: ThemeVars
+}) => {
+    const [isDark, setDark] = React.useState(true)
 
-export const ThemedDocsContainer = ({ children, context }: Props) => {
-    const dark = useDarkMode()
+    React.useEffect(() => {
+        props.context.channel.on(DARK_MODE_EVENT_NAME, setDark)
+
+        return () =>
+            props.context.channel.removeListener(DARK_MODE_EVENT_NAME, setDark)
+    }, [props.context.channel])
+
     return (
         <DocsContainer
-            theme={dark ? DefaultThemeDark : DefaultThemeLight}
-            context={context}
-        >
-            {children}
-        </DocsContainer>
+            {...props}
+            theme={isDark ? DefaultThemeDark : DefaultThemeLight}
+        />
     )
 }
