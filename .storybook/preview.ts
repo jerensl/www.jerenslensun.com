@@ -1,11 +1,9 @@
 import '../src/styles/globals.css'
 import type { Preview } from '@storybook/react'
 import { ThemedDocsContainer } from '../src/utils/storybook/docsContainerTheme'
-import { withTheme } from '../src/utils/storybook/withTheme'
 import { DefaultThemeDark, DefaultThemeLight } from './defaultTheme'
 
 const preview: Preview = {
-    decorators: [withTheme((theme) => {})],
     parameters: {
         actions: {},
         layout: 'centered',
