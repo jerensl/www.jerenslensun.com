@@ -8,14 +8,20 @@ This guide is about deployment related documentation
 
 ## Azure Blob Storage
 
-### List all storage blobs in a container whose names start with 'foo'; will match names such as 'foo', 'foobar', and 'foo/bar'
+List all storage blobs in a container whose names start with 'foo'; will match names such as 'foo', 'foobar', and 'foo/bar'
 
+```bash
 az storage blob list -c mycontainer --prefix foo
+```
 
-### Download all blobs in a directory named "dir" from container named "mycontainer".
+Download all blobs in a directory named "dir" from container named "mycontainer".
 
+```bash
 az storage blob download-batch -d . -s mycontainer --pattern "dir/\*"
-[--account-name]
+```
+
+Other options  
+[--account-name]  
 [--sas-token]
 
 ## Related links
