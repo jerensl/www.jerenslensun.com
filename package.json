@@ -75,7 +75,7 @@
         "workbox-webpack-plugin": "^7.1.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.24.8",
+        "@babel/core": "^7.24.9",
         "@commitlint/cli": "^19.3.0",
         "@commitlint/config-conventional": "^19.2.2",
         "@commitlint/types": "^19.0.3",
@@ -134,7 +134,7 @@
         "next-sitemap": "^4.2.3",
         "postcss": "^8.4.39",
         "postcss-import": "^16.1.0",
-        "prettier": "^3.3.2",
+        "prettier": "^3.3.3",
         "prettier-2": "npm:prettier@^2",
         "react-test-renderer": "^18.1.0",
         "storybook": "^8.1.10",
