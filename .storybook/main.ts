@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     framework: {
         name: '@storybook/nextjs',
         options: {
-            builder: {},
+            builder: { useSWC: true },
         },
     },
 
@@ -17,11 +17,11 @@ const config: StorybookConfig = {
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
     addons: [
+        'storybook-dark-mode',
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/addon-mdx-gfm',
-        'storybook-dark-mode',
         {
             name: '@storybook/addon-docs',
             options: {
@@ -54,9 +54,17 @@ const config: StorybookConfig = {
         })
         return config
     },
-
     typescript: {
-        reactDocgen: 'react-docgen-typescript'
+        reactDocgen: 'react-docgen-typescript',
+        reactDocgenTypescriptOptions: {
+            shouldExtractLiteralValuesFromEnum: true,
+            // 👇 Default prop filter, which excludes props from node_modules
+            propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+        },
+        check: true,
+        checkOptions: {
+        },
+        skipCompiler: false,
     }
 }
 
