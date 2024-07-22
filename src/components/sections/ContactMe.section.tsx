@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from '../Grid'
-import { LinkButton } from '../links/LinkButton'
+import { Navigation } from '../links/Navigation'
 
 export const ContactMe = (): React.ReactElement => {
     return (
@@ -10,7 +10,7 @@ export const ContactMe = (): React.ReactElement => {
                 <p>Tell me a bit about your needs.</p>
             </div>
             <div className="m-auto col-span-2">
-                <LinkButton
+                <Navigation
                     href="mailto:jerensslensun@gmail.com"
                     label="Contact me"
                     variant="filled"

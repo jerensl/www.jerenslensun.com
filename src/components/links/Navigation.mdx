@@ -1,0 +1,49 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+
+import * as Navigation from './Navigation.stories'
+
+<Meta of={Navigation} />
+
+# Link Button
+
+A LinkButton is a button with an link as it children. This is build using material design system, for more information please follow the link bellow
+
+## Props
+
+<Controls />
+
+## Usage
+
+### Elevated Button
+
+Elevated button will be used of necessary to provided seperation on background or floating button.
+
+<Canvas of={Navigation.Elevated} />
+
+### Filled Button
+
+Filled Button is important to provide emphasis on call to action or final action.
+
+<Canvas of={Navigation.Filled} />
+
+### Filled Tonal Button
+
+Filled tonal button should be use as alternative to filled button, their are useful in the lower priority.
+
+<Canvas of={Navigation.FilledTonal} />
+
+### Outlined Button
+
+Outlined buttons are be used for non primary action in an app. Outlined buttons pair well with filled buttons to indicate an alternative, secondary action.
+
+<Canvas of={Navigation.Outlined} />
+
+### Text Button
+
+Text buttons are used for the lowest priority actions, especially when presenting multiple options.
+
+<Canvas of={Navigation.Text} />
+
+## Related links
+
+[Design System Specs](https://m3.material.io/components/buttons/specs)

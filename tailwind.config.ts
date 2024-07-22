@@ -69,27 +69,23 @@ export default {
                     'rgb(var(--md-sys-color-secondary-container) / <alpha-value>)',
                 'on-secondary-container':
                     'rgb(var(--md-sys-color-on-secondary-container) / <alpha-value>)',
-                tertiary: 'var(--md-sys-color-tertiary)',
-                'on-tertiary': 'var(--md-sys-color-on-tertiary)',
-                'tertiary-container': 'var(--md-sys-color-tertiary-container)',
+                tertiary: 'rgb(var(--md-sys-color-tertiary)  / <alpha-value>)',
+                'on-tertiary':
+                    'rgb(var(--md-sys-color-on-tertiary) / <alpha-value>)',
+                'tertiary-container':
+                    'rgb(var(--md-sys-color-tertiary-container) / <alpha-value>)',
                 'on-tertiary-container':
-                    'var(--md-sys-color-on-tertiary-container)',
-                error: 'var(--md-sys-color-error)',
-                'on-error': 'var(--md-sys-color-on-error)',
-                'error-container': 'var(--md-sys-color-error-container)',
-                'on-error-container': 'var(--md-sys-color-on-error-container)',
-                warning: 'var(--md-sys-color-warning)',
-                'on-warning': 'var(--md-sys-color-on-warning)',
-                'warning-container': 'var(--md-sys-color-warning-container)',
-                'on-warning-container':
-                    'var(--md-sys-color-on-warning-container)',
-                success: 'var(--md-sys-color-success)',
-                'on-success': 'var(--md-sys-color-on-success)',
-                'success-container': 'var(--md-sys-color-success-container)',
-                'on-success-container':
-                    'var(--md-sys-color-on-success-container)',
-                background: 'var(--md-sys-color-background)',
-                'on-background': 'var(--md-sys-color-on-background)',
+                    'rgb(var(--md-sys-color-on-tertiary-container) / <alpha-value>)',
+                error: 'rgb(var(--md-sys-color-error) / <alpha-value>)',
+                'on-error': 'rgb(var(--md-sys-color-on-error) / <alpha-value>)',
+                'error-container':
+                    'rgb(var(--md-sys-color-error-container) / <alpha-value>)',
+                'on-error-container':
+                    'rgb(var(--md-sys-color-on-error-container) / <alpha-value>)',
+                background:
+                    'rgb(var(--md-sys-color-background) / <alpha-value>)',
+                'on-background':
+                    'rgb(var(--md-sys-color-on-background) / <alpha-value>)',
                 surface: 'rgb(var(--md-sys-color-surface) / <alpha-value>)',
                 'on-surface':
                     'rgb(var(--md-sys-color-on-surface) / <alpha-value>)',

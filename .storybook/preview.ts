@@ -10,6 +10,19 @@ const preview: Preview = {
         docs: {
             container: ThemedDocsContainer,
         },
+        backgrounds: {
+            default: 'dark',
+            values: [
+                {
+                    name: 'light',
+                    value: DefaultThemeLight.appBg,
+                },
+                {
+                    name: 'dark',
+                    value: DefaultThemeDark.appBg,
+                },
+            ],
+        },
         darkMode: {
             dark: DefaultThemeDark,
             light: DefaultThemeLight,

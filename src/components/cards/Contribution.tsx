@@ -30,7 +30,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
         <Card
             as="article"
             variant="elevated"
-            className="h-64 mb-48 w-[450px] flex flex-col gap-2 p-4"
+            className="h-3/5 mb-48 w-[450px] flex flex-col gap-2 p-4"
         >
             <h2 className="text-2xl font-sans font-bold">{organization}</h2>
             <h3 className="text-sm font-sans font-light">{project}</h3>
