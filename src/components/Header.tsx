@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
 import imageLoader from '../constant/images'
-import { LinkButton } from './links/LinkButton'
+import { Navigation } from './links/Navigation'
 import WritingAnimation from './animations/WritingAnimation'
 
 export const Header = ({
@@ -53,13 +53,13 @@ export const Header = ({
                                 className="flex flex-row text-center self-center  gap-2"
                                 data-fade="2"
                             >
-                                <LinkButton
+                                <Navigation
                                     variant="outlined"
                                     href="/blog"
                                     label="About me"
                                     size="large"
                                 />
-                                <LinkButton
+                                <Navigation
                                     variant="filled"
                                     href="/blog"
                                     label="Read articles"

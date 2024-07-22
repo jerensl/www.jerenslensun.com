@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     },
 
     staticDirs: ['../public'],
-    
+
     docs: {},
 
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -59,13 +59,10 @@ const config: StorybookConfig = {
         reactDocgenTypescriptOptions: {
             shouldExtractLiteralValuesFromEnum: true,
             // 👇 Default prop filter, which excludes props from node_modules
-            propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+            propFilter: (prop) =>
+                prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
         },
-        check: true,
-        checkOptions: {
-        },
-        skipCompiler: false,
-    }
+    },
 }
 
 export default config

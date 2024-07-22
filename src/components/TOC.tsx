@@ -1,7 +1,7 @@
 import { useOnScrollToc } from '@/hooks/useScrollToc'
 import React from 'react'
 import { MDXTitleHeadingLevels } from '@/types/content'
-import { LinkButton } from './links/LinkButton'
+import { Navigation } from './links/Navigation'
 
 interface TableOfContentProps {
     toc: Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
@@ -23,7 +23,7 @@ export default function TableOfContent({ toc }: TableOfContentProps) {
                 {toc.map(({ id, text, level }) => {
                     return (
                         <li key={id} className="w-full">
-                            <LinkButton
+                            <Navigation
                                 href={`#${id}`}
                                 variant="text"
                                 label={text}

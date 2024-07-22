@@ -6,14 +6,11 @@
         "plugin:prettier/recommended",
         "plugin:jsx-a11y/recommended",
         "plugin:react-hooks/recommended",
+        "plugin:storybook/recommended",
         "next/core-web-vitals",
-        "prettier"
+        "prettier",
     ],
-    "plugins": [
-        "cypress",
-        "react-hooks",
-        "prettier"
-    ],
+    "plugins": ["cypress", "react-hooks", "prettier"],
     "rules": {
         "prettier/prettier": "error",
         "arrow-body-style": "off",
@@ -22,26 +19,19 @@
         "react/jsx-filename-extension": [
             1,
             {
-                "extensions": [
-                    ".ts",
-                    ".tsx"
-                ]
-            }
+                "extensions": [".ts", ".tsx"],
+            },
         ],
         "react/display-name": 1,
-        "no-console": "warn"
+        "no-console": "warn",
     },
-    "ignorePatterns": [
-        "scripts"
-    ],
+    "ignorePatterns": ["scripts"],
     "overrides": [
         {
-            "files": [
-                "__tests__/**/*"
-            ],
+            "files": ["__tests__/**/*"],
             "env": {
-                "jest": true
-            }
-        }
-    ]
+                "jest": true,
+            },
+        },
+    ],
 }
