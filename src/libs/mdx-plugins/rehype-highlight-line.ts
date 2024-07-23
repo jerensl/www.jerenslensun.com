@@ -1,8 +1,8 @@
 import { toHtml } from 'hast-util-to-html'
 import { unified } from 'unified'
-import parse from 'rehype-parse'
-import type { Element, RootContent } from 'hast'
-import type { RefractorRoot } from 'refractor'
+import rehypeParse from 'rehype-parse'
+import type { Element, Nodes, RootContent } from 'hast'
+import { RefractorRoot } from 'refractor'
 
 const lineNumberify = (ast: Array<RootContent>, lineNum = 1) => {
     let lineNumber = lineNum
@@ -102,7 +102,7 @@ const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g
 
 const applyMultilineFix = function (ast: RefractorRoot) {
     // AST to HTML
-    let html = toHtml(ast)
+    let html = toHtml(ast as Nodes)
 
     // Fix JSX issue
     html = html.replace(MULTILINE_TOKEN_SPAN, (match, token) =>
@@ -111,7 +111,7 @@ const applyMultilineFix = function (ast: RefractorRoot) {
 
     // HTML to AST
     const hast = unified()
-        .use(parse, { emitParseErrors: true, fragment: true })
+        .use(rehypeParse, { emitParseErrors: true, fragment: true })
         .parse(html)
 
     return hast.children

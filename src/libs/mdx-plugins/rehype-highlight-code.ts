@@ -4,16 +4,14 @@ import { toString } from 'hast-util-to-string'
 import { refractor } from 'refractor'
 import highlightLine from './rehype-highlight-line'
 import highlightWord from './rehype-highlight-word'
-import type { Visitor } from 'unist-util-visit/complex-types'
-import type { Plugin } from 'unified'
-import type { Element } from 'hast'
+import type { Element, Node } from 'hast'
 import { Nodes } from 'hast-util-to-string/lib'
 
-function rehypeHighlightCode(options = {}): Plugin {
-    const visitor: Visitor<Element, Element> = (
+function rehypeHighlightCode(options = {}) {
+    const visitor = (
         node: Element,
-        _index: number | null,
-        parentNode: Element | null
+        index: number | undefined,
+        parentNode: Element | undefined
     ) => {
         if (parentNode?.tagName === 'pre' && node.tagName === 'code') {
             // syntax highlight
@@ -46,7 +44,7 @@ function rehypeHighlightCode(options = {}): Plugin {
         }
     }
 
-    return (tree: Element) => {
+    return (tree: Node) => {
         visit(tree, 'element', visitor)
     }
 }
