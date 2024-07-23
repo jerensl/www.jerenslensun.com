@@ -5,8 +5,34 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'npm' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: 'daily'
     open-pull-requests-limit: 5
+    groups:
+      framework:
+        applies-to: version-updates
+        patterns:
+          - 'next'
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+          - '@next/bundle-analyzer'
+          - 'eslint-config-next'
+      markdown:
+        applies-to: version-updates
+        patterns:
+          - 'mdx-bundler'
+          - 'esbuild'
+          - 'rehype'
+          - 'rehype-katex
+          - 'rehype-parse'
+          - 'remark-gfm'
+          - 'remark-math'
+          - 'unified'
+          - 'unist-util-visit'
+          - '@types/unist'
+          - '@types/hast'
+            - '@types/mdx'

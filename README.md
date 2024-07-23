@@ -60,17 +60,17 @@ A step by step series of examples that tell you how to get a development env run
 
 ### Install dependencies
 
-#### `npm install` or `yarn`
+#### `pnpm install`
 
 ### Start the application
 
-#### `npm start` or `yarn start`
+#### `pnpm start`
 
 It will runs the app in development mode and automaticlly open your browser, if not you open the browser, and go to [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Running the storybook on local <a name = "docs"></a>
 
-#### `npm storybook` or `yarn storybook`
+#### `pnpm storybook`
 
 ### Running the tests <a name = "tests"></a>
 
@@ -78,15 +78,15 @@ To run the automated tests for this system.
 
 ### Running the test one time
 
-#### `npm test` or `yarn test`
+#### `pnpm test`
 
 ### Runs the test watcher in an interactive mode.
 
-#### `npm test:watch` or `yarn test:watch`
+#### `pnpm test:watch`
 
 ### Runs the test coverage.
 
-#### `npm test:coverage` or `yarn test:coverage`
+#### `pnpm test:coverage`
 
 ## 🎈 Usage <a name="usage"></a>
 
