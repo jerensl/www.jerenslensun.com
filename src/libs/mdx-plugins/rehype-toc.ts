@@ -1,9 +1,8 @@
 import { visit } from 'unist-util-visit'
 import parameterize from 'parameterize'
-import type { Plugin } from 'unified'
-import type { Element } from 'hast'
+import type { Element, Node } from 'hast'
 
-function rehypeTOC(options = {}): Plugin {
+function rehypeTOC(options = {}) {
     const visitor = (
         node: Element,
         _index: number | null,
@@ -27,7 +26,7 @@ function rehypeTOC(options = {}): Plugin {
         }
     }
 
-    return (tree: Element) => {
+    return (tree: Node) => {
         visit(tree, 'element', visitor)
     }
 }

@@ -14,15 +14,19 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
-                  cache: 'yarn'
+                  cache: 'pnpm'
             - name: Install locked dependencies
-              run: yarn install --frozen-lockfile --prefer-offline
+              run: pnpm install --frozen-lockfile --prefer-offline
             - name: Lint files
-              run: yarn lint
+              run: pnpm run lint
               env:
                   CI: true
     type-check:
@@ -32,15 +36,19 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
-                  cache: 'yarn'
+                  cache: 'pnpm'
             - name: Install locked dependencies
-              run: yarn install --frozen-lockfile --prefer-offline
+              run: pnpm install --frozen-lockfile --prefer-offline
             - name: Perform type checking
-              run: yarn type-check
+              run: pnpm run type-check
               env:
                   CI: true
     test:
@@ -52,15 +60,19 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
-                  cache: 'yarn'
+                  cache: 'pnpm'
             - name: Install locked dependencies
-              run: yarn install --frozen-lockfile --prefer-offline
+              run: pnpm install --frozen-lockfile --prefer-offline
             - name: Check Code Coverage
-              run: yarn test:coverage
+              run: pnpm run test:coverage
             - name: Upload code coverage reports to Codecov
               uses: codecov/codecov-action@v4
               with:
@@ -76,20 +88,24 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4
               with:
                   node-version: '18.x'
-                  cache: 'yarn'
+                  cache: 'pnpm'
             - name: Install Cypress
-              run: yarn add cypress
+              run: pnpm add cypress
             - name: Build the web app
-              run: yarn build
+              run: pnpm run build
             - name: Run Cypress
               uses: cypress-io/github-action@v6
               with:
                   record: true
-                  start: yarn start
+                  start: pnpm run start
                   wait-on: 'http://localhost:3000'
               env:
                   CI: true

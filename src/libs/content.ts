@@ -65,7 +65,7 @@ export const getContentByName = async (type: string, slug: string) => {
 
     const { code, frontmatter } = await bundleMDX({
         source: source,
-        xdmOptions(options) {
+        mdxOptions(options) {
             options.remarkPlugins = [
                 ...(options.remarkPlugins ?? []),
                 ...remarkPlugins,
@@ -163,7 +163,7 @@ export const getContent = async (
 
     const { code, frontmatter } = await bundleMDX({
         source: source,
-        xdmOptions(options) {
+        mdxOptions(options) {
             options.remarkPlugins = [
                 ...(options.remarkPlugins ?? []),
                 ...remarkPlugins,

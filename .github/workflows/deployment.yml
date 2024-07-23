@@ -17,6 +17,10 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
@@ -24,8 +28,8 @@ jobs:
             - name: Deploy Storybook Docs
               uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
               with:
-                  install_command: yarn install # default: npm ci
-                  build_command: yarn build:storybook # default: npm run build-storybook
+                  install_command: pnpm install # default: npm ci
+                  build_command: pnpm run build:storybook # default: npm run build-storybook
                   path: storybook-static # default: dist/storybook
                   checkout: false # default: true
     azure_deploy:

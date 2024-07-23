@@ -1,15 +1,14 @@
 import { visit } from 'unist-util-visit'
 import type { Plugin } from 'unified'
-import type { Visitor } from 'unist-util-visit/complex-types'
-import type { Element } from 'hast'
+import type { Element, Node } from 'hast'
 
 let re = /\b([-\w]+)(?:=(?:"([^"]*)"|'([^']*)'|([^"'\s]+)))?/g
 
-function rehypeMetaAttribute(options = {}): Plugin {
-    const visitor: Visitor<Element, Element> = (
+function rehypeMetaAttribute(options = {}) {
+    const visitor = (
         node: Element,
-        _index: number | null,
-        parentNode: Element | null
+        index: number | undefined,
+        parentNode: Element | undefined
     ) => {
         let match
 
@@ -31,7 +30,7 @@ function rehypeMetaAttribute(options = {}): Plugin {
         }
     }
 
-    return (tree: Element) => {
+    return (tree: Node) => {
         visit(tree, 'element', visitor)
     }
 }
