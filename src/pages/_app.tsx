@@ -14,6 +14,21 @@ config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
     const [queryClient] = React.useState(() => new QueryClient())
+    const mockingEnabled = !!process.env.NEXT_PUBLIC_API_MOCKING
+    const [shouldRender, setShouldRender] = React.useState(!mockingEnabled)
+
+    React.useEffect(() => {
+        if (mockingEnabled) {
+            import('../mocks/init').then(async ({ initMocks }) => {
+                await initMocks()
+                setShouldRender(true)
+            })
+        }
+    }, [])
+
+    if (!shouldRender) {
+        return 'Loading mocks...'
+    }
 
     const Components = Component as any
     return (
