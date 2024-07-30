@@ -184,8 +184,8 @@ importers:
         specifier: ^14.2.5
         version: 14.2.5
       '@storybook/addon-actions':
-        specifier: ^8.2.4
-        version: 8.2.5(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
+        specifier: ^8.2.6
+        version: 8.2.6(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/addon-docs':
         specifier: ^8.1.10
         version: 8.2.5(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -199,8 +199,8 @@ importers:
         specifier: ^8.2.4
         version: 8.2.5(react@18.3.1)(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/addon-mdx-gfm':
-        specifier: ^8.1.11
-        version: 8.2.5(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
+        specifier: ^8.2.6
+        version: 8.2.6(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/addon-postcss':
         specifier: ^2.0.0
         version: 2.0.0(webpack@5.93.0(@swc/core@1.7.3(@swc/helpers@0.5.5))(esbuild@0.15.18))
@@ -2672,6 +2672,11 @@ packages:
     peerDependencies:
       storybook: ^8.2.5
 
+  '@storybook/addon-actions@8.2.6':
+    resolution: {integrity: sha512-iCsf3V28/jJ95w2zd8aSvR4denoA2UYV3fpNCTGOURqICyKOG3cyVxvqKp8Hhcwn7trNOsK+HlL6q5gpv56ViA==}
+    peerDependencies:
+      storybook: ^8.2.6
+
   '@storybook/addon-backgrounds@8.2.5':
     resolution: {integrity: sha512-FZowGG+58qWHePjE6tGTTjT+m4/ZTI1uZD7GA++phdi5m8V/LGwJl8zBNZqUha/ygJ0i3Yvnj4tclWDSa8wtnQ==}
     peerDependencies:
@@ -2711,10 +2716,10 @@ packages:
       react:
         optional: true
 
-  '@storybook/addon-mdx-gfm@8.2.5':
-    resolution: {integrity: sha512-ofT4Gxxp2thOT/Xg+GCyEPpsoqEZQKcGsOWOvxa4g8fuQx0Kag1CHEpTs1Q9kiL7Q7MvMoprBn2wneCCgeVCnA==}
+  '@storybook/addon-mdx-gfm@8.2.6':
+    resolution: {integrity: sha512-PFVfJeuydxlV1VmxEuKNQ7z2vCDvQtHa2GB0ANM11ahxDSUz8QxsO0Y/L3LOn2JjJGYiVFrsHAaC+8NW43iArQ==}
     peerDependencies:
-      storybook: ^8.2.5
+      storybook: ^8.2.6
 
   '@storybook/addon-measure@8.2.5':
     resolution: {integrity: sha512-rC/kukXM+3Sd1U5Wboozs82p3rLaHBRCmQfk3bFhWyGKvbYWEWmSr7w0DLH8/X7pi1u8IMSqeRll7tDJrEXeaw==}
@@ -11898,6 +11903,15 @@ snapshots:
       storybook: 8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9))
       uuid: 9.0.1
 
+  '@storybook/addon-actions@8.2.6(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9))
+      uuid: 9.0.1
+
   '@storybook/addon-backgrounds@8.2.5(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
     dependencies:
       '@storybook/global': 5.0.0
@@ -11976,7 +11990,7 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
-  '@storybook/addon-mdx-gfm@8.2.5(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
+  '@storybook/addon-mdx-gfm@8.2.6(storybook@8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
     dependencies:
       remark-gfm: 4.0.0
       storybook: 8.2.6(@babel/preset-env@7.24.8(@babel/core@7.24.9))
