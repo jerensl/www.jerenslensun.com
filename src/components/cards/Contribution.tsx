@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons'
 import { faCircleDot } from '@fortawesome/free-regular-svg-icons'
 import clsx from 'clsx'
-import Card from './Card'
+import { motion } from 'framer-motion'
 
 interface CareerCardProps {
     organization: string
@@ -27,13 +27,18 @@ export const CareerCard: React.FC<CareerCardProps> = ({
     status,
 }): React.ReactElement => {
     return (
-        <Card
-            as="article"
-            variant="elevated"
-            className="h-72 mb-48 w-[450px] flex flex-col gap-2 p-4"
+        <motion.article
+            className="bg-surface-container-low shadow-elevation-1 rounded-medium hover:bg-on-surface/8 active:bg-on-surface/12 first-letter:min-h-20 w-[450px] flex flex-col gap-2 p-4"
+            initial={{ opacity: 0 }}
+            whileInView={{
+                opacity: 1,
+            }}
+            viewport={{
+                margin: '-200px',
+            }}
         >
             <h2 className="text-2xl font-sans font-bold">{organization}</h2>
-            <h3 className="text-sm font-sans font-light">{project}</h3>
+            <h3 className="text-sm font-sans font-light mt-4">{project}</h3>
             <StandardLink
                 href={issue_url}
                 isExternal
@@ -66,7 +71,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
                 </span>{' '}
                 {pr}
             </StandardLink>
-            <span className="font-light">{date}</span>
-        </Card>
+            <span className="font-light mt-12">{date}</span>
+        </motion.article>
     )
 }
