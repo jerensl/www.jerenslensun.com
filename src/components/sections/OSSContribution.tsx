@@ -56,11 +56,11 @@ export default function HorizontalScroll() {
 
     return (
         <section ref={targetRef} className="relative h-[300vh]">
-            <div className="sticky top-10 flex h-screen items-center flex-col overflow-hidden">
+            <div className="sticky top-10 bottom-20 flex h-[450px] items-center flex-col overflow-hidden">
                 <h2 className="mt-20 text-center m-auto font-bold text-3xl">
                     Open Source Contribution
                 </h2>
-                <motion.div style={{ x }} className="flex gap-28 mt-14">
+                <motion.div style={{ x }} className="flex gap-28 h-80 mt-14">
                     {careers?.map(
                         ({
                             organization,
