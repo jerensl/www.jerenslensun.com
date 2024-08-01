@@ -5,6 +5,7 @@ import { Grid } from './Grid'
 import imageLoader from '../constant/images'
 import { Navigation } from './links/Navigation'
 import WritingAnimation from './animations/WritingAnimation'
+import Images from './ImageWithFallback'
 
 export const Header = ({
     blurDataURL,
@@ -20,16 +21,15 @@ export const Header = ({
                     className={clsx('pt-20', inView && 'fade-in-start')}
                 >
                     <div className="col-span-full pt-10 lg:col-start-6 lg:col-span-7 m-auto">
-                        <Image
+                        <Images
                             data-fade="1"
-                            src="illustration-landing-page.png"
-                            loader={imageLoader}
+                            src="illustration-landing-page.webp"
                             placeholder="blur"
                             blurDataURL={blurDataURL}
                             alt="A man looking to a beautiful river and mountain"
-                            quality="80"
-                            width="1080"
-                            height="720"
+                            quality={80}
+                            width={1080}
+                            height={720}
                         />
                     </div>
                     <div className="col-span-full items-center grid gap-10 pt-10 lg:gap-5 lg:pt-0 lg:col-start-1 lg:row-start-1 lg:col-span-5 w-full max-w-sm m-auto">
