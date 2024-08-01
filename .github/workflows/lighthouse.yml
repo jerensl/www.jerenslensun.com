@@ -26,7 +26,7 @@ jobs:
               id: lhci
               shell: bash
               run: |
-                  pnpm global add @lhci/cli@0.11.x
+                  pnpm add -g @lhci/cli@0.11.x
                   echo -e "\n"
                   echo "Start collecting LH report..."
                   lhci collect --url=${{ inputs.static_web_url }} --url=${{ inputs.static_web_url }}/blog --url=${{ inputs.static_web_url }}/project -n=4
