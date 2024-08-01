@@ -2,7 +2,6 @@ import React from 'react'
 import Image, { ImageLoaderProps } from 'next/image'
 import imageLoader from '@/constant/images'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
-import { validate } from 'uuid'
 
 interface ImagesProps extends ImageLoaderProps {
     alt: string
