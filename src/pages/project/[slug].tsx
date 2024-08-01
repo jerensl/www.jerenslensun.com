@@ -16,6 +16,7 @@ import { Grid } from '@/components/Grid'
 import imageLoader from '@/constant/images'
 import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
+import Images from '@/components/ImageWithFallback'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const projects = getFiles('project')
@@ -60,14 +61,13 @@ export default function Project({
                     {frontmatter.title}
                 </h1>
                 <div className="col-span-full m-auto">
-                    <Image
-                        loader={imageLoader}
+                    <Images
                         src={frontmatter.cover}
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                         alt="Person"
-                        height="350"
-                        width="700"
+                        height={350}
+                        width={700}
                         className="object-cover"
                     />
                 </div>

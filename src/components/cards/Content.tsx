@@ -3,6 +3,7 @@ import imageLoader from '@/constant/images'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
+import Images from '../ImageWithFallback'
 
 interface ContentCardProps {
     variant: 'elevated' | 'filled' | 'outlined'
@@ -40,18 +41,14 @@ export const ContentCard: React.FC<ContentCardProps> = ({
         >
             <Link href={slug}>
                 <div className="relative overflow-auto">
-                    <Image
-                        loader={imageLoader}
+                    <Images
                         src={imageURL}
                         alt={title}
-                        blurDataURL={blurDataURL ?? undefined}
+                        blurDataURL={blurDataURL ?? ''}
                         placeholder={blurDataURL ? 'blur' : 'empty'}
-                        width="450"
-                        height="200"
-                        style={{
-                            objectFit: 'cover',
-                        }}
-                        className="cursor-pointer rounded-t-medium"
+                        width={450}
+                        height={200}
+                        className="cursor-pointer object-cover rounded-t-medium"
                     />
                 </div>
                 <div className="flex flex-col gap-1 m-4">

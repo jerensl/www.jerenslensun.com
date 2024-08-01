@@ -16,6 +16,7 @@ import { getContent, getFiles } from '@/libs/content'
 import { MDXTitleHeadingLevels } from '@/types/content'
 import imageLoader from '@/constant/images'
 import { Comment } from '@/components/Comment'
+import Images from '@/components/ImageWithFallback'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getFiles('blog')
@@ -83,14 +84,13 @@ export default function Blog({
                 <p className="text-xl pt-1 pb-2 font-medium">
                     {format(new Date(frontmatter.date), 'MMMM dd, yyyy')}
                 </p>
-                <Image
-                    loader={imageLoader}
+                <Images
                     src={frontmatter.cover}
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                     alt="Person"
-                    height="350"
-                    width="700"
+                    height={350}
+                    width={700}
                     className="object-cover m-auto"
                 />
             </header>
