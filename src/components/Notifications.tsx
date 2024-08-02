@@ -30,10 +30,14 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
     const unSubsMutation = useUnsubs()
 
     const handleNotification = async () => {
-        if (data?.isActive) {
-            subsMutation.mutate({ token })
-        } else {
+        if (isLoading || isError) {
+            return
+        }
+
+        if (data.isActive) {
             unSubsMutation.mutate({ token })
+        } else {
+            subsMutation.mutate({ token })
         }
     }
 
