@@ -129,7 +129,7 @@
         "jest-environment-jsdom": "^29.7.0",
         "jest-fetch-mock": "^3.0.3",
         "lodash": "^4.17.21",
-        "msw": "^2.3.4",
+        "msw": "^2.3.5",
         "next-compose-plugins": "^2.2.1",
         "next-sitemap": "^4.2.3",
         "postcss": "^8.4.40",
