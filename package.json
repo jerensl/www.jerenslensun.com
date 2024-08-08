@@ -94,7 +94,7 @@
         "@storybook/theming": "^8.2.7",
         "@swc/core": "^1.7.6",
         "@swc/jest": "^0.2.36",
-        "@tailwindcss/typography": "^0.5.0",
+        "@tailwindcss/typography": "^0.5.14",
         "@testing-library/cypress": "^10.0.2",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.4.8",
