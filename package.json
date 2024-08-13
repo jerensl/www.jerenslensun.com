@@ -90,7 +90,7 @@
         "@storybook/manager-api": "^8.2.8",
         "@storybook/nextjs": "^8.2.7",
         "@storybook/react": "^8.2.8",
-        "@storybook/test": "^8.2.6",
+        "@storybook/test": "^8.2.8",
         "@storybook/theming": "^8.2.8",
         "@swc/core": "^1.7.6",
         "@swc/jest": "^0.2.36",
