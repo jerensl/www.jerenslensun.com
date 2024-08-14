@@ -187,8 +187,8 @@ importers:
         specifier: ^14.2.5
         version: 14.2.5
       '@storybook/addon-actions':
-        specifier: ^8.2.6
-        version: 8.2.7(storybook@8.2.8(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
+        specifier: ^8.2.8
+        version: 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/addon-docs':
         specifier: ^8.2.8
         version: 8.2.8(storybook@8.2.8(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -2672,11 +2672,6 @@ packages:
 
   '@stitches/core@1.2.8':
     resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
-
-  '@storybook/addon-actions@8.2.7':
-    resolution: {integrity: sha512-wDnMGGmaogAForkNncfCx8BEDiwxeK8zC0lj8HkRPUuH6vTr81U5RIb12Wa2TnnNKLKMFAtyPSnofHf3OAfzZQ==}
-    peerDependencies:
-      storybook: ^8.2.7
 
   '@storybook/addon-actions@8.2.8':
     resolution: {integrity: sha512-dyajqsMNAUktpi7aiml0Fsm4ey8Nh2YwRyTDuTJZ1iJFcFyARqfr5iKH4/qElq80y0FYXGgGRJB+dKJsCdefLw==}
@@ -12004,15 +11999,6 @@ snapshots:
       '@sinonjs/commons': 3.0.1
 
   '@stitches/core@1.2.8': {}
-
-  '@storybook/addon-actions@8.2.7(storybook@8.2.8(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
-    dependencies:
-      '@storybook/global': 5.0.0
-      '@types/uuid': 9.0.8
-      dequal: 2.0.3
-      polished: 4.3.1
-      storybook: 8.2.8(@babel/preset-env@7.24.8(@babel/core@7.24.9))
-      uuid: 9.0.1
 
   '@storybook/addon-actions@8.2.8(storybook@8.2.8(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
     dependencies:
