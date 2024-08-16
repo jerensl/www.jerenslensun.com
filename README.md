@@ -12,7 +12,7 @@
 
 ---
 
-<p align="center"> A website to share knowledge and project i'm working on.
+<p align="center"> A website to share knowledge and project i'm currently work on.
     <br>  
 </p>
 
