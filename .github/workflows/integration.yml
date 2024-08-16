@@ -58,10 +58,6 @@ jobs:
         env:
             NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
         steps:
-            - name: Dump GitHub context
-              env:
-                  GITHUB_CONTEXT: ${{ toJson(github) }}
-              run: echo "$GITHUB_CONTEXT"
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Install pnpm

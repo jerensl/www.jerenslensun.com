@@ -13,7 +13,7 @@
 ---
 
 <p align="center"> A portfolio website to share knowledge and project i'm working on.
-    <br> 
+    <br>  
 </p>
 
 ## 📝 Table of Contents
