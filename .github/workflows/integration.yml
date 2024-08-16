@@ -6,20 +6,28 @@ on:
         branches:
             - main
 
+permissions:
+  contents: read
+
 jobs:
     lint:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         name: ESLint
         runs-on: ubuntu-latest
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -34,14 +42,19 @@ jobs:
         name: Type check
         runs-on: ubuntu-latest
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -58,14 +71,19 @@ jobs:
         env:
             NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -74,26 +92,34 @@ jobs:
             - name: Check Code Coverage
               run: pnpm run test:coverage
             - name: Upload code coverage reports to Codecov
-              uses: codecov/codecov-action@v4
+              uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4.5.0
               with:
                   flags: unittests # optional
                   name: jerens-web-app # optional
                   token: ${{ secrets.CODECOV_TOKEN }} # required
     e2e:
+        permissions:
+          actions: read  # for cypress-io/github-action to correctly identify workflow run
+          contents: read  # for actions/checkout to fetch code
         if: github.repository == 'jerensl/www.jerenslensun.com'
         name: End-to-end tests
         runs-on: ubuntu-latest
         env:
             NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -102,7 +128,7 @@ jobs:
             - name: Build the web app
               run: pnpm run build
             - name: Run Cypress
-              uses: cypress-io/github-action@v6
+              uses: cypress-io/github-action@df7484c5ba85def7eef30db301afa688187bc378 # v6.7.2
               with:
                   record: true
                   start: pnpm run start
