@@ -74,7 +74,7 @@ jobs:
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
             - name: Find associated pull request
               id: get-pr-number
-              uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+              uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
               with:
                   script: |
                       const response = await github.rest.search.issuesAndPullRequests({
@@ -90,7 +90,7 @@ jobs:
                       console.info("Pull request number is", pullRequestNumber)
                       return pullRequestNumber
             - name: Comment on staging url
-              uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+              uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
               env:
                   PR_NUMBER: ${{ steps.get-pr-number.outputs.result }}
                   STAGING_URL: ${{ steps.swa.outputs.static_web_app_url }}
