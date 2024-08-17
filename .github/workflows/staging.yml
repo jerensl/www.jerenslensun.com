@@ -11,6 +11,25 @@ permissions:
     pull-requests: write
 
 jobs:
+    upload_code_coverage:
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        runs-on: ubuntu-latest
+        name: Upload code coverage to codecov
+        steps:
+            - name: Download code coverage artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: jest-code-coverage
+                  path: coverage
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  run-id: ${{ github.event.workflow_run.id }}
+            - name: Upload code coverage reports to Codecov
+              uses: codecov/codecov-action@v4
+              with:
+                  flags: ui-integration-test # optional
+                  name: jerens-web-app # optional
+                  token: ${{ secrets.CODECOV_TOKEN }} # required
+
     build_and_deploy_to_azure:
         if: github.repository == 'jerensl/www.jerenslensun.com' && github.event.workflow_run.event == 'pull_request'
         runs-on: ubuntu-latest
@@ -42,6 +61,39 @@ jobs:
                   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
+    e2e:
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        name: End-to-end tests
+        runs-on: ubuntu-latest
+        env:
+            NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
+            - name: Setup Node.js 18.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18.x'
+                  cache: 'pnpm'
+            - name: Install Cypress
+              run: pnpm add cypress
+            - name: Build the web app
+              run: pnpm run build
+            - name: Run Cypress
+              uses: cypress-io/github-action@v6
+              with:
+                  record: true
+                  start: pnpm run start
+                  wait-on: 'http://localhost:3000'
+              env:
+                  CI: true
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     close_pull_request_job:
         if: github.repository == 'jerensl/www.jerenslensun.com' && github.event.workflow_run.event != 'pull_request'
         runs-on: ubuntu-latest
