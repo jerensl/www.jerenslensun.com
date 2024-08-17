@@ -6,6 +6,9 @@ on:
         branches:
             - main
 
+permissions:
+  contents: read
+
 jobs:
     build:
         if: github.repository == 'jerensl/www.jerenslensun.com'
@@ -14,14 +17,19 @@ jobs:
         env:
             NEXT_PUBLIC_IMAGES_CDN: 'https://ik.imagekit.io/jerensl'
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -30,7 +38,7 @@ jobs:
             - name: Build web application
               run: pnpm run build
             - name: Upload code coverage to artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4.3.6
               with:
                   name: web-app-build
                   path: out
@@ -40,14 +48,19 @@ jobs:
         name: ESLint
         runs-on: ubuntu-latest
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -62,14 +75,19 @@ jobs:
         name: Type check
         runs-on: ubuntu-latest
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -84,14 +102,19 @@ jobs:
         name: Unit and integration tests
         runs-on: ubuntu-latest
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -100,7 +123,7 @@ jobs:
             - name: Check Code Coverage
               run: pnpm run test:coverage
             - name: Upload code coverage to artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4.3.6
               with:
                   name: jest-code-coverage
                   path: coverage
