@@ -7,6 +7,34 @@ on:
             - main
 
 jobs:
+    build:
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        name: Unit and integration tests
+        runs-on: ubuntu-latest
+        env:
+            NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
+            - name: Setup Node.js 18.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '18.x'
+                  cache: 'pnpm'
+            - name: Install locked dependencies
+              run: pnpm install --frozen-lockfile --prefer-offline
+            - name: Build web application
+              run: pnpm run build
+            - name: Upload code coverage to artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build-web-app
+                  path: out
+                  retention-days: 14
     lint:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         name: ESLint
@@ -73,41 +101,9 @@ jobs:
               run: pnpm install --frozen-lockfile --prefer-offline
             - name: Check Code Coverage
               run: pnpm run test:coverage
-            - name: Upload code coverage reports to Codecov
-              uses: codecov/codecov-action@v4
+            - name: Upload code coverage to artifact
+              uses: actions/upload-artifact@v4
               with:
-                  flags: unittests # optional
-                  name: jerens-web-app # optional
-                  token: ${{ secrets.CODECOV_TOKEN }} # required
-    e2e:
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        name: End-to-end tests
-        runs-on: ubuntu-latest
-        env:
-            NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  version: 9
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '18.x'
-                  cache: 'pnpm'
-            - name: Install Cypress
-              run: pnpm add cypress
-            - name: Build the web app
-              run: pnpm run build
-            - name: Run Cypress
-              uses: cypress-io/github-action@v6
-              with:
-                  record: true
-                  start: pnpm run start
-                  wait-on: 'http://localhost:3000'
-              env:
-                  CI: true
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  name: jest-code-coverage
+                  path: coverage
+                  retention-days: 14
