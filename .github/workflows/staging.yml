@@ -33,8 +33,6 @@ jobs:
         if: github.repository == 'jerensl/www.jerenslensun.com' && github.event.workflow_run.event == 'pull_request'
         runs-on: ubuntu-latest
         name: Build and Deploy Job
-        outputs:
-            static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
         steps:
             - name: Download build web app artifact
               uses: actions/download-artifact@v4
@@ -64,6 +62,19 @@ jobs:
                   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
+            - uses: actions/github-script@v6
+              env:
+                  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.number }}
+                  STAGING_URL: ${{ steps.swa.outputs.static_web_app_url }}
+              with:
+                  script: |
+                      const { PR_NUMBER, STAGING_URL } = process.env
+                      await github.issues.createComment({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          issue_number: PR_NUMBER,
+                          body: `Azure Static Web Apps: Your stage site is ready! Visit it here: ${STAGING_URL}`
+                      });
     e2e:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         name: End-to-end tests
