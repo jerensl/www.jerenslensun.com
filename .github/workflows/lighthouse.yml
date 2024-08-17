@@ -12,14 +12,19 @@ jobs:
         name: Run Lighthouse CI
         runs-on: ubuntu-latest
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1.4.6
               with:
                   node-version: '18.x'
             - name: 'Lighthouse CI assertion'
