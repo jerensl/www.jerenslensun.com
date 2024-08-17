@@ -12,7 +12,7 @@ jobs:
         name: Build static web app
         runs-on: ubuntu-latest
         env:
-            NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
+            NEXT_PUBLIC_IMAGES_CDN: 'https://ik.imagekit.io/jerensl'
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
@@ -83,8 +83,6 @@ jobs:
         if: github.repository == 'jerensl/www.jerenslensun.com'
         name: Unit and integration tests
         runs-on: ubuntu-latest
-        env:
-            NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
