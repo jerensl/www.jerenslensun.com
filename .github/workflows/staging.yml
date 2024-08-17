@@ -16,15 +16,20 @@ jobs:
         runs-on: ubuntu-latest
         name: Upload code coverage to codecov
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Download code coverage artifact
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
               with:
                   name: jest-code-coverage
                   path: coverage
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   run-id: ${{ github.event.workflow_run.id }}
             - name: Upload code coverage reports to Codecov
-              uses: codecov/codecov-action@v4
+              uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4.5.0
               with:
                   flags: ui-integration-test # optional
                   name: jerens-web-app # optional
@@ -36,14 +41,19 @@ jobs:
         outputs:
             static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
         steps:
-            - uses: actions/checkout@v4
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
+            - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
               with:
                   repository: ${{ github.event.workflow_run.repository }}
                   ref: ${{ github.event.workflow_run.referenced_workflows.ref }}
                   submodules: true
             - name: Build And Deploy
               id: swa
-              uses: Azure/static-web-apps-deploy@v1
+              uses: Azure/static-web-apps-deploy@c514ae36604047560e33605b78f71804967bfb7a # v1
               with:
                   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
                   repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -68,14 +78,19 @@ jobs:
         env:
             NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Checkout repository
-              uses: actions/checkout@v4
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
               with:
                   version: 9
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
               with:
                   node-version: '18.x'
                   cache: 'pnpm'
@@ -84,7 +99,7 @@ jobs:
             - name: Build the web app
               run: pnpm run build
             - name: Run Cypress
-              uses: cypress-io/github-action@v6
+              uses: cypress-io/github-action@df7484c5ba85def7eef30db301afa688187bc378 # v6.7.2
               with:
                   record: true
                   start: pnpm run start
@@ -98,9 +113,14 @@ jobs:
         runs-on: ubuntu-latest
         name: Close Pull Request Job
         steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+              with:
+                egress-policy: audit
+
             - name: Close Pull Request
               id: closepullrequest
-              uses: Azure/static-web-apps-deploy@v1
+              uses: Azure/static-web-apps-deploy@c514ae36604047560e33605b78f71804967bfb7a # v1
               with:
                   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
                   action: 'close'
