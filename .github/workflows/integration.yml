@@ -9,7 +9,7 @@ on:
 jobs:
     build:
         if: github.repository == 'jerensl/www.jerenslensun.com'
-        name: Unit and integration tests
+        name: Build static web app
         runs-on: ubuntu-latest
         env:
             NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
