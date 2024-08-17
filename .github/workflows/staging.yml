@@ -62,9 +62,27 @@ jobs:
                   NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
-            - uses: actions/github-script@v6
+            - name: Find associated pull request
+              id: get-pr-number
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      const response = await github.rest.search.issuesAndPullRequests({
+                      q: 'repo:${{ github.repository }} is:pr sha:${{ github.event.workflow_run.head_sha }}',
+                      per_page: 1,
+                      })
+                      const items = response.data.items
+                      if (items.length < 1) {
+                      console.error('No PRs found')
+                      return
+                      }
+                      const pullRequestNumber = items[0].number
+                      console.info("Pull request number is", pullRequestNumber)
+                      return pullRequestNumber
+            - name: Comment on staging url
+              uses: actions/github-script@v6
               env:
-                  PR_NUMBER: ${{ github.event.workflow_run.pull_requests.number }}
+                  PR_NUMBER: ${{ steps.get-pr-number.outputs.result }}
                   STAGING_URL: ${{ steps.swa.outputs.static_web_app_url }}
               with:
                   script: |
