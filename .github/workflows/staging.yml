@@ -36,11 +36,6 @@ jobs:
         outputs:
             static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
         steps:
-            - uses: actions/checkout@v4
-              with:
-                  repository: ${{ github.event.workflow_run.repository }}
-                  ref: ${{ github.event.workflow_run.referenced_workflows.ref }}
-                  submodules: true
             - name: Download build web app artifact
               uses: actions/download-artifact@v4
               with:
