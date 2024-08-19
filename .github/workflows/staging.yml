@@ -19,7 +19,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: Download code coverage artifact
               uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
@@ -42,7 +42,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: Download build web app artifact
               uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
@@ -113,7 +113,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: Checkout repository
               uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -140,19 +140,3 @@ jobs:
                   CI: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    close_pull_request_job:
-        if: github.repository == 'jerensl/www.jerenslensun.com' && github.event.workflow_run.event != 'pull_request'
-        runs-on: ubuntu-latest
-        name: Close Pull Request Job
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
-              with:
-                egress-policy: audit
-
-            - name: Close Pull Request
-              id: closepullrequest
-              uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
-              with:
-                  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-                  action: 'close'
