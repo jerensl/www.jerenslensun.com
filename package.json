@@ -38,7 +38,7 @@
         "firebase": "^10.13.0",
         "framer-motion": "^11.3.28",
         "gray-matter": "^4.0.3",
-        "hast-util-to-html": "^9.0.1",
+        "hast-util-to-html": "^9.0.2",
         "hast-util-to-string": "^3.0.0",
         "match-sorter": "^6.3.3",
         "mdx-bundler": "^10.0.2",
