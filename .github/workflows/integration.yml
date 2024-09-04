@@ -128,3 +128,16 @@ jobs:
                   name: jest-code-coverage
                   path: coverage
                   retention-days: 14
+    azure_deploy_staging:
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        uses: ./.github/workflows/azure.yml
+        secrets: inherit
+    lhci:
+        if: >
+            github.repository == 'jerensl/www.jerenslensun.com' && 
+            contains(github.event.pull_request.labels.*.name, 'need-perf-check')
+        needs: azure_deploy_staging
+        uses: ./.github/workflows/lighthouse.yml
+        secrets: inherit
+        with:
+            static_web_url: ${{ needs.azure_deploy_staging.outputs.static_web_app_url }}
