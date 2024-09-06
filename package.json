@@ -78,7 +78,7 @@
         "@commitlint/config-conventional": "^19.4.1",
         "@commitlint/types": "^19.0.3",
         "@mswjs/data": "^0.16.1",
-        "@next/plugin-storybook": "^14.2.7",
+        "@next/plugin-storybook": "^14.2.8",
         "@storybook/addon-actions": "^8.2.8",
         "@storybook/addon-docs": "^8.2.9",
         "@storybook/addon-essentials": "^8.2.9",
