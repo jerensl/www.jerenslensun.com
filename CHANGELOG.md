@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.0.0 (2024-09-06)
+
+
+### Features
+
+* **cliffy:** add cliffy cli library ([6e0dc88](https://github.com/jerensl/www.jerenslensun.com/commit/6e0dc88405afe318ac779887d90a58fb00acf9f1))
+* **cliffy:** add cliffy cli library ([6ad41bf](https://github.com/jerensl/www.jerenslensun.com/commit/6ad41bfd1ca98a84d93ea8261c92ff82f9dd03ff))
+* **cliffy:** add cliffy cli library ([#1210](https://github.com/jerensl/www.jerenslensun.com/issues/1210)) ([6e0dc88](https://github.com/jerensl/www.jerenslensun.com/commit/6e0dc88405afe318ac779887d90a58fb00acf9f1))
+* **oss-contribution:** add oss contribution on landing page ([dcb4912](https://github.com/jerensl/www.jerenslensun.com/commit/dcb4912adc08ee0a23c751d88a5e7e7e374a2bfa))
+* **oss-contribution:** add oss contribution on landing page ([8afd9ad](https://github.com/jerensl/www.jerenslensun.com/commit/8afd9adbc49643112c183fde7a3a08b7148043d8))
+* **oss-contribution:** add oss contribution on landing page ([#1145](https://github.com/jerensl/www.jerenslensun.com/issues/1145)) ([dcb4912](https://github.com/jerensl/www.jerenslensun.com/commit/dcb4912adc08ee0a23c751d88a5e7e7e374a2bfa))
+
+
+### Bug Fixes
+
+* **dependabot:** group some dependencies upgrade ([9c8a0cc](https://github.com/jerensl/www.jerenslensun.com/commit/9c8a0cc1a4cff08d8ee089bdb01c15584782a094))
+* **dependabot:** group some dependencies upgrade ([87fa3fd](https://github.com/jerensl/www.jerenslensun.com/commit/87fa3fdaff0887b751a4d0aa6f77e22c98ded9e1))
+* **dependabot:** group some dependencies upgrade ([#1185](https://github.com/jerensl/www.jerenslensun.com/issues/1185)) ([9c8a0cc](https://github.com/jerensl/www.jerenslensun.com/commit/9c8a0cc1a4cff08d8ee089bdb01c15584782a094))
+* **deployment:** remove babel/jest ([5e9d62a](https://github.com/jerensl/www.jerenslensun.com/commit/5e9d62a6e763265d7e2fc43849dbea60eabecff2))
+* **oss-horiontal-scroll:** fix the card layout size heigh ([c41af51](https://github.com/jerensl/www.jerenslensun.com/commit/c41af519927a29559d1dd9ee91f1788d011fcb2c))
+* **oss-horiontal-scroll:** fix the card layout size height ([1e0119f](https://github.com/jerensl/www.jerenslensun.com/commit/1e0119f62bfa33fc2fd4e7968624d6af77096081))
+* **oss-horiontal-scroll:** fix the card layout size height ([#1217](https://github.com/jerensl/www.jerenslensun.com/issues/1217)) ([1e0119f](https://github.com/jerensl/www.jerenslensun.com/commit/1e0119f62bfa33fc2fd4e7968624d6af77096081))
+
 ## [1.6.0](https://github.com/jerensl/www.jerenslensun.com/compare/v1.5.1...v1.6.0) (2024-07-12)
 
 
