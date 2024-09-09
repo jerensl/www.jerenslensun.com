@@ -202,8 +202,8 @@ importers:
         specifier: ^8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/addon-mdx-gfm':
-        specifier: ^8.2.8
-        version: 8.2.8(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
+        specifier: ^8.2.9
+        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
       '@storybook/addon-postcss':
         specifier: ^2.0.0
         version: 2.0.0(webpack@5.94.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(esbuild@0.15.18))
@@ -2712,10 +2712,10 @@ packages:
       react:
         optional: true
 
-  '@storybook/addon-mdx-gfm@8.2.8':
-    resolution: {integrity: sha512-PthYeCsYwgFl3cyXL8csdylea/XzPnzBnR+FfX+1koYOIZ3dWM0CXP6vPP1prdbqG2dSnfMNVkxpg8gq2buIgw==}
+  '@storybook/addon-mdx-gfm@8.2.9':
+    resolution: {integrity: sha512-qpv3oVBVStXKcYmhmsEDVlWvdOpG4bHGOchCe2iU/wlcT5zFQSpQj2IoCNbj5MxhwAw2VobrAvRjNQjv95fYAg==}
     peerDependencies:
-      storybook: ^8.2.8
+      storybook: ^8.2.9
 
   '@storybook/addon-measure@8.2.9':
     resolution: {integrity: sha512-XUfQtYRKWB2dfbPRmHuos816wt1JrLbtRld5ZC8J8ljeqZ4hFBPTQcgI5GAzZqjQuclLC0KuhlA/0bKxdxMMGA==}
@@ -11980,7 +11980,7 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
-  '@storybook/addon-mdx-gfm@8.2.8(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
+  '@storybook/addon-mdx-gfm@8.2.9(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))':
     dependencies:
       remark-gfm: 4.0.0
       storybook: 8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9))
