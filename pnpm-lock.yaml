@@ -33,8 +33,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@next/bundle-analyzer':
-        specifier: ^14.2.9
-        version: 14.2.9
+        specifier: ^14.2.10
+        version: 14.2.10
       '@plaiceholder/next':
         specifier: ^3.0.0
         version: 3.0.0(next@14.2.10(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(plaiceholder@3.0.0(sharp@0.33.5))(sharp@0.33.5)
@@ -184,8 +184,8 @@ importers:
         specifier: ^0.16.2
         version: 0.16.2(typescript@5.6.2)
       '@next/plugin-storybook':
-        specifier: ^14.2.9
-        version: 14.2.9
+        specifier: ^14.2.10
+        version: 14.2.10
       '@storybook/addon-actions':
         specifier: ^8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -2014,8 +2014,8 @@ packages:
     resolution: {integrity: sha512-nMuUaMCtg8oKSTHwAnsoGRN6c1RZXNm6+ebEoe9SBGALVlBIzniZoSuC/itNCLOt51YEEYsF0svB/sOzYhqLPA==}
     engines: {node: '>=18'}
 
-  '@next/bundle-analyzer@14.2.9':
-    resolution: {integrity: sha512-r+h5vdrx3+tZoMysJmDsfy3OXPqwuTTiQYytCPl5qfngHqeusV3im8Bjbmm4ZsOsIcqh/BQrChO8u7wFXavHKA==}
+  '@next/bundle-analyzer@14.2.10':
+    resolution: {integrity: sha512-x9sMR1gHrX6zg5UapTJBjSEHmyG6GuSW1gWQXp4kJSNBQzKWFFhK4lQluNnyh0hP6j3p5Mxpq8uUOTYIgMgk3A==}
 
   '@next/env@13.5.6':
     resolution: {integrity: sha512-Yac/bV5sBGkkEXmAX5FWPS9Mmo2rthrOPRQQNfycJPkjUAUclomCPH7QFVCDQ4Mp2k2K1SSM6m0zrxYrOwtFQw==}
@@ -2026,8 +2026,8 @@ packages:
   '@next/eslint-plugin-next@14.2.10':
     resolution: {integrity: sha512-LqJcPP5QkmKewpwO3zX8SoVfWwKn5NKwfcs/j52oJa5EsEDyUsqjsmj5IRzmAJA0FSuB4umhjG55AGayY306fw==}
 
-  '@next/plugin-storybook@14.2.9':
-    resolution: {integrity: sha512-KiQILeZ9G4tRGAL2H205N5CQD6ykFiv/ADT0rHNrfIiihP7QIAQjtkAqxmhGjxl7kNgSRRWW33U4hzzthBGeBw==}
+  '@next/plugin-storybook@14.2.10':
+    resolution: {integrity: sha512-UjyOAZOwK3JfLPRILrdK7WIcB2sXUOVWFUuv9xpDCzs685hL3Au38HsOrOJahrMbhgrsMSJIyCbTBvoIXeN79g==}
 
   '@next/swc-darwin-arm64@14.2.10':
     resolution: {integrity: sha512-V3z10NV+cvMAfxQUMhKgfQnPbjw+Ew3cnr64b0lr8MDiBJs3eLnM6RpGC46nhfMZsiXgQngCJKWGTC/yDcgrDQ==}
@@ -9500,7 +9500,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/parser@7.24.8':
     dependencies:
@@ -11326,7 +11326,7 @@ snapshots:
       outvariant: 1.4.3
       strict-event-emitter: 0.5.1
 
-  '@next/bundle-analyzer@14.2.9':
+  '@next/bundle-analyzer@14.2.10':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
@@ -11341,7 +11341,7 @@ snapshots:
     dependencies:
       glob: 10.3.10
 
-  '@next/plugin-storybook@14.2.9': {}
+  '@next/plugin-storybook@14.2.10': {}
 
   '@next/swc-darwin-arm64@14.2.10':
     optional: true
@@ -19832,7 +19832,7 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
       escalade: 3.1.2
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   uri-js@4.4.1:
     dependencies:
