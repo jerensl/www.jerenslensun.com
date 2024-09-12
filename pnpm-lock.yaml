@@ -184,8 +184,8 @@ importers:
         specifier: ^0.16.2
         version: 0.16.2(typescript@5.6.2)
       '@next/plugin-storybook':
-        specifier: ^14.2.9
-        version: 14.2.9
+        specifier: ^14.2.10
+        version: 14.2.10
       '@storybook/addon-actions':
         specifier: ^8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.24.8(@babel/core@7.24.9)))
@@ -2026,8 +2026,8 @@ packages:
   '@next/eslint-plugin-next@14.2.10':
     resolution: {integrity: sha512-LqJcPP5QkmKewpwO3zX8SoVfWwKn5NKwfcs/j52oJa5EsEDyUsqjsmj5IRzmAJA0FSuB4umhjG55AGayY306fw==}
 
-  '@next/plugin-storybook@14.2.9':
-    resolution: {integrity: sha512-KiQILeZ9G4tRGAL2H205N5CQD6ykFiv/ADT0rHNrfIiihP7QIAQjtkAqxmhGjxl7kNgSRRWW33U4hzzthBGeBw==}
+  '@next/plugin-storybook@14.2.10':
+    resolution: {integrity: sha512-UjyOAZOwK3JfLPRILrdK7WIcB2sXUOVWFUuv9xpDCzs685hL3Au38HsOrOJahrMbhgrsMSJIyCbTBvoIXeN79g==}
 
   '@next/swc-darwin-arm64@14.2.10':
     resolution: {integrity: sha512-V3z10NV+cvMAfxQUMhKgfQnPbjw+Ew3cnr64b0lr8MDiBJs3eLnM6RpGC46nhfMZsiXgQngCJKWGTC/yDcgrDQ==}
@@ -11339,7 +11339,7 @@ snapshots:
     dependencies:
       glob: 10.3.10
 
-  '@next/plugin-storybook@14.2.9': {}
+  '@next/plugin-storybook@14.2.10': {}
 
   '@next/swc-darwin-arm64@14.2.10':
     optional: true
