@@ -4,8 +4,7 @@ import { toString } from 'hast-util-to-string'
 import { refractor } from 'refractor'
 import highlightLine from './rehype-highlight-line'
 import highlightWord from './rehype-highlight-word'
-import type { Element, Node } from 'hast'
-import { Nodes } from 'hast-util-to-string/lib'
+import type { Element, Node, Nodes } from 'hast'
 
 function rehypeHighlightCode(options = {}) {
     const visitor = (
