@@ -12,20 +12,26 @@ jobs:
             contains(fromJson('"dependabot[bot]", "dependabot-preview[bot]"]'), github.event.pull_request.user.login) &&
             contains(fromJson('"dependabot[bot]", "dependabot-preview[bot]"]'), github.actor)
         steps:
+            - uses: actions/create-github-app-token@v1
+              id: app-token
+              with:
+                  # required
+                  app-id: ${{ secrets.GH_APP_ID }}
+                  private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
             - name: Harden Runner
               uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: Autoaprove
               uses: hmarr/auto-approve-action@8f929096a962e83ccdfa8afcf855f39f12d4dac7 # v4
               with:
                   review-message: 'Auto approved automated PR'
-                  github-token: ${{ secrets.GH_TOKEN_BOT_PR }}
+                  github-token: ${{ steps.app-token.outputs.token }}
             - name: Label automerge
               uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
               with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  github-token: ${{ steps.app-token.outputs.token }}
                   script: |
                       github.rest.issues.addLabels({
                       issue_number: context.issue.number,
