@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.0.0 (2024-12-07)
+
+
+### Features
+
+* **cliffy:** add cliffy cli library ([6e0dc88](https://github.com/jerensl/www.jerenslensun.com/commit/6e0dc88405afe318ac779887d90a58fb00acf9f1))
+* **cliffy:** add cliffy cli library ([6ad41bf](https://github.com/jerensl/www.jerenslensun.com/commit/6ad41bfd1ca98a84d93ea8261c92ff82f9dd03ff))
+* **cliffy:** add cliffy cli library ([#1210](https://github.com/jerensl/www.jerenslensun.com/issues/1210)) ([6e0dc88](https://github.com/jerensl/www.jerenslensun.com/commit/6e0dc88405afe318ac779887d90a58fb00acf9f1))
+
+
+### Bug Fixes
+
+* **oss-horiontal-scroll:** fix the card layout size heigh ([c41af51](https://github.com/jerensl/www.jerenslensun.com/commit/c41af519927a29559d1dd9ee91f1788d011fcb2c))
+* **oss-horiontal-scroll:** fix the card layout size height ([1e0119f](https://github.com/jerensl/www.jerenslensun.com/commit/1e0119f62bfa33fc2fd4e7968624d6af77096081))
+* **oss-horiontal-scroll:** fix the card layout size height ([#1217](https://github.com/jerensl/www.jerenslensun.com/issues/1217)) ([1e0119f](https://github.com/jerensl/www.jerenslensun.com/commit/1e0119f62bfa33fc2fd4e7968624d6af77096081))
+
 ## [1.6.0](https://github.com/jerensl/www.jerenslensun.com/compare/v1.5.1...v1.6.0) (2024-07-12)
 
 
