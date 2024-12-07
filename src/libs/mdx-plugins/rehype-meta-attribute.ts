@@ -1,12 +1,15 @@
 import { visit } from 'unist-util-visit'
-import type { Plugin } from 'unified'
 import type { Element, Node } from 'hast'
 
 let re = /\b([-\w]+)(?:=(?:"([^"]*)"|'([^']*)'|([^"'\s]+)))?/g
 
 function rehypeMetaAttribute(options = {}) {
     const visitor = (
-        node: Element,
+        node: {
+            tagName: string
+            data: { meta: string }
+            properties: { [x: string]: string }
+        },
         index: number | undefined,
         parentNode: Element | undefined
     ) => {
