@@ -9,8 +9,8 @@ jobs:
         name: Autoaprove PRs fom dependabot
         runs-on: ubuntu-latest
         if: >
-            contains(fromJson('"dependabot[bot]", "dependabot-preview[bot]"]'), github.event.pull_request.user.login) &&
-            contains(fromJson('"dependabot[bot]", "dependabot-preview[bot]"]'), github.actor)
+            contains(fromJson('["dependabot[bot]", "dependabot-preview[bot]"]'), github.event.pull_request.user.login) &&
+            contains(fromJson('["dependabot[bot]", "dependabot-preview[bot]"]'), github.actor)
         steps:
             - uses: actions/create-github-app-token@v1
               id: app-token
