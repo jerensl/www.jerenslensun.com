@@ -2,12 +2,9 @@ name: Deployment
 
 # Deploy bi-weekly At 05:00 on Monday and Thursday.
 on:
-    workflow_dispatch:
-        inputs:
-            logLevel:
-                description: 'Log level'
-                required: true
-                default: 'warning'
+    push:
+        branches:
+            - 'main'
     schedule:
         - cron: '0 5 * * 1,4'
 
