@@ -8,14 +8,14 @@ on:
                 value: ${{ jobs.build_and_deploy_job.outputs.static_web_app_url }}
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
     build_and_deploy_job:
         permissions:
-          contents: read  # for actions/checkout to fetch code
-          pull-requests: write  # for Azure/static-web-apps-deploy to comment on PRs
-        if: github.event_name != 'push' || github.event.action != 'closed'
+            contents: read # for actions/checkout to fetch code
+            pull-requests: write # for Azure/static-web-apps-deploy to comment on PRs
+        if: github.event.action != 'closed'
         runs-on: ubuntu-latest
         name: Build and Deploy Job
         outputs:
@@ -24,7 +24,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
               with:
@@ -56,7 +56,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: Close Pull Request
               id: closepullrequest

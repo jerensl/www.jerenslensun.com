@@ -2,6 +2,12 @@ name: Deployment
 
 # Deploy bi-weekly At 05:00 on Monday and Thursday.
 on:
+    workflow_dispatch:
+        inputs:
+            logLevel:
+                description: 'Log level'
+                required: true
+                default: 'warning'
     schedule:
         - cron: '0 5 * * 1,4'
 
@@ -18,7 +24,7 @@ jobs:
             - name: Harden Runner
               uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
               with:
-                egress-policy: audit
+                  egress-policy: audit
 
             - name: Checkout
               uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
