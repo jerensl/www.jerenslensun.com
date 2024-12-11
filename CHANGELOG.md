@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0 (2024-12-11)
+
+
+### Bug Fixes
+
+* deployment ([2394133](https://github.com/jerensl/www.jerenslensun.com/commit/2394133654c10179eb326a33f48a15967b46f6a6))
+* downgrade postcss ([cccbc79](https://github.com/jerensl/www.jerenslensun.com/commit/cccbc79f62cacfeefe76581215b35bc1cf30616e))
+* downgrade postcss ([b855840](https://github.com/jerensl/www.jerenslensun.com/commit/b855840d8bae8fe2903662a1c3fd5c0bf54e4b40))
+
 ## [1.6.0](https://github.com/jerensl/www.jerenslensun.com/compare/v1.5.1...v1.6.0) (2024-07-12)
 
 
