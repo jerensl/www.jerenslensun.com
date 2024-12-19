@@ -29,7 +29,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     return (
         <article
             className={clsx(
-                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[420px] sm:w-[320px] hover:bg-on-surface/8 active:bg-on-surface/12',
+                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[460px] sm:w-[320px] hover:bg-on-surface/8 active:bg-on-surface/12',
                 {
                     'bg-surface border border-outline-variant':
                         variant === 'outlined',
