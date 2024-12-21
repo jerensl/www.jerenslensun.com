@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async (
     const projects = await getContent('project', context.params?.slug)
 
     return {
-        props: { projects, blurDataURL: projects.metadata.blurDataURL },
+        props: { projects, blurDataURL: projects?.metadata.blurDataURL },
     }
 }
 

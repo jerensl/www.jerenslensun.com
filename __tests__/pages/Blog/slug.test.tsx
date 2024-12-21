@@ -68,7 +68,7 @@ const renderBlogSlug = async () => {
     const posts = await getContent('mock/blog', 'id-test-markdown')
 
     const utils = render(
-        <Blog posts={posts} blurDataURL={posts.metadata.blurDataURL} />
+        <Blog posts={posts} blurDataURL={posts?.metadata.blurDataURL} />
     )
 
     return { utils }

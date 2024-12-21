@@ -53,7 +53,7 @@ const renderBlogSlug = async () => {
     const utils = render(
         <Project
             projects={projects}
-            blurDataURL={projects.metadata.blurDataURL}
+            blurDataURL={projects?.metadata.blurDataURL}
         />
     )
 
