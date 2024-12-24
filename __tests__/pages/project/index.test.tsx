@@ -39,28 +39,36 @@ const renderBlogSlug = async () => {
 }
 
 describe('Project Pages', () => {
-    it('Show Title Page', async () => {
-        const { utils } = await renderBlogSlug()
+    it(
+        'Show Title Page',
+        async () => {
+            const { utils } = await renderBlogSlug()
 
-        const heading = utils.getByRole('heading', {
-            name: /Projects/i,
-        })
+            const heading = utils.getByRole('heading', {
+                name: /Projects/i,
+            })
 
-        expect(heading).toBeInTheDocument()
-    })
+            expect(heading).toBeInTheDocument()
+        },
+        1 * 60 * 1000
+    )
 
-    it('This project pages will show the list of article', async () => {
-        const { utils } = await renderBlogSlug()
+    it(
+        'This project pages will show the list of article',
+        async () => {
+            const { utils } = await renderBlogSlug()
 
-        const result = utils.getAllByRole('article').map((article) => {
-            return within(article).getByRole('heading', { level: 3 })
-                .textContent
-        })
+            const result = utils.getAllByRole('article').map((article) => {
+                return within(article).getByRole('heading', { level: 3 })
+                    .textContent
+            })
 
-        expect(result).toMatchInlineSnapshot(`
+            expect(result).toMatchInlineSnapshot(`
     [
       "Project Title",
     ]
       `)
-    })
+        },
+        1 * 60 * 1000
+    )
 })

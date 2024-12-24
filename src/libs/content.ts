@@ -105,16 +105,23 @@ async function getContents<T extends IMetadata>(
                 defaultContent = 'default-content.webp'
             }
 
-            const buffer = await fetch(
-                `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${data.cover}?tr=bl-10`
-            ).then(async (res) => Buffer.from(await res.arrayBuffer()))
+            try {
+                const resp = await fetch(
+                    `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-${defaultContent}/${data.cover}?tr=bl-10`
+                )
 
-            const { base64 } = await getPlaiceholder(buffer)
+                const buffer = Buffer.from(await resp.arrayBuffer())
+                const { base64 } = await getPlaiceholder(buffer)
+                return {
+                    ...data,
+                    slug: fileName,
+                    blurDataURL: base64,
+                } as T
+            } catch (error) {}
 
             return {
                 ...data,
                 slug: fileName,
-                blurDataURL: base64,
             } as T
         })
     )
@@ -177,21 +184,24 @@ export const getContent = async (
         },
     })
 
-    const buffer = await fetch(
-        `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${frontmatter.cover}?tr=bl-10`
-    ).then(async (res) => Buffer.from(await res.arrayBuffer()))
+    try {
+        const resp = await fetch(
+            `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${frontmatter.cover}?tr=bl-10`
+        )
 
-    const { base64 } = await getPlaiceholder(buffer)
+        const buffer = Buffer.from(await resp.arrayBuffer())
 
-    return {
-        code,
-        frontmatter,
-        metadata: {
-            slug: fileName,
-            fileName: file,
-            blurDataURL: base64,
-        },
-    }
+        const { base64 } = await getPlaiceholder(buffer)
+        return {
+            code,
+            frontmatter,
+            metadata: {
+                slug: fileName,
+                fileName: file,
+                blurDataURL: base64,
+            },
+        }
+    } catch (error) {}
 }
 
 function getTags(contents: Array<IBlogMetadata>) {

@@ -20,20 +20,20 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
-              uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
+              uses: step-security/harden-runner@v2.10.2
               with:
                   egress-policy: audit
 
             - name: Checkout
-              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+              uses: actions/checkout@v4.1.7
             - name: Install pnpm
-              uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+              uses: pnpm/action-setup@v4.0.0
               with:
                   version: 9
             - name: Setup Node
-              uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+              uses: actions/setup-node@v4.0.3
               with:
-                  node-version: '18.x'
+                  node-version-file: '.nvmrc'
             - name: Deploy Storybook Docs
               uses: bitovi/github-actions-storybook-to-github-pages@b75ece8f984a32b2adb322065d7a8a2cc8db2d52 # v1.0.3
               with:

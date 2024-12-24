@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async (
     const posts = await getContent('blog', context.params?.slug)
 
     return {
-        props: { posts, blurDataURL: posts.metadata.blurDataURL },
+        props: { posts, blurDataURL: posts?.metadata.blurDataURL },
     }
 }
 
