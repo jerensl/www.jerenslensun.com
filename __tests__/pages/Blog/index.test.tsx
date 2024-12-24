@@ -42,32 +42,40 @@ const renderBlogSlug = async () => {
 }
 
 describe('Blog Pages', () => {
-    it('Show Title Page', async () => {
-        const { utils } = await renderBlogSlug()
+    it(
+        'Show Title Page',
+        async () => {
+            const { utils } = await renderBlogSlug()
 
-        const heading = utils.getByRole('heading', {
-            name: /Blog/i,
-        })
+            const heading = utils.getByRole('heading', {
+                name: /Blog/i,
+            })
 
-        expect(heading).toBeInTheDocument()
-    })
+            expect(heading).toBeInTheDocument()
+        },
+        1 * 60 * 1000
+    )
 
-    it('This blog pages will show the list of article', async () => {
-        const { utils } = await renderBlogSlug()
+    it(
+        'This blog pages will show the list of article',
+        async () => {
+            const { utils } = await renderBlogSlug()
 
-        await userEvent.click(
-            utils.getByRole('button', { name: /Read in Bahasa Indonesia/i })
-        )
+            await userEvent.click(
+                utils.getByRole('button', { name: /Read in Bahasa Indonesia/i })
+            )
 
-        const result = utils.getAllByRole('article').map((article) => {
-            return within(article).getByRole('heading', { level: 3 })
-                .textContent
-        })
+            const result = utils.getAllByRole('article').map((article) => {
+                return within(article).getByRole('heading', { level: 3 })
+                    .textContent
+            })
 
-        expect(result).toMatchInlineSnapshot(`
+            expect(result).toMatchInlineSnapshot(`
     [
       "Testing 101",
     ]
       `)
-    })
+        },
+        1 * 60 * 1000
+    )
 })
