@@ -28,6 +28,7 @@ jobs:
               uses: pnpm/action-setup@v4.0.0
               with:
                   version: 9
+                  run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.0.3
               with:
@@ -36,7 +37,7 @@ jobs:
             - name: Install locked dependencies
               run: pnpm install --frozen-lockfile --prefer-offline
             - name: Build web application
-              run: pnpm run build
+              run: pnpm build
             - name: Save PR number
               run: |
                   mkdir -p ./pr
@@ -65,6 +66,7 @@ jobs:
               uses: pnpm/action-setup@v4.0.0
               with:
                   version: 9
+                  run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.0.3
               with:
@@ -73,7 +75,7 @@ jobs:
             - name: Install locked dependencies
               run: pnpm install --frozen-lockfile --prefer-offline
             - name: Lint files
-              run: pnpm run lint
+              run: pnpm lint
               env:
                   CI: true
     type-check:
@@ -92,6 +94,7 @@ jobs:
               uses: pnpm/action-setup@v4.0.0
               with:
                   version: 9
+                  run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.0.3
               with:
@@ -100,7 +103,7 @@ jobs:
             - name: Install locked dependencies
               run: pnpm install --frozen-lockfile --prefer-offline
             - name: Perform type checking
-              run: pnpm run type-check
+              run: pnpm type-check
               env:
                   CI: true
     test:
@@ -119,6 +122,7 @@ jobs:
               uses: pnpm/action-setup@v4.0.0
               with:
                   version: 9
+                  run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.0.3
               with:
@@ -127,7 +131,7 @@ jobs:
             - name: Install locked dependencies
               run: pnpm install --frozen-lockfile --prefer-offline
             - name: Check Code Coverage
-              run: pnpm run test:coverage
+              run: pnpm test:coverage
             - name: Upload code coverage to artifact
               uses: actions/upload-artifact@v4.4.0
               with:
