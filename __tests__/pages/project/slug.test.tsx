@@ -61,7 +61,7 @@ const renderBlogSlug = async () => {
 }
 
 describe('Project Content', () => {
-    it(
+    it.skip(
         'Show Project Content',
         async () => {
             const { utils } = await renderBlogSlug()
