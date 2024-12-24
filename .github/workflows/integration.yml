@@ -42,7 +42,7 @@ jobs:
                   mkdir -p ./pr
                   echo ${{ github.event.number }} > ./pr/number
             - name: Upload web app build
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: web-app-build
                   path: |
@@ -129,7 +129,7 @@ jobs:
             - name: Check Code Coverage
               run: pnpm run test:coverage
             - name: Upload code coverage to artifact
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: jest-code-coverage
                   path: coverage
