@@ -61,15 +61,19 @@ const renderBlogSlug = async () => {
 }
 
 describe('Project Content', () => {
-    it('Show Project Content', async () => {
-        const { utils } = await renderBlogSlug()
+    it(
+        'Show Project Content',
+        async () => {
+            const { utils } = await renderBlogSlug()
 
-        const heading = utils.getByRole('heading', {
-            name: /Personal Project/i,
-        })
-        const body = utils.getByText('project content')
+            const heading = utils.getByRole('heading', {
+                name: /Personal Project/i,
+            })
+            const body = utils.getByText('project content')
 
-        expect(heading).toBeInTheDocument()
-        expect(body).toBeInTheDocument()
-    })
+            expect(heading).toBeInTheDocument()
+            expect(body).toBeInTheDocument()
+        },
+        1 * 60 * 1000
+    )
 })

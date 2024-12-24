@@ -8,10 +8,10 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const customJestConfig = {
-    setupFiles: ['./jest.polyfills.ts', require.resolve('whatwg-fetch')],
+    setupFiles: [require.resolve('whatwg-fetch')],
     setupFilesAfterEnv: [
         '<rootDir>/jest.setup.ts',
-        '<rootDir>/__mocks__/api/server.ts',
+        // '<rootDir>/__mocks__/api/server.ts',
     ],
     collectCoverageFrom: [
         '<rootDir>/src/**/*.tsx',
@@ -26,7 +26,7 @@ const customJestConfig = {
         '<rootDir>/cypress/',
     ],
     moduleDirectories: ['node_modules', '<rootDir>/'],
-    testEnvironment: 'jsdom',
+    testEnvironment: 'jest-fixed-jsdom',
     preset: 'ts-jest',
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'mjs'],
     transform: {
