@@ -16,6 +16,7 @@ permissions:
 
 jobs:
     build_docs:
+        name: Build and Push Storybook Docs
         if: github.repository == 'jerensl/www.jerenslensun.com'
         runs-on: ubuntu-latest
         steps:
@@ -43,10 +44,12 @@ jobs:
                   path: storybook-static # default: dist/storybook
                   checkout: false # default: true
     azure_deploy:
+        name: Azure Static Web App Deployment Production
         if: github.repository == 'jerensl/www.jerenslensun.com'
         uses: ./.github/workflows/azure.yml
         secrets: inherit
     lhci:
+        name: Lighthouse Score Production
         if: github.repository == 'jerensl/www.jerenslensun.com'
         needs: azure_deploy
         uses: ./.github/workflows/lighthouse.yml
