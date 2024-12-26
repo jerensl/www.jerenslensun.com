@@ -2,7 +2,7 @@ name: Build, lint and Test
 
 on:
     pull_request:
-        types: [opened, synchronize, reopened]
+        types: [opened, synchronize, reopened, closed]
         branches:
             - main
 
@@ -12,7 +12,7 @@ permissions:
 jobs:
     build:
         if: github.repository == 'jerensl/www.jerenslensun.com'
-        name: Build static web app
+        name: Build static web app check
         runs-on: ubuntu-latest
         env:
             NEXT_PUBLIC_IMAGES_CDN: 'https://ik.imagekit.io/jerensl'
@@ -51,8 +51,8 @@ jobs:
                       pr/number
                   retention-days: 14
     lint:
+        name: Linter check
         if: github.repository == 'jerensl/www.jerenslensun.com'
-        name: ESLint
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
@@ -79,8 +79,8 @@ jobs:
               env:
                   CI: true
     type-check:
-        if: github.repository == 'jerensl/www.jerenslensun.com'
         name: Type check
+        if: github.repository == 'jerensl/www.jerenslensun.com'
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
@@ -107,8 +107,8 @@ jobs:
               env:
                   CI: true
     test:
-        if: github.repository == 'jerensl/www.jerenslensun.com'
         name: Unit and integration tests
+        if: github.repository == 'jerensl/www.jerenslensun.com'
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
@@ -139,6 +139,7 @@ jobs:
                   path: coverage
                   retention-days: 14
     azure_deploy_staging:
+        name: Azure Static Web App deployment staging
         if: github.repository == 'jerensl/www.jerenslensun.com'
         permissions:
             contents: read # for actions/checkout to fetch code
