@@ -147,8 +147,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       uuid:
-        specifier: ^9.0.1
-        version: 9.0.1
+        specifier: ^11.0.3
+        version: 11.0.3
       whatwg-fetch:
         specifier: ^3.6.20
         version: 3.6.20
@@ -8238,6 +8238,10 @@ packages:
 
   utila@0.4.0:
     resolution: {integrity: sha512-Z0DbgELS9/L/75wZbro8xAnT50pBVFQZ+hUEueGDU5FN51YSCYM+jdxsfCiHjwNP/4LCDD0i/graKpeBnOXKRA==}
+
+  uuid@11.0.3:
+    resolution: {integrity: sha512-d0z310fCWv5dJwnX1Y/MncBAqGMKEzlBb1AOf7z9K8ALnd0utBX/msg/fA0+sbyN1ihbMsLhrBlnl1ak7Wa0rg==}
+    hasBin: true
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
@@ -18229,6 +18233,8 @@ snapshots:
       which-typed-array: 1.1.16
 
   utila@0.4.0: {}
+
+  uuid@11.0.3: {}
 
   uuid@8.3.2: {}
 
