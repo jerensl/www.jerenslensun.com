@@ -3,6 +3,7 @@ import { Grid } from '../Grid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
 import { CareerCard } from '../CareerCard'
+import { Careers } from '@/constant/career'
 import { InView } from 'react-intersection-observer'
 import { motion } from 'framer-motion'
 
@@ -49,24 +50,19 @@ export const CareerSection: React.FC = () => {
                             <FontAwesomeIcon className="block" icon={faFile} />
                         </a>
                     </motion.div>
-                    <CareerCard
-                        inView={inView}
-                        organization="SoftwareSeni"
-                        position="ReactJS Developer Intern"
-                        date="August 2022 – October 2022"
-                    />
-                    <CareerCard
-                        inView={inView}
-                        organization="Bangkit Academy 2022"
-                        position="Facilitator"
-                        date="February 2022 – July 2022"
-                    />
-                    <CareerCard
-                        inView={inView}
-                        organization="Baparekraf Digital Talent"
-                        position="Facilitator"
-                        date="October 2020 – November 2020"
-                    />
+                    {Careers.map(
+                        ({ organization, role, startDate, endDate }, index) => {
+                            return (
+                                <CareerCard
+                                    key={index}
+                                    inView={inView}
+                                    organization={organization}
+                                    position={role}
+                                    date={`${startDate} – ${endDate}`}
+                                />
+                            )
+                        }
+                    )}
                 </Grid>
             )}
         </InView>

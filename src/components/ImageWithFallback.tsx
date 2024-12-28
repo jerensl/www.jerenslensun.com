@@ -41,6 +41,7 @@ export default function Images({
                     height={height}
                     width={width}
                     alt={alt}
+                    className="m-auto"
                 />
             </picture>
         )

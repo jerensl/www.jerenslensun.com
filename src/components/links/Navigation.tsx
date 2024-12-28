@@ -31,7 +31,7 @@ export const Navigation = ({
             role="button"
             href={href}
             className={clsx(
-                'relative rounded-full w-fit min-h-10 font-normal font-sans shadow-elevation-0',
+                'relative rounded-full w-fit min-h-10 font-normal font-mono shadow-elevation-0',
                 {
                     'text-sm px-3 py-1.5': size === 'small',
                     'text-sm px-5 py-2': size === 'base',

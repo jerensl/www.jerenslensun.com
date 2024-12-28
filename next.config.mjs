@@ -13,7 +13,6 @@ export default (phase, { defaultConfig }) => {
         output: 'export',
         trailingSlash: true,
         reactStrictMode: true,
-        swcMinify: true,
         images: {
             formats: ['image/avif', 'image/webp'],
             loader: 'custom',
