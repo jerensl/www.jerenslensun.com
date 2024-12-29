@@ -23,10 +23,23 @@ jobs:
               uses: step-security/harden-runner@v2.10.2
               with:
                   egress-policy: audit
-
             - uses: actions/checkout@v4.1.7
               with:
                   submodules: true
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4.0.0
+              with:
+                  version: 9
+                  run_install: false
+            - name: Setup Node.js 18.x
+              uses: actions/setup-node@v4.0.3
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'pnpm'
+            - name: Install locked dependencies
+              run: pnpm install --frozen-lockfile --prefer-offline
+            - name: Build web application
+              run: pnpm build
             - name: Build And Deploy
               id: swa
               uses: Azure/static-web-apps-deploy@v1
@@ -37,9 +50,9 @@ jobs:
                   action: 'upload'
                   ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
                   # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-                  app_location: '/' # App source code path
+                  app_location: '/out' # App source code path
                   api_location: '' # Api source code path - optional
-                  output_location: 'out' # Built app content directory - optional
+                  output_location: '' # Built app content directory - optional
                   skip_app_build: true
                   ###### End of Repository/Build Configurations ######
               env:
