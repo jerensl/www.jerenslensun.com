@@ -202,7 +202,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
 }
 
 interface NotificationButtonProps {
-    children: React.ReactChild
+    children: React.ReactElement
     handleClick: () => void
     ariaLabel: string
 }
