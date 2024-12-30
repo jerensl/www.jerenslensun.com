@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React from 'react'
 
 interface ICopyToClipboard {
-    children: React.ReactChild
+    children: React.ReactElement
 }
 
 export const CopyToClipboard = ({ children }: ICopyToClipboard) => {

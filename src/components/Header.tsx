@@ -44,7 +44,7 @@ export const Header = ({
                                         baseText="Hi I'm Jerens"
                                     />
                                 </h1>
-                                <p className="font-light text-lg md:text-xl">
+                                <p className="font-mono font-light text-lg md:text-xl">
                                     I work with Typescript & Golang Ecosystem,
                                     and write about software development.
                                 </p>

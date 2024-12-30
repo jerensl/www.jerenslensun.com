@@ -13,11 +13,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const src = `${process.env.NEXT_PUBLIC_IMAGES_CDN}/illustration-landing-page.webp`
 
-    const buffer = await fetch(src)
-        .then(async (res) => Buffer.from(await res.arrayBuffer()))
-        .catch((err) => {
-            throw Error('Images not found')
-        })
+    const buffer = await fetch(src).then(async (res) =>
+        Buffer.from(await res.arrayBuffer())
+    )
 
     const { base64 } = await getPlaiceholder(buffer, { size: 10 })
 
