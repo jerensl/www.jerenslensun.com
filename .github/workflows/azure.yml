@@ -29,7 +29,6 @@ jobs:
             - uses: actions/download-artifact@v4
               with:
                   name: web-app-build
-                  path: out
             - name: Display structure of downloaded files
               run: ls -R out
             - name: Build And Deploy
