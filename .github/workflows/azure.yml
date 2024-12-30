@@ -26,20 +26,10 @@ jobs:
             - uses: actions/checkout@v4.1.7
               with:
                   submodules: true
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.0.0
+            - uses: actions/download-artifact@v4
               with:
-                  version: 9
-                  run_install: false
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4.0.3
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install locked dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Build web application
-              run: pnpm build
+                  name: web-app-build
+                  path: out
             - name: Build And Deploy
               id: swa
               uses: Azure/static-web-apps-deploy@v1
