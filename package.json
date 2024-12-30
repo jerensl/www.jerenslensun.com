@@ -35,7 +35,7 @@
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
         "esbuild": "^0.15.18",
-        "firebase": "^10.14.1",
+        "firebase": "^11.1.0",
         "framer-motion": "^11.15.0",
         "gray-matter": "^4.0.3",
         "hast-util-to-html": "^9.0.4",
