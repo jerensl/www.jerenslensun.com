@@ -2,9 +2,7 @@ name: Deployment
 
 # Deploy bi-weekly At 05:00 on Monday and Thursday.
 on:
-    push:
-        branches:
-            - 'main'
+    workflow_dispatch:
     schedule:
         - cron: '0 5 * * 1,4'
 
