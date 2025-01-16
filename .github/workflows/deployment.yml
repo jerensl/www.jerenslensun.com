@@ -50,6 +50,7 @@ jobs:
         secrets: inherit
     azure_deploy:
         name: Azure Static Web App Deployment Production
+        needs: build
         if: github.repository == 'jerensl/www.jerenslensun.com'
         uses: ./.github/workflows/azure.yml
         secrets: inherit
