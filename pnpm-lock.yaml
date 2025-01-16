@@ -263,8 +263,8 @@ importers:
                 specifier: ^29.5.14
                 version: 29.5.14
             '@types/lodash':
-                specifier: ^4.17.13
-                version: 4.17.13
+                specifier: ^4.17.14
+                version: 4.17.14
             '@types/mdx':
                 specifier: ^2.0.13
                 version: 2.0.13
@@ -305,8 +305,8 @@ importers:
                 specifier: 15.1.4
                 version: 15.1.4(eslint@9.17.0(jiti@2.4.2))(typescript@5.7.2)
             eslint-config-prettier:
-                specifier: ^9.1.0
-                version: 9.1.0(eslint@9.17.0(jiti@2.4.2))
+                specifier: ^10.0.1
+                version: 10.0.1(eslint@9.17.0(jiti@2.4.2))
             eslint-import-resolver-typescript:
                 specifier: ^3.7.0
                 version: 3.7.0(eslint-plugin-import@2.31.0)(eslint@9.17.0(jiti@2.4.2))
@@ -321,7 +321,7 @@ importers:
                 version: 6.10.2(eslint@9.17.0(jiti@2.4.2))
             eslint-plugin-prettier:
                 specifier: ^5.2.1
-                version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@9.17.0(jiti@2.4.2)))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)
+                version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@10.0.1(eslint@9.17.0(jiti@2.4.2)))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2)
             eslint-plugin-react-hooks:
                 specifier: ^4.6.2
                 version: 4.6.2(eslint@9.17.0(jiti@2.4.2))
@@ -7659,14 +7659,11 @@ packages:
             typescript:
                 optional: true
 
-    eslint-config-prettier@9.1.0:
-        resolution:
-            {
-                integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==,
-            }
-        hasBin: true
-        peerDependencies:
-            eslint: '>=7.0.0'
+  eslint-config-prettier@10.0.1:
+    resolution: {integrity: sha512-lZBts941cyJyeaooiKxAtzoPHTN+GbQTJFAIdQbRhA4/8whaAraEh47Whw/ZFfrjNSnlAxqfm9i0XVAEkULjCw==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
 
     eslint-import-resolver-node@0.3.9:
         resolution:
@@ -16438,27 +16435,27 @@ snapshots:
             '@types/react': 19.0.7
             react: 18.3.1
 
-    '@mswjs/data@0.16.2(@types/node@22.10.2)(typescript@5.7.2)':
-        dependencies:
-            '@types/lodash': 4.17.13
-            '@types/md5': 2.3.5
-            '@types/pluralize': 0.0.29
-            '@types/uuid': 8.3.4
-            date-fns: 2.30.0
-            debug: 4.4.0(supports-color@8.1.1)
-            graphql: 16.10.0
-            lodash: 4.17.21
-            md5: 2.3.0
-            outvariant: 1.4.3
-            pluralize: 8.0.0
-            strict-event-emitter: 0.5.1
-            uuid: 8.3.2
-        optionalDependencies:
-            msw: 2.7.0(@types/node@22.10.2)(typescript@5.7.2)
-        transitivePeerDependencies:
-            - '@types/node'
-            - supports-color
-            - typescript
+  '@mswjs/data@0.16.2(@types/node@22.10.2)(typescript@5.7.2)':
+    dependencies:
+      '@types/lodash': 4.17.14
+      '@types/md5': 2.3.5
+      '@types/pluralize': 0.0.29
+      '@types/uuid': 8.3.4
+      date-fns: 2.30.0
+      debug: 4.4.0(supports-color@8.1.1)
+      graphql: 16.10.0
+      lodash: 4.17.21
+      md5: 2.3.0
+      outvariant: 1.4.3
+      pluralize: 8.0.0
+      strict-event-emitter: 0.5.1
+      uuid: 8.3.2
+    optionalDependencies:
+      msw: 2.7.0(@types/node@22.10.2)(typescript@5.7.2)
+    transitivePeerDependencies:
+      - '@types/node'
+      - supports-color
+      - typescript
 
     '@mswjs/interceptors@0.37.3':
         dependencies:
@@ -17936,7 +17933,7 @@ snapshots:
 
     '@types/katex@0.16.7': {}
 
-    '@types/lodash@4.17.13': {}
+    '@types/lodash@4.17.14': {}
 
     '@types/md5@2.3.5': {}
 
@@ -19802,7 +19799,7 @@ snapshots:
             - eslint-plugin-import-x
             - supports-color
 
-    eslint-config-prettier@9.1.0(eslint@9.17.0(jiti@2.4.2)):
+    eslint-config-prettier@10.0.1(eslint@9.17.0(jiti@2.4.2)):
         dependencies:
             eslint: 9.17.0(jiti@2.4.2)
 
@@ -19894,7 +19891,7 @@ snapshots:
             safe-regex-test: 1.1.0
             string.prototype.includes: 2.0.1
 
-    eslint-plugin-prettier@5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@9.17.0(jiti@2.4.2)))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2):
+    eslint-plugin-prettier@5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@10.0.1(eslint@9.17.0(jiti@2.4.2)))(eslint@9.17.0(jiti@2.4.2))(prettier@3.4.2):
         dependencies:
             eslint: 9.17.0(jiti@2.4.2)
             prettier: 3.4.2
@@ -19902,7 +19899,7 @@ snapshots:
             synckit: 0.9.2
         optionalDependencies:
             '@types/eslint': 9.6.1
-            eslint-config-prettier: 9.1.0(eslint@9.17.0(jiti@2.4.2))
+            eslint-config-prettier: 10.0.1(eslint@9.17.0(jiti@2.4.2))
 
     eslint-plugin-react-hooks@4.6.2(eslint@9.17.0(jiti@2.4.2)):
         dependencies:
