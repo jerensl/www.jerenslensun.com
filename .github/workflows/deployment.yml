@@ -43,6 +43,11 @@ jobs:
                   build_command: pnpm run build:storybook # default: npm run build-storybook
                   path: storybook-static # default: dist/storybook
                   checkout: false # default: true
+    build:
+        name: Azure NextJS Web App
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        uses: ./.github/workflows/build.yml
+        secrets: inherit
     azure_deploy:
         name: Azure Static Web App Deployment Production
         if: github.repository == 'jerensl/www.jerenslensun.com'

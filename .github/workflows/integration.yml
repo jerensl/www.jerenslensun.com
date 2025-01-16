@@ -11,45 +11,10 @@ permissions:
 
 jobs:
     build:
+        name: Azure NextJS Web App
         if: github.repository == 'jerensl/www.jerenslensun.com'
-        name: Build static web app check
-        runs-on: ubuntu-latest
-        env:
-            NEXT_PUBLIC_IMAGES_CDN: 'https://ik.imagekit.io/jerensl'
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.10.2
-              with:
-                  egress-policy: audit
-
-            - name: Checkout repository
-              uses: actions/checkout@v4.1.7
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.0.0
-              with:
-                  version: 9
-                  run_install: false
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4.0.3
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install locked dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Build web application
-              run: pnpm build
-            - name: Save PR number
-              run: |
-                  mkdir -p ./pr
-                  echo ${{ github.event.number }} > ./pr/number
-            - name: Upload web app build
-              uses: actions/upload-artifact@v4.4.0
-              with:
-                  name: web-app-build
-                  path: |
-                      out
-                      pr/number
-                  retention-days: 14
+        uses: ./.github/workflows/build.yml
+        secrets: inherit
     lint:
         name: Linter check
         if: github.repository == 'jerensl/www.jerenslensun.com'
