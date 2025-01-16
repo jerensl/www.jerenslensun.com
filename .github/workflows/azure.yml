@@ -52,7 +52,7 @@ jobs:
                   NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
                   NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
     close_pull_request_job:
-        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
         runs-on: ubuntu-latest
         name: Close Pull Request Job
         steps:
