@@ -36,7 +36,7 @@ jobs:
                   mkdir -p ./pr
                   echo ${{ github.event.number }} > ./pr/number
             - name: Upload web app build
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.6.0
               with:
                   name: web-app-build
                   path: |
