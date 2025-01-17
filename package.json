@@ -35,7 +35,7 @@
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
         "esbuild": "^0.15.18",
-        "firebase": "^11.1.0",
+        "firebase": "^11.2.0",
         "framer-motion": "^11.18.0",
         "gray-matter": "^4.0.3",
         "hast-util-to-html": "^9.0.4",
@@ -147,7 +147,7 @@
         "ts-jest": "^29.2.5",
         "ts-node": "^10.9.2",
         "typescript": "^5.7.2",
-        "undici": "^7.2.0",
+        "undici": "^7.2.3",
         "uuid": "^11.0.4",
         "webpack": "^5.97.1"
     },
