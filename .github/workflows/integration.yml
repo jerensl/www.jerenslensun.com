@@ -34,7 +34,7 @@ jobs:
                   version: 9
                   run_install: false
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4.0.3
+              uses: actions/setup-node@v4.2.0
               with:
                   node-version-file: '.nvmrc'
                   cache: 'pnpm'
@@ -62,7 +62,7 @@ jobs:
                   version: 9
                   run_install: false
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4.0.3
+              uses: actions/setup-node@v4.2.0
               with:
                   node-version-file: '.nvmrc'
                   cache: 'pnpm'
@@ -90,7 +90,7 @@ jobs:
                   version: 9
                   run_install: false
             - name: Setup Node.js 18.x
-              uses: actions/setup-node@v4.0.3
+              uses: actions/setup-node@v4.2.0
               with:
                   node-version-file: '.nvmrc'
                   cache: 'pnpm'
