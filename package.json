@@ -146,7 +146,7 @@
         "tinycolor2": "^1.6.0",
         "ts-jest": "^29.2.5",
         "ts-node": "^10.9.2",
-        "typescript": "^5.7.2",
+        "typescript": "^5.7.3",
         "undici": "^7.2.3",
         "uuid": "^11.0.5",
         "webpack": "^5.97.1"
