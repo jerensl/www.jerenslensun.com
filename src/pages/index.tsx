@@ -6,20 +6,14 @@ import { Header } from '@/components/Header'
 import { IntroductionSection } from '@/components/sections/Introduction.section'
 import { CareerSection } from '@/components/sections/Career.section'
 import HorizontalScroll from '@/components/sections/OSSContribution'
-import {
-    loadImageFrom,
-    transformToImageBuffer,
-    validateLocalImageWithFallback,
-} from '@/utils/imagesBuffer'
+import { loadImageFrom, transformToImageBuffer } from '@/utils/imagesBuffer'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
-    const srcImg = loadImageFrom('illustration-landing-page.webp')
+    const srcImg = await loadImageFrom('illustration-landing-page.webp')
 
-    const targetImg = await validateLocalImageWithFallback(srcImg)
-
-    const { blurDataURL } = await transformToImageBuffer(targetImg)
+    const { blurDataURL } = await transformToImageBuffer(srcImg)
 
     return {
         props: { blurDataURL },

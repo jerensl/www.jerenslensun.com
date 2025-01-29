@@ -2,14 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import { getPlaiceholder } from 'plaiceholder'
 
-export function loadImageFrom(srcImg: string) {
-    if (process.env.NODE_ENV === 'production') {
-        return `${process.env.NEXT_PUBLIC_IMAGES_CDN}/${srcImg}`
-    }
-    return `/images/${srcImg}`
-}
-
-export async function validateLocalImageWithFallback(srcImg: string) {
+async function validateLocalImageWithFallback(srcImg: string) {
     const fallbackSrc = 'default-content.webp'
 
     const localImages = await fs.readdir(
@@ -23,6 +16,13 @@ export async function validateLocalImageWithFallback(srcImg: string) {
     }
 
     return '/images/' + fallbackSrc
+}
+
+export function loadImageFrom(srcImg: string) {
+    if (process.env.NODE_ENV === 'production') {
+        return `${process.env.NEXT_PUBLIC_IMAGES_CDN}/${srcImg}`
+    }
+    return validateLocalImageWithFallback(srcImg)
 }
 
 export async function transformToImageBuffer(srcImg: string) {
