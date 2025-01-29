@@ -2,25 +2,27 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { Footer } from '@/components/Footer'
 import { HeadComponent } from '@/components/Seo'
 import { generateRss } from '@/libs/rss'
-import { getPlaiceholder } from 'plaiceholder'
 import { Header } from '@/components/Header'
 import { IntroductionSection } from '@/components/sections/Introduction.section'
 import { CareerSection } from '@/components/sections/Career.section'
 import HorizontalScroll from '@/components/sections/OSSContribution'
+import {
+    loadImageFrom,
+    transformToImageBuffer,
+    validateLocalImageWithFallback,
+} from '@/utils/imagesBuffer'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
-    const src = `${process.env.NEXT_PUBLIC_IMAGES_CDN}/illustration-landing-page.webp`
+    const srcImg = loadImageFrom('illustration-landing-page.webp')
 
-    const buffer = await fetch(src).then(async (res) =>
-        Buffer.from(await res.arrayBuffer())
-    )
+    const targetImg = await validateLocalImageWithFallback(srcImg)
 
-    const { base64 } = await getPlaiceholder(buffer, { size: 10 })
+    const { blurDataURL } = await transformToImageBuffer(targetImg)
 
     return {
-        props: { blurDataURL: base64 },
+        props: { blurDataURL },
     }
 }
 
