@@ -1,6 +1,6 @@
 import React from 'react'
 import Image, { ImageLoaderProps } from 'next/image'
-import imageLoader from '@/constant/images'
+import imageLoader, { validLocalImg } from '@/constant/images'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 
 interface ImagesProps extends ImageLoaderProps {
@@ -23,21 +23,16 @@ export default function Images({
     quality,
 }: ImagesProps) {
     if (process.env.NODE_ENV !== 'production') {
-        const listLocalImg = [
-            'default-content.webp',
-            'illustration-landing-page.webp',
-        ]
-        const fallbackSrc = 'default-content.webp'
+        const isValid = validLocalImg.includes(src)
 
-        const validLocalImg = listLocalImg.includes(src)
+        if (!isValid) {
+            src = 'default-content.webp'
+        }
+
         return (
             <picture>
                 <img
-                    src={
-                        validLocalImg
-                            ? `/images/${src}`
-                            : `/images/${fallbackSrc}`
-                    }
+                    src={`/images/${src}`}
                     height={height}
                     width={width}
                     alt={alt}

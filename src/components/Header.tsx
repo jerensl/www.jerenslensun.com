@@ -1,17 +1,15 @@
 import clsx from 'clsx'
-import Image from 'next/image'
 import { InView } from 'react-intersection-observer'
 import { Grid } from './Grid'
-import imageLoader from '../constant/images'
 import { Navigation } from './links/Navigation'
 import WritingAnimation from './animations/WritingAnimation'
 import Images from './ImageWithFallback'
 
-export const Header = ({
-    blurDataURL,
-}: {
+interface HeaderProps {
     blurDataURL: string
-}): React.ReactElement => {
+}
+
+export const Header = ({ blurDataURL }: HeaderProps): React.ReactElement => {
     return (
         <InView triggerOnce rootMargin="-30% 0px">
             {({ inView, ref }) => (
