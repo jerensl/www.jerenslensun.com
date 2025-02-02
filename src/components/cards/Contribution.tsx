@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons'
 import { faCircleDot } from '@fortawesome/free-regular-svg-icons'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 interface CareerCardProps {
     organization: string

@@ -5,7 +5,7 @@ import { faFile } from '@fortawesome/free-solid-svg-icons'
 import { CareerCard } from '../CareerCard'
 import { Careers } from '@/constant/career'
 import { InView } from 'react-intersection-observer'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export const CareerSection: React.FC = () => {
     return (

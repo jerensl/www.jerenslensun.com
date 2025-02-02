@@ -13,17 +13,19 @@ import { ContentCard } from '@/components/cards/Content'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')
+    const getCurrentYear = new Date().getFullYear()
 
     const tags = getTags(posts)
 
     return {
-        props: { posts: posts, tags },
+        props: { posts: posts, tags, currentYear: getCurrentYear },
     }
 }
 
 export default function Blog({
     posts,
     tags,
+    currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const [query, setQuery] = useState<string>('')
     const [globalLang, setGlobalLang] = useState<boolean>(true)
@@ -132,7 +134,7 @@ export default function Blog({
                 </Grid>
             </main>
             <div className="h-20 lg:h-32" />
-            <Footer />
+            <Footer currentYear={currentYear} />
         </>
     )
 }

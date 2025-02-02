@@ -15,13 +15,16 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const { blurDataURL } = await transformToImageBuffer(srcImg)
 
+    const getCurrentYear = new Date().getFullYear()
+
     return {
-        props: { blurDataURL },
+        props: { blurDataURL, currentYear: getCurrentYear },
     }
 }
 
 export default function Home({
     blurDataURL,
+    currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
         <>
@@ -34,7 +37,7 @@ export default function Home({
             <div className="h-56 lg:h-64" />
             <HorizontalScroll />
             <div className="h-56 lg:h-64" />
-            <Footer />
+            <Footer currentYear={currentYear} />
         </>
     )
 }

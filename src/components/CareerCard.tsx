@@ -1,4 +1,4 @@
-import { useReducedMotion, motion } from 'framer-motion'
+import { useReducedMotion, motion } from 'motion/react'
 
 interface CareerCardProps {
     organization: string

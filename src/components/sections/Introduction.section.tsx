@@ -2,7 +2,7 @@ import * as React from 'react'
 import clsx from 'clsx'
 import { InView } from 'react-intersection-observer'
 import { Grid } from '../Grid'
-import { useReducedMotion, motion } from 'framer-motion'
+import { useReducedMotion, motion } from 'motion/react'
 
 export const IntroductionSection = (): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()

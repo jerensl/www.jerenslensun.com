@@ -35,15 +35,21 @@ export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
     const posts = await getContent('blog', context.params?.slug)
+    const getCurrentYear = new Date().getFullYear()
 
     return {
-        props: { posts, blurDataURL: posts?.metadata.blurDataURL },
+        props: {
+            posts,
+            blurDataURL: posts?.metadata.blurDataURL,
+            currentYear: getCurrentYear,
+        },
     }
 }
 
 export default function Blog({
     posts,
     blurDataURL,
+    currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const { code, frontmatter } = posts
     const Component = useMemo(() => getMDXComponent(code), [code])
@@ -109,7 +115,7 @@ export default function Blog({
                 </article>
             </main>
             <div className="h-20 lg:h-32" />
-            <Footer />
+            <Footer currentYear={currentYear} />
         </>
     )
 }
