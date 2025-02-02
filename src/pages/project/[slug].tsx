@@ -35,15 +35,21 @@ export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
     const projects = await getContent('project', context.params?.slug)
+    const getCurrentYear = new Date().getFullYear()
 
     return {
-        props: { projects, blurDataURL: projects?.metadata.blurDataURL },
+        props: {
+            projects,
+            blurDataURL: projects?.metadata.blurDataURL,
+            currentYear: getCurrentYear,
+        },
     }
 }
 
 export default function Project({
     projects,
     blurDataURL,
+    currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const { code, frontmatter } = projects
     const Component = useMemo(() => getMDXComponent(code), [code])
@@ -93,7 +99,7 @@ export default function Project({
                 </article>
             </main>
             <div className="h-20 lg:h-32" />
-            <Footer />
+            <Footer currentYear={currentYear} />
         </>
     )
 }

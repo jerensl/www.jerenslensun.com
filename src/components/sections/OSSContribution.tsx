@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { CareerCard } from '../cards/Contribution'
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion } from 'motion/react'
 
 const careers = [
     {

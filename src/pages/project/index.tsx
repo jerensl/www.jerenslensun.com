@@ -8,14 +8,16 @@ import { ContentCard } from '@/components/cards/Content'
 
 export const getStaticProps: GetStaticProps = async () => {
     const projects = await getContents<IProjectMetadata>('project')
+    const getCurrentYear = new Date().getFullYear()
 
     return {
-        props: { projects },
+        props: { projects, currentYear: getCurrentYear },
     }
 }
 
 export default function Project({
     projects,
+    currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
         <>
@@ -58,7 +60,7 @@ export default function Project({
                 </Grid>
             </div>
             <div className="h-20 lg:h-32" />
-            <Footer />
+            <Footer currentYear={currentYear} />
         </>
     )
 }

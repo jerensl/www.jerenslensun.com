@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Grid } from '../Grid'
-import { useReducedMotion, motion } from 'framer-motion'
+import { useReducedMotion, motion } from 'motion/react'
 
 export const AboutSection = (): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()

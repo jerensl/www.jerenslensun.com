@@ -85,7 +85,11 @@ function AboutSection() {
     )
 }
 
-export const Footer = (): React.ReactElement => {
+export const Footer = ({
+    currentYear,
+}: {
+    currentYear: string
+}): React.ReactElement => {
     return (
         <div className="relative px-5vw mt-10">
             <footer className="relative mx-auto grid max-w-7xl grid-cols-4 grid-rows-max-content gap-x-4 md:grid-cols-8 xl:grid-cols-12 xl:gap-x-6">
@@ -100,8 +104,7 @@ export const Footer = (): React.ReactElement => {
                 </div>
                 <div className="col-span-full my-5 text-lg mb-24 md:mb-10 dark:text-blueGray-500 md:my-5 border-t border-gray-500">
                     <span>
-                        © {new Date().getFullYear()} Jerens Lensun. All Rights
-                        Reserved.
+                        © {currentYear} Jerens Lensun. All Rights Reserved.
                     </span>
                 </div>
             </footer>
