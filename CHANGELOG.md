@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/jerensl/www.jerenslensun.com/compare/v1.0.1...v1.0.2) (2025-02-17)
+
+
+### Bug Fixes
+
+* fix build ([9a44966](https://github.com/jerensl/www.jerenslensun.com/commit/9a4496654820c3b41584a4a62a35ae0130fa834d))
+* local image fallback ([f69587c](https://github.com/jerensl/www.jerenslensun.com/commit/f69587c387fca47c58a9f5ace682da36d7f3501c))
+
 ## [1.0.1](https://github.com/jerensl/www.jerenslensun.com/compare/v1.0.0...v1.0.1) (2024-12-30)
 
 
