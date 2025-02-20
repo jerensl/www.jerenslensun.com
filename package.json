@@ -43,7 +43,7 @@
         "match-sorter": "^8.0.0",
         "mdx-bundler": "^10.0.3",
         "motion": "^12.0.6",
-        "next": "15.1.6",
+        "next": "15.1.7",
         "next-pwa": "^5.6.0",
         "next-themes": "^0.4.4",
         "parameterize": "^1.0.0",
@@ -108,8 +108,8 @@
         "@types/mdx": "^2.0.13",
         "@types/node": "^22.13.0",
         "@types/parameterize": "^1.0.3",
-        "@types/react": "19.0.8",
-        "@types/react-dom": "19.0.3",
+        "@types/react": "19.0.10",
+        "@types/react-dom": "19.0.4",
         "@types/tinycolor2": "^1.4.6",
         "@types/unist": "^3.0.3",
         "@typescript-eslint/parser": "^8.22.0",
@@ -117,7 +117,7 @@
         "babel-loader": "^9.2.1",
         "cypress": "^14.0.1",
         "eslint": "9.18.0",
-        "eslint-config-next": "15.1.6",
+        "eslint-config-next": "15.1.7",
         "eslint-config-prettier": "^10.0.1",
         "eslint-import-resolver-typescript": "^3.7.0",
         "eslint-plugin-cypress": "^4.1.0",
@@ -154,8 +154,8 @@
     "type": "module",
     "resolutions": {
         "webpack": "^5",
-        "@types/react": "19.0.8",
-        "@types/react-dom": "19.0.3"
+        "@types/react": "19.0.10",
+        "@types/react-dom": "19.0.4"
     },
     "engines": {
         "node": "^18"
