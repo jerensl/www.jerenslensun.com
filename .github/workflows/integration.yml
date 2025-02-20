@@ -31,7 +31,6 @@ jobs:
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
-                  version: 10
                   run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.2.0
@@ -59,7 +58,6 @@ jobs:
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
-                  version: 10
                   run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.2.0
@@ -87,7 +85,6 @@ jobs:
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
-                  version: 10
                   run_install: false
             - name: Setup Node.js 18.x
               uses: actions/setup-node@v4.2.0
