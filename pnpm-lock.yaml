@@ -231,8 +231,8 @@ importers:
         specifier: ^8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.4.2))
       '@storybook/theming':
-        specifier: ^8.4.7
-        version: 8.4.7(storybook@8.4.7(prettier@3.4.2))
+        specifier: ^8.5.8
+        version: 8.5.8(storybook@8.4.7(prettier@3.4.2))
       '@swc/core':
         specifier: ^1.10.4
         version: 1.10.4(@swc/helpers@0.5.15)
@@ -3000,6 +3000,11 @@ packages:
 
   '@storybook/theming@8.4.7':
     resolution: {integrity: sha512-99rgLEjf7iwfSEmdqlHkSG3AyLcK0sfExcr0jnc6rLiAkBhzuIsvcHjjUwkR210SOCgXqBPW0ZA6uhnuyppHLw==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+
+  '@storybook/theming@8.5.8':
+    resolution: {integrity: sha512-/Rm6BV778sCT+3Ok861VYmw9BlEV5zcCq2zg5TOVuk8HqZw7H7VHtubVsjukEuhveYCs+oF+i2tv/II6jh6jdg==}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
@@ -11918,6 +11923,10 @@ snapshots:
     dependencies:
       storybook: 8.4.7(prettier@3.4.2)
 
+  '@storybook/theming@8.5.8(storybook@8.4.7(prettier@3.4.2))':
+    dependencies:
+      storybook: 8.4.7(prettier@3.4.2)
+
   '@storybook/types@7.6.17':
     dependencies:
       '@storybook/channels': 7.6.17
@@ -17997,7 +18006,7 @@ snapshots:
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@storybook/manager-api': 8.5.1(storybook@8.4.7(prettier@3.4.2))
-      '@storybook/theming': 8.4.7(storybook@8.4.7(prettier@3.4.2))
+      '@storybook/theming': 8.5.8(storybook@8.4.7(prettier@3.4.2))
       fast-deep-equal: 3.1.3
       memoizerific: 1.11.3
     transitivePeerDependencies:
