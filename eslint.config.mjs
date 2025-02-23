@@ -1,5 +1,4 @@
 import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
-import cypress from 'eslint-plugin-cypress'
 import reactHooks from 'eslint-plugin-react-hooks'
 import prettier from 'eslint-plugin-prettier'
 import globals from 'globals'
@@ -23,7 +22,6 @@ export default [
     },
     ...fixupConfigRules(
         compat.extends(
-            'plugin:cypress/recommended',
             'plugin:import/recommended',
             'plugin:import/typescript',
             'plugin:prettier/recommended',
@@ -36,7 +34,6 @@ export default [
     ),
     {
         plugins: {
-            cypress: fixupPluginRules(cypress),
             'react-hooks': fixupPluginRules(reactHooks),
             prettier: fixupPluginRules(prettier),
         },

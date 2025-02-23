@@ -6,6 +6,13 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[The Hidden Complexity of Big Risks]]></title>
+      <description><![CDATA[A while back, I took on a project in a technical field, driven by my fascination with tough challenges. I picked a path that wasn’t the standard one—something more complex, with higher risks but also greater potential.]]></description>
+      <link>https://www.jerenslensun.com/blog/en-the-hidden-complexity-big-risk</link>
+      <guid>https://www.jerenslensun.com/blog/en-the-hidden-complexity-big-risk</guid>
+      <pubDate>2025-01-17</pubDate>
+    </item>
+<item>
       <title><![CDATA[My Journey as an LFX Mentee - Exploring E2E Testing with Playwright on Meshery]]></title>
       <description><![CDATA[The journey began with a comprehensive exploration of Meshery's existing end-to-end (E2E) testing framework, built using Cypress. Gaining a deep understanding of the existing setup was crucial to ensure a seamless transition to Playwright.]]></description>
       <link>https://www.jerenslensun.com/blog/en-lfx-menthorship</link>
