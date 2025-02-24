@@ -96,7 +96,7 @@ jobs:
             - name: Check Code Coverage
               run: pnpm test:coverage
             - name: Upload code coverage to artifact
-              uses: actions/upload-artifact@v4.6.0
+              uses: actions/upload-artifact@v4.6.1
               with:
                   name: jest-code-coverage
                   path: coverage
