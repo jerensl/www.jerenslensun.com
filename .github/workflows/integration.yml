@@ -101,6 +101,33 @@ jobs:
                   name: jest-code-coverage
                   path: coverage
                   retention-days: 14
+    e2e_test:
+        name: Playwright E2E test
+        if: github.repository == 'jerensl/www.jerenslensun.com'
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4.1.0
+              with:
+                  run_install: false
+            - uses: actions/setup-node@v4.2.0
+              with:
+                  node-version-file: '.nvmrc'
+                  cache: 'pnpm'
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile --prefer-offline
+            - name: Install Playwright Browsers
+              run: npx playwright install --with-deps
+            - name: Run Playwright tests
+              run: npx playwright test
+            - uses: actions/upload-artifact@v4
+              if: ${{ !cancelled() }}
+              with:
+                  name: playwright-report
+                  path: playwright-report/
+                  retention-days: 30
     azure_deploy_staging:
         name: Azure Static Web App deployment staging
         if: github.repository == 'jerensl/www.jerenslensun.com'
