@@ -63,3 +63,10 @@ yarn-error.log*
 jerens-web-app.code-workspace
 
 /contents/images
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
