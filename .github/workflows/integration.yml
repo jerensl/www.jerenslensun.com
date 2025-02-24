@@ -117,7 +117,7 @@ jobs:
                   node-version-file: '.nvmrc'
                   cache: 'pnpm'
             - name: Install dependencies
-              run: pnpm ci
+              run: pnpm install --frozen-lockfile --prefer-offline
             - name: Install Playwright Browsers
               run: npx playwright install --with-deps
             - name: Run Playwright tests
