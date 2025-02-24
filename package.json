@@ -77,7 +77,7 @@
         "@commitlint/types": "^19.5.0",
         "@eslint/compat": "^1.2.6",
         "@eslint/eslintrc": "^3.2.0",
-        "@eslint/js": "^9.19.0",
+        "@eslint/js": "^9.21.0",
         "@mswjs/data": "^0.16.2",
         "@next/plugin-storybook": "15.1.6",
         "@storybook/addon-actions": "^8.4.7",
