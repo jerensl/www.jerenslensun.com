@@ -88,6 +88,18 @@ To run the automated tests for this system.
 
 #### `pnpm test:coverage`
 
+### Check host port from docker container
+
+#### `ip addr show docker0 | grep -Po 'inet \K[\d.]+'`
+
+### `Run playwright server container`
+
+#### `docker run --add-host=hostmachine:host-gateway -p 8443:8443 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.50.1-noble /bin/sh -c "npx -y playwright@1.50.1 run-server --port 8443 --host 0.0.0.0"`
+
+### `Run playwright locally using docker`
+
+#### `PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8443/ npx playwright test --ui-port=8080`
+
 ## 🎈 Usage <a name="usage"></a>
 
 For more information about how to use the component, you can follow the instruction from the storybook [here](https://jerensl.github.io/www.jerenslensun.com/).

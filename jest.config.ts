@@ -24,6 +24,7 @@ const customJestConfig = {
         '<rootDir>/node_modules/',
         '<rootDir>/.next/',
         '<rootDir>/cypress/',
+        '<rootDir>/e2e/',
     ],
     moduleDirectories: ['node_modules', '<rootDir>/'],
     testEnvironment: 'jest-fixed-jsdom',
