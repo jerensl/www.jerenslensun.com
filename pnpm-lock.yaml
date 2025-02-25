@@ -195,8 +195,8 @@ importers:
         specifier: ^0.16.2
         version: 0.16.2(@types/node@22.13.0)(typescript@5.7.2)
       '@next/plugin-storybook':
-        specifier: 15.1.6
-        version: 15.1.6
+        specifier: 15.1.7
+        version: 15.1.7
       '@playwright/test':
         specifier: ^1.50.1
         version: 1.50.1
@@ -2059,8 +2059,8 @@ packages:
   '@next/eslint-plugin-next@15.1.7':
     resolution: {integrity: sha512-kRP7RjSxfTO13NE317ek3mSGzoZlI33nc/i5hs1KaWpK+egs85xg0DJ4p32QEiHnR0mVjuUfhRIun7awqfL7pQ==}
 
-  '@next/plugin-storybook@15.1.6':
-    resolution: {integrity: sha512-ysZruxzLGXMJFF3U1UTRRYsq5kOfj6P9Wb6WfcEUPrWrbkZm37ughsVbgzscxCP558SaAqVBhD0nynZIZR7xYA==}
+  '@next/plugin-storybook@15.1.7':
+    resolution: {integrity: sha512-YHvIgHVl68r1vPKxzLtKVnxWPkl70l+0+6AHRcFto21Mv5KBBt4PX85cuJPDQSYuW3fvuwL33jCv6YFDlyxSWg==}
 
   '@next/swc-darwin-arm64@15.1.7':
     resolution: {integrity: sha512-hPFwzPJDpA8FGj7IKV3Yf1web3oz2YsR8du4amKw8d+jAOHfYHYFpMkoF6vgSY4W6vB29RtZEklK9ayinGiCmQ==}
@@ -10506,7 +10506,7 @@ snapshots:
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/plugin-storybook@15.1.6': {}
+  '@next/plugin-storybook@15.1.7': {}
 
   '@next/swc-darwin-arm64@15.1.7':
     optional: true
