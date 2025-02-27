@@ -201,8 +201,8 @@ importers:
         specifier: ^1.50.1
         version: 1.50.1
       '@storybook/addon-actions':
-        specifier: ^8.4.7
-        version: 8.4.7(storybook@8.6.0(prettier@3.4.2))
+        specifier: ^8.6.0
+        version: 8.6.0(storybook@8.6.0(prettier@3.4.2))
       '@storybook/addon-docs':
         specifier: ^8.4.7
         version: 8.4.7(@types/react@19.0.10)(storybook@8.6.0(prettier@3.4.2))
@@ -1028,6 +1028,10 @@ packages:
 
   '@babel/runtime@7.26.0':
     resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.26.9':
+    resolution: {integrity: sha512-aA63XwOkcl4xxQa3HjPMqOP6LiK0ZDv3mUPYEFXkpHbaFjtGggE1A61FjFzJnB+p7/oy2gA8E+rcBNl/zC1tMg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.25.9':
@@ -2711,6 +2715,11 @@ packages:
     resolution: {integrity: sha512-mjtD5JxcPuW74T6h7nqMxWTvDneFtokg88p6kQ5OnC1M259iAXb//yiSZgu/quunMHPCXSiqn4FNOSgASTSbsA==}
     peerDependencies:
       storybook: ^8.4.7
+
+  '@storybook/addon-actions@8.6.0':
+    resolution: {integrity: sha512-lI03stcI28wN8trjp7zx0PzN1NRxSpU/551slzEhSM0tghcLxcfLZR/wh4Jp0T68Obj7z//YXPttZ9PBFajs6w==}
+    peerDependencies:
+      storybook: ^8.6.0
 
   '@storybook/addon-backgrounds@8.4.7':
     resolution: {integrity: sha512-I4/aErqtFiazcoWyKafOAm3bLpxTj6eQuH/woSbk1Yx+EzN+Dbrgx1Updy8//bsNtKkcrXETITreqHC+a57DHQ==}
@@ -9318,6 +9327,10 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
+  '@babel/runtime@7.26.9':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@babel/template@7.25.9':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -10612,17 +10625,17 @@ snapshots:
 
   '@radix-ui/number@1.0.1':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
 
   '@radix-ui/primitive@1.0.1':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
 
   '@radix-ui/primitive@1.1.1': {}
 
   '@radix-ui/react-arrow@1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -10632,7 +10645,7 @@ snapshots:
 
   '@radix-ui/react-collection@1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       '@radix-ui/react-context': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -10657,7 +10670,7 @@ snapshots:
 
   '@radix-ui/react-compose-refs@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
@@ -10670,7 +10683,7 @@ snapshots:
 
   '@radix-ui/react-context@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
@@ -10683,7 +10696,7 @@ snapshots:
 
   '@radix-ui/react-direction@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
@@ -10696,7 +10709,7 @@ snapshots:
 
   '@radix-ui/react-dismissable-layer@1.0.4(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -10710,14 +10723,14 @@ snapshots:
 
   '@radix-ui/react-focus-guards@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
 
   '@radix-ui/react-focus-scope@1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@19.0.10)(react@19.0.0)
@@ -10729,7 +10742,7 @@ snapshots:
 
   '@radix-ui/react-id@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
@@ -10744,7 +10757,7 @@ snapshots:
 
   '@radix-ui/react-popper@1.1.2(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@floating-ui/react-dom': 2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-arrow': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@19.0.10)(react@19.0.0)
@@ -10763,7 +10776,7 @@ snapshots:
 
   '@radix-ui/react-portal@1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -10773,7 +10786,7 @@ snapshots:
 
   '@radix-ui/react-primitive@1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-slot': 1.0.2(@types/react@19.0.10)(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -10809,7 +10822,7 @@ snapshots:
 
   '@radix-ui/react-select@1.2.2(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -10848,7 +10861,7 @@ snapshots:
 
   '@radix-ui/react-slot@1.0.2(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
@@ -10904,7 +10917,7 @@ snapshots:
 
   '@radix-ui/react-use-callback-ref@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
@@ -10917,7 +10930,7 @@ snapshots:
 
   '@radix-ui/react-use-controllable-state@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
@@ -10932,7 +10945,7 @@ snapshots:
 
   '@radix-ui/react-use-escape-keydown@1.0.3(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
@@ -10940,7 +10953,7 @@ snapshots:
 
   '@radix-ui/react-use-layout-effect@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
@@ -10953,14 +10966,14 @@ snapshots:
 
   '@radix-ui/react-use-previous@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       react: 19.0.0
     optionalDependencies:
       '@types/react': 19.0.10
 
   '@radix-ui/react-use-rect@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/rect': 1.0.1
       react: 19.0.0
     optionalDependencies:
@@ -10968,7 +10981,7 @@ snapshots:
 
   '@radix-ui/react-use-size@1.0.1(@types/react@19.0.10)(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@19.0.10)(react@19.0.0)
       react: 19.0.0
     optionalDependencies:
@@ -10976,7 +10989,7 @@ snapshots:
 
   '@radix-ui/react-visually-hidden@1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -10986,7 +10999,7 @@ snapshots:
 
   '@radix-ui/rect@1.0.1':
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
 
   '@rollup/plugin-babel@5.3.1(@babel/core@7.26.9)(@types/babel__core@7.20.5)(rollup@2.79.2)':
     dependencies:
@@ -11065,6 +11078,15 @@ snapshots:
   '@stitches/core@1.2.8': {}
 
   '@storybook/addon-actions@8.4.7(storybook@8.6.0(prettier@3.4.2))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.6.0(prettier@3.4.2)
+      uuid: 9.0.1
+
+  '@storybook/addon-actions@8.6.0(storybook@8.6.0(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8
@@ -16527,7 +16549,7 @@ snapshots:
 
   polished@4.3.1:
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
 
   possible-typed-array-names@1.0.0: {}
 
@@ -16950,7 +16972,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
 
   regex-parser@2.3.0: {}
 
@@ -18254,7 +18276,7 @@ snapshots:
       '@apideck/better-ajv-errors': 0.3.6(ajv@8.17.1)
       '@babel/core': 7.26.9
       '@babel/preset-env': 7.26.0(@babel/core@7.26.9)
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
       '@rollup/plugin-babel': 5.3.1(@babel/core@7.26.9)(@types/babel__core@7.20.5)(rollup@2.79.2)
       '@rollup/plugin-node-resolve': 11.2.1(rollup@2.79.2)
       '@rollup/plugin-replace': 2.4.2(rollup@2.79.2)
