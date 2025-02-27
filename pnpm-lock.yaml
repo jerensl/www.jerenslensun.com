@@ -201,8 +201,8 @@ importers:
         specifier: ^1.50.1
         version: 1.50.1
       '@storybook/addon-actions':
-        specifier: ^8.4.7
-        version: 8.4.7(storybook@8.6.0(prettier@3.4.2))
+        specifier: ^8.6.0
+        version: 8.6.0(storybook@8.6.0(prettier@3.4.2))
       '@storybook/addon-docs':
         specifier: ^8.4.7
         version: 8.4.7(@types/react@19.0.10)(storybook@8.6.0(prettier@3.4.2))
@@ -2703,6 +2703,11 @@ packages:
     resolution: {integrity: sha512-mjtD5JxcPuW74T6h7nqMxWTvDneFtokg88p6kQ5OnC1M259iAXb//yiSZgu/quunMHPCXSiqn4FNOSgASTSbsA==}
     peerDependencies:
       storybook: ^8.4.7
+
+  '@storybook/addon-actions@8.6.0':
+    resolution: {integrity: sha512-lI03stcI28wN8trjp7zx0PzN1NRxSpU/551slzEhSM0tghcLxcfLZR/wh4Jp0T68Obj7z//YXPttZ9PBFajs6w==}
+    peerDependencies:
+      storybook: ^8.6.0
 
   '@storybook/addon-backgrounds@8.4.7':
     resolution: {integrity: sha512-I4/aErqtFiazcoWyKafOAm3bLpxTj6eQuH/woSbk1Yx+EzN+Dbrgx1Updy8//bsNtKkcrXETITreqHC+a57DHQ==}
@@ -10937,6 +10942,15 @@ snapshots:
       storybook: 8.6.0(prettier@3.4.2)
       uuid: 9.0.1
 
+  '@storybook/addon-actions@8.6.0(storybook@8.6.0(prettier@3.4.2))':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.6.0(prettier@3.4.2)
+      uuid: 9.0.1
+
   '@storybook/addon-backgrounds@8.4.7(storybook@8.6.0(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
@@ -16727,7 +16741,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.9
 
   regex-parser@2.3.0: {}
 
