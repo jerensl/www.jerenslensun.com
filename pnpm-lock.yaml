@@ -216,8 +216,8 @@ importers:
         specifier: ^8.4.7
         version: 8.4.7(react@19.0.0)(storybook@8.6.0(prettier@3.4.2))
       '@storybook/addon-mdx-gfm':
-        specifier: ^8.4.7
-        version: 8.4.7(storybook@8.6.0(prettier@3.4.2))
+        specifier: ^8.6.0
+        version: 8.6.0(storybook@8.6.0(prettier@3.4.2))
       '@storybook/addon-styling':
         specifier: ^1.3.7
         version: 1.3.7(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(less@4.2.1)(postcss@8.5.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)(webpack@5.98.0(@swc/core@1.11.1(@swc/helpers@0.5.15))(esbuild@0.15.18))
@@ -2751,10 +2751,10 @@ packages:
       react:
         optional: true
 
-  '@storybook/addon-mdx-gfm@8.4.7':
-    resolution: {integrity: sha512-RLenpDmY0HZLqh8T6ZamSeUaLkFFJGMivIs5T3IhAo+BecYA1gWzD+T5er/k8AH8HyYJUtxt/IMCx5UrGnUr7g==}
+  '@storybook/addon-mdx-gfm@8.6.0':
+    resolution: {integrity: sha512-P0o7oKid7emr3g4Z/JsS6DSMZz5+bIM75+xx0kYp3StEUpeA1vrcrGnXTYC+lwP3r66OM+2vYdJh2YLk3HeSyQ==}
     peerDependencies:
-      storybook: ^8.4.7
+      storybook: ^8.6.0
 
   '@storybook/addon-measure@8.4.7':
     resolution: {integrity: sha512-QfvqYWDSI5F68mKvafEmZic3SMiK7zZM8VA0kTXx55hF/+vx61Mm0HccApUT96xCXIgmwQwDvn9gS4TkX81Dmw==}
@@ -11139,7 +11139,7 @@ snapshots:
     optionalDependencies:
       react: 19.0.0
 
-  '@storybook/addon-mdx-gfm@8.4.7(storybook@8.6.0(prettier@3.4.2))':
+  '@storybook/addon-mdx-gfm@8.6.0(storybook@8.6.0(prettier@3.4.2))':
     dependencies:
       remark-gfm: 4.0.0
       storybook: 8.6.0(prettier@3.4.2)
