@@ -79,7 +79,7 @@
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.19.0",
     "@mswjs/data": "^0.16.2",
-    "@next/plugin-storybook": "15.1.7",
+    "@next/plugin-storybook": "15.2.0",
     "@playwright/test": "^1.50.1",
     "@storybook/addon-actions": "^8.6.0",
     "@storybook/addon-docs": "^8.4.7",
