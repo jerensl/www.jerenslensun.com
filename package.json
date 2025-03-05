@@ -93,7 +93,7 @@
     "@storybook/react": "^8.4.7",
     "@storybook/test": "^8.4.7",
     "@storybook/theming": "^8.6.3",
-    "@swc/core": "^1.11.1",
+    "@swc/core": "^1.11.7",
     "@swc/jest": "^0.2.37",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/dom": "^10.4.0",
