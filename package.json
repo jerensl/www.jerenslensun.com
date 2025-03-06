@@ -28,7 +28,7 @@
     "@plaiceholder/next": "^3.0.0",
     "@stitches/core": "^1.2.8",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tanstack/react-query": "^4.36.1",
+    "@tanstack/react-query": "^5.67.1",
     "@tanstack/react-query-devtools": "^4.36.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
