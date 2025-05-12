@@ -117,7 +117,7 @@ async function getContents<T extends IMetadata>(
                     slug: fileName,
                     blurDataURL: base64,
                 } as T
-            } catch (error) {}
+            } catch (error) { }
 
             return {
                 ...data,
@@ -201,7 +201,17 @@ export const getContent = async (
                 blurDataURL: base64,
             },
         }
-    } catch (error) {}
+    } catch (error) { }
+
+    return {
+        code,
+        frontmatter,
+        metadata: {
+            slug: fileName,
+            fileName: file,
+            blurDataURL: null,
+        },
+    }
 }
 
 function getTags(contents: Array<IBlogMetadata>) {
