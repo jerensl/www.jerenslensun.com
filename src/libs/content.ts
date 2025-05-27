@@ -202,6 +202,16 @@ export const getContent = async (
             },
         }
     } catch (error) {}
+
+    return {
+        code,
+        frontmatter,
+        metadata: {
+            slug: fileName,
+            fileName: file,
+            blurDataURL: null,
+        },
+    }
 }
 
 function getTags(contents: Array<IBlogMetadata>) {
