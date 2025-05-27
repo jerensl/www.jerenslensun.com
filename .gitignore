@@ -29,6 +29,9 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+.env.local
+.envrc
 
 # vercel
 .vercel
@@ -39,11 +42,6 @@ yarn-error.log*
 # cypress
 /cypress/videos
 /cypress/screenshots
-
-# enviroment variales
-.env
-.env.local
-.envrc
 
 # PWA files
 /public/sw.js
@@ -58,10 +56,10 @@ yarn-error.log*
 /public/rss.xml
 /public/sitemap.xml
 
+# Local vs code config
 .vscode
 
-jerens-web-app.code-workspace
-
+# Images content
 /contents/images
 
 # Playwright
