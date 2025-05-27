@@ -19,14 +19,14 @@ jobs:
                   private_key=$(echo "${{ secrets.GH_APP_PRIVATE_KEY }}" | base64 -d | awk 'BEGIN {ORS="\\n"} {print}' | head -c -2) &> /dev/null
                   echo "::add-mask::$private_key"
                   echo "private-key=$private_key" >> "$GITHUB_OUTPUT"
-            - uses: actions/create-github-app-token@v1
+            - uses: actions/create-github-app-token@v2
               id: app-token
               with:
                   # required
                   app-id: ${{ secrets.GH_APP_ID }}
                   private-key: ${{ steps.decode.outputs.private-key }}
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.11.0
+              uses: step-security/harden-runner@v2.12.0
               with:
                   egress-policy: audit
             - name: Autoaprove
