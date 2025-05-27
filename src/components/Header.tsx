@@ -43,8 +43,10 @@ export const Header = ({ blurDataURL }: HeaderProps): React.ReactElement => {
                                     />
                                 </h1>
                                 <p className="font-mono font-light text-lg md:text-xl">
-                                    I work with Typescript & Golang Ecosystem,
-                                    and write about software development.
+                                    I work in the open source ecosystem. Focused
+                                    on continuous integration & delivery. I
+                                    write about systems, tooling, and cutting
+                                    through the noise in software.
                                 </p>
                             </div>
                             <div
