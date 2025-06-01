@@ -6,6 +6,13 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[Github Actions Workflow]]></title>
+      <description><![CDATA[This documentation provides everything you need to understand how GitHub Actions behave in relation to commits, branches, and pull requests. It also clarifies how workflow context is affected by forks, secrets, and trigger types.]]></description>
+      <link>https://www.jerenslensun.com/blog/en-github-actions-workflow</link>
+      <guid>https://www.jerenslensun.com/blog/en-github-actions-workflow</guid>
+      <pubDate>2025-06-01</pubDate>
+    </item>
+<item>
       <title><![CDATA[My Journey as an LFX Mentee - Exploring E2E Testing with Playwright on Meshery]]></title>
       <description><![CDATA[The journey began with a comprehensive exploration of Meshery's existing end-to-end (E2E) testing framework, built using Cypress. Gaining a deep understanding of the existing setup was crucial to ensure a seamless transition to Playwright.]]></description>
       <link>https://www.jerenslensun.com/blog/en-lfx-menthorship</link>

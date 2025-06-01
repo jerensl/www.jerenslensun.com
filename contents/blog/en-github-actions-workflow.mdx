@@ -1,0 +1,64 @@
+---
+title: 'Github Actions Workflow'
+date: '2025-06-01'
+cover: speed.jpg
+isPublished: true
+description: This documentation provides everything you need to understand how GitHub Actions behave in relation to commits, branches, and pull requests. It also clarifies how workflow context is affected by forks, secrets, and trigger types.
+tags: ['algorithm']
+---
+
+This documentation provides everything you need to understand how GitHub Actions behave in relation to commits, branches, and pull requests. It also clarifies how workflow context is affected by forks, secrets, and trigger types.
+
+## Commit and Branch
+To learn more about the events that trigger workflows, refer to [GitHub Docs – Events that Trigger Workflows](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#about-events-that-trigger-workflows).
+
+When a workflow runs, GitHub makes various pieces of contextual information available, such as:
+- `GITHUB_SHA`: the commit SHA that triggered the workflow
+- `GITHUB_REF`: the branch or tag ref that initiated the run
+
+These values allow you to determine precisely what code is being executed.
+### Types of GitHub Refs
+- **Default Branch (`main`/`master`)**  
+    The primary branch defined in the repository settings.
+- **Pull Request Merge Branch**  
+    A synthetic merge commit created when a PR is opened. It combines the head of the PR with the base branch.
+- **Pull Request Base Branch**  
+    The target branch into which a PR is intended to be merged
+
+### Common Pull Request Workflows
+When working with pull requests (especially from forks), two primary workflow types are commonly used:
+#### 1. `pull_request_target`
+- ✅ Has access to **secrets**
+- 📌 Always checks out code from the **base branch**, not the PR branch
+- ⚠️ Be cautious: If your workflow depends on code from the PR, this may not work as expected
+- 🔍 Useful when responding to PR metadata (e.g., comments, labels) that require access to secrets
+- 🧪 If your workflow can’t find the PR context on the base branch, it may silently fail
+#### 2. `pull_request`
+- ❌ **No access to secrets**
+- ✅ Checks out code from the **PR merge branch**
+- 🔐 Safer for running tests on untrusted contributions (e.g., forks)
+### Understanding `GITHUB_SHA`
+GitHub sets `GITHUB_SHA` to different values depending on how the workflow is triggered:
+1. **Last Commit SHA**  
+    The actual last commit on the triggering branch (usually used for direct branch pushes).
+2. **Merge Commit SHA**  
+    A synthetic merge commit between the PR head and base. Default for `pull_request` events.
+🔍 If you want to run your workflow against the **exact commit from the PR head**, use:  
+[Checkout pull request head commit](https://github.com/actions/checkout?tab=readme-ov-file#checkout-pull-request-head-commit-instead-of-merge-commit).
+
+### Working with Forked Repositories
+When a PR originates from a fork:
+- GitHub runs workflows in the **context of the base repository**
+- The PR’s branch and commits exist only on the fork
+- 🔒 For security, GitHub disables secrets for workflows triggered by forked PRs
+
+This can lead to issues where workflows can't access the fork’s PR context or secrets.
+
+### GitHub Secrets
+GitHub secrets will be unavailable if you run the workflow outside of the base branch, especially if your pull request is coming from a forked repository. This is to protect against potential malicious activity.
+
+### Events and Payloads
+For a complete list of supported events and their payloads, refer to [Webhook Events and Payloads](https://docs.github.com/en/webhooks/webhook-events-and-payloads).    
+⚠️ **Important**: When dealing with forked PRs, GitHub may **drop or modify events/payloads** for security. This can cause inconsistencies across branches and workflow triggers.   
+🧰 **Workaround**: Use [GitHub Actions artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) to persist or pass necessary data between jobs when event data is missing or unreliable.
+
