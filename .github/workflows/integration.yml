@@ -22,7 +22,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.12.0
+              uses: step-security/harden-runner@v2.12.1
               with:
                   egress-policy: audit
 
@@ -49,7 +49,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.12.0
+              uses: step-security/harden-runner@v2.12.1
               with:
                   egress-policy: audit
 
@@ -76,7 +76,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.12.0
+              uses: step-security/harden-runner@v2.12.1
               with:
                   egress-policy: audit
 
