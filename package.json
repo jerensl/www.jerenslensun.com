@@ -38,7 +38,7 @@
     "hast-util-to-html": "^9.0.5",
     "hast-util-to-string": "^3.0.1",
     "jest-fixed-jsdom": "^0.0.9",
-    "match-sorter": "^8.0.0",
+    "match-sorter": "^8.0.3",
     "mdx-bundler": "^10.0.3",
     "motion": "^12.4.7",
     "next": "15.2.1",
