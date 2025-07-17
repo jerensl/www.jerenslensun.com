@@ -111,7 +111,7 @@
     "@types/tinycolor2": "^1.4.6",
     "@types/unist": "^3.0.3",
     "@typescript-eslint/parser": "^8.25.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "babel-loader": "^9.2.1",
     "eslint": "9.31.0",
     "eslint-config-next": "15.4.1",
