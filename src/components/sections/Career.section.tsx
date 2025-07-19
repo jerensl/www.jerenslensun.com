@@ -50,7 +50,7 @@ export const CareerSection: React.FC = () => {
                             <FontAwesomeIcon className="block" icon={faFile} />
                         </a>
                     </motion.div>
-                    {Careers.map(
+                    {Careers.slice(0, 4).map(
                         ({ organization, role, startDate, endDate }, index) => {
                             return (
                                 <CareerCard

@@ -59,11 +59,12 @@ export const IntroductionSection = (): React.ReactElement => {
                             </motion.div>
                             <motion.div variants={childrenVariants}>
                                 <p className="text-base mt-5">
-                                    My area of focus lies in building products
-                                    as well as web development and backend
-                                    development. I enjoy designing and building
-                                    a highly scalable system that can help a lot
-                                    of users to solve their own problems.
+                                    I focus on system specifications, continuous
+                                    integration and delivery, and building
+                                    tooling that makes development workflows
+                                    more predictable and efficient. I care about
+                                    great design not for how it looks, but for
+                                    how it functions and how long it lasts.
                                 </p>
                             </motion.div>
                         </motion.div>
