@@ -7,6 +7,12 @@ interface ICareers {
 
 export const Careers: Array<ICareers> = [
     {
+        organization: 'Servo',
+        role: 'Software Developer Intern in Outreachy',
+        startDate: 'June 2025',
+        endDate: 'Now',
+    },
+    {
         organization: 'Meshery',
         role: 'Software Developer Intern',
         startDate: 'September 2024',
@@ -17,17 +23,5 @@ export const Careers: Array<ICareers> = [
         role: 'ReactJS Developer Intern',
         startDate: 'August 2022',
         endDate: 'October 2022',
-    },
-    {
-        organization: 'Bangkit Academy 2022',
-        role: 'Facilitator',
-        startDate: 'February 2022',
-        endDate: 'July 2022',
-    },
-    {
-        organization: 'Baparekraf Digital Talent',
-        role: 'Facilitator',
-        startDate: 'October 2020',
-        endDate: 'November 2020',
     },
 ]
