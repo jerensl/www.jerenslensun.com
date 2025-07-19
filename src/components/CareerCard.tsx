@@ -35,7 +35,9 @@ export const CareerCard: React.FC<CareerCardProps> = ({
             }}
         >
             <motion.div variants={childrenVariants}>
-                <h2 className="text-xl font-sans font-bold mb-3">{organization}</h2>
+                <h2 className="text-xl font-sans font-bold mb-3">
+                    {organization}
+                </h2>
             </motion.div>
             <motion.div variants={childrenVariants}>
                 <p className="mb-1">{position}</p>
