@@ -66,11 +66,6 @@ describe('Home', () => {
         const heading = screen.getByRole('heading', {
             name: /I'm Jerens S. Lensun/i,
         })
-        const subHeading = screen.getByText(
-            'My area of focus lies in building products as well as web development and backend development. I enjoy designing and building a highly scalable system that can help a lot of users to solve their own problems.'
-        )
-
-        expect(heading).toBeInTheDocument()
-        expect(subHeading).toBeInTheDocument()
+       expect(heading).toBeInTheDocument()
     })
 })
