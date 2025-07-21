@@ -1,0 +1,23 @@
+---
+title: 'Mid-point Project Progress - Outreachy'
+date: '2025-07-21'
+cover: cover.img
+isPublished: true
+description: My outreachy Journey through Internship in Servo
+tags: ['menthorship', 'outreachy']
+---
+Hi, I interned for one month and two weeks on the Servo project through the Outreachy program. I work with CI/CD pipelines, as well as developer tooling.
+
+Since I am working as the Intern of Servo, my project plan entails adding annotation into Github Action linter, in addition to adding Type check for python code. My project entails improving developer experience in the midst of handling the process of linting and type check.
+
+I accomplished several objective in my stay in this Internship. Until now, I succesfully add annotation in github action in rust clippy and mach test-tidy command, and in doing so adding type check for python codebase using pyrefly.**
+
+We been implemented [Workflow Command](https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#using-workflow-commands-to-access-toolkit-functions) from github action to implement inline annotation which been integrated deeply on `python/tidy` codebases in [this pr](https://github.com/servo/servo/pull/37294).
+
+We also trying to improve the speed of test-tidy by implementating python multirpcoessing as you can check on [this pr]([https://github.com/servo/servo/pull/37748](https://github.com/servo/servo/pull/37748)
+
+To organazire all config in python we also choose to consolidate them multiple config like for ruff and pyrefly under pyproject config in [this pr](https://github.com/servo/servo/pull/37741)
+
+We are now at the point to add type stictness to all python codebase from [this pr](https://github.com/servo/servo/pull/38043) that are landed in base branch to address all type check on tidy codebases.
+
+During the second half of my internship, I will keep adding and correcting type check arround python codebase and will be working on other next task. Overall I'm happy with current progress being made and looking to improve more
