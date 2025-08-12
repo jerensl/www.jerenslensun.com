@@ -27,7 +27,7 @@ jobs:
                   egress-policy: audit
 
             - name: Checkout repository
-              uses: actions/checkout@v4.1.7
+              uses: actions/checkout@v5
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
@@ -54,7 +54,7 @@ jobs:
                   egress-policy: audit
 
             - name: Checkout repository
-              uses: actions/checkout@v4.1.7
+              uses: actions/checkout@v5
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
@@ -81,7 +81,7 @@ jobs:
                   egress-policy: audit
 
             - name: Checkout repository
-              uses: actions/checkout@v4.1.7
+              uses: actions/checkout@v5
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
@@ -107,7 +107,7 @@ jobs:
         timeout-minutes: 60
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v5
             - name: Install pnpm
               uses: pnpm/action-setup@v4.1.0
               with:
