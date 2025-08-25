@@ -1,0 +1,48 @@
+---
+title: 'Final project progress outreachy'
+date: '2025-08-25'
+cover: default.png
+isPublished: true
+description: My outreachy Journey through Internship in Servo
+tags: ['menthorship', 'outreachy', 'open-source']
+---
+Hi everyone! In this post, I’ll walk you through my internship journey with Servo as part of the Outreachy program. I’ll share what we’ve achieved so far during the internship period and the lessons learned along the way.
+
+## What is Servo?
+Before diving into the details, let me introduce Servo. Servo is a prototype web browser engine written in Rust and is currently under active development. As of this post, it has [61.8% Web Platform Test coverage](https://servo.org/wpt/)
+
+Web Platform Tests (WPT) are a cross-browser test suite that checks how well browsers implement web standards. Simply put, WPT checks how many [Web APIs a browser supports](https://html-now.github.io/) correctly, giving an idea of how complete its web platform implementation is.
+
+## The Problem Statement
+Like many large-scale software projects, Servo uses [GitHub Actions](https://docs.github.com/en/actions) for continuous integration (CI) to validate pull requests. One key step in the CI pipeline is linting, which identifies issues such as verbose or suboptimal code, use of outdated APIs, unsafe API usage, and code that doesn’t follow Servo’s style. Currently, the linting step doesn’t always enforce these rules code violating them can still be merged. In particular, errors that Rust’s [Clippy](https://doc.rust-lang.org/clippy/) could catch may slip through. The goal of my internship work was to fix this and make the linting experience more helpful for both new and experienced contributors.
+
+## My Work
+- **[Implement GitHub inline annotation on Clippy & Mach test-tidy](#)**    
+  During the first stage of the project, we successfully implemented GitHub annotations using workflow syntax, which was integrated directly into Mach.
+
+- **[Merging multiple Python configuration projects into `pyproject.toml`](https://github.com/servo/servo/pull/37741)**   
+  Consolidated various Python configuration files to streamline project setup and maintain consistency across the codebase.
+
+- **Removing unused Mach commands**   
+  Removed `cargo-update`, `update-cargo`, `grep`, `ndk-stack`, `ndk-gdb`, and `test-android-startup`  Mach commands to clean up the CI workflow. [PR#3784](https://github.com/servo/servo/pull/37874) and [PR#37958]((https://github.com/servo/servo/pull/37958))
+
+- **Removing test-tidy redundant rule**   
+  Updated `test-tidy` by [removing alphabetical order and line length rules]((https://github.com/servo/servo/pull/38538)) to simplify linting.
+
+- **Introduce Pyrefly and fix Pyrefly rules in Python directories and script bindings**   
+  - **[Mach: Add type check on `python/servo` directory](https://github.com/servo/servo/pull/38085)**  
+  - **[Mach: Add type check on Python tidy folder](https://github.com/servo/servo/pull/38043)**  
+  - **[Mach: Introduce Pyrefly for Python type checking (starting with the WPT folder)](https://github.com/servo/servo/pull/37953)**  
+  - **[Script bindings: Add type check on Servo script bindings](https://github.com/servo/servo/pull/38161)**  
+
+-  **[Adopt Ruff ANN rules for strict typing in functions and classes](https://github.com/servo/servo/pull/38531)**   
+  Enforced stricter type annotations across Python code by adopting Ruff’s **ANN** rules.
+
+## Gratitude
+This internship journey with Servo would not have been possible without the guidance of my mentors, [Martin Robinson](https://github.com/mrobinson) and [Mukilan Thiyagarajan](https://github.com/mukilan).  
+
+They played a key role in helping me navigate the codebase, from reviewing my pull requests to sharing practical advice during our meetings. Their support not only made my contributions possible but also shaped how I approach problem-solving in large-scale open-source projects.  
+
+I would also like to thank the Outreachy organizers, especially **Omotola E. Omotayo**, for hosting regular check-ins and fostering a supportive space for all interns throughout the program.  
+
+I’m deeply grateful for this experience and excited to carry these lessons forward in my open-source journey.
