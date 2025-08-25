@@ -14,11 +14,11 @@ Before diving into the details, let me introduce Servo. Servo is a prototype web
 Web Platform Tests (WPT) are a cross-browser test suite that checks how well browsers implement web standards. Simply put, WPT checks how many [Web APIs a browser supports](https://html-now.github.io/) correctly, giving an idea of how complete its web platform implementation is.
 
 ## The Problem Statement
-Like many large-scale software projects, Servo uses [GitHub Actions](https://docs.github.com/en/actions) for continuous integration (CI) to validate pull requests. One key step in the CI pipeline is linting, which identifies issues such as verbose or suboptimal code, use of outdated APIs, unsafe API usage, and code that doesn’t follow Servo’s style. Currently, the linting step doesn’t always enforce these rules code violating them can still be merged. In particular, errors that Rust’s [Clippy](https://doc.rust-lang.org/clippy/) could catch may slip through. The goal of my internship work was to fix this and make the linting experience more helpful for both new and experienced contributors.
+Like many large-scale software projects, Servo uses [GitHub Actions](https://docs.github.com/en/actions) for continuous integration (CI) to validate pull requests. One key step in the CI pipeline is linting, which identifies issues such as verbose or suboptimal code, use of outdated APIs, unsafe API usage, and code that doesn’t follow Servo’s style. The goal of my internship work was to fix this and make the linting experience more helpful for both new and experienced contributors.
 
 ## My Work
 - **[Implement GitHub inline annotation on Clippy & Mach test-tidy](#)**    
-  During the first stage of the project, we successfully implemented GitHub annotations using workflow syntax, which was integrated directly into Mach.
+  During the first stage of the project, we successfully implemented GitHub annotations using [workflow commands](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands), which was integrated directly into Mach.
 
 - **[Merging multiple Python configuration projects into `pyproject.toml`](https://github.com/servo/servo/pull/37741)**   
   Consolidated various Python configuration files to streamline project setup and maintain consistency across the codebase.
@@ -37,6 +37,32 @@ Like many large-scale software projects, Servo uses [GitHub Actions](https://doc
 
 -  **[Adopt Ruff ANN rules for strict typing in functions and classes](https://github.com/servo/servo/pull/38531)**   
   Enforced stricter type annotations across Python code by adopting Ruff’s **ANN** rules.
+
+## The Challenges
+Adopting Pyrefly has some challenges. It follows design patterns strictly, which is better than other type checkers in some ways, but it also has trade-offs.
+
+For example, in Pyrefly you are not allowed to change the name of a signature of a method from the parent class. This is by design, according to their docs [here](https://pyrefly.org/en/docs/error-kinds/#bad-override) 
+
+> The guiding idea here is the Liskov Substitution Principle, the idea that a subclass can stand in for a base class at any point without breaking the program.
+
+This rule can cause a program to crash. You might argue that this is not a significant issue because it’s uncommon to use keyword arguments when calling a class method, most people only care about positional arguments. Consider the following example:
+
+```python showlinenumbers theme=orange
+class Base:
+    def f(self, a: int) -> None:
+        pass
+
+class ArgsWithDifferentName(Base):
+    def f(self, _a: int) -> None:
+        pass
+
+def uses_f(b: Base) -> None:
+    b.f(a=1)
+
+uses_f(ArgsWithDifferentName())
+```
+
+[Here](https://pyrefly.org/sandbox/?code=MQAg6gpgNgxg9gWwiALnVALZAFAngJwgDMpcQBlAQwDsATAIzgA8AaTASwGcQuRKQADpQDmEAFCgA7lkIhccAK4gYNEJPzsUENpwyVZNWiCgR91PowUpUuAe2rCe5vCgxxqAOgkSQACQgGBsqKAiYgRKYoCoTccEQc3JyGjEwAXD4AtCAA4hDWhJRQGSjsSDYCyDBYMADW9o4REAyUtZkgAKqcyIQAbqZQAPoothAAFACUqOj2nBUw1vYR%2BIRGwxWcbRBMFRpI1NaSmhiYyACSACIAouGR0RDcrpQHyJwKAgJw%2BNajEB7CHnwrHB4AhQnltCBhHBitDaMR7Jp2O42G4%2Bvg2HkYOM2mANFo%2BHQQPgFM5cK53ME4SBaOxCPNSE45Ip8CB6Pg4JIuvgxGIYFBKJxuAAhAUQdIganEcKjLpQIhsSipJwoSYZAB8IAAcu4xWIJRKhIKeXyBdwAIL4YScMBHc7sIhLCDUGAQTWUJCjEVdcbiyXxIgy6DykADRXK1Ua7XUXX6wSmnlw%2BIKLqcAYB%2BhKr0QCNanW%2B%2BgeAOUAC8AEZsWJk-c06MLVaba47Q6Ak6XW6PeNxkA&version=3.12), renaming the parameter in the subclass will cause a runtime error when using a keyword argument, demonstrating Pyrefly’s strict enforcement of method signatures.
 
 ## Gratitude
 This internship journey with Servo would not have been possible without the guidance of my mentors, [Martin Robinson](https://github.com/mrobinson) and [Mukilan Thiyagarajan](https://github.com/mukilan).  
