@@ -26,7 +26,10 @@ export const StandardLink = ({
                 rel="noopener noreferrer"
                 href={href}
                 {...rest}
-                className={twMerge('text-medium text-grey-500 hover:no-underline dark:hover:text-white', className)}
+                className={twMerge(
+                    'text-medium text-grey-500 hover:no-underline dark:hover:text-white',
+                    className
+                )}
             >
                 {children}
             </Link>
