@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming/create'
+import { create } from 'storybook/theming/create'
 import { createTheme } from '../src/utils/storybook/createTheme'
 import { IDefaultTheme } from '../src/types/storybook/Theme'
 

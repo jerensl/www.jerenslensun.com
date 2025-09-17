@@ -16,23 +16,16 @@ const config: StorybookConfig = {
 
     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
-    addons: [
-        'storybook-dark-mode',
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-interactions',
-        '@storybook/addon-mdx-gfm',
-        {
-            name: '@storybook/addon-docs',
-            options: {
-                mdxPluginOptions: {
-                    mdxCompileOptions: {
-                        remarkPlugins: [remarkGfm],
-                    },
+    addons: ['storybook-dark-mode', '@storybook/addon-links', {
+        name: '@storybook/addon-docs',
+        options: {
+            mdxPluginOptions: {
+                mdxCompileOptions: {
+                    remarkPlugins: [remarkGfm],
                 },
             },
         },
-    ],
+    }],
 
     webpackFinal: (config: any) => {
         config.module.rules.push({
