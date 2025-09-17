@@ -1,6 +1,6 @@
 // Wrap the DocsContainer for storybook-dark-mode theme switching support.
 import React from 'react'
-import { DocsContainer, DocsContextProps } from '@storybook/addon-docs'
+import { DocsContainer, DocsContextProps } from '@storybook/addon-docs/blocks'
 import {
     DefaultThemeDark,
     DefaultThemeLight,

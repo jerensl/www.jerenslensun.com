@@ -1,5 +1,5 @@
 import React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs'
 import { SearchArticles } from './SearchArticles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun } from '@fortawesome/free-solid-svg-icons'

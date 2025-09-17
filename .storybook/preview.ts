@@ -1,5 +1,5 @@
 import '../src/styles/globals.css'
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/nextjs'
 import { ThemedDocsContainer } from '../src/utils/storybook/docsContainerTheme'
 import { DefaultThemeDark, DefaultThemeLight } from './defaultTheme'
 

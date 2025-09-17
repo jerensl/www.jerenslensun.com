@@ -1,6 +1,6 @@
 // .storybook/manager.js
 
-import { addons } from '@storybook/manager-api'
+import { addons } from 'storybook/manager-api'
 import { DefaultThemeDark } from './defaultTheme'
 
 addons.setConfig({
