@@ -74,8 +74,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
       jest-fixed-jsdom:
-        specifier: ^0.0.9
-        version: 0.0.9(jest-environment-jsdom@29.7.0)
+        specifier: ^0.0.10
+        version: 0.0.10(jest-environment-jsdom@29.7.0)
       match-sorter:
         specifier: ^8.0.3
         version: 8.0.3
@@ -5945,8 +5945,8 @@ packages:
   jest-fetch-mock@3.0.3:
     resolution: {integrity: sha512-Ux1nWprtLrdrH4XwE7O7InRY6psIi3GOsqNESJgMJ+M5cv4A8Lh7SN9d2V2kKRZ8ebAfcd1LNyZguAOb6JiDqw==}
 
-  jest-fixed-jsdom@0.0.9:
-    resolution: {integrity: sha512-KPfqh2+sn5q2B+7LZktwDcwhCpOpUSue8a1I+BcixWLOQoEVyAjAGfH+IYZGoxZsziNojoHGRTC8xRbB1wDD4g==}
+  jest-fixed-jsdom@0.0.10:
+    resolution: {integrity: sha512-WaEVX+FripJh+Hn/7dysIgqP66h0KT1NNC22NGmNYANExtCoYNk1q2yjwwcdSboBMkkhn0NtmvKad/cmisnCLg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       jest-environment-jsdom: '>=28.0.0'
@@ -15314,7 +15314,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  jest-fixed-jsdom@0.0.9(jest-environment-jsdom@29.7.0):
+  jest-fixed-jsdom@0.0.10(jest-environment-jsdom@29.7.0):
     dependencies:
       jest-environment-jsdom: 29.7.0
 
