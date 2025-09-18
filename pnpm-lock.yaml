@@ -180,8 +180,8 @@ importers:
         specifier: ^19.8.1
         version: 19.8.1
       '@commitlint/types':
-        specifier: ^19.5.0
-        version: 19.5.0
+        specifier: ^19.8.1
+        version: 19.8.1
       '@eslint/compat':
         specifier: ^1.2.6
         version: 1.2.6(eslint@9.31.0(jiti@2.4.2))
@@ -1119,10 +1119,6 @@ packages:
 
   '@commitlint/top-level@19.5.0':
     resolution: {integrity: sha512-IP1YLmGAk0yWrImPRRc578I3dDUI5A2UBJx9FbSOjxe9sTlzFiwVJ+zeMLgAtHMtGZsC8LUnzmW1qRemkFU4ng==}
-    engines: {node: '>=v18'}
-
-  '@commitlint/types@19.5.0':
-    resolution: {integrity: sha512-DSHae2obMSMkAtTBSOulg5X7/z+rGLxcXQIkg3OmWvY6wifojge5uVMydfhUvs7yQj+V7jNmRZ2Xzl8GJyqRgg==}
     engines: {node: '>=v18'}
 
   '@commitlint/types@19.8.1':
@@ -4146,8 +4142,8 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
-  chalk@5.4.1:
-    resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
+  chalk@5.6.2:
+    resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   char-regex@1.0.2:
@@ -9642,7 +9638,7 @@ snapshots:
       '@commitlint/lint': 19.6.0
       '@commitlint/load': 19.6.1(@types/node@24.0.14)(typescript@5.7.2)
       '@commitlint/read': 19.5.0
-      '@commitlint/types': 19.5.0
+      '@commitlint/types': 19.8.1
       tinyexec: 0.3.1
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -9672,8 +9668,8 @@ snapshots:
 
   '@commitlint/format@19.5.0':
     dependencies:
-      '@commitlint/types': 19.5.0
-      chalk: 5.4.1
+      '@commitlint/types': 19.8.1
+      chalk: 5.6.2
 
   '@commitlint/is-ignored@19.6.0':
     dependencies:
@@ -9685,15 +9681,15 @@ snapshots:
       '@commitlint/is-ignored': 19.6.0
       '@commitlint/parse': 19.5.0
       '@commitlint/rules': 19.6.0
-      '@commitlint/types': 19.5.0
+      '@commitlint/types': 19.8.1
 
   '@commitlint/load@19.6.1(@types/node@24.0.14)(typescript@5.7.2)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
       '@commitlint/resolve-extends': 19.5.0
-      '@commitlint/types': 19.5.0
-      chalk: 5.4.1
+      '@commitlint/types': 19.8.1
+      chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.7.2)
       cosmiconfig-typescript-loader: 6.1.0(@types/node@24.0.14)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2)
       lodash.isplainobject: 4.0.6
@@ -9714,7 +9710,7 @@ snapshots:
   '@commitlint/read@19.5.0':
     dependencies:
       '@commitlint/top-level': 19.5.0
-      '@commitlint/types': 19.5.0
+      '@commitlint/types': 19.8.1
       git-raw-commits: 4.0.0
       minimist: 1.2.8
       tinyexec: 0.3.1
@@ -9741,15 +9737,10 @@ snapshots:
     dependencies:
       find-up: 7.0.0
 
-  '@commitlint/types@19.5.0':
-    dependencies:
-      '@types/conventional-commits-parser': 5.0.1
-      chalk: 5.4.1
-
   '@commitlint/types@19.8.1':
     dependencies:
       '@types/conventional-commits-parser': 5.0.1
-      chalk: 5.4.1
+      chalk: 5.6.2
 
   '@corex/deepmerge@4.0.43': {}
 
@@ -13095,7 +13086,7 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  chalk@5.4.1: {}
+  chalk@5.6.2: {}
 
   char-regex@1.0.2: {}
 
