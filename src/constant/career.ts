@@ -10,7 +10,7 @@ export const Careers: Array<ICareers> = [
         organization: 'Servo',
         role: 'Software Developer Intern in Outreachy',
         startDate: 'June 2025',
-        endDate: 'Now',
+        endDate: 'August 2025',
     },
     {
         organization: 'Meshery',
