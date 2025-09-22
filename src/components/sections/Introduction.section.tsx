@@ -55,7 +55,9 @@ export const IntroductionSection = (): React.ReactElement => {
                             }}
                         >
                             <motion.div variants={childrenVariants}>
-                                <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 text-center md:text-left">{`I'm Jerens S. Lensun`}</h2>
+                                <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 text-center md:text-left">
+                                    I&apos;m Jerens S. Lensun
+                                </h2>
                             </motion.div>
                             <motion.div variants={childrenVariants}>
                                 <p className="text-base mt-5">
