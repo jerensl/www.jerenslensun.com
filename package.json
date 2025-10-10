@@ -41,7 +41,7 @@
     "match-sorter": "^8.0.3",
     "mdx-bundler": "^10.0.3",
     "motion": "^12.4.7",
-    "next": "15.5.3",
+    "next": "15.5.4",
     "next-pwa": "^5.6.0",
     "next-themes": "^0.4.6",
     "parameterize": "^1.0.0",

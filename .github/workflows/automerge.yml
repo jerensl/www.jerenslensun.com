@@ -32,7 +32,7 @@ jobs:
             - name: Autoaprove
               uses: hmarr/auto-approve-action@v4
               with:
-                  review-message: 'Auto approved automated PR'
+                  review-message: 'LGTM, ready to ship! 🚀'
                   github-token: ${{ steps.app-token.outputs.token }}
             - name: Label automerge
               uses: actions/github-script@v8.0.0
