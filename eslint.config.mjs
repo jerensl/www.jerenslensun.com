@@ -28,6 +28,8 @@ export default [
             'plugin:jsx-a11y/recommended',
             'plugin:react-hooks/recommended',
             'plugin:storybook/recommended',
+            'plugin:react/recommended',
+            'plugin:react/jsx-runtime', // Add this for the new JSX transform
             'next/core-web-vitals',
             'prettier'
         )
@@ -52,6 +54,7 @@ export default [
             ],
 
             'react/display-name': 1,
+            'react/no-unescaped-entities': 'error',
             'no-console': 'warn',
         },
     },
