@@ -1,9 +1,10 @@
-import { factory, primaryKey } from '@mswjs/data'
+import { Collection } from '@msw/data'
+import z from 'zod'
 
-export const db = factory({
-    status: {
-        tokenID: primaryKey(String),
-        isActive: Boolean,
-        updatedAt: Number,
-    },
+export const status = new Collection({
+    schema: z.object({
+        tokenID: z.string(),
+        isActive: z.boolean(),
+        updatedAt: z.number(),
+    }),
 })
