@@ -18,7 +18,7 @@ jest.mock('../../src/features/notification/index', () => ({
 jest.mock('firebase/messaging', () => jest.fn())
 jest.mock('firebase/app', () => jest.fn())
 
-describe.skip('Notification', () => {
+describe('Notification', () => {
     it('Should render status not subscriber', () => {
         mockedUseNotification.mockImplementation(() => ({
             data: { isActive: false },

@@ -75,7 +75,7 @@ const renderBlogSlug = async () => {
 }
 
 describe('Blog Content', () => {
-    it.skip(
+    it(
         'Show Title Page',
         async () => {
             const { utils } = await renderBlogSlug()
@@ -91,7 +91,7 @@ describe('Blog Content', () => {
         1 * 60 * 1000
     )
 
-    it.skip(
+    it(
         'Should have title test on article',
         () => {
             useRouter.mockImplementation(() => ({
