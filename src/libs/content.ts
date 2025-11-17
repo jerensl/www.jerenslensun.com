@@ -77,6 +77,12 @@ export const getContentByName = async (type: string, slug: string) => {
 
             return options
         },
+        esbuildOptions(options) {
+            options.define = {
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            }
+            return options
+        },
     })
 
     return {
@@ -180,6 +186,12 @@ export const getContent = async (
                 ...rehypePlugins,
             ]
 
+            return options
+        },
+        esbuildOptions(options) {
+            options.define = {
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            }
             return options
         },
     })
