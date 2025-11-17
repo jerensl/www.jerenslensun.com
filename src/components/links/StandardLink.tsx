@@ -27,7 +27,7 @@ export const StandardLink = ({
                 href={href}
                 {...rest}
                 className={twMerge(
-                    'text-medium text-grey-500 hover:no-underline dark:hover:text-white',
+                    'text-medium text-primary underline hover:no-underline',
                     className
                 )}
             >
