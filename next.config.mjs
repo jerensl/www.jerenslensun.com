@@ -9,7 +9,6 @@ export default (phase, { defaultConfig }) => {
      * @type {import('next').NextConfig}
      */
     const nextConfig = {
-        reactStrictMode: true,
         output: 'export',
         trailingSlash: true,
         reactStrictMode: true,
