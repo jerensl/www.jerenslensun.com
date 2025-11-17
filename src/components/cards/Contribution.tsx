@@ -8,9 +8,11 @@ import { motion } from 'motion/react'
 interface CareerCardProps {
     organization: string
     project: string
-    pr: string
+    pr_name: string
+    pr_number: string
     pr_url: string
-    issue: string
+    issue_name: string
+    issue_number: string
     issue_url: string
     date: string
     status: string
@@ -19,9 +21,11 @@ interface CareerCardProps {
 export const CareerCard: React.FC<CareerCardProps> = ({
     organization,
     project,
-    pr,
+    pr_number,
+    pr_name,
     pr_url,
-    issue,
+    issue_name,
+    issue_number,
     issue_url,
     date,
     status,
@@ -39,11 +43,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
         >
             <h2 className="text-2xl font-sans font-bold">{organization}</h2>
             <h3 className="text-sm font-sans font-light mt-4">{project}</h3>
-            <StandardLink
-                href={issue_url}
-                isExternal
-                className="text-sm font-normal"
-            >
+            <h4 className="text-sm font-normal">
                 <span>
                     <FontAwesomeIcon
                         className={clsx('block', {
@@ -51,15 +51,18 @@ export const CareerCard: React.FC<CareerCardProps> = ({
                             'text-green-600': status === 'open',
                         })}
                         icon={faCircleDot}
-                    />
+                    />{' '}
                 </span>{' '}
-                {issue}
-            </StandardLink>
-            <StandardLink
-                href={pr_url}
-                isExternal
-                className="text-sm font-normal"
-            >
+                {issue_name}{' '}
+                <StandardLink
+                    href={issue_url}
+                    isExternal
+                    className="text-sm font-normal text-primary underline"
+                >
+                    #{issue_number}
+                </StandardLink>
+            </h4>
+            <h4 className="text-sm font-normal">
                 <span>
                     <FontAwesomeIcon
                         className={clsx('block', {
@@ -67,10 +70,17 @@ export const CareerCard: React.FC<CareerCardProps> = ({
                             'text-green-600': status === 'open',
                         })}
                         icon={faCodePullRequest}
-                    />
-                </span>{' '}
-                {pr}
-            </StandardLink>
+                    />{' '}
+                </span>
+                {pr_name}{' '}
+                <StandardLink
+                    href={pr_url}
+                    isExternal
+                    className="text-sm font-normal"
+                >
+                    #{pr_number}
+                </StandardLink>
+            </h4>
             <span className="font-light mt-12">{date}</span>
         </motion.article>
     )
