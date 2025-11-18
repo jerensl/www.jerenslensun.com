@@ -4,21 +4,9 @@ import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons'
 import { faCircleDot } from '@fortawesome/free-regular-svg-icons'
 import clsx from 'clsx'
 import { motion } from 'motion/react'
+import { Contribution } from '@/types/contributions'
 
-interface CareerCardProps {
-    organization: string
-    project: string
-    pr_name: string
-    pr_number: string
-    pr_url: string
-    issue_name: string
-    issue_number: string
-    issue_url: string
-    date: string
-    status: string
-}
-
-export const CareerCard: React.FC<CareerCardProps> = ({
+export const CareerCard: React.FC<Contribution> = ({
     organization,
     project,
     pr_number,
@@ -57,7 +45,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
                 <StandardLink
                     href={issue_url}
                     isExternal
-                    className="text-sm font-normal text-primary underline"
+                    className="text-sm font-normal text-primary hover:cursor-pointer"
                 >
                     #{issue_number}
                 </StandardLink>
