@@ -30,7 +30,7 @@ export const socialMediaLinks: Array<ILink> = [
     },
     {
         name: 'RSS',
-        url: 'https://github.com/jerensl',
+        url: '/rss.xml',
         icon: faRssSquare,
     },
 ]
