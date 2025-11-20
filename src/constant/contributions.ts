@@ -2,6 +2,31 @@ import { Contribution } from '@/types/contributions'
 
 export const Contributions: Contribution[] = [
     {
+        organization: 'Servo',
+        project: 'Servo',
+        issue_name: 'Empty',
+        issue_number: '0',
+        issue_url: 'https://github.com/servo/servo/issues',
+        pr_name:
+            'mach: Enable ANN rules (type annotations) for ruff Python linter',
+        pr_number: '38531',
+        pr_url: 'https://github.com/servo/servo/pull/38531',
+        date: '14 August 2025',
+        status: 'merged',
+    },
+    {
+        organization: 'Servo',
+        project: 'Servo',
+        issue_name: 'Enable GitHub annotations for cargo-clippy on the CI',
+        issue_number: '37231',
+        issue_url: 'https://github.com/servo/servo/issues/37231',
+        pr_name: 'Mach clippy & test-tidy github inline annotation',
+        pr_number: '37294',
+        pr_url: 'https://github.com/servo/servo/pull/37294',
+        date: '23 June 2025',
+        status: 'merged',
+    },
+    {
         organization: 'Meshery',
         project: 'Meshery',
         issue_name: 'Empty',
