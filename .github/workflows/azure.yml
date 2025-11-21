@@ -23,7 +23,7 @@ jobs:
               uses: step-security/harden-runner@v2.13.2
               with:
                   egress-policy: audit
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   submodules: true
             - uses: actions/download-artifact@v6
