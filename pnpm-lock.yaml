@@ -36,7 +36,7 @@ importers:
         version: 15.2.0
       '@plaiceholder/next':
         specifier: ^3.0.0
-        version: 3.0.0(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)
+        version: 3.0.0(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)
       '@stitches/core':
         specifier: ^1.2.8
         version: 1.2.8
@@ -83,11 +83,11 @@ importers:
         specifier: ^12.4.7
         version: 12.4.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
-        specifier: 15.5.7
-        version: 15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 15.5.9
+        version: 15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-pwa:
         specifier: ^5.6.0
-        version: 5.6.0(@babel/core@7.27.7)(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/babel__core@7.20.5)(esbuild@0.15.18)(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
+        version: 5.6.0(@babel/core@7.27.7)(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/babel__core@7.20.5)(esbuild@0.15.18)(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -205,7 +205,7 @@ importers:
         version: 9.1.6(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2))
       '@storybook/nextjs':
         specifier: ^9.1.6
-        version: 9.1.6(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2))(type-fest@4.41.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
+        version: 9.1.6(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2))(type-fest@4.41.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       '@storybook/preview-api':
         specifier: ^8.6.14
         version: 8.6.14(storybook@9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2))
@@ -328,7 +328,7 @@ importers:
         version: 2.2.1
       next-sitemap:
         specifier: ^4.2.3
-        version: 4.2.3(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+        version: 4.2.3(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -1579,6 +1579,7 @@ packages:
 
   '@fortawesome/react-fontawesome@0.2.2':
     resolution: {integrity: sha512-EnkrprPNqI6SXJl//m29hpaNzOp1bruISWaOiRtkMi/xSvHJlzc2j2JAYS7egxt/EbjSNV/k6Xy0AQI6vB2+1g==}
+    deprecated: v0.2.x is no longer supported. Unless you are still using FontAwesome 5, please update to v3.1.1 or greater.
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ~1 || ~6
       react: '>=16.3'
@@ -1945,8 +1946,8 @@ packages:
   '@next/env@13.5.8':
     resolution: {integrity: sha512-YmiG58BqyZ2FjrF2+5uZExL2BrLr8RTQzLXNDJ8pJr0O+rPlOeDPXp1p1/4OrR3avDidzZo3D8QO2cuDv1KCkw==}
 
-  '@next/env@15.5.7':
-    resolution: {integrity: sha512-4h6Y2NyEkIEN7Z8YxkA27pq6zTkS09bUSYC0xjd0NpwFxjnIKeZEeH591o5WECSmjpUhLn3H2QLJcDye3Uzcvg==}
+  '@next/env@15.5.9':
+    resolution: {integrity: sha512-4GlTZ+EJM7WaW2HEZcyU317tIQDjkQIyENDLxYJfSWlfqguN+dHkZgyQTV/7ykvobU7yEH5gKvreNrH4B6QgIg==}
 
   '@next/eslint-plugin-next@15.4.2':
     resolution: {integrity: sha512-k0rjdWjXBY6tAOty1ckrMETE6Mx66d85NsgcAIdDp7/cXOsTJ93ywmbg3uUcpxX5TUHFEcCWI5mb8nPhwCe9jg==}
@@ -3338,8 +3339,8 @@ packages:
   caniuse-lite@1.0.30001727:
     resolution: {integrity: sha512-pB68nIHmbN6L/4C6MH1DokyR3bYqFwjaSs/sWDHGj4CTcFtQUQMuJftVwWkXq7mNWOybD3KhUv3oWHoGxgP14Q==}
 
-  caniuse-lite@1.0.30001759:
-    resolution: {integrity: sha512-Pzfx9fOKoKvevQf8oCXoyNRQ5QyxJj+3O0Rqx2V5oxT61KGx8+n6hV/IUyJeifUci2clnmmKVpvtiqRzgiWjSw==}
+  caniuse-lite@1.0.30001760:
+    resolution: {integrity: sha512-7AAMPcueWELt1p3mi13HR/LHH0TJLT11cnwDJEs3xA4+CK/PLKeO9Kl1oru24htkyUKtkGCvAx4ohB0Ttry8Dw==}
 
   case-sensitive-paths-webpack-plugin@2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
@@ -5832,8 +5833,8 @@ packages:
       react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
       react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
 
-  next@15.5.7:
-    resolution: {integrity: sha512-+t2/0jIJ48kUpGKkdlhgkv+zPTEOoXyr60qXe68eB/pl3CMJaLeIGjzp5D6Oqt25hCBiBTt8wEeeAzfJvUKnPQ==}
+  next@15.5.9:
+    resolution: {integrity: sha512-agNLK89seZEtC5zUHwtut0+tNrc0Xw4FT/Dg+B/VLEo9pAcS9rtTKpek3V6kVcVwsB2YlqMaHdfZL4eLEVYuCg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -9674,7 +9675,7 @@ snapshots:
 
   '@next/env@13.5.8': {}
 
-  '@next/env@15.5.7': {}
+  '@next/env@15.5.9': {}
 
   '@next/eslint-plugin-next@15.4.2':
     dependencies:
@@ -9734,9 +9735,9 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@plaiceholder/next@3.0.0(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)':
+  '@plaiceholder/next@3.0.0(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(plaiceholder@3.0.0(sharp@0.34.4))(sharp@0.34.4)':
     dependencies:
-      next: 15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       plaiceholder: 3.0.0(sharp@0.34.4)
       sharp: 0.34.4
 
@@ -9945,7 +9946,7 @@ snapshots:
     dependencies:
       storybook: 9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2)
 
-  '@storybook/nextjs@9.1.6(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2))(type-fest@4.41.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))':
+  '@storybook/nextjs@9.1.6(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(msw@2.11.2(@types/node@24.0.14)(typescript@5.7.2))(prettier@3.4.2))(type-fest@4.41.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))':
     dependencies:
       '@babel/core': 7.27.7
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.27.7)
@@ -9969,7 +9970,7 @@ snapshots:
       css-loader: 6.11.0(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       image-size: 2.0.2
       loader-utils: 3.3.1
-      next: 15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       postcss: 8.5.6
       postcss-loader: 8.1.1(postcss@8.5.6)(typescript@5.7.2)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
@@ -11199,7 +11200,7 @@ snapshots:
 
   caniuse-lite@1.0.30001727: {}
 
-  caniuse-lite@1.0.30001759: {}
+  caniuse-lite@1.0.30001760: {}
 
   case-sensitive-paths-webpack-plugin@2.4.0: {}
 
@@ -14519,12 +14520,12 @@ snapshots:
 
   next-compose-plugins@2.2.1: {}
 
-  next-pwa@5.6.0(@babel/core@7.27.7)(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/babel__core@7.20.5)(esbuild@0.15.18)(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)):
+  next-pwa@5.6.0(@babel/core@7.27.7)(@swc/core@1.11.7(@swc/helpers@0.5.15))(@types/babel__core@7.20.5)(esbuild@0.15.18)(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)):
     dependencies:
       babel-loader: 8.4.1(@babel/core@7.27.7)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       clean-webpack-plugin: 4.0.0(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       globby: 11.1.0
-      next: 15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       terser-webpack-plugin: 5.3.11(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       workbox-webpack-plugin: 6.6.0(@types/babel__core@7.20.5)(webpack@5.100.0(@swc/core@1.11.7(@swc/helpers@0.5.15))(esbuild@0.15.18))
       workbox-window: 6.6.0
@@ -14537,24 +14538,24 @@ snapshots:
       - uglify-js
       - webpack
 
-  next-sitemap@4.2.3(next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)):
+  next-sitemap@4.2.3(next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)):
     dependencies:
       '@corex/deepmerge': 4.0.43
       '@next/env': 13.5.8
       fast-glob: 3.3.2
       minimist: 1.2.8
-      next: 15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   next-themes@0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  next@15.5.7(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.5.9(@babel/core@7.27.7)(@playwright/test@1.50.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      '@next/env': 15.5.7
+      '@next/env': 15.5.9
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001759
+      caniuse-lite: 1.0.30001760
       postcss: 8.4.31
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
