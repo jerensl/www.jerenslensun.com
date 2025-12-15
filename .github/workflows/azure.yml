@@ -20,13 +20,13 @@ jobs:
             static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
         steps:
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.13.2
+              uses: step-security/harden-runner@v2.14.0
               with:
                   egress-policy: audit
-            - uses: actions/checkout@v5
+            - uses: actions/checkout@v6
               with:
                   submodules: true
-            - uses: actions/download-artifact@v6
+            - uses: actions/download-artifact@v7
               with:
                   name: web-app-build
             - name: Display structure of downloaded files
@@ -57,7 +57,7 @@ jobs:
         name: Close Pull Request Job
         steps:
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.13.2
+              uses: step-security/harden-runner@v2.14.0
               with:
                   egress-policy: audit
 
