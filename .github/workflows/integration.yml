@@ -96,7 +96,7 @@ jobs:
             - name: Check Code Coverage
               run: pnpm test:coverage
             - name: Upload code coverage to artifact
-              uses: actions/upload-artifact@v5
+              uses: actions/upload-artifact@v6
               with:
                   name: jest-code-coverage
                   path: coverage
@@ -122,7 +122,7 @@ jobs:
               run: npx playwright install --with-deps
             - name: Run Playwright tests
               run: npx playwright test
-            - uses: actions/upload-artifact@v5
+            - uses: actions/upload-artifact@v6
               if: ${{ !cancelled() }}
               with:
                   name: playwright-report
