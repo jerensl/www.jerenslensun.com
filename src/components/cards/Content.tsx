@@ -8,7 +8,7 @@ import Images from '../ImageWithFallback'
 interface ContentCardProps {
     variant: 'elevated' | 'filled' | 'outlined'
     title: string
-    role: string
+    role?: string
     subtitle?: string
     tags?: string[]
     description: string
