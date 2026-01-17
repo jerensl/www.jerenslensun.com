@@ -8,6 +8,7 @@ import Images from '../ImageWithFallback'
 interface ContentCardProps {
     variant: 'elevated' | 'filled' | 'outlined'
     title: string
+    role?: string
     subtitle?: string
     tags?: string[]
     description: string
@@ -19,6 +20,7 @@ interface ContentCardProps {
 export const ContentCard: React.FC<ContentCardProps> = ({
     variant,
     title,
+    role,
     subtitle,
     tags,
     description,
@@ -76,11 +78,18 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                             )
                             .join(' ')}
                     </h3>
-                    {subtitle ? (
-                        <h4>
-                            <b> Status:</b> {subtitle}
-                        </h4>
-                    ) : null}
+                    <div>
+                        {subtitle && (
+                            <p>
+                                <b>Status:</b> {subtitle}
+                            </p>
+                        )}
+                        {role && (
+                            <p>
+                                <b>Role:</b> {role}
+                            </p>
+                        )}
+                    </div>
                     <p className="line-clamp-3 text-on-surface-variant">
                         {description}
                     </p>
