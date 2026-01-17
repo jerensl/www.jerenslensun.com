@@ -78,12 +78,18 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                             )
                             .join(' ')}
                     </h3>
-                    {subtitle ? (
-                        <h4>
-                            <b> Status:</b> {subtitle} <br />
-                            <b> Role:</b> {role}
-                        </h4>
-                    ) : null}
+                    <div>
+                        {subtitle && (
+                            <p>
+                                <b>Status:</b> {subtitle}
+                            </p>
+                        )}
+                        {role && (
+                            <p>
+                                <b>Role:</b> {role}
+                            </p>
+                        )}
+                    </div>
                     <p className="line-clamp-3 text-on-surface-variant">
                         {description}
                     </p>
