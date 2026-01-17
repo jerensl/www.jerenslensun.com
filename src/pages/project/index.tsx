@@ -36,6 +36,7 @@ export default function Project({
                         ({
                             slug,
                             title,
+                            role,
                             status,
                             programming_languange,
                             description,
@@ -47,6 +48,7 @@ export default function Project({
                                     variant="outlined"
                                     key={slug}
                                     title={title}
+                                    role={role}
                                     subtitle={status}
                                     tags={programming_languange}
                                     description={description}
