@@ -5,7 +5,6 @@ import Document, {
     NextScript,
     DocumentContext,
 } from 'next/document'
-import Script from 'next/script'
 
 const APP_NAME = 'Jerens'
 const APP_DESCRIPTION =
@@ -111,22 +110,22 @@ class MyDocument extends Document {
                         content="/icons/ms-icon-144x144.png"
                     />
                     <meta name="theme-color" content="#FFFFFF" />
-                    <Script
-                        id="katex"
-                        strategy="lazyOnload"
-                        dangerouslySetInnerHTML={{
-                            __html: `</style>
-                        <link
+                    <link
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
                         integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"
                         crossOrigin="anonymous"
                         media="print"
-                        onload="this.media='all'; this.onload=null;"
-                        />
-                        <style>`,
+                        onLoad={(e) => {
+                            e.currentTarget.media = 'all'
                         }}
                     />
+                    <noscript>
+                        <link
+                            rel="stylesheet"
+                            href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
+                        />
+                    </noscript>
                 </Head>
                 <body>
                     <Main />
