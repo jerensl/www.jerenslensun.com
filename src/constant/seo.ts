@@ -1,3 +1,5 @@
+import { SiteMetadata, App } from '@/types/seo'
+
 export const siteMetadata: SiteMetadata = {
     url: 'https://www.jerenslensun.com/',
     twitter: '@jerensl22',

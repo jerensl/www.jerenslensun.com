@@ -7,6 +7,7 @@ import { IntroductionSection } from '@/components/sections/Introduction.section'
 import { CareerSection } from '@/components/sections/Career.section'
 import HorizontalScroll from '@/components/sections/OSSContribution'
 import { loadImageFrom, transformToImageBuffer } from '@/utils/imagesBuffer'
+import React from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()

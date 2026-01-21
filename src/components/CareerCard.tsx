@@ -1,4 +1,5 @@
 import { useReducedMotion, motion } from 'motion/react'
+import React from 'react'
 
 interface CareerCardProps {
     organization: string

@@ -66,6 +66,6 @@ describe('Home', () => {
         const heading = screen.getByRole('heading', {
             name: /I'm Jerens S. Lensun/i,
         })
-       expect(heading).toBeInTheDocument()
+        expect(heading).toBeInTheDocument()
     })
 })

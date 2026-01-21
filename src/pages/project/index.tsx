@@ -5,6 +5,7 @@ import { HeadComponent } from '@/components/Seo'
 import { IProjectMetadata } from '@/types/project'
 import { Grid } from '@/components/Grid'
 import { ContentCard } from '@/components/cards/Content'
+import React from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
     const projects = await getContents<IProjectMetadata>('project')

@@ -1,17 +1,17 @@
-interface SiteMetadata {
+export interface SiteMetadata {
     url: string
     twitter: string
     linkedin: string
 }
 
-interface App {
+export interface App {
     name: string
     title: string
     image: string
     description: string
 }
 
-interface BlogPostSeoProps {
+export interface BlogPostSeoProps {
     title: string
     description: string
     path: string
