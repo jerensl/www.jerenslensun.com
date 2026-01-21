@@ -10,6 +10,7 @@ import { SearchArticles } from '@/components/inputs/SearchArticles'
 import { Tag } from '@/components/chips/Tag'
 import { Button } from '@/components/buttons/Button'
 import { ContentCard } from '@/components/cards/Content'
+import React from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await getContents<IBlogMetadata>('blog')

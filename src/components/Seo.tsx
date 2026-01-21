@@ -1,5 +1,6 @@
 import { app, siteMetadata } from '@/constant/seo'
 import Head from 'next/head'
+import React from 'react'
 
 interface IArticleSeo {
     title: string

@@ -4,6 +4,7 @@ import { Grid } from './Grid'
 import { Navigation } from './links/Navigation'
 import WritingAnimation from './animations/WritingAnimation'
 import Images from './ImageWithFallback'
+import React from 'react'
 
 interface HeaderProps {
     blurDataURL: string

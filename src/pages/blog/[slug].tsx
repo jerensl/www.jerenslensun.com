@@ -17,6 +17,7 @@ import { MDXTitleHeadingLevels } from '@/types/content'
 import imageLoader from '@/constant/images'
 import { Comment } from '@/components/Comment'
 import Images from '@/components/ImageWithFallback'
+import React from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getFiles('blog')

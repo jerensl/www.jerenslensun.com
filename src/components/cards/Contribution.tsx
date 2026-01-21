@@ -5,6 +5,7 @@ import { faCircleDot } from '@fortawesome/free-regular-svg-icons'
 import clsx from 'clsx'
 import { motion } from 'motion/react'
 import { Contribution } from '@/types/contributions'
+import React from 'react'
 
 export const CareerCard: React.FC<Contribution> = ({
     organization,

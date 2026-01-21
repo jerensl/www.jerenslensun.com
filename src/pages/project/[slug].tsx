@@ -17,6 +17,7 @@ import imageLoader from '@/constant/images'
 import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
 import Images from '@/components/ImageWithFallback'
+import React from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const projects = getFiles('project')

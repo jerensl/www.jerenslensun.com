@@ -1,5 +1,6 @@
 import Giscus from '@giscus/react'
 import { useTheme } from 'next-themes'
+import React from 'react'
 
 export const Comment: React.FC = (): React.ReactElement => {
     const { theme } = useTheme()
