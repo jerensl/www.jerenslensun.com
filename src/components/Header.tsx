@@ -44,10 +44,10 @@ export const Header = ({ blurDataURL }: HeaderProps): React.ReactElement => {
                                     />
                                 </h1>
                                 <p className="font-mono font-light text-lg md:text-xl">
-                                    I work in the open source ecosystem. Focused
-                                    on continuous integration & delivery. I
-                                    write about systems, tooling, and cutting
-                                    through the noise in software.
+                                    i work in the open source ecosystem. Focused
+                                    on developer tooling. My writing explores
+                                    systems, tooling, and finding clarity amidst
+                                    the industry noise.
                                 </p>
                             </div>
                             <div

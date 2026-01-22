@@ -61,12 +61,16 @@ export const IntroductionSection = (): React.ReactElement => {
                             </motion.div>
                             <motion.div variants={childrenVariants}>
                                 <p className="text-base mt-5">
-                                    I focus on system specifications, continuous
-                                    integration and delivery, and building
-                                    tooling that makes development workflows
-                                    more predictable and efficient. I care about
-                                    great design not for how it looks, but for
-                                    how it functions and how long it lasts.
+                                    I focus on the open-source ecosystem, with
+                                    contributions to projects like AsyncAPI,
+                                    Meshery, and Servo. My work ranges from
+                                    building frontends in Next.js to
+                                    architecting GitHub Actions workflows and
+                                    specialized CLI tooling. I believe great
+                                    design is measured by its durability; I
+                                    build for the long haul, focusing on systems
+                                    that function as well in five years as they
+                                    do on day one
                                 </p>
                             </motion.div>
                         </motion.div>
