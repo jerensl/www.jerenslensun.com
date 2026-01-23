@@ -1,3 +1,4 @@
+import { defineConfig } from 'eslint/config'
 import js from '@eslint/js'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -8,7 +9,7 @@ import globals from 'globals'
 import tsParser from '@typescript-eslint/parser'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 
-export default [
+export default defineConfig([
     js.configs.recommended,
     {
         files: ['**/*.{js,jsx,ts,tsx}'],
@@ -29,7 +30,7 @@ export default [
         },
         plugins: {
             'jsx-a11y': jsxA11y,
-            '@typescript-eslint': tsPlugin,
+            '@typescript-eslint': tsPlugin as any,
             react,
             'react-hooks': reactHooks,
             prettier,
@@ -88,4 +89,4 @@ export default [
             './next-sitemap.cjs',
         ],
     },
-]
+])
