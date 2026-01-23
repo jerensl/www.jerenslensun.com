@@ -65,7 +65,7 @@ export default function Blog({
             <main className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
                 <div className="flex flex-col text-center gap-3">
                     <h1 className="pt-24 text-3xl font-semibold">Blog</h1>
-                    <p className="mb-4">Our latest articles</p>
+                    <p className="mb-4">My latest articles</p>
                 </div>
                 <Grid as="section" rowGap>
                     <div className="col-span-full w-full">

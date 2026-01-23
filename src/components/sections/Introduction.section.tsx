@@ -62,15 +62,15 @@ export const IntroductionSection = (): React.ReactElement => {
                             <motion.div variants={childrenVariants}>
                                 <p className="text-base mt-5">
                                     I focus on the open-source ecosystem, with
-                                    contributions to projects like AsyncAPI,
+                                    contributions to projects such as AsyncAPI,
                                     Meshery, and Servo. My work ranges from
-                                    building frontends in Next.js to
-                                    architecting GitHub Actions workflows and
-                                    specialized CLI tooling. I believe great
-                                    design is measured by its durability; I
-                                    build for the long haul, focusing on systems
-                                    that function as well in five years as they
-                                    do on day one
+                                    building frontends to architecting CI/CD
+                                    pipelines via GitHub Actions and improving
+                                    long-term project maintainability. I believe
+                                    great design is measured by its durability;
+                                    I build for the long haul, focusing on
+                                    systems that function as well in five years
+                                    as they do on day one.
                                 </p>
                             </motion.div>
                         </motion.div>
