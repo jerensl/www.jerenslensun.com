@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.jerenslensun.com/blog</loc><lastmod>2024-12-10T06:39:26.111Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/about/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/project/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/project/notification-api/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/project/personal-web-app/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/en-fundamental-algorithm/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/en-lfx-menthorship/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/en-load-balancer-golang/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/en-reverse-proxy-golang/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/en-strategy-and-tactics/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/en-the-hidden-complexity-of-big-risk/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-algoritma-binary-search/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-belajar-cara-menggunakan-timer/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-fundamental-algoritma/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-go-standard-io/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-sorting-algoritma/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.jerenslensun.com/blog/id-struktur-data-heap/</loc><lastmod>2025-05-24T02:40:21.785Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

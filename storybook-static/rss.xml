@@ -6,11 +6,67 @@
         <language>en</language>
         <ttl>40</ttl>
         <item>
+      <title><![CDATA[Getting Lost and Finding Community at OSSummit Japan 2025]]></title>
+      <description><![CDATA[My OSS Summit Japan 2025 Journey]]></description>
+      <link>https://www.jerenslensun.com/blog/en-open-source-summit-japan-2025</link>
+      <guid>https://www.jerenslensun.com/blog/en-open-source-summit-japan-2025</guid>
+      <pubDate>2025-12-20</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Final project progress outreachy]]></title>
+      <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
+      <link>https://www.jerenslensun.com/blog/en-final-project-progress-outreachy</link>
+      <guid>https://www.jerenslensun.com/blog/en-final-project-progress-outreachy</guid>
+      <pubDate>2025-08-25</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Career opportunities - Outreachy]]></title>
+      <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
+      <link>https://www.jerenslensun.com/blog/en-career-opportunities-outreachy</link>
+      <guid>https://www.jerenslensun.com/blog/en-career-opportunities-outreachy</guid>
+      <pubDate>2025-07-28</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Mid-point Project Progress - Outreachy]]></title>
+      <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
+      <link>https://www.jerenslensun.com/blog/en-mid-point-project-progress</link>
+      <guid>https://www.jerenslensun.com/blog/en-mid-point-project-progress</guid>
+      <pubDate>2025-07-21</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Think about your audience - Outreachy]]></title>
+      <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
+      <link>https://www.jerenslensun.com/blog/en-think-about-your-audience</link>
+      <guid>https://www.jerenslensun.com/blog/en-think-about-your-audience</guid>
+      <pubDate>2025-06-30</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Everybody struggles - Outreachy]]></title>
+      <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
+      <link>https://www.jerenslensun.com/blog/en-everybody-struggles-outreachy</link>
+      <guid>https://www.jerenslensun.com/blog/en-everybody-struggles-outreachy</guid>
+      <pubDate>2025-06-16</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Introduce yourself - Outreachy Blog]]></title>
+      <description><![CDATA[This blog post part of outreachy program internship for every two weeks.]]></description>
+      <link>https://www.jerenslensun.com/blog/en-introduce-yourself-outreachy</link>
+      <guid>https://www.jerenslensun.com/blog/en-introduce-yourself-outreachy</guid>
+      <pubDate>2025-06-02</pubDate>
+    </item>
+<item>
+      <title><![CDATA[Github Actions Workflow]]></title>
+      <description><![CDATA[This documentation provides everything you need to understand how GitHub Actions behave in relation to commits, branches, and pull requests. It also clarifies how workflow context is affected by forks, secrets, and trigger types.]]></description>
+      <link>https://www.jerenslensun.com/blog/en-github-actions-workflow</link>
+      <guid>https://www.jerenslensun.com/blog/en-github-actions-workflow</guid>
+      <pubDate>2025-06-01</pubDate>
+    </item>
+<item>
       <title><![CDATA[My Journey as an LFX Mentee - Exploring E2E Testing with Playwright on Meshery]]></title>
       <description><![CDATA[The journey began with a comprehensive exploration of Meshery's existing end-to-end (E2E) testing framework, built using Cypress. Gaining a deep understanding of the existing setup was crucial to ensure a seamless transition to Playwright.]]></description>
       <link>https://www.jerenslensun.com/blog/en-lfx-menthorship</link>
       <guid>https://www.jerenslensun.com/blog/en-lfx-menthorship</guid>
-      <pubDate>2024-10-12</pubDate>
+      <pubDate>2024-12-10</pubDate>
     </item>
 <item>
       <title><![CDATA[Strategy and Tactics]]></title>
