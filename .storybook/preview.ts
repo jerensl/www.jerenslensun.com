@@ -11,17 +11,17 @@ const preview: Preview = {
             container: ThemedDocsContainer,
         },
         backgrounds: {
-            default: 'dark',
-            values: [
-                {
+            options: {
+                light: {
                     name: 'light',
                     value: DefaultThemeLight.appBg,
                 },
-                {
+
+                dark: {
                     name: 'dark',
                     value: DefaultThemeDark.appBg,
-                },
-            ],
+                }
+            }
         },
         darkMode: {
             dark: DefaultThemeDark,
@@ -53,6 +53,12 @@ const preview: Preview = {
             },
         },
     },
+
+    initialGlobals: {
+        backgrounds: {
+            value: 'dark'
+        }
+    }
 }
 
 export default preview
