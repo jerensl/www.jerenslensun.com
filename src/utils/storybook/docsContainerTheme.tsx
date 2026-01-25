@@ -5,7 +5,7 @@ import {
     DefaultThemeDark,
     DefaultThemeLight,
 } from '../../../.storybook/defaultTheme'
-import { ThemeVars } from '@storybook/theming'
+import { ThemeVars } from 'storybook/theming'
 import { UPDATE_GLOBALS } from '@storybook/core-events'
 
 export const ThemedDocsContainer = (props: {
@@ -13,7 +13,7 @@ export const ThemedDocsContainer = (props: {
     context: DocsContextProps
     theme?: ThemeVars
 }) => {
-    const { channel, store } = props.context
+    const { channel } = props.context
     const [isDark, setDark] = React.useState(true)
 
     React.useEffect(() => {
