@@ -20,8 +20,8 @@ const preview: Preview = {
                 dark: {
                     name: 'dark',
                     value: DefaultThemeDark.appBg,
-                }
-            }
+                },
+            },
         },
         darkMode: {
             dark: DefaultThemeDark,
@@ -56,9 +56,9 @@ const preview: Preview = {
 
     initialGlobals: {
         backgrounds: {
-            value: 'dark'
-        }
-    }
+            value: 'dark',
+        },
+    },
 }
 
 export default preview
