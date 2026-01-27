@@ -9,7 +9,7 @@ export default function HorizontalScroll() {
         target: targetRef,
     })
 
-    const x = useTransform(scrollYProgress, [0, 1], ['40%', '-95%'])
+    const x = useTransform(scrollYProgress, [0, 1], ['35%', '-95%'])
 
     return (
         <section ref={targetRef} className="relative h-[300vh]">
