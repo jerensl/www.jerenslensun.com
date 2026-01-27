@@ -26,7 +26,7 @@ jobs:
                   app-id: ${{ secrets.GH_APP_ID }}
                   private-key: ${{ steps.decode.outputs.private-key }}
             - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.0
+              uses: step-security/harden-runner@v2.14.1
               with:
                   egress-policy: audit
             - name: Autoaprove
