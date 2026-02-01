@@ -1,148 +1,148 @@
 name: Build, lint and Test
 
 on:
-    pull_request:
-        types: [opened, synchronize, reopened, closed]
-        branches:
-            - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 permissions:
-    contents: read
-    pull-requests: write
+  contents: read
+  pull-requests: write
 
 jobs:
-    build:
-        name: Azure NextJS Web App
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        uses: ./.github/workflows/build.yml
-        secrets: inherit
-    lint:
-        name: Linter check
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        runs-on: ubuntu-latest
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
-
-            - name: Checkout repository
-              uses: actions/checkout@v6
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v6.2.0
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install locked dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Lint files
-              run: pnpm lint
-              env:
-                  CI: true
-    type-check:
-        name: Type check
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        runs-on: ubuntu-latest
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
-
-            - name: Checkout repository
-              uses: actions/checkout@v6
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v6.2.0
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install locked dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Perform type checking
-              run: pnpm type-check
-              env:
-                  CI: true
-    test:
-        name: Unit and integration tests
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        runs-on: ubuntu-latest
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
-
-            - name: Checkout repository
-              uses: actions/checkout@v6
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v6.2.0
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install locked dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Check Code Coverage
-              run: pnpm test:coverage
-            - name: Upload code coverage to artifact
-              uses: actions/upload-artifact@v6
-              with:
-                  name: jest-code-coverage
-                  path: coverage
-                  retention-days: 14
-    e2e_test:
-        name: Playwright E2E test
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        timeout-minutes: 60
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v6
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
-            - uses: actions/setup-node@v6.2.0
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Install Playwright Browsers
-              run: npx playwright install --with-deps
-            - name: Run Playwright tests
-              run: npx playwright test
-            - uses: actions/upload-artifact@v6
-              if: ${{ !cancelled() }}
-              with:
-                  name: playwright-report
-                  path: playwright-report/
-                  retention-days: 30
-    azure_deploy_staging:
-        name: Azure Static Web App deployment staging
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        needs: [build, lint, type-check]
-        permissions:
-            contents: read # for actions/checkout to fetch code
-            pull-requests: write # for Azure/static-web-apps-deploy to comment on PRs
-        uses: ./.github/workflows/azure.yml
-        secrets: inherit
-    lhci:
-        if: >
-            github.repository == 'jerensl/www.jerenslensun.com' && 
-            contains(github.event.pull_request.labels.*.name, 'need-perf-check')
-        needs: azure_deploy_staging
-        uses: ./.github/workflows/lighthouse.yml
-        secrets: inherit
+  build:
+    name: Azure NextJS Web App
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+  lint:
+    name: Linter check
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
         with:
-            static_web_url: ${{ needs.azure_deploy_staging.outputs.static_web_app_url }}
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Lint files
+        run: pnpm --filter='./apps/web-app' lint
+        env:
+          CI: true
+  type-check:
+    name: Type check
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Perform type checking
+        run: pnpm --filter='./apps/web-app' type-check
+        env:
+          CI: true
+  test:
+    name: Unit and integration tests
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Check Code Coverage
+        run: pnpm --filter='./apps/web-app' test:coverage
+      - name: Upload code coverage to artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: jest-code-coverage
+          path: coverage
+          retention-days: 14
+  e2e_test:
+    name: Playwright E2E test
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
+      - uses: actions/setup-node@v6.2.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+  azure_deploy_staging:
+    name: Azure Static Web App deployment staging
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    needs: [build, lint, type-check]
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      pull-requests: write # for Azure/static-web-apps-deploy to comment on PRs
+    uses: ./.github/workflows/azure.yml
+    secrets: inherit
+  lhci:
+    if: >
+      github.repository == 'jerensl/www.jerenslensun.com' && 
+      contains(github.event.pull_request.labels.*.name, 'need-perf-check')
+    needs: azure_deploy_staging
+    uses: ./.github/workflows/lighthouse.yml
+    secrets: inherit
+    with:
+      static_web_url: ${{ needs.azure_deploy_staging.outputs.static_web_app_url }}

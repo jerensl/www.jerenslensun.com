@@ -2,60 +2,60 @@ name: Deployment
 
 # Deploy bi-weekly At 05:00 on Monday and Thursday.
 on:
-    workflow_dispatch:
-    schedule:
-        - cron: '0 5 * * 1,4'
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * 1,4"
 
 permissions:
-    contents: read
-    pages: write
-    id-token: write
-    pull-requests: write
+  contents: read
+  pages: write
+  id-token: write
+  pull-requests: write
 
 jobs:
-    build_docs:
-        name: Build and Push Storybook Docs
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        runs-on: ubuntu-latest
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
-
-            - name: Checkout
-              uses: actions/checkout@v6
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
-            - name: Setup Node
-              uses: actions/setup-node@v6.2.0
-              with:
-                  node-version-file: '.nvmrc'
-            - name: Deploy Storybook Docs
-              uses: bitovi/github-actions-storybook-to-github-pages@b75ece8f984a32b2adb322065d7a8a2cc8db2d52 # v1.0.3
-              with:
-                  install_command: pnpm install # default: npm ci
-                  build_command: pnpm run build:storybook # default: npm run build-storybook
-                  path: storybook-static # default: dist/storybook
-                  checkout: false # default: true
-    build:
-        name: Azure NextJS Web App
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        uses: ./.github/workflows/build.yml
-        secrets: inherit
-    azure_deploy:
-        name: Azure Static Web App Deployment Production
-        needs: build
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        uses: ./.github/workflows/azure.yml
-        secrets: inherit
-    lhci:
-        name: Lighthouse Score Production
-        if: github.repository == 'jerensl/www.jerenslensun.com'
-        needs: azure_deploy
-        uses: ./.github/workflows/lighthouse.yml
-        secrets: inherit
+  build_docs:
+    name: Build and Push Storybook Docs
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
         with:
-            static_web_url: ${{ needs.azure_deploy.outputs.static_web_app_url }}
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
+      - name: Setup Node
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version-file: ".nvmrc"
+      - name: Deploy Storybook Docs
+        uses: bitovi/github-actions-storybook-to-github-pages@b75ece8f984a32b2adb322065d7a8a2cc8db2d52 # v1.0.3
+        with:
+          install_command: pnpm install # default: npm ci
+          build_command: pnpm --filter='./apps/web-app' run build:storybook # default: npm run build-storybook
+          path: storybook-static # default: dist/storybook
+          checkout: false # default: true
+  build:
+    name: Azure NextJS Web App
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+  azure_deploy:
+    name: Azure Static Web App Deployment Production
+    needs: build
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    uses: ./.github/workflows/azure.yml
+    secrets: inherit
+  lhci:
+    name: Lighthouse Score Production
+    if: github.repository == 'jerensl/www.jerenslensun.com'
+    needs: azure_deploy
+    uses: ./.github/workflows/lighthouse.yml
+    secrets: inherit
+    with:
+      static_web_url: ${{ needs.azure_deploy.outputs.static_web_app_url }}

@@ -1,44 +1,44 @@
 name: Build NextJS Web Application
 
 on:
-    workflow_call:
+  workflow_call:
 
 jobs:
-    build:
-        name: Build NextJS static web app
-        runs-on: ubuntu-latest
-        env:
-            NEXT_PUBLIC_IMAGES_CDN: 'https://ik.imagekit.io/jerensl'
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
+  build:
+    name: Build NextJS static web app
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_IMAGES_CDN: "https://ik.imagekit.io/jerensl"
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
+        with:
+          egress-policy: audit
 
-            - name: Checkout repository
-              uses: actions/checkout@v6
-            - name: Install pnpm
-              uses: pnpm/action-setup@v4.2.0
-              with:
-                  run_install: false
-            - name: Setup Node.js 18.x
-              uses: actions/setup-node@v6.2.0
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: 'pnpm'
-            - name: Install locked dependencies
-              run: pnpm install --frozen-lockfile --prefer-offline
-            - name: Build web application
-              run: pnpm build
-            - name: Save PR number
-              run: |
-                  mkdir -p ./pr
-                  echo ${{ github.event.number }} > ./pr/number
-            - name: Upload web app build
-              uses: actions/upload-artifact@v6
-              with:
-                  name: web-app-build
-                  path: |
-                      out
-                      pr/number
-                  retention-days: 14
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          run_install: false
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Build web application
+        run: pnpm --filter='./apps/web-app' build
+      - name: Save PR number
+        run: |
+          mkdir -p ./pr
+          echo ${{ github.event.number }} > ./pr/number
+      - name: Upload web app build
+        uses: actions/upload-artifact@v6
+        with:
+          name: web-app-build
+          path: |
+            out
+            pr/number
+          retention-days: 14
