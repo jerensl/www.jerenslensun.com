@@ -1,45 +1,89 @@
 globalThis.__BUILD_MANIFEST = {
-  "polyfillFiles": [
-    "static/chunks/polyfills.js"
-  ],
-  "devFiles": [
-    "static/chunks/react-refresh.js"
-  ],
-  "ampDevFiles": [],
-  "lowPriorityFiles": [],
-  "rootMainFiles": [],
-  "rootMainFilesTree": {},
   "pages": {
     "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/7451598aec6632d0.js",
+      "static/chunks/ab4b6866c7b97535.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/45f8f1760a763370.js",
+      "static/chunks/56fd31dd4f3d2dca.js",
+      "static/chunks/28412fc5984fec43.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/f7372aa6d9615e1e.js",
+      "static/chunks/turbopack-6757e960b28c290f.js"
+    ],
+    "/404": [
+      "static/chunks/ce6aa190807c0a71.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/turbopack-296bcd7514291147.js"
     ],
     "/_app": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_app.js"
+      "static/chunks/d10bd969b5785ec9.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/50bc64a444735ff4.js",
+      "static/chunks/faf53aaf165c9570.js",
+      "static/chunks/2aa81873e013c89f.css",
+      "static/chunks/turbopack-7a5555454e2f7eee.js"
     ],
     "/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_error.js"
+      "static/chunks/ce3874f66e4e44f3.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/turbopack-072ab1e737523ba7.js"
+    ],
+    "/about": [
+      "static/chunks/c72a525aa55812c5.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/56fd31dd4f3d2dca.js",
+      "static/chunks/548a657d160df1c0.js",
+      "static/chunks/795b867037d79b92.js",
+      "static/chunks/turbopack-f621cd500dae114b.js"
     ],
     "/blog": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/blog.js"
+      "static/chunks/f1f22c61dbe7c640.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/ab4b6866c7b97535.js",
+      "static/chunks/56fd31dd4f3d2dca.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/28412fc5984fec43.js",
+      "static/chunks/turbopack-1a3e4de72afbfcd7.js"
     ],
     "/blog/[slug]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/blog/[slug].js"
+      "static/chunks/ab4b6866c7b97535.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/0d0544d4fc2e47c2.js",
+      "static/chunks/28412fc5984fec43.js",
+      "static/chunks/56fd31dd4f3d2dca.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/turbopack-97386fa872e2b49d.js"
+    ],
+    "/project": [
+      "static/chunks/33d3c32722788331.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/ab4b6866c7b97535.js",
+      "static/chunks/28412fc5984fec43.js",
+      "static/chunks/56fd31dd4f3d2dca.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/turbopack-8a7cb76606bdec2d.js"
+    ],
+    "/project/[slug]": [
+      "static/chunks/0787c3ef78c2ada8.js",
+      "static/chunks/318b68be7ae97a82.js",
+      "static/chunks/ab4b6866c7b97535.js",
+      "static/chunks/4c482f318675f537.js",
+      "static/chunks/56fd31dd4f3d2dca.js",
+      "static/chunks/2e503bda46ab4de6.js",
+      "static/chunks/turbopack-300c657fb86be430.js"
     ]
   },
-  "ampFirstPages": []
+  "devFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": []
 };
 globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
 "/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
-,"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js",
-
+"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js"
 ];
