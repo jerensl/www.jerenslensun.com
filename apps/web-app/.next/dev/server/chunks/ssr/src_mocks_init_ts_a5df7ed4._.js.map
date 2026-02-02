@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/jerensl/Projects/www.jerenslensun.com/src/mocks/init.ts"],"sourcesContent":["async function initMocks() {\n    if (typeof window === 'undefined') {\n        const { server } = await import('./server')\n        server.listen()\n    } else {\n        const { worker } = await import('./browser')\n        worker.start()\n    }\n}\n\nexport { initMocks }\n"],"names":[],"mappings":";;;;AAAA,eAAe;IACX,wCAAmC;QAC/B,MAAM,EAAE,MAAM,EAAE,GAAG;QACnB,OAAO,MAAM;IACjB;;AAIJ"}}]
-}

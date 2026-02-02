@@ -16,6 +16,20 @@
     "@types/react-dom": "19.2.3"
   },
   "engines": {
-    "node": "^20"
+    "node": ">=20"
+  },
+  "pnpm": {
+    "supportedArchitectures": {
+      "os": [
+        "current"
+      ],
+      "cpu": [
+        "x64",
+        "arm64"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.1"
   }
 }
