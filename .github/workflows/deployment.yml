@@ -34,7 +34,7 @@ jobs:
               with:
                   node-version-file: '.nvmrc'
             - name: Deploy Storybook Docs
-              uses: bitovi/github-actions-storybook-to-github-pages@b75ece8f984a32b2adb322065d7a8a2cc8db2d52 # v1.0.3
+              uses: bitovi/github-actions-storybook-to-github-pages@ddd9d35f670cceedd2bfc444be681001b0709730 # v1.0.4
               with:
                   install_command: pnpm install # default: npm ci
                   build_command: pnpm run build:storybook # default: npm run build-storybook
