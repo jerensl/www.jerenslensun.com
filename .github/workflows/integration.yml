@@ -118,6 +118,8 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Enter web-app directory
+        run: cd apps/web-app
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests

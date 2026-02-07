@@ -30,7 +30,7 @@ jobs:
         with:
           name: web-app-build
       - name: Display structure of downloaded files
-        run: ls -R out
+        run: ls -R apps/web-app/out
       - name: Build And Deploy
         id: swa
         uses: Azure/static-web-apps-deploy@v1

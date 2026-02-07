@@ -14,12 +14,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const srcImg = await loadImageFrom('illustration-landing-page.webp')
 
-    const { blurDataURL } = await transformToImageBuffer(srcImg)
+    // const { blurDataURL } = await transformToImageBuffer(srcImg)
 
     const getCurrentYear = new Date().getFullYear()
 
     return {
-        props: { blurDataURL, currentYear: getCurrentYear },
+        props: { blurDataURL: '', currentYear: getCurrentYear },
     }
 }
 

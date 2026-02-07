@@ -39,6 +39,6 @@ jobs:
         with:
           name: web-app-build
           path: |
-            out
+            apps/web-app/out
             pr/number
           retention-days: 14
