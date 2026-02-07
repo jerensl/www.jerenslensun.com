@@ -1,70 +1,70 @@
 name: Azure Static Web App Deploy
 
 on:
-    workflow_call:
-        outputs:
-            static_web_app_url:
-                description: 'The first output string'
-                value: ${{ jobs.build_and_deploy_job.outputs.static_web_app_url }}
+  workflow_call:
+    outputs:
+      static_web_app_url:
+        description: "The first output string"
+        value: ${{ jobs.build_and_deploy_job.outputs.static_web_app_url }}
 
 permissions:
-    contents: read
-    pull-requests: write
+  contents: read
+  pull-requests: write
 
 jobs:
-    build_and_deploy_job:
-        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-        runs-on: ubuntu-latest
-        name: Build and Deploy Job
-        outputs:
-            static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
-            - uses: actions/checkout@v6
-              with:
-                  submodules: true
-            - uses: actions/download-artifact@v7
-              with:
-                  name: web-app-build
-            - name: Display structure of downloaded files
-              run: ls -R out
-            - name: Build And Deploy
-              id: swa
-              uses: Azure/static-web-apps-deploy@v1
-              with:
-                  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-                  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-                  production_branch: 'main'
-                  action: 'upload'
-                  ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-                  # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-                  app_location: '/out' # App source code path
-                  api_location: '' # Api source code path - optional
-                  output_location: '' # Built app content directory - optional
-                  skip_app_build: true
-                  ###### End of Repository/Build Configurations ######
-              env:
-                  IS_STATIC_EXPORT: true
-                  NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-                  NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
-                  NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
-    close_pull_request_job:
-        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-        runs-on: ubuntu-latest
-        name: Close Pull Request Job
-        steps:
-            - name: Harden Runner
-              uses: step-security/harden-runner@v2.14.1
-              with:
-                  egress-policy: audit
+  build_and_deploy_job:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    outputs:
+      static_web_app_url: ${{ steps.swa.outputs.static_web_app_url }}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@v6
+        with:
+          submodules: true
+      - uses: actions/download-artifact@v7
+        with:
+          name: web-app-build
+      - name: Display structure of downloaded files
+        run: ls -R apps/web-app/out
+      - name: Build And Deploy
+        id: swa
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          production_branch: "main"
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/apps/web-app/out" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "" # Built app content directory - optional
+          skip_app_build: true
+          ###### End of Repository/Build Configurations ######
+        env:
+          IS_STATIC_EXPORT: true
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_FCM_VAPID_KEY: ${{ secrets.NEXT_PUBLIC_FCM_VAPID_KEY }}
+          NEXT_PUBLIC_IMAGES_CDN: ${{ secrets.NEXT_PUBLIC_IMAGES_CDN }}
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2.14.1
+        with:
+          egress-policy: audit
 
-            - name: Close Pull Request
-              id: closepullrequest
-              uses: Azure/static-web-apps-deploy@v1
-              with:
-                  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-                  action: 'close'
-                  app_location: '/'
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "close"
+          app_location: "/"
