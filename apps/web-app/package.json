@@ -79,7 +79,7 @@
         "@eslint/js": "^9.31.0",
         "@msw/data": "^1.1.2",
         "@next/plugin-storybook": "16.1.4",
-        "@playwright/test": "^1.50.1",
+        "@playwright/test": "^1.58.1",
         "@storybook/addon-docs": "^10.2.0",
         "@storybook/addon-links": "^10.2.0",
         "@storybook/core-events": "^8.6.14",
