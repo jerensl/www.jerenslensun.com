@@ -107,7 +107,7 @@ ip addr show docker0 | grep -Po 'inet \K[\d.]+'
 ### `Run playwright server container`
 
 ```sh
-docker run --add-host=hostmachine:host-gateway -p 8443:8443 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.50.1-noble /bin/sh -c "npx -y playwright@1.50.1 run-server --port 8443 --host 0.0.0.0"
+docker run --add-host=hostmachine:host-gateway -p 8443:8443 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.58.1-noble /bin/sh -c "npx -y playwright@1.58.1 run-server --port 8443 --host 0.0.0.0"
 ```
 
 ### `Run playwright locally using docker`
