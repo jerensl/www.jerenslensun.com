@@ -21,7 +21,7 @@
         "@fortawesome/free-brands-svg-icons": "^6.7.2",
         "@fortawesome/free-regular-svg-icons": "^6.7.2",
         "@fortawesome/free-solid-svg-icons": "^6.7.2",
-        "@fortawesome/react-fontawesome": "^0.2.2",
+        "@fortawesome/react-fontawesome": "^3.2.0",
         "@giscus/react": "^3.1.0",
         "@next/bundle-analyzer": "16.1.6",
         "@plaiceholder/next": "^3.0.0",
