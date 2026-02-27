@@ -96,7 +96,7 @@ jobs:
       - name: Check Code Coverage
         run: pnpm --filter='./apps/web-app' test:coverage
       - name: Upload code coverage to artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: jest-code-coverage
           path: coverage
@@ -124,7 +124,7 @@ jobs:
       - name: Run Playwright tests
         working-directory: apps/web-app
         run: npx playwright test
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
