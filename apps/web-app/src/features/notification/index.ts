@@ -6,24 +6,38 @@ import {
     statusNotification,
 } from '../../utils/notificationApi'
 
+const notificationQueryKey = ['notification'] as const
+
 export function useSubs() {
     const queryClient = useQueryClient()
 
-    return useMutation(subscribeNotification, {
-        onMutate: async (status) => {
-            await queryClient.cancelQueries(['notification'])
+    return useMutation({
+        mutationFn: subscribeNotification,
+        onMutate: async () => {
+            await queryClient.cancelQueries({ queryKey: notificationQueryKey })
 
-            const prevStatus = queryClient.getQueryData(['notification'])
+            const prevStatus =
+                queryClient.getQueryData<IStatus>(notificationQueryKey)
 
-            queryClient.setQueryData(['notification'], () => [Notification])
+            queryClient.setQueryData<IStatus>(
+                notificationQueryKey,
+                (currentStatus) =>
+                    currentStatus
+                        ? {
+                              ...currentStatus,
+                              isActive: true,
+                              updatedAt: new Date().getTime(),
+                          }
+                        : currentStatus
+            )
 
             return { prevStatus }
         },
-        onError: (err, newStatus, context) => {
-            queryClient.setQueryData(['notification'], context?.prevStatus)
+        onError: (_err, _newStatus, context) => {
+            queryClient.setQueryData(notificationQueryKey, context?.prevStatus)
         },
         onSettled: () => {
-            queryClient.invalidateQueries(['notification'])
+            queryClient.invalidateQueries({ queryKey: notificationQueryKey })
         },
     })
 }
@@ -31,37 +45,45 @@ export function useSubs() {
 export function useUnsubs() {
     const queryClient = useQueryClient()
 
-    return useMutation(unsubscribeNotification, {
-        onMutate: async (status) => {
-            await queryClient.cancelQueries(['notification'])
+    return useMutation({
+        mutationFn: unsubscribeNotification,
+        onMutate: async () => {
+            await queryClient.cancelQueries({ queryKey: notificationQueryKey })
 
-            const prevStatus = queryClient.getQueryData(['notification'])
+            const prevStatus =
+                queryClient.getQueryData<IStatus>(notificationQueryKey)
 
-            queryClient.setQueryData(['notification'], status)
+            queryClient.setQueryData<IStatus>(
+                notificationQueryKey,
+                (currentStatus) =>
+                    currentStatus
+                        ? {
+                              ...currentStatus,
+                              isActive: false,
+                              updatedAt: new Date().getTime(),
+                          }
+                        : currentStatus
+            )
 
             return { prevStatus }
         },
-        onError: (err, newStatus, context) => {
-            queryClient.setQueryData(['notification'], context?.prevStatus)
+        onError: (_err, _newStatus, context) => {
+            queryClient.setQueryData(notificationQueryKey, context?.prevStatus)
         },
         onSettled: () => {
-            queryClient.invalidateQueries(['notification'])
+            queryClient.invalidateQueries({ queryKey: notificationQueryKey })
         },
     })
 }
 
 export function useNotification({ token }: INotification) {
-    return useQuery(
-        ['notification'],
-        () => {
-            return statusNotification({ token })
-        },
-        {
-            enabled: !!token,
-            staleTime: 1000,
-            retry: false,
-            refetchOnMount: false,
-            refetchOnWindowFocus: false,
-        }
-    )
+    return useQuery({
+        queryKey: notificationQueryKey,
+        queryFn: () => statusNotification({ token }),
+        enabled: !!token,
+        staleTime: 1000,
+        retry: false,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
+    })
 }

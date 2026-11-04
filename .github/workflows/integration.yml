@@ -106,6 +106,8 @@ jobs:
     if: github.repository == 'jerensl/www.jerenslensun.com'
     timeout-minutes: 60
     runs-on: ubuntu-24.04
+    env:
+      NEXT_PUBLIC_IMAGES_CDN: "https://ik.imagekit.io/jerensl"
     steps:
       - uses: actions/checkout@v6
       - name: Install pnpm

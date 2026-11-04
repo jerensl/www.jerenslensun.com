@@ -23,27 +23,17 @@ export interface ThemeSpacing extends SpacingTokens {
 }
 
 export type ThemeSpacingTokens =
-    | 0
-    | 0.25
-    | 0.5
-    | 1
-    | 1.5
-    | 2
-    | 2.5
-    | 3
-    | 4
-    | 5
-    | 6
-    | 8
-    | 10
+    0 | 0.25 | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 4 | 5 | 6 | 8 | 10
 
 type SpacingTokens = {
-    [key in `x${
-        | Exclude<ThemeSpacingTokens, 0.25 | 0.5 | 1.5 | 2.5>
-        | '0_25'
-        | '0_5'
-        | '1_5'
-        | '2_5'}`]: string
+    [
+        key in `x${
+            | Exclude<ThemeSpacingTokens, 0.25 | 0.5 | 1.5 | 2.5>
+            | '0_25'
+            | '0_5'
+            | '1_5'
+            | '2_5'}`
+    ]: string
 }
 
 export function createSpacing(options: ThemeSpacingOptions = {}): ThemeSpacing {

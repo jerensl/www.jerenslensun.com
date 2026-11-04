@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { renderWithClient } from '../../__mocks__/utils/react-query'
 import Notifications, { Notify } from '../../src/components/Notifications'
 import { useNotification } from '../../src/features/notification/index'

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import ThemeToggle from '../../src/components/ThemeToggle'
 import userEvent from '@testing-library/user-event'
 import { waitFor } from '@testing-library/dom'
