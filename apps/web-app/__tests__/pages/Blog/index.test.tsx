@@ -1,5 +1,4 @@
 /**
- * @jest-environment jsdom
  */
 import React from 'react'
 import { render, within } from '../../../__mocks__/utils/test-providers'

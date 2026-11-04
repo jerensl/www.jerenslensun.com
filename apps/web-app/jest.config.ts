@@ -1,4 +1,7 @@
-import nextJest from 'next/jest'
+import { createRequire } from 'node:module'
+import nextJest from 'next/jest.js'
+
+const require = createRequire(import.meta.url)
 
 const createJestConfig = nextJest({
     // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -27,7 +30,7 @@ const customJestConfig = {
         '<rootDir>/e2e/',
     ],
     moduleDirectories: ['node_modules', '<rootDir>/'],
-    testEnvironment: 'jest-fixed-jsdom',
+    testEnvironment: '<rootDir>/jest.environment.cjs',
     preset: 'ts-jest',
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'mjs'],
     transform: {
@@ -36,12 +39,14 @@ const customJestConfig = {
     moduleNameMapper: {
         '\\.(css)$': 'identity-obj-proxy',
         '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
-        '^uuid$': require.resolve('uuid'),
+        '^uuid$': require.resolve('uuid', {
+            paths: [require.resolve('mdx-bundler')],
+        }),
     },
     testEnvironmentOptions: {
         customExportConditions: [''],
     },
-    prettierPath: require.resolve('prettier-2'),
+    prettierPath: require.resolve('prettier'),
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

@@ -1,8 +1,7 @@
 import { toHtml } from 'hast-util-to-html'
 import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'
-import type { Element, Nodes, RootContent } from 'hast'
-import { RefractorRoot } from 'refractor'
+import type { Element, Nodes, Root, RootContent } from 'hast'
 
 const lineNumberify = (ast: Array<RootContent>, lineNum = 1) => {
     let lineNumber = lineNum
@@ -100,7 +99,7 @@ const wrapLines = (
 // https://github.com/gatsbyjs/gatsby/pull/26161/files
 const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g
 
-const applyMultilineFix = function (ast: RefractorRoot) {
+const applyMultilineFix = function (ast: Root) {
     // AST to HTML
     let html = toHtml(ast as Nodes)
 
@@ -117,7 +116,7 @@ const applyMultilineFix = function (ast: RefractorRoot) {
     return hast.children
 }
 
-function highlightLine(ast: RefractorRoot, lines: number[]): Array<Element> {
+function highlightLine(ast: Root, lines: number[]): Array<Element> {
     const formattedAst = applyMultilineFix(ast)
     const numbered = lineNumberify(formattedAst).nodes
 

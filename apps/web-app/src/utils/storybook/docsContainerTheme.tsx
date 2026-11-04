@@ -6,7 +6,7 @@ import {
     DefaultThemeLight,
 } from '../../../.storybook/defaultTheme'
 import { ThemeVars } from 'storybook/theming'
-import { UPDATE_GLOBALS } from '@storybook/core-events'
+import { UPDATE_GLOBALS } from 'storybook/internal/core-events'
 
 export const ThemedDocsContainer = (props: {
     children: React.ReactNode

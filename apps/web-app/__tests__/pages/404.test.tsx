@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import React from 'react'
 import { render, screen } from '../../__mocks__/utils/test-providers'
 import NotFound from '@/pages/404'

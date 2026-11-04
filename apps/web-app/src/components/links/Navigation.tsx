@@ -3,11 +3,7 @@ import { StandardLink } from './StandardLink'
 import clsx from 'clsx'
 
 type IButtonVariants =
-    | 'elevated'
-    | 'filled'
-    | 'filled-tonal'
-    | 'outlined'
-    | 'text'
+    'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text'
 
 type ILinkButtonSizeVariants = 'small' | 'base' | 'large'
 
