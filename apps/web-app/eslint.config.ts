@@ -32,7 +32,7 @@ export default defineConfig([
             'jsx-a11y': jsxA11y,
             '@typescript-eslint': tsPlugin as any,
             react,
-            'react-hooks': reactHooks,
+            'react-hooks': reactHooks as any,
             prettier,
         },
 

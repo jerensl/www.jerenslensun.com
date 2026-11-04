@@ -28,13 +28,14 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
     const { data, isLoading, isError } = useNotification({ token })
     const subsMutation = useSubs()
     const unSubsMutation = useUnsubs()
+    const isActive = data?.isActive ?? false
 
     const handleNotification = async () => {
-        if (isLoading || isError) {
+        if (isLoading || isError || !data) {
             return
         }
 
-        if (data.isActive) {
+        if (isActive) {
             unSubsMutation.mutate({ token })
         } else {
             subsMutation.mutate({ token })
@@ -79,7 +80,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
                             body={payload.notification?.body}
                         />,
                         {
-                            position: toast.POSITION.TOP_CENTER,
+                            position: 'top-center',
                             autoClose: 10000,
                             hideProgressBar: true,
                         }
@@ -159,14 +160,14 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
     return (
         <IconToggle
             ariaLabel={
-                data.isActive ? 'turn off Notification' : 'turn on Notification'
+                isActive ? 'turn off Notification' : 'turn on Notification'
             }
             onClick={handleNotification}
             variant="outlined"
-            isSelected={data.isActive}
-            dataTestID={data.isActive ? 'unsubscribe' : 'subscribe'}
+            isSelected={isActive}
+            dataTestID={isActive ? 'unsubscribe' : 'subscribe'}
         >
-            {data.isActive ? (
+            {isActive ? (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

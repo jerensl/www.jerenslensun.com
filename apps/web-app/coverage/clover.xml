@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1793804722516" clover="3.2.0">
+  <project timestamp="1793804722517" name="All files">
+    <metrics statements="423" coveredstatements="335" conditionals="140" coveredconditionals="79" methods="121" coveredmethods="84" elements="684" coveredelements="498" complexity="0" loc="423" ncloc="423" packages="13" files="41" classes="41"/>
+    <package name="components">
+      <metrics statements="182" coveredstatements="132" conditionals="70" coveredconditionals="35" methods="54" coveredmethods="33"/>
+      <file name="Analytics.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Analytics.tsx">
+        <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+      <file name="CareerCard.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/CareerCard.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+      </file>
+      <file name="Comment.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Comment.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+      </file>
+      <file name="Components.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Components.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="92" count="5" type="stmt"/>
+      </file>
+      <file name="CopyClipboard.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/CopyClipboard.tsx">
+        <metrics statements="17" coveredstatements="16" conditionals="7" coveredconditionals="6" methods="5" coveredmethods="4"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
+        <line num="13" count="9" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="9" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+      </file>
+      <file name="Footer.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Footer.tsx">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="16" count="196" type="stmt"/>
+        <line num="39" count="245" type="stmt"/>
+        <line num="66" count="245" type="stmt"/>
+        <line num="68" count="196" type="stmt"/>
+        <line num="88" count="49" type="stmt"/>
+      </file>
+      <file name="Grid.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Grid.tsx">
+        <metrics statements="7" coveredstatements="4" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="67" count="48" type="stmt"/>
+      </file>
+      <file name="Header.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Header.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+      <file name="ImageWithFallback.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/ImageWithFallback.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="15" count="58" type="stmt"/>
+        <line num="25" count="58" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="58" type="stmt"/>
+        <line num="28" count="58" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="57" type="stmt"/>
+      </file>
+      <file name="Layout.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Layout.tsx">
+        <metrics statements="14" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+      <file name="Navbar.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Navbar.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="24" count="9" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="48" count="16" type="stmt"/>
+      </file>
+      <file name="Notifications.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Notifications.tsx">
+        <metrics statements="48" coveredstatements="28" conditionals="31" coveredconditionals="14" methods="9" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="25" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="6" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="45" count="6" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="53" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="94" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="120" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="133" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="211" count="3" type="stmt"/>
+        <line num="232" count="3" type="stmt"/>
+        <line num="255" count="6" type="stmt"/>
+      </file>
+      <file name="Seo.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/Seo.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="18" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="45" type="stmt"/>
+        <line num="55" count="45" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="TOC.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/TOC.tsx">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="ThemeToggle.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/ThemeToggle.tsx">
+        <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="4" methods="5" coveredmethods="4"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.animations">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="Cursor.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/animations/Cursor.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="WritingAnimation.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/animations/WritingAnimation.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.buttons">
+      <metrics statements="6" coveredstatements="6" conditionals="13" coveredconditionals="8" methods="2" coveredmethods="2"/>
+      <file name="Button.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/buttons/Button.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="18" count="40" type="stmt"/>
+      </file>
+      <file name="IconToggle.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/buttons/IconToggle.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="13" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.cards">
+      <metrics statements="19" coveredstatements="15" conditionals="9" coveredconditionals="8" methods="5" coveredmethods="4"/>
+      <file name="Card.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/cards/Card.tsx">
+        <metrics statements="4" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+      </file>
+      <file name="Content.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/cards/Content.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="20" count="52" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="76" count="153" type="stmt"/>
+      </file>
+      <file name="Contribution.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/cards/Contribution.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.chips">
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="Tag.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/chips/Tag.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="11" count="77" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.inputs">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="SearchArticles.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/inputs/SearchArticles.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="40" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.links">
+      <metrics statements="15" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+      <file name="HighlightLink.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/links/HighlightLink.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="12" count="453" type="stmt"/>
+      </file>
+      <file name="Navigation.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/links/Navigation.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+      </file>
+      <file name="StandardLink.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/links/StandardLink.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="13" count="680" type="stmt"/>
+        <line num="20" count="680" type="stmt"/>
+        <line num="22" count="680" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="components.sections">
+      <metrics statements="37" coveredstatements="37" conditionals="12" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <file name="About.section.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/sections/About.section.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="Career.section.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/sections/Career.section.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+      </file>
+      <file name="ContactMe.section.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/sections/ContactMe.section.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="Introduction.section.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/sections/Introduction.section.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+      <file name="OSSContribution.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/components/sections/OSSContribution.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="18" coveredstatements="10" conditionals="12" coveredconditionals="1" methods="7" coveredmethods="3"/>
+      <file name="useScrollToc.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/hooks/useScrollToc.tsx">
+        <metrics statements="18" coveredstatements="10" conditionals="12" coveredconditionals="1" methods="7" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages">
+      <metrics statements="25" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+      <file name="404.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/404.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="about.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/about.tsx">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/index.tsx">
+        <metrics statements="15" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.blog">
+      <metrics statements="68" coveredstatements="57" conditionals="13" coveredconditionals="10" methods="24" coveredmethods="19"/>
+      <file name="[slug].tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/blog/[slug].tsx">
+        <metrics statements="29" coveredstatements="22" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="55" count="4" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/blog/index.tsx">
+        <metrics statements="39" coveredstatements="35" conditionals="11" coveredconditionals="10" methods="17" coveredmethods="16"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
+        <line num="31" count="40" type="stmt"/>
+        <line num="32" count="40" type="stmt"/>
+        <line num="34" count="77" type="stmt"/>
+        <line num="35" count="77" type="stmt"/>
+        <line num="37" count="40" type="stmt"/>
+        <line num="39" count="40" type="stmt"/>
+        <line num="40" count="40" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="40" type="stmt"/>
+        <line num="45" count="40" type="stmt"/>
+        <line num="46" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="54" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="40" type="stmt"/>
+        <line num="59" count="50" type="stmt"/>
+        <line num="77" count="25" type="stmt"/>
+        <line num="86" count="77" type="stmt"/>
+        <line num="87" count="77" type="stmt"/>
+        <line num="91" count="3" type="stmt"/>
+        <line num="106" count="5" type="stmt"/>
+        <line num="107" count="5" type="stmt"/>
+        <line num="122" count="50" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.project">
+      <metrics statements="34" coveredstatements="25" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="4"/>
+      <file name="[slug].tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/project/[slug].tsx">
+        <metrics statements="22" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/pages/project/index.tsx">
+        <metrics statements="12" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="styles">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="code.tsx" path="/home/jerensl/Projects/www.jerenslensun.com/apps/web-app/src/styles/code.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

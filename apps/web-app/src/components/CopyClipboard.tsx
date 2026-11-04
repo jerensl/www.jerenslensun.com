@@ -45,7 +45,7 @@ export const CopyToClipboard = ({ children }: ICopyToClipboard) => {
                 className={clsx(
                     'absolute right-3 top-3 w-8 h-8 p-1 rounded border-2 bg-slate-700 dark:bg-gray-800',
                     {
-                        'focus:outline-none focus:border-green-400 border-green-400':
+                        'focus:outline-hidden focus:border-green-400 border-green-400':
                             copied,
                         'hover:border-gray-300': !copied,
                         hidden: !hovered,

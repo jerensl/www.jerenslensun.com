@@ -95,15 +95,10 @@ async function getContents<T extends IMetadata>(
             const source = getFileByName(directory, `${fileName}.mdx`)
             const { data } = matter(source)
 
-            let defaultContent = ''
-
-            if (directory === 'blog') {
-                defaultContent = 'default-content.webp'
-            } else if (directory === 'project') {
-                defaultContent = 'project-default.webp'
-            } else {
-                defaultContent = 'default-content.webp'
-            }
+            const defaultContent =
+                directory === 'project'
+                    ? 'project-default.webp'
+                    : 'default-content.webp'
 
             try {
                 const resp = await fetch(

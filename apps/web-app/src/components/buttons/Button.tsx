@@ -2,11 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 
 type IButtonVariants =
-    | 'elevated'
-    | 'filled'
-    | 'filled-tonal'
-    | 'outlined'
-    | 'text'
+    'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text'
 
 type IButtonSizeVariants = 'small' | 'base' | 'large'
 
