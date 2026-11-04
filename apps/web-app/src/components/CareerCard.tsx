@@ -23,7 +23,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
 
     return (
         <motion.div
-            className="col-span-full md:col-span-4 lg:col-span-3 p-2 "
+            className="col-span-full md:col-span-4 lg:col-span-3 p-2"
             initial="initial"
             key={organization}
             animate={inView ? 'visible' : 'hidden'}
