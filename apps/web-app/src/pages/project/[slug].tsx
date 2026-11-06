@@ -51,15 +51,19 @@ export default function Project({
     currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const { code, frontmatter } = projects
+    const slug = projects.metadata?.slug ?? frontmatter.slug
     const Component = useMemo(() => getMDXComponent(code), [code])
 
     return (
         <>
             <ArticleSeo
-                path={frontmatter.title}
+                path={`/project/${slug}`}
                 title={frontmatter.title}
                 description={frontmatter.description}
                 image={`https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${frontmatter.cover}`}
+                tags={frontmatter.programming_languange}
+                repoUrl={frontmatter.repo_url}
+                kind="project"
             />
             <Grid as="header" className="pt-24 gap-3">
                 <h1 className="text-center text-3xl font-bold col-span-full">

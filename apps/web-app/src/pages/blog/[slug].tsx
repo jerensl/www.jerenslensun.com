@@ -53,6 +53,7 @@ export default function Blog({
     currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const { code, frontmatter } = posts
+    const slug = posts.metadata?.slug ?? frontmatter.slug
     const Component = useMemo(() => getMDXComponent(code), [code])
     const [toc, setToc] = useState<
         Array<{ id: string; text: string; level: MDXTitleHeadingLevels }>
@@ -79,10 +80,12 @@ export default function Blog({
     return (
         <>
             <ArticleSeo
-                path={frontmatter.title}
+                path={`/blog/${slug}`}
                 title={frontmatter.title}
                 description={frontmatter.description}
                 image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1655199836/personal/${frontmatter.cover}`}
+                date={frontmatter.date}
+                tags={frontmatter.tags}
             />
             <header className="pt-20 text-center">
                 <h1 className="m-auto p-4 text-3xl font-bold max-w-4xl">

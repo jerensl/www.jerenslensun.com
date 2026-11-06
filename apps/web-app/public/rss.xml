@@ -1,141 +1,141 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:blogChannel="https://www.jerenslensun.com/blog">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:blogChannel="https://jerensl.dev/blog">
       <channel>
         <title>Jerens Lensun Blog</title>
-        <link>https://www.jerenslensun.com/blog</link>
+        <link>https://jerensl.dev/blog</link>
         <description>Personal portfolio and blog presented by Jerens Lensun. I'm writing about tech specializing in software development.</description>
         <language>en</language>
         <ttl>40</ttl>
         <item>
       <title><![CDATA[Getting Lost and Finding Community at OSSummit Japan 2025]]></title>
       <description><![CDATA[My OSS Summit Japan 2025 Journey]]></description>
-      <link>https://www.jerenslensun.com/blog/en-open-source-summit-japan-2025</link>
-      <guid>https://www.jerenslensun.com/blog/en-open-source-summit-japan-2025</guid>
+      <link>https://jerensl.dev/blog/en-open-source-summit-japan-2025</link>
+      <guid>https://jerensl.dev/blog/en-open-source-summit-japan-2025</guid>
       <pubDate>2025-12-20</pubDate>
     </item>
 <item>
       <title><![CDATA[Final project progress outreachy]]></title>
       <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
-      <link>https://www.jerenslensun.com/blog/en-final-project-progress-outreachy</link>
-      <guid>https://www.jerenslensun.com/blog/en-final-project-progress-outreachy</guid>
+      <link>https://jerensl.dev/blog/en-final-project-progress-outreachy</link>
+      <guid>https://jerensl.dev/blog/en-final-project-progress-outreachy</guid>
       <pubDate>2025-08-25</pubDate>
     </item>
 <item>
       <title><![CDATA[Career opportunities - Outreachy]]></title>
       <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
-      <link>https://www.jerenslensun.com/blog/en-career-opportunities-outreachy</link>
-      <guid>https://www.jerenslensun.com/blog/en-career-opportunities-outreachy</guid>
+      <link>https://jerensl.dev/blog/en-career-opportunities-outreachy</link>
+      <guid>https://jerensl.dev/blog/en-career-opportunities-outreachy</guid>
       <pubDate>2025-07-28</pubDate>
     </item>
 <item>
       <title><![CDATA[Mid-point Project Progress - Outreachy]]></title>
       <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
-      <link>https://www.jerenslensun.com/blog/en-mid-point-project-progress</link>
-      <guid>https://www.jerenslensun.com/blog/en-mid-point-project-progress</guid>
+      <link>https://jerensl.dev/blog/en-mid-point-project-progress</link>
+      <guid>https://jerensl.dev/blog/en-mid-point-project-progress</guid>
       <pubDate>2025-07-21</pubDate>
     </item>
 <item>
       <title><![CDATA[Think about your audience - Outreachy]]></title>
       <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
-      <link>https://www.jerenslensun.com/blog/en-think-about-your-audience</link>
-      <guid>https://www.jerenslensun.com/blog/en-think-about-your-audience</guid>
+      <link>https://jerensl.dev/blog/en-think-about-your-audience</link>
+      <guid>https://jerensl.dev/blog/en-think-about-your-audience</guid>
       <pubDate>2025-06-30</pubDate>
     </item>
 <item>
       <title><![CDATA[Everybody struggles - Outreachy]]></title>
       <description><![CDATA[My outreachy Journey through Internship in Servo]]></description>
-      <link>https://www.jerenslensun.com/blog/en-everybody-struggles-outreachy</link>
-      <guid>https://www.jerenslensun.com/blog/en-everybody-struggles-outreachy</guid>
+      <link>https://jerensl.dev/blog/en-everybody-struggles-outreachy</link>
+      <guid>https://jerensl.dev/blog/en-everybody-struggles-outreachy</guid>
       <pubDate>2025-06-16</pubDate>
     </item>
 <item>
       <title><![CDATA[Introduce yourself - Outreachy Blog]]></title>
       <description><![CDATA[This blog post part of outreachy program internship for every two weeks.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-introduce-yourself-outreachy</link>
-      <guid>https://www.jerenslensun.com/blog/en-introduce-yourself-outreachy</guid>
+      <link>https://jerensl.dev/blog/en-introduce-yourself-outreachy</link>
+      <guid>https://jerensl.dev/blog/en-introduce-yourself-outreachy</guid>
       <pubDate>2025-06-02</pubDate>
     </item>
 <item>
       <title><![CDATA[Github Actions Workflow]]></title>
       <description><![CDATA[This documentation provides everything you need to understand how GitHub Actions behave in relation to commits, branches, and pull requests. It also clarifies how workflow context is affected by forks, secrets, and trigger types.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-github-actions-workflow</link>
-      <guid>https://www.jerenslensun.com/blog/en-github-actions-workflow</guid>
+      <link>https://jerensl.dev/blog/en-github-actions-workflow</link>
+      <guid>https://jerensl.dev/blog/en-github-actions-workflow</guid>
       <pubDate>2025-06-01</pubDate>
     </item>
 <item>
       <title><![CDATA[My Journey as an LFX Mentee - Exploring E2E Testing with Playwright on Meshery]]></title>
       <description><![CDATA[The journey began with a comprehensive exploration of Meshery's existing end-to-end (E2E) testing framework, built using Cypress. Gaining a deep understanding of the existing setup was crucial to ensure a seamless transition to Playwright.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-lfx-menthorship</link>
-      <guid>https://www.jerenslensun.com/blog/en-lfx-menthorship</guid>
+      <link>https://jerensl.dev/blog/en-lfx-menthorship</link>
+      <guid>https://jerensl.dev/blog/en-lfx-menthorship</guid>
       <pubDate>2024-12-10</pubDate>
     </item>
 <item>
       <title><![CDATA[Strategy and Tactics]]></title>
       <description><![CDATA[The terms “strategy” and “tactics” both originated as military terminology and are now widely used in various fields.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-strategy-and-tactics</link>
-      <guid>https://www.jerenslensun.com/blog/en-strategy-and-tactics</guid>
+      <link>https://jerensl.dev/blog/en-strategy-and-tactics</link>
+      <guid>https://jerensl.dev/blog/en-strategy-and-tactics</guid>
       <pubDate>2024-04-15</pubDate>
     </item>
 <item>
       <title><![CDATA[Fundamental Algoritma]]></title>
       <description><![CDATA[Algoritma sangat penting dalam mengoptimize sebuah software dan bahkan dengan membuat algoritma yang lebih baik di beberapa kasus bisa jauh lebih cepat dibandingkan dengan komputer yang lebih powerfull]]></description>
-      <link>https://www.jerenslensun.com/blog/id-fundamental-algoritma</link>
-      <guid>https://www.jerenslensun.com/blog/id-fundamental-algoritma</guid>
+      <link>https://jerensl.dev/blog/id-fundamental-algoritma</link>
+      <guid>https://jerensl.dev/blog/id-fundamental-algoritma</guid>
       <pubDate>2023-03-20</pubDate>
     </item>
 <item>
       <title><![CDATA[Cara mengirim data pada platform Ovord 2]]></title>
       <description><![CDATA[Tutorial mengirim data dari perangkat embedded ke aplikasi platform monitoring Ovord 2]]></description>
-      <link>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
-      <guid>https://www.jerenslensun.com/blog/id-cara-mengirim-data-pada-platform-ovord-2</guid>
+      <link>https://jerensl.dev/blog/id-cara-mengirim-data-pada-platform-ovord-2</link>
+      <guid>https://jerensl.dev/blog/id-cara-mengirim-data-pada-platform-ovord-2</guid>
       <pubDate>2022-12-29</pubDate>
     </item>
 <item>
       <title><![CDATA[Algoritma Sort]]></title>
       <description><![CDATA[Sorting algoritma adalah algoritma yang digunakan untuk mengurutkan kumpulan data contohnya array.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-sorting-algoritma</link>
-      <guid>https://www.jerenslensun.com/blog/id-sorting-algoritma</guid>
+      <link>https://jerensl.dev/blog/id-sorting-algoritma</link>
+      <guid>https://jerensl.dev/blog/id-sorting-algoritma</guid>
       <pubDate>2022-08-10</pubDate>
     </item>
 <item>
       <title><![CDATA[Build a Load Balancer from a scratch with Go]]></title>
       <description><![CDATA[A load balancer is a process of distributing incoming traffic across multiple targets.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-load-balancer-golang</link>
-      <guid>https://www.jerenslensun.com/blog/en-load-balancer-golang</guid>
+      <link>https://jerensl.dev/blog/en-load-balancer-golang</link>
+      <guid>https://jerensl.dev/blog/en-load-balancer-golang</guid>
       <pubDate>2022-07-08</pubDate>
     </item>
 <item>
       <title><![CDATA[Reverse Proxy with Go]]></title>
       <description><![CDATA[A reverse proxy is the application that sits in front of back-end applications and forwards client (e.g. browser) requests to those applications.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-reverse-proxy-golang</link>
-      <guid>https://www.jerenslensun.com/blog/en-reverse-proxy-golang</guid>
+      <link>https://jerensl.dev/blog/en-reverse-proxy-golang</link>
+      <guid>https://jerensl.dev/blog/en-reverse-proxy-golang</guid>
       <pubDate>2022-06-14</pubDate>
     </item>
 <item>
       <title><![CDATA[Data Struktur Heap]]></title>
       <description><![CDATA[Binary Heap merupakan struktur data complete tree biasa direpresentasikan dalam bentuk array, dimana bisa min heap atau max heap.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-struktur-data-heap</link>
-      <guid>https://www.jerenslensun.com/blog/id-struktur-data-heap</guid>
+      <link>https://jerensl.dev/blog/id-struktur-data-heap</link>
+      <guid>https://jerensl.dev/blog/id-struktur-data-heap</guid>
       <pubDate>2022-01-17</pubDate>
     </item>
 <item>
       <title><![CDATA[Golang Standard I/O]]></title>
       <description><![CDATA[Mengolah data penyimpanan external pada golang membutuhkan cara tertentu, apalagi dengan data berukuran besar, kita tidak bisa langsung menginisialiasi data langsung ke dalam variable.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-go-standard-io</link>
-      <guid>https://www.jerenslensun.com/blog/id-go-standard-io</guid>
+      <link>https://jerensl.dev/blog/id-go-standard-io</link>
+      <guid>https://jerensl.dev/blog/id-go-standard-io</guid>
       <pubDate>2022-01-07</pubDate>
     </item>
 <item>
       <title><![CDATA[Algoritma Binary Search]]></title>
       <description><![CDATA[Binary search merupakan algoritma yang memakai waktu logaritma dalam mencari nilai pada struktur data yang telah diurutkan terlebih dahulu.]]></description>
-      <link>https://www.jerenslensun.com/blog/id-algoritma-binary-search</link>
-      <guid>https://www.jerenslensun.com/blog/id-algoritma-binary-search</guid>
+      <link>https://jerensl.dev/blog/id-algoritma-binary-search</link>
+      <guid>https://jerensl.dev/blog/id-algoritma-binary-search</guid>
       <pubDate>2021-12-21</pubDate>
     </item>
 <item>
       <title><![CDATA[Algorithm Fundamentals]]></title>
       <description><![CDATA[Algorithm (Computer Science) is a series of instructions that are created to solve various kinds of problems through computers.]]></description>
-      <link>https://www.jerenslensun.com/blog/en-fundamental-algorithm</link>
-      <guid>https://www.jerenslensun.com/blog/en-fundamental-algorithm</guid>
+      <link>https://jerensl.dev/blog/en-fundamental-algorithm</link>
+      <guid>https://jerensl.dev/blog/en-fundamental-algorithm</guid>
       <pubDate>2021-11-22</pubDate>
     </item>
       </channel>

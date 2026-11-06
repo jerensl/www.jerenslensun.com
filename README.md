@@ -1,4 +1,4 @@
-<h3 align="center">www.jerenslensun.com</h3>
+<h3 align="center">jerensl.dev</h3>
 
 <div align="center">
 
@@ -6,7 +6,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-[![codecov](https://codecov.io/gh/jerensl/www.jerenslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerenslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/integration.yml/badge.svg) ![Continuous Deployment](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml/badge.svg)
+[![codecov](https://codecov.io/gh/jerensl/www.jerenslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerenslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/integration.yml/badge.svg) ![Docs Deployment](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml/badge.svg)
 
 </div>
 
@@ -122,9 +122,9 @@ For more information about how to use the component, you can follow the instruct
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-This website has been deploying on Azure Static Web Apps, to learn more you can go through their documentation [here](https://learn.microsoft.com/en-us/azure/static-web-apps/).
+This website is deployed on [Vercel](https://vercel.com/), with continuous deployment from the `main` branch.
 
-Continuous deployment has been adopted using Github Action, which can be see on this [links](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml?query=branch%3Amain)
+Storybook documentation is published to GitHub Pages by the [Docs Deployment workflow](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml?query=branch%3Amain).
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 

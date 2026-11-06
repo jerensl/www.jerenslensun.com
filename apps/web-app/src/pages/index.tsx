@@ -3,6 +3,7 @@ import { Footer } from '@/components/Footer'
 import { HeadComponent } from '@/components/Seo'
 import { generateRss } from '@/libs/rss'
 import { Header } from '@/components/Header'
+import { personSchema, websiteSchema } from '@/libs/seo'
 import { IntroductionSection } from '@/components/sections/Introduction.section'
 import { CareerSection } from '@/components/sections/Career.section'
 import HorizontalScroll from '@/components/sections/OSSContribution'
@@ -29,7 +30,11 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     return (
         <>
-            <HeadComponent path="/" title="" />
+            <HeadComponent
+                path="/"
+                title=""
+                jsonLd={[websiteSchema(), personSchema()]}
+            />
             <Header blurDataURL={blurDataURL} />
             <div className="h-56 lg:h-64" />
             <IntroductionSection />
