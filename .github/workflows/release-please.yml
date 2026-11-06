@@ -18,7 +18,7 @@ jobs:
               with:
                   egress-policy: audit
 
-            - uses: googleapis/release-please-action@v4
+            - uses: googleapis/release-please-action@v5
               with:
                   release-type: node
                   target-branch: ${{ github.ref_name }}
