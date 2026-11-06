@@ -5,7 +5,7 @@ import { format } from 'date-fns/format'
 export async function getRssXml() {
     const frontmatters = await getContents('blog')
 
-    const blogUrl = 'https://www.jerenslensun.com/blog'
+    const blogUrl = 'https://jerensl.dev/blog'
 
     const itemXml = frontmatters.map(
         ({ slug, title, description, date }: any) =>

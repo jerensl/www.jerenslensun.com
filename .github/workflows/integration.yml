@@ -8,11 +8,10 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   build:
-    name: Azure NextJS Web App
+    name: Build NextJS Web App
     if: github.repository == 'jerensl/www.jerenslensun.com'
     uses: ./.github/workflows/build.yml
     secrets: inherit
@@ -132,21 +131,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-  azure_deploy_staging:
-    name: Azure Static Web App deployment staging
-    if: github.repository == 'jerensl/www.jerenslensun.com'
-    needs: [build, lint, type-check]
-    permissions:
-      contents: read # for actions/checkout to fetch code
-      pull-requests: write # for Azure/static-web-apps-deploy to comment on PRs
-    uses: ./.github/workflows/azure.yml
-    secrets: inherit
-  lhci:
-    if: >
-      github.repository == 'jerensl/www.jerenslensun.com' && 
-      contains(github.event.pull_request.labels.*.name, 'need-perf-check')
-    needs: azure_deploy_staging
-    uses: ./.github/workflows/lighthouse.yml
-    secrets: inherit
-    with:
-      static_web_url: ${{ needs.azure_deploy_staging.outputs.static_web_app_url }}

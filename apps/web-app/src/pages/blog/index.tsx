@@ -61,7 +61,11 @@ export default function Blog({
 
     return (
         <>
-            <HeadComponent path="/blog" title="Blog" />
+            <HeadComponent
+                path="/blog"
+                title="Blog"
+                description="Articles by Jerens Lensun on software development, open source, algorithms, and lessons learned while building things that last."
+            />
             <main className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
                 <div className="flex flex-col text-center gap-3">
                     <h1 className="pt-24 text-3xl font-semibold">Blog</h1>

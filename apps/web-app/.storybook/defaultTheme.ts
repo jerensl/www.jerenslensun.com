@@ -34,7 +34,7 @@ const createStorybookTheme = (theme: IDefaultTheme) => {
         inputBorderRadius: parseInt(theme.shape.radius.default),
 
         brandTitle: 'Jerens',
-        brandUrl: 'https://www.jerenslensun.com',
+        brandUrl: 'https://jerensl.dev',
         brandTarget: '_self',
     })
 }

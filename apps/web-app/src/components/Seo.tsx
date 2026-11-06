@@ -1,12 +1,149 @@
 import { app, siteMetadata } from '@/constant/seo'
+import {
+    articleSchema,
+    breadcrumbSchema,
+    buildSeo,
+    projectSchema,
+} from '@/libs/seo'
+import { JsonLdSchema, SeoResult } from '@/types/seo'
 import Head from 'next/head'
 import React from 'react'
+
+const toArray = (
+    schema?: JsonLdSchema | JsonLdSchema[] | null
+): JsonLdSchema[] => {
+    if (!schema) {
+        return []
+    }
+
+    return Array.isArray(schema) ? schema : [schema]
+}
+
+const JsonLd: React.FC<{ schemas: JsonLdSchema[] }> = ({ schemas }) => {
+    return (
+        <>
+            {schemas.map((schema, index) => (
+                <script
+                    key={index}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schema),
+                    }}
+                />
+            ))}
+        </>
+    )
+}
+
+const SeoHead: React.FC<{ seo: SeoResult; schemas: JsonLdSchema[] }> = ({
+    seo,
+    schemas,
+}) => {
+    return (
+        <Head>
+            <title>{seo.title}</title>
+            <meta
+                name="robots"
+                content={seo.noIndex ? 'noindex, nofollow' : 'follow, index'}
+            />
+            <meta name="description" content={seo.description} />
+            <link rel="canonical" href={seo.canonical} />
+            <link
+                rel="alternate"
+                type="application/rss+xml"
+                title={`${app.title} RSS Feed`}
+                href={`${siteMetadata.url}/rss.xml`}
+            />
+            <link
+                rel="sitemap"
+                type="application/xml"
+                title="Sitemap"
+                href={`${siteMetadata.url}/sitemap.xml`}
+            />
+
+            {/* Open Graph Data */}
+            <meta property="og:title" content={seo.title} />
+            <meta property="og:url" content={seo.canonical} />
+            <meta property="og:description" content={seo.description} />
+            <meta property="og:site_name" content={app.name} />
+            <meta property="og:type" content={seo.type} />
+            <meta property="og:image" content={seo.image} />
+            <meta property="og:image:alt" content={seo.title} />
+            {seo.type === 'article' && seo.publishedTime ? (
+                <meta
+                    property="article:published_time"
+                    content={seo.publishedTime}
+                />
+            ) : null}
+            {seo.type === 'article' && seo.modifiedTime ? (
+                <meta
+                    property="article:modified_time"
+                    content={seo.modifiedTime}
+                />
+            ) : null}
+            {seo.type === 'article' ? (
+                <meta property="article:author" content={app.title} />
+            ) : null}
+            {seo.tags.map((tag) => (
+                <meta key={tag} property="article:tag" content={tag} />
+            ))}
+
+            {/* Twitter Graph Data */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content={siteMetadata.twitter} />
+            <meta name="twitter:creator" content={siteMetadata.twitter} />
+            <meta name="twitter:title" content={seo.title} />
+            <meta name="twitter:description" content={seo.description} />
+            <meta name="twitter:image" content={seo.image} />
+            <link rel="icon" href="/favicon.ico" />
+
+            <JsonLd schemas={schemas} />
+        </Head>
+    )
+}
+
+interface IHeadComponent {
+    title: string
+    path: string
+    description?: string
+    image?: string
+    noIndex?: boolean
+    jsonLd?: JsonLdSchema | JsonLdSchema[]
+}
+
+export const HeadComponent: React.FC<IHeadComponent> = ({
+    title,
+    path,
+    description,
+    image,
+    noIndex,
+    jsonLd,
+}) => {
+    const seo = buildSeo({
+        title,
+        path,
+        description: description ?? app.description,
+        image,
+        noIndex,
+    })
+
+    const schemas = [
+        ...toArray(jsonLd),
+        ...toArray(breadcrumbSchema(path, title || undefined)),
+    ]
+
+    return <SeoHead seo={seo} schemas={schemas} />
+}
 
 interface IArticleSeo {
     title: string
     description: string
     path: string
     image: string
+    date?: string
+    tags?: string[]
+    repoUrl?: string
+    kind?: 'article' | 'project'
 }
 
 export const ArticleSeo: React.FC<IArticleSeo> = ({
@@ -14,79 +151,42 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
     description,
     path,
     image,
+    date,
+    tags = [],
+    repoUrl,
+    kind = 'article',
 }) => {
-    const currTitle = title ? `${title} | ${app.title}` : app.title
+    const seo = buildSeo({
+        title,
+        description,
+        path,
+        image,
+        type: 'article',
+        publishedTime: date,
+        modifiedTime: date,
+        tags,
+    })
 
-    return (
-        <>
-            <Head>
-                <title>{`${currTitle}`}</title>
-                <meta name="robots" content="follow, index" />
-                <meta name="description" content={description} />
+    const schema =
+        kind === 'project'
+            ? projectSchema({
+                  title,
+                  description,
+                  image,
+                  canonical: seo.canonical,
+                  repoUrl,
+                  tags,
+              })
+            : articleSchema({
+                  title,
+                  description,
+                  image,
+                  canonical: seo.canonical,
+                  date,
+                  tags,
+              })
 
-                {/* Open Graph Data */}
-                <meta property="og:title" content={currTitle} />
-                <meta
-                    property="og:url"
-                    content={`${siteMetadata.url}${path}`}
-                />
-                <meta property="og:description" content={description} />
-                <meta property="og:site_name" content={app.name} />
-                <meta property="og:type" content="website" />
-                <meta name="image" property="og:image" content={image} />
+    const schemas = [schema, ...toArray(breadcrumbSchema(path, title))]
 
-                {/* Twitter Graph Data */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={siteMetadata.twitter} />
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={image} />
-            </Head>
-        </>
-    )
-}
-
-interface IHeadComponent {
-    title: string
-    path: string
-}
-
-export const HeadComponent: React.FC<IHeadComponent> = ({ title, path }) => {
-    const currTitle = title ? `${title} | ${app.title}` : app.title
-
-    return (
-        <>
-            <Head>
-                <title>{`${currTitle}`}</title>
-                <meta name="robots" content="follow, index" />
-                <meta name="description" content={app.description} />
-
-                {/* Open Graph Data */}
-                <meta property="og:title" content={currTitle} />
-                <meta
-                    property="og:url"
-                    content={`${siteMetadata.url}${path}`}
-                />
-                <meta property="og:description" content={app.description} />
-                <meta property="og:site_name" content={app.name} />
-                <meta property="og:type" content="website" />
-                <meta name="image" property="og:image" content={app.image} />
-
-                {/* Twitter Graph Data */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={siteMetadata.twitter} />
-                <meta name="twitter:title" content={app.title} />
-                <meta name="twitter:description" content={app.description} />
-                <meta name="twitter:image" content={app.image} />
-                <link rel="icon" href="/favicon.ico" />
-
-                {path === '/about' && (
-                    <link
-                        rel="canonical"
-                        href="https://www.jerenslensun.com/"
-                    />
-                )}
-            </Head>
-        </>
-    )
+    return <SeoHead seo={seo} schemas={schemas} />
 }

@@ -6,24 +6,23 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 This guide is about deployment related documentation
 
-## Azure Blob Storage
+## Vercel
 
-List all storage blobs in a container whose names start with 'foo'; will match names such as 'foo', 'foobar', and 'foo/bar'
+The website is deployed on [Vercel](https://vercel.com/) and deploys automatically from the `main` branch. Preview deployments are created for every pull request.
 
-```bash
-az storage blob list -c mycontainer --prefix foo
-```
+Build settings:
 
-Download all blobs in a directory named "dir" from container named "mycontainer".
+-   **Root directory:** `apps/web-app`
+-   **Build command:** `pnpm build`
+-   **Output directory:** `out`
 
-```bash
-az storage blob download-batch -d . -s mycontainer --pattern "dir/\*"
-```
+The production domain is `https://jerensl.dev`.
 
-Other options  
-[--account-name]  
-[--sas-token]
+## Storybook
+
+Component documentation is built with Storybook and published to GitHub Pages by the `Docs Deployment` workflow.
 
 ## Related links
 
--   [Azure Blob Storage](https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#commands)
+-   [Vercel documentation](https://vercel.com/docs)
+-   [Storybook documentation](https://storybook.js.org/docs)

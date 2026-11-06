@@ -1,6 +1,6 @@
-name: Deployment
+name: Docs Deployment
 
-# Deploy bi-weekly At 05:00 on Monday and Thursday.
+# Deploy Storybook bi-weekly At 05:00 on Monday and Thursday.
 on:
   workflow_dispatch:
   schedule:
@@ -10,7 +10,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  pull-requests: write
 
 jobs:
   build_docs:
@@ -39,22 +38,3 @@ jobs:
           build_command: pnpm --filter='./apps/web-app' run build:storybook # default: npm run build-storybook
           path: storybook-static # default: dist/storybook
           checkout: false # default: true
-  build:
-    name: Azure NextJS Web App
-    if: github.repository == 'jerensl/www.jerenslensun.com'
-    uses: ./.github/workflows/build.yml
-    secrets: inherit
-  azure_deploy:
-    name: Azure Static Web App Deployment Production
-    needs: build
-    if: github.repository == 'jerensl/www.jerenslensun.com'
-    uses: ./.github/workflows/azure.yml
-    secrets: inherit
-  lhci:
-    name: Lighthouse Score Production
-    if: github.repository == 'jerensl/www.jerenslensun.com'
-    needs: azure_deploy
-    uses: ./.github/workflows/lighthouse.yml
-    secrets: inherit
-    with:
-      static_web_url: ${{ needs.azure_deploy.outputs.static_web_app_url }}
