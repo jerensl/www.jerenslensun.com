@@ -1,0 +1,92 @@
+---
+title: 'Meshery — Playwright E2E & CI'
+role: 'LFX Mentee (CNCF) — Meshery: End-to-End Testing with Playwright'
+status: 'Completed'
+description: 'How I worked on Meshery’s Playwright end-to-end suite and the surrounding Meshery/Layer5 test and release automation, from CI reports to extensions and Kanvas snapshot tooling.'
+programming_languange:
+    ['Playwright', 'JavaScript', 'GitHub Actions', 'Kubernetes']
+cover: 'meshery-playwright.webp'
+isPublished: true
+repo_url: 'https://github.com/meshery/meshery'
+date: '2024-11-29'
+---
+
+## At a glance
+
+-   **Role:** LFX Mentee with the Cloud Native Computing Foundation (CNCF), 2024 Term 3.
+-   **Dates:** September 9 – November 29, 2024.
+-   **Project:** [Meshery](https://github.com/meshery/meshery), the cloud-native management plane.
+-   **Mentors:** Aabid Sofi and Lee Calcote.
+-   **Scope:** Playwright end-to-end tests, GitHub Actions reporting, and contributor documentation.
+-   **Stack:** Playwright, JavaScript, GitHub Actions, Docker, Kubernetes.
+
+## Why Meshery
+
+Meshery integrates with many CNCF projects and technologies. Keeping those integrations healthy is only possible through automation: end-to-end tests that exercise real scenarios, CI that runs them consistently, and reports that make failures understandable.
+
+The mentorship project focused on Meshery’s migration from Cypress to [Playwright](https://playwright.dev/) and on making the Playwright suite reliable enough to gate changes. My work concentrated on coverage, CI observability, and the contributor experience around the suite.
+
+## What I worked on
+
+### Self-documenting test reports in GitHub Actions
+
+[PR #11697](https://github.com/meshery/meshery/pull/11697), [PR #11846](https://github.com/meshery/meshery/pull/11846), [PR #12397](https://github.com/meshery/meshery/pull/12397)
+
+The first problem was visibility. A failing E2E run is only useful if a contributor can see what failed without digging through raw CI logs.
+
+I added a workflow step that posts the E2E result back to the pull request as a comment. The report includes a Markdown table of results, logs for failing cases, and links to artifacts. Later changes added Playwright traces and fixed cases where traces or reports were lost on CI, so a failure now arrives with the context needed to reproduce it.
+
+### Coverage for real Meshery scenarios
+
+[PR #12689](https://github.com/meshery/meshery/pull/12689), [PR #12703](https://github.com/meshery/meshery/pull/12703), [PR #12102](https://github.com/meshery/meshery/pull/12102)
+
+The suite needed to cover the paths contributors actually change. I worked on local-provider scenarios, separating the local provider session from Meshery’s own session, and on the performance-test flow, including load tests and deleting performance profiles.
+
+Along the way I fixed failing and skipped tests ([PR #11919](https://github.com/meshery/meshery/pull/11919)), standardized the E2E test format ([PR #12267](https://github.com/meshery/meshery/pull/12267)), added Docker support for test environments ([PR #11586](https://github.com/meshery/meshery/pull/11586)), and added annotations for tests that were expected to fail ([PR #12331](https://github.com/meshery/meshery/pull/12331)). The goal was a suite that was trustworthy enough to run on every pull request.
+
+### Documentation for contributors
+
+[PR #11629](https://github.com/meshery/meshery/pull/11629), [PR #12116](https://github.com/meshery/meshery/pull/12116), [PR #12866](https://github.com/meshery/meshery/pull/12866)
+
+Tests are infrastructure, and infrastructure needs documentation. I wrote and revised the “Contributing to E2E tests” guide: how to set up the environment, run the Playwright suite, read the CI report, and add new cases without making the suite flaky. I continued improving the guide after the term ended, based on questions from new contributors.
+
+## Outcomes
+
+-   Playwright E2E runs execute in GitHub Actions and post readable results directly on pull requests.
+-   Failures include logs, Markdown summaries, and traces instead of an opaque red check.
+-   Coverage expanded across local provider, connection, and performance scenarios.
+-   Contributor documentation explains setup, test authoring, and the reporting workflow.
+
+## Across the Meshery ecosystem
+
+The LFX project’s documented scope was the Playwright suite in [meshery/meshery](https://github.com/meshery/meshery). Around the same period — August to December 2024 — I also contributed to the repositories that ship Meshery’s extensions, design system, documentation, and Kanvas snapshot tooling. That work is separate from the mentorship deliverables, but it came from the same problem: keeping a fast-moving cloud-native project testable and releasable.
+
+-   **[meshery/meshery](https://github.com/meshery/meshery)** — Playwright E2E suite, CI reporting, local-provider and performance coverage, contributor documentation.
+-   **[meshery-extensions/meshery-extensions-packages](https://github.com/meshery-extensions/meshery-extensions-packages)** — reusable E2E workflows, Kanvas smoke tests, release notes, version bumps, API schema validation, and artifact handling.
+-   **[meshery-extensions/kanvas-snapshot](https://github.com/meshery-extensions/kanvas-snapshot)** — Cypress snapshot automation, action templates, screenshot cleanup, and cloud URL updates.
+-   **[layer5io/docs](https://github.com/layer5io/docs)** — release documentation workflows for Meshery Cloud and extensions.
+-   **[layer5io/sistent](https://github.com/layer5io/sistent)** — a Sistent component fix and automated version bumping across Meshery, extensions, and cloud.
+-   **[layer5io/layer5](https://github.com/layer5io/layer5)** — Kanvas snapshot version bump.
+
+Across these six repositories, the work clustered around three problems:
+
+-   **Test automation that reports itself.** E2E results posted to pull requests, traces and artifacts on failure, and annotations for known failures.
+-   **Release automation across repositories.** Reusable GitHub Actions, release notes, version propagation, schema validation, and smoke tests for Kanvas.
+-   **Snapshot and tooling reliability.** Kanvas snapshot actions that remove UI chrome, wait for rendering, and handle new cloud URLs.
+
+A few representative changes: [Kanvas smoke test wired into build and release](https://github.com/meshery-extensions/meshery-extensions-packages/pull/364), [relationship report added to Meshery](https://github.com/meshery-extensions/meshery-extensions-packages/pull/428), [automated version bumps in Sistent](https://github.com/layer5io/sistent/pull/766), [extensions release notes](https://github.com/layer5io/docs/pull/381), and [the Kanvas snapshot cloud URL update](https://github.com/meshery-extensions/kanvas-snapshot/pull/133).
+
+## What I learned
+
+-   **Test output is a product.** A failing test is only actionable when the report tells you what to do next.
+-   **Flaky tests erode trust.** Reliable environments, explicit annotations, and traces matter as much as new test cases.
+-   **CI is part of the developer experience.** A good workflow shortens the loop between a pull request and a fix.
+-   **Cross-project integrations need automation.** Meshery’s value comes from connecting to the CNCF ecosystem; E2E tests are how those connections stay healthy.
+
+## Links
+
+-   [All merged Meshery pull requests](https://github.com/meshery/meshery/pulls?q=is%3Apr+author%3Ajerensl+is%3Amerged)
+-   [Merged PRs across the Meshery/Layer5 ecosystem](https://github.com/search?q=author%3Ajerensl+is%3Apr+is%3Amerged+org%3Ameshery+org%3Alayer5io+org%3Ameshery-extensions&type=pullrequests)
+-   [Meshery repository](https://github.com/meshery/meshery)
+-   [Meshery integrations](https://meshery.io/integrations)
+-   [CNCF LFX Mentorship 2024 Term 3](https://github.com/cncf/mentoring/tree/main/programs/lfx-mentorship/2024/03-Sep-Nov)

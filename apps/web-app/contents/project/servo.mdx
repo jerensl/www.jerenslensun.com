@@ -1,0 +1,95 @@
+---
+title: 'Servo — Browser Engine Tooling & Web Platform'
+role: 'Outreachy Intern — Improve code linting in Servo’s CI'
+status: 'Merged & ongoing'
+description: 'How I improved code linting in Servo’s CI with GitHub Actions, mach, Ruff, and Pyrefly, then moved into browser-engine internals: script bindings, DOM, IndexedDB, and DevTools.'
+programming_languange:
+    ['Rust', 'Python', 'Web Platform Tests', 'GitHub Actions']
+cover: 'servo-browser-engine.webp'
+isPublished: true
+repo_url: 'https://github.com/servo/servo'
+date: '2026-10-24'
+---
+
+## At a glance
+
+-   **Role:** Outreachy intern (June–August 2025) on the project **“Improve code linting in Servo’s CI.”**
+-   **Internship scope:** inline lint annotations in GitHub Actions, Pyrefly type checking, and type annotations across Servo’s Python codebase, including the Web IDL code generator.
+-   **After Outreachy:** continued as an open-source contributor on web-platform features in script bindings, DOM, IndexedDB, and DevTools.
+-   **Stack:** Rust, Python, Web Platform Tests (WPT), GitHub Actions, Pyrefly, Ruff, `mach`.
+
+## Why Servo
+
+Servo is an experimental browser engine written in Rust. It implements web standards from the ground up: parsing, DOM, style, layout, rendering, script bindings, and developer tooling. Working on Servo means working against the same specifications that browsers like Firefox and Chromium implement, with the Web Platform Tests (WPT) suite as the shared measure of correctness.
+
+I joined through Outreachy to work on **“Improve code linting in Servo’s CI.”** The project was not about adding another layer on top of the web; it was about making the engine itself easier to change safely.
+
+## Outreachy project — Improving code linting in Servo’s CI
+
+A browser engine is a large, fast-moving codebase. When lint or type feedback is slow or hard to read, every contributor pays that cost. My internship work had three parts: make lint feedback visible in GitHub Actions, introduce Pyrefly as a type checker, and add type annotations across Servo’s Python code.
+
+### Inline annotations in GitHub Actions
+
+[PR #37294](https://github.com/servo/servo/pull/37294)
+
+`./mach clippy` and `./mach test-tidy` could report problems, but the output lived in logs. I added a `--report-ci` path that writes CI-friendly output, which the GitHub Actions workflow converts into **inline annotations on the pull request**. Contributors now see the failing file and line in the diff instead of searching a log.
+
+### Pyrefly type checking and Python annotations
+
+[PR #37953](https://github.com/servo/servo/pull/37953)
+
+Servo’s tooling is heavily Python-based. I introduced **Pyrefly** as the type checker, starting with the WPT tooling and expanding into `python/servo`, `python/tidy`, and the script-binding code generators. This was not just a configuration change: it required adding type annotations to the existing Python codebase, including the **Web IDL code generator**, and fixing annotations that were incomplete or incorrect.
+
+To keep coverage from regressing, I also enabled Ruff’s ANN rules so Python functions and classes require type annotations ([PR #38531](https://github.com/servo/servo/pull/38531)) and consolidated the Ruff configuration into `pyproject.toml` ([PR #37741](https://github.com/servo/servo/pull/37741)).
+
+### Cleaner lint feedback and mach cleanup
+
+-   [PR #38538](https://github.com/servo/servo/pull/38538) — removed noisy, low-value tidy rules to focus feedback on issues that matter.
+-   [PR #37874](https://github.com/servo/servo/pull/37874) and [PR #37958](https://github.com/servo/servo/pull/37958) — removed unused `mach` commands (`cargo-update`, `update-cargo`, `grep`, `ndk-stack`, `ndk-gdb`, `test-android-startup`).
+
+The result was a contributor workflow that was easier to read, easier to type-check, and cheaper to maintain.
+
+## After Outreachy — Moving into engine internals
+
+After the internship ended in August 2025, I stayed involved as an open-source contributor. Tooling had given me a map of the codebase; the next step was to use it by shipping behavior inside the engine itself, with WPT coverage.
+
+### ObservableArray in script bindings
+
+[PR #48506](https://github.com/servo/servo/pull/48506) — merged October 2026
+
+Implemented `ObservableArray` in Servo’s script bindings, reviving work from an earlier attempt. The change touched the Web IDL binding layer and added WPT coverage for own-key behavior and for not leaking internal objects. This is the layer where JavaScript semantics meet the engine’s Rust data structures.
+
+### IndexedDB key-path validation
+
+[PR #42451](https://github.com/servo/servo/pull/42451) — merged March 2026
+
+Added validation for key paths when creating an index on an IndexedDB object store, fixing [#42434](https://github.com/servo/servo/issues/42434). The change is small in the API surface but sits in the middle of storage semantics that web applications depend on; it was tested against `IndexedDB/keypath_invalid.any.js` in WPT.
+
+### DOM proc-macro modernization
+
+[PR #45057](https://github.com/servo/servo/pull/45057) — merged May 2026
+
+Modernized the DOM struct proc-macro and added tests, part of a wider cleanup tracked in [#44810](https://github.com/servo/servo/issues/44810). This is the machinery that generates Rust bindings for DOM interfaces, so improvements here reduce repetition across a large part of the engine.
+
+### DevTools: copy as inner/outer HTML
+
+[PR #45820](https://github.com/servo/servo/pull/45820) — merged June 2026
+
+Added “copy as inner HTML” and “copy as outer HTML” to Servo’s DevTools inspector, aligning the behavior with Firefox’s DevTools implementation. This work crossed the DevTools protocol, the inspector actor, and the frontend.
+
+## What I learned about browser engines
+
+-   **Standards are the contract.** WPT is not a formality; it is how you know an implementation is actually compatible.
+-   **Tooling is engine work.** A browser engine is a distributed system of build scripts, code generators, test harnesses, and CI. Improving that layer changes what the team can ship.
+-   **The binding layer is where abstractions meet.** Web IDL, Rust ownership, and JavaScript semantics interact in ways that are easy to get subtly wrong.
+-   **Small, reviewable changes win.** In a codebase this large, a focused PR with tests is more valuable than a broad rewrite.
+
+## What’s next
+
+I want to go deeper into the parts of the engine that turn the DOM and CSSOM into pixels: **layout, paint, and rendering internals**. The next milestones are more WPT-driven work in those areas, writing about the architecture, and continuing to contribute to Servo’s developer tooling.
+
+## Links
+
+-   [All merged Servo pull requests](https://github.com/servo/servo/pulls?q=is%3Apr+author%3Ajerensl+is%3Amerged)
+-   [Servo repository](https://github.com/servo/servo)
+-   [Servo Web Platform Test dashboard](https://servo.org/wpt/)

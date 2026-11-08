@@ -46,7 +46,7 @@ export default function HorizontalScroll() {
     return (
         <section ref={targetRef} className="relative h-[300vh]">
             <div className="sticky top-0 h-dvh pt-10">
-                <div className="flex h-[450px] items-center flex-col overflow-hidden">
+                <div className="flex h-[500px] items-center flex-col overflow-hidden">
                     <h2 className="mt-20 text-center m-auto font-bold text-3xl">
                         Open Source Contribution
                     </h2>
@@ -67,6 +67,7 @@ export default function HorizontalScroll() {
                                 ({
                                     organization,
                                     project,
+                                    focus,
                                     issue_name,
                                     issue_number,
                                     issue_url,
@@ -81,6 +82,7 @@ export default function HorizontalScroll() {
                                             key={pr_name}
                                             organization={organization}
                                             project={project}
+                                            focus={focus}
                                             issue_name={issue_name}
                                             issue_number={issue_number}
                                             issue_url={issue_url}

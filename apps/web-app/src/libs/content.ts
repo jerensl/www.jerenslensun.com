@@ -126,7 +126,22 @@ async function getContents<T extends IMetadata>(
             return data.isPublished === true
         })
         .sort((a, b) => {
-            return Date.parse(b.date) - Date.parse(a.date)
+            const aTime = Date.parse(a.date)
+            const bTime = Date.parse(b.date)
+
+            if (Number.isNaN(aTime) && Number.isNaN(bTime)) {
+                return 0
+            }
+
+            if (Number.isNaN(aTime)) {
+                return 1
+            }
+
+            if (Number.isNaN(bTime)) {
+                return -1
+            }
+
+            return bTime - aTime
         })
 }
 
