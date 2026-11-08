@@ -1,0 +1,21 @@
+apps/web-app/src/components/sections/OSSContribution.tsx
+  s_2d5dd19eddfb92::t_2b815dab576d47 48-49
+  s_2d5dd19eddfb92::t_e96a1da4fd38fd 1,6-11,13-33,38-44,50-97
+  s_2d5dd19eddfb92::t_a8e821e5edb62c 98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "bb9cb97af9117f1f32806bc82c42fca717259373",
+  "prompts": {},
+  "sessions": {
+    "s_2d5dd19eddfb92": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e444197b4ffeGuTLcDVhcg9pL0",
+        "model": "deepseek-v4.1-flash-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
