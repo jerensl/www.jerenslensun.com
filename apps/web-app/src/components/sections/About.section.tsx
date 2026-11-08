@@ -2,6 +2,17 @@ import * as React from 'react'
 import { Grid } from '../Grid'
 import { useReducedMotion, motion } from 'motion/react'
 
+const focusAreas = [
+    'Browser engines',
+    'Rust',
+    'Web platform',
+    'Developer tooling',
+    'Playwright',
+    'CI/CD',
+    'CNCF',
+    'W3C & WHATWG specs',
+]
+
 export const AboutSection = (): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()
 
@@ -32,9 +43,24 @@ export const AboutSection = (): React.ReactElement => {
                     </motion.div>
                     <motion.div variants={childrenVariants}>
                         <p className="pt-2 lg:text-2xl text-base font-bold">
-                            Building with technical excellence and passion for
-                            solving the right problem.
+                            Browser engine internals, web-platform behavior, and
+                            the tooling that keeps an engine maintainable.
                         </p>
+                    </motion.div>
+                    <motion.div
+                        variants={childrenVariants}
+                        className="pt-6 flex flex-wrap gap-2"
+                    >
+                        {focusAreas.map((focus) => {
+                            return (
+                                <span
+                                    key={focus}
+                                    className="rounded-full border border-outline-variant px-3 py-1 font-mono text-xs text-on-surface-variant"
+                                >
+                                    {focus}
+                                </span>
+                            )
+                        })}
                     </motion.div>
                 </motion.div>
             </div>
@@ -53,32 +79,43 @@ export const AboutSection = (): React.ReactElement => {
                 >
                     <motion.div variants={childrenVariants}>
                         <p className="pb-4">
-                            As someone who loves both football and software
-                            engineering, I find that tackling complex problems
-                            is akin to scoring a goal. In football, the ultimate
-                            outcome matters most to fans, regardless of whether
-                            you played well or poorly during the match.
-                            Similarly, in the software world, making informed
-                            decisions to optimize outcomes is crucial. However,
-                            we must also temper our expectations, recognizing
-                            that unfavorable results can still occur. Just as
-                            football teams continuously improve with each
-                            iteration, software engineers must strive for
-                            excellence while managing risks to prevent
-                            catastrophic failures. It’s like playing an
-                            attacking game in football while maintaining a
-                            balanced defensive transition.
+                            I&apos;m a software engineer focused on browser
+                            engines and the web platform. I contribute to Servo,
+                            the Rust browser engine, across script bindings,
+                            DOM, DevTools, IndexedDB, and the CI and
+                            type-checking tooling that keeps the engine healthy.
                         </p>
                     </motion.div>
                     <motion.div variants={childrenVariants}>
                         <p className="pb-4">
-                            When it comes to learning technology, novelty is
-                            cool, but there’s something truly awesome about
-                            mastering technologies that withstand the test of
-                            time. These enduring technologies, widely used and
-                            not deprecated, hold immense value. They form the
-                            bedrock of our digital landscape, providing
-                            stability and reliability.
+                            My route into engines started with developer
+                            experience. I built inline CI annotations for Clippy
+                            and test-tidy, introduced Pyrefly type checking,
+                            tightened Ruff rules, and cleaned up{' '}
+                            <code>mach</code>. That work gave me the context to
+                            move into engine internals: implementing Web IDL
+                            behavior, validating IndexedDB key paths,
+                            modernizing DOM macros, and extending DevTools.
+                        </p>
+                    </motion.div>
+                    <motion.div variants={childrenVariants}>
+                        <p className="pb-4">
+                            Before Servo, I completed an LFX Mentorship with
+                            CNCF’s Meshery project, where I worked on Playwright
+                            end-to-end testing, CI test reporting, and
+                            contributor documentation. I also contributed to
+                            AsyncAPI across frontend and developer tooling. I
+                            care about systems that stay understandable years
+                            after they ship, not just on release day. Next,
+                            I&apos;m going deeper into layout, paint, and
+                            rendering internals.
+                        </p>
+                    </motion.div>
+                    <motion.div variants={childrenVariants}>
+                        <p className="pb-4 text-on-surface-variant">
+                            Away from the keyboard, I play football and think
+                            about durable design — the kind measured in years,
+                            not releases.
                         </p>
                     </motion.div>
                 </motion.div>

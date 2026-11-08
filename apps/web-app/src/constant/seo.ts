@@ -5,12 +5,13 @@ export const siteMetadata: SiteMetadata = {
     twitter: '@jerensl22',
     linkedin: 'https://www.linkedin.com/in/jerensl/',
     github: 'https://github.com/jerensl',
-    jobTitle: 'Software Engineer',
+    resume: 'https://drive.google.com/file/d/17cKewjUgjQomJ32VMxaWo1oigN-v1eqe/view?usp=sharing',
+    jobTitle: 'Software Engineer — Browser Engines & Developer Tooling',
 }
 export const app: App = {
     name: 'Jerens',
     title: 'Jerens Lensun',
     image: 'https://jerensl.dev/images/banner-og.png',
     description:
-        'Explore the mind of Jerens Lensun through his personal website, where he shares captivating blog posts on software development, life, and project documentation. Join the conversation now!',
+        'Jerens Lensun is a software engineer contributing to Servo, the Rust browser engine, and an LFX Mentorship alum who worked on CNCF’s Meshery project. Explore his work on browser internals, developer tooling, and Playwright E2E testing.',
 }

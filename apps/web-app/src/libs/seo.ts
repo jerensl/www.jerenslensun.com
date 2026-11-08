@@ -48,6 +48,22 @@ export function personSchema(): JsonLdSchema {
         url: `${SITE_URL}/`,
         image: app.image,
         jobTitle: siteMetadata.jobTitle,
+        description:
+            'Software engineer contributing to Servo, the Rust browser engine, across script bindings, DOM, DevTools, and developer tooling.',
+        knowsAbout: [
+            'Browser engines',
+            'Servo',
+            'Rust',
+            'Web Platform Tests',
+            'DOM',
+            'IndexedDB',
+            'Developer tooling',
+            'CI/CD',
+            'Playwright',
+            'End-to-end testing',
+            'Meshery',
+            'CNCF',
+        ],
         sameAs: [
             siteMetadata.github,
             siteMetadata.linkedin,

@@ -1,7 +1,5 @@
 import React from 'react'
-import imageLoader from '@/constant/images'
 import clsx from 'clsx'
-import Image from 'next/image'
 import Link from 'next/link'
 import Images from '../ImageWithFallback'
 
@@ -31,7 +29,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     return (
         <article
             className={clsx(
-                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[460px] sm:w-[320px] hover:bg-on-surface/8 active:bg-on-surface/12',
+                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium min-h-[460px] sm:w-[320px] hover:bg-on-surface/8 active:bg-on-surface/12',
                 {
                     'bg-surface border border-outline-variant':
                         variant === 'outlined',
@@ -55,7 +53,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                 </div>
                 <div className="flex flex-col gap-1 m-4">
                     {tags ? (
-                        <div>
+                        <div className="mb-1 flex flex-wrap gap-2">
                             {tags.map((value) => {
                                 return (
                                     <p

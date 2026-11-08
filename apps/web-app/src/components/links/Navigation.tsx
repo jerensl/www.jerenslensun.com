@@ -12,6 +12,7 @@ type NavigationProps = {
     variant: IButtonVariants
     label: string
     fullWidth?: boolean
+    isExternal?: boolean
     size: ILinkButtonSizeVariants
 }
 
@@ -20,12 +21,14 @@ export const Navigation = ({
     variant,
     label,
     fullWidth,
+    isExternal,
     size,
 }: NavigationProps) => {
     return (
         <StandardLink
             role="button"
             href={href}
+            isExternal={isExternal}
             className={clsx(
                 'relative rounded-full w-fit min-h-10 font-normal font-mono shadow-elevation-0',
                 {

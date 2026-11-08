@@ -61,16 +61,16 @@ export const IntroductionSection = (): React.ReactElement => {
                             </motion.div>
                             <motion.div variants={childrenVariants}>
                                 <p className="text-base mt-5">
-                                    I focus on the open-source ecosystem, with
-                                    contributions to projects such as AsyncAPI,
-                                    Meshery, and Servo. My work ranges from
-                                    building frontends to architecting CI/CD
-                                    pipelines via GitHub Actions and improving
-                                    long-term project maintainability. I believe
-                                    great design is measured by its durability;
-                                    I build for the long haul, focusing on
-                                    systems that function as well in five years
-                                    as they do on day one.
+                                    I work inside Servo, the Rust browser
+                                    engine, across script bindings, DOM,
+                                    DevTools, IndexedDB, and developer tooling.
+                                    My focus is the layer where web standards
+                                    meet implementation: making an engine easier
+                                    to change, test, and ship. Before Servo, I
+                                    completed an LFX Mentorship at CNCF, working
+                                    on Meshery’s Playwright end-to-end suite and
+                                    CI reporting, and contributed to AsyncAPI
+                                    across frontend and developer tooling.
                                 </p>
                             </motion.div>
                         </motion.div>

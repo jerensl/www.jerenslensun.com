@@ -5,6 +5,7 @@ interface CareerCardProps {
     organization: string
     date: string
     position: string
+    summary?: string
     inView: boolean
 }
 
@@ -12,6 +13,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
     organization,
     date,
     position,
+    summary,
     inView,
 }): React.ReactElement => {
     const shouldReduceMotion = useReducedMotion()
@@ -43,6 +45,13 @@ export const CareerCard: React.FC<CareerCardProps> = ({
             <motion.div variants={childrenVariants}>
                 <p className="mb-1">{position}</p>
             </motion.div>
+            {summary ? (
+                <motion.div variants={childrenVariants}>
+                    <p className="mb-3 text-sm font-light text-on-surface-variant">
+                        {summary}
+                    </p>
+                </motion.div>
+            ) : null}
             <motion.div variants={childrenVariants}>
                 <span className="font-light italic">{date}</span>
             </motion.div>

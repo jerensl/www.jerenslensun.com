@@ -3,6 +3,7 @@ export interface SiteMetadata {
     twitter: string
     linkedin: string
     github: string
+    resume: string
     jobTitle: string
 }
 

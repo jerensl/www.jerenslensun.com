@@ -21,7 +21,7 @@ export default function About({
             <HeadComponent
                 path="/about"
                 title="About"
-                description="Jerens Lensun is a software engineer working in the open source ecosystem, focused on developer tooling, CI/CD, and building systems that last."
+                description="Jerens Lensun is a software engineer contributing to Servo, the Rust browser engine, with experience in web-platform features, developer tooling, CI, and Playwright E2E testing at CNCF’s Meshery project."
                 jsonLd={personSchema()}
             />
             <div className="h-36 lg:h-44" />
