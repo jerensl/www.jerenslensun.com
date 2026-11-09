@@ -1,11 +1,12 @@
 import { app, siteMetadata } from '@/constant/seo'
 import {
+    absoluteUrl,
     articleSchema,
     breadcrumbSchema,
     buildSeo,
     projectSchema,
 } from '@/libs/seo'
-import { JsonLdSchema, SeoResult } from '@/types/seo'
+import { JsonLdSchema, SeoAlternate, SeoResult } from '@/types/seo'
 import Head from 'next/head'
 import React from 'react'
 
@@ -67,8 +68,30 @@ const SeoHead: React.FC<{ seo: SeoResult; schemas: JsonLdSchema[] }> = ({
             <meta property="og:description" content={seo.description} />
             <meta property="og:site_name" content={app.name} />
             <meta property="og:type" content={seo.type} />
+            <meta property="og:locale" content={seo.ogLocale} />
+            {seo.alternates
+                .filter(
+                    ({ hrefLang }) =>
+                        hrefLang !== 'x-default' &&
+                        hrefLang.toLowerCase() !== seo.language.toLowerCase()
+                )
+                .map(({ hrefLang }) => (
+                    <meta
+                        key={hrefLang}
+                        property="og:locale:alternate"
+                        content={hrefLang.replace('-', '_')}
+                    />
+                ))}
             <meta property="og:image" content={seo.image} />
             <meta property="og:image:alt" content={seo.title} />
+            {seo.alternates.map(({ hrefLang, href }) => (
+                <link
+                    key={hrefLang}
+                    rel="alternate"
+                    hrefLang={hrefLang}
+                    href={href}
+                />
+            ))}
             {seo.type === 'article' && seo.publishedTime ? (
                 <meta
                     property="article:published_time"
@@ -144,6 +167,12 @@ interface IArticleSeo {
     tags?: string[]
     repoUrl?: string
     kind?: 'article' | 'project'
+    /** BCP 47 locale of the page, for example `id-ID`. */
+    language?: string
+    /** Absolute or site-relative path to the translated version. */
+    translationPath?: string
+    /** BCP 47 locale of the translated version. */
+    translationLanguage?: string
 }
 
 export const ArticleSeo: React.FC<IArticleSeo> = ({
@@ -155,7 +184,28 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
     tags = [],
     repoUrl,
     kind = 'article',
+    language = 'en-US',
+    translationPath,
+    translationLanguage,
 }) => {
+    const alternates: SeoAlternate[] = []
+
+    if (translationPath && translationLanguage) {
+        const isDefaultLanguage = language.toLowerCase().startsWith('en')
+
+        alternates.push(
+            { hrefLang: language, href: absoluteUrl(path) },
+            {
+                hrefLang: translationLanguage,
+                href: absoluteUrl(translationPath),
+            },
+            {
+                hrefLang: 'x-default',
+                href: absoluteUrl(isDefaultLanguage ? path : translationPath),
+            }
+        )
+    }
+
     const seo = buildSeo({
         title,
         description,
@@ -165,6 +215,8 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
         publishedTime: date,
         modifiedTime: date,
         tags,
+        language,
+        alternates,
     })
 
     const schema =
@@ -184,6 +236,7 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
                   canonical: seo.canonical,
                   date,
                   tags,
+                  language,
               })
 
     const schemas = [schema, ...toArray(breadcrumbSchema(path, title))]

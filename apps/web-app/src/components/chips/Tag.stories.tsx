@@ -26,6 +26,15 @@ export const Checked: Story = {
     decorators: [],
 }
 
+export const WithCount: Story = {
+    args: {
+        onClick: () => {},
+        text: 'Outreachy',
+        count: 6,
+    },
+    decorators: [],
+}
+
 export const Disabled: Story = {
     args: {
         onClick: () => {},

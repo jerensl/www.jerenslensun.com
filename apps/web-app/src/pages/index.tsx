@@ -55,7 +55,6 @@ export default function Home({
                 servoMergedPRs={servoMergedPRs}
                 mesheryEcosystemMergedPRs={mesheryEcosystemMergedPRs}
             />
-            <div className="h-56 lg:h-64" />
             <IntroductionSection />
             <div className="h-56 lg:h-64" />
             <CareerSection />

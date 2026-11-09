@@ -1,5 +1,6 @@
 import {
     absoluteUrl,
+    articleSchema,
     breadcrumbSchema,
     buildSeo,
     personSchema,
@@ -53,6 +54,54 @@ describe('buildSeo', () => {
         expect(seo.publishedTime).toBe('2025-06-02')
         expect(seo.modifiedTime).toBe('2025-06-02')
         expect(seo.tags).toEqual(['outreachy'])
+    })
+
+    it('emits the page language and alternate translations', () => {
+        const seo = buildSeo({
+            title: 'Algoritma',
+            description: 'Deskripsi',
+            path: '/blog/id-fundamental-algoritma',
+            type: 'article',
+            language: 'id-ID',
+            alternates: [
+                {
+                    hrefLang: 'id-ID',
+                    href: 'https://jerensl.dev/blog/id-fundamental-algoritma/',
+                },
+                {
+                    hrefLang: 'en-US',
+                    href: 'https://jerensl.dev/blog/en-fundamental-algorithm/',
+                },
+                {
+                    hrefLang: 'x-default',
+                    href: 'https://jerensl.dev/blog/en-fundamental-algorithm/',
+                },
+            ],
+        })
+
+        expect(seo.language).toBe('id-ID')
+        expect(seo.ogLocale).toBe('id_ID')
+        expect(seo.alternates).toHaveLength(3)
+    })
+})
+
+describe('articleSchema', () => {
+    it('uses the provided language for the article body', () => {
+        const schema = articleSchema({
+            title: 'Algoritma',
+            description: 'Deskripsi',
+            image: 'https://example.com/image.jpg',
+            canonical: 'https://jerensl.dev/blog/id-fundamental-algoritma/',
+            date: '2023-03-20',
+            tags: ['algoritma'],
+            language: 'id-ID',
+        })
+
+        expect(schema).toMatchObject({
+            '@type': 'BlogPosting',
+            inLanguage: 'id-ID',
+            keywords: 'algoritma',
+        })
     })
 })
 

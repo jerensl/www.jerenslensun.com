@@ -1,5 +1,7 @@
 import { IReadTimeResults } from 'reading-time'
 
+export type BlogLanguage = 'en' | 'id'
+
 export interface IMetadata {
     title: string
     date: string
@@ -9,6 +11,10 @@ export interface IMetadata {
     cover: string
     fileName?: string
     blurDataURL?: string
+    /** Explicit article language. Falls back to the filename prefix. */
+    language?: BlogLanguage
+    /** Slug of the translated version of this article, if one exists. */
+    translation?: string
 }
 
 export interface IBlogMetadata extends IMetadata {

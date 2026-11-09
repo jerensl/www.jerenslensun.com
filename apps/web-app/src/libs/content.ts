@@ -10,6 +10,8 @@ import matter from 'gray-matter'
 import { getPlaiceholder } from 'plaiceholder'
 import { IBlogMetadata } from '@/types/blog'
 import { IMetadata } from '@/types/content'
+import { getPostLanguage } from './localization'
+import { normalizeTags } from './tags'
 
 export const getFiles = (dir: string): string[] => {
     const fileDirectory = path.join(process.cwd(), 'contents', dir)
@@ -95,6 +97,17 @@ async function getContents<T extends IMetadata>(
             const source = getFileByName(directory, `${fileName}.mdx`)
             const { data } = matter(source)
 
+            const metadata = {
+                ...data,
+                ...(Array.isArray(data.tags)
+                    ? { tags: normalizeTags(data.tags as string[]) }
+                    : {}),
+                language: getPostLanguage({
+                    slug: fileName,
+                    language: data.language,
+                }),
+            }
+
             const defaultContent =
                 directory === 'project'
                     ? 'project-default.webp'
@@ -108,14 +121,14 @@ async function getContents<T extends IMetadata>(
                 const buffer = Buffer.from(await resp.arrayBuffer())
                 const { base64 } = await getPlaiceholder(buffer)
                 return {
-                    ...data,
+                    ...metadata,
                     slug: fileName,
                     blurDataURL: base64,
                 } as T
             } catch (error) {}
 
             return {
-                ...data,
+                ...metadata,
                 slug: fileName,
             } as T
         })
@@ -194,6 +207,20 @@ export const getContent = async (
         },
     })
 
+    const metadata = {
+        ...frontmatter,
+        ...(Array.isArray(frontmatter.tags)
+            ? { tags: normalizeTags(frontmatter.tags as string[]) }
+            : {}),
+        language: getPostLanguage({
+            slug:
+                typeof fileName === 'string'
+                    ? fileName
+                    : (fileName?.find(Boolean) ?? undefined),
+            language: frontmatter.language,
+        }),
+    }
+
     try {
         const resp = await fetch(
             `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${frontmatter.cover}?tr=bl-10`
@@ -204,7 +231,7 @@ export const getContent = async (
         const { base64 } = await getPlaiceholder(buffer)
         return {
             code,
-            frontmatter,
+            frontmatter: metadata,
             metadata: {
                 slug: fileName,
                 fileName: file,
@@ -215,7 +242,7 @@ export const getContent = async (
 
     return {
         code,
-        frontmatter,
+        frontmatter: metadata,
         metadata: {
             slug: fileName,
             fileName: file,
@@ -227,12 +254,12 @@ export const getContent = async (
 function getTags(contents: Array<IBlogMetadata>) {
     const tags = new Set<string>()
     for (const post of contents) {
-        for (const tag of post?.tags ?? []) {
+        for (const tag of normalizeTags(post?.tags)) {
             tags.add(tag)
         }
     }
 
-    return Array.from(tags)
+    return Array.from(tags).sort()
 }
 
 export { getTags, getContents }
