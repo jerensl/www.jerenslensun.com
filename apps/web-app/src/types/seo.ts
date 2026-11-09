@@ -16,6 +16,11 @@ export interface App {
 
 export type SeoType = 'website' | 'article'
 
+export interface SeoAlternate {
+    hrefLang: string
+    href: string
+}
+
 export interface SeoConfig {
     title: string
     description: string
@@ -26,6 +31,10 @@ export interface SeoConfig {
     modifiedTime?: string
     tags?: string[]
     noIndex?: boolean
+    /** BCP 47 locale for the page content, for example `en-US`. */
+    language?: string
+    /** Alternate language versions of this page. */
+    alternates?: SeoAlternate[]
 }
 
 export interface SeoResult {
@@ -38,6 +47,9 @@ export interface SeoResult {
     modifiedTime?: string
     tags: string[]
     noIndex: boolean
+    language: string
+    ogLocale: string
+    alternates: SeoAlternate[]
 }
 
 export type JsonLdSchema = Record<string, unknown>

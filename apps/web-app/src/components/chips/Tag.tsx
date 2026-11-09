@@ -2,17 +2,26 @@ import React from 'react'
 import clsx from 'clsx'
 
 interface TagProps {
-    onClick: () => void
+    onClick?: () => void
     text: string
     disabled?: boolean
     selected?: boolean
+    count?: number
 }
 
-export const Tag = ({ text, onClick, disabled, selected }: TagProps) => {
+export const Tag = ({
+    text,
+    onClick,
+    disabled,
+    selected = false,
+    count,
+}: TagProps) => {
     return (
         <button
+            type="button"
             onClick={onClick}
             disabled={disabled}
+            aria-pressed={selected}
             className={clsx(
                 'inline-flex h-8 text-center items-center rounded-small text-on-surface-variant border border-outline  shadow-elevation-0 disabled:text-on-surface/12 disabled:bg-on-surface-variant/12 disabled:border-on-surface/12 hover:bg-on-surface-variant/8',
                 {
@@ -30,6 +39,7 @@ export const Tag = ({ text, onClick, disabled, selected }: TagProps) => {
                     strokeWidth={1.5}
                     stroke="currentColor"
                     className="w-4 h-4 mx-2"
+                    aria-hidden="true"
                 >
                     <path
                         strokeLinecap="round"
@@ -38,7 +48,15 @@ export const Tag = ({ text, onClick, disabled, selected }: TagProps) => {
                     />
                 </svg>
             )}
-            {text}
+            <span>{text}</span>
+            {typeof count === 'number' && (
+                <span
+                    aria-hidden="true"
+                    className="ml-2 rounded-full bg-on-surface/8 px-1.5 py-0.5 text-xs"
+                >
+                    {count}
+                </span>
+            )}
         </button>
     )
 }

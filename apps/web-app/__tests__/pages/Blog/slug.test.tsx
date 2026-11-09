@@ -118,4 +118,45 @@ describe('Blog Content', () => {
         },
         1 * 60 * 1000
     )
+
+    it(
+        'Shows the article language and a link to the translation',
+        async () => {
+            const posts = await getContent('mock/blog', 'id-test-markdown')
+            const translated = {
+                ...posts,
+                frontmatter: {
+                    ...posts.frontmatter,
+                    language: 'id',
+                    translation: 'en-test-markdown',
+                },
+            }
+
+            render(
+                <Blog
+                    posts={translated}
+                    blurDataURL={translated.metadata.blurDataURL}
+                />
+            )
+
+            expect(screen.getByText('Bahasa Indonesia')).toBeInTheDocument()
+
+            const translationLink = screen.getByRole('link', {
+                name: /Read in English/i,
+            })
+
+            expect(translationLink).toHaveAttribute(
+                'href',
+                '/blog/en-test-markdown'
+            )
+            expect(translationLink).toHaveAttribute('hreflang', 'en-US')
+
+            const article = screen
+                .getByText(/test new article/i)
+                .closest('article')
+
+            expect(article).toHaveAttribute('lang', 'id-ID')
+        },
+        1 * 60 * 1000
+    )
 })

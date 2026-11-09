@@ -1,10 +1,6 @@
 /**
  */
-import {
-    render,
-    waitFor,
-    within,
-} from '../../../__mocks__/utils/test-providers'
+import { render, within } from '../../../__mocks__/utils/test-providers'
 import userEvent from '@testing-library/user-event'
 import { IBlogMetadata } from '../../../src/types/blog'
 import Blog from '../../../src/pages/blog/index'
@@ -99,11 +95,11 @@ describe('Search Article', () => {
         const { input, getAllByRole, getByRole } =
             await renderSearchArticlesComponent()
 
-        userEvent.click(
+        await userEvent.click(
             getByRole('button', { name: /Read in Bahasa Indonesia/i })
         )
 
-        await waitFor(() => userEvent.type(input, 'article'))
+        await userEvent.type(input, 'article')
 
         const result = getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
@@ -120,22 +116,21 @@ describe('Search Article', () => {
     it('Should not found the article', async () => {
         const { input, getByText } = await renderSearchArticlesComponent()
 
-        userEvent.type(input, 'Test Third Article')
+        await userEvent.type(input, 'Test Third Article')
 
         expect(getByText(/No Articles found./i)).toBeInTheDocument()
     })
 
     it('Should find tag second', async () => {
-        const { getAllByRole, getByRole } =
+        const { getAllByRole, getByRole, findByRole } =
             await renderSearchArticlesComponent()
 
-        userEvent.click(
+        await userEvent.click(
             getByRole('button', { name: /Read in Bahasa Indonesia/i })
         )
 
-        await waitFor(() =>
-            userEvent.click(getByRole('button', { name: /second/i }))
-        )
+        const secondTag = await findByRole('button', { name: /second/i })
+        await userEvent.click(secondTag)
 
         const result = getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
@@ -147,9 +142,7 @@ describe('Search Article', () => {
                 ]
         `)
 
-        await waitFor(() =>
-            userEvent.click(getByRole('button', { name: /second/i }))
-        )
+        await userEvent.click(secondTag)
 
         const resultTwo = getAllByRole('article').map((article) => {
             return within(article).getByRole('heading').textContent
@@ -157,15 +150,48 @@ describe('Search Article', () => {
 
         expect(resultTwo).toMatchInlineSnapshot(`
                 [
+                  "Test First Article",
                   "Test Second Article",
                 ]
         `)
     })
 
+    it('Should filter by multiple tags and clear the filters', async () => {
+        const { getAllByRole, getByRole, findByRole, getByText } =
+            await renderSearchArticlesComponent()
+
+        await userEvent.click(
+            getByRole('button', { name: /Read in Bahasa Indonesia/i })
+        )
+
+        const firstTag = await findByRole('button', { name: /first/i })
+        const secondTag = await findByRole('button', { name: /second/i })
+
+        await userEvent.click(firstTag)
+
+        expect(
+            getAllByRole('article').map(
+                (article) => within(article).getByRole('heading').textContent
+            )
+        ).toEqual(['Test First Article'])
+
+        await userEvent.click(secondTag)
+
+        expect(getByText(/No Articles found./i)).toBeInTheDocument()
+
+        await userEvent.click(getByRole('button', { name: /Clear filters/i }))
+
+        expect(
+            getAllByRole('article').map(
+                (article) => within(article).getByRole('heading').textContent
+            )
+        ).toEqual(['Test First Article', 'Test Second Article'])
+    })
+
     it('Should change languange to English', async () => {
         const { getByRole, findByText } = await renderSearchArticlesComponent()
 
-        userEvent.click(
+        await userEvent.click(
             getByRole('button', { name: /Read in Bahasa Indonesia/i })
         )
 

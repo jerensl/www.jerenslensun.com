@@ -26,6 +26,8 @@ export function absoluteUrl(path = '/'): string {
 }
 
 export function buildSeo(config: SeoConfig): SeoResult {
+    const language = config.language ?? 'en-US'
+
     return {
         title: config.title ? `${config.title} | ${app.title}` : app.title,
         description: config.description || app.description,
@@ -36,6 +38,9 @@ export function buildSeo(config: SeoConfig): SeoResult {
         modifiedTime: config.modifiedTime ?? config.publishedTime,
         tags: config.tags ?? [],
         noIndex: config.noIndex ?? false,
+        language,
+        ogLocale: language.replace('-', '_'),
+        alternates: config.alternates ?? [],
     }
 }
 
@@ -94,6 +99,7 @@ interface ArticleSchemaOptions {
     canonical: string
     date?: string
     tags?: string[]
+    language?: string
 }
 
 export function articleSchema({
@@ -103,6 +109,7 @@ export function articleSchema({
     canonical,
     date,
     tags = [],
+    language = 'en-US',
 }: ArticleSchemaOptions): JsonLdSchema {
     return {
         '@context': 'https://schema.org',
@@ -129,7 +136,7 @@ export function articleSchema({
         },
         keywords: tags.join(', '),
         url: canonical,
-        inLanguage: 'en-US',
+        inLanguage: language,
     }
 }
 

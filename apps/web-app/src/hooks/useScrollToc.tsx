@@ -10,19 +10,26 @@ export const useOnScrollToc = ({ headers }: TableOfContentsProps) => {
     )
 
     useEffect(() => {
+        // Navigation between articles can leave the previous article's heading
+        // ids in state for a moment, so some ids may no longer exist in the DOM.
         const handleScroll = () => {
-            const headingElements: Array<HTMLElement | null> = headers.map(
-                ({ id }: { id: string }) => document.getElementById(id)
-            )
-            const visibleHeadings = headingElements.filter((el) =>
-                isElementInViewport(el!)
-            )
+            const visibleHeadings = headers
+                .map(({ id }: { id: string }) => document.getElementById(id))
+                .filter((el): el is HTMLElement => el !== null)
+                .filter(isElementInViewport)
+
             if (visibleHeadings.length > 0) {
-                setActive(visibleHeadings[0]!.id)
+                setActive(visibleHeadings[0].id)
             }
         }
 
-        document.addEventListener('scroll', handleScroll)
+        const firstExistingHeading = headers.find(({ id }) =>
+            document.getElementById(id)
+        )
+        setActive(firstExistingHeading?.id ?? '')
+        handleScroll()
+
+        document.addEventListener('scroll', handleScroll, { passive: true })
         return () => {
             document.removeEventListener('scroll', handleScroll)
         }

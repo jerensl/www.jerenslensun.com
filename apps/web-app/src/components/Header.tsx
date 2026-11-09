@@ -34,7 +34,10 @@ export const Header = ({
                 <Grid
                     as="header"
                     ref={ref}
-                    className={clsx('pt-20', inView && 'fade-in-start')}
+                    className={clsx(
+                        'pt-24 md:pt-28 pb-24 md:pb-12 min-h-svh content-start',
+                        inView && 'fade-in-start'
+                    )}
                 >
                     <div className="col-span-full pt-10 lg:col-start-6 lg:col-span-7 m-auto">
                         <Images
