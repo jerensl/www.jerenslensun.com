@@ -1,0 +1,153 @@
+apps/web-app/contents/blog/en-lfx-menthorship.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/contents/blog/en-think-about-your-audience.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/contents/blog/en-fundamental-algorithm.mdx
+  s_77dacc2211e444::t_6ef27eeff660be 8
+apps/web-app/src/libs/gtm.ts
+  s_77dacc2211e444::t_03ba3270f7263d 5-9,12-13,15-21
+  s_77dacc2211e444::t_949c495a0e0893 2
+apps/web-app/src/libs/search.ts
+  s_77dacc2211e444::t_f531584b008e4b 110-121
+  s_77dacc2211e444::t_e62366a4a84e26 2-22,24-33,35-43,45-52,55-65,68-71,74-106,109,122-124
+apps/web-app/src/components/Seo.tsx
+  s_77dacc2211e444::t_e3f5dd64f30293 71-84,87-94
+  s_77dacc2211e444::t_0a8243090247ca 3,9
+  s_77dacc2211e444::t_7f90e95275cba1 170-175,187-189,191-208,218-219,239
+apps/web-app/contents/blog/en-everybody-struggles-outreachy.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/src/components/Header.tsx
+  s_77dacc2211e444::t_5bd99e28c9ffbd 37,39-40
+  s_77dacc2211e444::t_5c0e480d362a67 38
+apps/web-app/__tests__/libs/seo.test.ts
+  s_77dacc2211e444::t_03c04b690d4b42 58-105
+  s_77dacc2211e444::t_4b16cedb65c56b 3
+apps/web-app/__tests__/hooks/useScrollToc.test.tsx
+  s_77dacc2211e444::t_467f34b2312f42 1-40
+apps/web-app/contents/blog/en-open-source-summit-japan-2025.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/src/hooks/useScrollToc.tsx
+  s_77dacc2211e444::t_d95882a1662c87 13-14,16-20,22,30-32
+  s_77dacc2211e444::t_202fd8d0249682 26-29
+apps/web-app/__tests__/libs/tags.test.ts
+  s_77dacc2211e444::t_227630e70c6b0a 1,3-49,75-76,109-110,117
+  s_77dacc2211e444::t_eebdb20ad55339 50-66
+  s_77dacc2211e444::t_47d052abb333ef 2
+  s_77dacc2211e444::t_86ba2c6d0367c3 67-74,77-108,111-116
+  s_77dacc2211e444::t_ddb4bc04a746f4 118
+apps/web-app/__tests__/libs/search.test.ts
+  s_77dacc2211e444::t_e91c4ec1c30e59 1-33,35-45,55-109,113-114
+  s_77dacc2211e444::t_f875e7717e6a44 46-54,110-112
+  s_77dacc2211e444::t_a48ad559a3ee4b 34
+apps/web-app/src/types/content.ts
+  s_77dacc2211e444::t_ebd433192d3f47 3-4,14-17
+apps/web-app/src/components/inputs/SearchArticles.tsx
+  s_77dacc2211e444::t_1c1c4348ce58ce 3-13,15-49
+apps/web-app/.env.example
+  s_77dacc2211e444::t_4303af1a8ea5fc 4
+apps/web-app/__tests__/pages/Blog/tag-panel.test.tsx
+  s_77dacc2211e444::t_3061c3dfced8f1 1-134
+apps/web-app/src/libs/tags.ts
+  s_77dacc2211e444::t_fe56337632daf8 77-84
+  s_77dacc2211e444::t_71035c4aee8165 1-7,99-173
+  s_77dacc2211e444::t_15670a5fb2d2f8 174-204
+  s_77dacc2211e444::t_b3418b4f7284ec 8-76,85-98
+apps/web-app/src/components/Analytics.tsx
+  s_77dacc2211e444::t_15517775ec7933 35
+  s_77dacc2211e444::t_7fbbdfa3ee3ca4 3,15-17,21-24,29,42
+apps/web-app/src/components/chips/Tag.stories.tsx
+  s_77dacc2211e444::t_e55cb67ea08e77 29-37
+apps/web-app/src/libs/localization.ts
+  s_77dacc2211e444::t_66f469f696348b 42
+  s_77dacc2211e444::t_431d2acc300e33 83-86,91,99,101-102
+  s_77dacc2211e444::t_74c329fd11ce7a 100
+  s_77dacc2211e444::t_ab20a997bf3290 1-41,43-82,87-90,92-98,103-105
+apps/web-app/__tests__/pages/Blog/search-article.test.tsx
+  s_77dacc2211e444::t_0a67b0db7df949 125,128,132-133,145,153
+  s_77dacc2211e444::t_f875e7717e6a44 3
+  s_77dacc2211e444::t_d63c8ce1f7b66a 119
+  s_77dacc2211e444::t_2fa3c827ed9df4 159-190
+  s_77dacc2211e444::t_1e9b45d21960a0 194
+  s_77dacc2211e444::t_d020d101e85385 98,102
+apps/web-app/src/libs/seo.ts
+  s_77dacc2211e444::t_4090f2e5ff7960 29-30,41-43
+  s_77dacc2211e444::t_62933cfb6c3bad 102,112
+  s_77dacc2211e444::t_bf760850bc1f6c 139
+apps/web-app/contents/blog/en-career-opportunities-outreachy.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/contents/blog/en-mid-point-project-progress.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/__tests__/libs/localization.test.ts
+  s_77dacc2211e444::t_9d06a2da784ff1 1-26,30-44,48-88
+  s_77dacc2211e444::t_82d77bef0e0433 27-29,45-47
+apps/web-app/src/pages/blog/[slug].tsx
+  s_77dacc2211e444::t_8213ed170a7690 113-116,119-122
+  s_77dacc2211e444::t_30394cfb5e75c6 106-110,123-125,127-139,141-146
+  s_77dacc2211e444::t_15dba65eb5fe63 64-73
+  s_77dacc2211e444::t_1749c132b33cc1 15-22
+  s_77dacc2211e444::t_a414197092ae5b 147-164
+  s_77dacc2211e444::t_4543e66634880e 183
+  s_77dacc2211e444::t_d0f5e96d2982d5 140
+  s_77dacc2211e444::t_742cf19a8f7756 8,23
+apps/web-app/src/types/seo.ts
+  s_77dacc2211e444::t_4601b85740e72d 19-23,34-37,50-52
+apps/web-app/src/pages/blog/index.tsx
+  s_77dacc2211e444::t_a7133286356a8d 1,3,48,50,52,58,60,66-68,70,72-75,77-79,81-102,104-120,124-131,141-145,148-152,154-184,230,253,256,292,450-456,460-475,479-480,482
+  s_77dacc2211e444::t_b45a15023a022e 16,18-22
+  s_77dacc2211e444::t_2dbfb77283e432 258
+  s_77dacc2211e444::t_c67e2de370bef6 397
+  s_77dacc2211e444::t_8516d241ea6a90 457
+  s_77dacc2211e444::t_7592237dce90bf 476-478,481
+  s_77dacc2211e444::t_a5af8c19253e89 61-64
+  s_77dacc2211e444::t_08302d46520a64 122,186-229
+  s_77dacc2211e444::t_114a99030c08c0 121,132-138
+  s_77dacc2211e444::t_fe56337632daf8 388-390,404-406
+  s_77dacc2211e444::t_7f93f49fc0ff6e 4,9-15,30-31
+  s_77dacc2211e444::t_52dff1be21c11a 372-373
+  s_77dacc2211e444::t_625a15989d9b16 17
+  s_77dacc2211e444::t_332bed5dc6bbda 260-291,293-371,374-387,391-396,398-403,407-449
+  s_77dacc2211e444::t_233e0c41feeddf 53-57
+  s_77dacc2211e444::t_5cd6ff845d3087 51
+  s_77dacc2211e444::t_3917f42ec91f97 231
+  s_77dacc2211e444::t_f34dc1699bb3b7 103
+  s_77dacc2211e444::t_297522a4e69f8d 458-459
+  s_77dacc2211e444::t_c258acbf51b998 153
+  s_77dacc2211e444::t_1becd5da3f7f46 32
+  s_77dacc2211e444::t_ca35805c707861 123
+  s_77dacc2211e444::t_37821df281e3df 185
+apps/web-app/src/components/chips/Tag.tsx
+  s_77dacc2211e444::t_e398a1dfaff83a 5,9,12-18,21,24,42,51-59
+apps/web-app/src/libs/content.ts
+  s_77dacc2211e444::t_e9b5bf9dfc4507 13
+  s_77dacc2211e444::t_585d4a8084b49a 257,262
+  s_77dacc2211e444::t_8c0a288e6527ac 210-218,220-222
+  s_77dacc2211e444::t_ae4dc044f7a1a4 100-109
+  s_77dacc2211e444::t_ea1996e808cf76 110,124,131
+  s_77dacc2211e444::t_730ba5511c333a 223,234,245
+  s_77dacc2211e444::t_66f469f696348b 219
+  s_77dacc2211e444::t_68a9ca5a1a1a6d 14
+apps/web-app/contents/blog/id-fundamental-algoritma.mdx
+  s_77dacc2211e444::t_1f6fac1b79a3dd 8
+apps/web-app/contents/blog/en-final-project-progress-outreachy.mdx
+  s_77dacc2211e444::t_d4c0f3bc34b882 7
+apps/web-app/__tests__/pages/Blog/slug.test.tsx
+  s_77dacc2211e444::t_3b70c607d9173e 121-161
+apps/web-app/src/components/Layout.tsx
+  s_77dacc2211e444::t_763bdb40408881 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "41ff5e9a39a8b054ac406436b14106d8c3903f93",
+  "prompts": {},
+  "sessions": {
+    "s_77dacc2211e444": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e423c1491ffeX6STHrdnGn1Qfp",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
