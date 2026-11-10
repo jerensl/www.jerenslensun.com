@@ -1,4 +1,5 @@
 import { ContactMe } from '@/components/sections/ContactMe.section'
+import { DiscordCommunity } from '@/components/sections/DiscordCommunity.section'
 import { Footer } from '@/components/Footer'
 import { AboutSection } from '@/components/sections/About.section'
 import { personSchema } from '@/libs/seo'
@@ -26,6 +27,8 @@ export default function About({
             />
             <div className="h-36 lg:h-44" />
             <AboutSection />
+            <div className="h-36 lg:h-44" />
+            <DiscordCommunity />
             <div className="h-36 lg:h-44" />
             <ContactMe />
             <div className="h-36 lg:h-44" />
