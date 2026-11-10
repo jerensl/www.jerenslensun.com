@@ -1,0 +1,14 @@
+apps/web-app/coverage/lcov-report/block-navigation.js
+  h_9f812b1c475224 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "cbf987867d1ddf696d6f24c06f953c03b1f4a74f",
+  "prompts": {},
+  "humans": {
+    "h_9f812b1c475224": {
+      "author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
