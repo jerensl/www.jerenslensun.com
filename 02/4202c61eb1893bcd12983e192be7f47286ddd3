@@ -1,0 +1,43 @@
+apps/web-app/src/components/DiscordCommunity.tsx
+  s_41bbc66d274468::t_93e44ae58d7e7a 1-4
+apps/web-app/src/components/DiscordPromotion.tsx
+  s_41bbc66d274468::t_18fa2075628fbf 1-5
+apps/web-app/src/components/sections/Promotion.section.tsx
+  s_41bbc66d274468::t_a1fe590150115b 1-5
+apps/web-app/src/components/sections/Discord.section.tsx
+  s_41bbc66d274468::t_8d87bf079eaf0e 1-6
+apps/web-app/src/components/sections/Community.section.tsx
+  s_41bbc66d274468::t_85ce65c0646e8f 1-6
+apps/web-app/src/pages/about.tsx
+  s_41bbc66d274468::t_ab46f378e4f4b5 2
+  s_41bbc66d274468::t_24cda59178e0cf 31-32
+apps/web-app/src/components/sections/JoinDiscord.section.tsx
+  s_41bbc66d274468::t_a69f42e9e21e20 1-5
+apps/web-app/src/components/sections/ContactMe.section.tsx
+  s_41bbc66d274468::t_d1a30ec33a596d 13-15,19
+  s_41bbc66d274468::t_1aec59a6e3cee2 7-11,16-18
+apps/web-app/src/components/sections/DiscordPromotion.section.tsx
+  s_41bbc66d274468::t_3a795f5bb8432b 1-6
+apps/web-app/src/components/sections/DiscordCommunity.section.tsx
+  s_41bbc66d274468::t_9c7722f597a043 12-16,19,25-26,28,30,32,35,40-42
+  s_41bbc66d274468::t_210ff50bc48a58 1-6,17-18,24,31,33-34,36-39,43-48
+  s_41bbc66d274468::t_1aec59a6e3cee2 7-11,20-23
+  s_41bbc66d274468::t_5b1efcd507a8e3 27
+  s_41bbc66d274468::t_da17540f0c226a 29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "024202c61eb1893bcd12983e192be7f47286ddd3",
+  "prompts": {},
+  "sessions": {
+    "s_41bbc66d274468": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e3bb46db7ffe26JzGwVNF3GtNg",
+        "model": "beam-free"
+      },
+      "human_author": null
+    }
+  }
+}
