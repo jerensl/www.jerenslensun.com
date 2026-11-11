@@ -1,0 +1,172 @@
+---
+title: 'Golang Standard I/O'
+date: '2022-01-07'
+cover: data.jpg
+isPublished: true
+description: Processing external storage data in golang requires a certain way, especially with large data, we cannot directly initialize the data directly into a variable.
+tags: ['golang', 'parse', 'data']
+translation: id-go-standard-io
+---
+
+When we get a coding test, we will usually be given a large amount of input to process, this time we will learn how to process input directly using the standard library. As an example we will process input based on a txt file.
+
+Below is an example of the data that we will process, as an example we only use a little data, but you can imagine there are thousands of rows of data that will be difficult to move to an array data structure manually:
+
+```bash theme=orange
+2
+6 0 0 0 0 0 1
+12 0 0 0 0 0 0 1 0 0 0 0 0
+```
+
+## Opening a file
+
+-   To open a file using the standard library os, which will interact with the operating system (os) to open a file named file.txt.
+-   If there is an error (err not equal to nil) we will print the error, then panic so the program stops, that is the same as calling os.Exit(1).
+-   After that, we need to close the file that has been opened, here we use defer so the close function runs when all processes in that function (here the main function) have finished or the code below defer will run first.
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"os"
+	"log"
+)
+
+func main() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+}
+
+```
+
+## Reading the file line by line
+
+At this stage we will use the standard library bufio to scan text in the file.
+
+-   We need to do looping using the Scan() method, which will scan every line in the file, then we use the standard library fmt to print the Text() method to read the value that exists.
+-   If there is an error while scanning text, we will panic so the program stops and produces an error log.
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"os"
+	"log"
+	"bufio"
+	"fmt"
+)
+
+func main() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+
+	scanner := bufio.NewScanner(f)
+
+	for scanner.Scan() {
+	    fmt.Println(scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+	    log.Fatal(err)
+	}
+}
+
+```
+
+## Reading the file word by word
+
+By calling the Split() method we can separate the scanned words. There are several ways to separate words, here we use ScanWords as an argument to the Split() method to separate based on letters.
+There are several arguments that we can use besides ScanWords, namely:
+
+-   ScanBytes, to separate based on each byte as a token.
+-   ScanRunes, to separate based on UTF-8-encoded rune as a token.
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"os"
+	"log"
+	"bufio"
+	"fmt"
+)
+
+func main() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+
+	scanner := bufio.NewScanner(f)
+	scanner.Split(bufio.ScanWords)
+
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+```
+
+## Parsing data into a 2D Array
+
+Here we will parse data that was previously a string into an integer and then put it into a 2 dimensional array.
+
+-   Here we need to use strings.Fields() to convert a string into an array of strings, where the string will be separated based on spaces.
+-   After that we need to do looping again and put the existing value into a temporary variable nums.
+-   Before putting the value into the nums variable we need to convert string to int using strconv.Atoi(), atoi means ascii to integer.
+-   After all sentences on the line are finished we append to the 2D array variable numbers.
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"os"
+	"log"
+	"bufio"
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+func main() {
+	numbers := [][]int{}
+
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer f.close()
+
+	scanner := bufio.NewScanner(f)
+
+	for scanner.Scan() {
+		words := strings.Fields(scanner.Text())
+		nums := []int{}
+
+		for _, value := range words {
+			valutToInt, _ := strconv.Atoi(value)
+			nums = append(nums, valutToInt)
+		}
+		numbers = append(numbers, nums)
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
+```

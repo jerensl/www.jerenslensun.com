@@ -1,0 +1,81 @@
+---
+title: 'Kemajuan Proyek Akhir Outreachy'
+date: '2025-08-25'
+cover: default.png
+isPublished: true
+description: Perjalanan Outreachy saya melalui magang di Servo
+tags: ['mentorship', 'outreachy', 'open-source']
+translation: en-final-project-progress-outreachy
+---
+
+Hai semuanya! Dalam postingan ini, saya akan memandu Anda melalui perjalanan magang saya dengan Servo sebagai bagian dari program Outreachy. Saya akan berbagi apa yang telah kami capai sejauh ini selama periode magang dan pelajaran yang dipetik sepanjang jalan.
+
+## Apa itu Servo?
+
+Sebelum menyelami detailnya, izinkan saya memperkenalkan Servo. Servo adalah prototipe mesin peramban web yang ditulis dalam Rust dan saat ini sedang dalam pengembangan aktif. Pada saat postingan ini dibuat, Servo memiliki [cakupan Web Platform Test 61,8%](https://servo.org/wpt/)
+
+Web Platform Tests (WPT) adalah rangkaian pengujian lintas peramban yang memeriksa seberapa baik peramban mengimplementasikan standar web. Sederhananya, WPT memeriksa berapa banyak [Web API yang didukung peramban](https://html-now.github.io/) dengan benar, memberikan gambaran seberapa lengkap implementasi platform web-nya.
+
+## Pernyataan Masalah
+
+Seperti banyak proyek perangkat lunak berskala besar, Servo menggunakan [GitHub Actions](https://docs.github.com/en/actions) untuk continuous integration (CI) guna memvalidasi pull request. Salah satu langkah kunci dalam pipeline CI adalah linting, yang mengidentifikasi masalah seperti kode yang bertele-tele atau suboptimal, penggunaan API yang usang, penggunaan API yang tidak aman, dan kode yang tidak mengikuti gaya Servo. Tujuan pekerjaan magang saya adalah memperbaiki hal ini dan membuat pengalaman linting lebih membantu bagi kontributor baru maupun berpengalaman.
+
+## Pekerjaan Saya
+
+- **[Implementasi anotasi inline GitHub pada Clippy & Mach test-tidy](https://github.com/servo/servo/pull/37294)**
+  Selama tahap pertama proyek, kami berhasil mengimplementasikan anotasi GitHub menggunakan [perintah alur kerja](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands), yang diintegrasikan langsung ke dalam Mach.
+
+- **[Menggabungkan beberapa proyek konfigurasi Python ke dalam `pyproject.toml`](https://github.com/servo/servo/pull/37741)**
+  Mengonsolidasikan berbagai file konfigurasi Python untuk menyederhanakan pengaturan proyek dan menjaga konsistensi di seluruh codebase.
+
+- **Menghapus perintah Mach yang tidak digunakan**
+  Menghapus perintah Mach `cargo-update`, `update-cargo`, `grep`, `ndk-stack`, `ndk-gdb`, dan `test-android-startup` untuk membersihkan alur kerja CI. [PR#3784](https://github.com/servo/servo/pull/37874) dan [PR#37958]((https://github.com/servo/servo/pull/37958))
+
+- **Menghapus aturan test-tidy yang redundan**
+  Memperbarui `test-tidy` dengan [menghapus aturan urutan alfabet dan panjang baris]((https://github.com/servo/servo/pull/38538)) untuk menyederhanakan linting.
+
+- **Memperkenalkan Pyrefly dan memperbaiki aturan Pyrefly pada direktori Python dan binding skrip**
+  - **[Mach: Menambahkan type check pada direktori `python/servo`](https://github.com/servo/servo/pull/38085)**
+  - **[Mach: Menambahkan type check pada folder tidy Python](https://github.com/servo/servo/pull/38043)**
+  - **[Mach: Memperkenalkan Pyrefly untuk type checking Python (dimulai dari folder WPT)](https://github.com/servo/servo/pull/37953)**
+  - **[Script bindings: Menambahkan type check pada Servo script bindings](https://github.com/servo/servo/pull/38161)**
+
+- **[Mengadopsi aturan Ruff ANN untuk pengetikan ketat pada fungsi dan kelas](https://github.com/servo/servo/pull/38531)**
+  Menerapkan anotasi tipe yang lebih ketat di seluruh kode Python dengan mengadopsi aturan **ANN** Ruff.
+
+## Tantangan
+
+Mengadopsi Pyrefly memiliki beberapa tantangan. Ia mengikuti pola desain secara ketat, yang dalam beberapa hal lebih baik daripada type checker lain, tetapi juga memiliki trade-off.
+
+Misalnya, pada Pyrefly Anda tidak diizinkan mengubah nama signature metode dari kelas induk. Ini sesuai desain, menurut dokumen mereka [di sini](https://pyrefly.org/en/docs/error-kinds/#bad-override)
+
+> Gagasan panduan di sini adalah Prinsip Substitusi Liskov, gagasan bahwa subclass dapat menggantikan base class kapan pun tanpa merusak program.
+
+Aturan ini dapat menyebabkan program crash. Anda mungkin berargumen bahwa ini bukan masalah signifikan karena jarang menggunakan argumen kata kunci saat memanggil metode kelas, kebanyakan orang hanya peduli dengan argumen posisional. Perhatikan contoh berikut:
+
+```python showlinenumbers theme=orange
+class Base:
+    def f(self, a: int) -> None:
+        pass
+
+class ArgsWithDifferentName(Base):
+    def f(self, _a: int) -> None:
+        pass
+
+def uses_f(b: Base) -> None:
+    b.f(a=1)
+
+uses_f(ArgsWithDifferentName())
+```
+
+[Di sini](https://pyrefly.org/sandbox/?code=MQAg6gpgNgxg9gWwiALnVALZAFAngJwgDMpcQBlAQwDsATAIzgA8AaTASwGcQuRKQADpQDmEAFCgA7lkIhccAK4gYNEJPzsUENpwyVZNWiCgR91PowUpUuAe2rCe5vCgxxqAOgkSQACQgGBsqKAiYgRKYoCoTccEQc3JyGjEwAXD4AtCAA4hDWhJRQGSjsSDYCyDBYMADW9o4REAyUtZkgAKqcyIQAbqZQAPoothAAFACUqOj2nBUw1vYR%2BIRGwxWcbRBMFRpI1NaSmhiYyACSACIAouGR0RDcrpQHyJwKAgJw%2BNajEB7CHnwrHB4AhQnltCBhHBitDaMR7Jp2O42G4%2Bvg2HkYOM2mANFo%2BHQQPgFM5cK53ME4SBaOxCPNSE45Ip8CB6Pg4JIuvgxGIYFBKJxuAAhAUQdIganEcKjLpQIhsSipJwoSYZAB8IAAcu4xWIJRKhIKeXyBdwAIL4YScMBHc7sIhLCDUGAQTWUJCjEVdcbiyXxIgy6DykADRXK1Ua7XUXX6wSmnlw%2BIKLqcAYB%2BhKr0QCNanW%2B%2BgeAOUAC8AEZsWJk-c06MLVaba47Q6Ak6XW6PeNxkA&version=3.12), mengganti nama parameter pada subclass akan menyebabkan kesalahan runtime saat menggunakan argumen kata kunci, menunjukkan penegakan ketat Pyrefly terhadap signature metode.
+
+## Rasa Terima Kasih
+
+Perjalanan magang ini dengan Servo tidak akan mungkin tanpa bimbingan mentor saya, [Martin Robinson](https://github.com/mrobinson) dan [Mukilan Thiyagarajan](https://github.com/mukilan).
+
+Mereka memainkan peran kunci dalam membantu saya menavigasi codebase, mulai dari meninjau pull request hingga berbagi nasihat praktis selama pertemuan kami. Dukungan mereka tidak hanya membuat kontribusi saya mungkin tetapi juga membentuk cara saya mendekati pemecahan masalah dalam proyek open source berskala besar.
+
+Saya juga ingin berterima kasih kepada penyelenggara Outreachy, khususnya **Omotola E. Omotayo**, atas check-in rutin dan terciptanya ruang yang suportif bagi semua intern sepanjang program.
+
+Saya sangat berterima kasih atas pengalaman ini dan bersemangat untuk membawa pelajaran ini ke depan dalam perjalanan open source saya.

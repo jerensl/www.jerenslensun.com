@@ -1,0 +1,126 @@
+---
+title: Reverse Proxy dengan Go
+date: '2022-06-14'
+cover: networking.jpg
+isPublished: true
+description: Reverse proxy adalah aplikasi yang berada di depan aplikasi backend dan meneruskan permintaan klien (misalnya browser) ke aplikasi tersebut.
+tags: ['golang', 'gateway']
+translation: en-reverse-proxy-golang
+---
+
+Reverse proxy akan membawa anonimitas ke server di belakangnya dan membuat server lebih aman
+karena pengguna tidak tahu di mana mereka akan berinteraksi, manfaat lainnya adalah caching dan load balancing.
+Di sisi lain, golang menyediakan cara mudah untuk membangun reverse proxy menggunakan standard library.
+
+## Kasus Penggunaan
+
+-   **Load Balancing**,
+    Reverse proxy dapat digunakan untuk menyeimbangkan beban permintaan dari pengguna, bagian menariknya adalah kita dapat memiliki minimal satu server.
+-   **Gateway**,
+    Reverse proxy dapat digunakan sebagai gateway ke beberapa layanan Restful API, tidak hanya itu ada beberapa proyek open source yang memetakan reverse proxy Restful API ke server GRPC seperti grpc-gateway.
+-   **Terminasi SSL**,
+    Terminasi SSL dapat digunakan untuk mengenkripsi permintaan masuk dan keluar ke dan dari reverse proxy saja dan membiarkan server di belakang reverse proxy tidak terenkripsi.
+-   **Caching**,
+    Reverse proxy dapat menyimpan sementara data respons yang berasal dari server internal.
+
+## Implementasi
+
+Untuk memulai, kita perlu membangun router HTTP menggunakan package http.
+
+-   Membuat server kita perlu mengimpornya dari library `net/http`.
+-   Setelah itu kita memanggil ListenAndServe, yang menerima 2 argumen
+    -   Yang pertama adalah alamat, lalu kita memasukkan port dalam argumen
+    -   Yang kedua adalah `DefaultServeMux` tetapi dalam kasus ini kita ingin menggunakan default yang disediakan oleh package HTTP,
+        jadi kita hanya memasukkan nil
+-   Jika server tidak berjalan, kita cukup membuatnya panic
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"net/http"
+	"fmt"
+)
+
+func main() {
+	http.HandleFunc("/", reverseProxyHandler)
+
+    fmt.Printf("Starting users service at port: %v", 8000)
+	if err := http.ListenAndServe(":5000", nil); err != nil {
+		panic(err)
+	}
+}
+```
+
+Langkah berikutnya kita akan mengimplementasikan fungsi reverseProxyHandler, yang merupakan implementasi dari `http.HandleFunc`.
+Argumen pertama adalah writer ke respons dan argumen kedua adalah pointer ke permintaan dari pengguna.
+
+-   Di dalam fungsi, kita akan menggunakan `url.Parse` untuk mem-parsing string URL, yang akan memisahkan seperti host, path, dll
+    ke struct URL dan mengembalikannya, jika argumen string URL tidak valid,
+    ia akan memberikan error dan kita hanya merespons dengan error bad gateway menggunakan `w.writeHeader` dan mengembalikannya langsung
+    ke klien.
+-   Setelah itu, kita dapat mengirim hasil parse URL, ke `NewSingleHostReverseProxy` yang berasal dari package httputil.
+    Ia akan menyiapkan baik permintaan maupun header dari klien ke server reverse proxy.
+-   Akhirnya, kita sampai pada bagian terakhir, jadi kita perlu memeriksa apakah reverse proxy tidak kosong, lalu melakukan permintaan
+    ke server internal menggunakan `ServerHTTP`, dan meneruskan permintaan, lalu mendapatkan kembali respons ke klien.
+
+```go showlinenumbers theme=orange
+func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
+	host, err := url.Parse("http://localhost:5001")
+	if err != nil {
+		w.WriteHeader(http.StatusBadGateway)
+		return
+	}
+
+	reverseProxy := httputil.NewSingleHostReverseProxy(host)
+	if reverseProxy != nil {
+		reverseProxy.ServeHTTP(w, r)
+	}
+	http.Error(w, "Service not available", http.StatusServiceUnavailable)
+}
+```
+
+## Hasil Akhir
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"fmt"
+	"net/url"
+	"net/http"
+	"net/http/httputil"
+)
+
+func main() {
+	http.HandleFunc("/", reverseProxyHandler)
+
+    fmt.Printf("Starting users service at port: %v", 8000)
+	if err := http.ListenAndServe(":5000", nil); err != nil {
+		panic(err)
+	}
+
+	func reverseProxyHandler(w http.ResponseWriter, r *http.Request) {
+	host, err := url.Parse("http://localhost:5001")
+	if err != nil {
+		w.WriteHeader(http.StatusBadGateway)
+		return
+	}
+
+	reverseProxy := httputil.NewSingleHostReverseProxy(host)
+	if reverseProxy != nil {
+		reverseProxy.ServeHTTP(w, r)
+	}
+	http.Error(w, "Service not available", http.StatusServiceUnavailable)
+}
+```
+
+## Ringkasan
+
+Pada akhirnya, baik untuk mengetahui dan mempelajari betapa mudahnya mengimplementasikannya di golang, jadi untuk lingkungan produksi,
+saya merekomendasikan menggunakan beberapa proxy populer seperti HAProxy, Nginx, Traefik, dll.
+Dalam hal perbandingan performa, ada orang yang sudah melakukan benchmark jadi saya akan merujuk ke [repositori tersebut](https://github.com/juliens/Proxy-Benchmarks)
+
+## Tambahan
+
+-   [FOSDEM 2019: How to write a reverse proxy with Go in 25 minutes.](https://www.youtube.com/watch?v=tWSmUsYLiE4)

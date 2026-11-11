@@ -1,0 +1,116 @@
+---
+title: 'Binary Search Algorithm'
+date: '2021-12-21'
+cover: binary-search.jpg
+isPublished: true
+description: Binary search is an algorithm that uses logarithmic time to find a value in a data structure that has been sorted first.
+tags: ['algorithm']
+translation: id-algoritma-binary-search
+---
+
+Binary Search is a very efficient algorithm because it has logarithmic Time Complexity when searching for a value.
+Binary search works by eliminating half of the array of the value to be searched for each iteration,
+therefore we need to find the middle value of the array to compare with the target value we want to find.
+
+## Question
+
+Given an array of n integers and a target value a, determine if the target value is in the array, which can be searched using logarithmic time. If the target is found, print the index of that array.
+
+#### Example 1
+
+Input : [2, 3, 5, 7, 9]  
+Target : 7  
+Output : 3
+
+#### Example 2
+
+Input : [2, 3, 5, 7, 9]  
+Target : 4  
+Output : -1
+
+## Solution
+
+First we create a Binary_search function that returns -1 as output
+
+```go showlinenumbers theme=orange line=3
+package binary_search
+
+func Binary_search(nums int[], target int) int {
+    return -1
+}
+```
+
+After that we create a left variable that will be filled with the first index of the nums array and a right variable that will be filled with the last index of the right variable. We also need a while loop that will keep running when the left value is smaller than the right value
+
+```go showlinenumbers theme=orange line=6-8
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+
+    for left < right {
+
+    }
+
+    return -1
+}
+```
+
+We also need to create a middle variable which is the index in the middle between the left and right variables and we will compare it with the target value; if they are equal that value is returned.
+
+```go showlinenumbers theme=orange line=7-11
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+
+    for left < right {
+        middle := (left + right)/2
+
+        if nums[middle] == target {
+            return middle
+        }
+    }
+
+    return -1
+}
+```
+
+Next we will handle the case for 2 scenarios, namely:
+
+-   If the value of the middle variable is smaller than the target then the value of left will become the value of middle plus one.
+-   If the value of the middle variable is greater than the target then the value of right will become the value of middle plus one.
+
+Since the value of the middle variable has been compared before, we will shift one index (subtract or add one) to save the operations performed so that it becomes more efficient.
+
+```go showlinenumbers theme=orange line=13-17
+package binary_search
+
+func Binary_search(nums []int, target int) int {
+    left, right := 0, len(nums)-1
+
+    for left < right {
+        middle := (left + right)/2
+
+        if nums[middle] == target {
+            return middle
+        }
+
+        if nums[middle] < target {
+			left = middle + 1
+		} else {
+			right = middle - 1
+		}
+    }
+
+    return -1
+}
+```
+
+## **Binary Search Algorithm Analysis**
+
+1. Worst Case Scenario - Logarithmic(log n)  
+   For this case we will analyze when the target value is not successfully found, for example searching for the target value 10 based on the input above. There we can see that there is a loop to search for each value, so we will eliminate 50% of the existing input for each operation. The suitable Growth Rate is logarithmic, which is the inverse of exponentiation.
+
+2. Best Case Scenario - Constant(1)  
+   For this case the algorithm is said to be best case when its position is directly at the middle point, for example searching for the target value 5 based on the input above.
