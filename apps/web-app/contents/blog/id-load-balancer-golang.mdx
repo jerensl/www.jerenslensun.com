@@ -1,0 +1,212 @@
+---
+title: Membangun Load Balancer dari Nol dengan Go
+date: '2022-07-08'
+cover: load-balancer.jpg
+isPublished: true
+description: Load balancer adalah proses mendistribusikan lalu lintas masuk ke beberapa target.
+tags: ['golang', 'gateway']
+translation: en-load-balancer-golang
+---
+
+Di masa lalu, kita telah mempelajari cara membangun reverse proxy.
+Hari ini kita akan mempelajari kasus penggunaan lain dari reverse proxy, yaitu load balancer.
+Untuk memulai saya akan berasumsi Anda sudah mengetahui docker dan docker-compose.
+
+Ada beberapa jenis algoritma untuk mendistribusikan lalu lintas dalam load balance, tetapi demi kesederhanaan,
+kita akan mengimplementasikan algoritma round-robin, yaitu algoritma sederhana yang mengunjungi setiap node satu per satu.
+
+## Menyimpan Backend
+
+Demi kesederhanaan, kita akan menyimpan semua backend dalam sebuah struct, yang terdiri dari nilai:
+
+1. URL Host dari backend internal
+2. Fungsi utilitas reverse proxy di go
+
+Kedua nilai dalam struct Backend adalah pointer,
+sehingga ide untuk menyimpan nilai sebagai pointer karena baik `Url.Parse()` maupun `NewSingleHostReverseProxy()`
+mengembalikan pointer juga.
+
+```go showlinenumbers theme=orange
+type Backend struct {
+	URL				*url.URL
+	ReverseProxy 	*httputil.ReverseProxy
+}
+```
+
+Setelah itu kita membutuhkan struct lain, untuk menyimpan pool backend dan counter untuk menghitung backend yang dikunjungi berdasarkan indeks array.
+
+```go showlinenumbers theme=orange
+type ServerPool struct {
+	Backends    []*Backend
+	current     uint64
+}
+```
+
+Untuk menambahkan reverse proxy kita perlu membuat method dari struct ServerPool,
+method tersebut perlu berupa pointer sehingga akan menjadi referensi ke alamat memori struct backend,
+sehingga kita dapat menyimpan data di memori.
+Ada 2 hal yang perlu kita lakukan sebelum menambahkan server:
+
+1. Parsing dari raw string URL ke struktur URL.
+2. Membuat reverse proxy baru menggunakan NewSingleHostReverseProxy.
+
+Kemudian kita menambahkan reverse proxy dengan struct URL ke Server Pool.
+
+```go showlinenumbers theme=orange
+func (bp *ServerPool) AddServer(host string) {
+	serviceUrl, err := url.Parse(host)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	reverseProxy := httputil.NewSingleHostReverseProxy(serviceUrl)
+
+	bp.Backends = append(bp.Backends, &Backend{
+		URL: serviceUrl,
+		ReverseProxy: reverseProxy,
+	})
+}
+```
+
+## Mengunjungi Node Backend
+
+Pada bagian ini, kita ingin mengimplementasikan pengunjungan server dari Server Pool. Sebelum itu,
+kita perlu menghitung indeks node yang dikunjungi, agar dapat melacak posisi saat ini.
+Karena di balik layar permintaan HTTP di golang adalah operasi konkuren,
+kita harus menggunakan metode sinkronisasi untuk menambah counter posisi, agar terhindar dari data race.
+Ada metode lain yang lebih murah daripada locking untuk sinkronisasi, yaitu operasi atomik.
+Jadi mari implementasikan method untuk menambah indeks.
+
+Pada method GetNextIndex setelah kita menambah posisi indeks saat ini,
+kita menggunakan modulus agar nilainya tidak lebih besar dari total maksimum backend yang tersedia.
+Kemudian untuk posisi indeks saat ini yang dikali dua lebih besar dari total backend dikurangi satu, kita reset ke nol.
+Alasan kita melakukan cara ini adalah kita ingin membandingkan terlebih dahulu lalu menambah.
+
+```go showlinenumbers theme=orange
+func (bp *ServerPool) GetNextIndex() int {
+	if int(atomic.LoadUint64(&bp.current)) > len(bp.Backends)*2-1 {
+		atomic.StoreUint64(&bp.current, 0)
+	}
+
+	return int(atomic.AddUint64(&bp.current, uint64(1)) % uint64(len(bp.Backends)))
+}
+```
+
+Setelah melacak posisi indeks, sekarang kita ingin mengembalikan backend berdasarkan posisi yang sudah kita lacak.
+
+```go showlinenumbers theme=orange
+func (bp *ServerPool) GetNextServer() *Backend {
+	index := bp.GetNextIndex()
+
+	return bp.Backends[index]
+}
+```
+
+## Menyiapkan HTTP Handler
+
+Hal pertama yang ingin saya lakukan adalah mendeklarasikan variabel global dari struct lalu
+saya ingin memanggil GetNextServer() dari struct serverPool untuk mendapatkan server,
+setelah itu melayani server menggunakan method serve.
+
+```go showlinenumbers theme=orange
+var serverPool ServerPool
+func UsersLoadBalancer(w http.ResponseWriter, r *http.Request) {
+	server := serverPool.GetNextServer()
+
+	server.ReverseProxy.ServeHTTP(w, r)
+}
+```
+
+Ada kemungkinan server sedang down, jadi saya ingin membuat variabel global sebagai nilai awal
+untuk melacak berapa banyak server yang sudah kita kunjungi, dan jika semua server sudah dikunjungi,
+maka kita mengembalikan error HTTP Service not Available.
+
+Untuk menyimpan total kunjungan kita ingin menggunakan nilai context, yang akan diteruskan ke permintaan HTTP,
+dan untuk setiap error dari reverse proxy akan memanggil server HTTP lagi untuk melayani server berikutnya.
+
+```go showlinenumbers theme=orange
+const Visit int = 1
+
+func GetVisitingNodeFromContext(r *http.Request) int {
+	if visit, ok := r.Context().Value(Visit).(int); ok {
+		return visit
+	}
+
+	return 0
+}
+
+func UsersLoadBalancerErrorHandler(w http.ResponseWriter, r *http.Request, err error) {
+	visiting := GetVisitingNodeFromContext(r)
+
+	if visiting > len(serverPool.Backends) {
+		http.Error(w, "Service not available", http.StatusServiceUnavailable)
+		return
+	}
+
+	ctx := context.WithValue(r.Context(), Visit, visiting+1)
+	UsersLoadBalancer(w, r.WithContext(ctx))
+}
+```
+
+## Menyelesaikan Server
+
+Untuk menutup, kita akan menggunakan strings split yang mengambil dari environment variable dan memisahkan setiap host dengan ';',
+setelah itu kita menambahkan setiap backend ke server pool.
+Pada akhirnya, kita memulai server HTTP kita.
+
+```go showlinenumbers theme=orange
+func main() {
+	users := strings.Split(os.Getenv("USERS_SERVICE"), ";")
+
+	for _, user := range users {
+		serverPool.AddServer(user)
+	}
+
+	http.HandleFunc("/", UsersLoadBalancer)
+
+	fmt.Printf("Starting users service at port: %v", os.Getenv("PORT"))
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
+		panic(err)
+	}
+}
+```
+
+## Menjalankan Aplikasi
+
+Jadi untuk memulai, kita perlu clone dari [repo ini](https://github.com/jerensl/reverse-proxy-gateway) dan cd ke repositori:
+
+```bash theme=orange
+	git clone https://github.com/jerensl/reverse-proxy-gateway.git
+```
+
+Setelah itu, kita perlu menjalankan reverse proxy dan backend menggunakan docker-compose
+
+```bash theme=orange
+	docker-compose up
+```
+
+Untuk menguji reverse proxy kita dapat menggunakan perintah curl
+
+```bash theme=orange
+	curl -i http://localhost:5000/
+```
+
+Untuk memeriksa id container docker kita dapat menggunakan perintah ini
+
+```bash theme=orange
+	docker ps
+```
+
+Tes terakhir kita dapat mematikan server menggunakan perintah docker berdasarkan id server
+
+```bash theme=orange
+	docker stop c95e20564e20
+```
+
+## Ringkasan
+
+Sekarang kita sudah membangun load balancer kita sendiri, ternyata cukup mudah untuk diimplementasikan di golang, dan kodenya di bawah 100 baris.
+
+## Tambahan
+
+-   [Revers Proxy Repositories](https://github.com/jerensl/reverse-proxy-gateway)
