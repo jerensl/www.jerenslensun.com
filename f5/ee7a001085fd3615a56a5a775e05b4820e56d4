@@ -1,0 +1,19 @@
+AGENTS.md
+  s_c8c19b6e26caf4::t_9fc35b0f88aab9 1-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "f5ee7a001085fd3615a56a5a775e05b4820e56d4",
+  "prompts": {},
+  "sessions": {
+    "s_c8c19b6e26caf4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e36652cdaffe5erRAr2oncx0gb",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
