@@ -1,0 +1,8 @@
+{
+  "permission": {
+    "skill": {
+      "*": "allow",
+      "experimental-*": "ask"
+    }
+  }
+}

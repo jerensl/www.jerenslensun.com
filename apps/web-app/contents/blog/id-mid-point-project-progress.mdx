@@ -1,0 +1,25 @@
+---
+title: 'Kemajuan Proyek Titik Tengah - Outreachy'
+date: '2025-07-21'
+cover: cover.img
+isPublished: true
+description: Perjalanan Outreachy saya melalui magang di Servo
+tags: ['mentorship', 'outreachy']
+translation: en-mid-point-project-progress
+---
+
+Hai, saya telah magang selama satu bulan dan dua minggu pada proyek Servo melalui program Outreachy. Saya bekerja dengan pipeline CI/CD, serta developer tooling.
+
+Karena saya bekerja sebagai intern Servo, rencana proyek saya berfokus pada menambahkan anotasi ke linter GitHub Actions, selain menambahkan type check untuk codebase Python. Proyek saya berfokus pada meningkatkan developer experience saat berurusan dengan linting dan type checking.
+
+Saya mencapai beberapa tujuan selama magang ini. Sejauh ini, saya telah berhasil menambahkan anotasi di GitHub Actions untuk Rust Clippy dan perintah mach test-tidy, dan dalam melakukannya, juga memperkenalkan type checking untuk codebase Python menggunakan Pyrefly.
+
+Kami telah mengimplementasikan [Perintah Alur Kerja](https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#using-workflow-commands-to-access-toolkit-functions) dari GitHub Actions untuk mengimplementasikan anotasi inline yang diintegrasikan secara mendalam pada codebase `python/tidy` di [pr ini](https://github.com/servo/servo/pull/37294).
+
+Kami juga mencoba meningkatkan kecepatan test-tidy dengan mengimplementasikan multiprocessing Python seperti yang dapat Anda lihat di [pr ini](https://github.com/servo/servo/pull/37748).
+
+Untuk mengorganisir semua konfigurasi di Python kami juga memilih untuk mengonsolidasikan beberapa konfigurasi seperti untuk ruff dan pyrefly di bawah konfigurasi pyproject di [pr ini](https://github.com/servo/servo/pull/37741).
+
+Kami sekarang berada pada titik untuk menambahkan ketatnya tipe ke semua codebase Python dari [pr ini](https://github.com/servo/servo/pull/38043) yang telah mendarat di branch base untuk menangani semua type check pada codebase tidy.
+
+Selama paruh kedua magang saya, saya akan terus menambahkan dan memperbaiki type check di sekitar codebase Python dan akan mengerjakan tugas berikutnya. Secara keseluruhan saya senang dengan kemajuan yang dibuat saat ini dan berharap dapat meningkatkan lebih banyak lagi.
