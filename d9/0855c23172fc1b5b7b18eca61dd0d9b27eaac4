@@ -1,0 +1,23 @@
+.release-please-manifest.json
+  s_70b24c21110334::t_d096c162bfafad 1
+release-please-config.json
+  s_70b24c21110334::t_8c3cdf36d7e1c9 3
+.github/workflows/release-please.yml
+  s_70b24c21110334::t_eaca902a28b137 23-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "d90855c23172fc1b5b7b18eca61dd0d9b27eaac4",
+  "prompts": {},
+  "sessions": {
+    "s_70b24c21110334": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e30722f91ffepvDav56LJT9Q7K",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
