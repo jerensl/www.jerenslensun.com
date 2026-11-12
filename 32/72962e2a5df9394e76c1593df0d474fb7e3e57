@@ -1,0 +1,33 @@
+.opencode/skills/ai-commit/SKILL.md
+  s_89344662673b32::t_0340675700625a 12-24
+.github/workflows/label-bot-prs.yml
+  s_89344662673b32::t_738f223a2f40bb 1-24
+scripts/bot-git
+  s_89344662673b32::t_1a7cf53625acb1 1-2,8-11
+  s_89344662673b32::t_f326c10854939c 3-7,12-38
+scripts/bot-env.sh
+  s_89344662673b32::t_0f451b7f8cb57c 1-31,33-51,53-71
+  s_89344662673b32::t_cf70d483498017 32
+  s_89344662673b32::t_1de640331658ff 52
+AGENTS.md
+  s_89344662673b32::t_269f24c2a3da95 77-79
+  s_89344662673b32::t_fcb54faf618544 52-76,80-83
+scripts/bot-gh
+  s_89344662673b32::t_c4406f0fc94edc 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "3272962e2a5df9394e76c1593df0d474fb7e3e57",
+  "prompts": {},
+  "sessions": {
+    "s_89344662673b32": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e31b71588ffeEA9xoML2eyiZmy",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
