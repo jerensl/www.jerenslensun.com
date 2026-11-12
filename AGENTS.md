@@ -50,3 +50,34 @@
 - README's "Start the application" uses `start` but describes dev mode — use `dev`.
 - Build needs network for image blur placeholders (imagekit) and mdx; failures are caught but placeholders drop.
 - Generated artifacts (`out/`, `.next/`, `coverage/`, `storybook-static/`, `public/sw.js`, `workbox-*.js`) are gitignored — do not commit.
+
+## Bot-authored PRs (GitHub App, Option A)
+AI contributions are published under a dedicated GitHub App so they are distinguishable
+from human PRs in GitHub's PR list.
+
+Setup (one-time, in GitHub UI):
+1. Create a GitHub App (Settings → Developer settings → GitHub Apps):
+   - Name e.g. `jerensl-opencode` (bot login becomes `jerensl-opencode[bot]`).
+   - Disable the webhook (uncheck "Active"); homepage = repo URL.
+   - Repo permissions: Contents R/W, Pull requests R/W, Metadata R.
+   - "Where can this GitHub App be installed?" → Only this account.
+   - Generate + download the private key (`.pem`); note the App ID.
+2. Install the app on `jerensl/www.jerenslensun.com`; note the Installation ID.
+3. Store credentials in the local, gitignored `.envrc`:
+   ```sh
+   export GITHUB_APP_ID=<app-id>
+   export GITHUB_APP_INSTALLATION_ID=<installation-id>
+   export GITHUB_APP_PRIVATE_KEY=/home/jerensl/.secrets/jerensl-opencode.pem
+   export GITHUB_APP_SLUG=jerensl-opencode
+   ```
+
+Usage:
+- `eval "$(scripts/bot-env.sh)"` exports `GH_TOKEN` + bot git identity.
+- `scripts/bot-git push origin <branch>` and `scripts/bot-gh pr create …`.
+  (`bot-git` rewrites an SSH `origin` to an HTTPS URL carrying the bot token, so pushes
+  are authored by the bot even though your normal remote uses SSH.)
+- `gh auth login` once for your human account; bot commands override via `GH_TOKEN`.
+- `.github/workflows/label-bot-prs.yml` auto-labels PRs authored by any Bot account.
+
+Token minting requires `openssl`, `curl`, `jq`. Tokens expire after ~1 hour; `bot-env.sh`
+mints a fresh one each invocation. Secrets must never be committed.

@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Run `git` as the configured GitHub App bot.
+#
+# SSH remotes authenticate as your personal account, so bot pushes go over HTTPS
+# with the installation token. When pushing, an SSH `origin` (or any SSH GitHub
+# URL argument) is rewritten to an HTTPS URL carrying GH_TOKEN.
+#
+# Usage: scripts/bot-git push origin feat/my-branch
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+eval "$("${SCRIPT_DIR}/bot-env.sh")"
+
+args=("$@")
+if [[ "${args[0]:-}" == "push" ]]; then
+    origin_url="$(git remote get-url origin 2>/dev/null || true)"
+    https_origin=""
+    if [[ "${origin_url}" =~ ^git@github\.com:(.+)$ ]]; then
+        https_origin="https://x-access-token:${GH_TOKEN}@github.com/${BASH_REMATCH[1]}"
+    elif [[ "${origin_url}" =~ ^ssh://git@github\.com/(.+)$ ]]; then
+        https_origin="https://x-access-token:${GH_TOKEN}@github.com/${BASH_REMATCH[1]}"
+    fi
+
+    new_args=()
+    for a in "${args[@]}"; do
+        if [[ "$a" == "origin" && -n "${https_origin}" ]]; then
+            new_args+=("${https_origin}")
+        elif [[ "$a" =~ ^git@github\.com:(.+)$ ]]; then
+            new_args+=("https://x-access-token:${GH_TOKEN}@github.com/${BASH_REMATCH[1]}")
+        elif [[ "$a" =~ ^ssh://git@github\.com/(.+)$ ]]; then
+            new_args+=("https://x-access-token:${GH_TOKEN}@github.com/${BASH_REMATCH[1]}")
+        else
+            new_args+=("$a")
+        fi
+    done
+    args=("${new_args[@]}")
+fi
+
+exec git "${args[@]}"
