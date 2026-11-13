@@ -28,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.1.1
         with:
           run_install: false
       - name: Setup Node.js 18.x
@@ -55,7 +55,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.1.1
         with:
           run_install: false
       - name: Setup Node.js 18.x
@@ -82,7 +82,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.1.1
         with:
           run_install: false
       - name: Setup Node.js 18.x
@@ -110,7 +110,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Install pnpm
-        uses: pnpm/action-setup@v4.2.0
+        uses: pnpm/action-setup@v6.1.1
         with:
           run_install: false
       - uses: actions/setup-node@v6.2.0
