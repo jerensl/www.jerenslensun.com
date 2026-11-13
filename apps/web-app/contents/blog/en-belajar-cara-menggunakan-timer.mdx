@@ -1,0 +1,71 @@
+---
+title: 'Learning How to Use Timer in Go'
+date: '2022-09-19'
+cover: data.jpg
+isPublished: false
+description: Here we will learn about timers
+tags: ['golang', 'time']
+translation: id-belajar-cara-menggunakan-timer
+---
+
+## Time Format
+
+Before we discuss time further, it would be good to first learn about the existing time format, so that we can anticipate
+problems that may arise in the future if there is inconsistency in time. For time format we will focus on RFC 3999, which is quite often used in several
+programming languages such as new Date in javascript etc. RFC 3339 itself follows the ISO 8601 format where the difference is that we can replace T in ISO 8601
+with a space in RFC 3339.
+
+For writing ISO 8601 format as below:
+
+> 2022-09-17T07:20:50.52Z
+
+-   2022 is the year
+-   09 is the month
+-   17 is the day
+-   T is the separator between date and time
+-   07 is the hour
+-   20 is the minute
+-   50 is the second
+-   52 is the millisecond
+-   Z is the UTC time zone
+
+By using the RFC 3339 format we can replace writing z with a space as below:
+
+> 2022-09-17 07:20:50.52Z
+
+How if we want to create a date and time based on our timezone, for example my own timezone is Manado which is +08:00, so what I do
+is just replace Z with my timezone time format as follows:
+
+> 2022-09-17 07:20:50.52+08:00
+
+In golang we can use the standard library time to deal with time, here we will first parse the data
+using the `time.Parse` method which has 2 arguments:
+
+1. Time format, here we use RFC3339
+2. The time that we will parse
+
+Time itself will receive 2 outputs, the first is the struct of Time itself and the second is an error, usually used if there is
+an error in writing the format
+
+```go showlinenumbers theme=orange
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	timer, err := time.Parse(time.RFC3339, "2023-06-22T15:04:05+08:00")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+
+	fmt.Println(timer)
+}
+```
+
+## Schedule one shot task
+
+## Cron Job

@@ -1,0 +1,262 @@
+---
+title: 'How to Send Data on the Ovord 2 Platform'
+date: '2022-12-29'
+cover: speed.jpg
+isPublished: true
+description: Tutorial on sending data from an embedded device to the Ovord 2 monitoring platform application
+tags: ['algorithm']
+translation: id-cara-mengirim-data-pada-platform-ovord-2
+---
+
+The Ovord 2 Platform is an IoT platform that can monitor data sent through embedded devices such as the ESP32, in realtime using data visualization in the form of graphs and tables, that data is stored on the server and can be downloaded using csv file format, so it can be reprocessed for other purposes. This platform also has flexibility towards the sensors used, but for now some sensor types are not yet available.
+
+## Prerequisites:
+
+1. You must have an account first.
+2. The account has been verified via email.
+3. Having an embedded device such as arduino or esp32.
+
+## Registering a new device
+
+To go to the platform, you can go to the following [link](https://dashboard.cec-unsrat.com/). After logging in, you will be redirected to the dashboard page. To enter the device management page, press the `Device` menu on the navigation menu located on the left. If no device has been registered yet, add one by pressing the `+ Add New Device` button, after that you will be redirected to a modal containing the device form.
+
+You will be asked to fill in the following columns:
+
+-   Device Name: the name for the device you use.
+-   Device Short Name: the short name of your device, for identification purposes. That name is unique, applies to all platform users and can only be claimed once.
+    In the sensor section you can also add sensors based on your needs by pressing the `+` button located below the sensor, likewise to delete them you can press the `x` button aligned with the sensor to be deleted.
+-   Sensor Name: the name of the sensor used, for identification purposes. That name is unique,
+    this means that every sensor in one device must have a different name.
+-   Sensor Type: the type of sensor to be used.
+-   Sensor Unit: the unit of the sensor to be used.
+
+After creating the device, you will get information about the sensor short name along with the token that will be used to identify the device.
+
+## Connected with embedded device.
+
+> For the example below we will use the ESP32 as an example, because ESP32 arduino performs abstraction against esp-idf, some libraries such as for example for https connection may not work, because technically ESP32 is different from arduino, the example below may not work for devices other than ESP32 such as ESP8666 and some arduino products.
+
+To send data on the ESP32 device, an internet connection is needed first, for that we need a library to configure the ESP32 device with the internet network using the wifi embedded in the ESP32, here we use the WifiManager library, as written in its official documentation on [github](https://github.com/tzapu/WiFiManager), this library is able to work on ESP8266 and ESP32 type devices. The way WifiManager works is by preparing a web server that will be used to enter credentials through the Wifi Access Point, and the credentials will be directly stored in the embedded device storage.
+
+Below is a simple coding example that we take from its official documentation on [github](https://github.com/tzapu/WiFiManager),
+in the `autoConnect` function there are 2 arguments that we must fill, where:
+
+-   The first argument is the SSID.
+-   The second argument is the password of that hotspot.
+
+```arduino showlinenumbers theme=orange
+#include "Arduino.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
+
+void setup() {
+    WiFi.mode(WIFI_STA);
+    Serial.begin(115200);
+    WiFiManager wm;
+    bool res;
+    
+    res = wm.autoConnect("AutoConnectAP","password");
+    if(!res) {
+        Serial.println("Failed to connect");
+    } else {
+        Serial.println("connected...yeey :)");
+    }   
+}
+
+void loop() {
+}
+```
+
+After that you can connect using a hotspot through your phone or laptop to the embedded device, to fill in the wifi credentials that will be connected to the embedded device, the way is by entering the browser, then typing the following url http://192.168.4.1/, there you will go to the page to fill in the wifi credentials that will be connected to the embedded device.
+
+Next we will do data serialization into JSON format, here I will use ArduinoJson, to help with serialization. In the ArduinoJson library, there are two ways to store JsonDocument, namely into the stack or into the heap:
+
+-   Use `StaticJsonDocument` to store json data into the stack (recommended for documents smaller than 1kb)
+-   Use `DynamicJsonDocument` to store json data into the heap (recommended for documents larger than 1kb)
+    You can read more about it here [Arduino JSON](https://arduinojson.org/v6/api/jsondocument/)
+    Whereas to create an array you can use `doc.createNestedArray()`, then you can call the `add` method to add a value to that array.
+
+```arduino showlinenumbers theme=orange
+#include <ArduinoJson.h>
+
+void setup() {
+}
+
+void loop() {
+    int arraySize = 2;
+    String sensors[arraySize] = {
+        "temp-01",
+        "temp-02",
+        };
+    float values[arraySize] = {
+        0.4,
+        0.1
+        };
+        
+    StaticJsonDocument<1024> doc;
+    doc["deviceToken"] = String(token);
+    
+    JsonArray sensor = doc.createNestedArray("sensors");
+    for (int i=0; i< size; i++) sensor.add(sensors[i]);
+    
+    JsonArray value = doc.createNestedArray("data");
+    for (int i=0; i< size; i++) value.add(values[i]);
+
+    String data;
+    serializeJson(doc, data);
+}
+```
+
+After that we need a timer to send data repeatedly based on a certain time interval, here we use millis because millis has a non-blocking feature compared to delay which will block the running of the program.
+
+```arduino showlinenumbers theme=orange
+const unsigned long eventInterval = 2000;
+unsigned long previousTime = 0;
+
+void loop() {
+    
+    if (currentTime - previousTime >=  eventInterval) {
+	    // coding will be executed based on the specified interval time
+        previousTime = currentTime;
+    }
+
+}
+```
+
+Next we will send data using https, to use https request, here we use the `HTTPClient` and `WiFiClientSecure` library from [espressif](https://github.com/espressif/arduino-esp32/tree/master/libraries).
+To send data there is a safe way using a CA Certificate and an unsafe way where there is no CA Certificate, but we will use the safe way.
+
+To send data on the IoT Platform, here we use the https protocol, which requires data such as the following
+
+1. Device Short Name: entered through query parameter or url
+2. Token: entered in the body of the JSON to be sent
+3. Sensor Name: entered in the body of the JSON to be sent
+4. Data: entered in the body of the JSON to be sent
+
+For device short name and token, you can enter them through the global variable `deviceShortName` and `token` whereas
+sensor and data you can enter them in the loop function for the `sensors` array and the `data` array,
+make sure the order and length of the sensor name is the same as the one in the data and don't forget to change the number of sensors
+used in the `arraySize` variable.
+
+Below is an example of the complete coding, you can directly copy the CA certificate located below, and keep in mind that the CA certificate may expire at a certain time
+
+```arduino showlinenumbers theme=orange line=9,10,12-34,91-99
+#include "Arduino.h"
+#include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
+#include <HTTPClient.h>
+#include <WiFiClientSecure.h>
+#include <ArduinoJson.h>
+
+const unsigned long eventInterval = 2000;
+unsigned long previousTime = 0;
+const char* deviceShortName = "device_test";
+const char* token = "fd92bad2-3c6c-4047-8759-b68d5fd8b03d";
+
+const char* rootCACertificate = \
+"-----BEGIN CERTIFICATE-----\n" \
+"MIIDjjCCAnagAwIBAgIQAzrx5qcRqaC7KGSxHQn65TANBgkqhkiG9w0BAQsFADBh\n" \
+"MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\n" \
+"d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBH\n" \
+"MjAeFw0xMzA4MDExMjAwMDBaFw0zODAxMTUxMjAwMDBaMGExCzAJBgNVBAYTAlVT\n" \
+"MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\n" \
+"b20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IEcyMIIBIjANBgkqhkiG\n" \
+"9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzfNNNx7a8myaJCtSnX/RrohCgiN9RlUyfuI\n" \
+"2/Ou8jqJkTx65qsGGmvPrC3oXgkkRLpimn7Wo6h+4FR1IAWsULecYxpsMNzaHxmx\n" \
+"1x7e/dfgy5SDN67sH0NO3Xss0r0upS/kqbitOtSZpLYl6ZtrAGCSYP9PIUkY92eQ\n" \
+"q2EGnI/yuum06ZIya7XzV+hdG82MHauVBJVJ8zUtluNJbd134/tJS7SsVQepj5Wz\n" \
+"tCO7TG1F8PapspUwtP1MVYwnSlcUfIKdzXOS0xZKBgyMUNGPHgm+F6HmIcr9g+UQ\n" \
+"vIOlCsRnKPZzFBQ9RnbDhxSJITRNrw9FDKZJobq7nMWxM4MphQIDAQABo0IwQDAP\n" \
+"BgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNVHQ4EFgQUTiJUIBiV\n" \
+"5uNu5g/6+rkS7QYXjzkwDQYJKoZIhvcNAQELBQADggEBAGBnKJRvDkhj6zHd6mcY\n" \
+"1Yl9PMWLSn/pvtsrF9+wX3N3KjITOYFnQoQj8kVnNeyIv/iPsGEMNKSuIEyExtv4\n" \
+"NeF22d+mQrvHRAiGfzZ0JFrabA0UWTW98kndth/Jsw1HKj2ZL7tcu7XUIOGZX1NG\n" \
+"Fdtom/DzMNU+MeKNhJ7jitralj41E6Vf8PlwUHBHQRFXGU7Aj64GxJUTFy8bJZ91\n" \
+"8rGOmaFvE7FBcf6IKshPECBV1/MUReXgRPTqh5Uykw7+U0b6LJ3/iyK5S9kJRaTe\n" \
+"pLiaWN0bfVKfjllDiIGknibVb63dDcY3fe0Dkhvld1927jyNxF1WW6LZZm6zNTfl\n" \
+"MrY=\n" \
+"-----END CERTIFICATE-----\n";
+
+void setup() {
+    WiFi.mode(WIFI_STA);
+    Serial.begin(115200);
+    WiFiManager wm;
+    bool res;
+    
+    res = wm.autoConnect("AutoConnectAP","password");
+    if(!res) {
+        Serial.println("Failed to connect");
+    } else {
+        Serial.println("connected...yeey :)");
+    }   
+}
+
+void sendData(WiFiClientSecure *client, float values[], String sensors[], int size) {
+    HTTPClient https;
+    StaticJsonDocument<1024> doc;
+    doc["deviceToken"] = String(token);
+    
+    JsonArray sensor = doc.createNestedArray("sensors");
+    for (int i=0; i< size; i++) sensor.add(sensors[i]);
+    
+    JsonArray value = doc.createNestedArray("data");
+    for (int i=0; i< size; i++) value.add(values[i]);
+
+    String data;
+    serializeJson(doc, data);
+    Serial.print("[HTTPS] begin...\n");
+    if (https.begin(*client, "https://cec.azurewebsites.net/api/telemetry/add?deviceShortName="+String(deviceShortName))) {
+        Serial.print("[HTTPS] POST...\n");
+        https.addHeader("Host", "cec.azurewebsites.net");
+        https.addHeader("Content-Type", "application/json");
+        https.addHeader("Content-Length", String(data.length()));
+        https.addHeader("Accept-Language", "en-US,en;q=0.9" );
+        https.addHeader("Accept-Encoding", "gzip,deflate" );
+        https.addHeader("Keep-Alive", "300" );
+        https.addHeader("Connection", "keep-alive");
+
+        int httpCode = https.POST(data);
+        if (httpCode > 0) {
+        Serial.printf("[HTTPS] POST... code: %d\n", httpCode);
+        if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY) {
+            String payload = https.getString();
+            Serial.println(payload);
+        }
+        } else {
+            Serial.printf("[HTTPS] POST... failed, error: %s\n", https.errorToString(httpCode).c_str());
+        }
+        https.end();
+    } else {
+        Serial.printf("[HTTPS] Unable to connect\n");
+    }
+}
+
+void loop() {
+    int arraySize = 2;
+    String sensors[arraySize] = {
+        "temp-01",
+        "temp-02",
+        };
+    float values[arraySize] = {
+        0.4,
+        0.1
+        };
+        
+    unsigned long currentTime = millis();
+
+    if (currentTime - previousTime >=  eventInterval) {
+        WiFiClientSecure *client = new WiFiClientSecure;
+        if(client) {
+            client -> setCACert(rootCACertificate);
+            
+            sendData(client, values, sensors, arraySize);
+            
+            delete client;
+        } else {
+            Serial.println("Unable to create client");
+        }
+        previousTime = currentTime;
+    }
+
+}
+```
+
+If there are further questions, please contact me through the contact on the footer page below.

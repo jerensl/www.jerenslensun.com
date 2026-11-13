@@ -1,0 +1,182 @@
+---
+title: 'Sorting Algorithm'
+date: '2022-08-10'
+cover: sorting.jpeg
+isPublished: true
+description: Sorting algorithm is an algorithm used to sort a collection of data for example an array.
+tags: ['algorithm']
+translation: id-sorting-algoritma
+---
+
+On this occasion, we will learn about sorting algorithms. Sorting algorithm itself is quite widely used compared to
+other algorithms and usually each programming language has a built-in syntax for sorting a data,
+in golang itself there is a standard library sort that can be used to sort data,
+but this time we will implement the algorithm directly without using the standard library.
+
+Further we will discuss 3 algorithms and compare them, the algorithms we will learn are:
+
+1. Insertion Sort
+2. Merge Sort
+3. Quick Sort
+
+## Insertion Sort
+
+You may be familiar with the solitaire card game, the Insertion Sort algorithm itself is similar to how we
+sort cards when playing that game.
+Insertion sort itself is quite efficient for small list sizes as we can see below for the best case in time complexity
+and is also quite simple to implement. Besides that, memory usage itself is quite efficient as can be seen
+in the data below.
+
+Time Complexity
+Worst Case: $O(n^2)$
+Average Case: $O(n^2)$
+Best Case: $O(n)$
+
+Space Complexity: $O(1)$
+
+Insertion sort implementation
+
+To implement Insertion Sort we need two pointers where here we give the name
+index i and j, index i will iterate for each number in the nums array, starting from the first index,
+while index j itself will iterate by decreasing backwards, then the value of j will be compared with the value
+behind it or j-1, if the value of j is larger a position swap will be made so that the value can be sorted correctly.
+Imagine the value of index i in the solitaire game is a card that has not been drawn while the value of index j is a newly drawn card
+and j-1 is a value that has been sorted.
+
+```go showlinenumbers theme=orange
+func InsertionSort(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		for j := i; j > 0; j-- {
+			if nums[j-1] > nums[j] {
+				nums[j], nums[j-1] = nums[j-1], nums[j]
+			}
+		}
+	}
+}
+```
+
+## Merge Sort
+
+Merge sort is a divide and conquer algorithm, this algorithm works by dividing the problem into the smallest unit
+then solving it from there but there is a trade off, namely Auxiliary Space which is the additional memory needed
+by that algorithm to hold the result of merging the array.
+
+Time Complexity
+Worst Case: $O(n log(n))$
+Average Case: $O(n log(n))$
+Best Case: $O(n log(n))$
+
+Space Complexity: $O(n)$
+
+Merge sort implementation:
+
+1. We need the `mergeSort` function then we will do recursion to break the array until there is only 1 number in the array,
+   for the edge case here we will return the function array if the length of the array is less than 2.
+2. After that we will merge the array with the array beside it using the `merge` function, but before that
+   we need to compare the values first.
+3. We also need to create a new variable to hold the new array that we will sort.
+
+```go showlinenumbers theme=orange
+func mergeSort(nums []int) []int {
+	if len(nums) < 2 {
+		return nums
+	}
+
+	return merge(mergeSort(nums[:len(nums)/2]), mergeSort(nums[len(nums)/2:]))
+}
+
+func merge(firstNum, secondNum []int) []int {
+	var mergedNum []int
+
+	i, j := 0, 0
+
+	for i < len(firstNum) && j < len(secondNum) {
+		if firstNum[i] < secondNum[j] {
+			mergedNum = append(mergedNum, firstNum[i])
+			i++
+		} else {
+			mergedNum = append(mergedNum, secondNum[j])
+			j++
+		}
+	}
+
+	for ; i < len(firstNum); i++ {
+		mergedNum = append(mergedNum, firstNum[i])
+	}
+
+	for ; j < len(secondNum); j++ {
+		mergedNum = append(mergedNum, firstNum[j])
+	}
+
+	return mergedNum
+}
+```
+
+## Quick Sort
+
+Quick sort is also a divide and conquer algorithm, but it is also an in place sorting algorithm which means quick sort
+itself directly changes the input without requiring Auxiliary Space which means the space complexity is very efficient, namely constant.
+Quick sort works by choosing a pivot randomly and values smaller than the pivot will be placed to the left and
+values greater than the pivot will be placed to the right and that applies recursively, depending on how well
+the pivot is chosen which will determine how efficient the time complexity of that algorithm is. If the pivot chosen is the largest or
+smallest value consecutively then what happens is the worst case scenario which is $O(n^2)$, ideally a good pivot is
+the median value of the numbers in the array, there is also another way which is to take values from 3 random positions in the array
+then find the median.
+
+Time Complexity
+Worst Case: $O(n^2)$
+Average Case: $O(n log(n))$
+Best Case: $O(n log(n))$
+
+Space Complexity: $O(1)$
+
+Quick Sort implementation:
+
+-   First we will create a `QuickSort` function which has 3 arguments, namely:
+    1.  nums: where the slice of values that we will sort
+    2.  low: the smallest index position of the slice
+    3.  high: the highest index position of the slice
+-   Here the `QuickSort` function will keep running recursively, if the low value is smaller than the high value.
+-   After that we need a `partition` function to choose the pivot and also perform sorting.
+    -   In the `partition` function we will take a random value between the low and high index.
+    -   After that we need to move the pivot position5 with the high position.
+    -   After it is moved we will use two pointers where i and j, the purpose of i and j itself to
+        separate values that are smaller than the pivot located below index i.
+    -   Then after getting all values smaller than the pivot to index i, then we need to return the pivot to
+        the position between values smaller than the pivot and values greater than the pivot
+
+```go showlinenumbers theme=orange
+func QuickSort(nums []int, low, high int) {
+	if low < high {
+		p := partition(nums, low, high)
+		QuickSort(nums, low, p)
+		QuickSort(nums, p+1, high)
+	}
+}
+
+func partition(nums []int, low, high int) int {
+	pivot := rand.Intn(high-low) + low
+
+	nums[pivot], nums[high] = nums[high], nums[pivot]
+
+    i := low
+    for j := low; j < high; j++ {
+        if nums[j] < nums[high] {
+            nums[i], nums[j] = nums[j], nums[i]
+            i++
+        }
+    }
+
+    nums[high], nums[i] = nums[i], nums[high]
+
+	return i
+}
+```
+
+## Conclusion
+
+When compared, Quicksort is superior compared to the O(nlogn) algorithm because it is an in place algorithm where
+it does not require additional memory compared to Mergesort but in some usage scenarios such as sorting
+in external data structures such as linked lists mergesort will be more efficient compared to Quicksort whereas
+for Insertion Sort it is more often used on small sized data because it is easier to implement and in some
+scenarios its algorithm becomes O(n).

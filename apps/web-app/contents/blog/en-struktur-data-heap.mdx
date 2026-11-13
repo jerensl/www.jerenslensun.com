@@ -1,0 +1,395 @@
+---
+title: 'Heap Data Structure'
+date: '2022-01-17'
+cover: data-heap.jpg
+isPublished: true
+description: Binary Heap is a complete tree data structure usually represented as an array, which can be min heap or max heap.
+tags: ['data', 'structures']
+translation: id-struktur-data-heap
+---
+
+Heap is a data structure based on a complete binary tree, but represented through an array. There are two types of heap, namely
+
+1. Min Heap: where the root node is the largest value compared to the children node and applies recursively at all levels.
+2. Max Heap: where the root node is the smallest value compared to the children node and applies recursively at all levels.
+
+As an example we will only use MaxHeap. Here we will create a struct named Heap to store values, where there will be 2 values, namely:
+
+-   Bucket, which will store an array of integer data
+-   Size, the number of values contained in the Bucket array
+
+```go showlinenumbers theme=orange line=3-6
+package main
+
+type Heap struct {
+	Bucket []int
+	Size int
+}
+
+func main() {
+
+}
+```
+
+## Create New MaxHeap
+
+After that we will create the NewMaxHeap function, where:
+
+-   Argument, will receive an array containing integer values
+-   Return, will declare that the Heap variable that we return is a pointer. The purpose of using a pointer is because a pointer is a reference to a memory address, so we can manipulate data and store the state that existed before.
+
+In the NewMaxHeap function, we will:
+
+1. Create a maxHeap variable, which is an empty struct. The use of **&** or _dereferencing_, is to manipulate directly the data on that pointer memory address.
+2. Next we create a for loop using range on the input nums, where there are 2 variables returned, namely index which we replace with underscore, because we don't use it and value which is the value in that array.
+
+```go showlinenumbers theme=orange line=8-16
+package main
+
+type Heap struct {
+	Bucket []int
+	Size int
+}
+
+func NewMaxHeap(nums []int) *Heap {
+	maxHeap := &Heap{}
+
+	for _, value := range nums {
+		maxHeap.Insert(value)
+	}
+
+	return maxHeap
+}
+
+func main() {
+
+}
+```
+
+## Insert MaxHeap
+
+In the Insert method which will receive an integer value argument, we will:
+
+1. Directly use append to insert that value into the Bucket array.
+2. After that we will do increment using Size++, so that every time a value is inserted the size will keep increasing
+3. After that we will call the heapifyUp method that we will create later, to reorganize the order in the array.
+
+```go showlinenumbers theme=orange line=18-23
+package main
+
+type Heap struct {
+	Bucket []int
+	Size int
+}
+
+func NewMaxHeap(nums []int) *Heap {
+	maxHeap := &Heap{}
+
+	for _, value := range nums {
+		maxHeap.Insert(value)
+	}
+
+	return maxHeap
+}
+
+func (m *Heap) Insert(value int) {
+	m.Bucket = append(m.Bucket, value)
+	m.Size++
+
+	m.heapifyUp()
+}
+
+func main() {
+
+}
+```
+
+## HeapifyUp MaxHeap
+
+To get the parent index, we need to subtract it by 1 first and divide by 2, because we use integer so if the value divided for example becomes 0.5 it will be rounded to 0.
+
+```go showlinenumbers theme=orange
+func parentIndex(currentIndex int) int {
+	return (currentIndex-1)/2
+}
+```
+
+Usually to do swapping we need to create a temporary variable, but we can shorten it by directly doing the swap like this.
+
+```go showlinenumbers theme=orange
+func (m *Heap) swap(current, parent int) {
+	m.Bucket[current], m.Bucket[parent] = m.Bucket[parent], m.Bucket[current]
+}
+```
+
+The heapifyUp method is made with the purpose of reorganizing the array so that the new value we inserted is in the appropriate position or the larger value is above, the smaller value.
+
+1. In the heapifyUp method we need to create a currentIndex variable to track the last index of the array value that we just inserted,
+2. Here we will compare currentIndex with parentIndex which is the parent of currentIndex, if the currentIndex value is still larger the loop will keep running and do a swap between the two values, then the currentIndex value will become parentIndex
+
+```go showlinenumbers theme=orange line=25-32
+package main
+
+type Heap struct {
+	Bucket []int
+	Size int
+}
+
+func NewMaxHeap(nums []int) *Heap {
+	maxHeap := &Heap{}
+
+	for _, value := range nums {
+		maxHeap.Insert(value)
+	}
+
+	return maxHeap
+}
+
+func (m *Heap) Insert(value int) {
+	m.Bucket = append(m.Bucket, value)
+	m.Size++
+
+	m.heapifyUp()
+}
+
+func (m *Heap) heapifyUp() {
+	currentIndex := m.Size-1
+
+	for m.Bucket[currentIndex] > m.Bucket[parentIndex(currentIndex)] {
+		m.swap(currentIndex, parentIndex(currentIndex))
+		currentIndex = parentIndex(currentIndex)
+	}
+}
+
+func parentIndex(currentIndex int) int {
+	return (currentIndex-1)/2
+}
+
+func (m *Heap) swap(current, parent int) {
+	m.Bucket[current], m.Bucket[parent] = m.Bucket[parent], m.Bucket[current]
+}
+
+func main() {
+	result := NewMaxHeap([]int{10, 20, 30, 40, 50})
+	fmt.Println(result)
+}
+```
+
+## Extract MaxHeap
+
+Next we will remove the parent root from the heap or the largest value using the Extract() method.
+
+1. We replace the first index value with the value of the last index
+2. Then here we will reinitialize the array without including the last index, after that we will reduce the Size of the array and call the heapifyDown() method
+
+```go showlinenumbers theme=orange line=25-31
+package main
+
+type Heap struct {
+	Bucket []int
+	Size int
+}
+
+func NewMaxHeap(nums []int) *Heap {
+	maxHeap := &Heap{}
+
+	for _, value := range nums {
+		maxHeap.Insert(value)
+	}
+
+	return maxHeap
+}
+
+func (m *Heap) Insert(value int) {
+	m.Bucket = append(m.Bucket, value)
+	m.Size++
+
+	m.heapifyUp()
+}
+
+func (m *Heap) Extract() {
+	m.Bucket[0] = m.Bucket[m.Size-1]
+
+	m.Bucket = m.Bucket[:m.Size-1]
+
+	m.Size--
+	m.heapifyDown()
+}
+
+func (m *Heap) heapifyUp() {
+	currentIndex := m.Size-1
+
+	for m.Bucket[currentIndex] > m.Bucket[parentIndex(currentIndex)] {
+		m.swap(currentIndex, parentIndex(currentIndex))
+		currentIndex = parentIndex(currentIndex)
+	}
+}
+
+func parentIndex(currentIndex int) int {
+	return (currentIndex-1)/2
+}
+
+func (m *Heap) swap(current, parent int) {
+	m.Bucket[current], m.Bucket[parent] = m.Bucket[parent], m.Bucket[current]
+}
+
+func main() {
+	result := NewMaxHeap([]int{10, 20, 30, 40, 50})
+	fmt.Println(result)
+}
+```
+
+## HeapifyDown MaxHeap
+
+To get the left and right child index we will create 2 functions:
+
+1.  leftIndex(), where to get the child index we need to multiply by 2 then add 1
+2.  rightIndex(), where to get the child index we need to multiply by 2 then add 2
+
+```go showlinenumbers theme=orange
+func leftIndex(currentIndex int) int {
+	return currentIndex*2+1
+}
+
+func rightIndex(currentIndex int) int {
+	return currentIndex*2+2
+}
+```
+
+Here we will create 5 variables, namely
+
+1. currentIndex, for the index that will be traversed
+2. lastIndex, for the last index in the array
+3. leftNode, is the left child at currentIndex
+4. rightNode, is the right child at currentIndex
+5. childToCompare, is a temporary index that we will store
+
+Next we need a while loop that will keep running when leftNode is smaller than or equal to leftNode, then we will create an if statement where:
+
+1. When the leftNode index is the same as the lastIndex index, then the childToCompare index value will be changed to leftNode
+2. When the leftNode value is greater than the rightNode value, then the childToCompare index value will be changed to leftNode
+3. If the 2 scenarios above are not met, then the childToCompare index value will be changed to rightNode
+
+For the next if statement we will check if the childToCompare value is greater than the currentIndex value, then:
+
+1.  We will do a swap between the currentIndex and childToCompare values
+2.  Next we will update the currentIndex variable to become childToCompare
+3.  Lastly we also need to reassign the leftNode and rightNode values
+
+```go showlinenumbers theme=orange line=45-70
+package main
+
+import "fmt"
+
+type Heap struct {
+	Bucket []int
+	Size int
+}
+
+func NewMaxHeap(nums []int) *Heap {
+	maxHeap := &Heap{}
+
+	for _, value := range nums {
+		maxHeap.Insert(value)
+	}
+
+	return maxHeap
+}
+
+func (m *Heap) Insert(value int) {
+	m.Bucket = append(m.Bucket, value)
+	m.Size++
+
+	m.heapifyUp()
+}
+
+func (m *Heap) Extract() {
+	m.Bucket[0] = m.Bucket[m.Size-1]
+
+	m.Bucket = m.Bucket[:m.Size-1]
+
+	m.Size--
+	m.heapifyDown()
+}
+
+func (m *Heap) heapifyUp() {
+	currentIndex := m.Size-1
+
+	for m.Bucket[currentIndex] > m.Bucket[parentIndex(currentIndex)] {
+		m.swap(currentIndex, parentIndex(currentIndex))
+		currentIndex = parentIndex(currentIndex)
+	}
+}
+
+func (m *Heap) heapifyDown() {
+	currentIndex := 0
+	lastIndex := m.Size-1
+	leftNode, rightNode := leftIndex(currentIndex), rightIndex(currentIndex)
+	childToCompore := 0
+
+	for leftNode <= lastIndex {
+		if leftNode == lastIndex {
+			childToCompore = leftNode
+		} else if m.Bucket[leftNode] > m.Bucket[rightNode] {
+			childToCompore = leftNode
+		} else {
+			childToCompore = rightNode
+		}
+
+		if m.Bucket[currentIndex] < m.Bucket[childToCompore] {
+			m.swap(currentIndex, childToCompore)
+
+			currentIndex = childToCompore
+
+			leftNode, rightNode = leftIndex(currentIndex), rightIndex(currentIndex)
+		} else {
+			return
+		}
+	}
+}
+
+func parentIndex(currentIndex int) int {
+	return (currentIndex-1)/2
+}
+
+func leftIndex(currentIndex int) int {
+	return currentIndex*2+1
+}
+
+func rightIndex(currentIndex int) int {
+	return currentIndex*2+2
+}
+
+func (m *Heap) swap(current, parent int) {
+	m.Bucket[current], m.Bucket[parent] = m.Bucket[parent], m.Bucket[current]
+}
+
+func main() {
+	result := NewMaxHeap([]int{10, 20, 30, 40, 50})
+	fmt.Println(result)
+
+	result.Insert(35)
+	fmt.Println(result)
+
+	result.Extract()
+	fmt.Println(result)
+}
+```
+
+For the last step, we will test directly what we have created above, and the log on the monitor will be as below.
+
+## Log Output MaxHeap
+
+```go theme=orange
+> go run main.go
+&{[50 40 20 10 30] 5}
+&{[50 40 35 10 30 20] 6}
+&{[40 30 35 10 20] 5}
+```
+
+## Time Complexity
+
+Worst Case Scenario :
+
+-   Insert, when we do append on the array it will take n time, but when we do heapifyUp it will take log n time, so the total time required is n log n for inserting
+-   Extract, same as insert where we remove the last array by reassigning the array variable, after that we do heapifyDown, so the total time required is n log n for extracting

@@ -1,0 +1,48 @@
+---
+title: 'Perjalanan Saya sebagai Mentee LFX - Eksplorasi Pengujian E2E dengan Playwright pada Meshery'
+date: '2024-12-10'
+cover: speed.jpg
+isPublished: true
+description: Perjalanan dimulai dengan eksplorasi komprehensif terhadap framework pengujian end-to-end (E2E) Meshery yang ada, dibangun menggunakan Cypress. Memperoleh pemahaman mendalam tentang pengaturan yang ada sangat penting untuk memastikan transisi yang mulus ke Playwright.
+tags: ['mentorship', 'meshery']
+translation: en-lfx-menthorship
+---
+
+[Meshery](https://playground.meshery.io/) adalah platform open source yang dapat diperluas, dirancang untuk terintegrasi secara mulus dengan ekosistem Kubernetes. Ini adalah alat yang kuat untuk mengelola infrastruktur dan aplikasi cloud-native di berbagai penyedia cloud.
+
+Selain [Meshery](https://playground.meshery.io/), kami memperkenalkan [Kanvas](https://kanvas.new/), alat baru yang inovatif yang menyederhanakan dan memvisualisasikan proses desain untuk mengelola arsitektur cloud-native. Dengan Kanvas, pengguna mendapatkan antarmuka yang intuitif dan grafis, memudahkan untuk membangun, memelihara, dan berbagi desain mereka.
+
+### Tantangan
+
+Tantangan utama selama mentorship saya adalah memigrasikan pengujian end-to-end (E2E) dari Cypress ke Playwright. Tugas ini penting untuk memastikan proyek Meshery tetap dalam keadaan sehat di berbagai integrasinya. Prosesnya melibatkan pemanfaatan Playwright, GitHub Workflows, dan laporan pengujian yang mendokumentasikan diri sendiri untuk mengotomatiskan dan mempertahankan beragam integrasi Meshery.
+
+### Proses
+
+Perjalanan dimulai dengan eksplorasi komprehensif terhadap framework pengujian end-to-end (E2E) Meshery yang ada, dibangun menggunakan Cypress. Memperoleh pemahaman mendalam tentang pengaturan yang ada sangat penting untuk memastikan transisi yang mulus ke Playwright.
+
+- **Dokumentasi**: Salah satu tugas awal adalah memigrasikan panduan kontribusi dari Cypress ke Playwright. Saya mengembangkan dokumentasi terperinci langkah demi langkah untuk memandu kontributor melalui pengaturan dan proses kontribusi Playwright. Panduan ini kini menjadi sumber daya vital bagi siapa pun yang ingin berkontribusi pada proyek Meshery.
+- **Membangun Pelaporan Pengujian yang Kuat**: Tonggak penting adalah meningkatkan pelapor pengujian yang digunakan untuk pull request. Pelapor pengujian kustom yang ditingkatkan tidak hanya mendukung komentar inline tetapi juga mencatat dan menyimpan artefak pengujian, termasuk trace dan video, melalui artefak GitHub untuk tujuan debugging.
+- **Integrasi ke Pipeline CI/CD**: Langkah berikutnya melibatkan integrasi suite pengujian Playwright ke dalam pipeline Continuous Integration/Continuous Deployment (CI/CD) Meshery. Integrasi ini memastikan bahwa semua perubahan kode baru diuji secara konsisten, menjaga keandalan dan ketahanan platform. Kami menghadapi tantangan dengan inkonsistensi CI, yang kami selesaikan dengan menyesuaikan timeout, memilih alur kerja event GitHub yang sesuai, dan menghilangkan perilaku cache yang bermasalah.
+- **Implementasi Kasus Uji yang Kuat**: Fokus akhir adalah mengimplementasikan kasus uji yang andal dan komprehensif menggunakan Playwright. Langkah ini penting untuk mencakup berbagai skenario E2E Meshery, memastikan semua integrasi berperforma sesuai harapan dalam berbagai kondisi. Kasus uji dibuat untuk beberapa lingkungan—baik pengaturan lokal maupun instans Meshery. Menggunakan kapabilitas proyek Playwright, pengujian dijalankan dalam siklus hidup yang sama, mencakup hampir 100 relasi dalam prosesnya.
+
+### Hasil
+
+Pada akhir mentorship saya, saya mencapai hasil berikut:
+
+- Berhasil mentransisikan framework pengujian E2E Meshery dari Cypress ke Playwright.
+- Membuat dokumentasi yang kuat yang menyederhanakan proses kontribusi bagi pengembang.
+- Membangun pelapor pengujian kustom yang ditingkatkan yang menyediakan dukungan debugging yang berwawasan melalui log, trace, dan artefak video.
+- Mengintegrasikan Playwright ke pipeline CI/CD secara mulus, menyelesaikan inkonsistensi dan meningkatkan keandalan keseluruhan proses pengujian.
+- Mengembangkan kasus uji komprehensif yang mencakup skenario dan lingkungan yang beragam, memperkuat proses quality assurance untuk Meshery.
+
+### Mentor Saya
+
+Mentorship ini tidak akan berhasil tanpa bimbingan dan dukungan mentor saya:
+
+- [Lee Calcote](https://layer5.io/community/members/lee-calcote)
+- [Aabid Sofi](https://layer5.io/community/members/aabid-sofi)
+  Keahlian, kesabaran, dan dorongan mereka memainkan peran signifikan dalam membantu saya menavigasi tantangan dan bertumbuh sebagai pengembang. Saya sangat berterima kasih atas mentorship mereka sepanjang perjalanan ini.
+
+### Kesimpulan
+
+Mentorship LFX saya dengan Meshery telah menjadi bukti kekuatan kolaborasi open source dan dampak otomatisasi yang kuat dalam memelihara integrasi yang kompleks. Perjalanan ini tidak hanya meningkatkan keterampilan teknis saya tetapi juga memperdalam apresiasi saya terhadap komunitas open source. Saya berterima kasih atas kesempatan untuk berkontribusi pada Meshery dan berharap dapat melanjutkan perjalanan saya di ekosistem cloud-native.

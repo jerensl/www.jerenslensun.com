@@ -1,0 +1,68 @@
+---
+title: 'Alur Kerja GitHub Actions'
+date: '2025-06-01'
+cover: speed.jpg
+isPublished: true
+description: Dokumentasi ini menyediakan semua yang Anda butuhkan untuk memahami bagaimana GitHub Actions berperilaku terkait commit, branch, dan pull request. Ini juga menjelaskan bagaimana konteks alur kerja dipengaruhi oleh fork, secret, dan tipe trigger.
+tags: ['algoritma']
+translation: en-github-actions-workflow
+---
+
+Dokumentasi ini menyediakan semua yang Anda butuhkan untuk memahami bagaimana GitHub Actions berperilaku terkait commit, branch, dan pull request. Ini juga menjelaskan bagaimana konteks alur kerja dipengaruhi oleh fork, secret, dan tipe trigger.
+
+## Commit dan Branch
+
+Untuk mempelajari lebih lanjut tentang event yang memicu alur kerja, lihat [GitHub Docs – Events that Trigger Workflows](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#about-events-that-trigger-workflows).
+
+Ketika sebuah alur kerja berjalan, GitHub menyediakan berbagai informasi kontekstual, seperti:
+- `GITHUB_SHA`: commit SHA yang memicu alur kerja
+- `GITHUB_REF`: ref branch atau tag yang memulai run
+
+Nilai-nilai ini memungkinkan Anda menentukan secara tepat kode apa yang sedang dieksekusi.
+
+### Tipe Ref GitHub
+- **Branch Default (`main`/`master`)**
+    Branch utama yang didefinisikan dalam pengaturan repositori.
+- **Branch Merge Pull Request**
+    Sebuah synthetic merge commit yang dibuat ketika PR dibuka. Ini menggabungkan head PR dengan branch base.
+- **Branch Base Pull Request**
+    Branch target tempat PR dimaksudkan untuk digabungkan
+
+### Alur Kerja Pull Request Umum
+Ketika bekerja dengan pull request (terutama dari fork), dua tipe alur kerja utama umum digunakan:
+#### 1. `pull_request_target`
+- ✅ Memiliki akses ke **secret**
+- 📌 Selalu melakukan checkout kode dari **branch base**, bukan branch PR
+- ⚠️ Berhati-hati: Jika alur kerja Anda bergantung pada kode dari PR, ini mungkin tidak bekerja seperti yang diharapkan
+- 🔍 Berguna ketika merespons metadata PR (misalnya komentar, label) yang memerlukan akses ke secret
+- 🧪 Jika alur kerja Anda tidak dapat menemukan konteks PR pada branch base, ia mungkin gagal secara diam-diam
+#### 2. `pull_request`
+- ❌ **Tidak ada akses ke secret**
+- ✅ Melakukan checkout kode dari **branch merge PR**
+- 🔐 Lebih aman untuk menjalankan pengujian pada kontribusi yang tidak tepercaya (misalnya fork)
+
+### Memahami `GITHUB_SHA`
+GitHub menetapkan `GITHUB_SHA` ke nilai berbeda tergantung pada bagaimana alur kerja dipicu:
+1. **SHA Commit Terakhir**
+    Commit aktual terakhir pada branch pemicu (biasanya digunakan untuk push branch langsung).
+2. **SHA Commit Merge**
+    Sebuah synthetic merge commit antara head PR dan base. Default untuk event `pull_request`.
+
+🔍 Jika Anda ingin menjalankan alur kerja terhadap **commit persis dari head PR**, gunakan:
+[Checkout pull request head commit](https://github.com/actions/checkout?tab=readme-ov-file#checkout-pull-request-head-commit-instead-of-merge-commit).
+
+### Bekerja dengan Repositori yang Di-fork
+Ketika PR berasal dari fork:
+- GitHub menjalankan alur kerja dalam **konteks repositori base**
+- Branch dan commit PR hanya ada pada fork
+- 🔒 Demi keamanan, GitHub menonaktifkan secret untuk alur kerja yang dipicu oleh PR dari fork
+
+Ini dapat menyebabkan masalah di mana alur kerja tidak dapat mengakses konteks PR fork atau secret.
+
+### Secret GitHub
+Secret GitHub tidak akan tersedia jika Anda menjalankan alur kerja di luar branch base, terutama jika pull request Anda berasal dari repositori yang di-fork. Ini untuk melindungi dari aktivitas berbahaya potensial.
+
+### Event dan Payload
+Untuk daftar lengkap event yang didukung dan payload-nya, lihat [Webhook Events and Payloads](https://docs.github.com/en/webhooks/webhook-events-and-payloads).
+⚠️ **Penting**: Ketika berurusan dengan PR dari fork, GitHub mungkin **menghapus atau memodifikasi event/payload** demi keamanan. Ini dapat menyebabkan inkonsistensi di seluruh branch dan pemicu alur kerja.
+🧰 **Solusi**: Gunakan [GitHub Actions artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts) untuk mempertahankan atau meneruskan data yang diperlukan antar job ketika data event hilang atau tidak dapat diandalkan.
