@@ -35,7 +35,7 @@ jobs:
                   review-message: 'LGTM, ready to ship! 🚀'
                   github-token: ${{ steps.app-token.outputs.token }}
             - name: Label automerge
-              uses: actions/github-script@v8.0.0
+              uses: actions/github-script@v9
               with:
                   github-token: ${{ steps.app-token.outputs.token }}
                   script: |
