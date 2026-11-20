@@ -4,6 +4,7 @@ const priorityByPath = {
     '/about/': 0.9,
     '/blog/': 0.9,
     '/project/': 0.9,
+    '/resume/': 0.9,
 }
 
 const isContentPath = (path) =>

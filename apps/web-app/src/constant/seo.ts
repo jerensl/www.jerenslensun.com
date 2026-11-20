@@ -5,7 +5,7 @@ export const siteMetadata: SiteMetadata = {
     twitter: '@jerensl22',
     linkedin: 'https://www.linkedin.com/in/jerensl/',
     github: 'https://github.com/jerensl',
-    resume: 'https://drive.google.com/file/d/17cKewjUgjQomJ32VMxaWo1oigN-v1eqe/view?usp=sharing',
+    resume: 'https://jerensl.dev/resume.pdf',
     jobTitle: 'Software Engineer — Browser Engines & Developer Tooling',
 }
 export const app: App = {

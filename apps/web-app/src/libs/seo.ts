@@ -44,9 +44,8 @@ export function buildSeo(config: SeoConfig): SeoResult {
     }
 }
 
-export function personSchema(): JsonLdSchema {
+function personEntity(): JsonLdSchema {
     return {
-        '@context': 'https://schema.org',
         '@type': 'Person',
         '@id': PERSON_ID,
         name: app.title,
@@ -74,6 +73,35 @@ export function personSchema(): JsonLdSchema {
             siteMetadata.linkedin,
             `https://twitter.com/${siteMetadata.twitter.replace(/^@/, '')}`,
         ],
+    }
+}
+
+export function personSchema(): JsonLdSchema {
+    return {
+        '@context': 'https://schema.org',
+        ...personEntity(),
+    }
+}
+
+export function profilePageSchema(): JsonLdSchema {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'ProfilePage',
+        '@id': `${SITE_URL}/resume/#profile`,
+        url: `${SITE_URL}/resume/`,
+        name: `${app.title} — Resume`,
+        description:
+            'Resume of Jerens Lensun, a software engineer contributing to Servo, the Rust browser engine, with experience in browser internals, developer tooling, CI, and Playwright end-to-end testing.',
+        inLanguage: 'en-US',
+        mainEntity: {
+            ...personEntity(),
+            hasOccupation: {
+                '@type': 'Occupation',
+                name: siteMetadata.jobTitle,
+                occupationalCategory: 'Software Developers',
+                skills: 'Rust, TypeScript, browser engines, Web Platform Tests, Playwright, CI/CD',
+            },
+        },
     }
 }
 

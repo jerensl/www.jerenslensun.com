@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
 import { CareerCard } from '../CareerCard'
 import { Careers } from '@/constant/career'
-import { siteMetadata } from '@/constant/seo'
 import { InView } from 'react-intersection-observer'
 import { motion } from 'motion/react'
 
@@ -42,12 +41,10 @@ export const CareerSection: React.FC = () => {
                         }}
                     >
                         <a
-                            href={siteMetadata.resume}
-                            target="_blank"
+                            href="/resume"
                             className="inline-flex m-auto font-sans font-semibold gap-3 text-xl py-2 px-4 rounded-lg border-b-2 transition duration-150 ease-in-out hover:bg-gray-50 border-gray-100 hover:border-gray-300 dark:hover:bg-neutral-800 dark:border-neutral-900 dark:hover:border-neutral-700"
-                            rel="noopener noreferrer"
                         >
-                            <span>Get My CV</span>
+                            <span>View resume</span>
                             <FontAwesomeIcon className="block" icon={faFile} />
                         </a>
                     </motion.div>

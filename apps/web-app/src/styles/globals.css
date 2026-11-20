@@ -109,3 +109,34 @@
         @apply bg-[#fff8f7] dark:bg-[#1e0f0d] text-[#1e0f0d] dark:text-[#fff8f7];
     }
 }
+
+@page {
+    size: A4;
+    margin: 12mm;
+}
+
+@media print {
+    html,
+    body {
+        background: #ffffff !important;
+        color: #111827 !important;
+    }
+
+    nav,
+    footer {
+        display: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        box-shadow: none !important;
+    }
+
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+}

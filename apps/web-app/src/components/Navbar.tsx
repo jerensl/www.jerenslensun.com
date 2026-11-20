@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => {
 
 export const NavbarMobile: React.FC = () => {
     return (
-        <div className="fixed flex w-full px-10 py-2 bottom-0 h-18 bg-white dark:bg-neutral-800 z-40 md:hidden">
+        <div className="fixed flex w-full px-10 py-2 bottom-0 h-18 bg-white dark:bg-neutral-800 z-40 print:hidden md:hidden">
             <div className="flex justify-between w-full">
                 {pageLinks.map(({ name, url, icon }) => {
                     return (

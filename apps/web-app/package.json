@@ -14,7 +14,8 @@
     "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --silent",
     "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "resume:pdf": "node scripts/generate-resume-pdf.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",

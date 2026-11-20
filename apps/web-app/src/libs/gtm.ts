@@ -20,3 +20,19 @@ export const pageview = (url: string) => {
         page: url,
     })
 }
+
+export const trackEvent = (
+    event: string,
+    parameters: Record<string, unknown> = {}
+) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+
+    const gtmWindow = window as WindowWithDataLayer
+    gtmWindow.dataLayer = gtmWindow.dataLayer ?? []
+    gtmWindow.dataLayer.push({
+        event,
+        ...parameters,
+    })
+}

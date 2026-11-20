@@ -4,6 +4,7 @@ import {
     breadcrumbSchema,
     buildSeo,
     personSchema,
+    profilePageSchema,
 } from '@/libs/seo'
 
 describe('absoluteUrl', () => {
@@ -149,6 +150,23 @@ describe('personSchema', () => {
                 'https://www.linkedin.com/in/jerensl/',
                 'https://twitter.com/jerensl22',
             ],
+        })
+    })
+})
+
+describe('profilePageSchema', () => {
+    it('describes the resume page with a person main entity', () => {
+        expect(profilePageSchema()).toMatchObject({
+            '@type': 'ProfilePage',
+            url: 'https://jerensl.dev/resume/',
+            mainEntity: {
+                '@type': 'Person',
+                '@id': 'https://jerensl.dev/#person',
+                hasOccupation: {
+                    '@type': 'Occupation',
+                    name: 'Software Engineer — Browser Engines & Developer Tooling',
+                },
+            },
         })
     })
 })
