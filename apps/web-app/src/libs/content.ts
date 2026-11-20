@@ -11,6 +11,7 @@ import { getPlaiceholder } from 'plaiceholder'
 import { IBlogMetadata } from '@/types/blog'
 import { IMetadata } from '@/types/content'
 import { getPostLanguage } from './localization'
+import { getReadingTime } from './reading'
 import { normalizeTags } from './tags'
 
 export const getFiles = (dir: string): string[] => {
@@ -95,7 +96,7 @@ async function getContents<T extends IMetadata>(
     const contents = await Promise.all<T>(
         files.map(async (fileName) => {
             const source = getFileByName(directory, `${fileName}.mdx`)
-            const { data } = matter(source)
+            const { data, content } = matter(source)
 
             const metadata = {
                 ...data,
@@ -106,6 +107,7 @@ async function getContents<T extends IMetadata>(
                     slug: fileName,
                     language: data.language,
                 }),
+                readTime: getReadingTime(content),
             }
 
             const defaultContent =
@@ -165,6 +167,7 @@ export const getContent = async (
     const file = `${fileName}.mdx`
 
     const source = getFileByName(directory, file)
+    const { content: sourceContent } = matter(source)
 
     const remarkPlugins = [remarkMath]
     const rehypePlugins = [
@@ -219,6 +222,7 @@ export const getContent = async (
                     : (fileName?.find(Boolean) ?? undefined),
             language: frontmatter.language,
         }),
+        readTime: getReadingTime(sourceContent),
     }
 
     try {

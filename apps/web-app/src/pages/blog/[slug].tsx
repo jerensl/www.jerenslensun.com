@@ -20,10 +20,12 @@ import {
     getOppositeLanguage,
     getPostLanguage,
 } from '@/libs/localization'
+import { formatReadingTime } from '@/libs/reading'
 import { normalizeTag } from '@/libs/tags'
 import { MDXTitleHeadingLevels } from '@/types/content'
 import { Comment } from '@/components/Comment'
 import Images from '@/components/ImageWithFallback'
+import { ReadingProgress } from '@/components/ReadingProgress'
 import React from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -96,6 +98,7 @@ export default function Blog({
 
     return (
         <>
+            <ReadingProgress key={slug} targetId="mdx" />
             <ArticleSeo
                 path={`/blog/${slug}`}
                 title={frontmatter.title}
@@ -116,14 +119,25 @@ export default function Blog({
                 >
                     {frontmatter.title}
                 </h1>
-                <p
+                <div
                     lang={getLanguageLocale(language)}
-                    className="text-xl pt-1 pb-2 font-medium"
+                    className="flex flex-wrap items-center justify-center gap-2 pt-1 pb-2 text-lg font-medium"
                 >
                     <time dateTime={frontmatter.date}>
                         {formatPostDate(frontmatter.date, language)}
                     </time>
-                </p>
+                    {frontmatter.readTime ? (
+                        <>
+                            <span aria-hidden="true">·</span>
+                            <span>
+                                {formatReadingTime(
+                                    frontmatter.readTime.minutes,
+                                    language
+                                )}
+                            </span>
+                        </>
+                    ) : null}
+                </div>
                 <div className="flex flex-wrap items-center justify-center gap-2 pb-4">
                     <span
                         aria-label={`Article language: ${getLanguageLabel(
