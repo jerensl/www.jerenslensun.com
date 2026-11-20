@@ -30,11 +30,11 @@ describe('computeReadingProgress', () => {
             viewportHeight: 900,
         }
 
-        expect(
-            computeReadingProgress({ ...shortArticle, scrollY: 400 })
-        ).toBe(0)
-        expect(
-            computeReadingProgress({ ...shortArticle, scrollY: 600 })
-        ).toBe(1)
+        expect(computeReadingProgress({ ...shortArticle, scrollY: 400 })).toBe(
+            0
+        )
+        expect(computeReadingProgress({ ...shortArticle, scrollY: 600 })).toBe(
+            1
+        )
     })
 })

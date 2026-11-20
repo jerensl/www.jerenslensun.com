@@ -1,7 +1,4 @@
-import {
-    formatReadingTime,
-    getReadingTime,
-} from '../../src/libs/reading'
+import { formatReadingTime, getReadingTime } from '../../src/libs/reading'
 
 const words = (count: number) =>
     Array.from({ length: count }, () => 'word').join(' ')
