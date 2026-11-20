@@ -1,0 +1,21 @@
+apps/web-app/__tests__/libs/reading.test.ts
+  s_58de44b49752ba::t_c24a11bf3535ae 1
+apps/web-app/__tests__/hooks/useReadingProgress.test.tsx
+  s_58de44b49752ba::t_c24a11bf3535ae 33-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "39dae1e7a75f685d563da0da08c4675c4b9d6215",
+  "prompts": {},
+  "sessions": {
+    "s_58de44b49752ba": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e06ae3671ffeOlToTi2HURqPUl",
+        "model": "deepseek-v4.1-flash-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
