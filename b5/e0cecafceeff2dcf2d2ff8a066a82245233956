@@ -1,0 +1,76 @@
+apps/web-app/src/pages/resume.tsx
+  s_58de44b49752ba::t_26ca61b288ca7f 11-14,124-126,138-139
+  s_58de44b49752ba::t_e124b0f121e2e2 1-10,15-123,127-137,140-177
+apps/web-app/src/constant/page.ts
+  s_58de44b49752ba::t_05680d52b2afa7 31-35
+  s_58de44b49752ba::t_6eace98072e992 6
+apps/web-app/src/constant/career.ts
+  s_58de44b49752ba::t_3a8cb78cdcebbd 63-67
+  s_58de44b49752ba::t_ea6ab95ee84d3e 20-33
+  s_58de44b49752ba::t_9a0ca68060ab16 1,7-9
+  s_58de44b49752ba::t_fd086dfd08cdef 42-54
+apps/web-app/src/components/resume/ResumeSection.tsx
+  s_58de44b49752ba::t_6b41dab2b1a24c 1-23
+apps/web-app/src/constant/seo.ts
+  s_58de44b49752ba::t_7da0fe53f7860d 8
+apps/web-app/src/constant/resume.ts
+  s_58de44b49752ba::t_f48b304227ae85 1-90
+apps/web-app/__tests__/pages/resume.test.tsx
+  s_58de44b49752ba::t_99c5900a7fac77 37-39
+  s_58de44b49752ba::t_cf044fc795c2f2 34-35
+  s_58de44b49752ba::t_7367c3c81ab62c 26,47
+  s_58de44b49752ba::t_8707d950963138 5-16
+  s_58de44b49752ba::t_52e4134b97c83a 1-4,17-25,27-33,36,40-46,48-68
+apps/web-app/scripts/generate-resume-pdf.mjs
+  s_58de44b49752ba::t_f99ebc5e3ac5b2 1-72
+apps/web-app/src/components/resume/ResumeExperience.tsx
+  s_58de44b49752ba::t_493dec58a82db9 1-42
+apps/web-app/src/components/resume/ResumeProjects.tsx
+  s_58de44b49752ba::t_b5701085320b86 1-40
+apps/web-app/src/components/resume/ResumeSkills.tsx
+  s_58de44b49752ba::t_2a20370d801c8f 1-19
+apps/web-app/__tests__/libs/resume.test.ts
+  s_58de44b49752ba::t_52bfe47df2a196 1-28
+apps/web-app/src/libs/seo.ts
+  s_58de44b49752ba::t_d4df9b33a36d20 47,79-106
+  s_58de44b49752ba::t_207cfa8a9e2866 107
+apps/web-app/src/libs/resume.ts
+  s_58de44b49752ba::t_0e70aa3f73ef07 1-26
+apps/web-app/src/libs/gtm.ts
+  s_58de44b49752ba::t_3a7096d8781eac 23-38
+apps/web-app/src/components/Navbar.tsx
+  s_58de44b49752ba::t_ce2e496892b7f9 45
+apps/web-app/src/components/resume/ResumeHeader.tsx
+  s_58de44b49752ba::t_5de851bea5c776 8
+  s_58de44b49752ba::t_a3bbbcefeb8c74 1-7,9-97
+apps/web-app/src/components/sections/Career.section.tsx
+  s_58de44b49752ba::t_03414c51b7ac01 44,47
+apps/web-app/src/styles/globals.css
+  s_58de44b49752ba::t_83981a5039fa6e 112-142
+apps/web-app/next-sitemap.cjs
+  s_58de44b49752ba::t_b079638ffd5d4f 7
+apps/web-app/package.json
+  s_58de44b49752ba::t_b71f126b4c71f3 17-18
+apps/web-app/__tests__/libs/seo.test.ts
+  s_58de44b49752ba::t_b3cbc5add79396 156-172
+  s_58de44b49752ba::t_c3c8d210e8c7ff 7
+apps/web-app/e2e/resume.spec.ts
+  s_58de44b49752ba::t_5de851bea5c776 3-6,11-13
+  s_58de44b49752ba::t_63ff301086f768 1-2,7-10,14-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "b5e0cecafceeff2dcf2d2ff8a066a82245233956",
+  "prompts": {},
+  "sessions": {
+    "s_58de44b49752ba": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e06ae3671ffeOlToTi2HURqPUl",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
