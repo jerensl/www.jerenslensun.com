@@ -74,6 +74,7 @@ describe('Blog Pages', () => {
       "Testing 101",
     ]
       `)
+            expect(utils.getByText('1 menit baca')).toBeInTheDocument()
         },
         1 * 60 * 1000
     )

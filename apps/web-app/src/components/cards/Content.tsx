@@ -13,6 +13,8 @@ interface ContentCardProps {
     slug: string
     imageURL: string
     blurDataURL?: string
+    /** Localized reading time label, for example "6 min read". */
+    readTimeLabel?: string
 }
 
 export const ContentCard: React.FC<ContentCardProps> = ({
@@ -25,6 +27,7 @@ export const ContentCard: React.FC<ContentCardProps> = ({
     slug,
     imageURL,
     blurDataURL,
+    readTimeLabel,
 }) => {
     return (
         <article
@@ -91,6 +94,26 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                     <p className="line-clamp-3 text-on-surface-variant">
                         {description}
                     </p>
+                    {readTimeLabel ? (
+                        <p className="mt-1 flex items-center gap-1.5 text-sm text-on-surface-variant">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="h-4 w-4 shrink-0"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                            </svg>
+                            <span>{readTimeLabel}</span>
+                        </p>
+                    ) : null}
                 </div>
             </Link>
         </article>

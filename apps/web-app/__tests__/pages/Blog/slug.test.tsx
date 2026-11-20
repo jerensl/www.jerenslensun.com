@@ -115,6 +115,7 @@ describe('Blog Content', () => {
             expect(heading).toBeInTheDocument()
             expect(article).toBeInTheDocument()
             expect(code).toBeInTheDocument()
+            expect(screen.getByText('1 min read')).toBeInTheDocument()
         },
         1 * 60 * 1000
     )
@@ -140,6 +141,7 @@ describe('Blog Content', () => {
             )
 
             expect(screen.getByText('Bahasa Indonesia')).toBeInTheDocument()
+            expect(screen.getByText('1 menit baca')).toBeInTheDocument()
 
             const translationLink = screen.getByRole('link', {
                 name: /Read in English/i,

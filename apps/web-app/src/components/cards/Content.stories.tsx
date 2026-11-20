@@ -17,6 +17,7 @@ export const Card: Story = {
         slug: '/',
         title: 'Content Title',
         description: 'Content description...',
+        readTimeLabel: '6 min read',
     },
     decorators: [],
 }

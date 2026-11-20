@@ -15,10 +15,12 @@ export interface IMetadata {
     language?: BlogLanguage
     /** Slug of the translated version of this article, if one exists. */
     translation?: string
+    /** Estimated reading time, computed from the MDX body at build time. */
+    readTime?: IReadTimeResults
 }
 
 export interface IBlogMetadata extends IMetadata {
-    readTime?: IReadTimeResults
+    tags: string[]
 }
 
 export interface IProjectMetadata extends IMetadata {

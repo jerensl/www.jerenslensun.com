@@ -19,6 +19,7 @@ import {
     getOppositeLanguage,
     getPostLanguage,
 } from '@/libs/localization'
+import { formatReadingTime } from '@/libs/reading'
 import { BlogLanguage } from '@/types/content'
 import { IBlogMetadata } from '@/types/blog'
 import { SearchArticles } from '@/components/inputs/SearchArticles'
@@ -489,7 +490,14 @@ export default function Blog({
                         </p>
                     )}
                     {matchingPosts.map(
-                        ({ title, description, slug, cover, blurDataURL }) => {
+                        ({
+                            title,
+                            description,
+                            slug,
+                            cover,
+                            blurDataURL,
+                            readTime,
+                        }) => {
                             return (
                                 <ContentCard
                                     variant="outlined"
@@ -499,6 +507,14 @@ export default function Blog({
                                     slug={`blog/${slug}`}
                                     imageURL={cover}
                                     blurDataURL={blurDataURL}
+                                    readTimeLabel={
+                                        readTime
+                                            ? formatReadingTime(
+                                                  readTime.minutes,
+                                                  language
+                                              )
+                                            : undefined
+                                    }
                                 />
                             )
                         }
