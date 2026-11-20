@@ -1,0 +1,47 @@
+apps/web-app/src/pages/blog/index.tsx
+  s_58de44b49752ba::t_7eec7a5a1d3f40 22,493-500,510-517
+apps/web-app/__tests__/hooks/useReadingProgress.test.tsx
+  s_58de44b49752ba::t_4cf233dc2e0f3e 1-40
+apps/web-app/src/components/cards/Content.tsx
+  s_58de44b49752ba::t_1a8a7601e99087 16-17,30
+  s_58de44b49752ba::t_db8c339590d759 97-116
+apps/web-app/src/hooks/useReadingProgress.ts
+  s_58de44b49752ba::t_f6a429d13ff1f4 1-93
+apps/web-app/src/types/content.ts
+  s_58de44b49752ba::t_dd810fddf1d529 18-19,23
+apps/web-app/__tests__/pages/Blog/slug.test.tsx
+  s_58de44b49752ba::t_6b6237333123ca 144
+  s_58de44b49752ba::t_5bf141b40119c3 118
+apps/web-app/src/libs/content.ts
+  s_58de44b49752ba::t_5e05c9334b92c8 99,110,170
+  s_58de44b49752ba::t_c328b61aedbde0 14,225
+apps/web-app/src/components/ReadingProgress.tsx
+  s_58de44b49752ba::t_7efe1e343d79f0 1-33
+apps/web-app/src/pages/blog/[slug].tsx
+  s_58de44b49752ba::t_8fd941afbfb12a 23,28,101
+  s_58de44b49752ba::t_896b7e9ba87156 122,124,129-140
+apps/web-app/src/libs/reading.ts
+  s_58de44b49752ba::t_810c837a0dc6ca 1-34
+apps/web-app/src/components/cards/Content.stories.tsx
+  s_58de44b49752ba::t_9f91fb06846c33 20
+apps/web-app/__tests__/libs/reading.test.ts
+  s_58de44b49752ba::t_d007cefc6549da 1-31
+apps/web-app/__tests__/pages/Blog/index.test.tsx
+  s_58de44b49752ba::t_aa19cdda8f645f 77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "cf41571539b9c74965bad8de81963cdae2491957",
+  "prompts": {},
+  "sessions": {
+    "s_58de44b49752ba": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e06ae3671ffeOlToTi2HURqPUl",
+        "model": "deepseek-v4.1-flash-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
