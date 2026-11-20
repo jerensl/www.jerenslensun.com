@@ -18,6 +18,7 @@
 
 ## 📝 Table of Contents
 
+- [Features](#features)
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
@@ -27,6 +28,14 @@
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
+
+## ✨ Features <a name = "features"></a>
+
+- MDX-powered blog with code highlighting, math support, and a table of contents.
+- Reading time estimates on article cards and headers, plus a reading progress bar.
+- Client-side search with tag filtering and English/Indonesian translations.
+- Project case studies, RSS feed, and sitemap generation.
+- Dark mode, PWA support, and Giscus comments.
 
 ## 🧐 About <a name = "about"></a>
 
@@ -65,10 +74,11 @@ A step by step series of examples that tell you how to get a development env run
 ### Start the application
 
 ```sh
-pnpm --filter "./apps/web-app" start
+pnpm --filter "./apps/web-app" dev
 ```
 
-It will runs the app in development mode and automaticlly open your browser, if not you open the browser, and go to [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It runs the app in development mode at [http://localhost:3000](http://localhost:3000).
+Use `pnpm --filter "./apps/web-app" build` and `start` to serve the static production export.
 
 ### Running the storybook on local <a name = "docs"></a>
 
@@ -133,6 +143,7 @@ Storybook documentation is published to GitHub Pages by the [Docs Deployment wor
 - [React Testing Library](https://testing-library.com/) - React Testing Library
 - [Storybook](https://storybook.js.org/) - Documentation
 - [MDX Bundler](https://github.com/kentcdodds/mdx-bundler) - Markdown Bundler
+- [reading-time](https://github.com/ngryman/reading-time) - Reading time estimates
 - [Material Design 3](https://m3.material.io/) - Design System
 
 ## ✍️ Authors <a name = "authors"></a>
