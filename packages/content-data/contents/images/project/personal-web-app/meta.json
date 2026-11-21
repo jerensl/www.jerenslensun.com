@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "type": "project",
+    "slug": "personal-web-app",
+    "assets": {
+        "cover.webp": {
+            "file": "cover.webp",
+            "sha256": "e0c86c289337d8bfa754fd7ee89130a68053a95b4a13f00b04600ba2f28e86be",
+            "width": 1234,
+            "height": 591,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAICAIAAAB/FOjAAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAtElEQVQY02P48/vPr1+//uMGQAU/f/78AQbfv39n+E8igGp48eLF3bt3nzx5cufOnX8w8Pfv3+cPHkAYQBJFw8uXL+9cvXr3yiWgBiAXaPunT5+ALrnUPXHHzr2zl62cMHfRnYePEBpAlmzbfqu379/PHxB3f/36FWjqwuUrgSTQk0DNKDYAAdBeoDo4F6hu3fbdPtHJtV393759u3n3HroGTLB59/7lm7YC0ftPH9E9TTwAAPHhaxxyFcYVAAAAAElFTkSuQmCC",
+            "remotePath": "project/personal-web-app/e0c86c289337-cover.webp",
+            "provider": "imagekit",
+            "bytes": 13462
+        }
+    }
+}

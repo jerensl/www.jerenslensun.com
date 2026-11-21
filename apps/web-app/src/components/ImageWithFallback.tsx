@@ -1,6 +1,6 @@
 import React from 'react'
 import Image, { ImageLoaderProps } from 'next/image'
-import imageLoader, { validLocalImg } from '@/constant/images'
+import imageLoader from '@/constant/images'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 
 interface ImagesProps extends ImageLoaderProps {
@@ -22,32 +22,12 @@ export default function Images({
     className,
     quality,
 }: ImagesProps) {
-    if (process.env.NODE_ENV !== 'production') {
-        const isValid = validLocalImg.includes(src)
-
-        if (!isValid) {
-            src = 'default-content.webp'
-        }
-
-        return (
-            <picture>
-                <img
-                    src={`/images/${src}`}
-                    height={height}
-                    width={width}
-                    alt={alt}
-                    className="m-auto"
-                />
-            </picture>
-        )
-    }
-
     return (
         <Image
             loader={imageLoader}
             src={src}
-            placeholder={placeholder}
-            blurDataURL={blurDataURL}
+            placeholder={blurDataURL ? (placeholder ?? 'blur') : 'empty'}
+            blurDataURL={blurDataURL || undefined}
             alt={alt}
             height={height}
             width={width}

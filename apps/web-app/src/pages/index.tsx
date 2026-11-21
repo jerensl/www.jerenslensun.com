@@ -7,7 +7,6 @@ import { personSchema, websiteSchema } from '@/libs/seo'
 import { IntroductionSection } from '@/components/sections/Introduction.section'
 import { CareerSection } from '@/components/sections/Career.section'
 import HorizontalScroll from '@/components/sections/OSSContribution'
-import { loadImageFrom, transformToImageBuffer } from '@/utils/imagesBuffer'
 import {
     getMergedMesheryEcosystemPRCount,
     getMergedServoPRCount,
@@ -17,13 +16,10 @@ import React from 'react'
 export const getStaticProps: GetStaticProps = async () => {
     generateRss()
 
-    const srcImg = await loadImageFrom('illustration-landing-page.webp')
     const [servoMergedPRs, mesheryEcosystemMergedPRs] = await Promise.all([
         getMergedServoPRCount(),
         getMergedMesheryEcosystemPRCount(),
     ])
-
-    // const { blurDataURL } = await transformToImageBuffer(srcImg)
 
     const getCurrentYear = new Date().getFullYear()
 

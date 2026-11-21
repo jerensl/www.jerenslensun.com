@@ -12,6 +12,11 @@
 **/.next/
 **/out/
 
+# content pipeline generated dev/preview copies
+apps/web-app/public/media/
+apps/web-app/public/images/content/
+packages/content/dist/
+
 # production
 /build
 

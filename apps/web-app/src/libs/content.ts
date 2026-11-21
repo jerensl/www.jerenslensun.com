@@ -7,15 +7,17 @@ import rehypeHighlightCode from './mdx-plugins/rehype-highlight-code'
 import rehypeMetaAttribute from './mdx-plugins/rehype-meta-attribute'
 import rehypeTOC from './mdx-plugins/rehype-toc'
 import matter from 'gray-matter'
-import { getPlaiceholder } from 'plaiceholder'
 import { IBlogMetadata } from '@/types/blog'
-import { IMetadata } from '@/types/content'
+import { ContentType, IMetadata } from '@/types/content'
+import { contentDir } from '@jerensl/content-data'
 import { getPostLanguage } from './localization'
 import { getReadingTime } from './reading'
 import { normalizeTags } from './tags'
+import { resolveCover } from './media'
+import remarkLocalImages from './mdx-plugins/remark-local-images'
 
 export const getFiles = (dir: string): string[] => {
-    const fileDirectory = path.join(process.cwd(), 'contents', dir)
+    const fileDirectory = path.join(contentDir, dir)
 
     if (!fs.existsSync(fileDirectory)) {
         throw new Error('You are using the empty directory')
@@ -23,11 +25,16 @@ export const getFiles = (dir: string): string[] => {
 
     const readFolderDirectory = fs.readdirSync(fileDirectory)
 
-    return readFolderDirectory.map((file) => file.replace(/\.mdx/, ''))
+    return readFolderDirectory
+        .filter((file) => file.endsWith('.mdx'))
+        .map((file) => file.replace(/\.mdx/, ''))
 }
 
+const asContentType = (directory: string): ContentType =>
+    directory === 'project' ? 'project' : 'blog'
+
 const getFileByName = (dir: string, fileName: string): string => {
-    const sourceFile = path.join(process.cwd(), 'contents', dir, fileName)
+    const sourceFile = path.join(contentDir, dir, fileName)
 
     if (!fs.existsSync(sourceFile)) {
         throw new Error('File cannot be found')
@@ -39,7 +46,11 @@ const getFileByName = (dir: string, fileName: string): string => {
 }
 
 export const getContentByName = async (type: string, slug: string) => {
-    const remarkPlugins = [remarkMath]
+    const contentType = asContentType(type)
+    const remarkPlugins = [
+        [remarkLocalImages, { type: contentType, slug }],
+        remarkMath,
+    ]
     const rehypePlugins = [
         rehypeMetaAttribute,
         rehypeHighlightCode,
@@ -110,28 +121,20 @@ async function getContents<T extends IMetadata>(
                 readTime: getReadingTime(content),
             }
 
-            const defaultContent =
-                directory === 'project'
-                    ? 'project-default.webp'
-                    : 'default-content.webp'
-
-            try {
-                const resp = await fetch(
-                    `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-${defaultContent}/${data.cover}?tr=bl-10`
-                )
-
-                const buffer = Buffer.from(await resp.arrayBuffer())
-                const { base64 } = await getPlaiceholder(buffer)
-                return {
-                    ...metadata,
-                    slug: fileName,
-                    blurDataURL: base64,
-                } as T
-            } catch (error) {}
+            const contentType = asContentType(directory)
+            const cover = resolveCover(
+                contentType,
+                fileName,
+                typeof data.cover === 'string' ? data.cover : undefined
+            )
 
             return {
                 ...metadata,
+                cover: cover.src,
                 slug: fileName,
+                ...(cover.blurDataURL
+                    ? { blurDataURL: cover.blurDataURL }
+                    : {}),
             } as T
         })
     )
@@ -165,11 +168,19 @@ export const getContent = async (
     fileName: string | string[] | undefined
 ) => {
     const file = `${fileName}.mdx`
+    const contentType = asContentType(directory)
+    const slug =
+        typeof fileName === 'string'
+            ? fileName
+            : (fileName?.find(Boolean) ?? undefined)
 
     const source = getFileByName(directory, file)
     const { content: sourceContent } = matter(source)
 
-    const remarkPlugins = [remarkMath]
+    const remarkPlugins = [
+        [remarkLocalImages, { type: contentType, slug: slug ?? '' }],
+        remarkMath,
+    ]
     const rehypePlugins = [
         rehypeMetaAttribute,
         rehypeHighlightCode,
@@ -210,39 +221,24 @@ export const getContent = async (
         },
     })
 
+    const cover = resolveCover(
+        contentType,
+        slug ?? '',
+        typeof frontmatter.cover === 'string' ? frontmatter.cover : undefined
+    )
+
     const metadata = {
         ...frontmatter,
+        cover: cover.src,
         ...(Array.isArray(frontmatter.tags)
             ? { tags: normalizeTags(frontmatter.tags as string[]) }
             : {}),
         language: getPostLanguage({
-            slug:
-                typeof fileName === 'string'
-                    ? fileName
-                    : (fileName?.find(Boolean) ?? undefined),
+            slug,
             language: frontmatter.language,
         }),
         readTime: getReadingTime(sourceContent),
     }
-
-    try {
-        const resp = await fetch(
-            `${process.env.NEXT_PUBLIC_IMAGES_CDN}/tr:di-project-default.webp/${frontmatter.cover}?tr=bl-10`
-        )
-
-        const buffer = Buffer.from(await resp.arrayBuffer())
-
-        const { base64 } = await getPlaiceholder(buffer)
-        return {
-            code,
-            frontmatter: metadata,
-            metadata: {
-                slug: fileName,
-                fileName: file,
-                blurDataURL: base64,
-            },
-        }
-    } catch (error) {}
 
     return {
         code,
@@ -250,7 +246,7 @@ export const getContent = async (
         metadata: {
             slug: fileName,
             fileName: file,
-            blurDataURL: null,
+            blurDataURL: cover.blurDataURL || null,
         },
     }
 }

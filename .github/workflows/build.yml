@@ -28,5 +28,7 @@ jobs:
           cache: "pnpm"
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Validate content assets and links
+        run: pnpm --filter @jerensl/content build && node packages/content/dist/cli.js check
       - name: Build web application
         run: pnpm --filter='./apps/web-app' build

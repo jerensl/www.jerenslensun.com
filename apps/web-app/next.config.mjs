@@ -12,7 +12,6 @@ export default (phase, { defaultConfig }) => {
     reactStrictMode: true,
     output: 'export',
     trailingSlash: true,
-    reactStrictMode: true,
     images: {
       formats: ['image/avif', 'image/webp'],
       loader: 'custom',
@@ -20,8 +19,8 @@ export default (phase, { defaultConfig }) => {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'ik.imagekit.io/jerensl/**',
-          port: '',
+          hostname: 'ik.imagekit.io',
+          pathname: '/jerensl/**',
         },
       ],
     },

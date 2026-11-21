@@ -15,6 +15,7 @@ import { Grid } from '@/components/Grid'
 import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
 import Images from '@/components/ImageWithFallback'
+import { absoluteMediaUrl } from '@/constant/images'
 import React from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -60,7 +61,7 @@ export default function Project({
                 path={`/project/${slug}`}
                 title={frontmatter.title}
                 description={frontmatter.description}
-                image={`https://ik.imagekit.io/jerensl/tr:di-default-content_jXeDNogri.jpg/${frontmatter.cover}`}
+                image={absoluteMediaUrl(frontmatter.cover)}
                 tags={frontmatter.programming_languange}
                 repoUrl={frontmatter.repo_url}
                 kind="project"
@@ -72,7 +73,7 @@ export default function Project({
                 <div className="col-span-full m-auto">
                     <Images
                         src={frontmatter.cover}
-                        placeholder="blur"
+                        placeholder={blurDataURL ? 'blur' : 'empty'}
                         blurDataURL={blurDataURL}
                         alt="Person"
                         height={350}
