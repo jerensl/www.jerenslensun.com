@@ -1,0 +1,89 @@
+packages/content-data/contents/blog/id-belajar-cara-menggunakan-timer.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-lfx-menthorship.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-open-source-summit-japan-2025.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-final-project-progress-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-career-opportunities-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-open-source-summit-japan-2025.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-think-about-your-audience.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-career-opportunities-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-go-standard-io.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-strategy-and-tactics.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-load-balancer-golang.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-reverse-proxy-golang.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-the-hidden-complexity-of-big-risk.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-introduce-yourself-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-struktur-data-heap.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-lfx-menthorship.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-the-hidden-complexity-of-big-risk.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-mid-point-project-progress.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-algoritma-binary-search.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-github-actions-workflow.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-struktur-data-heap.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-think-about-your-audience.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-github-actions-workflow.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-everybody-struggles-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-final-project-progress-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-go-standard-io.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-load-balancer-golang.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-belajar-cara-menggunakan-timer.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-mid-point-project-progress.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-sorting-algoritma.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-strategy-and-tactics.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/en-everybody-struggles-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+packages/content-data/contents/blog/id-introduce-yourself-outreachy.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/en-reverse-proxy-golang.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-algoritma-binary-search.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 8
+packages/content-data/contents/blog/id-sorting-algoritma.mdx
+  s_df8fad423bb8dd::t_627e65b9f17bd3 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "980ae50abc6bb16d7dd6842b040de33780c7db6e",
+  "prompts": {},
+  "sessions": {
+    "s_df8fad423bb8dd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e03c38c52ffeWcFghMiw067ib3",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
