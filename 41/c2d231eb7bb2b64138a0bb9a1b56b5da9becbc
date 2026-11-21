@@ -1,0 +1,181 @@
+packages/content-data/index.mjs
+  s_df8fad423bb8dd::t_2df8c2fef6da9c 1-10
+apps/web-app/src/constant/images.ts
+  s_df8fad423bb8dd::t_eda1cac65ab1b6 1-2,4-41,44-54
+packages/content-data/contents/blog/id-struktur-data-heap.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+.gitignore
+  s_df8fad423bb8dd::t_c181db7be84105 18
+  s_df8fad423bb8dd::t_189ac2bcb4b63f 15-17,19
+packages/content/src/assets.ts
+  s_df8fad423bb8dd::t_4c6062d810861c 1-133
+packages/content/src/check.ts
+  s_df8fad423bb8dd::t_3cec292209f5bc 1-12,14-24,27-29,32-66,68-92,94-164,166-222,224-247,250-263,266-273,275-286,288-314,316-319,321-325,327-331,333-334,336-341,344-346
+  s_df8fad423bb8dd::t_603d123846d1f5 13
+  s_df8fad423bb8dd::t_754f3f91c26685 274
+packages/content/src/frontmatter.ts
+  s_df8fad423bb8dd::t_d2cd1389c26cc6 1-176
+packages/content/src/index.ts
+  s_df8fad423bb8dd::t_97bff81c76c871 1-29
+packages/content-data/contents/blog/en-reverse-proxy-golang.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/package.json
+  s_df8fad423bb8dd::t_f504822ff85d6a 1-19,21-31
+  s_df8fad423bb8dd::t_92e6ccb1fe8214 20
+packages/content-data/contents/blog/en-introduce-yourself-outreachy.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content-data/contents/blog/id-reverse-proxy-golang.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/src/paths.ts
+  s_df8fad423bb8dd::t_bb7dab77a59131 45
+  s_df8fad423bb8dd::t_1095f7daa0048d 1-44,46-61
+apps/web-app/src/libs/media.ts
+  s_df8fad423bb8dd::t_65edcd4f92fe23 36-38
+  s_df8fad423bb8dd::t_c9e926af1fddd4 1-2,4-15,17-35,39,41-172
+  s_df8fad423bb8dd::t_ef131175b96f2c 3,16
+  s_df8fad423bb8dd::t_6cec1f22d7a7d8 40
+packages/content-data/contents/blog/en-belajar-cara-menggunakan-timer.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/src/resolve.test.ts
+  s_df8fad423bb8dd::t_296f7586ddca40 1-74
+packages/content/src/migrations/cloudinary-covers.ts
+  s_df8fad423bb8dd::t_da486bc8aa6a80 1-26
+packages/content-data/contents/images/shared/meta.json
+  s_df8fad423bb8dd::t_20400f3179a63b 1-67
+package.json
+  s_df8fad423bb8dd::t_c02101603e801b 7-9
+packages/content-data/contents/blog/en-go-standard-io.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/src/manifest.ts
+  s_df8fad423bb8dd::t_b99ddd0f4a39db 1-56
+packages/content/src/commands/prune.ts
+  s_df8fad423bb8dd::t_74d274ae63b7b3 1-2,7-90
+  s_df8fad423bb8dd::t_1fcab9e6a79642 3-6
+.github/workflows/build.yml
+  s_df8fad423bb8dd::t_0d39bff52b3e0e 31-32
+packages/content-data/contents/blog/id-lfx-menthorship.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content-data/contents/images/project/notification-api/meta.json
+  s_df8fad423bb8dd::t_20400f3179a63b 1-17
+apps/web-app/src/libs/content.ts
+  s_df8fad423bb8dd::t_7b38c380787e96 51,181
+  s_df8fad423bb8dd::t_b1b6ed9848e73f 124-129,133,135-137
+  s_df8fad423bb8dd::t_c6a13f3905b7fc 171-175,180,182-183,224-229,232,237,249
+  s_df8fad423bb8dd::t_eb380b874ce146 49-50,52-53
+  s_df8fad423bb8dd::t_c9faf18b0c8501 11,16-17,28-30,33-34
+  s_df8fad423bb8dd::t_560017c846c6ed 12,20
+  s_df8fad423bb8dd::t_51f60c4c92b890 37
+  s_df8fad423bb8dd::t_4c951c99bf5c8b 35
+packages/content-data/contents/blog/id-go-standard-io.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+apps/web-app/src/types/content.ts
+  s_df8fad423bb8dd::t_d0fe0a4f3e6535 5-6
+packages/content/src/commands/add.ts
+  s_df8fad423bb8dd::t_1fcab9e6a79642 3-7
+  s_df8fad423bb8dd::t_d641cdaf4aeaf3 1-2,8-64
+packages/content/src/imagekit.ts
+  s_df8fad423bb8dd::t_8778a928ebb100 1-190
+packages/content/src/types.ts
+  s_df8fad423bb8dd::t_a68c801c131dab 1-60
+packages/content/src/frontmatter.test.ts
+  s_df8fad423bb8dd::t_af51f8c7195a53 1-59
+packages/content-data/contents/blog/en-the-hidden-complexity-of-big-risk.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/tsconfig.json
+  s_df8fad423bb8dd::t_333fef4de07f8a 1-18
+apps/web-app/src/libs/mdx-plugins/remark-local-images.ts
+  s_df8fad423bb8dd::t_65edcd4f92fe23 15
+  s_df8fad423bb8dd::t_10b828b59e05c0 29-39,41
+  s_df8fad423bb8dd::t_93a3f8797c074f 1-14,16-28,40,42-44
+packages/content/src/resolve.ts
+  s_df8fad423bb8dd::t_9cd8adf977541a 1-118
+packages/content-data/contents/blog/id-belajar-cara-menggunakan-timer.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/src/links.test.ts
+  s_df8fad423bb8dd::t_735422ff4a73e9 71
+  s_df8fad423bb8dd::t_34e0b33d94468a 1-70,72-82
+packages/content/src/links.ts
+  s_df8fad423bb8dd::t_a004a9af802aa7 1-87
+packages/content-data/contents/blog/id-algoritma-binary-search.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+pnpm-lock.yaml
+  s_df8fad423bb8dd::t_f032dc2a568a79 40-42,387-407,12364,12433,15476,15610,15616
+apps/web-app/next.config.mjs
+  s_df8fad423bb8dd::t_a9089dde8fff57 22-23
+packages/content/src/commands/rename.ts
+  s_df8fad423bb8dd::t_2d69b1f13e099a 1-2,4-6,12-131
+  s_df8fad423bb8dd::t_1fcab9e6a79642 3,7-11
+AGENTS.md
+  s_df8fad423bb8dd::t_0d7a9aee05a2ad 15-21
+  s_df8fad423bb8dd::t_6610b07b68dccf 4
+  s_df8fad423bb8dd::t_b1f5ba506cc216 6
+  s_df8fad423bb8dd::t_0a2b9b916cb486 23,37-38,47
+apps/web-app/src/types/media.ts
+  s_df8fad423bb8dd::t_e0b5ff5036cbed 1-26
+packages/content-data/contents/blog/id-the-hidden-complexity-of-big-risk.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content-data/contents/blog/id-github-actions-workflow.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content-data/contents/blog/en-github-actions-workflow.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+apps/web-app/src/components/ImageWithFallback.tsx
+  s_df8fad423bb8dd::t_c674e13ce333c1 3,30
+  s_df8fad423bb8dd::t_65edcd4f92fe23 29
+apps/web-app/src/pages/blog/[slug].tsx
+  s_df8fad423bb8dd::t_8df6a3af91d6d1 28,107
+  s_df8fad423bb8dd::t_4c7f4ef5501845 182
+packages/content-data/package.json
+  s_df8fad423bb8dd::t_179dcf9502ac2e 1-13
+packages/content-data/contents/blog/id-introduce-yourself-outreachy.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+docs/content-images.md
+  s_df8fad423bb8dd::t_b1fac92507e91a 1-9,11-24,27-28,30-72,74-121
+  s_df8fad423bb8dd::t_c03521ca47cf15 10,25-26,29
+  s_df8fad423bb8dd::t_ebc36fc74345fe 73
+packages/content/src/posts.ts
+  s_df8fad423bb8dd::t_1020c0d186d5d0 1-67
+apps/web-app/src/pages/project/[slug].tsx
+  s_df8fad423bb8dd::t_8946cbeee12b36 18,64
+  s_df8fad423bb8dd::t_82538feb3c3066 76
+packages/content-data/contents/blog/id-fundamental-algoritma.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4,28
+packages/content/src/migrate.ts
+  s_df8fad423bb8dd::t_a33438efc590fa 1-2,5-8,14-16,19-22,24-29,31-42,44,46-48,50-52,54-57,59-80,82-106,108-124,126-168,170-171,173-174,176-182,184-187,189-191,193-196,198-199,201-202,204-217,219,222-231,234-235,237-239,241-242,244-246,248,250-259,263-265
+  s_df8fad423bb8dd::t_1fcab9e6a79642 3-4,9-13,17-18
+packages/content-data/contents/blog/en-struktur-data-heap.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/src/sync.ts
+  s_df8fad423bb8dd::t_45178f29aafd89 1-143,149-274
+  s_df8fad423bb8dd::t_3ccb1bfde2f98c 144-148
+packages/content/src/cli.ts
+  s_df8fad423bb8dd::t_20d0206115da4f 1-290
+packages/content-data/contents/blog/en-lfx-menthorship.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+apps/web-app/package.json
+  s_df8fad423bb8dd::t_f9ea4857f4429a 6-8
+  s_df8fad423bb8dd::t_beb83d2e980551 21
+packages/content-data/contents/images/project/personal-web-app/meta.json
+  s_df8fad423bb8dd::t_20400f3179a63b 1-17
+packages/content-data/contents/blog/en-fundamental-algorithm.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4,34
+packages/content-data/contents/blog/en-algoritma-binary-search.mdx
+  s_df8fad423bb8dd::t_cf17417d36b581 4
+packages/content/src/schema.ts
+  s_df8fad423bb8dd::t_16212937bd5519 1-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "41c2d231eb7bb2b64138a0bb9a1b56b5da9becbc",
+  "prompts": {},
+  "sessions": {
+    "s_df8fad423bb8dd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_e03c38c52ffeWcFghMiw067ib3",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
