@@ -25,6 +25,7 @@ import { normalizeTag } from '@/libs/tags'
 import { MDXTitleHeadingLevels } from '@/types/content'
 import { Comment } from '@/components/Comment'
 import Images from '@/components/ImageWithFallback'
+import { absoluteMediaUrl } from '@/constant/images'
 import { ReadingProgress } from '@/components/ReadingProgress'
 import React from 'react'
 
@@ -103,7 +104,7 @@ export default function Blog({
                 path={`/blog/${slug}`}
                 title={frontmatter.title}
                 description={frontmatter.description}
-                image={`https://res.cloudinary.com/do9os7lxv/image/upload/v1655199836/personal/${frontmatter.cover}`}
+                image={absoluteMediaUrl(frontmatter.cover)}
                 date={frontmatter.date}
                 tags={frontmatter.tags}
                 language={getLanguageLocale(language)}
@@ -178,7 +179,7 @@ export default function Blog({
                 ) : null}
                 <Images
                     src={frontmatter.cover}
-                    placeholder="blur"
+                    placeholder={blurDataURL ? 'blur' : 'empty'}
                     blurDataURL={blurDataURL}
                     alt="Person"
                     height={350}

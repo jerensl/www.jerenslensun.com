@@ -1,0 +1,31 @@
+{
+    "name": "@jerensl/content",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Content asset and translation pipeline for the portfolio site.",
+    "bin": {
+        "content": "./dist/cli.js"
+    },
+    "exports": {
+        ".": "./dist/index.js",
+        "./schema": "./dist/schema.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "dev": "tsc -p tsconfig.json --watch",
+        "test": "node --test dist/*.test.js"
+    },
+    "dependencies": {
+        "gray-matter": "^4.0.3",
+        "sharp": "^0.35.5",
+        "zod": "^4.6.7"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.6",
+        "typescript": "^6.0.3"
+    }
+}

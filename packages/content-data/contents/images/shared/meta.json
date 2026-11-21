@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "type": "shared",
+    "slug": "shared",
+    "assets": {
+        "binary-search.webp": {
+            "file": "binary-search.webp",
+            "sha256": "1e8cd8d96ffcadcd3d0e7f0cb7556776326d57be2ba6c45aca2eca55be60b515",
+            "width": 2000,
+            "height": 1333,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAACXBIWXMAAAPoAAAD6AG1e1JrAAACJklEQVQozwEbAuT9AI2HeX92Z3lwYb3CwKWhlaKdk8C6tcG5sruzqrewp7ezrbO0r7S3tLa7ubK5ubC3tgCTjH+IfW9+dWXDwrsxKiEtJBmuopbDu7O9ta26tay6trG5urW3vLq3vr20vbywurkAm5SJj4R2gXhpubWwJCEZTj80wLuzw7uzop2cpKaloaWmoqenpqqtiY2Osru6sLq5AKOekpiMfoh/cru8t1FBNYBjUsG8tcO7s8LExuLm6eLm6eLo6+Xp7IuLh5yXjZuYjQCtqqKel4m6vbm+x8mIg3xgSTqzqaHBubC5vr/j5+vl6ezh5+ni6OuCf3eLfm6PgXEAtLKspp+TydDQtbm6c25nSD8ypqunu7y3lJmXyc3Q2Nzfx83QWV1eQkNAfW1ch3hmALe4sa6robu/vq+1tVJMRXNcUKqqqLSxqaeaire3taaqq1pfXSEkITs5NXFaRGlYRQDCxcK6vLujpaKJiodUSkCTb2CEZVR7W0uwrKSppJqZk4pSUE40MjBbV0+Dd2lqWUYAxMnHa2xpJSYhLC0oNjMrbk5AbkYxfWFKjHRfmoRwkX9uempbh3dolIRzjHZgfWpVAMbLyXR3dCUmIR8gGx0eGRwdGCEgGUs9MIRmTo9xVJByWpB4YIRxXIV2YoBvWn1sWADGyMWMj4wsLSYjJB8fIBsdHhkcHRgcHRghIBlIOCuLbVOYh3GGc1uNfGmDcFt/blsc1BeTDcam1AAAAABJRU5ErkJggg==",
+            "remotePath": "shared/1e8cd8d96ffc-binary-search.webp",
+            "provider": "imagekit",
+            "bytes": 115604
+        },
+        "data-heap.webp": {
+            "file": "data-heap.webp",
+            "sha256": "101dfa48d46f0ca7ccc98c79c7aec39e53f2cd70aa7a336c868609d04fe60586",
+            "width": 1538,
+            "height": 795,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAICAYAAADwdn+XAAAACXBIWXMAAAPoAAAD6AG1e1JrAAABH0lEQVQoz2NgQAJMTEwsEooKcgx4gLyahjwjIyMTVklVY0Pdicf3NbGws/Fhk+cTEBTZeuV5i4qWvhqKBCsHO6dloK8N0AW8QM08fMKC0iaeLuZIShjdgiItgQZIsLOz87CxsfF7hcfZsrKysoFlRWWkZEsWzizlFuATAfHVTY11c6f3FwKZzCA+MzMzZ/+KbaWa+sYaYPVSUhKT1+wuFRITF2Hg4uPli6wqiZVSVlaKqCyOlVZXVQ4pzYsG+pMFFjQZ1e2RQGcr5zX2xiioayoVNvfHCggJC4BlQQaElReESyopKoSW5YdJq6ooBhfmhAANYIYZkF7eGKKkoaWUXdceBgxERaBBofyCQvzYwkkCiCWBmB9HJIhA5cUZqAUAE5w0ASR7N8kAAAAASUVORK5CYII=",
+            "remotePath": "shared/101dfa48d46f-data-heap.webp",
+            "provider": "imagekit",
+            "bytes": 37556
+        },
+        "data.webp": {
+            "file": "data.webp",
+            "sha256": "03b1e818da0c884f4020b3878f8f891a437c4f2e8ae35e413bea43b7f4a5549b",
+            "width": 1855,
+            "height": 1016,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAIAAAC0SDtlAAAACXBIWXMAAAPoAAAD6AG1e1JrAAABbElEQVQY0w3QyW7bMBSFYa2KTLJkTTQpXs6iOEiyHcspChRBF+kqcFG0aIpuknWeIS9fPsCH+5+bxbC9cP1dSCfINBHriT/1bmR2IGpqKCsZlEjd7MrrJ7F9HrvsFNGjgWelUFsnEEY6HUFanKSdWiw2IAoqb+v86oGXP0KfSZc/SPJFg2WIsCbMxEduHbURm7GjpgC1Yequ2VyvUL/sZbrQ3mP8k5sBOsMwl9hHSEnG4SF0XG2xvGMmn3H1di//7U22uHo1+Peq27pKYIpMB+KDTEzEFnidqvhY9nVxifB6FBnXeeTdVw+KIjF0CUx7YYMIkxgOO24awkvmi0eF/u7hl+uzw9guavfnJNOG9Jn5zHzQbtF+ke7QU12nKlhy1m6hqb5RkkleBtG9fNYWsBtgXtUYhmm2YRVSAhgkddMM+VW+oag7sD4LvqK76ux7rYmSEGc9zmY+jvGsOAXKUSnKT/nN5eO9oK2oqv8gdjpoDusrygAAAABJRU5ErkJggg==",
+            "remotePath": "shared/03b1e818da0c-data.webp",
+            "provider": "imagekit",
+            "bytes": 442482
+        },
+        "growth-rate.webp": {
+            "file": "growth-rate.webp",
+            "sha256": "315dfdde08a21fd8e25f412b9ee506516b57e44630c5558087e1f4ddb403f99d",
+            "width": 1217,
+            "height": 1042,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAIAAACpTQvdAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA/klEQVQoz5WSb2+DIBDG/f4fam/2ZtmfLFFHmi2KZokTCko1BTxAB6vrulqb9MmFHIFfuHu4aFooz3OMiziO3xACgLPTaAmMP5pWFACt9XzVWPr0orZsWlcAMMbHvSR0uqrbAV9ulmXXgVoo9NmAdQEwxqRpugZ0EqpWnloQtW2bJMkfUJNDYt1YNbJX5rwkb9GxJKv0IIRPeD8QoU6MBmt2zvqn3L+m91+V1IyKWirmbHOIMaw7GIgB6skZ8JkzDKOE93rZtBud0MKvs63v2abkm9fnR7pnW3UhxCCIpGDh9x8+0MPdPQ4jdFmc89VZ8tNWlmVRFN69ruuW5X0DTXiI52NpdOcAAAAASUVORK5CYII=",
+            "remotePath": "shared/315dfdde08a2-growth-rate.webp",
+            "provider": "imagekit",
+            "bytes": 58672
+        },
+        "networking.webp": {
+            "file": "networking.webp",
+            "sha256": "6d55756499b046527c9d2dd8a0891d2de0f4e5cc19a85a01c5991327ce416e76",
+            "width": 5472,
+            "height": 3648,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAACXBIWXMAAAPoAAAD6AG1e1JrAAACHUlEQVQozz2P72sScRzH73/oaRAJPRpBUc+CCCIiNot8EI0mo6RajaiRy1K09XBKSCNjNJO1dMs58+SmduqmTc/U8+f07jzP0/PHnV7zx9zW874RBC8+Dz7v9+sDH4jEC3SWYvJMtcCyRI2j6oAaVa3T3H8qFMOVagCwh4p4hkoVS1m6nGfK0czn5RzQ6sUsiBF0mSXYCkGvhTZYNALMv0ISthNpEgiwz2t+Ip+YjvpDbc40yfk9dzXXNta/l4Pvze7UD8Nmiy4J1Tq0MKXJx3czLp9h6d3cvFz32rPwicq9kKmNt1ZNygcTep/NtDOjRh1RfmuxRqQhvUKVRJOp67J1GIHxAEs16EK1DM9ctZ7bjZkVZ8e1H3qJUenNl9K45Ybb9Q2q4F4yx8RGRp4uPc4TJHiAsSOcc3L266jFZZEdvyx/08IeTp+4dwrBPfeVIWgQvo0FsMjc/JhWGksnSCxdvjJGrqnouC3g9ioeOS4+7ztXHFNGrT0AW1VvoUHwPOb3hZGg7sIdk89SDONFyUk2QdboVpls/ow3t+JHpUKD53rNSofCclDTdjqL6r+YFjWSSzq9dvOVOi+R/MaIfuew1z74JRx220fdzoHQ6Ir8flcYQitGfXJ7B/5ofXbsTGo1Ui+1urTY54cgAwKYgD1+H7RbVVHg9qDEdgx1ug2zWuO4MoNkOFoUGwORB7eH4PY/R2z0QLXBCEyh8gcvtnshP/8IBwAAAABJRU5ErkJggg==",
+            "remotePath": "shared/6d55756499b0-networking.webp",
+            "provider": "imagekit",
+            "bytes": 251684
+        },
+        "speed.webp": {
+            "file": "speed.webp",
+            "sha256": "8fabc3991439c2e0c53cf6295c079ba3b330d17a4b542c9f14056cabc22de618",
+            "width": 3008,
+            "height": 2008,
+            "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAACXBIWXMAAAPoAAAD6AG1e1JrAAACJklEQVQozwEbAuT9AG1VP3BXOee2QOKsNoVbHEskGLYyIZU3KQkLDx0QDu1qV4dxbbGBLVlHLYqTnniNpABJOSw6LCDMnzjqtTzHjiJ0RSNeLx2FLyEPEBQPCgx4Oy2yi3TIjR18WymKg399jqQAIR0aJB4Zon0s7bU7150mymsTjUErMiUjDQwPDQsMRzInwZd1zJgonG8mhHFegZKlACMdGiUdFnJWJO63PN2cJ+CcJtBhGY1YQ25lZKegoK55YN7Px9WqRJltHnBWPYyapwAoJiYnLCo8NyfstVHZi5HUjYLToVnDiWS7inS3qqeRY0mqnZvdyZCIYh1YRDKLjZEAJR8dKSAfJh4Xq3xq16S4xLCi3raIw5mBkmhUZllUZF9fZXB43NzTSjodQzUqe3d0ACghHykgHykhHU06IKiNb5+Ph9OnZsy0n4lvY46IhYKChGhscVpXXT85NDMtKV1TSwAqJSYqJSQpIiAmHRlrUzLiwHrkqDHBpHVbVlUoJCMbGRojHB46NTlEQTtNTUtEQEEAJyAgKiIgLCMhKiIeJx4dSTsiblgpPjIdGhMTGRISFBITNTMxUk1RWFpcSEpLTEVDACciJColJCwmJislIikiICQeGyEaGB0XFDMqJjw+QDY/QyUmKhoWEyAYEkxANkxBOwAoISEoISEpIB8pIB8oHx4hHR4gGx0gHBsqKCsYFRYPCgoaEgwbEw0dFA5MQDZJQTqUfq0bPnz9zgAAAABJRU5ErkJggg==",
+            "remotePath": "shared/8fabc3991439-speed.webp",
+            "provider": "imagekit",
+            "bytes": 296654
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "@jerensl/content-data",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Portfolio content (MDX + images) consumed by apps/web-app at build time.",
+    "main": "./index.mjs",
+    "exports": {
+        ".": "./index.mjs",
+        "./contents": "./contents"
+    },
+    "files": ["contents", "index.mjs"]
+}

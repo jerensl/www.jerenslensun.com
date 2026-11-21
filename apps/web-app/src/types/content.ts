@@ -2,6 +2,8 @@ import { IReadTimeResults } from 'reading-time'
 
 export type BlogLanguage = 'en' | 'id'
 
+export type ContentType = 'blog' | 'project'
+
 export interface IMetadata {
     title: string
     date: string

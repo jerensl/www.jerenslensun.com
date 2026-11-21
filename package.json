@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "content": "pnpm --filter @jerensl/content build && node packages/content/dist/cli.js",
+    "content:check": "pnpm --filter @jerensl/content build && node packages/content/dist/cli.js check"
   },
   "keywords": [],
   "author": "",
