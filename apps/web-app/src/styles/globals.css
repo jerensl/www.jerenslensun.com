@@ -151,10 +151,14 @@
         --tw-prose-kbd: rgb(var(--md-sys-color-on-surface));
         --tw-prose-kbd-shadows: none;
         max-width: 68ch;
-        color: rgb(var(--md-sys-color-on-surface) / 0.8);
+        color: rgb(var(--md-sys-color-on-surface) / 0.72);
         font-size: var(--md-sys-typescale-body-large-size);
         line-height: var(--md-sys-typescale-body-large-line-height);
         letter-spacing: var(--md-sys-typescale-body-large-tracking);
+    }
+
+    .prose :where(p, li, h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
+        color: rgb(var(--md-sys-color-on-surface) / 0.72);
     }
 
     .prose :where(h2):not(:where([class~='not-prose'] *)) {
