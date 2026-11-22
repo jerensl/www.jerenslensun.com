@@ -151,19 +151,19 @@
         --tw-prose-kbd: rgb(var(--md-sys-color-on-surface));
         --tw-prose-kbd-shadows: none;
         max-width: 68ch;
-        color: rgb(var(--md-sys-color-on-surface-variant));
+        color: rgb(var(--md-sys-color-on-surface-variant)) !important;
         font-size: var(--md-sys-typescale-body-large-size);
         line-height: var(--md-sys-typescale-body-large-line-height);
         letter-spacing: var(--md-sys-typescale-body-large-tracking);
     }
 
     .prose :where(p, li, h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
-        color: rgb(var(--md-sys-color-on-surface-variant));
+        color: rgb(var(--md-sys-color-on-surface-variant)) !important;
     }
 
     .dark .prose,
     .dark .prose :where(p, li, h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
-        color: rgb(var(--md-sys-color-on-surface-variant));
+        color: rgb(var(--md-sys-color-on-surface-variant)) !important;
     }
 
     .prose :where(h2):not(:where([class~='not-prose'] *)) {
@@ -172,7 +172,7 @@
         line-height: var(--md-sys-typescale-headline-medium-line-height);
         font-weight: 500;
         letter-spacing: -0.01em;
-        color: rgb(var(--md-sys-color-on-surface-variant));
+        color: rgb(var(--md-sys-color-on-surface-variant)) !important;
         margin-top: 2.5em;
         margin-bottom: 0.75em;
         scroll-margin-top: 6rem;
@@ -183,7 +183,7 @@
         font-size: var(--md-sys-typescale-title-large-size);
         line-height: var(--md-sys-typescale-title-large-line-height);
         font-weight: 500;
-        color: rgb(var(--md-sys-color-on-surface-variant));
+        color: rgb(var(--md-sys-color-on-surface-variant)) !important;
         margin-top: 2em;
         margin-bottom: 0.5em;
         scroll-margin-top: 6rem;
