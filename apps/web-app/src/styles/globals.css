@@ -132,7 +132,7 @@
        Article typography
        ------------------------------------------------------------------ */
     .prose {
-        --tw-prose-body: rgb(var(--md-sys-color-on-surface));
+        --tw-prose-body: rgb(var(--md-sys-color-on-surface) / 0.87);
         --tw-prose-headings: rgb(var(--md-sys-color-on-surface));
         --tw-prose-lead: rgb(var(--md-sys-color-on-surface-variant));
         --tw-prose-links: rgb(var(--md-sys-color-primary));
