@@ -161,6 +161,11 @@
         color: rgb(var(--md-sys-color-on-surface) / 0.72);
     }
 
+    .dark .prose,
+    .dark .prose :where(p, li, h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
+        color: rgb(var(--md-sys-color-on-surface) / 0.95);
+    }
+
     .prose :where(h2):not(:where([class~='not-prose'] *)) {
         font-family: var(--md-ref-typeface-brand);
         font-size: var(--md-sys-typescale-headline-medium-size);
