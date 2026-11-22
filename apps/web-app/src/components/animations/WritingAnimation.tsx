@@ -1,4 +1,10 @@
-import { motion, useMotionValue, useTransform, animate } from 'motion/react'
+import {
+    motion,
+    useMotionValue,
+    useReducedMotion,
+    useTransform,
+    animate,
+} from 'motion/react'
 import { useEffect } from 'react'
 import CursorBlinker from './Cursor'
 
@@ -11,12 +17,19 @@ export default function WritingAnimation({
     delay,
     baseText,
 }: IRedoAnimTextProps) {
-    const subs = useMotionValue(0)
+    const shouldReduceMotion = useReducedMotion()
+    const subs = useMotionValue(baseText.length)
     const textToWrite = useTransform(subs, (latest) =>
         baseText.slice(0, latest)
     )
 
     useEffect(() => {
+        if (shouldReduceMotion) {
+            subs.set(baseText.length)
+            return
+        }
+
+        subs.set(0)
         animate(subs, baseText.length, {
             type: 'tween',
             delay: delay,
@@ -24,15 +37,18 @@ export default function WritingAnimation({
             ease: 'easeIn',
             repeat: Infinity,
             repeatType: 'reverse',
-            repeatDelay: 1,
+            repeatDelay: 1.5,
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [baseText, shouldReduceMotion])
 
     return (
         <span>
-            <motion.span className="inline">{textToWrite}</motion.span>
-            <CursorBlinker />
+            <span className="sr-only">{baseText}</span>
+            <span aria-hidden="true">
+                <motion.span className="inline">{textToWrite}</motion.span>
+                {shouldReduceMotion ? null : <CursorBlinker />}
+            </span>
         </span>
     )
 }

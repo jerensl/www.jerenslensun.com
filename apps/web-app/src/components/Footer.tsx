@@ -1,29 +1,29 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { StandardLink } from './links/StandardLink'
-import { HighlightLink } from './links/HighlightLink'
 import { pageLinks } from '@/constant/page'
 import { socialMediaLinks } from '@/constant/social-media'
+
+function FooterHeading({ children }: { children: React.ReactNode }) {
+    return <h2 className="text-title-small text-on-surface">{children}</h2>
+}
 
 function SitemapSection() {
     return (
         <div>
-            <h2 className="text-xl font-medium text-gray-500 dark:text-white">
-                Sitemap
-            </h2>
-            <div className="mt-2 flex font-normal flex-col gap-1">
-                {pageLinks.map(({ name, url }) => {
-                    return (
-                        <HighlightLink
-                            key={name}
-                            className="text-lg mr-auto"
+            <FooterHeading>Sitemap</FooterHeading>
+            <ul className="mt-3 flex flex-col gap-1">
+                {pageLinks.map(({ name, url }) => (
+                    <li key={name}>
+                        <StandardLink
                             href={url}
+                            className="inline-flex rounded-xs px-1 py-1 text-body-medium text-on-surface-variant transition-colors duration-200 ease-standard hover:text-primary"
                         >
                             {name}
-                        </HighlightLink>
-                    )
-                })}
-            </div>
+                        </StandardLink>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
@@ -31,55 +31,55 @@ function SitemapSection() {
 function ContactSection() {
     return (
         <div>
-            <h2 className="text-xl font-medium text-gray-500 dark:text-white">
-                Contact
-            </h2>
-            <div className="mt-2 flex font-normal flex-col gap-1">
-                {socialMediaLinks.map(({ name, url }) => {
-                    return (
-                        <HighlightLink
-                            key={name}
-                            className="text-lg not-italic mr-auto"
+            <FooterHeading>Contact</FooterHeading>
+            <ul className="mt-3 flex flex-col gap-1">
+                {socialMediaLinks.map(({ name, url }) => (
+                    <li key={name}>
+                        <StandardLink
                             href={url}
                             isExternal
+                            className="inline-flex rounded-xs px-1 py-1 text-body-medium text-on-surface-variant no-underline transition-colors duration-200 ease-standard hover:text-primary"
                         >
                             {name}
-                        </HighlightLink>
-                    )
-                })}
-            </div>
+                        </StandardLink>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
 
 function AboutSection() {
     return (
-        <div>
-            <h1 className="text-xl font-medium text-center sm:text-left">
-                Jerens S. Lensun
-            </h1>
-            <p className="text-center sm:text-left mb-4 md:mb-6 max-w-md text-2xl">
-                Software Engineering
+        <div className="max-w-md">
+            <div className="flex items-center gap-2">
+                <span
+                    aria-hidden="true"
+                    className="size-2.5 rounded-full bg-primary"
+                />
+                <span className="text-title-large font-medium text-on-surface">
+                    Jerens S. Lensun
+                </span>
+            </div>
+            <p className="mt-3 text-body-medium text-on-surface-variant">
+                Software engineer working inside Servo, the Rust browser engine.
+                Writing about web-platform behavior, developer tooling, and the
+                systems that keep an engine maintainable.
             </p>
-            <div className="flex space-x-6 h-10 justify-center sm:justify-start py-1">
+            <div className="mt-5 flex flex-wrap gap-1">
                 {socialMediaLinks
                     .filter(({ name }) => name !== 'RSS')
-                    .map(({ icon, url }) => {
-                        return (
-                            <StandardLink
-                                key={url}
-                                href={url}
-                                aria-label="Github"
-                                isExternal
-                            >
-                                <FontAwesomeIcon
-                                    className="hover:text-red-600 cursor-pointer"
-                                    icon={icon}
-                                    size="2x"
-                                />
-                            </StandardLink>
-                        )
-                    })}
+                    .map(({ name, icon, url }) => (
+                        <StandardLink
+                            key={url}
+                            href={url}
+                            aria-label={name}
+                            isExternal
+                            className="md-state-layer inline-flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant no-underline transition-colors duration-200 ease-emphasized hover:text-primary"
+                        >
+                            <FontAwesomeIcon icon={icon} className="text-lg" />
+                        </StandardLink>
+                    ))}
             </div>
         </div>
     )
@@ -88,26 +88,39 @@ function AboutSection() {
 export const Footer = ({
     currentYear,
 }: {
-    currentYear: string
+    currentYear: string | number
 }): React.ReactElement => {
     return (
-        <div className="relative px-5vw mt-10">
-            <footer className="relative mx-auto grid max-w-7xl grid-cols-4 grid-rows-max-content gap-x-4 md:grid-cols-8 xl:grid-cols-12 xl:gap-x-6">
-                <div className="col-span-full md:col-span-4 xl:col-span-6">
-                    <AboutSection />
+        <footer className="mt-16 border-t border-outline-variant bg-surface-container-low pb-24 md:mt-24 md:pb-0">
+            <div className="mx-auto max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+                <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+                    <div className="md:col-span-5">
+                        <AboutSection />
+                    </div>
+                    <div className="md:col-span-3 md:col-start-7">
+                        <SitemapSection />
+                    </div>
+                    <div className="md:col-span-3">
+                        <ContactSection />
+                    </div>
                 </div>
-                <div className="col-span-full md:col-span-2 mt-10 md:mt-0 xl:col-span-3">
-                    <ContactSection />
-                </div>
-                <div className="col-span-full md:col-span-2 mt-10 md:mt-0 xl:col-span-1">
-                    <SitemapSection />
-                </div>
-                <div className="col-span-full my-5 text-lg mb-24 md:mb-10 dark:text-blueGray-500 md:my-5 border-t border-gray-500">
+
+                <div className="mt-12 flex flex-col gap-3 border-t border-outline-variant pt-6 text-body-small text-on-surface-variant sm:flex-row sm:items-center sm:justify-between">
                     <span>
-                        © {currentYear} Jerens Lensun. All Rights Reserved.
+                        © {currentYear} Jerens Lensun. All rights reserved.
                     </span>
+                    <div className="flex flex-wrap items-center gap-4">
+                        <span>Built with Next.js · Material Design 3</span>
+                        <a
+                            href="#main-content"
+                            className="inline-flex items-center gap-1 rounded-xs font-medium text-primary"
+                        >
+                            Back to top
+                            <span aria-hidden="true">↑</span>
+                        </a>
+                    </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
     )
 }

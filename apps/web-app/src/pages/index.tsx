@@ -52,11 +52,10 @@ export default function Home({
                 mesheryEcosystemMergedPRs={mesheryEcosystemMergedPRs}
             />
             <IntroductionSection />
-            <div className="h-56 lg:h-64" />
+            <div className="h-24 lg:h-32" />
             <CareerSection />
-            <div className="h-56 lg:h-64" />
+            <div className="h-24 lg:h-32" />
             <HorizontalScroll />
-            <div className="h-56 lg:h-64" />
             <Footer currentYear={currentYear} />
         </>
     )

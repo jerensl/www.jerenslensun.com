@@ -7,6 +7,9 @@ import { motion } from 'motion/react'
 import { Contribution } from '@/types/contributions'
 import React from 'react'
 
+/**
+ * M3 filled card used in the horizontal contribution rail.
+ */
 export const CareerCard: React.FC<Contribution> = ({
     organization,
     project,
@@ -20,9 +23,16 @@ export const CareerCard: React.FC<Contribution> = ({
     date,
     status,
 }): React.ReactElement => {
+    const statusColor =
+        status === 'merged'
+            ? 'text-tertiary'
+            : status === 'open'
+              ? 'text-primary'
+              : 'text-on-surface-variant'
+
     return (
         <motion.article
-            className="bg-surface-container-low shadow-elevation-1 rounded-medium hover:bg-on-surface/8 active:bg-on-surface/12 w-[450px] flex flex-col gap-2 p-4"
+            className="flex w-[min(22rem,85vw)] shrink-0 flex-col gap-2 rounded-lg bg-surface-container-high p-5 transition-shadow duration-200 ease-emphasized hover:shadow-elevation-2"
             initial={{ opacity: 0 }}
             whileInView={{
                 opacity: 1,
@@ -32,55 +42,60 @@ export const CareerCard: React.FC<Contribution> = ({
             }}
         >
             <div className="flex items-start justify-between gap-3">
-                <h2 className="text-2xl font-sans font-bold">{organization}</h2>
+                <h3 className="text-title-large font-medium text-on-surface">
+                    {organization}
+                </h3>
                 {focus ? (
-                    <span className="mt-1 whitespace-nowrap rounded-full border border-outline-variant px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-on-surface-variant">
+                    <span className="mt-0.5 whitespace-nowrap rounded-sm bg-secondary-container px-2 py-0.5 text-label-small uppercase tracking-wider text-on-secondary-container">
                         {focus}
                     </span>
                 ) : null}
             </div>
-            <h3 className="text-sm font-sans font-light mt-2">{project}</h3>
+            <p className="text-body-medium text-on-surface-variant">
+                {project}
+            </p>
+
             {issue_name && issue_number && issue_url ? (
-                <h4 className="text-sm font-normal">
-                    <span>
-                        <FontAwesomeIcon
-                            className={clsx('block', {
-                                'text-purple-600': status === 'merged',
-                                'text-green-600': status === 'open',
-                            })}
-                            icon={faCircleDot}
-                        />{' '}
-                    </span>{' '}
-                    {issue_name}{' '}
-                    <StandardLink
-                        href={issue_url}
-                        isExternal
-                        className="text-sm font-normal text-primary hover:cursor-pointer"
-                    >
-                        #{issue_number}
-                    </StandardLink>
-                </h4>
-            ) : null}
-            <h4 className="text-sm font-normal">
-                <span>
+                <p className="mt-1 flex items-start gap-2 text-body-medium text-on-surface-variant">
                     <FontAwesomeIcon
-                        className={clsx('block', {
-                            'text-purple-600': status === 'merged',
-                            'text-green-600': status === 'open',
-                        })}
-                        icon={faCodePullRequest}
-                    />{' '}
+                        className={clsx('mt-1 size-3.5 shrink-0', statusColor)}
+                        icon={faCircleDot}
+                        aria-hidden="true"
+                    />
+                    <span>
+                        {issue_name}{' '}
+                        <StandardLink
+                            href={issue_url}
+                            isExternal
+                            className="font-medium"
+                        >
+                            #{issue_number}
+                        </StandardLink>
+                    </span>
+                </p>
+            ) : null}
+
+            <p className="flex items-start gap-2 text-body-medium text-on-surface-variant">
+                <FontAwesomeIcon
+                    className={clsx('mt-1 size-3.5 shrink-0', statusColor)}
+                    icon={faCodePullRequest}
+                    aria-hidden="true"
+                />
+                <span>
+                    {pr_name}{' '}
+                    <StandardLink
+                        href={pr_url}
+                        isExternal
+                        className="font-medium"
+                    >
+                        #{pr_number}
+                    </StandardLink>
                 </span>
-                {pr_name}{' '}
-                <StandardLink
-                    href={pr_url}
-                    isExternal
-                    className="text-sm font-normal"
-                >
-                    #{pr_number}
-                </StandardLink>
-            </h4>
-            <span className="font-light mt-auto pt-8">{date}</span>
+            </p>
+
+            <span className="mt-auto pt-6 text-label-medium text-on-surface-variant">
+                {date}
+            </span>
         </motion.article>
     )
 }

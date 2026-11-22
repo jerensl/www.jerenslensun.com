@@ -18,6 +18,17 @@ export const StandardLink = ({
     ...rest
 }: StandardLinkProps) => {
     const router = useRouter()
+    const hrefPath =
+        typeof href === 'string'
+            ? href
+            : (href as { pathname?: string })?.pathname
+
+    const isActive =
+        typeof hrefPath === 'string' &&
+        (hrefPath === '/'
+            ? router.pathname === '/'
+            : router.pathname === hrefPath ||
+              router.pathname.startsWith(`${hrefPath}/`))
 
     if (isExternal) {
         return (
@@ -27,7 +38,7 @@ export const StandardLink = ({
                 href={href}
                 {...rest}
                 className={twMerge(
-                    'text-medium text-primary underline hover:no-underline',
+                    'text-primary underline decoration-1 underline-offset-2 transition-colors duration-200 ease-standard hover:text-primary/80',
                     className
                 )}
             >
@@ -41,7 +52,7 @@ export const StandardLink = ({
             {...rest}
             href={href}
             className={twMerge('no-underline', className)}
-            aria-current={router.pathname === href ? 'page' : undefined}
+            aria-current={isActive ? 'page' : undefined}
         >
             {children}
         </Link>

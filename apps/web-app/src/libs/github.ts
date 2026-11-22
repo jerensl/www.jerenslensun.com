@@ -46,7 +46,7 @@ async function getMergedPRCount(
  * hardcoded count.
  */
 export function getMergedServoPRCount(): Promise<number | null> {
-    return getMergedPRCount('repo:servo/servo')
+    return getMergedPRCount('org:servo')
 }
 
 /**

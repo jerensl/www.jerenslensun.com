@@ -113,16 +113,19 @@ export default function Blog({
                 }
                 translationLanguage={getLanguageLocale(translationLanguage)}
             />
-            <header className="pt-20 text-center">
+            <header className="mx-auto flex w-full max-w-content flex-col items-center px-4 pt-24 text-center sm:px-6 md:pt-28 lg:px-8">
+                <p className="text-label-large uppercase tracking-[0.14em] text-primary">
+                    Article
+                </p>
                 <h1
                     lang={getLanguageLocale(language)}
-                    className="m-auto p-4 text-3xl font-bold max-w-4xl"
+                    className="mt-3 max-w-4xl text-display-small font-medium md:text-display-medium"
                 >
                     {frontmatter.title}
                 </h1>
                 <div
                     lang={getLanguageLocale(language)}
-                    className="flex flex-wrap items-center justify-center gap-2 pt-1 pb-2 text-lg font-medium"
+                    className="mt-4 flex flex-wrap items-center justify-center gap-2 text-body-medium text-on-surface-variant"
                 >
                     <time dateTime={frontmatter.date}>
                         {formatPostDate(frontmatter.date, language)}
@@ -139,12 +142,12 @@ export default function Blog({
                         </>
                     ) : null}
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-2 pb-4">
+                <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
                     <span
                         aria-label={`Article language: ${getLanguageLabel(
                             language
                         )}`}
-                        className="inline-flex h-8 items-center rounded-full border border-outline px-3 text-sm font-medium text-on-surface-variant"
+                        className="inline-flex h-8 items-center rounded-sm bg-surface-container-high px-3 text-label-large text-on-surface-variant"
                     >
                         {getLanguageLabel(language)}
                     </span>
@@ -153,7 +156,7 @@ export default function Blog({
                             href={`/blog/${translationSlug}`}
                             hrefLang={getLanguageLocale(translationLanguage)}
                             lang={getLanguageLocale(translationLanguage)}
-                            className="inline-flex h-8 items-center rounded-full border border-outline px-3 text-sm font-medium text-primary hover:bg-primary/8"
+                            className="md-state-layer inline-flex h-8 items-center rounded-sm border border-outline px-3 text-label-large text-primary no-underline"
                         >
                             {getLanguageSwitchLabel(language)}
                         </Link>
@@ -161,7 +164,7 @@ export default function Blog({
                 </div>
                 {Array.isArray(frontmatter.tags) &&
                 frontmatter.tags.length > 0 ? (
-                    <div className="flex flex-wrap justify-center gap-2 pb-4">
+                    <div className="mt-3 flex flex-wrap justify-center gap-2">
                         {frontmatter.tags.map((tag: string) => (
                             <Link
                                 key={tag}
@@ -170,7 +173,7 @@ export default function Blog({
                                     query: { tags: normalizeTag(tag) },
                                 }}
                                 aria-label={`Browse articles tagged ${tag}`}
-                                className="inline-flex h-8 items-center rounded-small border border-outline px-3 text-sm text-on-surface-variant hover:bg-on-surface-variant/8"
+                                className="md-state-layer inline-flex h-8 items-center rounded-sm px-2 text-label-large text-on-surface-variant no-underline"
                             >
                                 #{tag}
                             </Link>
@@ -184,23 +187,23 @@ export default function Blog({
                     alt="Person"
                     height={350}
                     width={700}
-                    className="object-cover m-auto"
+                    className="mt-10 h-auto w-full max-w-3xl rounded-xl object-cover"
                 />
             </header>
-            <main className="py-10 flex flex-col max-w-7xl sm:flex-row-reverse m-auto">
-                <aside className="py-10 w-[350px]">
-                    <div className="sm:sticky top-36 sm:flex">
-                        <TableOfContent toc={toc} />
-                    </div>
-                </aside>
+            <main className="mx-auto flex w-full max-w-content flex-col-reverse gap-8 px-4 py-12 sm:px-6 lg:flex-row lg:gap-12 lg:px-8">
                 <article
                     id="mdx"
                     lang={getLanguageLocale(language)}
-                    className="prose mx-4 sm:mx-0 sm:ml-20 flex-1 max-w-4xl m-auto dark:prose-invert prose-p:font-normal prose-li:font-normal lg:prose-lg"
+                    className="prose min-w-0 flex-1"
                 >
                     <Component components={components} />
                     <Comment />
                 </article>
+                <aside className="w-full shrink-0 lg:w-[280px]">
+                    <div className="lg:sticky lg:top-28">
+                        <TableOfContent toc={toc} />
+                    </div>
+                </aside>
             </main>
             <div className="h-20 lg:h-32" />
             <Footer currentYear={currentYear} />

@@ -6,23 +6,31 @@ interface CardProps {
     children: React.ReactNode
     className?: string
     as?: React.ElementType
+    interactive?: boolean
 }
 
-const Card = React.forwardRef<HTMLElement, CardProps>(function Grid(
-    { children, className, as: Tag = 'article', variant },
+/**
+ * M3 card surface. Cards use tonal surface containers at rest and only add
+ * shadow for the elevated variant. `interactive` adds the M3 hover/focus
+ * state layer.
+ */
+const Card = React.forwardRef<HTMLElement, CardProps>(function Card(
+    { children, className, as: Tag = 'article', variant, interactive = false },
     ref
 ) {
     return (
         <Tag
             ref={ref}
             className={clsx(
-                'relative col-span-full sm:col-span-6 xl:col-span-4 rounded-medium h-[420px] sm:w-[320px] hover:bg-on-surface/8 active:bg-on-surface/12',
+                'relative overflow-hidden rounded-md',
                 {
-                    'bg-surface border border-outline-variant':
-                        variant === 'outlined',
                     'bg-surface-container-low shadow-elevation-1':
                         variant === 'elevated',
-                    'bg-surface-container-high': variant === 'filled',
+                    'bg-surface-container-highest': variant === 'filled',
+                    'border border-outline-variant bg-surface':
+                        variant === 'outlined',
+                    'md-state-layer cursor-pointer transition-shadow duration-200 ease-emphasized hover:shadow-elevation-2':
+                        interactive,
                 },
                 className
             )}
