@@ -1,11 +1,11 @@
 {
   "name": "www.jerenslensun.com",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-        "dev": "pnpm content:sync && next dev",
-        "build": "pnpm content:sync && next build",
-        "content:sync": "pnpm --filter @jerensl/content build && node ../../packages/content/dist/cli.js sync --offline",
+    "dev": "pnpm content:sync && next dev",
+    "build": "pnpm content:sync && next build",
+    "content:sync": "pnpm --filter @jerensl/content build && node ../../packages/content/dist/cli.js sync --offline",
     "postbuild": "next-sitemap --config next-sitemap.cjs",
     "start": "serve ./out/",
     "lint": "eslint .",
