@@ -9,6 +9,10 @@ interface TagProps {
     count?: number
 }
 
+/**
+ * M3 filter chip. Selected chips show a leading check and use the
+ * secondary container role.
+ */
 export const Tag = ({
     text,
     onClick,
@@ -23,40 +27,47 @@ export const Tag = ({
             disabled={disabled}
             aria-pressed={selected}
             className={clsx(
-                'inline-flex h-8 text-center items-center rounded-small text-on-surface-variant border border-outline  shadow-elevation-0 disabled:text-on-surface/12 disabled:bg-on-surface-variant/12 disabled:border-on-surface/12 hover:bg-on-surface-variant/8',
+                'md-state-layer inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-sm border text-label-large transition-colors duration-200 ease-emphasized',
+                'disabled:pointer-events-none disabled:border-on-surface/12 disabled:bg-on-surface/12 disabled:text-on-surface/38',
                 {
-                    'pr-4 text-on-secondary-container bg-on-surface/12 border-none border-secondary-container hover:bg-on-secondary-container/8 hover:shadow-elevation-2':
-                        selected,
-                    'px-4': !selected,
+                    'border-transparent bg-secondary-container pl-2 pr-3 text-on-secondary-container':
+                        selected && !disabled,
+                    'border-outline bg-surface px-3 text-on-surface-variant hover:border-on-surface-variant':
+                        !selected,
                 }
             )}
         >
-            {selected && !disabled && (
+            {selected ? (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={1.5}
+                    fill="none"
                     stroke="currentColor"
-                    className="w-4 h-4 mx-2"
+                    strokeWidth={2}
+                    className="size-4 shrink-0"
                     aria-hidden="true"
                 >
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
+                        d="m4.5 12.75 6 6 9-13.5"
                     />
                 </svg>
-            )}
+            ) : null}
             <span>{text}</span>
-            {typeof count === 'number' && (
+            {typeof count === 'number' ? (
                 <span
                     aria-hidden="true"
-                    className="ml-2 rounded-full bg-on-surface/8 px-1.5 py-0.5 text-xs"
+                    className={clsx(
+                        'ml-1 rounded-full px-1.5 py-0.5 text-label-small',
+                        selected
+                            ? 'bg-on-secondary-container/12'
+                            : 'bg-on-surface/8'
+                    )}
                 >
                     {count}
                 </span>
-            )}
+            ) : null}
         </button>
     )
 }

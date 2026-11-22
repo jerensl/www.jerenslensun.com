@@ -43,31 +43,27 @@ const components: import('mdx/types').MDXComponents = {
     },
     h2: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
         return (
-            <h2 id={id} className="text-lg scroll-mt-20">
+            <h2 id={id} className="scroll-mt-24">
                 {children}
             </h2>
         )
     },
     h3: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
         return (
-            <h3 id={id} className="text-base scroll-mt-20">
+            <h3 id={id} className="scroll-mt-24">
                 {children}
             </h3>
         )
     },
     h4: ({ children, id }: React.HTMLProps<HTMLHeadingElement>) => {
         return (
-            <h4 id={id} className="text-sm scroll-mt-20">
+            <h4 id={id} className="scroll-mt-24">
                 {children}
             </h4>
         )
     },
     blockquote: ({ children }: React.HTMLProps<HTMLQuoteElement>) => {
-        return (
-            <div className="px-4 border-l-4 border-l-red-500 font-bold italic">
-                {children}
-            </div>
-        )
+        return <blockquote>{children}</blockquote>
     },
     a: ({ children, href }: React.HTMLProps<HTMLAnchorElement>) => {
         return (

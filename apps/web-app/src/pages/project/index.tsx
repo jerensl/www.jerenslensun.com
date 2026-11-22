@@ -5,6 +5,7 @@ import { HeadComponent } from '@/components/Seo'
 import { IProjectMetadata } from '@/types/project'
 import { Grid } from '@/components/Grid'
 import { ContentCard } from '@/components/cards/Content'
+import { SectionHeader } from '@/components/SectionHeader'
 import React from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,13 +28,16 @@ export default function Project({
                 title="Project"
                 description="Projects by Jerens Lensun, including browser-engine work in Servo, Playwright E2E testing at CNCF’s Meshery project, open-source tooling, APIs, and web applications, with documentation on the decisions behind them."
             />
-            <div className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
-                <div className="flex flex-col text-center gap-3">
-                    <h1 className="pt-24 text-3xl font-semibold">Projects</h1>
-                </div>
+            <main className="mx-auto flex w-full max-w-content flex-col gap-10 px-4 pb-4 pt-24 sm:px-6 md:pt-28 lg:px-8">
+                <SectionHeader
+                    eyebrow="Selected work"
+                    title="Projects"
+                    titleAs="h1"
+                    description="Case studies on browser-engine work, testing infrastructure, and the tooling that keeps open-source projects maintainable."
+                />
                 <Grid as="section" rowGap>
                     {projects?.length ? null : (
-                        <p className="col-span-full text-center">
+                        <p className="col-span-full rounded-lg bg-surface-container-low p-8 text-center text-body-large text-on-surface-variant">
                             No project available.
                         </p>
                     )}
@@ -51,6 +55,7 @@ export default function Project({
                             return (
                                 <ContentCard
                                     variant="outlined"
+                                    className="col-span-full md:col-span-4"
                                     key={slug}
                                     title={title}
                                     role={role}
@@ -65,7 +70,7 @@ export default function Project({
                         }
                     )}
                 </Grid>
-            </div>
+            </main>
             <div className="h-20 lg:h-32" />
             <Footer currentYear={currentYear} />
         </>

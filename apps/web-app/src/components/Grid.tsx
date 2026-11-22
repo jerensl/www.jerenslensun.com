@@ -10,6 +10,10 @@ interface GridProps {
     rowGap?: boolean
 }
 
+/**
+ * Responsive M3 layout grid: 4 columns on compact, 8 on medium and 12 on
+ * expanded screens. Page margins follow the 16/24/32dp spacing steps.
+ */
 const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(
     { children, className, as: Tag = 'div', nested, rowGap },
     ref
@@ -18,15 +22,15 @@ const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(
         <Tag
             ref={ref}
             className={clsx('relative', {
-                'mx-10vw': !nested,
+                'px-4 sm:px-6 lg:px-8': !nested,
                 'w-full': nested,
             })}
         >
             <div
                 className={clsx(
-                    'relative grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6',
+                    'relative grid grid-cols-4 gap-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-6',
                     {
-                        'mx-auto max-w-7xl': !nested,
+                        'mx-auto max-w-content': !nested,
                         'gap-y-4 lg:gap-y-6': rowGap,
                     },
                     className
@@ -52,7 +56,7 @@ function GridLines() {
                 {Array.from({ length: 12 }).map((_, idx) => (
                     <div
                         key={idx}
-                        className="flex h-screen items-start bg-black text-black dark:bg-white dark:text-white opacity-10"
+                        className="flex h-screen items-start bg-black text-black opacity-10 dark:bg-white dark:text-white"
                     >
                         <div className="w-full pt-4 text-center text-lg text-white dark:text-black">
                             {idx + 1}

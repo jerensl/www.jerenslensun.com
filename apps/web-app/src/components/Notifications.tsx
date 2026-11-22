@@ -96,7 +96,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
             <IconToggle
                 ariaLabel="Notification permission"
                 onClick={handleNotificationPermission}
-                variant="outlined"
+                variant="standard"
                 isSelected={false}
             >
                 <svg
@@ -119,7 +119,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
 
     if (isLoading) {
         return (
-            <div className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant">
                 <FontAwesomeIcon
                     className="animate-spin m-3"
                     size="lg"
@@ -134,7 +134,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
         return (
             <IconToggle
                 ariaLabel="notification error"
-                variant="outlined"
+                variant="standard"
                 isSelected={false}
                 disabled={isError}
                 onClick={() => {}}
@@ -163,7 +163,7 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
                 isActive ? 'turn off Notification' : 'turn on Notification'
             }
             onClick={handleNotification}
-            variant="outlined"
+            variant="standard"
             isSelected={isActive}
             dataTestID={isActive ? 'unsubscribe' : 'subscribe'}
         >
@@ -215,7 +215,7 @@ const NotificationButton = ({
 }: NotificationButtonProps): React.ReactElement => {
     return (
         <button
-            className="hover:bg-gray-100 dark:hover:bg-neutral-800 m-auto rounded-full"
+            className="md-state-layer m-auto flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant"
             onClick={handleClick}
             aria-label={ariaLabel}
         >
@@ -231,7 +231,7 @@ interface NotifyProps {
 
 export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {
     return (
-        <div className="w-full max-w-xs p-1 text-gray-500" role="alert">
+        <div className="w-full max-w-xs p-1" role="alert">
             <div className="flex">
                 <Image
                     loader={imageLoader}
@@ -239,13 +239,11 @@ export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {
                     alt="Person"
                     height="40"
                     width="40"
-                    className="object-cover w-8 h-8 rounded-full shadow-lg"
+                    className="size-8 shrink-0 rounded-full object-cover"
                 />
-                <div className="ml-3 text-sm font-normal">
-                    <span className="mb-1 text-sm font-semibold text-gray-900 ">
-                        {title}
-                    </span>
-                    <p className="mb-2 text-sm font-normal">{body}</p>
+                <div className="ml-3 text-body-medium">
+                    <span className="mb-1 block text-title-small">{title}</span>
+                    <p className="mb-2 text-body-small opacity-80">{body}</p>
                 </div>
             </div>
         </div>

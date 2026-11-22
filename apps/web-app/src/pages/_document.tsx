@@ -18,8 +18,9 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en-US">
+            <Html lang="en-US" suppressHydrationWarning>
                 <Head>
+                    <meta name="color-scheme" content="light dark" />
                     <meta name="application-name" content={APP_NAME} />
                     <meta name="apple-mobile-web-app-capable" content="yes" />
                     <meta
@@ -109,7 +110,16 @@ class MyDocument extends Document {
                         name="msapplication-TileImage"
                         content="/icons/ms-icon-144x144.png"
                     />
-                    <meta name="theme-color" content="#FFFFFF" />
+                    <meta
+                        name="theme-color"
+                        content="#FFF8F7"
+                        media="(prefers-color-scheme: light)"
+                    />
+                    <meta
+                        name="theme-color"
+                        content="#1E100E"
+                        media="(prefers-color-scheme: dark)"
+                    />
                     <link
                         rel="stylesheet"
                         href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"

@@ -26,6 +26,7 @@ import { SearchArticles } from '@/components/inputs/SearchArticles'
 import { Tag } from '@/components/chips/Tag'
 import { Button } from '@/components/buttons/Button'
 import { ContentCard } from '@/components/cards/Content'
+import { SectionHeader } from '@/components/SectionHeader'
 import React from 'react'
 
 const DEFAULT_VISIBLE_TAGS = 8
@@ -237,11 +238,27 @@ export default function Blog({
                 title="Blog"
                 description="Articles by Jerens Lensun on software development, open source, algorithms, and lessons learned while building things that last."
             />
-            <main className="min-h-9/10 flex px-4 md:px-10 flex-col gap-5">
-                <div className="flex flex-col text-center gap-3">
-                    <h1 className="pt-24 text-3xl font-semibold">Blog</h1>
-                    <p className="mb-4">My latest articles</p>
-                </div>
+            <main className="mx-auto flex w-full max-w-content flex-col gap-10 px-4 pb-4 pt-24 sm:px-6 md:pt-28 lg:px-8">
+                <SectionHeader
+                    eyebrow="Writing"
+                    title="Blog"
+                    titleAs="h1"
+                    description="Notes on browser engines, open source, developer tooling, and the lessons that survive the release."
+                    action={
+                        <Button
+                            data-cy="lang"
+                            variant="filled-tonal"
+                            size="base"
+                            onClick={() => {
+                                setLanguage((current) =>
+                                    getOppositeLanguage(current)
+                                )
+                                clearFilters()
+                            }}
+                            label={getLanguageSwitchLabel(language)}
+                        />
+                    }
+                />
                 <Grid as="section" rowGap>
                     <div className="col-span-full w-full">
                         <SearchArticles
@@ -254,8 +271,8 @@ export default function Blog({
                             onClear={clearSearch}
                         />
                         <div className="w-full flex flex-col">
-                            <div className="w-full flex my-2 flex-wrap gap-2 col-span-full items-center">
-                                <p className="mr-2 text-lg font-medium">
+                            <div className="w-full flex my-4 flex-wrap gap-2 col-span-full items-center">
+                                <p className="mr-2 text-label-large text-on-surface-variant">
                                     Search by topics:
                                 </p>
                                 {showAllTags ? (
@@ -264,7 +281,7 @@ export default function Blog({
                                         onClick={() => setShowAllTags(false)}
                                         aria-expanded={true}
                                         aria-controls={TAG_PANEL_ID}
-                                        className="h-8 rounded-small border border-outline px-3 text-sm font-medium text-primary hover:bg-primary/8"
+                                        className="md-state-layer inline-flex h-8 items-center rounded-sm border border-outline px-3 text-label-large text-primary"
                                     >
                                         Hide topics
                                     </button>
@@ -282,7 +299,7 @@ export default function Blog({
                                                 }
                                                 aria-expanded={false}
                                                 aria-controls={TAG_PANEL_ID}
-                                                className="h-8 rounded-small border border-outline px-3 text-sm font-medium text-primary hover:bg-primary/8"
+                                                className="md-state-layer inline-flex h-8 items-center rounded-sm border border-outline px-3 text-label-large text-primary"
                                             >
                                                 Show all {visibleTags.length}{' '}
                                                 topics
@@ -294,17 +311,17 @@ export default function Blog({
                             {showAllTags ? (
                                 <div
                                     id={TAG_PANEL_ID}
-                                    className="mb-4 rounded-medium border border-outline-variant bg-surface-container-low p-3"
+                                    className="mb-6 rounded-lg border border-outline-variant bg-surface-container-low p-4"
                                 >
-                                    <div className="flex flex-col gap-3">
-                                        <label className="flex items-center gap-2 rounded-full border border-outline-variant bg-surface px-3 py-1.5 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/40">
+                                    <div className="flex flex-col gap-4">
+                                        <label className="flex h-12 items-center gap-2 rounded-full bg-surface-container-high px-4 focus-within:ring-2 focus-within:ring-primary/50">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 strokeWidth={1.5}
                                                 stroke="currentColor"
-                                                className="h-4 w-4 shrink-0 text-on-surface-variant"
+                                                className="size-4 shrink-0 text-on-surface-variant"
                                                 aria-hidden="true"
                                             >
                                                 <path
@@ -324,7 +341,7 @@ export default function Blog({
                                                 }}
                                                 placeholder="Filter topics..."
                                                 aria-label="Filter topics"
-                                                className="w-full bg-transparent text-sm text-on-surface placeholder:text-on-surface-variant focus:outline-hidden [&::-webkit-search-cancel-button]:hidden"
+                                                className="w-full bg-transparent text-body-medium text-on-surface placeholder:text-on-surface-variant focus:outline-hidden [&::-webkit-search-cancel-button]:hidden"
                                             />
                                             {tagFilter ? (
                                                 <button
@@ -336,7 +353,7 @@ export default function Blog({
                                                         )
                                                     }}
                                                     aria-label="Clear topic filter"
-                                                    className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-on-surface-variant hover:bg-on-surface-variant/8"
+                                                    className="md-state-layer flex size-6 shrink-0 items-center justify-center rounded-full text-on-surface-variant"
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +361,7 @@ export default function Blog({
                                                         viewBox="0 0 24 24"
                                                         strokeWidth={2}
                                                         stroke="currentColor"
-                                                        className="h-3 w-3"
+                                                        className="size-3.5"
                                                         aria-hidden="true"
                                                     >
                                                         <path
@@ -358,7 +375,7 @@ export default function Blog({
                                         </label>
                                         <div className="flex max-h-96 flex-col gap-4 overflow-y-auto overscroll-contain pr-1">
                                             {filteredTagGroups.length === 0 ? (
-                                                <p className="text-sm text-on-surface-variant">
+                                                <p className="text-body-medium text-on-surface-variant">
                                                     No topics match{' '}
                                                     {tagFilter
                                                         ? `"${tagFilter}".`
@@ -390,9 +407,9 @@ export default function Blog({
                                                                 isOpen
                                                             }
                                                             aria-controls={`tag-group-${group.id}`}
-                                                            className="flex w-full items-center justify-between gap-2 rounded-small text-left hover:bg-on-surface-variant/8"
+                                                            className="md-state-layer flex w-full items-center justify-between gap-2 rounded-sm px-1 py-1 text-left"
                                                         >
-                                                            <span className="text-sm font-semibold text-on-surface">
+                                                            <span className="text-title-small text-on-surface">
                                                                 {group.label}{' '}
                                                                 <span className="font-normal text-on-surface-variant">
                                                                     ({tagCount})
@@ -407,7 +424,7 @@ export default function Blog({
                                                                 }
                                                                 stroke="currentColor"
                                                                 className={clsx(
-                                                                    'h-4 w-4 shrink-0 text-on-surface-variant transition-transform',
+                                                                    'size-4 shrink-0 text-on-surface-variant transition-transform duration-200 ease-standard',
                                                                     {
                                                                         'rotate-180':
                                                                             isOpen,
@@ -453,7 +470,7 @@ export default function Blog({
                                     <p
                                         role="status"
                                         aria-live="polite"
-                                        className="text-sm text-on-surface-variant"
+                                        className="text-body-medium text-on-surface-variant"
                                     >
                                         Showing {matchingPosts.length} of{' '}
                                         {languagePosts.length} {articleLabel} in{' '}
@@ -463,29 +480,17 @@ export default function Blog({
                                         <button
                                             type="button"
                                             onClick={clearFilters}
-                                            className="text-sm font-medium text-primary hover:underline focus:outline-hidden focus:ring-2 focus:ring-primary/40 rounded-small"
+                                            className="md-state-layer inline-flex h-8 items-center rounded-full px-3 text-label-large text-primary"
                                         >
                                             Clear filters
                                         </button>
                                     ) : null}
                                 </div>
-                                <Button
-                                    data-cy="lang"
-                                    variant="filled-tonal"
-                                    size="base"
-                                    onClick={() => {
-                                        setLanguage((current) =>
-                                            getOppositeLanguage(current)
-                                        )
-                                        clearFilters()
-                                    }}
-                                    label={getLanguageSwitchLabel(language)}
-                                />
                             </div>
                         </div>
                     </div>
                     {matchingPosts.length ? null : (
-                        <p className="col-span-full text-center">
+                        <p className="col-span-full rounded-lg bg-surface-container-low p-8 text-center text-body-large text-on-surface-variant">
                             No articles found.
                         </p>
                     )}
@@ -501,6 +506,7 @@ export default function Blog({
                             return (
                                 <ContentCard
                                     variant="outlined"
+                                    className="col-span-full md:col-span-4"
                                     key={slug}
                                     title={title}
                                     description={description}

@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Material Design 3 — design tokens
+   Scheme: vibrant, generated from source color #B3261E.
+   Color values are stored as RGB triplets so Tailwind can apply alpha.
+   ========================================================================== */
+
+:root {
+    color-scheme: light;
+
+    /* ---------------------------------------------------------------------
+       Color roles — light
+       --------------------------------------------------------------------- */
+    --md-sys-color-primary: 192 0 10;
+    --md-sys-color-on-primary: 255 255 255;
+    --md-sys-color-primary-container: 255 218 213;
+    --md-sys-color-on-primary-container: 147 0 5;
+    --md-sys-color-secondary: 128 84 62;
+    --md-sys-color-on-secondary: 255 255 255;
+    --md-sys-color-secondary-container: 255 219 204;
+    --md-sys-color-on-secondary-container: 101 61 41;
+    --md-sys-color-tertiary: 132 83 36;
+    --md-sys-color-on-tertiary: 255 255 255;
+    --md-sys-color-tertiary-container: 255 220 193;
+    --md-sys-color-on-tertiary-container: 104 60 14;
+    --md-sys-color-error: 186 26 26;
+    --md-sys-color-on-error: 255 255 255;
+    --md-sys-color-error-container: 255 218 214;
+    --md-sys-color-on-error-container: 147 0 10;
+    --md-sys-color-background: 255 248 247;
+    --md-sys-color-on-background: 39 24 22;
+    --md-sys-color-surface: 255 248 247;
+    --md-sys-color-on-surface: 39 24 22;
+    --md-sys-color-surface-variant: 253 219 214;
+    --md-sys-color-on-surface-variant: 88 65 62;
+    --md-sys-color-outline: 140 113 109;
+    --md-sys-color-outline-variant: 223 191 187;
+    --md-sys-color-shadow: 0 0 0;
+    --md-sys-color-scrim: 0 0 0;
+    --md-sys-color-inverse-surface: 61 44 42;
+    --md-sys-color-inverse-on-surface: 255 237 234;
+    --md-sys-color-inverse-primary: 255 180 170;
+    --md-sys-color-surface-tint: 192 0 10;
+    --md-sys-color-primary-fixed: 255 218 213;
+    --md-sys-color-primary-fixed-dim: 255 180 170;
+    --md-sys-color-on-primary-fixed: 65 0 1;
+    --md-sys-color-on-primary-fixed-variant: 147 0 5;
+    --md-sys-color-secondary-fixed: 255 219 204;
+    --md-sys-color-secondary-fixed-dim: 244 186 159;
+    --md-sys-color-on-secondary-fixed: 49 19 4;
+    --md-sys-color-on-secondary-fixed-variant: 101 61 41;
+    --md-sys-color-tertiary-fixed: 255 220 193;
+    --md-sys-color-tertiary-fixed-dim: 250 185 129;
+    --md-sys-color-on-tertiary-fixed: 46 21 0;
+    --md-sys-color-on-tertiary-fixed-variant: 104 60 14;
+    --md-sys-color-surface-dim: 240 212 208;
+    --md-sys-color-surface-bright: 255 248 247;
+    --md-sys-color-surface-container-lowest: 255 255 255;
+    --md-sys-color-surface-container-low: 255 240 238;
+    --md-sys-color-surface-container: 255 233 230;
+    --md-sys-color-surface-container-high: 255 226 222;
+    --md-sys-color-surface-container-highest: 249 220 216;
+
+    /* ---------------------------------------------------------------------
+       State layers
+       --------------------------------------------------------------------- */
+    --md-sys-state-hover-opacity: 0.08;
+    --md-sys-state-focus-opacity: 0.1;
+    --md-sys-state-pressed-opacity: 0.1;
+    --md-sys-state-dragged-opacity: 0.16;
+
+    /* ---------------------------------------------------------------------
+       Shape
+       --------------------------------------------------------------------- */
+    --md-sys-shape-corner-none: 0px;
+    --md-sys-shape-corner-extra-small: 4px;
+    --md-sys-shape-corner-small: 8px;
+    --md-sys-shape-corner-medium: 12px;
+    --md-sys-shape-corner-large: 16px;
+    --md-sys-shape-corner-large-increased: 20px;
+    --md-sys-shape-corner-extra-large: 28px;
+    --md-sys-shape-corner-extra-large-increased: 32px;
+    --md-sys-shape-corner-extra-extra-large: 48px;
+    --md-sys-shape-corner-full: 9999px;
+
+    /* ---------------------------------------------------------------------
+       Elevation — shadow values for the web platform
+       --------------------------------------------------------------------- */
+    --md-sys-elevation-level0: none;
+    --md-sys-elevation-level1: 0 1px 2px 0 rgb(0 0 0 / 0.3),
+        0 1px 3px 1px rgb(0 0 0 / 0.15);
+    --md-sys-elevation-level2: 0 1px 2px 0 rgb(0 0 0 / 0.3),
+        0 2px 6px 2px rgb(0 0 0 / 0.15);
+    --md-sys-elevation-level3: 0 4px 8px 3px rgb(0 0 0 / 0.15),
+        0 1px 3px 0 rgb(0 0 0 / 0.3);
+    --md-sys-elevation-level4: 0 6px 10px 4px rgb(0 0 0 / 0.15),
+        0 2px 3px 0 rgb(0 0 0 / 0.3);
+    --md-sys-elevation-level5: 0 8px 12px 6px rgb(0 0 0 / 0.15),
+        0 4px 4px 0 rgb(0 0 0 / 0.3);
+
+    /* ---------------------------------------------------------------------
+       Motion
+       --------------------------------------------------------------------- */
+    --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(
+        0.05,
+        0.7,
+        0.1,
+        1
+    );
+    --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(
+        0.3,
+        0,
+        0.8,
+        0.15
+    );
+    --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+    --md-sys-motion-duration-short1: 50ms;
+    --md-sys-motion-duration-short2: 100ms;
+    --md-sys-motion-duration-short3: 150ms;
+    --md-sys-motion-duration-short4: 200ms;
+    --md-sys-motion-duration-medium1: 250ms;
+    --md-sys-motion-duration-medium2: 300ms;
+    --md-sys-motion-duration-medium3: 350ms;
+    --md-sys-motion-duration-medium4: 400ms;
+    --md-sys-motion-duration-long1: 450ms;
+    --md-sys-motion-duration-long2: 500ms;
+    --md-sys-motion-duration-long3: 550ms;
+    --md-sys-motion-duration-long4: 600ms;
+    --md-sys-motion-duration-extra-long1: 700ms;
+    --md-sys-motion-duration-extra-long2: 800ms;
+    --md-sys-motion-duration-extra-long3: 900ms;
+    --md-sys-motion-duration-extra-long4: 1000ms;
+
+    /* ---------------------------------------------------------------------
+       Typography — baseline type scale
+       --------------------------------------------------------------------- */
+    --md-ref-typeface-brand: var(--font-roboto), Roboto, system-ui, sans-serif;
+    --md-ref-typeface-plain: var(--font-roboto), Roboto, system-ui, sans-serif;
+    --md-ref-typeface-mono: var(--font-roboto-mono), 'Roboto Mono', monospace;
+
+    --md-sys-typescale-display-large-font: var(--md-ref-typeface-brand);
+    --md-sys-typescale-display-large-weight: 400;
+    --md-sys-typescale-display-large-size: 3.5625rem;
+    --md-sys-typescale-display-large-line-height: 4rem;
+    --md-sys-typescale-display-large-tracking: -0.015625rem;
+
+    --md-sys-typescale-display-medium-font: var(--md-ref-typeface-brand);
+    --md-sys-typescale-display-medium-weight: 400;
+    --md-sys-typescale-display-medium-size: 2.8125rem;
+    --md-sys-typescale-display-medium-line-height: 3.25rem;
+    --md-sys-typescale-display-medium-tracking: 0rem;
+
+    --md-sys-typescale-display-small-font: var(--md-ref-typeface-brand);
+    --md-sys-typescale-display-small-weight: 400;
+    --md-sys-typescale-display-small-size: 2.25rem;
+    --md-sys-typescale-display-small-line-height: 2.75rem;
+    --md-sys-typescale-display-small-tracking: 0rem;
+
+    --md-sys-typescale-headline-large-font: var(--md-ref-typeface-brand);
+    --md-sys-typescale-headline-large-weight: 400;
+    --md-sys-typescale-headline-large-size: 2rem;
+    --md-sys-typescale-headline-large-line-height: 2.5rem;
+    --md-sys-typescale-headline-large-tracking: 0rem;
+
+    --md-sys-typescale-headline-medium-font: var(--md-ref-typeface-brand);
+    --md-sys-typescale-headline-medium-weight: 400;
+    --md-sys-typescale-headline-medium-size: 1.75rem;
+    --md-sys-typescale-headline-medium-line-height: 2.25rem;
+    --md-sys-typescale-headline-medium-tracking: 0rem;
+
+    --md-sys-typescale-headline-small-font: var(--md-ref-typeface-brand);
+    --md-sys-typescale-headline-small-weight: 400;
+    --md-sys-typescale-headline-small-size: 1.5rem;
+    --md-sys-typescale-headline-small-line-height: 2rem;
+    --md-sys-typescale-headline-small-tracking: 0rem;
+
+    --md-sys-typescale-title-large-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-title-large-weight: 400;
+    --md-sys-typescale-title-large-size: 1.375rem;
+    --md-sys-typescale-title-large-line-height: 1.75rem;
+    --md-sys-typescale-title-large-tracking: 0rem;
+
+    --md-sys-typescale-title-medium-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-title-medium-weight: 500;
+    --md-sys-typescale-title-medium-size: 1rem;
+    --md-sys-typescale-title-medium-line-height: 1.5rem;
+    --md-sys-typescale-title-medium-tracking: 0.009375rem;
+
+    --md-sys-typescale-title-small-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-title-small-weight: 500;
+    --md-sys-typescale-title-small-size: 0.875rem;
+    --md-sys-typescale-title-small-line-height: 1.25rem;
+    --md-sys-typescale-title-small-tracking: 0.00625rem;
+
+    --md-sys-typescale-body-large-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-body-large-weight: 400;
+    --md-sys-typescale-body-large-size: 1rem;
+    --md-sys-typescale-body-large-line-height: 1.5rem;
+    --md-sys-typescale-body-large-tracking: 0.03125rem;
+
+    --md-sys-typescale-body-medium-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-body-medium-weight: 400;
+    --md-sys-typescale-body-medium-size: 0.875rem;
+    --md-sys-typescale-body-medium-line-height: 1.25rem;
+    --md-sys-typescale-body-medium-tracking: 0.015625rem;
+
+    --md-sys-typescale-body-small-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-body-small-weight: 400;
+    --md-sys-typescale-body-small-size: 0.75rem;
+    --md-sys-typescale-body-small-line-height: 1rem;
+    --md-sys-typescale-body-small-tracking: 0.025rem;
+
+    --md-sys-typescale-label-large-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-label-large-weight: 500;
+    --md-sys-typescale-label-large-size: 0.875rem;
+    --md-sys-typescale-label-large-line-height: 1.25rem;
+    --md-sys-typescale-label-large-tracking: 0.00625rem;
+
+    --md-sys-typescale-label-medium-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-label-medium-weight: 500;
+    --md-sys-typescale-label-medium-size: 0.75rem;
+    --md-sys-typescale-label-medium-line-height: 1rem;
+    --md-sys-typescale-label-medium-tracking: 0.03125rem;
+
+    --md-sys-typescale-label-small-font: var(--md-ref-typeface-plain);
+    --md-sys-typescale-label-small-weight: 500;
+    --md-sys-typescale-label-small-size: 0.6875rem;
+    --md-sys-typescale-label-small-line-height: 1rem;
+    --md-sys-typescale-label-small-tracking: 0.03125rem;
+}
+
+.dark {
+    color-scheme: dark;
+
+    /* ---------------------------------------------------------------------
+       Color roles — dark
+       --------------------------------------------------------------------- */
+    --md-sys-color-primary: 255 180 170;
+    --md-sys-color-on-primary: 105 0 3;
+    --md-sys-color-primary-container: 147 0 5;
+    --md-sys-color-on-primary-container: 255 218 213;
+    --md-sys-color-secondary: 244 186 159;
+    --md-sys-color-on-secondary: 75 39 21;
+    --md-sys-color-secondary-container: 101 61 41;
+    --md-sys-color-on-secondary-container: 255 219 204;
+    --md-sys-color-tertiary: 250 185 129;
+    --md-sys-color-on-tertiary: 76 39 0;
+    --md-sys-color-tertiary-container: 104 60 14;
+    --md-sys-color-on-tertiary-container: 255 220 193;
+    --md-sys-color-error: 255 180 171;
+    --md-sys-color-on-error: 105 0 5;
+    --md-sys-color-error-container: 147 0 10;
+    --md-sys-color-on-error-container: 255 218 214;
+    --md-sys-color-background: 42 26 24;
+    --md-sys-color-on-background: 249 220 216;
+    --md-sys-color-surface: 42 26 24;
+    --md-sys-color-on-surface: 249 220 216;
+    --md-sys-color-surface-variant: 88 65 62;
+    --md-sys-color-on-surface-variant: 223 191 187;
+    --md-sys-color-outline: 167 138 134;
+    --md-sys-color-outline-variant: 74 54 51;
+    --md-sys-color-shadow: 0 0 0;
+    --md-sys-color-scrim: 0 0 0;
+    --md-sys-color-inverse-surface: 249 220 216;
+    --md-sys-color-inverse-on-surface: 61 44 42;
+    --md-sys-color-inverse-primary: 192 0 10;
+    --md-sys-color-surface-tint: 255 180 170;
+    --md-sys-color-primary-fixed: 255 218 213;
+    --md-sys-color-primary-fixed-dim: 255 180 170;
+    --md-sys-color-on-primary-fixed: 65 0 1;
+    --md-sys-color-on-primary-fixed-variant: 147 0 5;
+    --md-sys-color-secondary-fixed: 255 219 204;
+    --md-sys-color-secondary-fixed-dim: 244 186 159;
+    --md-sys-color-on-secondary-fixed: 49 19 4;
+    --md-sys-color-on-secondary-fixed-variant: 101 61 41;
+    --md-sys-color-tertiary-fixed: 255 220 193;
+    --md-sys-color-tertiary-fixed-dim: 250 185 129;
+    --md-sys-color-on-tertiary-fixed: 46 21 0;
+    --md-sys-color-on-tertiary-fixed-variant: 104 60 14;
+    --md-sys-color-surface-dim: 42 26 24;
+    --md-sys-color-surface-bright: 82 60 57;
+    --md-sys-color-surface-container-lowest: 28 14 12;
+    --md-sys-color-surface-container-low: 50 32 30;
+    --md-sys-color-surface-container: 56 36 34;
+    --md-sys-color-surface-container-high: 68 46 43;
+    --md-sys-color-surface-container-highest: 80 56 53;
+}

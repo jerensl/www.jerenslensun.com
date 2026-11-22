@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 export default function CursorBlinker() {
     return (
         <motion.div
+            aria-hidden="true"
             animate={{
                 opacity: [0, 0, 1, 1],
             }}
@@ -12,7 +13,7 @@ export default function CursorBlinker() {
                 ease: 'linear',
                 times: [0, 0.5, 0.5, 1],
             }}
-            className="inline-block h-12 w-1 translate-y-1 bg-slate-900 dark:bg-slate-100"
+            className="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.06em] rounded-full bg-primary align-baseline"
         />
     )
 }

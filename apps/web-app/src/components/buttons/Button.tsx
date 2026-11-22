@@ -1,52 +1,60 @@
 import React from 'react'
-import clsx from 'clsx'
-
-type IButtonVariants =
-    'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text'
-
-type IButtonSizeVariants = 'small' | 'base' | 'large'
+import {
+    getButtonClasses,
+    type ButtonSize,
+    type ButtonVariant,
+} from './buttonStyles'
 
 export type ButtonProps = {
-    onClick: () => void
-    variant: IButtonVariants
-    label: string
-    size: IButtonSizeVariants
+    onClick?: () => void
+    variant: ButtonVariant
+    label?: string
+    size?: ButtonSize
     dataCy?: string
     fullWidth?: boolean
+    className?: string
+    type?: 'button' | 'submit' | 'reset'
+    disabled?: boolean
+    ariaLabel?: string
+    icon?: React.ReactNode
+    trailingIcon?: React.ReactNode
+    children?: React.ReactNode
 }
 
 export const Button = ({
     onClick,
     variant,
     label,
-    size,
+    size = 'base',
     fullWidth,
     dataCy,
+    className,
+    type = 'button',
+    disabled,
+    ariaLabel,
+    icon,
+    trailingIcon,
+    children,
 }: ButtonProps) => {
     return (
         <button
             data-cy={dataCy}
+            type={type}
             onClick={onClick}
-            className={clsx(
-                'rounded-full font-medium font-sans w-fit shadow-elevation-0',
-                {
-                    'text-sm px-3 py-1.5': size === 'small',
-                    'text-sm px-5 py-2': size === 'base',
-                    'text-base px-5 py-2.5': size === 'large',
-                    'text-primary shadow-elevation-1 hover:bg-primary/8 hover:shadow-elevation-2 focus:shadow-elevation-1':
-                        variant === 'elevated',
-                    'text-on-primary bg-primary hover:brightness-108 hover:saturate-108':
-                        variant === 'filled',
-                    'text-on-secondary-container bg-secondary-container hover:brightness-108 hover:saturate-108':
-                        variant === 'filled-tonal',
-                    'text-primary border border-outline bg-surface hover:brightness-108 hover:saturate-108':
-                        variant === 'outlined',
-                    'text-primary hover:bg-primary/8': variant === 'text',
-                    'block w-full': fullWidth,
-                }
-            )}
+            disabled={disabled}
+            aria-label={ariaLabel}
+            className={getButtonClasses({
+                variant,
+                size,
+                fullWidth,
+                className,
+            })}
         >
-            {label}
+            {icon ? <span aria-hidden="true">{icon}</span> : null}
+            {children ?? label}
+            {trailingIcon ? (
+                <span aria-hidden="true">{trailingIcon}</span>
+            ) : null}
         </button>
     )
 }

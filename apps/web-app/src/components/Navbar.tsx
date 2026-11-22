@@ -1,70 +1,139 @@
 import React from 'react'
+import { useRouter } from 'next/router'
+import clsx from 'clsx'
 import Notifications from './Notifications'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ThemeToggle from './ThemeToggle'
 import { StandardLink } from './links/StandardLink'
-import { HighlightLink } from './links/HighlightLink'
 import { pageLinks } from '@/constant/page'
 
+const isActivePath = (pathname: string, href: string) =>
+    href === '/'
+        ? pathname === '/'
+        : pathname === href || pathname.startsWith(`${href}/`)
+
+/**
+ * M3 small top app bar. At rest it sits flat on the surface; once the page
+ * scrolls it moves to surface-container with a level-2 shadow.
+ */
 export const Navbar: React.FC = () => {
+    const router = useRouter()
+    const [scrolled, setScrolled] = React.useState(false)
+
+    React.useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 4)
+
+        onScroll()
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
+
     return (
-        <nav className="fixed w-full z-10 bg-background px-5vw">
-            <div className="flex text-center justify-between h-full w-full border-gray-100">
-                <HighlightLink
+        <header
+            className={clsx(
+                'fixed inset-x-0 top-0 z-40 h-16 border-b transition-[background-color,box-shadow,border-color] duration-200 ease-emphasized',
+                scrolled
+                    ? 'border-transparent bg-surface-container shadow-elevation-2'
+                    : 'border-outline-variant/60 bg-surface'
+            )}
+        >
+            <div className="mx-auto flex h-full max-w-content items-center gap-2 px-4 sm:px-6 lg:px-8">
+                <StandardLink
                     href="/"
-                    className="font-sans font-medium text-xl my-5 py-2"
+                    aria-label="Jerens Lensun — home"
+                    className="mr-2 inline-flex items-center gap-2 rounded-full px-2 py-1 text-title-large font-medium text-on-surface"
                 >
+                    <span
+                        aria-hidden="true"
+                        className="size-2.5 rounded-full bg-primary"
+                    />
                     Jerens
-                </HighlightLink>
-                <div className="flex text-center my-auto gap-2">
-                    <div className="text-center relative h-full hidden md:flex">
-                        {pageLinks
-                            .filter(({ name }) => name !== 'Home')
-                            .map(({ name, url }) => {
-                                return (
-                                    <HighlightLink
-                                        key={url}
-                                        href={url}
-                                        className="font-sans hidden md:block font-medium text-gray-800 dark:text-white text-xl my-4 mx-5 py-2"
-                                    >
-                                        {name}
-                                    </HighlightLink>
-                                )
-                            })}
-                    </div>
+                </StandardLink>
+
+                <nav
+                    aria-label="Primary"
+                    className="ml-2 hidden items-center gap-1 md:flex"
+                >
+                    {pageLinks
+                        .filter(({ name }) => name !== 'Home')
+                        .map(({ name, url }) => {
+                            const active = isActivePath(router.pathname, url)
+
+                            return (
+                                <StandardLink
+                                    key={url}
+                                    href={url}
+                                    className={clsx(
+                                        'md-state-layer rounded-full px-4 py-2 text-label-large transition-colors duration-200 ease-emphasized',
+                                        active
+                                            ? 'bg-secondary-container text-on-secondary-container'
+                                            : 'text-on-surface-variant hover:text-on-surface'
+                                    )}
+                                >
+                                    {name}
+                                </StandardLink>
+                            )
+                        })}
+                </nav>
+
+                <div className="ml-auto flex items-center gap-1">
                     <Notifications />
                     <ThemeToggle />
                 </div>
             </div>
-        </nav>
+        </header>
     )
 }
 
+/**
+ * M3 navigation bar for compact layouts. The active destination gets the
+ * 32dp secondary-container indicator pill.
+ */
 export const NavbarMobile: React.FC = () => {
+    const router = useRouter()
+
     return (
-        <div className="fixed flex w-full px-10 py-2 bottom-0 h-18 bg-white dark:bg-neutral-800 z-40 md:hidden">
-            <div className="flex justify-between w-full">
+        <nav
+            aria-label="Primary mobile"
+            className="fixed inset-x-0 bottom-0 z-40 border-t border-outline-variant bg-surface-container pb-[env(safe-area-inset-bottom)] md:hidden"
+        >
+            <div className="flex h-20 items-stretch justify-around px-2">
                 {pageLinks.map(({ name, url, icon }) => {
+                    const active = isActivePath(router.pathname, url)
+
                     return (
-                        <div className="flex-1 group" key={name}>
-                            <StandardLink
-                                className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-600 dark:text-gray-200 group-hover:text-red-500 border-b-2 border-transparent group-hover:border-red-500"
-                                href={url}
+                        <StandardLink
+                            key={name}
+                            href={url}
+                            className="group flex flex-1 flex-col items-center justify-center gap-1 rounded-lg"
+                        >
+                            <span
+                                className={clsx(
+                                    'flex h-8 w-16 items-center justify-center rounded-full transition-colors duration-200 ease-emphasized',
+                                    active
+                                        ? 'bg-secondary-container text-on-secondary-container'
+                                        : 'text-on-surface-variant group-hover:bg-on-surface/8'
+                                )}
                             >
-                                <span className="block px-1 pt-1 pb-2">
-                                    <FontAwesomeIcon
-                                        className="block"
-                                        icon={icon}
-                                    />
-                                    <span className="text-xs pb-1 block">
-                                        {name}
-                                    </span>
-                                </span>
-                            </StandardLink>
-                        </div>
+                                <FontAwesomeIcon
+                                    icon={icon}
+                                    className="text-[18px]"
+                                />
+                            </span>
+                            <span
+                                className={clsx(
+                                    'text-label-medium',
+                                    active
+                                        ? 'font-semibold text-on-surface'
+                                        : 'text-on-surface-variant'
+                                )}
+                            >
+                                {name}
+                            </span>
+                        </StandardLink>
                     )
                 })}
             </div>
-        </div>
+        </nav>
     )
 }
