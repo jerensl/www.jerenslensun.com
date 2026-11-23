@@ -85,7 +85,7 @@
     "@storybook/nextjs": "^10.6.7",
     "@swc/core": "^1.16.21",
     "@swc/jest": "^0.2.39",
-    "@tailwindcss/postcss": "4.3.4",
+    "@tailwindcss/postcss": "4.3.5",
     "@tailwindcss/typography": "^0.5.20",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^8.0.0",
