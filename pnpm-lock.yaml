@@ -195,8 +195,8 @@ importers:
         specifier: ^1.1.8
         version: 1.1.8
       '@next/plugin-storybook':
-        specifier: 16.4.5
-        version: 16.4.5
+        specifier: 16.4.6
+        version: 16.4.6
       '@playwright/test':
         specifier: ^1.64.1
         version: 1.64.1
@@ -2304,8 +2304,8 @@ packages:
   '@next/eslint-plugin-next@16.4.5':
     resolution: {integrity: sha512-dNmc4y4En/34tWxaBFF2tG/R9GeiRwVPf7v8Az/Pqk8FcT4Uv0ePmrZKvWBL2nFy1QprPgJW+6XjfyV6jbRV3Q==}
 
-  '@next/plugin-storybook@16.4.5':
-    resolution: {integrity: sha512-sC6EMRdNkDOWqUWNeHPMjCqgz8fXNRyIPEKivxmtCjkTi3a1gJHeLZvJMCNPcI+oZyo9GHVM9lCcPS+33jYA5w==}
+  '@next/plugin-storybook@16.4.6':
+    resolution: {integrity: sha512-pegxGxHT+gS7iYmymUZri2scA03F79anVO1ghy1UqbirMpSYx1iXBg1uy3jD5PpESGAI2t4erKjTyprhfeu6FQ==}
 
   '@next/swc-darwin-arm64@16.4.6':
     resolution: {integrity: sha512-kJ4VVZkley17xKaJx72QN2IBqjrj7zenCQZaUF0l9ShS/1Mt2kW4+Z5KGG6vgr3L/J562xTOizVyM1iA/u5nlg==}
@@ -11488,7 +11488,7 @@ snapshots:
     transitivePeerDependencies:
       - eslint
 
-  '@next/plugin-storybook@16.4.5': {}
+  '@next/plugin-storybook@16.4.6': {}
 
   '@next/swc-darwin-arm64@16.4.6':
     optional: true

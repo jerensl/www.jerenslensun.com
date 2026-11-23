@@ -78,7 +78,7 @@
     "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
     "@msw/data": "^1.1.8",
-    "@next/plugin-storybook": "16.4.5",
+    "@next/plugin-storybook": "16.4.6",
     "@playwright/test": "^1.64.1",
     "@storybook/addon-docs": "^10.6.5",
     "@storybook/addon-links": "^10.6.5",
