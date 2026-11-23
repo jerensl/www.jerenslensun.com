@@ -29,7 +29,7 @@
     "@plaiceholder/next": "^3.0.0",
     "@stitches/core": "^1.2.8",
     "@tanstack/react-query": "^5.105.3",
-    "@tanstack/react-query-devtools": "^5.105.3",
+    "@tanstack/react-query-devtools": "^5.108.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "esbuild": "^0.28.2",
