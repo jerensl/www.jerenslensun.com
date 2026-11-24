@@ -71,8 +71,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       hast-util-to-html:
-        specifier: ^9.0.6
-        version: 9.0.6
+        specifier: ^9.0.7
+        version: 9.0.7
       hast-util-to-string:
         specifier: ^3.0.1
         version: 3.0.1
@@ -5876,8 +5876,8 @@ packages:
   hast-util-to-estree@3.1.3:
     resolution: {integrity: sha512-48+B/rJWAp0jamNbAAf9M7Uf//UVqAoMmgXhBdxTDJLGKY+LRnZ99qcG+Qjl5HfMpYNzS5v4EAwVEF34LeAj7w==}
 
-  hast-util-to-html@9.0.6:
-    resolution: {integrity: sha512-1SZUxCN3TtJAE7e2BQN2MBHsoZ1gnmi9GoCP5Di59CSWptIezSAW09yDZyVbanb78V9eCwrKqdQsjtfVTxYHWA==}
+  hast-util-to-html@9.0.7:
+    resolution: {integrity: sha512-HYNDA3qdnzUPitY/LcQm1nWs8z0cWFNH1Nz09jdI/tXifAqF7h3+jrLl4S/b9Mi4VSjn0Dsn54ctuTV6zhBthA==}
 
   hast-util-to-jsx-runtime@2.3.7:
     resolution: {integrity: sha512-F7DNV2NMcTxA4GqPVHnXzX+mpoPHAIY9rJAVH3CZ1FdBZOcBUEjUuvMkMpHVs/sicEtznh9tMGj5WUR9S4E2rg==}
@@ -6777,8 +6777,8 @@ packages:
   mdast-util-phrasing@4.1.0:
     resolution: {integrity: sha512-TqICwyvJJpBwvGAMZjj4J2n0X8QWp21b9l0o7eXyVJ25YNWYbJDVIyD1bZXE6WtV6RmKJVYmQAKWa0zWOABz2w==}
 
-  mdast-util-to-hast@13.2.1:
-    resolution: {integrity: sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==}
+  mdast-util-to-hast@13.2.2:
+    resolution: {integrity: sha512-l2pnmOuqs+SGLVpTVXnRLQu5v1AzvDe181404fbXzzqObVxrAnnVxapAP27pUwzLBL/ABIkgUhGlPVU7QSvIFg==}
 
   mdast-util-to-markdown@2.2.2:
     resolution: {integrity: sha512-ELNT5jYDUdx0B/hlUSSAiAEtvqkY3Oriwkp1KEYseF1Ccu4MnKkmE5yK3oE3WGT/Pq8VTE+XwP0GLL5pafY8yA==}
@@ -8214,8 +8214,8 @@ packages:
   string_decoder@1.3.0:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
 
-  stringify-entities@4.0.4:
-    resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
+  stringify-entities@4.0.5:
+    resolution: {integrity: sha512-jNuI2fNNw5ecxrWmgm90R3iH0Kc/94AQwoQWoSUYphWzvmUA2pjFG34H56Z7Z3FkvH3FpYwwewKAa97oQnPFhw==}
 
   stringify-object@3.3.0:
     resolution: {integrity: sha512-rHqiFh1elqCQ9WPLIC8I0Q/g/wj5J1eMkyoiD6eoQApWHP0FtlK7rqnhmabL5VUY9JQCcqwwvlOaSuutekgyrw==}
@@ -15338,7 +15338,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  hast-util-to-html@9.0.6:
+  hast-util-to-html@9.0.7:
     dependencies:
       '@types/hast': 3.0.5
       '@types/unist': 3.0.3
@@ -15346,10 +15346,10 @@ snapshots:
       comma-separated-tokens: 2.0.3
       hast-util-whitespace: 3.0.0
       html-void-elements: 3.0.0
-      mdast-util-to-hast: 13.2.1
+      mdast-util-to-hast: 13.2.2
       property-information: 7.2.0
       space-separated-tokens: 2.0.2
-      stringify-entities: 4.0.4
+      stringify-entities: 4.0.5
       zwitch: 2.0.4
 
   hast-util-to-jsx-runtime@2.3.7:
@@ -16518,7 +16518,7 @@ snapshots:
       mdast-util-from-markdown: 2.1.0
       mdast-util-to-markdown: 2.2.2
       parse-entities: 4.0.2
-      stringify-entities: 4.0.4
+      stringify-entities: 4.0.5
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.3
     transitivePeerDependencies:
@@ -16550,7 +16550,7 @@ snapshots:
       '@types/mdast': 4.0.4
       unist-util-is: 6.0.1
 
-  mdast-util-to-hast@13.2.1:
+  mdast-util-to-hast@13.2.2:
     dependencies:
       '@types/hast': 3.0.5
       '@types/mdast': 4.0.4
@@ -17827,7 +17827,7 @@ snapshots:
   rehype-stringify@10.0.1:
     dependencies:
       '@types/hast': 3.0.5
-      hast-util-to-html: 9.0.6
+      hast-util-to-html: 9.0.7
       unified: 11.0.5
 
   rehype@13.0.2:
@@ -17897,7 +17897,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.5
       '@types/mdast': 4.0.4
-      mdast-util-to-hast: 13.2.1
+      mdast-util-to-hast: 13.2.2
       unified: 11.0.5
       vfile: 6.0.3
 
@@ -18438,7 +18438,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  stringify-entities@4.0.4:
+  stringify-entities@4.0.5:
     dependencies:
       character-entities-html4: 2.1.0
       character-entities-legacy: 3.0.0
