@@ -1,0 +1,24 @@
+apps/web-app/src/components/Comment.tsx
+  s_7d45e62d2c712a::t_18debbfcf7c569 11
+README.md
+  s_7d45e62d2c712a::t_7d2882ab86e49a 131
+  s_7d45e62d2c712a::t_d50ad7af1f3ee8 61,153
+  s_7d45e62d2c712a::t_b7fa635a67c07a 67,137
+  s_7d45e62d2c712a::t_3e56c975154359 6-7,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "0b605f014e49c5189fdb6f9bdfb03156e3dd2d90",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "deepseek-v4.1-flash-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
