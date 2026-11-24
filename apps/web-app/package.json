@@ -33,7 +33,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "esbuild": "^0.28.2",
-    "firebase": "^13.2.0",
+    "firebase": "^13.4.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "^9.0.6",
     "hast-util-to-string": "^3.0.1",
