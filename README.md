@@ -3,10 +3,10 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/www.jerenslensun.com)](https://github.com/jerensl/www.jerenslensun.com/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/jerensl/jerenslensun-portfolio)](https://github.com/jerensl/jerenslensun-portfolio/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jerensl/jerenslensun-portfolio)](https://github.com/jerensl/jerenslensun-portfolio/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-[![codecov](https://codecov.io/gh/jerensl/www.jerenslensun.com/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/www.jerenslensun.com) ![Continuous Integration](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/integration.yml/badge.svg) ![Docs Deployment](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml/badge.svg)
+[![codecov](https://codecov.io/gh/jerensl/jerenslensun-portfolio/branch/main/graph/badge.svg?token=HSYPO9VBAU)](https://codecov.io/gh/jerensl/jerenslensun-portfolio) ![Continuous Integration](https://github.com/jerensl/jerenslensun-portfolio/actions/workflows/integration.yml/badge.svg) ![Docs Deployment](https://github.com/jerensl/jerenslensun-portfolio/actions/workflows/deployment.yml/badge.svg)
 
 </div>
 
@@ -58,13 +58,13 @@ A step by step series of examples that tell you how to get a development env run
 ### Clone the project
 
 ```sh
-  git clone https://github.com/jerensl/www.jerenslensun.com.git
+  git clone https://github.com/jerensl/jerenslensun-portfolio.git
 ```
 
 ### Go to the project directory
 
 ```sh
-  cd www.jerenslensun.com
+  cd jerenslensun-portfolio
 ```
 
 ### Install dependencies
@@ -128,13 +128,13 @@ PW_TEST_CONNECT_WS_ENDPOINT=ws://localhost:8443/ npx playwright test --ui-port=8
 
 ## 🎈 Usage <a name="usage"></a>
 
-For more information about how to use the component, you can follow the instruction from the storybook [here](https://jerensl.github.io/www.jerenslensun.com/).
+For more information about how to use the component, you can follow the instruction from the storybook [here](https://jerensl.github.io/jerenslensun-portfolio/).
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
 This website is deployed on [Vercel](https://vercel.com/), with continuous deployment from the `main` branch.
 
-Storybook documentation is published to GitHub Pages by the [Docs Deployment workflow](https://github.com/jerensl/www.jerenslensun.com/actions/workflows/deployment.yml?query=branch%3Amain).
+Storybook documentation is published to GitHub Pages by the [Docs Deployment workflow](https://github.com/jerensl/jerenslensun-portfolio/actions/workflows/deployment.yml?query=branch%3Amain).
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -150,7 +150,7 @@ Storybook documentation is published to GitHub Pages by the [Docs Deployment wor
 
 - [@jerensl](https://github.com/jerensl) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/jerensl/www.jerenslensun.com/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/jerensl/jerenslensun-portfolio/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 

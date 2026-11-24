@@ -8,7 +8,7 @@ export const Comment: React.FC = (): React.ReactElement => {
     return (
         <Giscus
             id="comments"
-            repo="jerensl/www.jerenslensun.com"
+            repo="jerensl/jerenslensun-portfolio"
             repoId="R_kgDOGSJ3GQ"
             category="Blog"
             categoryId="DIC_kwDOGSJ3Gc4CfORD"
