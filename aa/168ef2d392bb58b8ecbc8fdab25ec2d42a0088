@@ -1,0 +1,24 @@
+apps/web-app/next-sitemap.cjs
+  s_7d45e62d2c712a::t_019f34efd2827b 35-36,55-107
+  s_7d45e62d2c712a::t_0976a139a1cfe3 108
+apps/web-app/src/libs/rss.ts
+  s_7d45e62d2c712a::t_ba709974ee7afb 4-10,13-16,19,25-27,32-35,37,39,42-43,52-61,63-72
+apps/web-app/rss-generate.cjs
+  s_7d45e62d2c712a::t_bfc4920f75e27e 1-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "aa168ef2d392bb58b8ecbc8fdab25ec2d42a0088",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
