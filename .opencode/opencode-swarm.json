@@ -1,0 +1,28 @@
+{
+  "$schema": "https://unpkg.com/opencode-swarm@7.205.6/opencode-swarm.schema.json",
+  "agents": {
+    "architect": {
+      "model": "opencode/deepseek-v4.1-flash-free",
+      "fallback_models": ["opencode/big-pickle"]
+    },
+    "coder": {
+      "model": "opencode/deepseek-v4.1-flash-free",
+      "fallback_models": ["opencode/mimo-v2.6-flash-free", "opencode/big-pickle"]
+    },
+    "reviewer": {
+      "model": "opencode/big-pickle",
+      "fallback_models": ["opencode/mimo-v2.6-flash-free"]
+    },
+    "explorer": {
+      "model": "opencode/mimo-v2.6-flash-free",
+      "fallback_models": ["opencode/big-pickle"]
+    },
+    "test_engineer": {
+      "model": "opencode/mimo-v2.6-flash-free",
+      "fallback_models": ["opencode/big-pickle"]
+    }
+  },
+  "auto_select_architect": true,
+  "max_iterations": 5,
+  "qa_retry_limit": 5
+}
