@@ -1,0 +1,19 @@
+opencode.json
+  s_7d45e62d2c712a::t_af06aeb6f66b2c 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "667441625862f147f630cf305e41c2232b97d55f",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "unknown"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
