@@ -1,0 +1,19 @@
+apps/web-app/next-sitemap.cjs
+  s_7d45e62d2c712a::t_4831e42fafdac1 1-13,16-35,38-79,81-101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "95c0824340935f74ce77dd4a10d870a03b8f5625",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
