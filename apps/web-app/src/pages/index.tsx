@@ -1,7 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { Footer } from '@/components/Footer'
 import { HeadComponent } from '@/components/Seo'
-import { generateRss } from '@/libs/rss'
 import { Header } from '@/components/Header'
 import { personSchema, websiteSchema } from '@/libs/seo'
 import { IntroductionSection } from '@/components/sections/Introduction.section'
@@ -14,8 +13,6 @@ import {
 import React from 'react'
 
 export const getStaticProps: GetStaticProps = async () => {
-    generateRss()
-
     const [servoMergedPRs, mesheryEcosystemMergedPRs] = await Promise.all([
         getMergedServoPRCount(),
         getMergedMesheryEcosystemPRCount(),
