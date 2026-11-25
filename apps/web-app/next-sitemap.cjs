@@ -32,6 +32,8 @@ function loadContent(type) {
       const slug = data.slug || file.replace(/\.(mdx|md)$/, '');
       entries.push({
         slug,
+        title: data.title,
+        description: data.description,
         date: data.date,
         language: data.language || detectLanguage(slug),
         translation: data.translation,
@@ -49,6 +51,60 @@ const projectEntries = loadContent('project');
 
 const publishedBlogSlugs = new Set(blogEntries.map(e => e.slug));
 const blogBySlug = new Map(blogEntries.map(e => [e.slug, e]));
+
+// --- RSS generation (postbuild side effect) ---
+function cdata(s) {
+  const escaped = s.replace(/]]>/g, ']]]]><![CDATA[>')
+  return `<![CDATA[${escaped}]]>`
+}
+
+function generateRss() {
+  const outDir = 'out';
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  }
+
+  for (const locale of ['en', 'id']) {
+    const filtered = blogEntries.filter(e => e.language === locale);
+    const itemXml = filtered.map(({ slug, title, description, date }) =>
+      `    <item>
+      <title>${cdata(title)}</title>
+      <description>${cdata(description)}</description>
+      <link>${SITE_URL}/blog/${slug}/</link>
+      <guid isPermaLink="true">${SITE_URL}/blog/${slug}/</guid>
+      <pubDate>${new Date(date).toUTCString()}</pubDate>
+    </item>`
+    );
+
+    const selfUrl = locale === 'id'
+      ? `${SITE_URL}/rss-id.xml`
+      : `${SITE_URL}/rss.xml`;
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jerens Lensun Blog${locale === 'id' ? ' (Bahasa Indonesia)' : ''}</title>
+    <link>${SITE_URL}/blog</link>
+    <description>Personal portfolio and blog presented by Jerens Lensun.</description>
+    <language>${locale === 'id' ? 'id-ID' : 'en-US'}</language>
+    <atom:link href="${selfUrl}" rel="self" type="application/rss+xml" />
+    <ttl>40</ttl>
+    ${itemXml.join('\n')}
+  </channel>
+</rss>`;
+
+    const outFile = locale === 'id' ? `${outDir}/rss-id.xml` : `${outDir}/rss.xml`;
+    fs.writeFileSync(outFile, xml.trim());
+    console.log(`Generated ${outFile} (${filtered.length} entries)`);
+  }
+}
+
+// Run RSS generation when this module is loaded during postbuild
+try {
+  generateRss();
+} catch (e) {
+  console.error('RSS generation failed:', e.message);
+}
 
 module.exports = {
   siteUrl: SITE_URL,
