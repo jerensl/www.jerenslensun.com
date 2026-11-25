@@ -4,6 +4,7 @@ const matter = require('gray-matter');
 
 const SITE_URL = 'https://jerensl.dev';
 
+/** Normalize a path to a canonical leading/trailing-slash form. */
 function normalizePath(p) {
   if (!p) return '/';
   let out = p.replace(/\/+/g, '/');
@@ -13,6 +14,7 @@ function normalizePath(p) {
   return out;
 }
 
+/** Load published content entries from packages/content-data/contents. */
 function loadContent(type) {
   const dir = path.join(__dirname, '..', 'packages', 'content-data', 'contents', type);
   const entries = [];
@@ -97,5 +99,3 @@ module.exports = {
     return paths;
   },
 };
-" path">
-apps/web-app/next-sitemap.cjs
