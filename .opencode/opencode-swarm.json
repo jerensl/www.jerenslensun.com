@@ -2,12 +2,12 @@
   "$schema": "https://unpkg.com/opencode-swarm@7.205.6/opencode-swarm.schema.json",
   "agents": {
     "architect": {
-      "model": "opencode/deepseek-v4.1-flash-free",
-      "fallback_models": ["opencode/big-pickle"]
+      "model": "opencode/big-pickle",
+      "fallback_models": ["opencode/deepseek-v4.1-flash-free"]
     },
     "coder": {
-      "model": "opencode/deepseek-v4.1-flash-free",
-      "fallback_models": ["opencode/mimo-v2.6-flash-free", "opencode/big-pickle"]
+      "model": "opencode/big-pickle",
+      "fallback_models": ["opencode/mimo-v2.6-flash-free", "opencode/deepseek-v4.1-flash-free"]
     },
     "reviewer": {
       "model": "opencode/big-pickle",
