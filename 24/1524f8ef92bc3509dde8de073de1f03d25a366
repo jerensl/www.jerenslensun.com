@@ -1,0 +1,21 @@
+apps/web-app/next-env.d.ts
+  s_7d45e62d2c712a::t_05e1418b088002 3-4
+.opencode/opencode-swarm.json
+  s_7d45e62d2c712a::t_e59fc46b23744c 5-6,9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "241524f8ef92bc3509dde8de073de1f03d25a366",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
