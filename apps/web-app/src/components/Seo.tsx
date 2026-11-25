@@ -53,7 +53,7 @@ const SeoHead: React.FC<{ seo: SeoResult; schemas: JsonLdSchema[] }> = ({
                 rel="alternate"
                 type="application/rss+xml"
                 title={`${app.title} RSS Feed`}
-                href={`${siteMetadata.url}/rss.xml`}
+                href={`${siteMetadata.url}/${seo.language.toLowerCase().startsWith('id') ? 'rss-id.xml' : 'rss.xml'}`}
             />
             <link
                 rel="sitemap"
