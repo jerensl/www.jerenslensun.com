@@ -14,9 +14,14 @@ function normalizePath(p) {
   return out;
 }
 
+/** Detect language from filename prefix (en- or id-). */
+function detectLanguage(slug) {
+  return slug && slug.startsWith('id-') ? 'id' : 'en';
+}
+
 /** Load published content entries from packages/content-data/contents. */
 function loadContent(type) {
-  const dir = path.join(__dirname, '..', 'packages', 'content-data', 'contents', type);
+  const dir = path.join(__dirname, '..', '..', 'packages', 'content-data', 'contents', type);
   const entries = [];
   try {
     for (const file of fs.readdirSync(dir)) {
@@ -24,9 +29,18 @@ function loadContent(type) {
       const raw = fs.readFileSync(path.join(dir, file), 'utf8');
       const { data } = matter(raw);
       if (data.isPublished === false) continue;
-      entries.push({ slug: data.slug || file.replace(/\.(mdx|md)$/, ''), date: data.date, language: data.language, translation: data.translation });
+      const slug = data.slug || file.replace(/\.(mdx|md)$/, '');
+      entries.push({
+        slug,
+        date: data.date,
+        language: data.language || detectLanguage(slug),
+        translation: data.translation,
+        isPublished: data.isPublished !== false,
+      });
     }
-  } catch (e) { /* directory may not exist at build time */ }
+  } catch (e) {
+    console.error('loadContent error:', e.message);
+  }
   return entries;
 }
 
@@ -43,12 +57,18 @@ module.exports = {
   outDir: 'out',
   trailingSlash: true,
   autoLastmod: false,
-  transform: async (config, path) => {
-    const loc = normalizePath(path);
+  transform: async (config, pagePath) => {
+    const loc = normalizePath(pagePath);
     if (loc === '/404/' || loc === '/500/') return null;
+
     const slug = loc.replace(/^\/(blog|project)\//, '').replace(/\/$/, '');
     const isBlog = loc.startsWith('/blog/');
     const isProject = loc.startsWith('/project/');
+
+    // Exclude unpublished pages (only when slug is non-empty)
+    if (slug && isBlog && !publishedBlogSlugs.has(slug)) return null;
+    if (slug && isProject && !projectEntries.some(e => e.slug === slug)) return null;
+
     let lastmod;
     if (isBlog) {
       const e = blogBySlug.get(slug);
@@ -73,14 +93,14 @@ module.exports = {
       const e = blogBySlug.get(slug);
       if (e) {
         const lang = e.language || 'en';
-        alternateRefs.push({ href: `${SITE_URL}${loc}`, hreflang: lang === 'id' ? 'id-ID' : 'en-US' });
+        alternateRefs.push({ href: `${SITE_URL}${loc}`, hreflang: lang === 'id' ? 'id-ID' : 'en-US', hrefIsAbsolute: true });
         if (e.translation && publishedBlogSlugs.has(e.translation)) {
           const tEntry = blogBySlug.get(e.translation);
           const tLang = (tEntry && tEntry.language) || (lang === 'id' ? 'en' : 'id');
           const tLoc = normalizePath(`/blog/${e.translation}/`);
-          alternateRefs.push({ href: `${SITE_URL}${tLoc}`, hreflang: tLang === 'id' ? 'id-ID' : 'en-US' });
+          alternateRefs.push({ href: `${SITE_URL}${tLoc}`, hreflang: tLang === 'id' ? 'id-ID' : 'en-US', hrefIsAbsolute: true });
         }
-        alternateRefs.push({ href: `${SITE_URL}${loc}`, hreflang: 'x-default' });
+        alternateRefs.push({ href: `${SITE_URL}${loc}`, hreflang: 'x-default', hrefIsAbsolute: true });
       }
     }
 
@@ -89,12 +109,10 @@ module.exports = {
   additionalPaths: async () => {
     const paths = [];
     for (const e of blogEntries) {
-      if (e.isPublished === false) continue;
-      paths.push(normalizePath(`/blog/${e.slug}/`));
+      paths.push({ loc: normalizePath(`/blog/${e.slug}/`) });
     }
     for (const e of projectEntries) {
-      if (e.isPublished === false) continue;
-      paths.push(normalizePath(`/project/${e.slug}/`));
+      paths.push({ loc: normalizePath(`/project/${e.slug}/`) });
     }
     return paths;
   },
