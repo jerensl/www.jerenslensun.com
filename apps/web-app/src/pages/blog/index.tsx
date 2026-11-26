@@ -117,6 +117,24 @@ export default function Blog({
 
     const clearSearch = () => setQuery('')
 
+
+    // Escape key clears filters and collapses the topic panel.
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                if (showAllTags) {
+                    setShowAllTags(false)
+                }
+                if (tagFilter) {
+                    setTagFilter('')
+                    setCollapsedTagGroups({})
+                }
+            }
+        }
+        document.addEventListener('keydown', handleKeyDown)
+        return () => document.removeEventListener('keydown', handleKeyDown)
+    }, [showAllTags, tagFilter])
+
     const clearFilters = () => {
         setQuery('')
         setSelectedTags([])
@@ -469,8 +487,7 @@ export default function Blog({
                                 <div className="flex flex-wrap items-center gap-3">
                                     <p
                                         role="status"
-                                        aria-live="polite"
-                                        className="text-body-medium text-on-surface-variant"
+                                            className="text-body-medium text-on-surface-variant"
                                     >
                                         Showing {matchingPosts.length} of{' '}
                                         {languagePosts.length} {articleLabel} in{' '}
