@@ -28,7 +28,7 @@ const JsonLd: React.FC<{ schemas: JsonLdSchema[] }> = ({ schemas }) => {
                     key={index}
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(schema),
+                        __html: JSON.stringify(schema).replace(/</g, '\\u003c'),
                     }}
                 />
             ))}
@@ -42,20 +42,23 @@ const SeoHead: React.FC<{ seo: SeoResult; schemas: JsonLdSchema[] }> = ({
 }) => {
     return (
         <Head>
-            <title>{seo.title}</title>
+            <title key="title">{seo.title}</title>
             <meta
+                key="robots"
                 name="robots"
                 content={seo.noIndex ? 'noindex, nofollow' : 'follow, index'}
             />
-            <meta name="description" content={seo.description} />
-            <link rel="canonical" href={seo.canonical} />
+            <meta key="description" name="description" content={seo.description} />
+            <link key="canonical" rel="canonical" href={seo.canonical} />
             <link
+                key="rss"
                 rel="alternate"
                 type="application/rss+xml"
                 title={`${app.title} RSS Feed`}
-                href={`${siteMetadata.url}/rss.xml`}
+                href={`${siteMetadata.url}/${seo.language.toLowerCase().startsWith('id') ? 'rss-id.xml' : 'rss.xml'}`}
             />
             <link
+                key="sitemap"
                 rel="sitemap"
                 type="application/xml"
                 title="Sitemap"
@@ -63,12 +66,16 @@ const SeoHead: React.FC<{ seo: SeoResult; schemas: JsonLdSchema[] }> = ({
             />
 
             {/* Open Graph Data */}
-            <meta property="og:title" content={seo.title} />
-            <meta property="og:url" content={seo.canonical} />
-            <meta property="og:description" content={seo.description} />
-            <meta property="og:site_name" content={app.name} />
-            <meta property="og:type" content={seo.type} />
-            <meta property="og:locale" content={seo.ogLocale} />
+            <meta key="og:title" property="og:title" content={seo.title} />
+            <meta key="og:url" property="og:url" content={seo.canonical} />
+            <meta
+                key="og:description"
+                property="og:description"
+                content={seo.description}
+            />
+            <meta key="og:site_name" property="og:site_name" content={app.name} />
+            <meta key="og:type" property="og:type" content={seo.type} />
+            <meta key="og:locale" property="og:locale" content={seo.ogLocale} />
             {seo.alternates
                 .filter(
                     ({ hrefLang }) =>
@@ -77,48 +84,71 @@ const SeoHead: React.FC<{ seo: SeoResult; schemas: JsonLdSchema[] }> = ({
                 )
                 .map(({ hrefLang }) => (
                     <meta
-                        key={hrefLang}
+                        key={`og:locale:alternate-${hrefLang}`}
                         property="og:locale:alternate"
                         content={hrefLang.replace('-', '_')}
                     />
                 ))}
-            <meta property="og:image" content={seo.image} />
-            <meta property="og:image:alt" content={seo.title} />
-            {seo.alternates.map(({ hrefLang, href }) => (
-                <link
-                    key={hrefLang}
-                    rel="alternate"
-                    hrefLang={hrefLang}
-                    href={href}
-                />
-            ))}
+            <meta key="og:image" property="og:image" content={seo.image} />
+            <meta
+                key="og:image:alt"
+                property="og:image:alt"
+                content={seo.title}
+            />
             {seo.type === 'article' && seo.publishedTime ? (
                 <meta
+                    key="article:published_time"
                     property="article:published_time"
                     content={seo.publishedTime}
                 />
             ) : null}
             {seo.type === 'article' && seo.modifiedTime ? (
                 <meta
+                    key="article:modified_time"
                     property="article:modified_time"
                     content={seo.modifiedTime}
                 />
             ) : null}
             {seo.type === 'article' ? (
-                <meta property="article:author" content={app.title} />
+                <meta
+                    key="article:author"
+                    property="article:author"
+                    content={app.title}
+                />
             ) : null}
             {seo.tags.map((tag) => (
-                <meta key={tag} property="article:tag" content={tag} />
+                <meta
+                    key={`article:tag-${tag}`}
+                    property="article:tag"
+                    content={tag}
+                />
             ))}
 
             {/* Twitter Graph Data */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:site" content={siteMetadata.twitter} />
-            <meta name="twitter:creator" content={siteMetadata.twitter} />
-            <meta name="twitter:title" content={seo.title} />
-            <meta name="twitter:description" content={seo.description} />
-            <meta name="twitter:image" content={seo.image} />
-            <link rel="icon" href="/favicon.ico" />
+            <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
+            <meta key="twitter:site" name="twitter:site" content={siteMetadata.twitter} />
+            <meta
+                key="twitter:creator"
+                name="twitter:creator"
+                content={siteMetadata.twitter}
+            />
+            <meta key="twitter:title" name="twitter:title" content={seo.title} />
+            <meta
+                key="twitter:description"
+                name="twitter:description"
+                content={seo.description}
+            />
+            <meta key="twitter:image" name="twitter:image" content={seo.image} />
+            <link key="icon" rel="icon" href="/favicon.ico" />
+
+            {seo.alternates.map(({ hrefLang, href }) => (
+                <link
+                    key={`alternate-${hrefLang}`}
+                    rel="alternate"
+                    hrefLang={hrefLang}
+                    href={href}
+                />
+            ))}
 
             <JsonLd schemas={schemas} />
         </Head>
@@ -228,6 +258,7 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
                   canonical: seo.canonical,
                   repoUrl,
                   tags,
+                  language,
               })
             : articleSchema({
                   title,
@@ -235,6 +266,7 @@ export const ArticleSeo: React.FC<IArticleSeo> = ({
                   image,
                   canonical: seo.canonical,
                   date,
+                  modifiedDate: date,
                   tags,
                   language,
               })

@@ -98,6 +98,7 @@ interface ArticleSchemaOptions {
     image: string
     canonical: string
     date?: string
+    modifiedDate?: string
     tags?: string[]
     language?: string
 }
@@ -108,6 +109,7 @@ export function articleSchema({
     image,
     canonical,
     date,
+    modifiedDate,
     tags = [],
     language = 'en-US',
 }: ArticleSchemaOptions): JsonLdSchema {
@@ -119,16 +121,12 @@ export function articleSchema({
         description,
         image: [image],
         datePublished: date,
-        dateModified: date,
+        dateModified: modifiedDate ?? date,
         author: {
-            '@type': 'Person',
-            name: app.title,
-            url: `${SITE_URL}/about/`,
+            '@id': PERSON_ID,
         },
         publisher: {
-            '@type': 'Person',
-            name: app.title,
-            url: `${SITE_URL}/about/`,
+            '@id': PERSON_ID,
         },
         mainEntityOfPage: {
             '@type': 'WebPage',
@@ -147,6 +145,7 @@ interface ProjectSchemaOptions {
     canonical: string
     repoUrl?: string
     tags?: string[]
+    language?: string
 }
 
 export function projectSchema({
@@ -156,6 +155,7 @@ export function projectSchema({
     canonical,
     repoUrl,
     tags = [],
+    language = 'en-US',
 }: ProjectSchemaOptions): JsonLdSchema {
     return {
         '@context': 'https://schema.org',
@@ -168,11 +168,9 @@ export function projectSchema({
         codeRepository: repoUrl,
         programmingLanguage: tags,
         author: {
-            '@type': 'Person',
-            name: app.title,
-            url: `${SITE_URL}/about/`,
+            '@id': PERSON_ID,
         },
-        inLanguage: 'en-US',
+        inLanguage: language,
     }
 }
 
@@ -193,7 +191,6 @@ export function breadcrumbSchema(
     const segments = path.split('/').filter(Boolean)
     const items = [{ name: 'Home', path: '/' }]
     let current = ''
-
     segments.forEach((segment, index) => {
         current += `/${segment}`
         const isLast = index === segments.length - 1
