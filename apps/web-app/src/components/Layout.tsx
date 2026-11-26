@@ -24,13 +24,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         >
             <a
                 href="#main-content"
-                className="sr-only z-50 rounded-full bg-primary px-4 py-2 text-label-large text-on-primary focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+                className="sr-only z-50 rounded-full bg-primary px-4 py-2 text-label-large text-on-primary focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-on-primary"
             >
                 Skip to content
             </a>
             <Analytics />
             <Navbar />
-            <main id="main-content" className="pb-20 md:pb-0">
+            <main id="main-content" tabIndex={-1} className="pb-20 outline-none md:pb-0">
                 {children}
             </main>
             <NavbarMobile />
