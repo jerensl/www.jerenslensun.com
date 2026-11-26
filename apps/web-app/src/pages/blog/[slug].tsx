@@ -184,7 +184,7 @@ export default function Blog({
                     src={frontmatter.cover}
                     placeholder={blurDataURL ? 'blur' : 'empty'}
                     blurDataURL={blurDataURL}
-                    alt="Person"
+                    alt={`${frontmatter.title} cover`}
                     height={350}
                     width={700}
                     className="mt-10 h-auto w-full max-w-3xl rounded-xl object-cover"

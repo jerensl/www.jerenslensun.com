@@ -236,7 +236,7 @@ export const Notify = ({ title, body }: NotifyProps): React.ReactElement => {
                 <Image
                     loader={imageLoader}
                     src="logo.png"
-                    alt="Person"
+                    alt="Jerens Lensun"
                     height="40"
                     width="40"
                     className="size-8 shrink-0 rounded-full object-cover"
