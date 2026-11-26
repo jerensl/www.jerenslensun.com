@@ -10,6 +10,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import { Footer } from '@/components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { ArticleSeo } from '@/components/Seo'
 import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
@@ -75,6 +76,16 @@ export default function Project({
                 <p className="mt-3 max-w-2xl text-body-large text-on-surface-variant">
                     {frontmatter.description}
                 </p>
+                {frontmatter.role ? (
+                    <p className="mt-2 text-body-medium font-medium text-on-surface">
+                        {frontmatter.role}
+                    </p>
+                ) : null}
+                {frontmatter.status ? (
+                    <span className="mt-2 inline-flex items-center rounded-full bg-secondary-container px-3 py-1 text-label-medium text-on-secondary-container">
+                        {frontmatter.status}
+                    </span>
+                ) : null}
                 {Array.isArray(frontmatter.programming_languange) &&
                 frontmatter.programming_languange.length > 0 ? (
                     <ul className="mt-5 flex flex-wrap justify-center gap-2">
@@ -104,11 +115,12 @@ export default function Project({
                         href={`${frontmatter.repo_url}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${frontmatter.title} repository on GitHub`}
+                        aria-label={`${frontmatter.title} repository on GitHub (opens in new tab)`}
                         className="md-state-layer mt-6 inline-flex h-10 items-center gap-2 rounded-full border border-outline px-4 text-label-large text-primary no-underline"
                     >
                         <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
                         View repository
+                        <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden="true" className="size-3" />
                     </Link>
                 ) : null}
             </header>
