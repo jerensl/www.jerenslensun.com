@@ -52,6 +52,24 @@ export default defineConfig({
             use: { ...devices['Desktop Safari'] },
         },
 
+        /* Accessibility: narrow viewport + 200% zoom */
+        {
+            name: 'accessibility-narrow',
+            use: {
+                ...devices['Desktop Chrome'],
+                viewport: { width: 320, height: 568 },
+            },
+        },
+
+        /* Offline scenario */
+        {
+            name: 'offline',
+            use: {
+                ...devices['Desktop Chrome'],
+                offline: true,
+            },
+        },
+
         /* Test against mobile viewports. */
         // {
         //   name: 'Mobile Chrome',
@@ -78,6 +96,5 @@ export default defineConfig({
         command: process.env.CI ? 'pnpm build && pnpm start' : 'pnpm dev',
         url: baseURL,
         reuseExistingServer: !process.env.CI,
-        timeout: 300_000,
     },
 })
