@@ -490,4 +490,24 @@
     .Toastify__progress-bar--dark {
         background: rgb(var(--md-sys-color-primary));
     }
+
+    /* Mobile safe areas */
+    @supports (padding: env(safe-area-inset-top)) {
+        body {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+    }
+
+    /* Ensure interactive targets are at least 44x44 on touch layouts */
+    @media (pointer: coarse) {
+        button,
+        a,
+        [role='button'] {
+            min-height: 44px;
+            min-width: 44px;
+        }
+    }
 }
