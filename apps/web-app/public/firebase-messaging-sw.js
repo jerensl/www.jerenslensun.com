@@ -1,21 +1,4 @@
-importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js')
-importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js')
-
-// Initialize the Firebase app in the service worker by passing in
-// your app's Firebase config object.
-// https://firebase.google.com/docs/web/setup#config-object
-firebase.initializeApp({
-    apiKey: 'AIzaSyAlgD74xXwIcDLkdju_zeB9ntqCiGN5xko',
-    authDomain: 'jerens-app.firebaseapp.com',
-    projectId: 'jerens-app',
-    storageBucket: 'jerens-app.appspot.com',
-    messagingSenderId: '1009489116025',
-    appId: '1:1009489116025:web:c64b30012bbc6a7f274da8',
-    measurementId: 'G-SNRQJJZH3L',
-})
-
-// Retrieve an instance of Firebase Messaging so that it can handle background
-// messages.
-const messaging = firebase.messaging()
-
-messaging.onBackgroundMessage((payload) => {})
+// Firebase Messaging has been merged into src/worker/index.ts.
+// This file is intentionally empty to avoid registering a second
+// root-scope service worker that could replace /sw.js.
+// See: https://firebase.google.com/docs/cloud-messaging/js/client
