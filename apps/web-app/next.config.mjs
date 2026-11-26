@@ -41,6 +41,9 @@ export default (phase, { defaultConfig }) => {
       customWorkerDir: 'src/worker',
       runtimeCaching,
       cacheOnFrontEndNav: true,
+      fallbacks: {
+        document: '/offline.html',
+      },
     }),
     withBundleAnalyzer({
       enabled: process.env.ANALYZE === 'true',

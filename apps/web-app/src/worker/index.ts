@@ -40,6 +40,7 @@ registerRoute(
     ({ request }) => request.mode === 'navigate',
     new NetworkFirst({
         cacheName: 'pages',
+        networkTimeoutSeconds: 3,
         plugins: [
             new CacheableResponsePlugin({
                 statuses: [200],
