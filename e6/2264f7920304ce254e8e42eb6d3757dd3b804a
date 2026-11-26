@@ -1,0 +1,20 @@
+apps/web-app/src/components/Seo.tsx
+  s_7d45e62d2c712a::t_249cf9846c50da 31
+  s_7d45e62d2c712a::t_833caaf83a0e4e 45,47,51-52,54,61,69-78,87,92-97,100,107,113-117,120-124,128-151,261,269,277
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "e62264f7920304ce254e8e42eb6d3757dd3b804a",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
