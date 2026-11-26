@@ -20,9 +20,11 @@
         text-rendering: optimizeLegibility;
     }
 
-    ::selection {
-        background-color: rgb(var(--md-sys-color-primary) / 0.24);
-        color: rgb(var(--md-sys-color-on-surface));
+    :disabled,
+    [aria-disabled='true'] {
+        opacity: 0.38;
+        cursor: not-allowed;
+        pointer-events: none;
     }
 
     :focus-visible {
