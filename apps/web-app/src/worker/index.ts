@@ -32,8 +32,21 @@ self.__WB_DISABLE_DEV_LOGS = true
 
 setCacheNameDetails({
     prefix: 'jerens-app',
-    suffix: 'v1',
+    suffix: 'v2',
 })
+
+// Clean up old caches on activate
+self.addEventListener('activate', ((event: any) => {
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames
+                    .filter((name) => !name.includes('v2'))
+                    .map((name) => caches.delete(name))
+            )
+        })
+    )
+}) as any)
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
