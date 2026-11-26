@@ -67,6 +67,8 @@ const Notifications: React.FC<NotifiationsProps> = ({ initStatus = false }) => {
 
                 const fcm_token: string = await getToken(messaging, {
                     vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
+                    serviceWorkerRegistration:
+                        await navigator.serviceWorker.ready,
                 })
 
                 if (token === '') {

@@ -1,4 +1,5 @@
 import { initializeApp, FirebaseApp } from 'firebase/app'
+import { getMessaging, getToken } from 'firebase/messaging'
 
 const firebaseApp = {
     Init: async (): Promise<FirebaseApp> => {
@@ -13,6 +14,16 @@ const firebaseApp = {
         })
 
         return app
+    },
+    GetToken: async (): Promise<string> => {
+        const app = await firebaseApp.Init()
+        const messaging = getMessaging(app)
+        const registration = await navigator.serviceWorker.ready
+        const token = await getToken(messaging, {
+            vapidKey: process.env.NEXT_PUBLIC_FCM_VAPID_KEY,
+            serviceWorkerRegistration: registration,
+        })
+        return token
     },
 }
 
