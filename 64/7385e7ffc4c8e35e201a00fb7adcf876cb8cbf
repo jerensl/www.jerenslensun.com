@@ -1,0 +1,21 @@
+apps/web-app/src/styles/globals.css
+  s_7d45e62d2c712a::t_57f3c5af2636c5 33-43
+apps/web-app/src/components/Layout.tsx
+  s_7d45e62d2c712a::t_385d5699096966 27,33,39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "647385e7ffc4c8e35e201a00fb7adcf876cb8cbf",
+  "prompts": {},
+  "sessions": {
+    "s_7d45e62d2c712a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_dfde53fa4ffeZBHcBwhKsMM5G5",
+        "model": "beam-free"
+      },
+      "human_author": "Jerens Lensun <jerensslensun@gmail.com>"
+    }
+  }
+}
