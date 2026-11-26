@@ -28,6 +28,7 @@
     :focus-visible {
         outline: 3px solid rgb(var(--md-sys-color-primary));
         outline-offset: 2px;
+        outline-color: rgb(var(--md-sys-color-primary));
     }
 
     @media (prefers-reduced-motion: reduce) {
