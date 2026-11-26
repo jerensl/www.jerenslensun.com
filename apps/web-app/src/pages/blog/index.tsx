@@ -507,9 +507,20 @@ export default function Blog({
                         </div>
                     </div>
                     {matchingPosts.length ? null : (
-                        <p className="col-span-full rounded-lg bg-surface-container-low p-8 text-center text-body-large text-on-surface-variant">
-                            No articles found.
-                        </p>
+                        <div className="col-span-full rounded-lg bg-surface-container-low p-8 text-center">
+                            <p className="text-body-large text-on-surface-variant">
+                                No articles found.
+                            </p>
+                            {hasFilters ? (
+                                <button
+                                    type="button"
+                                    onClick={clearFilters}
+                                    className="mt-4 md-state-layer inline-flex h-10 items-center rounded-full bg-primary px-6 text-label-large text-on-primary"
+                                >
+                                    Reset filters
+                                </button>
+                            ) : null}
+                        </div>
                     )}
                     {matchingPosts.map(
                         ({

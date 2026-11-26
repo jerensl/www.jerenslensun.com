@@ -10,6 +10,7 @@ import { getMDXComponent } from 'mdx-bundler/client'
 import { Footer } from '@/components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { ArticleSeo } from '@/components/Seo'
 import { getFiles, getContent } from '@/libs/content'
 import { components } from '@/components/Components'
@@ -34,11 +35,13 @@ export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
     const projects = await getContent('project', context.params?.slug)
+    const allProjects = getFiles('project')
     const getCurrentYear = new Date().getFullYear()
 
     return {
         props: {
             projects,
+            allProjects,
             blurDataURL: projects?.metadata.blurDataURL,
             currentYear: getCurrentYear,
         },
@@ -47,12 +50,20 @@ export const getStaticProps: GetStaticProps = async (
 
 export default function Project({
     projects,
+    allProjects,
     blurDataURL,
     currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const { code, frontmatter } = projects
     const slug = projects.metadata?.slug ?? frontmatter.slug
     const Component = useMemo(() => getMDXComponent(code), [code])
+
+    const currentIndex = allProjects.indexOf(slug)
+    const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null
+    const nextProject =
+        currentIndex < allProjects.length - 1
+            ? allProjects[currentIndex + 1]
+            : null
 
     return (
         <>
@@ -75,6 +86,16 @@ export default function Project({
                 <p className="mt-3 max-w-2xl text-body-large text-on-surface-variant">
                     {frontmatter.description}
                 </p>
+                {frontmatter.role ? (
+                    <p className="mt-2 text-body-medium font-medium text-on-surface">
+                        {frontmatter.role}
+                    </p>
+                ) : null}
+                {frontmatter.status ? (
+                    <span className="mt-2 inline-flex items-center rounded-full bg-secondary-container px-3 py-1 text-label-medium text-on-secondary-container">
+                        {frontmatter.status}
+                    </span>
+                ) : null}
                 {Array.isArray(frontmatter.programming_languange) &&
                 frontmatter.programming_languange.length > 0 ? (
                     <ul className="mt-5 flex flex-wrap justify-center gap-2">
@@ -104,11 +125,12 @@ export default function Project({
                         href={`${frontmatter.repo_url}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${frontmatter.title} repository on GitHub`}
+                        aria-label={`${frontmatter.title} repository on GitHub (opens in new tab)`}
                         className="md-state-layer mt-6 inline-flex h-10 items-center gap-2 rounded-full border border-outline px-4 text-label-large text-primary no-underline"
                     >
                         <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
                         View repository
+                        <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden="true" className="size-3" />
                     </Link>
                 ) : null}
             </header>
@@ -118,6 +140,31 @@ export default function Project({
                     <Component components={components} />
                     <div className="h-10" />
                 </article>
+                {(prevProject || nextProject) && (
+                    <nav
+                        aria-label="Related projects"
+                        className="mx-auto mt-8 flex max-w-content items-center justify-between gap-4 border-t border-outline-variant pt-6"
+                    >
+                        {prevProject ? (
+                            <Link
+                                href={`/project/${prevProject}`}
+                                className="md-state-layer inline-flex items-center gap-2 rounded-full px-4 py-2 text-label-large text-primary"
+                            >
+                                ← Previous project
+                            </Link>
+                        ) : (
+                            <span />
+                        )}
+                        {nextProject ? (
+                            <Link
+                                href={`/project/${nextProject}`}
+                                className="md-state-layer inline-flex items-center gap-2 rounded-full px-4 py-2 text-label-large text-primary"
+                            >
+                                Next project →
+                            </Link>
+                        ) : null}
+                    </nav>
+                )}
             </main>
             <div className="h-20 lg:h-32" />
             <Footer currentYear={currentYear} />

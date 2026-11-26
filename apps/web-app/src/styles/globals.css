@@ -298,7 +298,8 @@
     }
 
     .prose :where(table):not(:where([class~='not-prose'] *)) {
-        overflow: hidden;
+        overflow-x: auto;
+        display: block;
         border-radius: var(--md-sys-shape-corner-medium);
         border: 1px solid rgb(var(--md-sys-color-outline-variant));
     }
