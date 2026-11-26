@@ -173,6 +173,14 @@
         color: rgb(var(--md-sys-color-on-surface-variant)) !important;
     }
 
+    @media (max-width: 320px) {
+        .prose {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+    }
+
     .dark .prose,
     .dark .prose :where(p, li, h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
         color: rgb(var(--md-sys-color-on-surface-variant)) !important;
