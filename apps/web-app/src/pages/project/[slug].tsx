@@ -35,11 +35,13 @@ export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
     const projects = await getContent('project', context.params?.slug)
+    const allProjects = getFiles('project')
     const getCurrentYear = new Date().getFullYear()
 
     return {
         props: {
             projects,
+            allProjects,
             blurDataURL: projects?.metadata.blurDataURL,
             currentYear: getCurrentYear,
         },
@@ -48,12 +50,20 @@ export const getStaticProps: GetStaticProps = async (
 
 export default function Project({
     projects,
+    allProjects,
     blurDataURL,
     currentYear,
 }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement {
     const { code, frontmatter } = projects
     const slug = projects.metadata?.slug ?? frontmatter.slug
     const Component = useMemo(() => getMDXComponent(code), [code])
+
+    const currentIndex = allProjects.indexOf(slug)
+    const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null
+    const nextProject =
+        currentIndex < allProjects.length - 1
+            ? allProjects[currentIndex + 1]
+            : null
 
     return (
         <>
@@ -130,6 +140,31 @@ export default function Project({
                     <Component components={components} />
                     <div className="h-10" />
                 </article>
+                {(prevProject || nextProject) && (
+                    <nav
+                        aria-label="Related projects"
+                        className="mx-auto mt-8 flex max-w-content items-center justify-between gap-4 border-t border-outline-variant pt-6"
+                    >
+                        {prevProject ? (
+                            <Link
+                                href={`/project/${prevProject}`}
+                                className="md-state-layer inline-flex items-center gap-2 rounded-full px-4 py-2 text-label-large text-primary"
+                            >
+                                ← Previous project
+                            </Link>
+                        ) : (
+                            <span />
+                        )}
+                        {nextProject ? (
+                            <Link
+                                href={`/project/${nextProject}`}
+                                className="md-state-layer inline-flex items-center gap-2 rounded-full px-4 py-2 text-label-large text-primary"
+                            >
+                                Next project →
+                            </Link>
+                        ) : null}
+                    </nav>
+                )}
             </main>
             <div className="h-20 lg:h-32" />
             <Footer currentYear={currentYear} />
