@@ -204,8 +204,8 @@ importers:
         specifier: ^10.6.8
         version: 10.6.8(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(storybook@10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))
       '@storybook/addon-links':
-        specifier: ^10.6.5
-        version: 10.6.5(@types/react@19.3.0)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))
+        specifier: ^10.6.8
+        version: 10.6.8(@types/react@19.3.0)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))
       '@storybook/nextjs':
         specifier: ^10.6.7
         version: 10.6.7(@swc/core@1.16.21(@swc/helpers@0.5.24))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.2)(next@16.4.6(@babel/core@8.1.2)(@opentelemetry/api@1.10.0)(@playwright/test@1.64.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sharp@0.35.5(@types/node@26.6.6))(storybook@10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))(type-fest@4.41.0)(typescript@7.0.2)(webpack-hot-middleware@2.26.1)(webpack@5.113.0(@swc/core@1.16.21(@swc/helpers@0.5.24))(esbuild@0.28.2)(postcss@8.5.33)(sharp@0.35.5(@types/node@26.6.6)))
@@ -3173,12 +3173,12 @@ packages:
       '@types/react':
         optional: true
 
-  '@storybook/addon-links@10.6.5':
-    resolution: {integrity: sha512-O0DN6C3tRmrpMRZIuMD2SDLAgS02zI7Yca0h4RBiBKPxm7i6a9lwc7gqrZ9HCJHVFbfapub0bhj7BD3FK0XDsA==}
+  '@storybook/addon-links@10.6.8':
+    resolution: {integrity: sha512-xQkRHjG9ScuqI6RGbOF4I/qVTWb6ughK3A1I5ubWfUgrdallhgc1rf2XwJQRgFnEY7WaH2UozhKNrDony86NFw==}
     peerDependencies:
       '@types/react': 19.3.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      storybook: ^10.6.5
+      storybook: ^10.6.8
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -12063,7 +12063,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react-dom'
 
-  '@storybook/addon-links@10.6.5(@types/react@19.3.0)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))':
+  '@storybook/addon-links@10.6.8(@types/react@19.3.0)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1))':
     dependencies:
       '@storybook/global': 5.0.0
       storybook: 10.6.7(@types/react@19.3.0)(prettier@3.9.10)(react@19.3.1)

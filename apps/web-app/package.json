@@ -81,7 +81,7 @@
     "@next/plugin-storybook": "16.4.6",
     "@playwright/test": "^1.64.1",
     "@storybook/addon-docs": "^10.6.8",
-    "@storybook/addon-links": "^10.6.5",
+    "@storybook/addon-links": "^10.6.8",
     "@storybook/nextjs": "^10.6.7",
     "@swc/core": "^1.16.21",
     "@swc/jest": "^0.2.39",
